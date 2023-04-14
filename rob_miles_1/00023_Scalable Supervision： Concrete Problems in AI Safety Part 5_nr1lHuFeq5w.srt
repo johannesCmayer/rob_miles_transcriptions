@@ -1,0 +1,380 @@
+1
+00:00:00,000 --> 00:00:04,560
+Hi, this is part of a series of videos about the paper Concrete Problems in AI Safety.
+
+2
+00:00:04,560 --> 00:00:07,840
+It should make some sense on its own, but I'd recommend checking out the other videos
+
+3
+00:00:07,840 --> 00:00:08,840
+first.
+
+4
+00:00:08,840 --> 00:00:10,400
+There's a link to the playlist in the description.
+
+5
+00:00:10,400 --> 00:00:14,560
+So before, we talked about some problems that we might have with AI systems, like negative
+
+6
+00:00:14,560 --> 00:00:17,200
+side effects, reward hacking, or wireheading.
+
+7
+00:00:17,200 --> 00:00:21,760
+We talked about Goodhart's Law, like how if you use an exam as a metric, students will
+
+8
+00:00:21,760 --> 00:00:25,800
+only learn what's on the exam, and then the exam will stop being a good metric of
+
+9
+00:00:25,800 --> 00:00:27,080
+how much the students know.
+
+10
+00:00:27,080 --> 00:00:31,440
+The obvious question here is, why not just make an exam that properly tests everything
+
+11
+00:00:31,440 --> 00:00:32,440
+you care about?
+
+12
+00:00:32,440 --> 00:00:36,240
+And the obvious answer is, that would take way too long, or cost way too much.
+
+13
+00:00:36,240 --> 00:00:40,880
+We often face a trade-off between how good of a metric something is, and thus how resistant
+
+14
+00:00:40,880 --> 00:00:45,960
+it is to things like Goodhart's Law, and how expensive that metric is, in terms of
+
+15
+00:00:45,960 --> 00:00:47,880
+time, money, or other resources.
+
+16
+00:00:47,880 --> 00:00:52,120
+For our cleaning robot example, we could have a reward system that involves a human following
+
+17
+00:00:52,120 --> 00:00:56,800
+the robot around at all times, and giving it positive or negative reward, depending
+
+18
+00:00:56,800 --> 00:00:57,800
+on what the robot does.
+
+19
+00:00:57,800 --> 00:01:03,200
+This still isn't safe with a powerful intelligence, because it still incentivises the AI to manipulate,
+
+20
+00:01:03,200 --> 00:01:07,960
+deceive, or modify the human, but assuming we find a way around that kind of thing, it's
+
+21
+00:01:07,960 --> 00:01:09,400
+a pretty good metric.
+
+22
+00:01:09,400 --> 00:01:12,840
+The robot's not going to maximise its reward by just putting its bucket on its head or
+
+23
+00:01:12,840 --> 00:01:14,080
+something like that.
+
+24
+00:01:14,080 --> 00:01:15,920
+But this isn't practical.
+
+25
+00:01:15,920 --> 00:01:19,200
+If you're going to hire someone to follow the robot around all the time, you may as
+
+26
+00:01:19,200 --> 00:01:21,120
+well just hire someone to do the cleaning.
+
+27
+00:01:21,120 --> 00:01:24,800
+That's why we came up with metrics like, use your cameras to look around at the amount
+
+28
+00:01:24,800 --> 00:01:28,400
+of mess in the first place, they're cheap for the robot to do on its own.
+
+29
+00:01:28,400 --> 00:01:32,600
+Though there are some situations where constant human supervision can be used.
+
+30
+00:01:32,600 --> 00:01:35,960
+For example, when developing self-driving cars, there's always a human behind the
+
+31
+00:01:35,960 --> 00:01:38,600
+wheel to stop the AI from making serious mistakes.
+
+32
+00:01:38,600 --> 00:01:39,600
+This makes good sense.
+
+33
+00:01:39,600 --> 00:01:43,000
+Legally, you've got to have a qualified human in the car anyway, for now.
+
+34
+00:01:43,000 --> 00:01:44,440
+But this doesn't scale well.
+
+35
+00:01:44,440 --> 00:01:48,760
+Paying humans to supervise the millions of miles your cars need to drive before the system
+
+36
+00:01:48,760 --> 00:01:51,060
+is fully trained is really expensive.
+
+37
+00:01:51,060 --> 00:01:54,400
+If you're Google, you can afford that, but it's still a huge cost, and it makes
+
+38
+00:01:54,400 --> 00:01:56,140
+a lot of projects infeasible.
+
+39
+00:01:56,140 --> 00:02:01,180
+A human pilot can safely oversee an autonomous drone, but not a cooperating swarm of hundreds
+
+40
+00:02:01,180 --> 00:02:02,180
+of them.
+
+41
+00:02:02,180 --> 00:02:05,980
+So we need to find ways for AI systems to learn from humans without needing a human
+
+42
+00:02:05,980 --> 00:02:08,480
+to constantly supervise everything they do.
+
+43
+00:02:08,480 --> 00:02:11,740
+We need to make systems that can operate safely with less supervision.
+
+44
+00:02:11,740 --> 00:02:16,420
+A slightly more practical metric for our cleaning robot is to have the robot do a day's cleaning,
+
+45
+00:02:16,420 --> 00:02:19,660
+and then have some humans come around and do a full inspection of the place at the end
+
+46
+00:02:19,660 --> 00:02:20,860
+of the day.
+
+47
+00:02:20,860 --> 00:02:25,180
+Checking everything's clean, checking everything's in its place, and giving the robot a score
+
+48
+00:02:25,180 --> 00:02:26,700
+out of 10 for its reward.
+
+49
+00:02:26,700 --> 00:02:30,540
+If the robot breaks something, throws away something important, or just sits there with
+
+50
+00:02:30,540 --> 00:02:33,200
+its bucket on its head, it will get low reward.
+
+51
+00:02:33,200 --> 00:02:36,920
+So this still avoids a lot of our negative side effects and reward hacking problems.
+
+52
+00:02:36,920 --> 00:02:40,860
+As long as the inspection is thorough enough, and the AI is weak enough, that the robot
+
+53
+00:02:40,860 --> 00:02:42,820
+can't deceive or manipulate the humans.
+
+54
+00:02:42,820 --> 00:02:44,800
+But there are problems with this too.
+
+55
+00:02:44,800 --> 00:02:49,220
+And a big one is that in this type of situation, things like reinforcement learning will be
+
+56
+00:02:49,220 --> 00:02:51,140
+really slow, or just not possible.
+
+57
+00:02:51,140 --> 00:02:55,500
+See, with a metric like keeping track of how much mess there is with your cameras, the
+
+58
+00:02:55,500 --> 00:02:59,300
+robot can try different things and see what results in less mess, and thus learn how to
+
+59
+00:02:59,300 --> 00:03:00,300
+clean.
+
+60
+00:03:00,300 --> 00:03:04,140
+But with a daily inspection, the robot is operating all day doing thousands of different
+
+61
+00:03:04,140 --> 00:03:07,800
+things, and then it gets a single reward at the end of the day.
+
+62
+00:03:07,800 --> 00:03:11,180
+How is it meant to figure out which of the things it did were good and which were bad?
+
+63
+00:03:11,180 --> 00:03:15,260
+It would need an extremely large number of days before it could learn what it needs to
+
+64
+00:03:15,260 --> 00:03:17,660
+do to get good scores on the inspections.
+
+65
+00:03:17,660 --> 00:03:22,200
+So figuring out how to make AI systems that can learn using a sparse reward signal would
+
+66
+00:03:22,200 --> 00:03:24,180
+be useful for AI safety.
+
+67
+00:03:24,180 --> 00:03:27,420
+And it's also a problem that's important for AI in general, because often a sparse
+
+68
+00:03:27,420 --> 00:03:28,660
+reward is all you've got.
+
+69
+00:03:28,660 --> 00:03:34,020
+For example, DeepMind's DQN system can learn to play lots of different Atari games, using
+
+70
+00:03:34,020 --> 00:03:38,460
+just the pixels on the screen as its sensor input, and just the score as its reward.
+
+71
+00:03:38,460 --> 00:03:40,660
+But it plays some games better than others.
+
+72
+00:03:40,660 --> 00:03:45,300
+It's far better than any human at Breakout, but it can't really play Montezuma's Revenge
+
+73
+00:03:45,300 --> 00:03:46,300
+at all.
+
+74
+00:03:46,300 --> 00:03:50,020
+Now, there are a lot of differences between these games, but one of the big ones is that
+
+75
+00:03:50,020 --> 00:03:54,140
+in Breakout, you get points every time you hit a brick, which happens all the time, so
+
+76
+00:03:54,140 --> 00:03:58,780
+the score, and thus the reward, is constantly updating and giving you feedback on how you're
+
+77
+00:03:58,780 --> 00:03:59,780
+doing.
+
+78
+00:03:59,780 --> 00:04:03,300
+While in Montezuma's Revenge, you only get points occasionally for things like picking
+
+79
+00:04:03,300 --> 00:04:05,020
+up keys or opening doors.
+
+80
+00:04:05,020 --> 00:04:08,820
+And there are relatively long stretches in between where you have to do complicated things
+
+81
+00:04:08,820 --> 00:04:11,740
+without any score updates to let you know if you're doing the right thing.
+
+82
+00:04:11,740 --> 00:04:15,300
+Even dying doesn't lose you any points, so it can be hard for systems like this to
+
+83
+00:04:15,300 --> 00:04:16,780
+learn that they need to avoid that.
+
+84
+00:04:16,780 --> 00:04:20,660
+How do you make a system that can learn even when it only occasionally gets feedback on
+
+85
+00:04:20,660 --> 00:04:21,660
+how it's doing?
+
+86
+00:04:21,660 --> 00:04:25,700
+How do you make a system that you can safely supervise without having to constantly watch
+
+87
+00:04:25,700 --> 00:04:26,700
+its every move?
+
+88
+00:04:26,700 --> 00:04:28,100
+How do you make supervision scale?
+
+89
+00:04:28,100 --> 00:04:35,300
+We'll talk about some different approaches to that in the next video.
+
+90
+00:04:35,300 --> 00:04:50,100
+I want to take a moment to thank my excellent Patreon supporters.
+
+91
+00:04:50,100 --> 00:04:54,500
+In this video, I'm especially thanking Jordan Medina, a ramblin' wreck from Golden Tech
+
+92
+00:04:54,500 --> 00:04:56,660
+who's been a patron of the channel since July.
+
+93
+00:04:56,660 --> 00:04:59,960
+Thank you so much for your support, Jordan, and thank you to all of my patrons, and thank
+
+94
+00:04:59,960 --> 00:05:00,960
+you all for watching.
+
+95
+00:05:00,960 --> 00:05:01,620
+I'll see you next time.
+

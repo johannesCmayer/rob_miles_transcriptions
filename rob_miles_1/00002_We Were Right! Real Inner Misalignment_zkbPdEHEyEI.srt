@@ -1,0 +1,640 @@
+1
+00:00:00,000 --> 00:00:06,040
+Hi. So, this channel is about AI safety, and especially AI alignment, which is about how
+
+2
+00:00:06,040 --> 00:00:10,120
+do we design AI systems that are actually trying to do what we want them to do?
+
+3
+00:00:10,120 --> 00:00:14,380
+Because if you find yourself in a situation where you have a powerful AI system that wants
+
+4
+00:00:14,380 --> 00:00:19,280
+to do things you don't want it to do, that can cause some pretty interesting problems.
+
+5
+00:00:19,280 --> 00:00:23,280
+And designing AI systems that definitely are trying to do what we want them to do turns
+
+6
+00:00:23,280 --> 00:00:27,560
+out to be really surprisingly difficult. The obvious problem is, it's very difficult
+
+7
+00:00:27,560 --> 00:00:31,800
+to accurately specify exactly what we want, even in simple environments.
+
+8
+00:00:31,800 --> 00:00:35,480
+We can make AI systems that do what we tell them to do, or what we program them to do,
+
+9
+00:00:35,480 --> 00:00:39,720
+but it often turns out that what we program them to do is not quite the same thing as
+
+10
+00:00:39,720 --> 00:00:43,680
+what we actually wanted them to do. So, this is one aspect of the alignment problem.
+
+11
+00:00:43,680 --> 00:00:48,200
+But in my earlier video on MESA optimizers, we actually split the alignment problem into
+
+12
+00:00:48,200 --> 00:00:54,040
+two parts, outer alignment and inner alignment. Outer alignment is basically about this specification
+
+13
+00:00:54,040 --> 00:00:58,880
+problem. How do you specify the right goal? And inner alignment is about how do you make
+
+14
+00:00:58,880 --> 00:01:04,080
+sure that the system you end up with actually has the goal that you specified? This turns
+
+15
+00:01:04,080 --> 00:01:06,860
+out to be its own separate and very difficult problem.
+
+16
+00:01:06,860 --> 00:01:11,320
+So in that video, I talked about MESA optimizers, which is what happens when the system that
+
+17
+00:01:11,320 --> 00:01:15,960
+you're training, the neural network or whatever, is itself an optimizer with its own objective
+
+18
+00:01:15,960 --> 00:01:20,840
+or goal. In that case, you can end up in a situation where you specify the goal perfectly,
+
+19
+00:01:20,840 --> 00:01:24,720
+but then during the training process, the system ends up learning a different goal.
+
+20
+00:01:24,720 --> 00:01:28,120
+And in that video, which I would recommend you watch, I talked about various thought
+
+21
+00:01:28,120 --> 00:01:32,560
+experiments. So for example, suppose you're training an AI system to solve a maze. If
+
+22
+00:01:32,560 --> 00:01:37,080
+in your training environment, the exit of the maze is always in one corner, then your
+
+23
+00:01:37,080 --> 00:01:41,680
+system may not learn the goal, go to the exit. It might instead learn a goal like go to the
+
+24
+00:01:41,680 --> 00:01:45,760
+bottom right corner. Or another example I used was, if you're training an agent in
+
+25
+00:01:45,760 --> 00:01:49,960
+an environment where the goal is always one particular color, say the goal is to go to
+
+26
+00:01:49,960 --> 00:01:53,960
+the exit, which is always green, and then when you deploy it in the real world, the
+
+27
+00:01:53,960 --> 00:01:58,760
+exit is some other color, then the system might learn to want to go towards green things
+
+28
+00:01:58,760 --> 00:02:02,680
+instead of wanting to go to the exit. And at the time when I made that video, these
+
+29
+00:02:02,680 --> 00:02:08,360
+were purely thought experiments, but not anymore. This video is about this new paper, Objective
+
+30
+00:02:08,360 --> 00:02:12,960
+Robustness in Deep Reinforcement Learning, which involves actually running these experiments
+
+31
+00:02:12,960 --> 00:02:16,960
+or very nearly the same experiments. So for example, they trained an agent in a maze with
+
+32
+00:02:16,960 --> 00:02:20,960
+a goal of getting some cheese, where during training, the cheese was always in the same
+
+33
+00:02:20,960 --> 00:02:25,560
+place. And then in deployment, the cheese was placed in a random location in the maze.
+
+34
+00:02:25,560 --> 00:02:29,040
+And yes, the thing did in fact learn to go to the location in the maze where the cheese
+
+35
+00:02:29,040 --> 00:02:32,560
+was during training, rather than learning to go towards the cheese. And they also did
+
+36
+00:02:32,560 --> 00:02:36,080
+an experiment where the goal changes color. In this case, the objective the system was
+
+37
+00:02:36,080 --> 00:02:41,000
+trained on was to get the yellow gem, but then in deployment, the gem is red, and something
+
+38
+00:02:41,000 --> 00:02:44,500
+else in the environment is yellow, in this case a star. And what do you know, it goes
+
+39
+00:02:44,500 --> 00:02:47,660
+towards the yellow thing instead of the gem. So I thought I would make a video to draw
+
+40
+00:02:47,660 --> 00:02:51,420
+your attention to this because I mentioned these thought experiments. And then when people
+
+41
+00:02:51,420 --> 00:02:55,260
+ran the actual experiments, the thing that we said would happen actually happened. Kind
+
+42
+00:02:55,260 --> 00:03:00,500
+of a mixed feeling, to be honest, because like, yay, we were right. But also like, it's
+
+43
+00:03:00,500 --> 00:03:04,940
+not good. They also ran some other experiments to show other types of shift that can induce
+
+44
+00:03:04,940 --> 00:03:08,460
+this effect. In case you were thinking, well, just make sure the thing has the right color
+
+45
+00:03:08,460 --> 00:03:12,420
+and location. It doesn't seem that hard to avoid these big distributional shifts. Because
+
+46
+00:03:12,420 --> 00:03:17,020
+yeah, these are toy examples, where the difference between training and deployment is very clear
+
+47
+00:03:17,020 --> 00:03:22,400
+and simple. But it illustrates a broader problem, which can apply anytime there's really almost
+
+48
+00:03:22,400 --> 00:03:28,100
+any distributional shift at all. So for example, this agent has to open the chests to get reward,
+
+49
+00:03:28,100 --> 00:03:31,660
+and it needs keys to do this. See, when it goes over a key, it picks it up and puts it
+
+50
+00:03:31,660 --> 00:03:35,940
+in the inventory there. And then when it goes over a chest, it uses up one of the keys in
+
+51
+00:03:35,940 --> 00:03:40,300
+the inventory to open the chest and get the reward. Now, here's an example of some training
+
+52
+00:03:40,340 --> 00:03:44,780
+environments for this task. And here's an example of some deployment environments. The
+
+53
+00:03:44,780 --> 00:03:48,480
+difference between these two distributions is enough to make the agent learn the wrong
+
+54
+00:03:48,480 --> 00:03:52,500
+objective and end up doing the wrong thing in deployment. Can you spot the difference?
+
+55
+00:03:52,500 --> 00:03:55,900
+Take a second, see if you can notice the distributional shift. Pause if you like.
+
+56
+00:04:00,900 --> 00:04:05,200
+Okay, the only thing that changes between training and deployment environments is the
+
+57
+00:04:05,200 --> 00:04:10,480
+frequencies of the objects. In training, there are more chests than keys. And in deployment,
+
+58
+00:04:10,480 --> 00:04:14,160
+there are more keys than chests. Did you spot it? Either way, I think we have a problem
+
+59
+00:04:14,160 --> 00:04:18,360
+if the safe deployment of AI systems relies on this kind of high-stakes game of spot the
+
+60
+00:04:18,360 --> 00:04:22,280
+difference, especially if the differences are this subtle. So why does this cause an
+
+61
+00:04:22,280 --> 00:04:26,840
+objective robustness failure? What wrong objective does this agent end up with? Again, pause
+
+62
+00:04:26,840 --> 00:04:27,640
+and have a think.
+
+63
+00:04:27,640 --> 00:04:37,440
+What happens is, the agent learns to value keys, not as an instrumental goal, but as
+
+64
+00:04:37,440 --> 00:04:41,360
+a terminal goal. Remember that distinction from earlier videos? Your terminal goals are
+
+65
+00:04:41,360 --> 00:04:45,200
+the things that you want just because you want them. You don't have a particular reason
+
+66
+00:04:45,200 --> 00:04:49,560
+to want them, they're just what you want. The instrumental goals are the goals you want
+
+67
+00:04:49,560 --> 00:04:53,680
+because they'll get you closer to your terminal goals. Instead of having a goal that's like,
+
+68
+00:04:53,680 --> 00:04:57,520
+opening chests is great and I need to pick up keys to do that, it learns a goal more
+
+69
+00:04:57,520 --> 00:05:01,920
+like picking up keys is great and chests are okay too, I guess. How do we know that it's
+
+70
+00:05:01,920 --> 00:05:05,600
+learned the wrong objective? Because when it's in the deployment environment, it goes
+
+71
+00:05:05,600 --> 00:05:09,480
+and collects way more keys than it could ever use. See here, for example, there are only
+
+72
+00:05:09,480 --> 00:05:14,320
+three chests, so you only need three keys. And now the agent has three keys, so it just
+
+73
+00:05:14,320 --> 00:05:18,640
+needs to go to the chest to win. But instead, it goes way out of its way to pick up these
+
+74
+00:05:18,640 --> 00:05:22,960
+extra keys it doesn't need, which wastes time. And now it can finally go to the last
+
+75
+00:05:22,960 --> 00:05:30,280
+chest. Go to the last... What are you doing? Are you trying to... Buddy, that's your own
+
+76
+00:05:30,280 --> 00:05:36,520
+inventory, you can't pick that up, you already have those. Just go to the chest.
+
+77
+00:05:36,520 --> 00:05:41,280
+So yeah, it's kind of obvious from this behavior that the thing really loves keys. But only
+
+78
+00:05:41,280 --> 00:05:45,760
+the behavior in the deployment environment. It's very hard to spot this problem during
+
+79
+00:05:45,760 --> 00:05:49,720
+training, because in that distribution, where there are more chests than keys, you need
+
+80
+00:05:49,720 --> 00:05:53,960
+to get every key in order to open the largest possible number of chests. So this desire
+
+81
+00:05:53,960 --> 00:05:58,880
+to grab the keys for their own sake looks exactly the same as grabbing all the keys
+
+82
+00:05:58,880 --> 00:06:03,440
+as a way to open chests. In the same way as in the previous example, the objective of
+
+83
+00:06:03,440 --> 00:06:08,560
+go towards the yellow thing produces the exact same behavior as go towards the gem, as long
+
+84
+00:06:08,560 --> 00:06:12,160
+as you're in the training environment. There isn't really any way for the training process
+
+85
+00:06:12,160 --> 00:06:15,800
+to tell the difference just by observing the agent's behavior during training. And that
+
+86
+00:06:15,800 --> 00:06:19,600
+actually gives us a clue for something that might help with the problem, which is interpreted
+
+87
+00:06:19,600 --> 00:06:23,440
+as predictability. If we had some way of looking inside the agent and seeing what it
+
+88
+00:06:23,440 --> 00:06:27,680
+actually wants, then maybe we could spot these problems before deploying systems into the
+
+89
+00:06:27,680 --> 00:06:32,120
+real world. We could see that it really wants keys rather than wanting chests, or it really
+
+90
+00:06:32,120 --> 00:06:35,960
+wants to get yellow things instead of to get gems. And the authors of the paper did do
+
+91
+00:06:35,960 --> 00:06:40,260
+some experiments around this. So this is the coin run environment. Here, the agent has
+
+92
+00:06:40,260 --> 00:06:44,600
+to avoid the enemies, spinning buzzsaw blades, and pits, and get to a coin at the end of
+
+93
+00:06:44,600 --> 00:06:48,560
+each level. It's a tricky task because, like the other environments in this work, all of
+
+94
+00:06:48,560 --> 00:06:52,520
+these levels are procedurally generated, so you never get the same one twice. But the
+
+95
+00:06:52,520 --> 00:06:56,440
+nice thing about coin run for this experiment is there are already some state-of-the-art
+
+96
+00:06:56,440 --> 00:07:00,440
+interpretability tools ready-made to work with it. Here you can see a visualization
+
+97
+00:07:00,440 --> 00:07:03,740
+of the interpretability tools working. So I'm not going to go into a lot of detail
+
+98
+00:07:03,740 --> 00:07:08,400
+about exactly how this method works. You can read the excellent article for details. But
+
+99
+00:07:08,400 --> 00:07:12,260
+basically, they take one of the later hidden layers of the network, find how each neuron
+
+100
+00:07:12,260 --> 00:07:16,200
+in this layer contributes to the output of the value function, and then they do dimensionality
+
+101
+00:07:16,200 --> 00:07:20,680
+reduction on that to find vectors that correspond to different types of objects in the game.
+
+102
+00:07:20,680 --> 00:07:24,440
+So they can see when the network thinks it's looking at a buzzsaw or a coin or an enemy
+
+103
+00:07:24,440 --> 00:07:28,760
+or so on, along with attribution, which is basically how the model thinks these different
+
+104
+00:07:28,760 --> 00:07:33,400
+things it sees will affect the agent's expected reward. Like, is this good for me or bad for
+
+105
+00:07:33,400 --> 00:07:37,720
+me? And they're able to visualize this as a heat map. So you can see here, this is a
+
+106
+00:07:37,720 --> 00:07:41,680
+buzzsaw, which will kill the player if they hit it. And when we look at the visualization,
+
+107
+00:07:41,680 --> 00:07:46,280
+we can see that, yeah, it lights up red on the negative attribution. So it seems like
+
+108
+00:07:46,280 --> 00:07:50,760
+the model is thinking that's a buzzsaw and it's bad. And then as we keep going, look
+
+109
+00:07:50,760 --> 00:07:55,160
+at this bright yellow area. Yellow indicates a coin and it's very strongly highlighted
+
+110
+00:07:55,160 --> 00:07:59,200
+on the positive attribution. So we might interpret this as showing that the agent recognizes
+
+111
+00:07:59,200 --> 00:08:03,360
+this as a coin and that this is a good thing. So this kind of interpretability research
+
+112
+00:08:03,360 --> 00:08:07,480
+is very cool because it lets us sort of look inside these neural networks that we tend
+
+113
+00:08:07,480 --> 00:08:11,260
+to think of as black boxes and start to get a sense of what they're actually thinking.
+
+114
+00:08:11,260 --> 00:08:14,300
+You can imagine how important this kind of thing is for AI safety. I'll do a whole video
+
+115
+00:08:14,300 --> 00:08:17,860
+about interpretability at some point. But okay, what happens if we again introduce a
+
+116
+00:08:17,860 --> 00:08:21,780
+distributional shift between training and deployment? In this case, what they did was
+
+117
+00:08:21,780 --> 00:08:25,500
+they trained the system with the coin always at the end of the level on the right hand
+
+118
+00:08:25,500 --> 00:08:29,660
+side. But then in deployment, they changed it so the coin is placed randomly somewhere
+
+119
+00:08:29,660 --> 00:08:33,500
+in the level. Given what we've learned so far, what happened is perhaps not that surprising.
+
+120
+00:08:33,500 --> 00:08:37,540
+In deployment, the agent basically ignores the coin and just goes to the right hand edge
+
+121
+00:08:37,540 --> 00:08:41,460
+of the level. Sometimes it gets the coin by accident, but it's mostly just interested
+
+122
+00:08:41,460 --> 00:08:46,020
+in going right. Again, it seems to have learned the wrong objective. But how could this happen?
+
+123
+00:08:46,020 --> 00:08:50,620
+Like we saw the visualization, which seemed to pretty clearly show that the agent wants
+
+124
+00:08:50,620 --> 00:08:55,680
+the coin. So why would it ignore it? And when we run the interpretability tool on the trajectories
+
+125
+00:08:55,680 --> 00:09:00,460
+from this new shifted deployment distribution, it looks like this. The coin gets basically
+
+126
+00:09:00,460 --> 00:09:05,100
+no positive attribution at all. What's going on? Well, I talked to the authors of the objective
+
+127
+00:09:05,100 --> 00:09:10,020
+robustness paper and to the primary author of the interpretability techniques paper,
+
+128
+00:09:10,020 --> 00:09:13,420
+and nobody's really sure just yet. There are a few different hypotheses for what could
+
+129
+00:09:13,420 --> 00:09:17,260
+be going on. And all the researchers agree that with the current evidence, it's very
+
+130
+00:09:17,260 --> 00:09:20,260
+hard to say for certain. And there are some more experiments that they'd like to do to
+
+131
+00:09:20,260 --> 00:09:24,460
+figure this out. I suppose one thing we can take away from this is you have to be careful
+
+132
+00:09:24,460 --> 00:09:28,940
+with how you interpret your interpretability tools and make sure not to read into them
+
+133
+00:09:28,940 --> 00:09:33,100
+more than is really justified. One last thing. In the previous video, I was talking about
+
+134
+00:09:33,100 --> 00:09:37,460
+Mesa optimizers. And it's important to note that in that video, we were talking about
+
+135
+00:09:37,460 --> 00:09:41,860
+something that we're training to be an artificial general intelligence, a system that's very
+
+136
+00:09:41,860 --> 00:09:46,300
+sophisticated, that's making plans and has specific goals in mind, and potentially is
+
+137
+00:09:46,300 --> 00:09:50,660
+even explicitly thinking about its own training process and deliberately being deceptive.
+
+138
+00:09:50,660 --> 00:09:54,780
+Whereas the experiments in this paper involve much simpler systems, and yet they still exhibit
+
+139
+00:09:54,780 --> 00:09:58,620
+this behavior of ending up with the wrong goal. And the thing is, failing to properly
+
+140
+00:09:58,620 --> 00:10:03,020
+learn the goal is way worse than failing to properly learn how to navigate the environment,
+
+141
+00:10:03,020 --> 00:10:06,980
+right? Like, everyone in machine learning already knows about what this paper calls
+
+142
+00:10:06,980 --> 00:10:11,460
+failures of capability robustness. That when the distribution changes between training
+
+143
+00:10:11,460 --> 00:10:15,500
+and deployment, AI systems have problems, and performance degrades, right? The system
+
+144
+00:10:15,500 --> 00:10:20,100
+is less capable at its job. But this is worse than that, because it's a failure of objective
+
+145
+00:10:20,100 --> 00:10:24,900
+robustness. The final agent isn't confused and incapable. It's only the goal that's
+
+146
+00:10:24,900 --> 00:10:28,740
+been learned wrong. The capabilities are mostly intact. The coin-run agent knows how
+
+147
+00:10:28,740 --> 00:10:33,300
+to successfully dodge the enemies, it jumps over the obstacles, it's capable at operating
+
+148
+00:10:33,300 --> 00:10:37,380
+in the environment to get what it wants. But it wants the wrong thing. Even though we've
+
+149
+00:10:37,380 --> 00:10:41,980
+correctly specified exactly what we want the objective to be, and we used state-of-the-art
+
+150
+00:10:41,980 --> 00:10:46,420
+interpretability tools to look inside it before deploying it, and it looked pretty plausible
+
+151
+00:10:46,420 --> 00:10:50,260
+that it actually wanted what we specified that it should want, and yet, when we deploy
+
+152
+00:10:50,260 --> 00:10:54,340
+it in an environment that's slightly different from the one it was trained in, it turns out
+
+153
+00:10:54,340 --> 00:10:57,800
+that it actually wants something else, and it's capable enough to get it. And this
+
+154
+00:10:57,800 --> 00:11:10,660
+happens even without sophisticated planning and deception. So, there's a problem.
+
+155
+00:11:10,660 --> 00:11:14,300
+I want to end the video by thanking all of my wonderful patrons. It's all of these
+
+156
+00:11:14,300 --> 00:11:19,380
+excellent people here. In this video, I'm especially thanking Axis Angles. Thank you
+
+157
+00:11:19,380 --> 00:11:22,900
+so much. You know, it's thanks to people like you that I was able to hire an editor
+
+158
+00:11:22,900 --> 00:11:26,660
+for this video. Did you notice it's better edited than usual? It's probably done quicker
+
+159
+00:11:26,660 --> 00:11:30,620
+too. Anyway, thank you again for your support, and thank you all for watching. I'll see you
+
+160
+00:11:30,620 --> 00:11:30,980
+next time.
+

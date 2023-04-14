@@ -1,0 +1,680 @@
+1
+00:00:00,000 --> 00:00:03,600
+Hi, there's a lot of disagreement about the future of AI,
+
+2
+00:00:03,600 --> 00:00:05,120
+but there's also a lot of disagreement
+
+3
+00:00:05,120 --> 00:00:08,320
+about what the experts think about the future of AI.
+
+4
+00:00:08,320 --> 00:00:09,620
+I sometimes hear people saying
+
+5
+00:00:09,620 --> 00:00:12,320
+that all of this concern about AI risk
+
+6
+00:00:12,320 --> 00:00:14,440
+just comes from watching too much sci-fi
+
+7
+00:00:14,440 --> 00:00:17,240
+and the actual AI researchers aren't worried about it at all.
+
+8
+00:00:17,240 --> 00:00:18,720
+When it comes to timelines,
+
+9
+00:00:18,720 --> 00:00:21,000
+some people will claim that the experts agree
+
+10
+00:00:21,000 --> 00:00:22,940
+that AGI is hundreds of years away.
+
+11
+00:00:22,940 --> 00:00:25,300
+Prediction, as they say, is very difficult,
+
+12
+00:00:25,300 --> 00:00:26,880
+especially about the future,
+
+13
+00:00:26,880 --> 00:00:28,880
+and that's because we don't have data about it yet.
+
+14
+00:00:28,920 --> 00:00:31,880
+But expert opinion about the future exists in the present,
+
+15
+00:00:31,880 --> 00:00:33,040
+so we can do science on it.
+
+16
+00:00:33,040 --> 00:00:34,600
+We can survey the experts.
+
+17
+00:00:34,600 --> 00:00:36,440
+We can find the expert consensus,
+
+18
+00:00:36,440 --> 00:00:38,560
+and that's what this paper is trying to do.
+
+19
+00:00:38,560 --> 00:00:39,380
+It's called,
+
+20
+00:00:39,380 --> 00:00:41,560
+When Will AI Exceed Human Performance?
+
+21
+00:00:41,560 --> 00:00:43,280
+Evidence from AI Experts.
+
+22
+00:00:43,280 --> 00:00:44,280
+So these researchers
+
+23
+00:00:44,280 --> 00:00:46,040
+from the Future of Humanity Institute
+
+24
+00:00:46,040 --> 00:00:47,600
+at the University of Oxford,
+
+25
+00:00:47,600 --> 00:00:51,120
+the AI Impacts Project, and Yale University ran a survey.
+
+26
+00:00:51,120 --> 00:00:52,520
+They asked every researcher
+
+27
+00:00:52,520 --> 00:00:55,400
+who published in ICML or NIPS in 2015.
+
+28
+00:00:55,400 --> 00:00:56,440
+Those two are pretty much
+
+29
+00:00:56,440 --> 00:00:58,460
+the most prestigious AI conferences right now.
+
+30
+00:00:59,040 --> 00:01:02,060
+So this survey got 352 of the top AI researchers
+
+31
+00:01:02,060 --> 00:01:03,780
+and asked them all sorts of questions
+
+32
+00:01:03,780 --> 00:01:05,260
+about the future of AI,
+
+33
+00:01:05,260 --> 00:01:06,780
+and the experts all agreed
+
+34
+00:01:06,780 --> 00:01:08,260
+that they did not agree with each other,
+
+35
+00:01:08,260 --> 00:01:09,820
+and Robert Allman didn't even agree with that.
+
+36
+00:01:09,820 --> 00:01:12,380
+There was a lot of variation in people's predictions,
+
+37
+00:01:12,380 --> 00:01:13,500
+but that's to be expected,
+
+38
+00:01:13,500 --> 00:01:15,460
+and the paper uses statistical methods
+
+39
+00:01:15,460 --> 00:01:17,940
+to aggregate these opinions into something we can use.
+
+40
+00:01:17,940 --> 00:01:19,220
+For example, here's the graph
+
+41
+00:01:19,220 --> 00:01:20,860
+showing when the respondents think
+
+42
+00:01:20,860 --> 00:01:23,300
+we'll achieve high-level machine intelligence,
+
+43
+00:01:23,300 --> 00:01:25,860
+which is defined as when unaided machines
+
+44
+00:01:25,860 --> 00:01:27,700
+can accomplish every task better
+
+45
+00:01:27,700 --> 00:01:29,940
+and more cheaply than human workers.
+
+46
+00:01:29,940 --> 00:01:31,740
+So that's roughly equivalent to what I mean
+
+47
+00:01:31,740 --> 00:01:33,220
+when I say superintelligence.
+
+48
+00:01:33,220 --> 00:01:36,340
+You can see these gray lines show how the graph would look
+
+49
+00:01:36,340 --> 00:01:39,400
+with different randomly chosen subsets of the forecasts,
+
+50
+00:01:39,400 --> 00:01:40,700
+and there's a lot of variation there.
+
+51
+00:01:40,700 --> 00:01:44,140
+But the aggregate forecast in red shows that, overall,
+
+52
+00:01:44,140 --> 00:01:46,600
+the experts think we'll pass 50% chance
+
+53
+00:01:46,600 --> 00:01:48,740
+of achieving high-level machine intelligence
+
+54
+00:01:48,740 --> 00:01:50,380
+about 45 years from now.
+
+55
+00:01:50,380 --> 00:01:53,980
+Well, that's from 2016, so more like 43 years from now.
+
+56
+00:01:53,980 --> 00:01:57,220
+And they give a 10% chance of it happening within nine years,
+
+57
+00:01:57,220 --> 00:01:58,460
+which is seven years now.
+
+58
+00:01:58,460 --> 00:02:01,460
+So it's probably not too soon to be concerned about it.
+
+59
+00:02:01,460 --> 00:02:04,020
+A quick side point about surveys, by the way.
+
+60
+00:02:04,020 --> 00:02:07,180
+In a 2010 poll, 44% of Americans
+
+61
+00:02:07,180 --> 00:02:08,900
+said that they supported homosexuals
+
+62
+00:02:08,900 --> 00:02:10,480
+serving openly in the military.
+
+63
+00:02:10,480 --> 00:02:13,340
+In the same poll, 58% of respondents
+
+64
+00:02:13,340 --> 00:02:15,780
+said that they supported gay men and lesbians
+
+65
+00:02:15,780 --> 00:02:17,460
+serving openly in the military.
+
+66
+00:02:17,460 --> 00:02:19,940
+Implicitly, 14% of respondents
+
+67
+00:02:19,940 --> 00:02:21,620
+supported gay men and lesbians,
+
+68
+00:02:21,620 --> 00:02:23,780
+but did not support homosexuals.
+
+69
+00:02:23,780 --> 00:02:26,060
+Something similar seems to be going on in this survey,
+
+70
+00:02:26,060 --> 00:02:28,060
+because when the researchers were asked
+
+71
+00:02:28,060 --> 00:02:29,760
+when they thought all occupations
+
+72
+00:02:29,760 --> 00:02:31,620
+would be fully automatable,
+
+73
+00:02:31,620 --> 00:02:33,820
+defined as, for any occupation,
+
+74
+00:02:33,820 --> 00:02:36,020
+machines could be built to carry out the task
+
+75
+00:02:36,020 --> 00:02:38,380
+better and more cheaply than human workers,
+
+76
+00:02:38,380 --> 00:02:42,660
+they gave their 50% estimate at 122 years,
+
+77
+00:02:42,660 --> 00:02:46,340
+compared to 45 for high-level machine intelligence.
+
+78
+00:02:46,340 --> 00:02:48,300
+These are very similar questions.
+
+79
+00:02:48,300 --> 00:02:51,340
+From this, we can conclude that AI experts
+
+80
+00:02:51,340 --> 00:02:53,180
+are really uncertain about this,
+
+81
+00:02:53,180 --> 00:02:54,740
+and precise wording in surveys
+
+82
+00:02:54,740 --> 00:02:57,020
+can have a surprisingly big effect on the results.
+
+83
+00:02:57,020 --> 00:02:59,780
+Figure two in the paper shows the median estimates
+
+84
+00:02:59,780 --> 00:03:01,660
+for lots of different AI milestones.
+
+85
+00:03:01,660 --> 00:03:04,020
+This is really interesting because it gives a nice overview
+
+86
+00:03:04,020 --> 00:03:05,660
+of how difficult AI researchers
+
+87
+00:03:05,660 --> 00:03:07,180
+expect these different things to be.
+
+88
+00:03:07,180 --> 00:03:09,340
+For example, human-level StarCraft play
+
+89
+00:03:09,340 --> 00:03:10,980
+seems like it will take about as long
+
+90
+00:03:10,980 --> 00:03:12,520
+as human-level laundry folding.
+
+91
+00:03:12,520 --> 00:03:14,780
+Also interesting here is the game of Go.
+
+92
+00:03:14,780 --> 00:03:16,780
+Remember, this is before AlphaGo.
+
+93
+00:03:16,780 --> 00:03:20,500
+The AI experts expected Go to take about 12 years,
+
+94
+00:03:20,500 --> 00:03:22,180
+and that's why AlphaGo was such a big deal.
+
+95
+00:03:22,220 --> 00:03:24,820
+It was about 11 years ahead of people's expectations.
+
+96
+00:03:24,820 --> 00:03:27,100
+But what milestone is at the top?
+
+97
+00:03:27,100 --> 00:03:29,340
+What task do the AI researchers think
+
+98
+00:03:29,340 --> 00:03:31,180
+will take the longest to achieve,
+
+99
+00:03:31,180 --> 00:03:33,580
+longer even than high-level machine intelligence
+
+100
+00:03:33,580 --> 00:03:36,100
+that's able to do all human tasks?
+
+101
+00:03:36,100 --> 00:03:38,420
+That's right, it's AI research.
+
+102
+00:03:38,420 --> 00:03:40,740
+Anyway, onto questions of safety and risk.
+
+103
+00:03:40,740 --> 00:03:43,180
+This section is for those who think that people like me
+
+104
+00:03:43,180 --> 00:03:45,460
+should stop making a fuss about AI safety,
+
+105
+00:03:45,460 --> 00:03:48,580
+because the AI experts all agree that it's not a problem.
+
+106
+00:03:48,580 --> 00:03:51,060
+First of all, the AI experts don't all agree about anything,
+
+107
+00:03:51,060 --> 00:03:52,340
+but let's look at the questions.
+
+108
+00:03:52,340 --> 00:03:54,740
+This one asks about the expected outcome
+
+109
+00:03:54,740 --> 00:03:56,380
+of high-level machine intelligence.
+
+110
+00:03:56,380 --> 00:03:58,820
+The researchers are fairly optimistic overall,
+
+111
+00:03:58,820 --> 00:04:02,180
+giving on average a 25% chance for a good outcome
+
+112
+00:04:02,180 --> 00:04:05,260
+and a 20% chance for an extremely good outcome.
+
+113
+00:04:05,260 --> 00:04:08,300
+But they nonetheless gave a 10% chance for a bad outcome
+
+114
+00:04:08,300 --> 00:04:11,940
+and 5% for an outcome described as extremely bad,
+
+115
+00:04:11,940 --> 00:04:13,980
+for example, human extinction.
+
+116
+00:04:13,980 --> 00:04:17,300
+5% chance of human extinction-level badness
+
+117
+00:04:17,300 --> 00:04:20,020
+is a cause for concern.
+
+118
+00:04:20,020 --> 00:04:22,340
+Moving on, this question asks the experts
+
+119
+00:04:22,340 --> 00:04:23,980
+to read Stuart Russell's argument
+
+120
+00:04:23,980 --> 00:04:26,460
+for why highly advanced AI might pose a risk.
+
+121
+00:04:26,460 --> 00:04:28,580
+This is very closely related to the arguments
+
+122
+00:04:28,580 --> 00:04:29,620
+I've been making on YouTube.
+
+123
+00:04:29,620 --> 00:04:33,380
+It says, the primary concern with highly advanced AI
+
+124
+00:04:33,380 --> 00:04:35,660
+is not spooky emergent consciousness,
+
+125
+00:04:35,660 --> 00:04:38,660
+but simply the ability to make high-quality decisions.
+
+126
+00:04:38,660 --> 00:04:41,380
+Here, quality refers to the expected outcome utility
+
+127
+00:04:41,380 --> 00:04:42,260
+of actions taken.
+
+128
+00:04:42,260 --> 00:04:43,820
+Now we have a problem.
+
+129
+00:04:43,820 --> 00:04:47,220
+One, the utility function may not be perfectly aligned
+
+130
+00:04:47,220 --> 00:04:48,580
+with the values of the human race,
+
+131
+00:04:48,580 --> 00:04:51,500
+which are, at best, very difficult to pin down.
+
+132
+00:04:51,500 --> 00:04:54,820
+Two, any sufficiently capable intelligent system
+
+133
+00:04:54,820 --> 00:04:57,500
+will prefer to ensure its own continued existence
+
+134
+00:04:57,500 --> 00:05:00,460
+and to acquire physical and computational resources,
+
+135
+00:05:00,460 --> 00:05:03,980
+not for their own sake, but to succeed in its assigned task.
+
+136
+00:05:03,980 --> 00:05:07,060
+A system that is optimizing a function of n variables,
+
+137
+00:05:07,060 --> 00:05:09,820
+where the objective depends on a subset of size k
+
+138
+00:05:09,820 --> 00:05:11,820
+less than n, will often set the remaining
+
+139
+00:05:11,820 --> 00:05:14,540
+unconstrained variables to extreme values.
+
+140
+00:05:14,540 --> 00:05:16,220
+If one of those unconstrained values
+
+141
+00:05:16,220 --> 00:05:18,020
+is actually something we care about,
+
+142
+00:05:18,020 --> 00:05:20,700
+the solution may be highly undesirable.
+
+143
+00:05:20,700 --> 00:05:23,180
+This is essentially the old story of the genie in the lamp,
+
+144
+00:05:23,180 --> 00:05:25,820
+or the sorcerer's apprentice, or King Midas.
+
+145
+00:05:25,820 --> 00:05:28,980
+You get exactly what you ask for, not what you want.
+
+146
+00:05:28,980 --> 00:05:30,780
+So do the AI experts agree with that?
+
+147
+00:05:30,780 --> 00:05:33,820
+Well, 11% of them think, no, it's not a real problem.
+
+148
+00:05:33,820 --> 00:05:37,260
+19% think, no, it's not an important problem.
+
+149
+00:05:37,260 --> 00:05:40,700
+But the remainder, 70% of the AI experts,
+
+150
+00:05:40,700 --> 00:05:43,700
+agree that this is at least a moderately important problem.
+
+151
+00:05:43,700 --> 00:05:45,780
+And how much do the AI experts think
+
+152
+00:05:45,780 --> 00:05:48,740
+that society should prioritize AI safety research?
+
+153
+00:05:48,740 --> 00:05:51,700
+Well, 48% of them think we should prioritize it
+
+154
+00:05:51,700 --> 00:05:53,180
+more than we currently are.
+
+155
+00:05:53,180 --> 00:05:55,900
+And only 11% think we should prioritize it less.
+
+156
+00:05:55,900 --> 00:05:56,900
+So there we are.
+
+157
+00:05:56,900 --> 00:06:00,180
+AI experts are very unclear about what the future holds,
+
+158
+00:06:00,180 --> 00:06:02,580
+but they think that catastrophic risks are possible,
+
+159
+00:06:02,580 --> 00:06:04,500
+and that this is an important problem.
+
+160
+00:06:04,500 --> 00:06:07,140
+So we need to do more AI safety research.
+
+161
+00:06:07,500 --> 00:06:09,780
+I want to end the video by saying thank you so much
+
+162
+00:06:09,780 --> 00:06:11,900
+to my excellent Patreon supporters.
+
+163
+00:06:11,900 --> 00:06:12,740
+These people.
+
+164
+00:06:14,260 --> 00:06:17,180
+And in this video, I'm especially thanking Jason Heiss,
+
+165
+00:06:17,180 --> 00:06:19,340
+who's been a patron for a while now.
+
+166
+00:06:19,340 --> 00:06:20,940
+We've had some quite interesting discussions
+
+167
+00:06:20,940 --> 00:06:22,220
+over Patreon chat.
+
+168
+00:06:22,220 --> 00:06:23,060
+It's been fun.
+
+169
+00:06:23,060 --> 00:06:25,740
+So thank you, Jason, and thank you all for watching.
+
+170
+00:06:25,740 --> 00:06:26,940
+I'll see you next time.
+

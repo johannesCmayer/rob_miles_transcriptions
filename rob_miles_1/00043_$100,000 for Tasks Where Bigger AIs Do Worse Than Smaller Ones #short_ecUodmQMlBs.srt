@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:04,720
+In AI, bigger is better, right? Large models outperform smaller ones according to scaling laws.
+
+2
+00:00:04,720 --> 00:00:08,640
+Except not always. Sometimes bigger models can actually perform worse, and sometimes in ways
+
+3
+00:00:08,640 --> 00:00:12,400
+that might be dangerous. So since we're going to be building really very big models very soon,
+
+4
+00:00:12,400 --> 00:00:16,880
+we need to understand what's going on here. So the inverse scaling prize is offering $100,000
+
+5
+00:00:16,880 --> 00:00:20,480
+for new examples of situations where bigger models do worse. I talked about one of these
+
+6
+00:00:20,480 --> 00:00:24,400
+in an earlier video. If you start with bad code, sometimes large code generation models,
+
+7
+00:00:24,400 --> 00:00:28,400
+like GitHub Copilot, will deliberately introduce bugs or vulnerabilities into their output
+
+8
+00:00:28,400 --> 00:00:32,160
+in situations where smaller models will generate the correct secure code. This is because of
+
+9
+00:00:32,160 --> 00:00:36,640
+misalignment. You want code that's good, but the AI wants code that's likely to come next.
+
+10
+00:00:36,640 --> 00:00:39,920
+That's just one example, but the hope is by looking at lots of them, we could come up with
+
+11
+00:00:39,920 --> 00:00:44,000
+more general methods for detecting and dealing with this kind of misalignment. To apply, first
+
+12
+00:00:44,000 --> 00:00:48,000
+find an example where you think inverse scaling applies, then find a data set of at least 300
+
+13
+00:00:48,000 --> 00:00:52,800
+examples and test it using the models in the Google Colab that can be found at inversescaling.com,
+
+14
+00:00:52,800 --> 00:00:56,000
+where there's all the instructions that you'll need. The deadline is October 27th,
+
+15
+00:00:56,000 --> 00:00:59,280
+and the total prize pool is $250,000. Good luck!
+

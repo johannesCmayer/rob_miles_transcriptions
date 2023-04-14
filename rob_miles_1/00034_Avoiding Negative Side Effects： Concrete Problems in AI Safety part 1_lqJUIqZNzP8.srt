@@ -1,0 +1,452 @@
+1
+00:00:00,000 --> 00:00:05,440
+Hi, I just finished recording a new video for Computerphile where I talk about this paper,
+
+2
+00:00:05,440 --> 00:00:09,600
+Concrete Problems in AI Safety. I'll put a link in the doobly-doo to the Computerphile video when
+
+3
+00:00:09,600 --> 00:00:15,280
+that comes out. Here's a quick recap of that before we get into this video. AI can cause us
+
+4
+00:00:15,280 --> 00:00:20,000
+all kinds of problems and just recently people have started to get serious about researching
+
+5
+00:00:20,000 --> 00:00:25,440
+ways to make AI safer. A lot of the AI safety concerns are kind of science fiction sounding,
+
+6
+00:00:25,440 --> 00:00:29,600
+problems that could happen with very powerful AI systems that might be a long way off.
+
+7
+00:00:29,600 --> 00:00:34,160
+This makes those problems kind of difficult to study because we don't know what those future
+
+8
+00:00:34,160 --> 00:00:39,600
+AI systems would be like, but there are similar problems with AI systems that are in development
+
+9
+00:00:39,600 --> 00:00:45,840
+today or even out there operating in the real world right now. This paper points to five problems
+
+10
+00:00:45,840 --> 00:00:50,720
+which we can get started working on now that will help us with current AI systems and will hopefully
+
+11
+00:00:50,720 --> 00:00:55,920
+also help us with the AI systems of the future. The Computerphile video gives a quick overview
+
+12
+00:00:55,920 --> 00:01:00,560
+of the five problems laid out in the paper and this video is just about the first of those
+
+13
+00:01:00,560 --> 00:01:06,480
+problems, avoiding negative side effects. I think I'm going to do one video on each of these and
+
+14
+00:01:06,480 --> 00:01:11,600
+make it a series of five. So, avoiding negative side effects. Let's use the example I was talking
+
+15
+00:01:11,600 --> 00:01:16,560
+about in the stop button videos on Computerphile. You've got a robot, you want it to get you a cup
+
+16
+00:01:16,560 --> 00:01:21,920
+of tea but there's something in the way, maybe a baby or a priceless Ming vase on a narrow stand,
+
+17
+00:01:22,000 --> 00:01:27,520
+you know, whatever, and your robot runs into the baby or knocks over the vase on the way to the
+
+18
+00:01:27,520 --> 00:01:33,200
+kitchen and then makes you a cup of tea. So the system has achieved its objective, it's got you
+
+19
+00:01:33,200 --> 00:01:38,400
+some tea, but it's had this side effect which is negative. Now, we have some reasons to expect
+
+20
+00:01:38,400 --> 00:01:42,800
+negative side effects to be a problem with AI systems. Part of the problem comes from using a
+
+21
+00:01:42,800 --> 00:01:48,400
+simple objective function in a complex environment. You think you've defined a nice simple objective
+
+22
+00:01:48,400 --> 00:01:54,480
+function that looks something like this, and that's true, but when you use this in a complex
+
+23
+00:01:54,480 --> 00:01:58,400
+environment you've effectively written an objective function that looks like this,
+
+24
+00:01:59,520 --> 00:02:05,760
+or more like this. Anything in your complex environment not explicitly given value by your
+
+25
+00:02:05,760 --> 00:02:10,720
+objective function is implicitly given zero value, and this is a problem because it means your AI
+
+26
+00:02:10,720 --> 00:02:15,680
+system will be willing to trade arbitrarily huge amounts of any of the things you didn't specify
+
+27
+00:02:15,680 --> 00:02:20,400
+in your objective function for arbitrarily small amounts of any of the things you did specify.
+
+28
+00:02:21,040 --> 00:02:27,920
+If it can increase its ability to get you a cup of tea by 0.0001%, it will happily destroy the
+
+29
+00:02:27,920 --> 00:02:32,800
+entire kitchen to do that. If there's a way to gain a tiny amount of something it cares about,
+
+30
+00:02:32,800 --> 00:02:37,680
+it's happy to sacrifice any amount of any of the things it doesn't care about, and the smarter it
+
+31
+00:02:37,680 --> 00:02:42,560
+is the more of those ways it can think of. So this means we have to expect the possibility of AI
+
+32
+00:02:42,560 --> 00:02:47,200
+systems having very large side effects by default. You could try to fill your whole thing in with
+
+33
+00:02:47,200 --> 00:02:51,760
+values, but it's not practical to specify every possible thing you might care about. You'd need
+
+34
+00:02:51,760 --> 00:02:55,840
+an objective function of similar complexity to the environment. There are just too many things to
+
+35
+00:02:55,840 --> 00:03:00,480
+value, and we don't know them all. You know, you'll miss some, and if any of the things you miss can
+
+36
+00:03:00,480 --> 00:03:05,200
+be traded in for a tiny amount of any of the things you don't miss, well that thing you missed
+
+37
+00:03:05,200 --> 00:03:11,360
+is potentially gone. But at least these side effects tend to be pretty similar. The paper
+
+38
+00:03:11,360 --> 00:03:15,520
+uses examples like a cleaning robot that has to clean an office. In the stop button problem computer
+
+39
+00:03:15,520 --> 00:03:20,320
+file video, I used a robot that's trying to get you a cup of tea. But you can see that the kinds
+
+40
+00:03:20,320 --> 00:03:24,640
+of negative side effects we want to avoid are pretty similar, even though the tasks are different.
+
+41
+00:03:24,640 --> 00:03:29,360
+So maybe, and this is what the paper suggests, maybe there's a single thing we can figure out
+
+42
+00:03:29,360 --> 00:03:36,000
+that would avoid negative side effects in general. One thing we might be able to use is the fact that
+
+43
+00:03:36,000 --> 00:03:40,880
+most side effects are bad. I mean, naively you might think that doing a random action would have
+
+44
+00:03:40,960 --> 00:03:46,000
+a random value, right? Maybe it helps, maybe it hurts, maybe it doesn't matter, but it's random.
+
+45
+00:03:46,000 --> 00:03:50,480
+But actually, the world is already pretty well optimized for human values, especially the human
+
+46
+00:03:50,480 --> 00:03:55,600
+inhabited parts. It's not like there's no way to make our surroundings better, but it's way easier
+
+47
+00:03:55,600 --> 00:04:00,240
+to make them worse. For the most part, things are how they are because we like it that way,
+
+48
+00:04:00,240 --> 00:04:05,280
+and a random change wouldn't be desirable. So rather than having to figure out how to avoid
+
+49
+00:04:05,280 --> 00:04:10,320
+negative side effects, maybe it's a more tractable problem to just avoid all side effects. That's the
+
+50
+00:04:10,320 --> 00:04:15,520
+idea of the first approach the paper presents, defining an impact regularizer. What you do
+
+51
+00:04:15,520 --> 00:04:20,880
+basically is penalize change to the environment. So the system has some model of the world, right?
+
+52
+00:04:20,880 --> 00:04:26,240
+It's keeping track of world state as part of how it does things. So you can define a distance metric
+
+53
+00:04:26,240 --> 00:04:31,200
+between world states so that for any two world states, you can measure how different they are.
+
+54
+00:04:31,200 --> 00:04:34,560
+World states that are very similar have a low distance from each other. World states that are
+
+55
+00:04:34,560 --> 00:04:39,680
+very different have a big distance. And then you just say, okay, you get a bunch of points for
+
+56
+00:04:39,680 --> 00:04:45,040
+getting me a cup of tea, but you lose points according to the new world state's distance from
+
+57
+00:04:45,040 --> 00:04:49,280
+the initial world state. So this isn't a total ban on side effects, or the robot wouldn't be
+
+58
+00:04:49,280 --> 00:04:53,680
+able to change the world enough to actually get you a cup of tea. It's just incentivized to keep
+
+59
+00:04:53,680 --> 00:04:59,760
+the side effects small. There's allowed to be one less tea bag. That's unavoidable in making tea,
+
+60
+00:04:59,760 --> 00:05:04,000
+but breaking the vase that's in the way is an unnecessary change to the world. So the robot
+
+61
+00:05:04,000 --> 00:05:08,560
+will avoid it. The other nice thing about this is the original design wouldn't have cared,
+
+62
+00:05:08,560 --> 00:05:12,560
+but now the robot will put the container of tea back and close the cupboard, you know,
+
+63
+00:05:12,560 --> 00:05:17,040
+put the milk back in the fridge, maybe refill the kettle, try to make the world as close as
+
+64
+00:05:17,040 --> 00:05:22,080
+possible to how it was when it started. So that's pretty neat. Like we've added this one simple
+
+65
+00:05:22,080 --> 00:05:26,160
+rule and the thing's already better than some of the housemates I've had. So how does this go wrong?
+
+66
+00:05:27,280 --> 00:05:36,080
+Think about it for a second. Pause the video. I'll wait. Okay. So the robot steers around the vase
+
+67
+00:05:36,080 --> 00:05:40,960
+to avoid changing the environment too much. And it goes on into the kitchen where it finds
+
+68
+00:05:40,960 --> 00:05:46,320
+your colleague is making herself some coffee. Now that's not okay, right? She's changing the
+
+69
+00:05:46,320 --> 00:05:50,800
+environment. None of these changes are needed for making you a cup of tea. And now the world is
+
+70
+00:05:50,800 --> 00:05:55,360
+going to be different, which reduces the robot's reward. So the robot needs to try to stop that
+
+71
+00:05:55,360 --> 00:06:00,400
+from happening. We didn't program it to minimize its changes to the world. We programmed it to
+
+72
+00:06:00,400 --> 00:06:06,080
+minimize all change to the world. That's not ideal. So how about this? The system has a world
+
+73
+00:06:06,080 --> 00:06:10,080
+model. It can make predictions about the world. So how about you program it with the equivalent
+
+74
+00:06:10,080 --> 00:06:15,440
+of saying, use your world model to predict how the world would be if you did nothing.
+
+75
+00:06:16,080 --> 00:06:20,080
+If you just sent no signals of any kind to any of your motors and just sat there,
+
+76
+00:06:20,960 --> 00:06:25,920
+and then try and make the end result of this action close to what you imagine would happen
+
+77
+00:06:25,920 --> 00:06:31,120
+in that case. Or imagine the range of likely worlds that would happen if you did nothing,
+
+78
+00:06:31,120 --> 00:06:35,040
+and try and make the outcome close to something in that range. So then the bot is thinking,
+
+79
+00:06:35,040 --> 00:06:39,520
+okay, if I just sat here and did nothing at all, that vase would probably still be there.
+
+80
+00:06:39,520 --> 00:06:44,000
+You know, the baby would still be wandering around and not squished, and the person making
+
+81
+00:06:44,000 --> 00:06:48,880
+coffee would make their coffee, and everything in the kitchen would be tidy and in its place.
+
+82
+00:06:48,880 --> 00:06:54,240
+So I have to try to make a cup of tea happen without ending up too far from that. Pretty
+
+83
+00:06:54,240 --> 00:06:58,800
+nice, right? How does that break? Again, take a second, give it some thought, pause the video.
+
+84
+00:06:59,680 --> 00:07:02,800
+How might this go wrong? What situation might this not work in?
+
+85
+00:07:05,920 --> 00:07:10,480
+Okay, well, what if your robot is driving a car? It's doing 70 miles an hour on the motorway.
+
+86
+00:07:11,200 --> 00:07:14,720
+And now it's trying to make sure that things aren't too different to how they would be
+
+87
+00:07:14,720 --> 00:07:20,160
+if it didn't move any of its motors. Yeah, doing nothing is not always a safe policy.
+
+88
+00:07:20,160 --> 00:07:24,720
+But still, if we can define a known safe policy, then this kind of thing is nice,
+
+89
+00:07:24,720 --> 00:07:29,440
+because rather than having to define for each task how to do the task safely,
+
+90
+00:07:29,440 --> 00:07:34,320
+we could maybe come up with one safe policy that doesn't have to do anything except be safe,
+
+91
+00:07:34,880 --> 00:07:38,960
+and have the system always just try to make sure that the outcome of whatever it's trying to do
+
+92
+00:07:38,960 --> 00:07:42,720
+isn't too different from the safe policy's outcome. Oh, and there's another possible
+
+93
+00:07:42,720 --> 00:07:46,160
+cause of issues with this kind of approach, in case the things you guessed were different,
+
+94
+00:07:46,160 --> 00:07:53,280
+maybe it's this. It can be very dependent on the specifics of your world state representation
+
+95
+00:07:53,280 --> 00:07:58,240
+and your distance metric. Like, suppose there's a fan, there's a spinning fan in the room.
+
+96
+00:07:58,800 --> 00:08:04,320
+Is that in a steady state, you know, the fan is on? Or is it in a constantly changing state,
+
+97
+00:08:04,320 --> 00:08:09,200
+like the fan is at 10 degrees? Oh no, it's at 20 degrees. Oh, it's at 30. You know,
+
+98
+00:08:09,200 --> 00:08:13,200
+different world models will represent the same thing, either a steady state or constantly
+
+99
+00:08:13,200 --> 00:08:18,960
+changing state, and there's not necessarily a right answer there. Like, which aspects of an
+
+100
+00:08:18,960 --> 00:08:24,080
+object state are important and which aren't is not necessarily an easy question to reliably answer.
+
+101
+00:08:24,080 --> 00:08:28,880
+Would the robot leave the fan alone, or try and make sure it was at the same angle it was before?
+
+102
+00:08:29,440 --> 00:08:33,840
+Okay, I think that's enough for one video. Probably in the next one we can look at some
+
+103
+00:08:33,840 --> 00:08:37,840
+of the other approaches laid out in the paper for avoiding negative side effects,
+
+104
+00:08:37,840 --> 00:08:41,520
+so be sure to subscribe if you found this interesting, and I hope to see you next time.
+
+105
+00:08:51,280 --> 00:08:55,200
+Hi, I just want to end this video with a quick thank you to my excellent Patreon supporters.
+
+106
+00:08:56,160 --> 00:09:03,040
+All of these, these people, yeah. And today I especially want to thank Joshua Richardson,
+
+107
+00:09:03,040 --> 00:09:07,280
+who's supported me for a really long time. Thank you. You know, it's thanks to your support that
+
+108
+00:09:07,280 --> 00:09:12,000
+I've been able to buy some proper studio lighting now. So I have a proper softbox,
+
+109
+00:09:12,000 --> 00:09:16,080
+which, this is the first time I'm using it, I hope is working okay. It should really reduce
+
+110
+00:09:16,080 --> 00:09:20,160
+my reliance on sunlight, which should make me a lot more flexible about when I can record video,
+
+111
+00:09:20,160 --> 00:09:24,160
+so that's a tremendous help. I'm putting up a little video on Patreon of, you know,
+
+112
+00:09:24,160 --> 00:09:28,160
+unboxing it and putting it together and stuff, which you can check out if you're interested.
+
+113
+00:09:28,160 --> 00:09:32,800
+So thank you again, and I'll see you next time.
+

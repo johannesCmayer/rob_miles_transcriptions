@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:04,160
+This is a video I should probably have made a while ago, but better late than never. I've been
+
+2
+00:00:04,160 --> 00:00:09,120
+talking about AI safety for quite a while now, and in a very public way on the Computerphile
+
+3
+00:00:09,120 --> 00:00:14,240
+channel since about 2014. From the beginning a lot of AI safety advocacy has had a certain
+
+4
+00:00:14,960 --> 00:00:20,320
+quality to it, which to be honest I'm sure I've contributed to a little bit. And it's true that
+
+5
+00:00:21,680 --> 00:00:26,160
+might be the appropriate response to the problem. But if you want to warn people about something,
+
+6
+00:00:26,240 --> 00:00:30,640
+it matters how you phrase things and how you frame things. Ideally the arguments would stand
+
+7
+00:00:30,640 --> 00:00:34,640
+on their own merits. People should be able to look at the facts and decide for themselves.
+
+8
+00:00:34,640 --> 00:00:38,480
+And one of the things I'm trying to do with this channel is to give people the information they
+
+9
+00:00:38,480 --> 00:00:42,160
+need to form their own informed opinions about this kind of thing. But at the end of the day
+
+10
+00:00:42,160 --> 00:00:45,760
+most people don't have the time to put in to get the required level of understanding,
+
+11
+00:00:45,760 --> 00:00:49,840
+and they shouldn't have to. I mean it's not actually possible to study everything in
+
+12
+00:00:49,840 --> 00:00:54,240
+enough detail to understand it. There's just too much to know. So we have experts.
+
+13
+00:00:54,960 --> 00:00:59,680
+But this kind of sucks because then how do you choose your experts? It turns clear objective
+
+14
+00:00:59,680 --> 00:01:05,120
+questions about science and facts into these messy ambiguous questions about status and
+
+15
+00:01:05,120 --> 00:01:09,680
+respectability. And a lot of the time scientists don't want to lower themselves to playing that
+
+16
+00:01:09,680 --> 00:01:15,600
+kind of game, so they don't play at all or play half-heartedly. But this is one of those games
+
+17
+00:01:15,600 --> 00:01:20,160
+you can't win if you don't play, and we do need to win. There are problems with having to trust
+
+18
+00:01:20,160 --> 00:01:25,840
+experts, but ultimately specialization is how we manage to swap sucky problems like we keep
+
+19
+00:01:25,840 --> 00:01:31,440
+being eaten by predators for really cool problems like what if our technology becomes too powerful
+
+20
+00:01:31,440 --> 00:01:35,520
+and solves our problems too effectively? That's a good problem to have. Yeah sorry Heinlein,
+
+21
+00:01:35,520 --> 00:01:39,600
+insects are one of the most successful groups of animals on earth. So a couple of years ago
+
+22
+00:01:39,600 --> 00:01:45,120
+people had a go at making AI safety more respectable with this open letter, which was
+
+23
+00:01:45,120 --> 00:01:49,920
+often reported something like Stephen Hawking, Elon Musk and Bill Gates warn about artificial
+
+24
+00:01:49,920 --> 00:01:54,720
+intelligence, usually with a picture of the Terminator. Also surprisingly often Stephen Hawking's...
+
+25
+00:01:55,680 --> 00:02:00,240
+Why does this keep happening? Is he secretly a team of clones? Anyway the letter itself isn't
+
+26
+00:02:00,240 --> 00:02:06,400
+very long and basically just says AI is advancing very rapidly and having more and more impact,
+
+27
+00:02:06,400 --> 00:02:11,280
+so we need to be thinking about ways to make sure that impact is beneficial. It says we need to do
+
+28
+00:02:11,280 --> 00:02:15,680
+more research on this and it links to a document that gives more detail about what that research
+
+29
+00:02:15,680 --> 00:02:20,400
+might look like. So the content of the letter itself isn't much to talk about, but the core
+
+30
+00:02:20,400 --> 00:02:26,080
+message I think is that this stuff isn't just science fiction and it's not just futurologists
+
+31
+00:02:26,080 --> 00:02:32,160
+who are talking about it. Real serious people are concerned. This was good for respectability with
+
+32
+00:02:32,160 --> 00:02:36,640
+the general public because everyone's heard of these people and knows them to be respectable
+
+33
+00:02:36,640 --> 00:02:41,760
+smart people, but I've seen people who are slightly more sophisticated noticing that
+
+34
+00:02:41,760 --> 00:02:46,320
+none of those people are AI researchers. Professor Hawking is a physicist, Bill Gates is a software
+
+35
+00:02:46,320 --> 00:02:50,720
+developer, but Microsoft at the time he was working there was never really an AI company.
+
+36
+00:02:51,840 --> 00:02:56,320
+Doesn't count. And Elon Musk, though seriously overpowered, is more of a business person and
+
+37
+00:02:56,320 --> 00:03:01,680
+an engineer, so why do these people know anything in particular about AI? But there are actually more
+
+38
+00:03:01,680 --> 00:03:09,040
+than 8,000 signatures on this letter. Top of the list here is Stuart Russell. He's actually
+
+39
+00:03:09,040 --> 00:03:13,360
+currently working on AI safety and I plan to make some videos about some of his work later.
+
+40
+00:03:13,360 --> 00:03:19,200
+If you've never studied AI you may not know who he is, but he's a pretty big name. I'm not going
+
+41
+00:03:19,200 --> 00:03:26,000
+to say he wrote the book on artificial intelligence, but I am going to imply it pretty heavily.
+
+42
+00:03:27,280 --> 00:03:30,960
+And of course his co-author on that book, Peter Norvig, he's also on the list. What's
+
+43
+00:03:30,960 --> 00:03:36,880
+he up to these days? Director of Research at Google. The signatories of this open letter are
+
+44
+00:03:36,880 --> 00:03:43,360
+not AI lightweights. Who else have we got? Demis Hassabis and just about everyone at DeepMind.
+
+45
+00:03:44,000 --> 00:03:49,520
+Jan LeCun, head of AI at Facebook. Michael Wooldridge, head of the computer science
+
+46
+00:03:49,520 --> 00:03:56,880
+department at Oxford. I mean I'm skipping over big people, but yeah, Tom Mitchell. I know him
+
+47
+00:03:56,880 --> 00:04:01,040
+from a little book I used as a PhD student. You know this guy's an expert because the name of his
+
+48
+00:04:01,040 --> 00:04:06,560
+book is just the name of the subject. That's not a totally reliable heuristic though. Anyway,
+
+49
+00:04:06,560 --> 00:04:12,480
+my point in this video is just, if you're talking to people about AI safety, it's not cheating to
+
+50
+00:04:12,480 --> 00:04:17,200
+say, oh these high status respectable people agree with me. But if you're going to do that,
+
+51
+00:04:17,200 --> 00:04:21,520
+pay attention to who you're talking to. If it's someone who's heard of Russell and Norvig,
+
+52
+00:04:21,520 --> 00:04:26,720
+they're likely to find that much more convincing than Elon Musk and Stephen Hawking. And don't
+
+53
+00:04:26,720 --> 00:04:39,600
+use me for this. I am just a guy on YouTube. I just want to thank my amazing Patreon supporters,
+
+54
+00:04:40,240 --> 00:04:45,600
+and in particular Ichiro Dohi, who skips the queue by sponsoring me $20 a month.
+
+55
+00:04:46,480 --> 00:04:51,200
+I don't even have a $20 a month reward level. Now I've got to make one. That's a good problem to
+
+56
+00:04:51,200 --> 00:04:55,440
+have. Anyway, thank you so much. You may have noticed that the gap between this video and
+
+57
+00:04:55,440 --> 00:04:59,280
+the previous one is shorter than usual, and it's largely thanks to my Patreon supporters
+
+58
+00:04:59,280 --> 00:05:03,040
+that I'm able to do that. So thanks again, and I'll see you next time.
+

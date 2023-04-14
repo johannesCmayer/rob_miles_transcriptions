@@ -1,0 +1,740 @@
+1
+00:00:00,000 --> 00:00:04,240
+Hi. This video is a recording of a talk that I gave a while back. I already published a
+
+2
+00:00:04,240 --> 00:00:07,920
+version of it on my second channel, but did you even know I had a second channel?
+
+3
+00:00:07,920 --> 00:00:11,760
+Most people don't. I thought more people should see it, so I remastered it. I cleaned it up,
+
+4
+00:00:11,760 --> 00:00:15,040
+improved the graphics, and yeah, this is that. Enjoy.
+
+5
+00:00:15,040 --> 00:00:22,000
+Right. Hello, everyone. My name is Robert Miles. I am usually doing this on YouTube.
+
+6
+00:00:22,000 --> 00:00:29,360
+I'm not really used to public speaking. I'm not used to not being able to edit out my mistakes.
+
+7
+00:00:29,360 --> 00:00:34,080
+There may be mistakes. Also, I may go too quickly. Sorry, not sorry.
+
+8
+00:00:34,080 --> 00:00:40,160
+So when it comes to AI safety, you can kind of divide it up into four areas along two axes.
+
+9
+00:00:40,160 --> 00:00:47,280
+You've got your short-term and your long-term, and you've got accident risks and misuse risks,
+
+10
+00:00:48,240 --> 00:00:53,200
+and that's kind of a useful way to divide things up. AI safety covers everything. The area that
+
+11
+00:00:53,200 --> 00:00:58,960
+interests me most is the long-term accident risks. I think once you have very powerful AI
+
+12
+00:00:58,960 --> 00:01:04,960
+systems, it almost doesn't matter if they're being used by the right people or the wrong people or
+
+13
+00:01:04,960 --> 00:01:09,840
+what you're trying to do with them. The difficulty is in keeping them under control at all. So that's
+
+14
+00:01:09,840 --> 00:01:13,760
+what I'm going to be talking about. What is AI safety? Why is it important?
+
+15
+00:01:14,720 --> 00:01:19,440
+So I want to start by asking the question which I think everybody needs to be asking themselves.
+
+16
+00:01:19,760 --> 00:01:24,400
+What is the most important problem in your field? Take a second to think of it,
+
+17
+00:01:26,480 --> 00:01:32,640
+and why are you not working on that? For me, I think the most important problem in the field
+
+18
+00:01:32,640 --> 00:01:37,840
+of AI is AI safety. This is the problem specifically that I'm worried about,
+
+19
+00:01:38,400 --> 00:01:44,080
+that we will sooner or later build an artificial agent with general intelligence. So I'm going to
+
+20
+00:01:45,040 --> 00:01:50,400
+go into a bunch of these terms. The first thing is, what do I mean when I say sooner or later?
+
+21
+00:01:53,200 --> 00:01:59,760
+This is a little bit washed out, but this is a graph of a survey, a large survey of AI experts.
+
+22
+00:01:59,760 --> 00:02:04,800
+These are people who published in major AI conferences, and they were asked when they
+
+23
+00:02:04,800 --> 00:02:09,920
+thought we would achieve high-level machine intelligence, which is defined as an agent
+
+24
+00:02:09,920 --> 00:02:16,560
+which is able to carry out any task humans can as well as or better than humans. And they say
+
+25
+00:02:16,560 --> 00:02:26,400
+that a 50% chance of having achieved that, we hit that about 45 years from 2016. But then, of course,
+
+26
+00:02:26,400 --> 00:02:34,960
+we hit a 10% chance nine years from now. So it's not immediate, but it's happening. This is
+
+27
+00:02:34,960 --> 00:02:38,880
+definitely worth taking with a pinch of salt, because if you ask the question slightly differently,
+
+28
+00:02:38,880 --> 00:02:45,200
+you get an estimate of 120 years rather than 45. There's a lot of uncertainty in this area. But the
+
+29
+00:02:45,200 --> 00:02:51,920
+point is, it's going to happen, as I said, sooner or later. Because at the end of the day, general
+
+30
+00:02:51,920 --> 00:02:57,600
+intelligence is possible, the brain implements it, and the brain is not magic. Sooner or later,
+
+31
+00:02:57,600 --> 00:03:05,040
+we'll figure it out. So what do I mean when I say an artificial agent? Well, so an agent is a term
+
+32
+00:03:05,040 --> 00:03:12,080
+from economics, mostly. But basically, agents have goals. They choose actions to further their goals.
+
+33
+00:03:12,080 --> 00:03:17,280
+That is the simplest expression of what an agent is. So the simplest thing that you might call an
+
+34
+00:03:17,280 --> 00:03:21,520
+agent would be something like a thermostat. It has a goal, which is to have the room be at a
+
+35
+00:03:21,520 --> 00:03:25,520
+particular temperature. It has actions it can take. It can turn on the heating. It can turn on the air
+
+36
+00:03:25,520 --> 00:03:30,000
+conditioning. It chooses its actions to achieve its goal of maintaining the room at a steady
+
+37
+00:03:30,000 --> 00:03:35,360
+temperature. Extremely simple agent. A more complex agent might be something like a chess AI,
+
+38
+00:03:35,360 --> 00:03:40,080
+which has a goal of, like, if it's playing white, it has a goal of the black king being
+
+39
+00:03:40,080 --> 00:03:44,320
+in checkmate. And it takes actions in the form of moving pieces on the board in order to achieve
+
+40
+00:03:44,320 --> 00:03:49,200
+its goal. So you see how this idea of an agent is a very useful way of thinking about lots of
+
+41
+00:03:49,200 --> 00:03:54,080
+different intelligent systems. And of course, humans can be modeled as agents as well. This
+
+42
+00:03:54,080 --> 00:03:59,920
+is how it's usually done in economics. Individuals or companies could be considered to have a goal
+
+43
+00:04:00,000 --> 00:04:03,600
+of, you know, maximizing their income or maximizing their profits and making decisions
+
+44
+00:04:03,600 --> 00:04:10,800
+in order to achieve that. So when I'm talking about intelligence,
+
+45
+00:04:13,440 --> 00:04:17,920
+intelligence has a lot of, as a term, is a heavily loaded term, has a lot of different
+
+46
+00:04:17,920 --> 00:04:22,240
+people put their own definitions on it. In this context, what I mean when I say intelligence is
+
+47
+00:04:22,240 --> 00:04:28,000
+just the thing that lets an agent choose effective actions. It's whatever it is that's in our brains
+
+48
+00:04:28,080 --> 00:04:32,720
+or that's in the programming of these systems that means that the actions they choose tend to
+
+49
+00:04:32,720 --> 00:04:40,000
+get them closer to their goals. And so then you could say that an agent is more intelligent if
+
+50
+00:04:40,000 --> 00:04:43,920
+it's more effective at achieving its goals, whatever those goals are. If you have two
+
+51
+00:04:43,920 --> 00:04:49,040
+agents in an environment with incompatible goals, like let's say the environment is the chessboard
+
+52
+00:04:49,040 --> 00:04:54,640
+and one agent wants white to win and one agent wants black to win, then generally the more
+
+53
+00:04:54,640 --> 00:05:00,080
+intelligent agent will be the one that gets what it wants. The better AI will win the chess game.
+
+54
+00:05:03,040 --> 00:05:09,440
+And finally, general intelligence. This is where it becomes interesting in my opinion.
+
+55
+00:05:09,440 --> 00:05:13,760
+So generality is the ability to behave intelligently in a wide range of domains.
+
+56
+00:05:13,760 --> 00:05:18,400
+If you take something like a chess AI, it's extremely narrow. It only knows how to play chess
+
+57
+00:05:19,280 --> 00:05:23,440
+and even though you might say that it's more intelligent than a thermostat because
+
+58
+00:05:23,440 --> 00:05:28,720
+it's more sophisticated, it's more complicated, it couldn't do the thermostat's job. There's no
+
+59
+00:05:29,520 --> 00:05:33,680
+position on the chessboard that corresponds to the room being a good temperature. There's no
+
+60
+00:05:33,680 --> 00:05:37,680
+move that corresponds to turning on an air conditioner. The chess AI can only think in
+
+61
+00:05:37,680 --> 00:05:44,880
+terms of chess. It's extremely narrow. Generality is a continuous spectrum. So if you write a program
+
+62
+00:05:44,880 --> 00:05:51,360
+that can play an Atari game, that's very narrow. DeepMind, one of their early triumphs was that
+
+63
+00:05:51,360 --> 00:05:55,520
+they made a program that could play dozens of different Atari games. A single program that
+
+64
+00:05:55,520 --> 00:06:01,840
+could learn all of these different games. And so it's more general because it's able to act across
+
+65
+00:06:01,840 --> 00:06:07,280
+a wider variety of domains. The most general intelligence that we're aware of right now
+
+66
+00:06:07,280 --> 00:06:13,520
+is human beings. Human beings are very general. We're able to operate across a very wide
+
+67
+00:06:13,520 --> 00:06:19,120
+range of domains including, and this is important, we're able to learn domains which
+
+68
+00:06:19,760 --> 00:06:25,840
+evolution did not and could not prepare us for. We can, for example, drive a car and evolution did
+
+69
+00:06:25,840 --> 00:06:32,240
+not prepare us for that. We invented cars, they're very recent. We can, you know, invent rockets and
+
+70
+00:06:32,240 --> 00:06:36,400
+go to the moon and then we can operate on the moon, which is a completely different environment.
+
+71
+00:06:36,400 --> 00:06:39,680
+And this is kind of the power of general intelligence. Really the power of general
+
+72
+00:06:39,680 --> 00:06:44,880
+intelligence is we can build a car, we can build a rocket, we can put the car on the rocket, take
+
+73
+00:06:44,880 --> 00:06:52,320
+the car to the moon, drive the car on the moon. And there's nothing else that can do that yet.
+
+74
+00:06:54,720 --> 00:06:59,520
+But sooner or later, right? So this is what I'm talking about. I'm talking about
+
+75
+00:07:00,880 --> 00:07:08,320
+what you might call true AI, real AI, the sci-fi stuff. An agent which has goals in the real world
+
+76
+00:07:08,320 --> 00:07:13,760
+and is able to intelligently choose actions in the real world to achieve those goals. Now that sounds
+
+77
+00:07:14,960 --> 00:07:18,400
+I've said, I've said, what's the biggest problem? This doesn't sound like a problem, right?
+
+78
+00:07:20,160 --> 00:07:25,040
+On the surface of it, this sounds like a solution. You just tell the thing, you know,
+
+79
+00:07:26,160 --> 00:07:30,000
+cure cancer or maximize the profits of my company or whatever. And it takes whatever
+
+80
+00:07:30,000 --> 00:07:34,080
+actions are necessary in the real world to achieve that goal. But it is a problem.
+
+81
+00:07:35,600 --> 00:07:39,440
+So the big problem is, this should be auto-playing and it isn't,
+
+82
+00:07:39,680 --> 00:07:48,720
+the big problem is it's difficult to choose good goals. So this is an AI made by OpenAI. It's
+
+83
+00:07:48,720 --> 00:07:52,480
+playing a game called Coast Runners, which is actually a racing game. They trained it on the
+
+84
+00:07:52,480 --> 00:07:57,040
+score, which you probably can't see down here. It's currently a thousand. What the system learned
+
+85
+00:07:57,040 --> 00:08:01,760
+is that if it goes around in a circle here and crashes into everything and catches fire,
+
+86
+00:08:01,760 --> 00:08:07,120
+these little turbo pickups, they respawn at just the right rate. That if it just flings itself
+
+87
+00:08:07,120 --> 00:08:12,560
+around in a circle, it can pick up the turbo and that gives you a few points every time you do that.
+
+88
+00:08:12,560 --> 00:08:17,920
+And it turns out that this is a much better way of getting points than actually racing around the
+
+89
+00:08:17,920 --> 00:08:26,800
+track. And the important point here is that this is not unusual. This is not OpenAI doing anything
+
+90
+00:08:26,800 --> 00:08:33,120
+unusually stupid. This is kind of the default. Picking objectives is surprisingly hard and you
+
+91
+00:08:33,120 --> 00:08:39,440
+will find that the strategy or the behavior that maximizes your objective is probably not the thing
+
+92
+00:08:39,440 --> 00:08:44,160
+you thought it was. It's probably not what you were aiming for. There's loads of examples. Actually,
+
+93
+00:08:44,160 --> 00:08:49,840
+Victoria has a great list on her blog, Deep Safety. There's like 30 of them, different things going
+
+94
+00:08:49,840 --> 00:08:54,880
+wrong. There was one they had, they were trying to teach, they were trying to evolve systems that
+
+95
+00:08:54,880 --> 00:08:59,040
+would run quickly. So they trained them on the, I'm going to pause this because it's distracting as
+
+96
+00:08:59,040 --> 00:09:07,840
+hell. Where's my mouse? Yeah, pause, pause please. They were training like agents that were supposed
+
+97
+00:09:07,840 --> 00:09:12,320
+to run. So they simulated them for a particular period of time and measured how far their center
+
+98
+00:09:12,320 --> 00:09:16,480
+of mass moved, which seems perfectly sensible. What they found was that they developed a bunch
+
+99
+00:09:16,480 --> 00:09:20,960
+of these creatures which were extremely tall and thin with a big mass on the end that then fell
+
+100
+00:09:20,960 --> 00:09:25,440
+over. Because they weren't simulating them for long enough that you could go the fastest just
+
+101
+00:09:25,440 --> 00:09:29,920
+by falling over rather than actually running. That moved your center of mass the furthest.
+
+102
+00:09:30,960 --> 00:09:37,120
+There's a lot of these. There was a Tetris bot which would play reasonably well and then just
+
+103
+00:09:37,120 --> 00:09:42,160
+when it was about to lose, would pause the game and sit there indefinitely. Because it lost points
+
+104
+00:09:42,160 --> 00:09:46,160
+for losing, but didn't lose any points for just sitting on the pause screen indefinitely.
+
+105
+00:09:47,440 --> 00:09:51,680
+This is, this is like the default of how these systems behave. I have no memory what my
+
+106
+00:09:51,680 --> 00:09:57,440
+next slide is. Oh yeah, right. So we have problems specifying even simple goals in simple environments
+
+107
+00:09:57,440 --> 00:10:03,280
+like Atari games or basic evolutionary algorithms, things like that. When it comes to the real world
+
+108
+00:10:03,280 --> 00:10:07,200
+things get way more complicated. This is a quote from Stuart Russell who sort of wrote the book on
+
+109
+00:10:07,200 --> 00:10:11,920
+AI. When a system is optimizing a function of n variables where the objective depends on a subset
+
+110
+00:10:11,920 --> 00:10:17,680
+of size k which is less than n, it will often set the remaining unconstrained variables to extreme
+
+111
+00:10:17,760 --> 00:10:22,800
+values. If one of those unconstrained variables is something that we care about, the solution found
+
+112
+00:10:22,800 --> 00:10:27,840
+may be highly undesirable. In the real world we have a very large number of variables and so we're
+
+113
+00:10:27,840 --> 00:10:33,120
+talking about, we're talking about very large values for n here. So let's say you've got your
+
+114
+00:10:33,120 --> 00:10:37,120
+robot and you've given it a goal which you think is very simple. You want it to get you a cup of tea.
+
+115
+00:10:38,160 --> 00:10:42,160
+So you've managed to specify what a cup of tea is and that you want one to be on the desk in front
+
+116
+00:10:42,160 --> 00:10:49,280
+of you. So far so good. But suppose there is a, there's a priceless Ming vase on a narrow stand
+
+117
+00:10:49,280 --> 00:10:54,080
+sort of in front of where the kitchen is. So the robot immediately plows into the vase and destroys
+
+118
+00:10:54,080 --> 00:10:59,600
+it on its way to make you a cup of tea because you only gave it one variable to keep track of in the
+
+119
+00:10:59,600 --> 00:11:03,760
+goal which is the tea. It doesn't care about the vase. You never told it to care about the vase.
+
+120
+00:11:03,760 --> 00:11:09,760
+It destroys the vase. This is a problem. So you've got a very large number of variables and so you
+
+121
+00:11:09,760 --> 00:11:19,120
+have a problem. So okay now you can, you know, shut it down, modify it and say okay get me a cup of tea but
+
+122
+00:11:19,120 --> 00:11:26,160
+also don't knock over the vase. But then there will be a third thing. There is always another thing
+
+123
+00:11:26,160 --> 00:11:32,640
+because when, when you're making decisions in the real world you're always making trade-offs. You're
+
+124
+00:11:32,640 --> 00:11:38,720
+always taking various things that you value and deciding how much of one you're willing to trade
+
+125
+00:11:38,720 --> 00:11:43,600
+for how much of another. You know, I could do this quicker but it increases the risk of me making a
+
+126
+00:11:43,600 --> 00:11:49,600
+mistake. Or I could do this cheaper but it won't be as reliable. I could do this faster but it'll
+
+127
+00:11:49,600 --> 00:11:55,680
+be more expensive. You're always trading these things off against one another and so an agent
+
+128
+00:11:55,680 --> 00:12:00,880
+like this which only cares about a limited subset of the variables in the system will be willing to
+
+129
+00:12:00,880 --> 00:12:06,160
+trade off arbitrarily large amounts of any of the variables that aren't part of its goal for
+
+130
+00:12:06,160 --> 00:12:13,440
+arbitrarily tiny increases in any of the things which are in its goal. So it will happily, let's
+
+131
+00:12:13,440 --> 00:12:18,640
+say now for example, now it values the vase and those are the only things that it values. It might
+
+132
+00:12:18,640 --> 00:12:24,160
+reason something like okay there's a human in the environment, the human moves around, the human may
+
+133
+00:12:24,160 --> 00:12:29,120
+accidentally knock over the vase and I care about the vase so I have to kill the human, right? And
+
+134
+00:12:29,120 --> 00:12:34,480
+this is totally ridiculous but if you didn't tell it that you value being alive it doesn't care and
+
+135
+00:12:34,480 --> 00:12:39,280
+anything that it doesn't value is going to be lost. If you manage to come up with, if you have a
+
+136
+00:12:39,280 --> 00:12:44,000
+sufficiently powerful agent and you manage to come up with a really good objective function which
+
+137
+00:12:44,000 --> 00:12:51,120
+covers the top 20 things that humans value, the 21st thing that humans value is probably gone forever
+
+138
+00:12:51,760 --> 00:12:58,640
+because the smarter, the more powerful the agent is the better it will be at figuring out ways to
+
+139
+00:12:58,640 --> 00:13:04,560
+make these trade-offs, to gain a millionth of a percent better at one thing while sacrificing
+
+140
+00:13:05,280 --> 00:13:11,760
+everything of some other variable. So this is a problem but actually that scenario I gave was
+
+141
+00:13:11,760 --> 00:13:20,080
+unrealistic in many ways but one important way that it was unrealistic is that I had, I had
+
+142
+00:13:20,080 --> 00:13:27,120
+the system go wrong and then you just turn it off and fix it but in fact if you're, if the thing has
+
+143
+00:13:27,120 --> 00:13:31,760
+a goal of getting you a cup of tea this is not like a chess AI where you can just turn it off
+
+144
+00:13:31,760 --> 00:13:38,800
+because it has no concept of itself or of being turned off. Its world model contains you, it
+
+145
+00:13:38,800 --> 00:13:44,080
+contains itself, it contains the possibility of being turned off and it's fully aware that if you
+
+146
+00:13:44,080 --> 00:13:48,480
+turn it off because it knocked over the vase it won't be able to get you any tea which is the
+
+147
+00:13:48,480 --> 00:13:54,400
+only thing it cares about. So it's not going to just let you turn it off, it will fight you or if
+
+148
+00:13:54,400 --> 00:13:59,440
+it's slightly smarter it will deceive you so that you believe it's working correctly so that you
+
+149
+00:13:59,440 --> 00:14:04,400
+don't want to change it until it's in a position where you can't turn it off and then it will go
+
+150
+00:14:04,400 --> 00:14:14,240
+after its actual objective. So, so this is a problem and the thing is this is, this is a
+
+151
+00:14:14,240 --> 00:14:18,320
+convergent instrumental goal which means it sort of doesn't matter what the goal is, it doesn't
+
+152
+00:14:18,320 --> 00:14:22,960
+matter what your goal is as an agent. If you're destroyed you can't achieve that goal so it sort
+
+153
+00:14:22,960 --> 00:14:27,280
+of almost doesn't matter what goal we give it, there is only a very tiny fraction of possible
+
+154
+00:14:27,280 --> 00:14:34,320
+goals that will involve it actually allowing itself to be turned off and modified and that's
+
+155
+00:14:34,320 --> 00:14:39,120
+quite complicated. There are some other convergent instrumental goals so we had self-preservation,
+
+156
+00:14:39,120 --> 00:14:43,280
+goal preservation, resource acquisition is the kind of thing we can expect these kinds of systems to do.
+
+157
+00:14:44,640 --> 00:14:49,920
+Most plans you can do them better if you have more resources whether that's money, computational
+
+158
+00:14:49,920 --> 00:14:57,280
+resources, just free energy, matter, whatever. The other one is self-improvement, whatever you're
+
+159
+00:14:57,280 --> 00:15:02,080
+trying to do you can probably do it better if you're smarter and AI systems potentially have
+
+160
+00:15:02,080 --> 00:15:07,920
+the capacity to improve themselves either just by acquiring more hardware to run on or changing,
+
+161
+00:15:07,920 --> 00:15:12,800
+you know, improving their, their software to run faster or better or so on. So there's a whole
+
+162
+00:15:12,800 --> 00:15:20,560
+bunch of behaviours which intelligent systems, intelligent agents, generally intelligent agents,
+
+163
+00:15:21,680 --> 00:15:29,280
+we would expect them to do by default and that's really my core point. Artificial general intelligence
+
+164
+00:15:29,280 --> 00:15:36,960
+is dangerous by default. It's much, much easier to build these kinds of agents which try to do
+
+165
+00:15:36,960 --> 00:15:42,240
+ridiculous things and trick you and try to deceive you or will fight you when you try to turn them
+
+166
+00:15:42,240 --> 00:15:48,640
+off or modify them on the way to doing some ridiculous thing which you don't want. Much easier
+
+167
+00:15:48,640 --> 00:15:54,240
+to build that kind of agent than it is to build something which actually reliably does what you
+
+168
+00:15:54,240 --> 00:16:03,600
+want it to do and that's why we have a problem because we have 45 to 120 years to figure out
+
+169
+00:16:03,600 --> 00:16:11,440
+how to do it safely which is a much harder problem and we may only get one shot. It's
+
+170
+00:16:11,440 --> 00:16:19,040
+entirely possible that the first true artificial general intelligence will manage to successfully
+
+171
+00:16:19,040 --> 00:16:25,200
+achieve whatever its stupid goal is and that could be truly a disaster on a global scale.
+
+172
+00:16:26,720 --> 00:16:33,200
+So we have to, we have to beat this challenge on hard mode before anyone beats it on easy mode.
+
+173
+00:16:34,320 --> 00:16:47,040
+So are we screwed? No, we're only probably screwed. There are things we can do. Safe
+
+174
+00:16:47,040 --> 00:16:53,040
+general artificial intelligence is totally possible, it's just a very difficult technical
+
+175
+00:16:53,040 --> 00:17:00,000
+challenge and there are people working very hard on it right now trying to solve a whole range of
+
+176
+00:17:00,000 --> 00:17:05,840
+difficult technical challenges so that we can figure out how to do this safely. Thanks.
+
+177
+00:17:17,120 --> 00:17:21,440
+You may have noticed in the intro and this outro that the image quality has improved since the
+
+178
+00:17:21,440 --> 00:17:27,600
+last video. That's largely thanks to my excellent patrons. Thank you to all of these people here for
+
+179
+00:17:27,600 --> 00:17:32,160
+helping me to get this new camera. In this video I'm especially thanking James Petz who's been
+
+180
+00:17:32,160 --> 00:17:36,240
+hanging out with us on the discord server helping answer questions from the YouTube comments and so
+
+181
+00:17:36,240 --> 00:17:40,640
+on. And actually that last video about Mesa optimizers has had a lot of really good questions
+
+182
+00:17:40,640 --> 00:17:44,960
+so the next video will be answering some of those. That's coming up soon. So thanks again
+
+183
+00:17:44,960 --> 00:17:50,240
+to James and to all my patrons, to everyone who asked questions, and to you for watching.
+
+184
+00:17:50,240 --> 00:17:55,440
+I'll see you next time.
+
+185
+00:17:57,600 --> 00:17:58,640
+you
+

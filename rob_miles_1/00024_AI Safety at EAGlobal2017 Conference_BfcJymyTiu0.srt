@@ -1,0 +1,376 @@
+1
+00:00:00,000 --> 00:00:06,000
+This weekend I went to Imperial College London to attend the Effective Altruism Global Conference.
+
+2
+00:00:06,000 --> 00:00:09,000
+The conference isn't actually about AI, it's about charity.
+
+3
+00:00:09,000 --> 00:00:14,000
+The idea is, like, if you want to save human lives and you've got £100 to spend on that,
+
+4
+00:00:14,000 --> 00:00:18,000
+you have to make a decision about which charity to give that money to.
+
+5
+00:00:18,000 --> 00:00:24,000
+And they'll all say that they're good, but which charity is going to save the most lives per pound on average?
+
+6
+00:00:24,000 --> 00:00:26,000
+It's a difficult question to answer.
+
+7
+00:00:26,000 --> 00:00:31,000
+But it turns out that there are popular charities trying to solve the same problem,
+
+8
+00:00:31,000 --> 00:00:35,000
+where one charity is 100 or 1,000 times more effective than the other.
+
+9
+00:00:35,000 --> 00:00:41,000
+It's kind of insane, but it can happen because, apart from these guys, nobody's really paying attention.
+
+10
+00:00:41,000 --> 00:00:46,000
+You know, people don't really do the work to figure out which charities are actually effective at what they're trying to do.
+
+11
+00:00:46,000 --> 00:00:48,000
+So that's pretty interesting, but it's not why I attended.
+
+12
+00:00:48,000 --> 00:00:53,000
+See, there's an argument that, if people like me are right about artificial intelligence,
+
+13
+00:00:53,000 --> 00:00:56,000
+then giving money to help fund AI safety research
+
+14
+00:00:56,000 --> 00:01:00,000
+might actually be an effective way to use charitable donations to help the world.
+
+15
+00:01:00,000 --> 00:01:04,000
+Not everybody agrees, of course, but they take the issue seriously enough
+
+16
+00:01:04,000 --> 00:01:09,000
+that they invited a bunch of experts to speak at the conference to help people understand the issue better.
+
+17
+00:01:09,000 --> 00:01:15,000
+So this charity conference turns out to be a great place to hear the perspectives of a lot of AI safety experts.
+
+18
+00:01:15,000 --> 00:01:18,000
+Victoria Krikovna from DeepMind's safety team
+
+19
+00:01:18,000 --> 00:01:21,000
+and Awain Evans from the Future of Humanity Institute
+
+20
+00:01:21,000 --> 00:01:25,000
+gave a talk together about careers in technical AI safety research,
+
+21
+00:01:25,000 --> 00:01:27,000
+which is basically what this channel is about.
+
+22
+00:01:27,000 --> 00:01:31,000
+I'm not going to include much from these talks because they were professionally recorded,
+
+23
+00:01:31,000 --> 00:01:33,000
+and they'll go live on YouTube at some point.
+
+24
+00:01:33,000 --> 00:01:35,000
+I'll put a link in the description as and when that happens.
+
+25
+00:01:35,000 --> 00:01:39,000
+But yeah, Vika talked about what the problems are, what the field involves,
+
+26
+00:01:39,000 --> 00:01:41,000
+and what it's like to work in AI safety.
+
+27
+00:01:41,000 --> 00:01:45,000
+And Awain talked about the places you can go, the things you should do,
+
+28
+00:01:45,000 --> 00:01:49,000
+what things you'll need to study, what qualifications you might need or not need, as the case may be.
+
+29
+00:01:49,000 --> 00:01:51,000
+They answered questions afterwards.
+
+30
+00:01:51,000 --> 00:01:53,000
+The sound I recorded for this really sucks.
+
+31
+00:01:53,000 --> 00:01:57,000
+But yeah, the general consensus was there are lots of interesting problems
+
+32
+00:01:57,000 --> 00:01:59,000
+and hardly anyone's working on them,
+
+33
+00:01:59,000 --> 00:02:03,000
+and we need at least 10 times as many AI safety researchers as we've got.
+
+34
+00:02:03,000 --> 00:02:05,000
+DeepMind is hiring.
+
+35
+00:02:05,000 --> 00:02:07,000
+The Future of Humanity Institute is hiring.
+
+36
+00:02:07,000 --> 00:02:12,000
+Actually, there'll be a link in the description to a specific job posting that they have right now.
+
+37
+00:02:12,000 --> 00:02:17,000
+And Awain is working on a new thing called Ort.org, which isn't up yet but will be hiring soon.
+
+38
+00:02:17,000 --> 00:02:19,000
+Lots of opportunities here.
+
+39
+00:02:19,000 --> 00:02:24,000
+Oh, some people were there arguing that if animals can experience suffering in a way that's morally relevant,
+
+40
+00:02:24,000 --> 00:02:28,000
+then maybe factory farming is actually the biggest cause of preventable suffering and death on Earth,
+
+41
+00:02:28,000 --> 00:02:31,000
+and fixing that would be an effective way to use our charity money.
+
+42
+00:02:31,000 --> 00:02:35,000
+So I tried out their virtual reality thing that lets you experience the inside of a slaughterhouse
+
+43
+00:02:35,000 --> 00:02:37,000
+from the perspective of a cow.
+
+44
+00:02:37,000 --> 00:02:40,000
+Worst VR experience of my life.
+
+45
+00:02:40,000 --> 00:02:42,000
+7.8 out of 10.
+
+46
+00:02:42,000 --> 00:02:45,000
+Helen Toner, an analyst at the Open Philanthropy Project,
+
+47
+00:02:45,000 --> 00:02:48,000
+talked about their work on artificial intelligence,
+
+48
+00:02:48,000 --> 00:02:52,000
+analyzing how likely different scenarios are and thinking about strategy and policy,
+
+49
+00:02:52,000 --> 00:02:55,000
+how we can tackle this problem as a civilization,
+
+50
+00:02:55,000 --> 00:02:58,000
+and how they're helping to fund the technical research that we'll need.
+
+51
+00:02:58,000 --> 00:03:02,000
+In the questions, she had some advice about talking to people about this subject.
+
+52
+00:03:02,000 --> 00:03:08,000
+It's important to be able to disambiguate the types of concerns that AI researchers actually have
+
+53
+00:03:08,000 --> 00:03:12,000
+from this concern that the robots are going to wake up and come and kill everyone.
+
+54
+00:03:12,000 --> 00:03:14,000
+And about doing the work yourself.
+
+55
+00:03:14,000 --> 00:03:17,000
+If you're interested in doing this machine learning side of AI safety,
+
+56
+00:03:17,000 --> 00:03:20,000
+it's probably more important to get really, really good at machine learning
+
+57
+00:03:20,000 --> 00:03:23,000
+and become a really, really talented machine learning researcher.
+
+58
+00:03:23,000 --> 00:03:27,000
+That's probably more important than trying to work on safety as soon as you can.
+
+59
+00:03:27,000 --> 00:03:30,000
+Here's Alan Defoe, also from the Open Philanthropy Project,
+
+60
+00:03:30,000 --> 00:03:35,000
+who went into some detail about their analysis of the landscape for AI in the coming years.
+
+61
+00:03:35,000 --> 00:03:38,000
+I really recommend this talk to help people understand the difference
+
+62
+00:03:38,000 --> 00:03:41,000
+between when people are trying to tell interesting stories
+
+63
+00:03:41,000 --> 00:03:43,000
+about what might happen in the future
+
+64
+00:03:43,000 --> 00:03:47,000
+and when people are seriously and diligently trying to figure out
+
+65
+00:03:47,000 --> 00:03:50,000
+what might happen in the future because they want to be ready for it.
+
+66
+00:03:50,000 --> 00:03:52,000
+Some really interesting things in that talk,
+
+67
+00:03:52,000 --> 00:03:55,000
+and I'd strongly recommend checking that out when it goes up online.
+
+68
+00:03:55,000 --> 00:03:58,000
+Probably my favorite talk was from Shahar Avin,
+
+69
+00:03:58,000 --> 00:04:02,000
+from the Center for the Study of Existential Risk at the University of Cambridge.
+
+70
+00:04:02,000 --> 00:04:05,000
+He was there talking about a report that they're going to release very soon
+
+71
+00:04:05,000 --> 00:04:09,000
+about preventing and mitigating the misuse of artificial intelligence.
+
+72
+00:04:09,000 --> 00:04:11,000
+Really interesting stuff.
+
+73
+00:04:11,000 --> 00:04:15,000
+Dr. Avin is very wise and correct about everything.
+
+74
+00:04:15,000 --> 00:04:18,000
+Here are concrete problems in AI safety,
+
+75
+00:04:18,000 --> 00:04:21,000
+and that's kind of a very good paper, but a bit longish,
+
+76
+00:04:21,000 --> 00:04:24,000
+so if you want to consume it in a more video-engaging way,
+
+77
+00:04:24,000 --> 00:04:29,000
+Rob Miles has a series of videos about this on YouTube that I strongly recommend.
+
+78
+00:04:30,000 --> 00:04:32,000
+That's all for now.
+
+79
+00:04:32,000 --> 00:04:35,000
+The next video will be the next section of Concrete Problems in AI Safety,
+
+80
+00:04:35,000 --> 00:04:37,000
+Scalable Supervision.
+
+81
+00:04:37,000 --> 00:04:40,000
+So subscribe and click the bell if you want to be notified when that comes out,
+
+82
+00:04:40,000 --> 00:04:42,000
+and I'll see you next time.
+
+83
+00:04:42,000 --> 00:04:45,000
+Cashews. There's cashews everywhere.
+
+84
+00:04:45,000 --> 00:04:47,000
+This is a great conference.
+
+85
+00:04:57,000 --> 00:05:00,000
+I want to thank my wonderful patrons who make this channel possible
+
+86
+00:05:00,000 --> 00:05:02,000
+by supporting me on Patreon.
+
+87
+00:05:02,000 --> 00:05:04,000
+All of these excellent people.
+
+88
+00:05:04,000 --> 00:05:07,000
+In this video, I'm especially thanking Kyle Scott,
+
+89
+00:05:07,000 --> 00:05:10,000
+who's done more for this channel than just about anyone else.
+
+90
+00:05:10,000 --> 00:05:13,000
+You guys should see some big improvements to the channel over the coming months,
+
+91
+00:05:13,000 --> 00:05:15,000
+and a lot of that is down to Kyle.
+
+92
+00:05:15,000 --> 00:05:17,000
+So, thank you so, so much.
+
+93
+00:05:20,000 --> 00:05:22,000
+Okay, well there's cashews here.
+
+94
+00:05:22,000 --> 00:05:24,000
+This is a great conference.
+

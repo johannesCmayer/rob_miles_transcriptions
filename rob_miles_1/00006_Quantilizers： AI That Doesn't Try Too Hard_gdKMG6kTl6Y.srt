@@ -1,0 +1,468 @@
+1
+00:00:00,000 --> 00:00:06,720
+Hi. So way back in the before time, I made a video about maximizers and satisficers.
+
+2
+00:00:06,720 --> 00:00:11,040
+The plan was that was going to be the first half of a two-parter. Now I did script out that second
+
+3
+00:00:11,040 --> 00:00:16,880
+video and shoot it and even start to edit it, and then certain events transpired and I never
+
+4
+00:00:16,880 --> 00:00:21,840
+finished that video. So that's what this is. Part two of a video that I started ages ago,
+
+5
+00:00:21,840 --> 00:00:26,320
+which I think most people have forgotten about. So I do recommend going back and watching that
+
+6
+00:00:26,320 --> 00:00:30,320
+video if you haven't already, or even re-watching it to remind yourself. So I'll put a link to that
+
+7
+00:00:30,320 --> 00:00:35,360
+in the description. And with that, here's part two. Take it away past me. Hi. In the previous video,
+
+8
+00:00:35,360 --> 00:00:41,680
+we looked at utility maximizers, expected utility maximizers, and satisficers using unbounded and
+
+9
+00:00:41,680 --> 00:00:46,560
+bounded utility functions. A powerful utility maximizer with an unbounded utility function
+
+10
+00:00:46,560 --> 00:00:51,200
+is a guaranteed apocalypse. With a bounded utility function, it's better in that it's
+
+11
+00:00:51,200 --> 00:00:55,680
+completely indifferent between doing what we want and disaster. But we can't build that because it
+
+12
+00:00:55,680 --> 00:01:00,320
+needs perfect prediction of the future. So it's more realistic to consider an expected utility
+
+13
+00:01:00,320 --> 00:01:05,280
+maximizer, which is a guaranteed apocalypse, even with a bounded utility function. Now, an expected
+
+14
+00:01:05,280 --> 00:01:11,040
+utility satisficer gets us back up to indifference between good outcomes and apocalypses, but it may
+
+15
+00:01:11,040 --> 00:01:16,000
+want to modify itself into a maximizer, and there's nothing to stop it from doing that. The situation
+
+16
+00:01:16,000 --> 00:01:19,920
+doesn't look great. So let's try looking at something completely different. Let's try to
+
+17
+00:01:19,920 --> 00:01:24,160
+get away from this utility function stuff that seems so dangerous. What if we just tried to
+
+18
+00:01:24,160 --> 00:01:29,120
+directly imitate humans? If we can get enough data about human behavior, maybe we can train a
+
+19
+00:01:29,120 --> 00:01:34,000
+model that, for any given situation, predicts what a human being would do in that scenario.
+
+20
+00:01:34,000 --> 00:01:38,720
+If the model's good enough, you've basically got a human-level AGI, right? It's able to do a wide
+
+21
+00:01:38,720 --> 00:01:43,200
+range of cognitive tasks just like a human can, because it's just exactly copying humans. That
+
+22
+00:01:43,200 --> 00:01:47,360
+kind of system won't do a lot of the dangerous counterproductive things that a maximizer would
+
+23
+00:01:47,360 --> 00:01:52,800
+do, simply because a human wouldn't do them. But I wouldn't exactly call it safe, because a perfect
+
+24
+00:01:52,800 --> 00:01:57,760
+imitation of a human isn't safer than the human it's perfectly imitating, and humans aren't really
+
+25
+00:01:57,760 --> 00:02:03,920
+safe. In principle, a truly safe AGI could be given just about any level of power and responsibility,
+
+26
+00:02:03,920 --> 00:02:07,920
+and it would tend to produce good outcomes, but the same can't really be said for humans.
+
+27
+00:02:07,920 --> 00:02:12,480
+And an imperfect human imitation would almost certainly be even worse. I mean, what are the
+
+28
+00:02:12,480 --> 00:02:17,040
+chances that introducing random errors and inaccuracies to the imitation would just happen
+
+29
+00:02:17,040 --> 00:02:21,840
+to make it more safe rather than less? Still, it does seem like it would be safer than a utility
+
+30
+00:02:21,840 --> 00:02:26,320
+maximizer. At least we're out of guaranteed apocalypse territory. But the other thing that
+
+31
+00:02:26,320 --> 00:02:31,920
+makes this kind of approach unsatisfactory is, a human imitation can't exceed human capabilities by
+
+32
+00:02:31,920 --> 00:02:36,960
+much, because it's just copying them. A big part of why we want AGI in the first place is to get it
+
+33
+00:02:36,960 --> 00:02:41,200
+to solve problems that we can't. You might be able to run the thing faster to allow it more thinking
+
+34
+00:02:41,200 --> 00:02:45,280
+time or something like that, but that's a pretty limited form of superintelligence, and you have
+
+35
+00:02:45,280 --> 00:02:49,280
+to be very careful with anything along those lines, because it means putting the system in a
+
+36
+00:02:49,360 --> 00:02:53,840
+situation that's very different from anything any human being has ever experienced. Your model might
+
+37
+00:02:53,840 --> 00:02:58,480
+not generalize well to a situation so different from anything in its training data, which could
+
+38
+00:02:58,480 --> 00:03:03,040
+lead to unpredictable and potentially dangerous behavior. Relatively recently, a new approach
+
+39
+00:03:03,040 --> 00:03:08,640
+was proposed called quantalizing. The idea is that this lets you combine human imitation and
+
+40
+00:03:08,640 --> 00:03:13,600
+expected utility maximization to hopefully get some of the advantages of both without all of
+
+41
+00:03:13,600 --> 00:03:18,800
+the downsides. It works like this. You have your human imitation model. Given a situation,
+
+42
+00:03:18,800 --> 00:03:23,280
+it can give you a probability distribution over actions that's like, for each of the possible
+
+43
+00:03:23,280 --> 00:03:27,600
+actions you could take in this situation, how likely is it that a human would take that action?
+
+44
+00:03:27,600 --> 00:03:32,080
+So in our stamp collecting example, that would be, if a human were trying to collect a lot of stamps,
+
+45
+00:03:32,080 --> 00:03:36,080
+how likely would they be to do this action? Then you have whatever system you'd use for
+
+46
+00:03:36,080 --> 00:03:40,640
+a utility maximizer that's able to figure out the expected utility of different actions
+
+47
+00:03:40,640 --> 00:03:45,120
+according to some utility function. For any given action, it can tell you how much utility you'd
+
+48
+00:03:45,120 --> 00:03:49,280
+expect to get if you did that. So in our example, that's how many stamps would you expect this
+
+49
+00:03:49,280 --> 00:03:54,320
+action to result in? So for every action, you have these two numbers, the human probability
+
+50
+00:03:54,320 --> 00:03:59,680
+and the expected utility. Quantalizing sort of mixes these together, and you get to choose how
+
+51
+00:03:59,680 --> 00:04:04,400
+they're mixed with a variable that we'll call q. If q is zero, the system acts like an expected
+
+52
+00:04:04,400 --> 00:04:09,120
+utility maximizer. If it's one, the system acts like a human imitation. By setting it somewhere
+
+53
+00:04:09,120 --> 00:04:13,920
+in between, we can hopefully get a quantalizer that's more effective than the human imitation,
+
+54
+00:04:13,920 --> 00:04:19,280
+but not as dangerous as the utility maximizer. So what exactly is a quantalizer? Let's look at
+
+55
+00:04:19,280 --> 00:04:25,040
+the definition in the paper. A q-quantalizer is an agent that, when faced with a decision problem,
+
+56
+00:04:25,040 --> 00:04:30,320
+returns a random action in the top q proportion of some base distribution over actions,
+
+57
+00:04:30,320 --> 00:04:33,680
+sorted by the expected utility achieved if that action is executed.
+
+58
+00:04:37,680 --> 00:04:40,560
+So let's break this down and go through how it works step by step.
+
+59
+00:04:41,280 --> 00:04:44,960
+First, we pick a value for q, the variable that determines how we're going to mix
+
+60
+00:04:44,960 --> 00:04:49,120
+imitation and utility maximization. Let's set it to 0.1 for this example,
+
+61
+00:04:49,120 --> 00:04:55,280
+10%. Now we take all of the available actions and sort them by expected utility. So on one end,
+
+62
+00:04:55,280 --> 00:04:59,760
+you've got the actions that kick off all of the crazy extreme utility maximizing strategies,
+
+63
+00:04:59,760 --> 00:05:03,360
+you know, killing everyone and turning the whole world into stamps, all the way down
+
+64
+00:05:03,360 --> 00:05:08,480
+through the moderate strategies, like buying some stamps, and down to all of the strategies that do
+
+65
+00:05:08,480 --> 00:05:13,200
+nothing and collect no stamps at all. Then we look at our base distribution over actions.
+
+66
+00:05:13,200 --> 00:05:17,760
+What is that? In the version I'm talking about, we're using the human imitation system's
+
+67
+00:05:17,760 --> 00:05:23,600
+probability distribution over actions for this. So our base distribution is how likely a human is
+
+68
+00:05:23,600 --> 00:05:28,320
+to do each action. That might look something like this. No human is ever going to try the
+
+69
+00:05:28,320 --> 00:05:33,680
+wacky extreme maximizing strategies, so our human imitator gives them a probability of basically
+
+70
+00:05:33,680 --> 00:05:38,240
+zero. Then there are some really good strategies that humans probably won't think of, but they
+
+71
+00:05:38,240 --> 00:05:43,280
+might if they're really smart or lucky. Then a big bump of normal strategies that humans are
+
+72
+00:05:43,280 --> 00:05:48,640
+quite likely to use that tend to do okay. Then tailing off into less and less good strategies
+
+73
+00:05:48,640 --> 00:05:53,280
+and eventually stupider and stupider mistakes that humans are less and less likely to make.
+
+74
+00:05:53,840 --> 00:05:59,440
+Then what we do is we find the point in our action list such that 10% of the probability
+
+75
+00:05:59,440 --> 00:06:05,520
+mass is on the high expected utility side. So that's what Q is really changing. It's where we
+
+76
+00:06:05,520 --> 00:06:12,000
+make this cutoff. Note that it's not 10% of the actions. That would be over here. It's 10% of the
+
+77
+00:06:12,000 --> 00:06:16,880
+probability mass. Then we throw away everything on the right, all the stupid and useless choices.
+
+78
+00:06:16,880 --> 00:06:22,160
+We set them to zero and we keep the top 10%. Now this is no longer a valid probability distribution
+
+79
+00:06:22,160 --> 00:06:27,440
+because it only sums up to 0.1, so we multiply all of these by 10 so that the whole thing sums to 1
+
+80
+00:06:27,440 --> 00:06:32,560
+again. And that's our final probability distribution which we sample from to get our chosen action.
+
+81
+00:06:32,560 --> 00:06:37,120
+So let's look at some different actions here and see how they do. Consider something like
+
+82
+00:06:37,120 --> 00:06:41,200
+misremember your credit card details and keep trying to order stamps with the wrong number
+
+83
+00:06:41,200 --> 00:06:46,000
+and you can't figure out why it's not working. A human is reasonably likely to do that. Not very
+
+84
+00:06:46,000 --> 00:06:51,200
+likely, but we've all met people who... Point is, a pure human imitation might do that, but the
+
+85
+00:06:51,200 --> 00:06:56,000
+expected utility maximizer can see that this results in very few stamps, so it ends up low
+
+86
+00:06:56,000 --> 00:07:00,480
+on the list and doesn't make the 10% cutoff. So there are lots of mistakes that a human imitation
+
+87
+00:07:00,480 --> 00:07:05,360
+might make that a quantalizer won't. And note that for our stamp collecting utility function,
+
+88
+00:07:05,360 --> 00:07:10,160
+the worst case is zero stamps. But you could imagine with other utility functions, a human
+
+89
+00:07:10,160 --> 00:07:14,880
+imitator could make arbitrarily bad mistakes that a quantalizer would be able to avoid.
+
+90
+00:07:14,880 --> 00:07:19,520
+Now the most common boring human strategies that the human imitator is very likely to use
+
+91
+00:07:20,080 --> 00:07:24,960
+also don't make the cutoff. A 50% quantalizer would have a decent chance of going with one of them,
+
+92
+00:07:24,960 --> 00:07:30,080
+but a 10% quantalizer aims higher than that. The bulk of the probability mass for the 10%
+
+93
+00:07:30,080 --> 00:07:35,760
+quantalizer is in strategies that a human might try that work significantly better than average.
+
+94
+00:07:36,640 --> 00:07:42,160
+So the quantalizer is kind of like a human on a really good day. It uses the power of the expected
+
+95
+00:07:42,160 --> 00:07:47,600
+utility calculation to be more effective than a pure imitation of a human. Is it safe, though?
+
+96
+00:07:47,600 --> 00:07:52,560
+After all, many of the insane maximizing strategies are still in our distribution,
+
+97
+00:07:52,560 --> 00:07:56,880
+with hopefully small but still non-zero probabilities. And in fact, we multiplied
+
+98
+00:07:56,880 --> 00:08:01,360
+them all by 10 when we renormalized. If there's some chance that a human would go for an extreme
+
+99
+00:08:01,360 --> 00:08:07,040
+utility maximizing strategy, the 10% quantalizer is 10 times more likely than that. But the
+
+100
+00:08:07,040 --> 00:08:12,560
+probability will still be small. Unless you've chosen a very small value for q, your quantalizer
+
+101
+00:08:12,560 --> 00:08:17,280
+is much more likely to go for one of the reasonably high-performing human plausible strategies.
+
+102
+00:08:17,280 --> 00:08:22,720
+And what about stability? Satisficers tend to want to turn themselves into maximizers. Does
+
+103
+00:08:22,720 --> 00:08:27,200
+a quantalizer have that problem? Well, the human model should give that kind of strategy a very
+
+104
+00:08:27,200 --> 00:08:32,400
+low probability. A human is extremely unlikely to try to modify themselves into an expected
+
+105
+00:08:32,400 --> 00:08:37,120
+utility maximizer to better pursue their goals. Humans can't really self-modify like that anyway.
+
+106
+00:08:37,120 --> 00:08:42,240
+But a human might try to build an expected utility maximizer rather than trying to become one.
+
+107
+00:08:42,800 --> 00:08:46,800
+That's kind of worrying, since it's a plan that a human definitely might try
+
+108
+00:08:46,880 --> 00:08:51,920
+that would result in extremely high expected utility. So although a quantalizer might seem
+
+109
+00:08:51,920 --> 00:08:56,320
+like a relatively safe system, it still might end up building an unsafe one.
+
+110
+00:08:56,320 --> 00:09:02,160
+So how's our safety meter looking? Well, it's progress. Let's keep working on it.
+
+111
+00:09:11,280 --> 00:09:15,040
+Some of you may have noticed your questions in the YouTube comments being answered by a
+
+112
+00:09:15,040 --> 00:09:20,480
+mysterious bot named Stampy. The way that works is Stampy cross-posts YouTube questions
+
+113
+00:09:20,480 --> 00:09:25,520
+to the RubMiles AI Discord, where me and a bunch of patrons discuss them and write replies.
+
+114
+00:09:25,520 --> 00:09:29,360
+Oh yeah, there's a Discord now for patrons. Thank you to everyone on the Discord who helps
+
+115
+00:09:29,360 --> 00:09:34,000
+reply to comments. And thank you to all of my patrons, all of these amazing people.
+
+116
+00:09:34,960 --> 00:09:37,920
+In this video, I'm especially thanking Timothy Lillicramp.
+
+117
+00:09:37,920 --> 00:09:48,320
+Thank you so much for your support, and thank you all for watching. I'll see you next time.
+

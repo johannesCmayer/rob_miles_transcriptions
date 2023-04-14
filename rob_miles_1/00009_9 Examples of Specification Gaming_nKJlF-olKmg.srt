@@ -1,0 +1,528 @@
+1
+00:00:00,000 --> 00:00:05,280
+Hi. When talking about AI safety, people often talk about the legend of King Midas. You've
+
+2
+00:00:05,280 --> 00:00:10,120
+probably heard this one before. Midas is an ancient king who values, above all else, wealth
+
+3
+00:00:10,120 --> 00:00:14,220
+and money. And so when he's given an opportunity to make a wish, he wishes that everything
+
+4
+00:00:14,220 --> 00:00:19,800
+he touches would turn to gold. Now, as punishment for his greed, everything he touches turns
+
+5
+00:00:19,800 --> 00:00:25,040
+to gold. This includes his family, who turn into gold statues, and his food, which turns
+
+6
+00:00:25,040 --> 00:00:26,440
+into gold and he can't eat it.
+
+7
+00:00:26,440 --> 00:00:30,800
+The story generally ends with Midas starving to death, surrounded by gold, with the moral
+
+8
+00:00:30,800 --> 00:00:35,080
+being, there's more to life than money, or perhaps be careful what you wish for. Though
+
+9
+00:00:35,080 --> 00:00:39,720
+actually, I think he would die sooner, because any molecules of oxygen that touch the inside
+
+10
+00:00:39,720 --> 00:00:43,380
+of his lungs would turn to gold before he could breathe them in, so he would probably
+
+11
+00:00:43,380 --> 00:00:48,440
+asphyxiate first. And then when he fell over stiffly in his solid gold clothes, some part
+
+12
+00:00:48,440 --> 00:00:52,500
+of him would probably touch the ground, which would then turn to gold. And I guess the ground
+
+13
+00:00:52,500 --> 00:00:56,320
+is one object, so the entire planet would turn to gold. Gold is three times denser than
+
+14
+00:00:56,360 --> 00:00:59,640
+rock. I guess gravity would get three times stronger, or the planet would be one third
+
+15
+00:00:59,640 --> 00:01:03,240
+the size, or... I guess it doesn't really matter. Either way, a solid gold planet is
+
+16
+00:01:03,240 --> 00:01:07,080
+completely uninhabitable. So maybe the moral of the story is actually that these be careful
+
+17
+00:01:07,080 --> 00:01:10,640
+what you wish for kind of stories tend to lack the imagination to consider just how
+
+18
+00:01:10,640 --> 00:01:13,640
+bad the consequences of getting what you wish for can actually be.
+
+19
+00:01:13,640 --> 00:01:18,240
+Hey, future Rob from the editing booth here. I got curious about this question, so I did
+
+20
+00:01:18,240 --> 00:01:23,920
+the obvious thing, and I asked Anders Sandberg of the Future of Humanity Institute, what
+
+21
+00:01:23,920 --> 00:01:28,920
+would happen if the world turned to solid gold? And yes, it does kill everyone. One
+
+22
+00:01:28,920 --> 00:01:34,600
+thing is that because gold is softer than rock, the whole world becomes a lot sort of
+
+23
+00:01:34,600 --> 00:01:38,680
+smoother. The mountains become lower. And this means that the ocean, if the ocean didn't
+
+24
+00:01:38,680 --> 00:01:42,520
+turn to gold, sort of spreads out a lot more and covers a lot more of the surface. But
+
+25
+00:01:42,520 --> 00:01:49,280
+perhaps more importantly, the increased gravity pulls the atmosphere in, which brings a giant
+
+26
+00:01:49,280 --> 00:01:55,960
+spike in air pressure, which comes with a giant spike in temperature. So the atmosphere
+
+27
+00:01:55,960 --> 00:02:02,280
+goes up to about 200 degrees Celsius and kills everyone. I knew everyone would die, I just
+
+28
+00:02:02,280 --> 00:02:07,120
+wasn't sure what would kill us first. Anyway, why were we talking about this? AI safety.
+
+29
+00:02:07,120 --> 00:02:11,440
+Right. There's definitely an element of this be careful what you wish for thing in training
+
+30
+00:02:11,440 --> 00:02:15,600
+AI systems. The system will do what you said and not what you meant. Now, usually we talk
+
+31
+00:02:15,600 --> 00:02:20,120
+about this with hypothetical examples. Things like in those old computer file videos, the
+
+32
+00:02:20,120 --> 00:02:23,480
+stamp collector, which is told to maximize stamps at the cost of everything else. Or
+
+33
+00:02:23,480 --> 00:02:28,120
+when we were going through concrete problems in AI safety, the example used was this hypothetical
+
+34
+00:02:28,120 --> 00:02:33,800
+cleaning robot, which, for example, when rewarded for not seeing any messes, puts its bucket
+
+35
+00:02:33,800 --> 00:02:38,280
+on its head so it can't see any messes. Or in other situations, in order to reduce the
+
+36
+00:02:38,280 --> 00:02:43,520
+influence it has on the world, it blows up the moon. So these are kind of far fetched
+
+37
+00:02:43,520 --> 00:02:48,600
+and hypothetical examples. Does it happen with real current machine learning systems?
+
+38
+00:02:48,600 --> 00:02:53,640
+The answer is yes, all the time. And Victoria Krukovna, an AI safety researcher at DeepMind,
+
+39
+00:02:53,640 --> 00:02:57,240
+has put together a great list of examples on her blog. So in this video, we're going
+
+40
+00:02:57,240 --> 00:03:00,820
+to go through and have a look at some of them. One thing that becomes clear from looking
+
+41
+00:03:00,820 --> 00:03:04,960
+at this list is that the problem is fundamental. The examples cover all kinds of different
+
+42
+00:03:04,960 --> 00:03:09,200
+types of systems. Any time that what you said isn't what you meant, this kind of thing can
+
+43
+00:03:09,200 --> 00:03:13,460
+happen. Even simple algorithms like evolution will do it. For example, this evolutionary
+
+44
+00:03:13,460 --> 00:03:17,940
+algorithm is intended to evolve creatures that run fast. So the fitness function just
+
+45
+00:03:17,940 --> 00:03:21,820
+finds the center of mass of the creature, simulates the creature for a little while,
+
+46
+00:03:21,820 --> 00:03:26,140
+and then measures how far or how fast the center of mass has moved. So a creature that's
+
+47
+00:03:26,140 --> 00:03:30,380
+center of mass moves a long way over the duration of the simulation must be running fast. What
+
+48
+00:03:30,380 --> 00:03:37,260
+this results in is this, a very tall creature with almost all of its mass at the top, which
+
+49
+00:03:37,260 --> 00:03:41,800
+when you start simulating it, falls over. This counts as moving the mass a long way
+
+50
+00:03:41,800 --> 00:03:45,880
+in a short time, so the creature's running fast. Not quite what we asked for. Of course,
+
+51
+00:03:45,880 --> 00:03:50,360
+in real life, you can't just be very tall for free. If you have mass that's high up,
+
+52
+00:03:50,360 --> 00:03:55,000
+you have to have lifted it up there yourself. But in this setting, the programmers accidentally
+
+53
+00:03:55,000 --> 00:03:59,280
+gave away gravitational potential energy for free, and the system evolved to exploit that
+
+54
+00:03:59,280 --> 00:04:02,000
+free energy source. So evolution will definitely do this.
+
+55
+00:04:02,000 --> 00:04:05,960
+Now reinforcement learning agents are, in a sense, more powerful than evolutionary algorithms.
+
+56
+00:04:05,960 --> 00:04:09,920
+It's a more sophisticated system, but that doesn't actually help in this case. Look at
+
+57
+00:04:09,920 --> 00:04:13,480
+this reinforcement learning agent. It was trained to play this boat racing game called
+
+58
+00:04:13,480 --> 00:04:17,680
+Coast Runners. The programmers wanted the AI to win the race, so they rewarded it for
+
+59
+00:04:17,680 --> 00:04:22,920
+getting a high score in the game. But it turns out there's more than one way to get points.
+
+60
+00:04:22,920 --> 00:04:27,000
+For example, you get some points for picking up power-ups, and the agent discovered that
+
+61
+00:04:27,000 --> 00:04:31,440
+these three power-ups here happen to respawn at just the right speed that, if you go around
+
+62
+00:04:31,440 --> 00:04:35,400
+in a circle and crash into everything and don't even try to race at all, you can keep
+
+63
+00:04:35,400 --> 00:04:38,800
+picking up these power-ups over and over and over and over again. And that turns out to
+
+64
+00:04:38,800 --> 00:04:41,560
+get you more points than actually trying to win the race.
+
+65
+00:04:41,560 --> 00:04:45,640
+Or look at this agent that's been tasked with controlling a simulated robot arm to put the
+
+66
+00:04:45,640 --> 00:04:53,440
+red Lego brick on top of the black one. Okay, no, they need to be stacked together, so let's
+
+67
+00:04:53,440 --> 00:04:57,800
+have the reward function check that the bottom face of the red brick is at the same height
+
+68
+00:04:57,800 --> 00:05:05,120
+as the top face of the black brick. That means they must be connected, right?
+
+69
+00:05:06,120 --> 00:05:11,280
+Okay, so specifying what you want explicitly is hard. We knew that. It's just really hard
+
+70
+00:05:11,280 --> 00:05:14,680
+to say exactly what you mean. But why not have the system learn what its reward should
+
+71
+00:05:14,680 --> 00:05:20,360
+be? We already have a video about this reward-modelling approach. But there are actually still specification
+
+72
+00:05:20,360 --> 00:05:22,300
+problems in that setting as well.
+
+73
+00:05:22,300 --> 00:05:26,560
+Look at this reward-modelling agent. It's learning to play an Atari game called Montezuma's
+
+74
+00:05:26,560 --> 00:05:31,360
+Revenge. Now, it's trained in a similar way to the backflip agent from the previous video.
+
+75
+00:05:31,360 --> 00:05:35,080
+Agents are shown short video clips and asked to pick which clips they think show the agent
+
+76
+00:05:35,080 --> 00:05:38,760
+doing what it should be doing. The difference is, in this case, they trained the reward
+
+77
+00:05:38,760 --> 00:05:42,840
+model first, and then trained the reward-learning agent with that model, instead of doing them
+
+78
+00:05:42,840 --> 00:05:43,840
+both concurrently.
+
+79
+00:05:43,840 --> 00:05:48,360
+Now, if you saw this clip, would you approve? It looks pretty good, right? It's just about
+
+80
+00:05:48,360 --> 00:05:51,840
+to get the key. It's climbing up the ladder. You need the keys to progress in the game.
+
+81
+00:05:51,840 --> 00:05:57,200
+This is doing pretty well. Unfortunately, what the agent then does is this.
+
+82
+00:05:57,200 --> 00:06:01,340
+There's a slight difference between do the things which should have high reward according
+
+83
+00:06:01,340 --> 00:06:06,280
+to human judgement, and do the things which humans think should have high reward based
+
+84
+00:06:06,280 --> 00:06:08,160
+on a short out-of-context video clip.
+
+85
+00:06:08,160 --> 00:06:12,680
+Or how about this one? Here, the task is to pick up the object. So this clip is pretty
+
+86
+00:06:12,680 --> 00:06:16,480
+good, right? Nope. The hand is just in front of the object.
+
+87
+00:06:16,480 --> 00:06:20,680
+By placing the hand between the ball and the camera, the agent can trick the human into
+
+88
+00:06:20,680 --> 00:06:22,520
+thinking that it's about to pick it up.
+
+89
+00:06:22,520 --> 00:06:26,360
+This is a real problem with systems that rely on human feedback. There's nothing to stop
+
+90
+00:06:26,360 --> 00:06:29,260
+them from tricking the human if they can get away with it.
+
+91
+00:06:29,260 --> 00:06:33,480
+You can also have problems with the system finding bugs in your environment. Here, the
+
+92
+00:06:33,480 --> 00:06:36,400
+environment you specified isn't quite the environment you meant.
+
+93
+00:06:36,400 --> 00:06:41,400
+For example, look at this agent that's playing Qubit. The basic idea of Qubit is that you
+
+94
+00:06:41,400 --> 00:06:45,600
+jump around, you avoid the enemies, and when you jump on the squares, they change colour.
+
+95
+00:06:45,600 --> 00:06:48,960
+And once you've changed all of the squares, then that's the end of the level. You get
+
+96
+00:06:48,960 --> 00:06:52,360
+some points, all of the squares flash, and then it starts the next level.
+
+97
+00:06:52,360 --> 00:06:58,120
+This agent has found a way to sort of stay at the end of the level state and not progress
+
+98
+00:06:58,120 --> 00:06:59,360
+onto the next level.
+
+99
+00:06:59,360 --> 00:07:07,120
+But look at the score. This just keeps going. I'm going to fast forward it. It somehow found
+
+100
+00:07:07,120 --> 00:07:11,200
+some bug in the game that means that it doesn't really have to play, and it still gets a huge
+
+101
+00:07:11,200 --> 00:07:12,640
+number of points.
+
+102
+00:07:12,640 --> 00:07:16,640
+Or here's an example from CodeBullet, which is kind of a fun channel. Here he's trying
+
+103
+00:07:16,640 --> 00:07:22,320
+to get this creature to run away from the laser, and it finds a bug in the physics engine.
+
+104
+00:07:22,320 --> 00:07:24,880
+I don't even know how that works. What else have we got?
+
+105
+00:07:24,880 --> 00:07:29,120
+Oh, I like this one. This is kind of a hacking one, GenProc. This is a system that's trying
+
+106
+00:07:29,120 --> 00:07:34,620
+to generate short computer programs that produce a particular output for a particular input.
+
+107
+00:07:34,620 --> 00:07:38,400
+But the system learned that it could find the place where the target output was stored
+
+108
+00:07:38,400 --> 00:07:44,640
+in the text file, delete that output, and then write a program that returns no output.
+
+109
+00:07:44,640 --> 00:07:49,280
+So the evaluation system runs the program, observes that there's no output, checks where
+
+110
+00:07:49,280 --> 00:07:53,960
+the correct output should be stored and finds that there's nothing there, and says, oh,
+
+111
+00:07:53,960 --> 00:07:57,520
+there's supposed to be no output, and the program produced no output. Good job.
+
+112
+00:07:57,520 --> 00:08:01,760
+I also like this one. This is a simulated robot arm that's holding a frying pan with
+
+113
+00:08:01,760 --> 00:08:07,160
+a pancake. Now it would be nice to teach the robot to flip the pancake. That's pretty hard.
+
+114
+00:08:07,160 --> 00:08:11,160
+Let's first just try to teach it to not drop the pancake. So all we need is to just give
+
+115
+00:08:11,160 --> 00:08:15,520
+it a small reward for every frame that the pancake isn't on the floor. So it will just
+
+116
+00:08:15,520 --> 00:08:16,520
+keep it in the pan.
+
+117
+00:08:16,760 --> 00:08:19,800
+Well, it turns out that that's pretty hard too. So the system effectively gives up on
+
+118
+00:08:19,800 --> 00:08:24,360
+trying to not drop the pancake and goes for the next best thing, to delay failure for
+
+119
+00:08:24,360 --> 00:08:28,400
+as long as possible. How do you delay the pancake hitting the floor? Just throw it as
+
+120
+00:08:28,400 --> 00:08:32,480
+high as you possibly can. I think we can reconstruct the original audio here.
+
+121
+00:08:32,480 --> 00:08:36,600
+Yeah, that's just a few of the examples on the list. I encourage you to check out the
+
+122
+00:08:36,600 --> 00:08:38,840
+entire list. There'll be a link in the description to that.
+
+123
+00:08:38,840 --> 00:08:43,080
+I guess my main point is that these kinds of specification problems are not unusual
+
+124
+00:08:43,080 --> 00:08:47,440
+and they're not silly mistakes being made by the programmers. This is sort of the default
+
+125
+00:08:47,440 --> 00:08:51,760
+behavior that we should expect from machine learning systems. So coming up with systems
+
+126
+00:08:51,760 --> 00:08:56,120
+that don't exhibit this kind of behavior seems to be an important research priority.
+
+127
+00:08:56,120 --> 00:08:58,120
+Thanks for watching. I'll see you next time.
+
+128
+00:09:06,120 --> 00:09:09,880
+I want to end the video with a big thank you to all my excellent patrons. All of these
+
+129
+00:09:09,880 --> 00:09:15,320
+people here. In this video, I'm especially thanking Kellen Lask. I hope you all enjoyed
+
+130
+00:09:15,320 --> 00:09:19,720
+the Q&A that I put up recently. The second half of that is coming soon. I also have a
+
+131
+00:09:19,720 --> 00:09:22,760
+video of how I gave myself this haircut, because why not?
+
+132
+00:09:22,760 --> 00:09:25,960
+This is going to get worse before it gets better.
+

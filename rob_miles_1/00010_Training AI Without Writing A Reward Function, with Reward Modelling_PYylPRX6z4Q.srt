@@ -1,0 +1,1308 @@
+1
+00:00:00,000 --> 00:00:05,080
+Hi. What is technology? Don't skip ahead, I promise I'm going somewhere with this.
+
+2
+00:00:05,080 --> 00:00:08,840
+So you could have some kind of definition from a dictionary that's like, technology
+
+3
+00:00:08,840 --> 00:00:13,720
+is machinery and equipment made using scientific knowledge, something like that. But where
+
+4
+00:00:13,720 --> 00:00:20,080
+are the boundaries of the category? What counts? For example, pair of scissors. Technology?
+
+5
+00:00:20,080 --> 00:00:24,320
+I think most people would say no, although it does meet the definition. Perhaps scissors
+
+6
+00:00:24,320 --> 00:00:28,920
+used to be technology, but now I think they're too simple, they're too well understood.
+
+7
+00:00:29,000 --> 00:00:32,720
+I think once we've really nailed something down and figured out all of the details, people
+
+8
+00:00:32,720 --> 00:00:36,680
+stop thinking of it as technology. I think in order to be technology, something has to
+
+9
+00:00:36,680 --> 00:00:42,680
+be complex and unpredictable, maybe even unreliable. YouTube, for example, is definitely technology,
+
+10
+00:00:42,680 --> 00:00:46,760
+as is the device you're watching this on. Okay, why does this matter? I guess part of
+
+11
+00:00:46,760 --> 00:00:51,600
+my point is, exact definitions are really difficult. And this generally isn't much
+
+12
+00:00:51,600 --> 00:00:55,880
+of a problem, because language doesn't really work by exact definitions. Maybe it's hard
+
+13
+00:00:55,880 --> 00:01:00,840
+to specify exactly what we mean when we use a word like technology. But to paraphrase
+
+14
+00:01:00,840 --> 00:01:04,880
+something from the US Supreme Court, you know it when you see it. And that's good enough
+
+15
+00:01:04,880 --> 00:01:09,320
+for most uses. The reason I bring this up is sometimes people ask me about my definition
+
+16
+00:01:09,320 --> 00:01:13,160
+of artificial intelligence. And I actually think that's pretty similar. You could say
+
+17
+00:01:13,160 --> 00:01:18,320
+that AI is about trying to get machines to carry out human cognitive tasks. But then
+
+18
+00:01:18,320 --> 00:01:22,920
+arithmetic is a cognitive task. Does that make a calculator artificial intelligence?
+
+19
+00:01:22,920 --> 00:01:26,440
+You know, sorting a list is a cognitive task. I don't think most people would call that
+
+20
+00:01:26,440 --> 00:01:30,640
+AI. Playing a perfect game of noughts and crosses used to be considered AI, but I don't
+
+21
+00:01:30,640 --> 00:01:35,200
+think we'd call it that these days. So to me, AI is about making machines do cognitive
+
+22
+00:01:35,200 --> 00:01:39,960
+tasks that we didn't think they could do. Maybe it's because it's about making machines
+
+23
+00:01:39,960 --> 00:01:44,440
+do human cognitive tasks. And once machines can do something, we no longer think of it
+
+24
+00:01:44,440 --> 00:01:49,400
+as a human cognitive task. This means that the goalposts are always moving for artificial
+
+25
+00:01:49,400 --> 00:01:52,500
+intelligence. Some people have complained about that, but I think it's pretty reasonable
+
+26
+00:01:52,500 --> 00:01:57,180
+to have that as part of the definition. So that means that the goal of AI research is
+
+27
+00:01:57,180 --> 00:02:02,180
+to continue to expand the range of tasks that computers can handle so they can keep surprising
+
+28
+00:02:02,180 --> 00:02:06,460
+us. It used to be that AI research was all about figuring out and formalizing things
+
+29
+00:02:06,460 --> 00:02:11,420
+so that we could write programs to do them. Things like arithmetic, sorting lists and
+
+30
+00:02:11,420 --> 00:02:15,260
+playing noughts and crosses. These are all in the class of problems that you might call
+
+31
+00:02:15,260 --> 00:02:19,760
+things we can specify well enough to write programs that do them. And for a long time,
+
+32
+00:02:19,760 --> 00:02:22,760
+that was all that we could do. That was the only type of problem we could tackle. But
+
+33
+00:02:22,760 --> 00:02:28,280
+for a lot of problems, that approach is really, really hard. Like consider, how would you
+
+34
+00:02:28,280 --> 00:02:33,440
+write a program that takes an image of a handwritten digit and determines what digit it is? You
+
+35
+00:02:33,440 --> 00:02:37,800
+can formalize the process and try to write a program. It's actually kind of a fun exercise
+
+36
+00:02:37,800 --> 00:02:41,720
+if you want to get to grips with the old school, like computer vision and image processing
+
+37
+00:02:41,720 --> 00:02:46,440
+techniques. And once you've written that program, you can test it using the MNIST dataset, which
+
+38
+00:02:46,440 --> 00:02:51,400
+is a giant collection of correctly labeled small images of digits. What you'll find is,
+
+39
+00:02:51,400 --> 00:02:55,560
+if you do well, then this thing will kind of work. But even the best programs written
+
+40
+00:02:55,560 --> 00:03:00,600
+this way don't work that well. They're not really reliable enough to actually use. Someone
+
+41
+00:03:00,600 --> 00:03:05,120
+is always going to come along with a really blunt pencil and ruin your program's accuracy.
+
+42
+00:03:05,120 --> 00:03:08,600
+And this is still a pretty easy problem. I mean, what if you wanted to do something like
+
+43
+00:03:08,600 --> 00:03:13,760
+letters as well as numbers? Now you have to differentiate between O and 0 and 1 and I
+
+44
+00:03:14,080 --> 00:03:18,640
+and lowercase L. Forget about it. It's never going to work. And even that is a relatively
+
+45
+00:03:18,640 --> 00:03:22,320
+simple problem. What if you're trying to do something like differentiating pictures
+
+46
+00:03:22,320 --> 00:03:26,920
+of cats from pictures of dogs? This whole approach is just not going to work for that.
+
+47
+00:03:26,920 --> 00:03:32,160
+But there is a fact that we can exploit, which is that it's a lot easier to evaluate a solution
+
+48
+00:03:32,160 --> 00:03:36,120
+than to generate a solution for a lot of these problems. I've talked about this before. I
+
+49
+00:03:36,120 --> 00:03:41,780
+couldn't generate a good rocket design myself, but I can tell you that this one needs work.
+
+50
+00:03:41,780 --> 00:03:46,060
+It's easier to write a program to evaluate an output than to write one to produce that
+
+51
+00:03:46,060 --> 00:03:51,380
+output. So maybe it's too hard to write a program that performs the task of identifying
+
+52
+00:03:51,380 --> 00:03:55,780
+handwritten numbers, but it's pretty easy to write a program that evaluates how well
+
+53
+00:03:55,780 --> 00:04:00,840
+a given program does at that task, as long as you have a load of correctly labeled examples.
+
+54
+00:04:00,840 --> 00:04:05,020
+You just keep giving it labeled examples from the dataset and you see how many it gets right.
+
+55
+00:04:05,020 --> 00:04:09,660
+In the same way, maybe you can't write a program that plays an Atari game well, but you can
+
+56
+00:04:09,660 --> 00:04:13,720
+easily write a program that tells you how well you're doing. You just read off the score.
+
+57
+00:04:13,720 --> 00:04:18,140
+And this is where machine learning comes in. It gives you ways to take a program for evaluating
+
+58
+00:04:18,140 --> 00:04:23,220
+solutions and use it to create good solutions. All you need is a dataset with a load of labeled
+
+59
+00:04:23,220 --> 00:04:28,860
+examples or a game with a score or some other way of programmatically evaluating the outputs,
+
+60
+00:04:28,860 --> 00:04:31,460
+and you can train a system that carries out the task.
+
+61
+00:04:31,460 --> 00:04:37,040
+There's a sense in which this is a new programming paradigm. Instead of writing the program itself,
+
+62
+00:04:37,040 --> 00:04:40,760
+you write the reward function or the loss function or whatever, and the training process
+
+63
+00:04:40,760 --> 00:04:45,320
+finds you a set of parameters for your network that perform well according to that function.
+
+64
+00:04:45,320 --> 00:04:50,320
+If you squint, the training process is sort of like a compiler. It's taking code you've
+
+65
+00:04:50,320 --> 00:04:54,280
+written and turning it into an executable that actually performs the task.
+
+66
+00:04:54,280 --> 00:04:59,240
+So in this way, machine learning expands the class of tasks that machines can start to perform.
+
+67
+00:04:59,240 --> 00:05:03,560
+It's no longer just tasks that you can write programs to do, but tasks that you can write
+
+68
+00:05:03,960 --> 00:05:04,960
+programs to evaluate.
+
+69
+00:05:04,960 --> 00:05:09,840
+But if this is a form of programming, it's a very difficult one. Anyone who has programmed
+
+70
+00:05:09,840 --> 00:05:16,320
+in C or C++ will tell you that the two scariest words you can see in a specification are undefined
+
+71
+00:05:16,320 --> 00:05:17,320
+behavior.
+
+72
+00:05:17,320 --> 00:05:20,680
+So how many folks here are a little bit afraid of undefined behavior in their source code?
+
+73
+00:05:20,680 --> 00:05:21,680
+Everybody.
+
+74
+00:05:21,680 --> 00:05:26,420
+And machine learning as a programming paradigm is pretty much entirely undefined behavior.
+
+75
+00:05:26,420 --> 00:05:30,080
+And as a consequence, programs created in this way tend to have a lot of quite serious
+
+76
+00:05:30,080 --> 00:05:31,080
+bugs.
+
+77
+00:05:31,080 --> 00:05:33,120
+And these are things that I've talked about before on the channel.
+
+78
+00:05:33,120 --> 00:05:37,920
+For example, reward gaming, where there's some subtle difference between the reward
+
+79
+00:05:37,920 --> 00:05:42,120
+function you wrote and the actual reward function that you kind of meant to write.
+
+80
+00:05:42,120 --> 00:05:46,680
+And an agent will find ways to exploit that difference to get high reward, to find things
+
+81
+00:05:46,680 --> 00:05:51,520
+it can do, which the reward function you wrote gives a high reward to, but the reward function
+
+82
+00:05:51,520 --> 00:05:53,320
+you meant to write wouldn't have.
+
+83
+00:05:53,320 --> 00:05:58,160
+Or the problem of side effects, where you aren't able to specify in the reward function
+
+84
+00:05:58,160 --> 00:05:59,560
+everything that you care about.
+
+85
+00:05:59,560 --> 00:06:03,600
+And the agent will assume that anything not mentioned in the reward function is of zero
+
+86
+00:06:03,600 --> 00:06:06,960
+value, which can lead to it having large negative side effects.
+
+87
+00:06:06,960 --> 00:06:09,600
+There are a bunch more of these specification problems.
+
+88
+00:06:09,600 --> 00:06:13,240
+And in general, this way of creating programs is a safety nightmare.
+
+89
+00:06:13,240 --> 00:06:17,240
+But also, it still doesn't allow machines to do all of the tasks that we might want
+
+90
+00:06:17,240 --> 00:06:18,240
+them to do.
+
+91
+00:06:18,240 --> 00:06:23,040
+A lot of tasks are just too complex and too poorly defined to write good evaluation functions
+
+92
+00:06:23,040 --> 00:06:24,040
+for.
+
+93
+00:06:24,040 --> 00:06:27,400
+For example, if you have a robot and you want it to scramble you an egg, how do you write
+
+94
+00:06:27,400 --> 00:06:32,840
+a function which takes input from the robot's senses and returns how well the robot is doing
+
+95
+00:06:32,840 --> 00:06:33,840
+at scrambling an egg?
+
+96
+00:06:33,840 --> 00:06:35,640
+That's a very difficult problem.
+
+97
+00:06:35,640 --> 00:06:39,520
+Even something simple like getting a simulated robot to do a backflip is actually pretty
+
+98
+00:06:39,520 --> 00:06:40,520
+hard to specify.
+
+99
+00:06:40,520 --> 00:06:42,160
+What can we do about this?
+
+100
+00:06:42,160 --> 00:06:45,360
+Well, normal reinforcement learning looks like this.
+
+101
+00:06:45,360 --> 00:06:47,360
+You have an agent and an environment.
+
+102
+00:06:47,360 --> 00:06:49,660
+The agent takes actions in the environment.
+
+103
+00:06:49,660 --> 00:06:52,920
+And the environment produces observations and rewards.
+
+104
+00:06:52,920 --> 00:06:55,360
+The rewards are calculated by the reward function.
+
+105
+00:06:55,360 --> 00:06:57,960
+That's where you program in what you want the agent to do.
+
+106
+00:06:57,960 --> 00:07:01,080
+So some researchers tried this with the backflip task.
+
+107
+00:07:01,080 --> 00:07:03,840
+They spent a couple of hours writing a reward function.
+
+108
+00:07:03,840 --> 00:07:05,200
+It looks like this.
+
+109
+00:07:05,200 --> 00:07:09,240
+And the result of training the agent with this reward function looks like this.
+
+110
+00:07:09,240 --> 00:07:12,720
+I guess that's basically a backflip.
+
+111
+00:07:12,720 --> 00:07:14,740
+I've seen better.
+
+112
+00:07:14,740 --> 00:07:18,480
+Something like evaluating a backflip is very hard to specify.
+
+113
+00:07:18,480 --> 00:07:19,920
+But it's not actually hard to do.
+
+114
+00:07:19,920 --> 00:07:23,440
+Like, it's easy to tell if something is doing a backflip just by looking at it.
+
+115
+00:07:23,440 --> 00:07:25,680
+It's just hard to write a program that does that.
+
+116
+00:07:25,680 --> 00:07:28,200
+So what if you just directly put yourself in there?
+
+117
+00:07:28,200 --> 00:07:30,920
+If you just play the part of the reward function?
+
+118
+00:07:30,920 --> 00:07:35,200
+Every time step, you look at the state, and you give the agent a number for how well you
+
+119
+00:07:35,200 --> 00:07:37,020
+think it's doing at backflipping.
+
+120
+00:07:37,020 --> 00:07:40,300
+People have tried that kind of approach, but it has a bunch of problems.
+
+121
+00:07:40,300 --> 00:07:43,840
+The main one is, these systems generally need to spend huge amounts of time interacting
+
+122
+00:07:43,840 --> 00:07:46,240
+with the environment in order to learn even simple things.
+
+123
+00:07:46,240 --> 00:07:49,520
+So you're going to be sitting there saying, no, that's not a backflip.
+
+124
+00:07:49,520 --> 00:07:52,120
+No, that's not a backflip either.
+
+125
+00:07:52,120 --> 00:07:53,120
+That was closer.
+
+126
+00:07:53,120 --> 00:07:54,440
+Nope, that's worse again.
+
+127
+00:07:54,440 --> 00:07:58,040
+And you're going to do this for hundreds of hours?
+
+128
+00:07:58,040 --> 00:07:59,200
+Nobody has time for that.
+
+129
+00:07:59,200 --> 00:08:00,600
+So what can we do?
+
+130
+00:08:00,600 --> 00:08:04,800
+Well, you may notice that this problem is a little bit like identifying handwritten
+
+131
+00:08:04,800 --> 00:08:06,080
+digits, isn't it?
+
+132
+00:08:06,080 --> 00:08:10,040
+We can't figure out how to write a program to do it, and it's too time-consuming to
+
+133
+00:08:10,040 --> 00:08:11,880
+do it ourselves.
+
+134
+00:08:11,880 --> 00:08:15,040
+So why not take the approach that people take with handwritten numbers?
+
+135
+00:08:15,040 --> 00:08:16,920
+Why not learn a reward function?
+
+136
+00:08:16,920 --> 00:08:19,040
+But it's not quite as simple as it sounds.
+
+137
+00:08:19,040 --> 00:08:22,800
+Backflips are harder than handwritten digits, in part because where are you going to get
+
+138
+00:08:22,800 --> 00:08:23,800
+your data from?
+
+139
+00:08:23,800 --> 00:08:26,080
+For digits, we have this data set, MNIST.
+
+140
+00:08:26,080 --> 00:08:29,760
+We have this giant collection of correctly labeled images.
+
+141
+00:08:29,760 --> 00:08:34,240
+We built that by having humans write lots of numbers, scanning them, and then labeling
+
+142
+00:08:34,240 --> 00:08:35,240
+the images.
+
+143
+00:08:35,240 --> 00:08:38,760
+We need humans to do the thing, to provide examples to learn from.
+
+144
+00:08:38,760 --> 00:08:39,760
+We need demonstrations.
+
+145
+00:08:39,760 --> 00:08:43,960
+Now, if you have good demonstrations of an agent performing a task, you can do things
+
+146
+00:08:43,960 --> 00:08:47,960
+like imitation learning and inverse reinforcement learning, which are pretty cool, but they're
+
+147
+00:08:47,960 --> 00:08:49,360
+a subject for a later video.
+
+148
+00:08:49,360 --> 00:08:51,800
+But with backflips, we don't have that.
+
+149
+00:08:51,800 --> 00:08:54,240
+I'm not even sure if I can do a backflip.
+
+150
+00:08:54,240 --> 00:08:55,240
+And that wouldn't help anyway.
+
+151
+00:08:55,240 --> 00:08:56,240
+Wait, really?
+
+152
+00:08:56,240 --> 00:08:57,800
+No, I don't have to do it.
+
+153
+00:08:57,800 --> 00:09:00,840
+No, we don't need a recording of a human backflipping.
+
+154
+00:09:00,840 --> 00:09:03,360
+We need one of this robot backflipping, right?
+
+155
+00:09:03,360 --> 00:09:05,400
+Their physiology is different.
+
+156
+00:09:05,400 --> 00:09:08,560
+But I don't think I could puppeteer the simulated robot to backflip either.
+
+157
+00:09:08,560 --> 00:09:11,100
+That would be like playing co-op on nightmare mode.
+
+158
+00:09:11,100 --> 00:09:13,200
+So we can't demonstrate the task.
+
+159
+00:09:13,200 --> 00:09:14,200
+So what do we do?
+
+160
+00:09:14,200 --> 00:09:16,920
+Well, we go back to the Supreme Court.
+
+161
+00:09:16,920 --> 00:09:19,040
+Technically defining a backflip is hard.
+
+162
+00:09:19,040 --> 00:09:20,520
+Doing a backflip is hard.
+
+163
+00:09:20,520 --> 00:09:23,280
+But I know a backflip when I see one.
+
+164
+00:09:23,280 --> 00:09:28,040
+So we need a setup that learns a good reward function without demonstrations, just by using
+
+165
+00:09:28,040 --> 00:09:32,040
+human feedback, without requiring too much of the human's time.
+
+166
+00:09:32,040 --> 00:09:33,200
+And that's what this paper does.
+
+167
+00:09:33,200 --> 00:09:35,960
+It's called Deep Reinforcement Learning from Human Preferences.
+
+168
+00:09:35,960 --> 00:09:39,760
+And it's actually a collaboration between OpenAI and DeepMind.
+
+169
+00:09:39,760 --> 00:09:43,000
+The paper documents a system that works by reward modeling.
+
+170
+00:09:43,000 --> 00:09:48,120
+If you give it an hour of feedback, it does this.
+
+171
+00:09:48,120 --> 00:09:51,340
+That looks a lot better than two hours of reward function writing.
+
+172
+00:09:51,340 --> 00:09:52,800
+So how does reward modeling work?
+
+173
+00:09:52,800 --> 00:09:54,240
+Well, let's go back to the diagram.
+
+174
+00:09:54,240 --> 00:09:59,800
+In reward modeling, instead of the human writing the reward function, or just being the reward
+
+175
+00:09:59,800 --> 00:10:04,920
+function, we instead replace the reward function with a reward model, implemented as a neural
+
+176
+00:10:04,920 --> 00:10:05,920
+network.
+
+177
+00:10:05,920 --> 00:10:09,280
+So the agent interacts with the environment in the normal way, except the rewards it's
+
+178
+00:10:09,280 --> 00:10:11,280
+getting are coming from the reward model.
+
+179
+00:10:11,280 --> 00:10:15,620
+The reward model behaves just like a regular reward function, in that it gets observations
+
+180
+00:10:15,620 --> 00:10:17,480
+from the environment and gives rewards.
+
+181
+00:10:17,480 --> 00:10:21,400
+But the way it decides those rewards is with a neural network, which is trying to predict
+
+182
+00:10:21,400 --> 00:10:23,280
+what reward a human would give.
+
+183
+00:10:23,280 --> 00:10:26,840
+Okay, how does the reward model learn what reward a human would give?
+
+184
+00:10:26,840 --> 00:10:29,880
+Well, the human provides it with feedback.
+
+185
+00:10:29,880 --> 00:10:34,200
+So the way that works is, the agent is interacting with the environment, trying to learn.
+
+186
+00:10:34,200 --> 00:10:39,160
+And then the system will extract two short clips of the agent flailing about, just a
+
+187
+00:10:39,160 --> 00:10:40,380
+second or two.
+
+188
+00:10:40,480 --> 00:10:44,700
+And it presents those two clips to the human, and the human decides which they like better,
+
+189
+00:10:44,700 --> 00:10:46,240
+which one is more backflippy.
+
+190
+00:10:46,240 --> 00:10:50,220
+And the reward model then uses that feedback in basically the standard supervised learning
+
+191
+00:10:50,220 --> 00:10:51,220
+way.
+
+192
+00:10:51,220 --> 00:10:55,140
+It tries to find a reward function such that, in situations where the human prefers the
+
+193
+00:10:55,140 --> 00:10:59,420
+left clip to the right clip, the reward function gives more reward to the agent in the left
+
+194
+00:10:59,420 --> 00:11:02,300
+clip than the right clip, and vice versa.
+
+195
+00:11:02,300 --> 00:11:07,540
+So which clip gets more reward from the reward model ends up being a good predictor of which
+
+196
+00:11:07,540 --> 00:11:09,660
+clip the human will prefer.
+
+197
+00:11:09,660 --> 00:11:13,380
+Which should mean that the reward model ends up being very similar to the reward function
+
+198
+00:11:13,380 --> 00:11:14,380
+the human really wants.
+
+199
+00:11:14,380 --> 00:11:18,260
+But the thing I like about this is, the whole thing is happening asynchronously.
+
+200
+00:11:18,260 --> 00:11:19,700
+It's all going on at the same time.
+
+201
+00:11:19,700 --> 00:11:24,020
+The agent isn't waiting for the human, it's constantly interacting with the environment,
+
+202
+00:11:24,020 --> 00:11:28,080
+getting rewards from the reward model, and trying to learn, at many times faster than
+
+203
+00:11:28,080 --> 00:11:29,080
+real time.
+
+204
+00:11:29,080 --> 00:11:30,960
+And the reward model isn't waiting either.
+
+205
+00:11:30,960 --> 00:11:34,300
+It's continually training on all of the feedback that it's got so far.
+
+206
+00:11:34,300 --> 00:11:37,900
+When it gets new feedback, it just adds that to the dataset and keeps on training.
+
+207
+00:11:37,900 --> 00:11:42,040
+This means the system is actually training for tens or hundreds of seconds for each second
+
+208
+00:11:42,040 --> 00:11:43,500
+of human time used.
+
+209
+00:11:43,500 --> 00:11:47,420
+So the human is presented with a pair of clips, and gives feedback, which takes just a few
+
+210
+00:11:47,420 --> 00:11:48,680
+seconds to do.
+
+211
+00:11:48,680 --> 00:11:52,420
+And while that's happening, the reward model is updating to better reflect the previous
+
+212
+00:11:52,420 --> 00:11:53,420
+feedback it got.
+
+213
+00:11:53,420 --> 00:11:57,500
+And the agent is spending several minutes of subjective time learning and improving
+
+214
+00:11:57,500 --> 00:11:59,980
+using that slightly improved reward model.
+
+215
+00:11:59,980 --> 00:12:04,020
+So by the time the human is done giving feedback on those clips and it's time for the next
+
+216
+00:12:04,020 --> 00:12:06,820
+pair, the agent has had time to improve.
+
+217
+00:12:06,820 --> 00:12:10,780
+So the next pair of clips will have new, hopefully better behavior for the human to
+
+218
+00:12:10,780 --> 00:12:11,780
+evaluate.
+
+219
+00:12:11,780 --> 00:12:14,660
+This means that it's able to use the human's time quite efficiently.
+
+220
+00:12:14,660 --> 00:12:19,420
+Now to further improve that efficiency, the system doesn't just choose the clips randomly.
+
+221
+00:12:19,420 --> 00:12:23,540
+It tries to select clips where the reward model is uncertain about what the reward should
+
+222
+00:12:23,540 --> 00:12:24,540
+be.
+
+223
+00:12:24,540 --> 00:12:27,580
+Like, there's no point asking for feedback if you're already pretty sure you know what
+
+224
+00:12:27,580 --> 00:12:28,740
+the answer is, right?
+
+225
+00:12:28,740 --> 00:12:33,060
+So this means that the user is most likely to see clips from unusual moments, when the
+
+226
+00:12:33,060 --> 00:12:36,620
+agent has worked out something new and the reward model doesn't know what to make of
+
+227
+00:12:36,620 --> 00:12:37,620
+it.
+
+228
+00:12:37,620 --> 00:12:40,420
+That maximizes the value of the information provided by the human, which improves the
+
+229
+00:12:40,420 --> 00:12:41,900
+speed the system can learn.
+
+230
+00:12:41,900 --> 00:12:45,900
+So what about the usual reinforcement learning safety problems, like negative side effects
+
+231
+00:12:45,900 --> 00:12:46,900
+and reward gaming?
+
+232
+00:12:46,900 --> 00:12:51,140
+You might think that if you use a neural network for your reward signal, it would be very vulnerable
+
+233
+00:12:51,140 --> 00:12:55,740
+to things like reward gaming, since the reward model is just an approximation and we know
+
+234
+00:12:55,740 --> 00:12:59,300
+that neural networks are very vulnerable to adversarial examples and so on.
+
+235
+00:12:59,300 --> 00:13:02,980
+And it's true that if you stop updating the reward model, the agent will quickly learn
+
+236
+00:13:02,980 --> 00:13:07,740
+to exploit it, to find strategies that the reward model scores highly, but the true reward
+
+237
+00:13:07,740 --> 00:13:08,740
+doesn't.
+
+238
+00:13:08,740 --> 00:13:13,460
+But the constant updating of the reward model actually provides pretty good protection against
+
+239
+00:13:13,460 --> 00:13:17,320
+this, and the way that the clips are chosen is part of that.
+
+240
+00:13:17,320 --> 00:13:22,660
+If the agent discovers some crazy new illegitimate strategy to cheat and get high reward, that's
+
+241
+00:13:22,660 --> 00:13:27,660
+going to involve unusual novel behavior, which will make the reward model uncertain.
+
+242
+00:13:27,660 --> 00:13:31,900
+So the human will immediately be shown clips of the new behavior, and if it's reward gaming
+
+243
+00:13:31,900 --> 00:13:35,860
+rather than real progress, the human will give feedback saying, no, that's not what
+
+244
+00:13:35,860 --> 00:13:37,060
+I want.
+
+245
+00:13:37,060 --> 00:13:40,840
+The reward model will update on that feedback and become more accurate, and the agent will
+
+246
+00:13:40,840 --> 00:13:43,580
+no longer be able to use that reward gaming strategy.
+
+247
+00:13:43,580 --> 00:13:47,760
+So the idea is pretty neat, and it seems to have some safety advantages.
+
+248
+00:13:47,760 --> 00:13:49,300
+How well does it actually work?
+
+249
+00:13:49,300 --> 00:13:51,980
+Is it as effective as just programming a reward function?
+
+250
+00:13:51,980 --> 00:13:54,780
+Well, for the backflip, it seems like it definitely is.
+
+251
+00:13:54,780 --> 00:13:58,260
+And it's especially impressive when you note that this is two hours of time to write
+
+252
+00:13:58,260 --> 00:14:03,780
+this reward function, which needs a lot of expertise, compared to under one hour of rating
+
+253
+00:14:03,780 --> 00:14:06,020
+clips, which needs basically no expertise.
+
+254
+00:14:06,020 --> 00:14:09,860
+So this is two hours of expert time versus one hour of novice time.
+
+255
+00:14:09,860 --> 00:14:14,580
+Now they also tried it on the standard Mojoko simulated robotics tasks that have standard
+
+256
+00:14:14,580 --> 00:14:16,580
+reward functions defined for them.
+
+257
+00:14:16,580 --> 00:14:20,860
+Here, it tends to do not quite as well as regular reinforcement learning that's just
+
+258
+00:14:20,860 --> 00:14:25,100
+directly given the reward function, but it tends to do almost as well.
+
+259
+00:14:25,100 --> 00:14:28,100
+And sometimes it even does better, which is kind of surprising.
+
+260
+00:14:28,100 --> 00:14:30,500
+They also tried it on Atari games.
+
+261
+00:14:30,500 --> 00:14:34,920
+Now for those, it needed more feedback because the task is more complex, but again, it tended
+
+262
+00:14:34,920 --> 00:14:39,060
+to do almost as well as just providing the correct reward function for several of the
+
+263
+00:14:39,060 --> 00:14:40,060
+games.
+
+264
+00:14:40,060 --> 00:14:41,500
+Also, there's kind of a fun implementation detail here.
+
+265
+00:14:41,500 --> 00:14:45,820
+They had to modify the games to not show the score, otherwise the agent might learn to
+
+266
+00:14:45,820 --> 00:14:48,340
+just read the score off the screen and use that.
+
+267
+00:14:48,340 --> 00:14:49,960
+They wanted to rely on the feedback.
+
+268
+00:14:50,060 --> 00:14:54,080
+So it seems like reward modeling is not much less effective than just providing a reward
+
+269
+00:14:54,080 --> 00:14:55,080
+function.
+
+270
+00:14:55,080 --> 00:14:58,800
+But the headline, to me, is that they were able to train these agents to do things for
+
+271
+00:14:58,800 --> 00:15:01,080
+which they had no reward function at all.
+
+272
+00:15:01,080 --> 00:15:02,540
+Like the backflip, of course.
+
+273
+00:15:02,540 --> 00:15:06,320
+They also got the cheetah robot to stand on one leg, which is a task I don't think they
+
+274
+00:15:06,320 --> 00:15:08,320
+ever tried to write a reward function for.
+
+275
+00:15:08,320 --> 00:15:13,120
+And in Enduro, which is an Atari game, a racing game, they managed to train the agent using
+
+276
+00:15:13,120 --> 00:15:18,020
+reward modeling to stay level with other cars, even though the game's score rewards you
+
+277
+00:15:18,020 --> 00:15:19,940
+for going fast and overtaking them.
+
+278
+00:15:19,940 --> 00:15:24,380
+And what all this means is that this type of method is, again, expanding the range of
+
+279
+00:15:24,380 --> 00:15:26,700
+tasks machines can tackle.
+
+280
+00:15:26,700 --> 00:15:31,980
+It's not just tasks we can write programs to do, or tasks we can write programs to evaluate,
+
+281
+00:15:31,980 --> 00:15:34,100
+or even tasks we're able to do ourselves.
+
+282
+00:15:34,100 --> 00:15:38,700
+All that's required is that it's easy to evaluate outputs, that you know good results when you
+
+283
+00:15:38,700 --> 00:15:39,700
+see them.
+
+284
+00:15:39,700 --> 00:15:41,680
+And that's a lot of tasks.
+
+285
+00:15:41,680 --> 00:15:43,180
+But it's not everything.
+
+286
+00:15:43,180 --> 00:15:46,980
+Consider, for example, a task like writing a novel.
+
+287
+00:15:46,980 --> 00:15:51,100
+Like, sure, you can read two novels and say which one you liked more.
+
+288
+00:15:51,100 --> 00:15:55,580
+But this system needed 900 comparisons to learn what a backflip is.
+
+289
+00:15:55,580 --> 00:16:00,080
+Even if we assume that writing a novel is no more complicated than that, does that mean
+
+290
+00:16:00,080 --> 00:16:03,140
+comparing 900 pairs of AI-generated novels?
+
+291
+00:16:03,140 --> 00:16:04,840
+And a lot of tasks are like this.
+
+292
+00:16:04,840 --> 00:16:09,740
+What if we want our machine to run a company, or design something complex like a city's
+
+293
+00:16:09,740 --> 00:16:12,100
+transportation system, or a computer chip?
+
+294
+00:16:12,100 --> 00:16:14,200
+We can't write a program that does it.
+
+295
+00:16:14,200 --> 00:16:16,260
+We can't write a program that evaluates it.
+
+296
+00:16:16,260 --> 00:16:20,140
+We can't reliably do it ourselves, enough to make a good data set.
+
+297
+00:16:20,140 --> 00:16:24,200
+We can't even evaluate it ourselves, without taking way too much time and resources.
+
+298
+00:16:24,200 --> 00:16:26,140
+So we're screwed, right?
+
+299
+00:16:26,140 --> 00:16:27,620
+Not necessarily.
+
+300
+00:16:27,620 --> 00:16:31,260
+There are some approaches that might work for these kinds of problems, and we'll talk
+
+301
+00:16:31,260 --> 00:16:32,980
+about them in a later video.
+
+302
+00:16:40,380 --> 00:16:45,860
+I recently realized that my best explanations and ideas tend to come from actual conversations
+
+303
+00:16:45,860 --> 00:16:46,860
+with people.
+
+304
+00:16:46,860 --> 00:16:50,580
+So I've been trying a thing where, for each video, I first have a couple of video calls
+
+305
+00:16:50,580 --> 00:16:54,940
+with Patreon supporters, where I try sort of running through the idea, and seeing what
+
+306
+00:16:54,940 --> 00:16:57,580
+questions people have, and what's not clear, and so on.
+
+307
+00:16:57,580 --> 00:17:00,700
+So I want to say a big thank you to the patrons who helped with this video.
+
+308
+00:17:00,700 --> 00:17:01,700
+You know who you are.
+
+309
+00:17:01,700 --> 00:17:03,820
+I'm especially thanking Jake Ehrlich.
+
+310
+00:17:03,820 --> 00:17:07,820
+And of course, thank you to all of my patrons, who make this whole thing possible with their
+
+311
+00:17:07,820 --> 00:17:08,820
+support.
+
+312
+00:17:08,820 --> 00:17:09,820
+Which reminds me.
+
+313
+00:17:09,820 --> 00:17:10,820
+This video is sponsored by...nobody.
+
+314
+00:17:10,820 --> 00:17:14,540
+No, I actually turned down a sponsorship offer for this video.
+
+315
+00:17:14,540 --> 00:17:18,260
+And I'll admit, I was tempted, because it's a company whose product I've used for like
+
+316
+00:17:18,260 --> 00:17:21,260
+10 years, and the offer was thousands of pounds.
+
+317
+00:17:21,260 --> 00:17:25,620
+But they wanted me to do this whole 60 second long spiel, and I just thought, no, I don't
+
+318
+00:17:25,620 --> 00:17:27,100
+want to waste people's time with that.
+
+319
+00:17:27,100 --> 00:17:29,620
+And I don't have to, because I've got Patreon.
+
+320
+00:17:29,620 --> 00:17:31,420
+So thank you again to all of you.
+
+321
+00:17:31,420 --> 00:17:35,740
+If you like learning about AI safety more than you like learning about mattresses and
+
+322
+00:17:35,740 --> 00:17:38,180
+VPNs, you might want to consider joining.
+
+323
+00:17:38,180 --> 00:17:39,460
+There's a link in the description.
+
+324
+00:17:39,460 --> 00:17:40,780
+Thanks again for your support.
+
+325
+00:17:40,780 --> 00:17:42,540
+And thank you all for watching.
+
+326
+00:17:43,540 --> 00:17:44,540
+Hi.
+
+327
+00:17:44,540 --> 00:17:46,540
+You hit my knees.
+

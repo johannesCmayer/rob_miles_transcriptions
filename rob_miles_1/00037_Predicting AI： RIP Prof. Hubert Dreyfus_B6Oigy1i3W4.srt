@@ -1,0 +1,528 @@
+1
+00:00:00,000 --> 00:00:07,500
+I recently learned that Professor Hubert Dreyfus, the philosopher and outspoken critic of the field of artificial intelligence,
+
+2
+00:00:07,500 --> 00:00:10,500
+has died at the age of 87.
+
+3
+00:00:10,500 --> 00:00:14,500
+He published a lot of philosophy and did a lot of teaching,
+
+4
+00:00:14,500 --> 00:00:18,000
+but one of the things he's best known for, and most relevant to this channel,
+
+5
+00:00:18,000 --> 00:00:22,000
+was his work on artificial intelligence and its limits.
+
+6
+00:00:22,000 --> 00:00:27,000
+So I'm going to talk about that a little bit today, and focus on one of his arguments in particular.
+
+7
+00:00:27,000 --> 00:00:31,000
+So in the 50s and 60s, AI was the next big thing.
+
+8
+00:00:31,000 --> 00:00:34,500
+Computers were tackling problems they'd never been able to approach before.
+
+9
+00:00:34,500 --> 00:00:37,000
+People were very excited about what was possible,
+
+10
+00:00:37,000 --> 00:00:44,000
+and artificial intelligence researchers were confident that true human-level intelligence was right around the corner.
+
+11
+00:00:44,000 --> 00:00:47,000
+Their reasoning was something like this.
+
+12
+00:00:47,000 --> 00:00:53,000
+Thinking consists of processing facts using logic and rules,
+
+13
+00:00:53,500 --> 00:00:55,500
+what you might call symbol manipulation.
+
+14
+00:00:55,500 --> 00:01:00,000
+You have some things you know, you know the relationships between them, you know the rules of logic,
+
+15
+00:01:00,000 --> 00:01:02,500
+and you can use those to reason about the world.
+
+16
+00:01:02,500 --> 00:01:06,500
+Computers can do this kind of symbol manipulation very well, and they're getting better all the time.
+
+17
+00:01:06,500 --> 00:01:10,500
+So computers are able to think, and they're getting better at thinking all the time.
+
+18
+00:01:10,500 --> 00:01:14,500
+Dreyfus saw some problems with this, and one of those problems was that
+
+19
+00:01:14,500 --> 00:01:18,500
+a lot of human thinking doesn't seem to boil down to symbol manipulation at all.
+
+20
+00:01:18,500 --> 00:01:20,500
+It's only one of the ways we can think.
+
+21
+00:01:20,500 --> 00:01:25,500
+It's perhaps the most salient, because it's related to language and conscious thought,
+
+22
+00:01:25,500 --> 00:01:27,500
+which is the part of the mind that we're most aware of.
+
+23
+00:01:27,500 --> 00:01:31,000
+But actually, a lot of the processing seems to be happening much lower down.
+
+24
+00:01:31,000 --> 00:01:33,000
+When you look at something, you don't think,
+
+25
+00:01:33,000 --> 00:01:39,000
+ah yes, this has four legs and a flat top and a back, so it's a chair,
+
+26
+00:01:39,000 --> 00:01:43,000
+and this thing has four legs and a flat top and no back, so it's a table,
+
+27
+00:01:43,000 --> 00:01:48,000
+because I've learned the rules of what a table is and what a chair is, and now I'm applying those rules.
+
+28
+00:01:48,500 --> 00:01:50,500
+No, you just look at the thing and you know that it's a table.
+
+29
+00:01:50,500 --> 00:01:54,500
+The object identification is done before your conscious mind is even aware of anything,
+
+30
+00:01:54,500 --> 00:01:59,000
+and it's not like your unconscious mind is doing this kind of rules-based thinking in the background.
+
+31
+00:01:59,000 --> 00:02:00,500
+It's much fuzzier than that.
+
+32
+00:02:00,500 --> 00:02:03,500
+And what would the rules be for identifying chairs anyway?
+
+33
+00:02:03,500 --> 00:02:08,500
+I mean, do you need a back? Do you need four legs? Or, like, any legs at all?
+
+34
+00:02:08,500 --> 00:02:13,500
+I mean, this is still a chair. Is this thing? Is this? Or this?
+
+35
+00:02:13,500 --> 00:02:16,500
+Even something as simple as a chair is really hard to pin down.
+
+36
+00:02:16,500 --> 00:02:20,000
+You need a lot of rules, and it would take a human a long time to evaluate them,
+
+37
+00:02:20,000 --> 00:02:21,500
+and that isn't how the brain works.
+
+38
+00:02:21,500 --> 00:02:24,500
+You can imagine any of our ancestors who thought,
+
+39
+00:02:24,500 --> 00:02:29,000
+hmm, well this thing has four legs, but it has a tail, so my rules say that it's an animal.
+
+40
+00:02:29,000 --> 00:02:32,000
+The pointy ears and sharp teeth suggest it's maybe a cat,
+
+41
+00:02:32,000 --> 00:02:35,000
+and its size suggests perhaps a lion or a tiger.
+
+42
+00:02:35,000 --> 00:02:41,000
+Looking at the stripes on the side, I can, like, you're dead before you're done counting the legs.
+
+43
+00:02:41,000 --> 00:02:46,000
+So Dreyfus thought there were problems with the assumptions that AI researchers were making about the mind.
+
+44
+00:02:46,000 --> 00:02:50,000
+He saw that the model of cognition that the AI researchers were using
+
+45
+00:02:50,000 --> 00:02:53,000
+didn't capture the complexity of human thought,
+
+46
+00:02:53,000 --> 00:02:58,000
+and so their reasons for thinking that computers could do the things they claimed they could do
+
+47
+00:02:58,000 --> 00:02:59,500
+weren't very good.
+
+48
+00:02:59,500 --> 00:03:05,000
+And he went on to publish some work, including a book called What Computers Can't Do,
+
+49
+00:03:05,000 --> 00:03:10,500
+which argued that a lot of the things that AI researchers claimed computers would soon be able to do
+
+50
+00:03:10,500 --> 00:03:12,000
+were actually impossible.
+
+51
+00:03:12,000 --> 00:03:17,500
+Things like pattern recognition, natural language, vision, complex games, and so on.
+
+52
+00:03:17,500 --> 00:03:21,500
+These things didn't just boil down to symbol manipulation, so computers couldn't do them.
+
+53
+00:03:21,500 --> 00:03:26,000
+So how did the AI researchers react to this philosopher coming along and telling them
+
+54
+00:03:26,000 --> 00:03:29,000
+that they were foolishly attempting the impossible?
+
+55
+00:03:29,000 --> 00:03:34,000
+Well, they did the obvious thing, which is to ignore him and to say unkind things about him.
+
+56
+00:03:34,000 --> 00:03:38,500
+There's a wonderful paper called The Artificial Intelligence of Hubert L. Dreyfus,
+
+57
+00:03:38,500 --> 00:03:41,000
+which I'll link to in the doobly-doo, check it out.
+
+58
+00:03:41,000 --> 00:03:45,500
+Back in the day, before the internet, you know, people had to do their flame wars on typewriters.
+
+59
+00:03:45,500 --> 00:03:47,500
+It was a different time.
+
+60
+00:03:47,500 --> 00:03:53,500
+So having dismissed him completely, they carried on trying to apply the good old-fashioned AI techniques
+
+61
+00:03:53,500 --> 00:03:56,500
+to all of these problems for decades,
+
+62
+00:03:56,500 --> 00:04:01,000
+until they finally had to admit that, yeah, it wasn't going to work for a lot of these problems.
+
+63
+00:04:01,000 --> 00:04:04,000
+So about some things, at least, Dreyfus was right from the start.
+
+64
+00:04:04,000 --> 00:04:08,000
+But the interesting thing is that since then, new techniques have been developed,
+
+65
+00:04:08,000 --> 00:04:11,500
+which have started giving pretty good results in things like pattern recognition,
+
+66
+00:04:11,500 --> 00:04:14,500
+language translation, high-complexity games, and so on.
+
+67
+00:04:14,500 --> 00:04:17,000
+The kind of things Dreyfus said computers flatly couldn't do.
+
+68
+00:04:17,000 --> 00:04:21,000
+People say that we moved away from this good old-fashioned AI approach,
+
+69
+00:04:21,000 --> 00:04:23,000
+which I don't think is really true.
+
+70
+00:04:23,000 --> 00:04:27,000
+We didn't stop using those techniques, at least on the problems that they work well on.
+
+71
+00:04:27,000 --> 00:04:29,000
+We just stopped calling it AI.
+
+72
+00:04:29,000 --> 00:04:33,500
+But the point is, the new techniques were what you might call sub-symbolic.
+
+73
+00:04:33,500 --> 00:04:39,000
+You could make a neural network and train it to recognize tables and chairs and tigers.
+
+74
+00:04:39,000 --> 00:04:41,500
+You can look through the source code of that system,
+
+75
+00:04:41,500 --> 00:04:48,500
+and you won't find anywhere a single symbol which means legs or ears or teeth or anything like that.
+
+76
+00:04:48,500 --> 00:04:53,500
+It doesn't work by symbols in the way that the logic and rules-based approaches of the 60s do.
+
+77
+00:04:53,500 --> 00:04:58,500
+So Dreyfus was right that the AI techniques of the time weren't able to tackle these problems.
+
+78
+00:04:58,500 --> 00:05:03,000
+But the thing he didn't expect to happen was computers being able to use symbols
+
+79
+00:05:03,000 --> 00:05:07,000
+to implement these non-symbolic systems that can tackle the problems.
+
+80
+00:05:07,000 --> 00:05:13,000
+So to oversimplify, the AI researchers said thinking is just symbol manipulation.
+
+81
+00:05:13,000 --> 00:05:17,000
+Computers can do symbol manipulation, therefore computers can think.
+
+82
+00:05:17,000 --> 00:05:21,000
+And Dreyfus said thinking is not just symbol manipulation.
+
+83
+00:05:21,000 --> 00:05:25,000
+Computers can only do symbol manipulation, therefore computers can't think.
+
+84
+00:05:25,000 --> 00:05:27,500
+I don't think either of those is really right.
+
+85
+00:05:27,500 --> 00:05:30,000
+One of them underestimates what the human mind can do.
+
+86
+00:05:30,000 --> 00:05:32,500
+The other underestimates what computers can do.
+
+87
+00:05:32,500 --> 00:05:36,500
+I think what I take away from all of this is you can come up with a simple model
+
+88
+00:05:36,500 --> 00:05:40,500
+that seems to explain all the important aspects of some complex system.
+
+89
+00:05:40,500 --> 00:05:45,000
+And then it's very easy to convince yourself that that model fully covers
+
+90
+00:05:45,000 --> 00:05:48,000
+all of the complexities and capabilities of that system.
+
+91
+00:05:48,000 --> 00:05:51,500
+But you have to be open to the possibility that you're missing something important
+
+92
+00:05:51,500 --> 00:05:53,000
+and that things are more complex than they seem.
+
+93
+00:05:53,000 --> 00:05:56,000
+Now, you might say, well, both sides of this disagreement
+
+94
+00:05:56,000 --> 00:05:58,500
+made a similar kind of mistake and they're both wrong.
+
+95
+00:05:58,500 --> 00:06:00,000
+I don't see it that way at all, though.
+
+96
+00:06:00,000 --> 00:06:02,500
+I mean, someone who says the Earth is flat is wrong.
+
+97
+00:06:02,500 --> 00:06:05,000
+Someone who says it's a sphere is wrong as well.
+
+98
+00:06:05,000 --> 00:06:08,000
+It's an oblate spheroid. It's bigger around the equator.
+
+99
+00:06:08,000 --> 00:06:10,500
+But then it's not really an oblate spheroid either.
+
+100
+00:06:10,500 --> 00:06:13,000
+They're perfectly smooth, which the Earth is not.
+
+101
+00:06:13,000 --> 00:06:15,000
+So you could say that all of those views are wrong,
+
+102
+00:06:15,000 --> 00:06:17,500
+but some of them are clearly more wrong than others.
+
+103
+00:06:17,500 --> 00:06:21,000
+So at the end of the day, can we make computers do any kind of thinking
+
+104
+00:06:21,000 --> 00:06:22,000
+that humans can do?
+
+105
+00:06:22,000 --> 00:06:24,500
+Some people think that now that we have all these new approaches,
+
+106
+00:06:24,500 --> 00:06:26,000
+we have deep learning and so on,
+
+107
+00:06:26,000 --> 00:06:29,000
+and we're able to start doing the kind of non-symbolic thinking
+
+108
+00:06:29,000 --> 00:06:31,500
+that Dreyfus pointed out was necessary,
+
+109
+00:06:31,500 --> 00:06:34,000
+we can add that on to the rules and logic stuff,
+
+110
+00:06:34,000 --> 00:06:35,000
+and then we're nearly done,
+
+111
+00:06:35,000 --> 00:06:37,500
+and we're going to ride this current wave of breakthroughs
+
+112
+00:06:37,500 --> 00:06:40,000
+all the way up to true general intelligence.
+
+113
+00:06:40,000 --> 00:06:41,500
+And maybe we will.
+
+114
+00:06:42,500 --> 00:06:43,500
+But maybe we won't.
+
+115
+00:06:43,500 --> 00:06:46,500
+Maybe there's some third thing that we also need,
+
+116
+00:06:46,500 --> 00:06:48,500
+and it's going to take us several decades
+
+117
+00:06:48,500 --> 00:06:51,500
+to figure out how to get computers to do that as well.
+
+118
+00:06:51,500 --> 00:06:53,500
+Maybe there's a fourth thing, or a fifth thing.
+
+119
+00:06:53,500 --> 00:06:55,500
+But I don't think there's a hundredth thing.
+
+120
+00:06:55,500 --> 00:06:57,000
+I don't even think there's a tenth thing.
+
+121
+00:06:57,000 --> 00:06:58,500
+I think we'll get there sooner or later.
+
+122
+00:06:59,000 --> 00:07:00,500
+But I've been wrong before.
+
+123
+00:07:01,000 --> 00:07:03,000
+So here's to Hubert Dreyfus,
+
+124
+00:07:03,000 --> 00:07:05,500
+a great thinker and a man well ahead of his time.
+
+125
+00:07:06,500 --> 00:07:08,000
+Was he right overall?
+
+126
+00:07:08,500 --> 00:07:10,000
+Probably too soon to tell.
+
+127
+00:07:10,000 --> 00:07:13,500
+But I think he's truly deserving of our admiration and respect
+
+128
+00:07:13,500 --> 00:07:16,500
+for being, loudly and publicly,
+
+129
+00:07:16,500 --> 00:07:19,000
+less wrong than those around him,
+
+130
+00:07:19,000 --> 00:07:21,000
+which is probably the best any of us can hope for.
+
+131
+00:07:21,500 --> 00:07:23,000
+Thank you.
+
+132
+00:07:51,500 --> 00:07:53,500
+Thank you again, and I will see you next time.
+

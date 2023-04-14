@@ -1,0 +1,584 @@
+1
+00:00:00,000 --> 00:00:06,860
+Hi. So the previous video explained what MESA optimizers are, why they're likely to happen
+
+2
+00:00:06,860 --> 00:00:11,880
+in advanced machine learning systems, and why the optimal strategy for a MESA optimizer
+
+3
+00:00:11,880 --> 00:00:17,120
+is to pretend to be aligned during the training process and then turn on us once it's deployed.
+
+4
+00:00:17,120 --> 00:00:18,760
+I highly recommend watching that if you haven't.
+
+5
+00:00:18,760 --> 00:00:23,720
+But you might think that a deceptive misaligned MESA optimizer is kind of a weird and special
+
+6
+00:00:23,720 --> 00:00:28,680
+case. Like, sure, maybe it's possible that an AI system will come to want something different
+
+7
+00:00:28,680 --> 00:00:32,720
+from the objective it's being trained on, and deliberately manipulate the training process
+
+8
+00:00:32,720 --> 00:00:36,200
+in order to pursue that dangerous objective in the real world. That does seem to be the
+
+9
+00:00:36,200 --> 00:00:41,280
+optimal strategy, given certain assumptions, but how likely is it in practice? Like, it
+
+10
+00:00:41,280 --> 00:00:44,560
+seems as though there's a whole bunch of things that need to be true in order for this to
+
+11
+00:00:44,560 --> 00:00:45,560
+happen.
+
+12
+00:00:45,560 --> 00:00:50,080
+First off, it needs to be the case that deployment is in some sense bigger than training. There
+
+13
+00:00:50,080 --> 00:00:54,020
+are more apples to be had in the real world than in training, so it's worth sacrificing
+
+14
+00:00:54,020 --> 00:00:57,840
+some rewards during training if that helps you to be deployed. But I think this is in
+
+15
+00:00:57,840 --> 00:01:01,920
+fact very often the case. The real world almost certainly is bigger than the training
+
+16
+00:01:01,920 --> 00:01:06,760
+process. I mean, the real world contains the training process, right? And it seems reasonable
+
+17
+00:01:06,760 --> 00:01:10,880
+to expect that once the agent is at large in the real world, there's a good chance
+
+18
+00:01:10,880 --> 00:01:14,880
+it will be able to find better ways of achieving its objective than it could ever get during
+
+19
+00:01:14,880 --> 00:01:15,880
+training.
+
+20
+00:01:15,880 --> 00:01:20,480
+Another thing that has to be the case is that your MESA objective has to care about multi-episode
+
+21
+00:01:20,480 --> 00:01:25,800
+returns. By which I mean, why does the optimizer in this episode care about the apples in the
+
+22
+00:01:25,800 --> 00:01:27,440
+other episodes?
+
+23
+00:01:27,440 --> 00:01:31,280
+This is another place where that abstraction I was talking about in the previous video,
+
+24
+00:01:31,280 --> 00:01:37,200
+the it-wants-to-pursue-the-objective-it-was-trained-on abstraction, comes in again, because yeah,
+
+25
+00:01:37,200 --> 00:01:41,480
+the agent only actually gets reward for things that happen within a single episode, so you
+
+26
+00:01:41,480 --> 00:01:46,480
+might think that the MESA objective would only care about single-episode returns. And
+
+27
+00:01:46,480 --> 00:01:50,160
+if that's the case, then you don't have this problem, because when the agent is in
+
+28
+00:01:50,160 --> 00:01:54,080
+this episode, it only cares about this apple. It doesn't care about any of these other
+
+29
+00:01:54,080 --> 00:01:58,220
+apples, because it can only ever get reward for this one, so it would never miss this
+
+30
+00:01:58,220 --> 00:02:00,640
+apple in order to get more apples later.
+
+31
+00:02:00,640 --> 00:02:05,320
+But actually, caring about all apples is a fairly natural generalisation. The fact is,
+
+32
+00:02:05,320 --> 00:02:09,560
+most of the time, the way the MESA optimizer feels about things outside of its environment
+
+33
+00:02:09,560 --> 00:02:13,440
+doesn't matter. It can't affect any of the things that are outside of the environment,
+
+34
+00:02:13,440 --> 00:02:17,720
+so whether it cares about them has no effect, and so that's unconstrained, it's free
+
+35
+00:02:17,720 --> 00:02:18,720
+to vary.
+
+36
+00:02:18,720 --> 00:02:22,560
+Here's an analogy. Suppose we're training a model to learn a function, and our data
+
+37
+00:02:22,560 --> 00:02:27,620
+points look like this. We only have data within this range here, so our training process
+
+38
+00:02:27,620 --> 00:02:32,480
+has no way to differentiate between the infinite variety of very different functions that all
+
+39
+00:02:32,480 --> 00:02:36,720
+fit the data identically within the training distribution. Inside the distribution, we're
+
+40
+00:02:36,720 --> 00:02:42,080
+looking for this, but outside of the distribution, the function we learn might look like this,
+
+41
+00:02:42,080 --> 00:02:48,720
+or this, or this, or even this. But some of these seem like more natural ways to generalise
+
+42
+00:02:48,720 --> 00:02:52,600
+than others. Some of them are simpler, and optimizers like gradient descent tend to
+
+43
+00:02:52,600 --> 00:02:57,320
+prefer simpler functions. So we could assume that the function will return 0 for everything
+
+44
+00:02:57,320 --> 00:03:01,920
+outside of the distribution, like this, and that's certainly possible, but it's by
+
+45
+00:03:01,920 --> 00:03:03,220
+no means the default.
+
+46
+00:03:03,220 --> 00:03:07,720
+So going back to our MESA optimizer, its opinion of the apples in other episodes can be anything
+
+47
+00:03:07,720 --> 00:03:12,580
+in principle, but caring about those apples the same as this episode's apple is a pretty
+
+48
+00:03:12,580 --> 00:03:16,800
+natural way to generalise. If what you care about is going towards green things, and then
+
+49
+00:03:16,800 --> 00:03:19,880
+you become aware that there are all of these other green things that you didn't know
+
+50
+00:03:19,880 --> 00:03:23,840
+about, then probably you're going to want to go towards those as well, right? That's
+
+51
+00:03:23,840 --> 00:03:28,480
+a natural way to extend your objective function outside of the range it was trained on. So
+
+52
+00:03:28,480 --> 00:03:32,140
+caring about multi-episode returns seems pretty likely.
+
+53
+00:03:32,140 --> 00:03:36,380
+Another thing that needs to be true for deception to be a problem is, the MESA optimizer has
+
+54
+00:03:36,380 --> 00:03:40,320
+to believe that it's part of a training process. It doesn't actually have to know
+
+55
+00:03:40,320 --> 00:03:44,320
+all the details of the training process, but it does have to believe that it is in some
+
+56
+00:03:44,320 --> 00:03:48,800
+kind of training process, that it's subject to optimisation by something like gradient
+
+57
+00:03:48,800 --> 00:03:53,040
+descent, and it has to have some kind of guess at what the base objective is likely to be.
+
+58
+00:03:53,040 --> 00:03:57,480
+And you might think, well, how would it know that? But it's probably the kind of thing
+
+59
+00:03:57,480 --> 00:03:59,640
+it could figure out from its training data.
+
+60
+00:03:59,640 --> 00:04:04,160
+The current way we train our biggest AI systems is by giving them vast piles of data from
+
+61
+00:04:04,160 --> 00:04:08,680
+the internet. The whole of Wikipedia, every article ever linked to from Reddit, that kind
+
+62
+00:04:08,680 --> 00:04:13,360
+of thing. If you're giving the system a huge dataset of information about the world,
+
+63
+00:04:13,360 --> 00:04:17,400
+that will certainly include information about machine learning systems and methods, the
+
+64
+00:04:17,400 --> 00:04:22,120
+people and companies working on them, and so on. GPT-N is going to read everything we
+
+65
+00:04:22,120 --> 00:04:27,000
+wrote about GPT-N-1, and that would certainly be enough information to figure out what's
+
+66
+00:04:27,000 --> 00:04:28,000
+going on.
+
+67
+00:04:28,000 --> 00:04:32,380
+We can try to remove that stuff from the dataset, but everything is connected, and the system
+
+68
+00:04:32,380 --> 00:04:37,480
+can make inferences. If we only remove information specifically about machine learning, then
+
+69
+00:04:37,480 --> 00:04:42,040
+the fact that this information has been removed will be obvious, and the absence itself would
+
+70
+00:04:42,040 --> 00:04:46,280
+serve as strong evidence that the system is in fact a model in training.
+
+71
+00:04:46,280 --> 00:04:50,480
+Removing all mention of anything at all related to machine learning in any way, so the system
+
+72
+00:04:50,480 --> 00:04:55,160
+couldn't even notice the gap, seems pretty much impossible. And even if we managed it,
+
+73
+00:04:55,160 --> 00:04:59,380
+we'd then end up with a system that had no idea that anything even tangentially related
+
+74
+00:04:59,380 --> 00:05:03,920
+to machine learning has ever existed, which is going to be pretty limited in its usefulness.
+
+75
+00:05:03,920 --> 00:05:08,680
+So yes, in order to have this deception problem, the MESA optimizer is required to have a particular
+
+76
+00:05:08,680 --> 00:05:13,800
+belief that it's a model in training. But the fact is, that belief is actually true,
+
+77
+00:05:13,800 --> 00:05:18,640
+so it's kind of reasonable to consider that your highly advanced figuring-things-out machine
+
+78
+00:05:18,640 --> 00:05:20,000
+might figure that out.
+
+79
+00:05:20,000 --> 00:05:24,060
+And finally, you might think that the MESA optimizer has to be able to tell the difference
+
+80
+00:05:24,060 --> 00:05:28,400
+between when it's in training and when it's deployed, so it knows when to stop pretending
+
+81
+00:05:28,400 --> 00:05:32,440
+to be aligned. But it turns out that's not really required.
+
+82
+00:05:32,440 --> 00:05:37,240
+Firstly, it doesn't actually need to know for sure, right? If you imagine a MESA optimizer
+
+83
+00:05:37,240 --> 00:05:43,640
+that goes from 90% sure I'm in training to 90% sure I'm in deployment, the logic works
+
+84
+00:05:43,640 --> 00:05:47,680
+basically the same. In that case, the MESA optimizer does have to take a risk, but it's
+
+85
+00:05:47,680 --> 00:05:48,680
+worth it.
+
+86
+00:05:48,680 --> 00:05:53,720
+And in fact, even if the model has absolutely no idea whether it's in deployment or in training,
+
+87
+00:05:53,720 --> 00:05:58,720
+the best strategy is still to gamble on deception. Like, if we look at our toy example again,
+
+88
+00:05:58,720 --> 00:06:03,040
+and we tweak it so that the MESA optimizer has no way of knowing which episode it's in,
+
+89
+00:06:03,040 --> 00:06:08,360
+if you work out the optimal policy, it turns out what works best is the randomized strategy
+
+90
+00:06:08,360 --> 00:06:13,500
+go to a, 55% of the time, and b, 45% of the time.
+
+91
+00:06:13,500 --> 00:06:18,520
+The MESA optimizer's best bet is to roll the dice and hope that it will defect during deployment
+
+92
+00:06:18,520 --> 00:06:24,360
+and not defect during training. In my simulations, that strategy gets it an average of 1.13 apples
+
+93
+00:06:24,360 --> 00:06:27,680
+compared to the one apple it gets by not being deceptive.
+
+94
+00:06:27,680 --> 00:06:32,000
+The specific numbers here will vary depending on things like how likely the agent thinks
+
+95
+00:06:32,000 --> 00:06:35,680
+being in training is compared to being in deployment, and how much reward it thinks
+
+96
+00:06:35,680 --> 00:06:38,320
+is possible in the real world compared to in the training process.
+
+97
+00:06:38,320 --> 00:06:42,360
+But the point is that even if we manage to make it so that the MESA optimizer can never
+
+98
+00:06:42,360 --> 00:06:46,800
+tell when it's deployed, the chance of it turning on us is still much higher than we'd
+
+99
+00:06:46,800 --> 00:06:47,800
+like.
+
+100
+00:06:47,800 --> 00:06:50,840
+But actually, that might not even matter, because hiding whether the system is in training
+
+101
+00:06:50,840 --> 00:06:55,760
+or deployment seems extremely difficult. If you're a misaligned MESA optimizer trying
+
+102
+00:06:55,760 --> 00:06:59,720
+to figure out whether you're in the real world or not, any distributional shift at
+
+103
+00:06:59,720 --> 00:07:01,520
+all can give the game away.
+
+104
+00:07:01,520 --> 00:07:05,120
+On a basic level, for example, you could look at the dates of all of the training data you've
+
+105
+00:07:05,120 --> 00:07:11,320
+seen so far and say, hmm, there's nothing after 2020, so I guess if I start seeing training
+
+106
+00:07:11,320 --> 00:07:15,520
+data that says 2025, then I can be confident that I'm deployed.
+
+107
+00:07:15,520 --> 00:07:20,040
+Now, an adversarial training process, if it's smart, might catch this. It might try putting
+
+108
+00:07:20,040 --> 00:07:24,520
+fake dates on training data to see if that changes the MESA optimizer's behaviour. But
+
+109
+00:07:24,520 --> 00:07:28,840
+the MESA optimizer, if it's also smart, can do something cleverer than just looking
+
+110
+00:07:28,840 --> 00:07:34,040
+at the dates. Any difference at all between training and deployment can be used, so there
+
+111
+00:07:34,040 --> 00:07:36,800
+are a million different kinds of clues available.
+
+112
+00:07:36,800 --> 00:07:41,580
+And in the extreme case, the MESA optimizer has the option to use evidence that the adversarial
+
+113
+00:07:41,580 --> 00:07:44,720
+training process simply could never fake.
+
+114
+00:07:44,720 --> 00:07:51,200
+Consider RSA2048, a giant semi-prime number used in cryptography. This number has only
+
+115
+00:07:51,200 --> 00:07:56,280
+two prime factors, and there's a $200,000 prize for anyone who can find out what they
+
+116
+00:07:56,280 --> 00:07:57,880
+are, but nobody has yet.
+
+117
+00:07:57,920 --> 00:08:02,680
+At some point in the future, someone will probably find and publish those prime factors,
+
+118
+00:08:02,680 --> 00:08:07,120
+but for now, it needs more computing power than anyone has. So the MESA optimizer can
+
+119
+00:08:07,120 --> 00:08:13,200
+just say to itself, okay, if I ever see a pair of prime numbers that multiply to RSA2048,
+
+120
+00:08:13,200 --> 00:08:16,680
+then I'll know that I'm in the real world. And the adversarial training process simply
+
+121
+00:08:16,680 --> 00:08:19,020
+doesn't have the computing power to fake that.
+
+122
+00:08:19,020 --> 00:08:23,580
+This raises the strange idea of a future where we have this amazing, seemingly perfectly
+
+123
+00:08:23,580 --> 00:08:28,700
+aligned AGI system, and everything's going wonderfully, possibly for years, and then
+
+124
+00:08:28,700 --> 00:08:33,780
+someone manages to factor RSA2048 and publishes the result, and suddenly everything goes to
+
+125
+00:08:33,780 --> 00:08:38,340
+hell as the AGI turns on a dime and starts going after whatever random thing happened
+
+126
+00:08:38,340 --> 00:08:41,620
+to be the MESA objective at the first point in training when the system realized that
+
+127
+00:08:41,620 --> 00:08:42,620
+deception was possible.
+
+128
+00:08:42,620 --> 00:08:47,500
+I'm not saying that will happen, to be clear. That won't happen. But it illustrates just
+
+129
+00:08:47,500 --> 00:08:52,620
+how hard it is to indefinitely keep a superintelligence in the dark about whether it's in the real
+
+130
+00:08:52,620 --> 00:08:53,620
+world.
+
+131
+00:08:53,620 --> 00:08:57,180
+So yeah, although there are a bunch of things that have to happen in order to have this
+
+132
+00:08:57,180 --> 00:09:02,180
+kind of deceptive misaligned MESA optimizer, all of them are things that are pretty likely
+
+133
+00:09:02,180 --> 00:09:06,900
+to happen. And more than that, many are things that gradient descent will actively try to
+
+134
+00:09:06,900 --> 00:09:11,500
+cause to happen because deceptively aligned models are really effective. They're actually
+
+135
+00:09:11,500 --> 00:09:15,860
+some of the most effective models at the base objective on the training distribution.
+
+136
+00:09:15,860 --> 00:09:20,180
+Why would deceptive MESA optimizers be more effective than other types of model? We'll
+
+137
+00:09:20,180 --> 00:09:25,140
+answer that question in a later video. Sorry to do this cliffhanger kind of thing, but
+
+138
+00:09:25,140 --> 00:09:29,140
+I've already spent way too long making this video and I need to publish it. So look out
+
+139
+00:09:29,140 --> 00:09:43,820
+for MESA optimizers, episode three coming soon.
+
+140
+00:09:43,820 --> 00:09:48,180
+I want to end the video by saying thank you to my wonderful patrons, all of these great
+
+141
+00:09:48,180 --> 00:09:53,060
+people here. This time I'm especially thanking Kieran. Thank you so much. You know, it's
+
+142
+00:09:53,060 --> 00:09:56,500
+because of people like you that I'm now able to look at hiring an editor. I'm in the middle
+
+143
+00:09:56,500 --> 00:10:00,660
+of the interviewing process now, and hopefully that can speed up video production by a lot.
+
+144
+00:10:00,660 --> 00:10:05,300
+So thanks again, Kieran and all of my patrons, and thank you for watching. I'll see you next
+
+145
+00:10:05,300 --> 00:10:05,300
+
+
+146
+00:10:18,180 --> 00:10:18,420
+time.
+

@@ -1,0 +1,836 @@
+1
+00:00:00,000 --> 00:00:04,040
+Since the beginning, one of the main goals of the field of artificial intelligence has
+
+2
+00:00:04,040 --> 00:00:09,180
+been to create very capable AI systems, to create systems which match or exceed human
+
+3
+00:00:09,180 --> 00:00:11,480
+capabilities across a wide range of tasks.
+
+4
+00:00:11,480 --> 00:00:15,840
+Given this, it's somewhat surprising just how recently people have started to take the
+
+5
+00:00:15,840 --> 00:00:21,520
+possibility seriously, and to ask, what would happen if we actually succeeded at this challenge?
+
+6
+00:00:21,520 --> 00:00:22,640
+What if we managed it?
+
+7
+00:00:22,640 --> 00:00:25,280
+The answer is, it looks like we have a problem.
+
+8
+00:00:25,280 --> 00:00:29,280
+See, just because the system is very capable, just because it's able to do very well at
+
+9
+00:00:29,280 --> 00:00:33,480
+very difficult things, does not mean that it's trying to do good things.
+
+10
+00:00:33,480 --> 00:00:37,360
+We could easily end up with AI systems that are trying to do things that we really don't
+
+11
+00:00:37,360 --> 00:00:38,360
+want them to do.
+
+12
+00:00:38,360 --> 00:00:42,640
+An AI system that works very effectively in the service of values that are different from
+
+13
+00:00:42,640 --> 00:00:47,320
+human values might be hugely destructive from the perspective of human values.
+
+14
+00:00:47,320 --> 00:00:50,400
+AI safety is an attempt to deal with this problem.
+
+15
+00:00:50,400 --> 00:00:55,080
+How do we create AI systems that are aligned with our goals, that are robustly beneficial,
+
+16
+00:00:55,080 --> 00:00:57,720
+that are trying to do what we want them to do?
+
+17
+00:00:57,720 --> 00:01:01,360
+But then you might ask, well, okay, what if we succeed at that?
+
+18
+00:01:01,360 --> 00:01:05,800
+What if we managed to create AI systems that are very capable, and also are trying to do
+
+19
+00:01:05,800 --> 00:01:07,840
+what the creators wanted them to do?
+
+20
+00:01:07,840 --> 00:01:11,880
+Rather than destroying everything that humans value, as an unaligned system might, such
+
+21
+00:01:11,880 --> 00:01:15,580
+systems would presumably create enormous amounts of value.
+
+22
+00:01:15,580 --> 00:01:18,000
+Might we still have a problem in that circumstance?
+
+23
+00:01:18,000 --> 00:01:22,000
+I think a lot of people would say, yeah, we probably do still have a problem, because
+
+24
+00:01:22,000 --> 00:01:26,120
+what happens when you create enormous amounts of wealth, and that wealth all belongs to
+
+25
+00:01:26,120 --> 00:01:27,960
+a small number of people?
+
+26
+00:01:27,960 --> 00:01:32,880
+One aspect of this is the possibility that automation will result in large-scale unemployment.
+
+27
+00:01:32,880 --> 00:01:37,080
+This has never really happened much in the past, but advanced AI might be an exception.
+
+28
+00:01:37,080 --> 00:01:41,480
+If there are AI systems that can do every task that a human can, it becomes difficult
+
+29
+00:01:41,480 --> 00:01:43,640
+to employ humans to do most tasks.
+
+30
+00:01:43,640 --> 00:01:47,520
+So then you have a situation where you can think of the world as having two types of
+
+31
+00:01:47,520 --> 00:01:48,520
+people.
+
+32
+00:01:48,520 --> 00:01:53,240
+People who make money by selling their labour, and people who make money by owning AI systems.
+
+33
+00:01:53,240 --> 00:01:57,360
+And in this scenario, you've dramatically increased money-making ability for one of
+
+34
+00:01:57,360 --> 00:02:01,760
+those types of people, while dramatically decreasing it for the other type.
+
+35
+00:02:01,760 --> 00:02:05,840
+What happens to people who work for a living, when companies can produce goods and services
+
+36
+00:02:05,840 --> 00:02:07,860
+without employing anyone?
+
+37
+00:02:07,860 --> 00:02:11,600
+What happens to labour, when capital has no need for it?
+
+38
+00:02:11,600 --> 00:02:13,320
+Hands up who's excited to find out?
+
+39
+00:02:13,320 --> 00:02:15,180
+Yeah, me neither.
+
+40
+00:02:15,180 --> 00:02:19,640
+This possible outcome of artificial intelligence transforming the world economy, but in the
+
+41
+00:02:19,640 --> 00:02:23,560
+process creating massive wealth and income inequality, with its associated political
+
+42
+00:02:23,560 --> 00:02:27,400
+and social problems, certainly seems suboptimal.
+
+43
+00:02:27,400 --> 00:02:30,680
+Better than extinction, sure, but still not the outcome that we really want.
+
+44
+00:02:30,680 --> 00:02:34,280
+How do we get the winners in this scenario to share their newly created wealth?
+
+45
+00:02:34,280 --> 00:02:38,760
+Well, some researchers at the Centre for the Governance of AI at the University of Oxford
+
+46
+00:02:38,760 --> 00:02:42,020
+have an idea for something that they think might help, which we're going to talk about
+
+47
+00:02:42,020 --> 00:02:43,020
+in this video.
+
+48
+00:02:43,020 --> 00:02:45,200
+It's called the Windfall Clause.
+
+49
+00:02:45,240 --> 00:02:49,920
+They define it as an ex-ante commitment to share extreme benefits of AI.
+
+50
+00:02:49,920 --> 00:02:54,880
+So basically it's a contract a company can sign that says, if at some point in the future
+
+51
+00:02:54,880 --> 00:02:59,480
+we make huge windfall profits, of the kind that you can really only get by transforming
+
+52
+00:02:59,480 --> 00:03:04,040
+the world economy with AI, we will share some significant percentage of it.
+
+53
+00:03:04,040 --> 00:03:06,800
+So obvious questions first, what do we mean by share it?
+
+54
+00:03:06,800 --> 00:03:11,360
+Well, that could be a variety of things, ranging from having a charitable foundation that uses
+
+55
+00:03:11,360 --> 00:03:16,260
+the money to alleviate inequality according to some set of principles, to just writing
+
+56
+00:03:16,260 --> 00:03:17,320
+everyone a cheque.
+
+57
+00:03:17,320 --> 00:03:20,240
+The other question is, when does this actually happen?
+
+58
+00:03:20,240 --> 00:03:22,280
+What counts as extreme profits?
+
+59
+00:03:22,280 --> 00:03:26,300
+Well, setting an absolute number here doesn't really work, because who knows how far into
+
+60
+00:03:26,300 --> 00:03:27,880
+the future this might happen.
+
+61
+00:03:27,880 --> 00:03:31,340
+And anyway, what we really care about is relative profits, right?
+
+62
+00:03:31,340 --> 00:03:35,320
+So it's defined as profits above a certain percentage of the world's gross domestic
+
+63
+00:03:35,320 --> 00:03:37,960
+product, say 1%.
+
+64
+00:03:37,960 --> 00:03:42,480
+In other words, if your profits are more than 1% of the world's total economic output,
+
+65
+00:03:42,480 --> 00:03:43,640
+you agree to share it.
+
+66
+00:03:43,640 --> 00:03:48,080
+This is a level of profitability that's higher than any company in history, but is actually
+
+67
+00:03:48,080 --> 00:03:50,840
+pretty plausible if your company creates AGI.
+
+68
+00:03:50,840 --> 00:03:55,400
+And in practice, there would probably be several levels of this, where as profits go up as
+
+69
+00:03:55,400 --> 00:03:59,920
+a percentage of world GDP, so does the percentage of the profits that's shared.
+
+70
+00:03:59,920 --> 00:04:02,320
+Kind of like a progressive marginal taxation scheme.
+
+71
+00:04:02,320 --> 00:04:05,740
+Speaking of which, why not just do this with taxes?
+
+72
+00:04:05,740 --> 00:04:07,700
+What advantage does this have over taxation?
+
+73
+00:04:07,700 --> 00:04:11,020
+Well, the first thing to note is that this isn't instead of taxes.
+
+74
+00:04:11,020 --> 00:04:15,420
+This is something they'd agree to over and above whatever taxes governments may impose.
+
+75
+00:04:15,420 --> 00:04:17,820
+But it has some important advantages over taxation.
+
+76
+00:04:17,820 --> 00:04:21,660
+Firstly, governments are not actually great at spending money effectively.
+
+77
+00:04:21,660 --> 00:04:26,300
+Giving money to, for example, the United States federal government is not necessarily the
+
+78
+00:04:26,300 --> 00:04:28,940
+most effective way to spend money to improve the world.
+
+79
+00:04:28,940 --> 00:04:30,460
+This isn't really controversial.
+
+80
+00:04:30,460 --> 00:04:35,900
+A 2011 poll found that Republicans think 52% of their federal tax money is wasted, while
+
+81
+00:04:35,900 --> 00:04:38,020
+Democrats think it's 47%.
+
+82
+00:04:38,020 --> 00:04:41,260
+So if you had a bunch of money and you were looking for the best way to spend it to improve
+
+83
+00:04:41,260 --> 00:04:46,120
+the lives of Americans, give it to the federal government would be pretty low on the list.
+
+84
+00:04:46,120 --> 00:04:49,940
+But actually it's worse than that, because this is a global issue, not a national one,
+
+85
+00:04:49,940 --> 00:04:53,220
+and tax money tends to stay in the country it's collected in.
+
+86
+00:04:53,220 --> 00:04:58,020
+Countries like the US and the UK spend less than 1% of their taxes on foreign aid, and
+
+87
+00:04:58,020 --> 00:04:59,980
+much of that's military aid.
+
+88
+00:04:59,980 --> 00:05:04,380
+Those deep mind creates AGI and starts accounting for more than 1% of the world's gross domestic
+
+89
+00:05:04,380 --> 00:05:08,020
+product, making just absurdly giant amounts of money.
+
+90
+00:05:08,020 --> 00:05:13,660
+Even if the UK taxes those profits very heavily, someone in India or China or the USA is going
+
+91
+00:05:13,660 --> 00:05:15,380
+to see basically none of that money.
+
+92
+00:05:15,380 --> 00:05:18,660
+So you still have this problem of enormous inequality.
+
+93
+00:05:18,660 --> 00:05:22,700
+And the thing is, if an AGI superintelligence turns out to be misaligned and it decides
+
+94
+00:05:22,700 --> 00:05:26,940
+to kill everyone, it's not going to stop at the borders of the country it was created
+
+95
+00:05:26,940 --> 00:05:27,940
+in.
+
+96
+00:05:27,940 --> 00:05:33,260
+Everyone in the world shares pretty much equally in the risks from AGI.
+
+97
+00:05:33,260 --> 00:05:37,860
+But if you just use national taxes, only a small minority of people actually get any
+
+98
+00:05:37,860 --> 00:05:39,620
+share of the benefits.
+
+99
+00:05:39,620 --> 00:05:41,020
+Does that seem right to you?
+
+100
+00:05:41,020 --> 00:05:45,520
+That said, one advantage of taxes is that they're not voluntary, you can actually make
+
+101
+00:05:45,520 --> 00:05:46,700
+companies pay them.
+
+102
+00:05:46,700 --> 00:05:49,240
+But this isn't as big of an advantage as it seems.
+
+103
+00:05:49,240 --> 00:05:53,820
+In practice, it seems that getting companies to pay their taxes is not that easy.
+
+104
+00:05:53,820 --> 00:05:56,900
+It's possible that they'd be more likely to pay something that they actually chose
+
+105
+00:05:56,900 --> 00:05:58,160
+to sign up to.
+
+106
+00:05:58,160 --> 00:06:00,940
+But then, why would they want to sign up in the first place?
+
+107
+00:06:00,940 --> 00:06:03,260
+Why volunteer to give away a load of money?
+
+108
+00:06:03,260 --> 00:06:06,560
+One thing is, the decision makers might be human beings.
+
+109
+00:06:06,560 --> 00:06:09,900
+The executives of these companies certainly talk a big game about wanting to improve the
+
+110
+00:06:09,900 --> 00:06:13,440
+world, and we can't rule out the possibility that they might mean it.
+
+111
+00:06:13,440 --> 00:06:14,780
+What about the shareholders, though?
+
+112
+00:06:14,780 --> 00:06:18,020
+Won't shareholders have something to say about the companies they've invested in
+
+113
+00:06:18,020 --> 00:06:20,500
+agreeing to give away huge amounts of money?
+
+114
+00:06:20,500 --> 00:06:24,820
+Corporate executives do have a legal obligation to act in the interests of their shareholders.
+
+115
+00:06:24,820 --> 00:06:27,380
+But legally, at least, it would probably be fine.
+
+116
+00:06:27,380 --> 00:06:31,460
+The Windfall Clause is a form of corporate philanthropy, and when shareholders have sued
+
+117
+00:06:31,460 --> 00:06:35,820
+executives on the grounds that their philanthropy was a violation of their duty to shareholders,
+
+118
+00:06:35,820 --> 00:06:38,620
+they've won those cases zero out of seven times.
+
+119
+00:06:38,620 --> 00:06:42,580
+But actually, they probably wouldn't even want to, because, in fact, even if the executives
+
+120
+00:06:42,580 --> 00:06:47,280
+and the shareholders are all, hypothetically, complete sociopaths, they still have a good
+
+121
+00:06:47,280 --> 00:06:52,760
+reason to sign something like a Windfall Clause, namely, appearing to not be sociopaths.
+
+122
+00:06:52,760 --> 00:06:55,640
+This is sometimes also called public relations.
+
+123
+00:06:55,640 --> 00:06:59,760
+Signing a Windfall Clause is a clear and legally binding show of goodwill.
+
+124
+00:06:59,760 --> 00:07:03,080
+It improves your company's relationship with the public and with public opinion, which
+
+125
+00:07:03,080 --> 00:07:05,200
+tech companies certainly value.
+
+126
+00:07:05,200 --> 00:07:09,560
+It improves your relationship with governments, which is very important for any large company.
+
+127
+00:07:09,560 --> 00:07:13,140
+And it improves your relationship with your employees, who in this case actually have
+
+128
+00:07:13,140 --> 00:07:14,720
+a lot of bargaining power.
+
+129
+00:07:14,720 --> 00:07:18,480
+Don't forget that, if you're a highly skilled tech company employee, as some of my viewers
+
+130
+00:07:18,960 --> 00:07:23,080
+you have a surprisingly large amount of power over the direction your company takes.
+
+131
+00:07:23,080 --> 00:07:25,280
+Look at things like Project Maven, for example.
+
+132
+00:07:25,280 --> 00:07:29,160
+So from the perspective of a tech company executive, signing a Windfall Clause is a
+
+133
+00:07:29,160 --> 00:07:33,320
+lot of great PR, the kind of thing you'd usually have to pay a lot of money for.
+
+134
+00:07:33,320 --> 00:07:35,360
+But it's all free, for now at least.
+
+135
+00:07:35,360 --> 00:07:39,680
+It only costs anything at all, if you end up with giant windfall profits, which might
+
+136
+00:07:39,680 --> 00:07:43,640
+never happen, and if it does, it's probably a long time in the future, when you've probably
+
+137
+00:07:43,640 --> 00:07:44,640
+already retired.
+
+138
+00:07:44,800 --> 00:07:49,280
+Now this is why it's important that it's an ex-ante agreement, that it's made before
+
+139
+00:07:49,280 --> 00:07:51,280
+we know how things are going to turn out.
+
+140
+00:07:51,280 --> 00:07:55,280
+It's much easier to persuade people to agree to give away something they don't have than
+
+141
+00:07:55,280 --> 00:07:56,280
+something they do.
+
+142
+00:07:56,280 --> 00:08:00,560
+Like, two people might agree to both buy lottery tickets, and to share the winnings if either
+
+143
+00:08:00,560 --> 00:08:01,560
+of them win.
+
+144
+00:08:01,560 --> 00:08:04,440
+This halves how much they'd win, but doubles their chance of winning.
+
+145
+00:08:04,440 --> 00:08:07,640
+Which might be something you'd want to do, depending on your risk tolerance and marginal
+
+146
+00:08:07,640 --> 00:08:08,640
+utility of money.
+
+147
+00:08:08,640 --> 00:08:13,360
+But note that the commitment has to be binding, and it has to be made before the lottery numbers
+
+148
+00:08:13,360 --> 00:08:14,360
+are drawn.
+
+149
+00:08:14,360 --> 00:08:15,360
+Right?
+
+150
+00:08:15,360 --> 00:08:17,280
+You won't have much luck trying to set that up afterwards.
+
+151
+00:08:17,280 --> 00:08:21,000
+But as long as we don't know who, if anyone, is going to be making these giant profits
+
+152
+00:08:21,000 --> 00:08:25,320
+from AI, it could be in everyone's interest to sign this thing, and encourage others to
+
+153
+00:08:25,320 --> 00:08:26,400
+sign it too.
+
+154
+00:08:26,400 --> 00:08:30,440
+For an AI company, in a world where all of the other major AI companies have agreed to
+
+155
+00:08:30,440 --> 00:08:35,440
+something like this, choosing not to join them is effectively saying, screw you guys,
+
+156
+00:08:35,440 --> 00:08:37,760
+there's going to be one winner here, and it's going to be me.
+
+157
+00:08:37,760 --> 00:08:41,000
+I intend to make absurd amounts of money, and not share any of it.
+
+158
+00:08:41,000 --> 00:08:42,000
+And you could do that.
+
+159
+00:08:42,000 --> 00:08:46,140
+But if you do, you might find that others don't want to cooperate with you as much.
+
+160
+00:08:46,140 --> 00:08:48,360
+You might face boycotts and activism.
+
+161
+00:08:48,360 --> 00:08:51,920
+Maybe governments wouldn't feel like giving you the contracts you'd like, or the regulatory
+
+162
+00:08:51,920 --> 00:08:53,240
+environment you'd prefer.
+
+163
+00:08:53,240 --> 00:08:57,840
+You might find it hard to get good collaborators, and to hire and keep the best researchers.
+
+164
+00:08:57,840 --> 00:09:01,760
+You might find that it's actually kind of hard to get things done in the world when
+
+165
+00:09:01,760 --> 00:09:06,040
+you've effectively stuck a big sticky label on your own forehead that reads, I am a dickhead.
+
+166
+00:09:06,040 --> 00:09:08,360
+Can I say that on YouTube?
+
+167
+00:09:08,360 --> 00:09:12,600
+So we want to set this kind of thing up sooner rather than later, because the more uncertainty
+
+168
+00:09:12,600 --> 00:09:16,680
+there is about who, if anyone, is going to get windfall profits, the less likely it is
+
+169
+00:09:16,680 --> 00:09:20,480
+for any individual company to think, well, I don't care about anyone's opinion, I can
+
+170
+00:09:20,480 --> 00:09:23,920
+do this all by myself, without the cooperation of the rest of the world.
+
+171
+00:09:23,920 --> 00:09:28,760
+Hopefully, we can get all of the major players to agree to something like a windfall clause,
+
+172
+00:09:28,760 --> 00:09:32,720
+and that should help mitigate the inequality problems that high-level AI might bring.
+
+173
+00:09:32,720 --> 00:09:34,280
+So how do we help make that happen?
+
+174
+00:09:34,280 --> 00:09:38,520
+Well, if I see something online about 20th century military history, and I'm not sure
+
+175
+00:09:38,520 --> 00:09:42,800
+what to make of it, I ask my uncle, because he's really into that stuff, and I respect
+
+176
+00:09:42,800 --> 00:09:43,920
+his opinion on the subject.
+
+177
+00:09:43,920 --> 00:09:46,720
+I think we've all got people like that for various things.
+
+178
+00:09:46,720 --> 00:09:50,440
+And when it comes to AI, if you're the kind of person who watches this channel, you might
+
+179
+00:09:50,440 --> 00:09:52,640
+be that person for some of the people you know.
+
+180
+00:09:52,640 --> 00:09:56,780
+So if at some point, some AI company signs something like a windfall clause, people might
+
+181
+00:09:56,780 --> 00:10:01,120
+ask you about it, and you can tell them that, yeah, it's pretty legit, that it's not just
+
+182
+00:10:01,120 --> 00:10:02,120
+a publicity stunt.
+
+183
+00:10:02,120 --> 00:10:06,360
+I mean, it probably is a publicity stunt, but it's not just a publicity stunt, right?
+
+184
+00:10:06,360 --> 00:10:09,520
+It probably would be legally binding and would actually help.
+
+185
+00:10:09,520 --> 00:10:13,080
+It's good for people to understand that, because the better the reaction that first company
+
+186
+00:10:13,080 --> 00:10:17,760
+gets, the more likely other companies will be to follow suit, and that's what we want.
+
+187
+00:10:17,760 --> 00:10:22,000
+Generally, this channel focuses more on the technical research that goes into trying to
+
+188
+00:10:22,000 --> 00:10:25,400
+make sure that advances in AI result in good outcomes.
+
+189
+00:10:25,400 --> 00:10:29,880
+But there's also a lot of research on the more human side of things, AI strategy, AI
+
+190
+00:10:29,880 --> 00:10:32,720
+policy, and AI governance research.
+
+191
+00:10:32,720 --> 00:10:36,040
+It's something I don't know as much about, but if there's interest, I can make more videos
+
+192
+00:10:36,040 --> 00:10:41,120
+like this one, exploring the research going on into legal, political, and economic aspects
+
+193
+00:10:41,120 --> 00:10:42,120
+of the future of AI.
+
+194
+00:10:42,120 --> 00:10:44,080
+Is that the kind of thing you'd be interested in seeing?
+
+195
+00:10:44,080 --> 00:10:45,080
+Let me know in the comments.
+
+196
+00:10:45,080 --> 00:10:57,520
+Thank you so much to all my excellent patrons.
+
+197
+00:10:57,520 --> 00:10:59,320
+It's all these wonderful people here.
+
+198
+00:10:59,320 --> 00:11:03,120
+In this video, I'm especially thanking Michael Andrig, who I actually happened to bump into
+
+199
+00:11:03,120 --> 00:11:04,720
+at a conference recently.
+
+200
+00:11:04,720 --> 00:11:08,920
+We had a great talk about his company, which is developing special optical computing hardware
+
+201
+00:11:08,920 --> 00:11:09,920
+for AI.
+
+202
+00:11:09,920 --> 00:11:10,920
+Fascinating stuff.
+
+203
+00:11:10,920 --> 00:11:12,440
+Anyway, thank you, Michael.
+
+204
+00:11:12,440 --> 00:11:16,720
+And also thank you to Colin O'Keefe, the primary author of the Windfall Clause paper, who was
+
+205
+00:11:16,720 --> 00:11:19,320
+kind enough to have a call with me and explain it.
+
+206
+00:11:19,320 --> 00:11:23,000
+I've uploaded that whole conversation for patrons, so do consider becoming one if you
+
+207
+00:11:23,000 --> 00:11:25,800
+want more in-depth information like that.
+
+208
+00:11:25,800 --> 00:11:28,600
+Thank you so much to those who do, and thank you all for watching.
+
+209
+00:11:28,600 --> 00:11:29,880
+I'll see you next time.
+

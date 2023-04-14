@@ -1,0 +1,268 @@
+1
+00:00:00,000 --> 00:00:06,000
+Hi. I sometimes hear people saying, if you want to create an artificial general intelligence that's
+
+2
+00:00:06,000 --> 00:00:11,360
+safe and has human values, why not just raise it like a human child? I might do a series of these
+
+3
+00:00:11,360 --> 00:00:17,280
+why not just videos. You know, why not just use the three laws? Why not just turn it off? But yeah,
+
+4
+00:00:17,280 --> 00:00:21,760
+why not raise an AGI like a child? Seems reasonable enough at first glance, right?
+
+5
+00:00:21,760 --> 00:00:25,760
+Humans are general intelligences, and we seem to know how to raise them to behave morally.
+
+6
+00:00:26,320 --> 00:00:28,480
+A young AGI would be a lot like a young human.
+
+7
+00:00:32,560 --> 00:00:36,800
+Remember a long while back on Computerphile, I was talking about this thought experiment
+
+8
+00:00:36,800 --> 00:00:42,240
+of a stamp collecting AGI. I use that because it's a good way of getting away from anthropomorphizing
+
+9
+00:00:42,240 --> 00:00:46,800
+the system. You're not just imagining a human mind. The system has these clearly laid out rules
+
+10
+00:00:46,800 --> 00:00:52,480
+by which it operates. It has an internet connection and a detailed internal model it can use to make
+
+11
+00:00:52,480 --> 00:00:57,600
+predictions about the world. It evaluates every possible sequence of packets it can send through
+
+12
+00:00:57,600 --> 00:01:01,920
+its internet connection, and it selects the one which it thinks will result in the most stamps
+
+13
+00:01:01,920 --> 00:01:07,520
+collected after a year. What happens if you try to raise the stamp collector like a human child?
+
+14
+00:01:08,320 --> 00:01:12,880
+Is it going to learn human ethics from your good example? No, it's going to kill everyone.
+
+15
+00:01:13,760 --> 00:01:19,120
+Values are not learned by osmosis. The stamp collector doesn't have any part of its code that
+
+16
+00:01:19,120 --> 00:01:24,080
+involves learning and adopting the values of humans around it, so it doesn't do that.
+
+17
+00:01:24,080 --> 00:01:27,520
+Now some of you may be saying, how do you know AGIs won't be like humans?
+
+18
+00:01:28,560 --> 00:01:34,240
+What if we make them by copying the human brain? And it's true, there is one kind of AGI-like thing
+
+19
+00:01:34,240 --> 00:01:39,600
+that's enough like a human that raising it like a human might kind of work. A whole brain emulation.
+
+20
+00:01:40,720 --> 00:01:46,240
+But I'd be very surprised if the first AGIs are exact replicas of brains. The first planes were
+
+21
+00:01:46,240 --> 00:01:51,680
+not like birds. The first submarines were not like fish. Making an exact replica of a bird or
+
+22
+00:01:51,680 --> 00:01:57,440
+a fish requires way more understanding than just making a thing that flies or a thing that swims.
+
+23
+00:01:57,440 --> 00:02:02,960
+And I'd expect making an exact replica of a brain to require a lot more understanding than just
+
+24
+00:02:02,960 --> 00:02:06,560
+making something that thinks. By the time we understand the operation of the brain well
+
+25
+00:02:06,560 --> 00:02:10,480
+enough to make working whole brain emulations, I expect we'll already know enough to make things
+
+26
+00:02:10,480 --> 00:02:15,680
+that are less human but that function as AGIs. So I don't know what the first AGIs will be like,
+
+27
+00:02:15,680 --> 00:02:20,640
+and they'll probably be more human-like than the stamp collector. But unless they're close copies
+
+28
+00:02:20,640 --> 00:02:25,360
+of human brains, they won't be similar enough to humans for raising them like children to
+
+29
+00:02:25,360 --> 00:02:29,680
+automatically work. Blindly copying the brain probably isn't going to help us. We're going to
+
+30
+00:02:29,680 --> 00:02:34,080
+have to really understand how humans learn their values. Without a good system for that, you may as
+
+31
+00:02:34,080 --> 00:02:39,680
+well try raising a crocodile like it's a human child. Human value learning is a specific, complex
+
+32
+00:02:39,680 --> 00:02:46,000
+mechanism that evolved in humans and won't be in AGIs by default. We look at the way children learn
+
+33
+00:02:46,000 --> 00:02:51,280
+things so quickly. We say they're like information sponges, right? They're just empty, so they suck up
+
+34
+00:02:51,280 --> 00:02:56,240
+whatever's around them. But they don't suck up everything. They only learn specific kinds of
+
+35
+00:02:56,240 --> 00:03:00,560
+things. Raise a child around people speaking English, it will learn English. In another
+
+36
+00:03:00,560 --> 00:03:05,200
+environment, it might learn French. But it's not going to reproduce the sound of the vacuum cleaner.
+
+37
+00:03:05,200 --> 00:03:08,320
+It's not going to learn the binary language of moisture evaporators or whatever.
+
+38
+00:03:08,880 --> 00:03:13,760
+The brain isn't learning and copying everything. It's specifically looking for something that
+
+39
+00:03:13,760 --> 00:03:19,360
+looks like a human natural language. Because there's this big, complex existing structure
+
+40
+00:03:19,360 --> 00:03:24,160
+put in place by evolution, and the brain is just looking for the final pieces. I think values are
+
+41
+00:03:24,160 --> 00:03:28,560
+similar. You can think of the brains of young humans as having a little slot in them, just
+
+42
+00:03:28,560 --> 00:03:34,320
+waiting to accept a set of human social norms and rules of ethical behavior. There's this whole
+
+43
+00:03:34,320 --> 00:03:39,680
+giant, complicated machine of emotions and empathy and theory of other minds and so on,
+
+44
+00:03:39,680 --> 00:03:45,040
+built up over millions of years of evolution. And the young brain is just waiting to fill in the few
+
+45
+00:03:45,040 --> 00:03:49,360
+remaining blanks based on what the child observes when they're growing up. When you raise a child,
+
+46
+00:03:49,360 --> 00:03:54,560
+you're not writing the child's source code. At best, you're writing the configuration file.
+
+47
+00:03:54,560 --> 00:03:59,120
+A child's upbringing is like a control panel on a machine. You can press some of the buttons and
+
+48
+00:03:59,120 --> 00:04:03,920
+turn some of the dials, but the machinery has already been built by evolution. You're just
+
+49
+00:04:03,920 --> 00:04:08,240
+changing some of the settings. So if you try to raise an unsafe AGI as though it were a human
+
+50
+00:04:08,240 --> 00:04:13,680
+child, you can provide all the right inputs, which in a human would produce a good moral adult.
+
+51
+00:04:13,680 --> 00:04:18,240
+But it won't work because you're pressing buttons and turning dials on a control panel that isn't
+
+52
+00:04:18,240 --> 00:04:23,760
+hooked up to anything. Unless your AGI has all of this complicated stuff that's designed to learn
+
+53
+00:04:23,760 --> 00:04:28,880
+and adopt values from the humans around it, it isn't going to do that. Okay, but can't we just
+
+54
+00:04:28,880 --> 00:04:34,000
+program that in? Yeah, hopefully we can, but there's no just about it. This is called value
+
+55
+00:04:34,000 --> 00:04:39,520
+learning, and it's an important part of AI safety research. It may be that an AGI will need to have
+
+56
+00:04:39,520 --> 00:04:45,280
+a period early on where it's learning about human values by interacting with humans. And that might
+
+57
+00:04:45,280 --> 00:04:50,480
+look a bit like raising a child if you squint, but making a system that's able to undergo that
+
+58
+00:04:50,480 --> 00:04:55,520
+learning process successfully and safely is hard. It's something we don't know how to do yet,
+
+59
+00:04:55,520 --> 00:05:01,680
+and figuring it out is a big part of AI safety research. So just raise the AGI like a child
+
+60
+00:05:01,680 --> 00:05:05,920
+is not a solution. It's at best a possible rephrasing of the problem.
+
+61
+00:05:20,720 --> 00:05:23,920
+I want to say a quick thank you to all of my amazing Patreon supporters.
+
+62
+00:05:24,560 --> 00:05:30,480
+All of these. These people. And in this video, I especially want to thank Sarah Cheddar,
+
+63
+00:05:30,480 --> 00:05:34,960
+who also happens to be one of the people I'm sending the diagram that I drew in the previous
+
+64
+00:05:34,960 --> 00:05:38,720
+video. I'm going to send that out today or tomorrow. I think that's kind of a fun thing
+
+65
+00:05:38,720 --> 00:05:43,200
+to do. So yeah, from now on, any video that has drawn graphics in it, just let me know in the
+
+66
+00:05:43,200 --> 00:05:47,200
+Patreon comments if you want me to send it to you, and I can do that. Thanks again for your support,
+
+67
+00:05:47,200 --> 00:05:49,600
+and I'll see you next time.
+

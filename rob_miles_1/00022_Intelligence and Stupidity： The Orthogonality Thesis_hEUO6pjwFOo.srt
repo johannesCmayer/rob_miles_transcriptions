@@ -1,0 +1,664 @@
+1
+00:00:00,000 --> 00:00:04,640
+Hi. This video is kind of a response to various comments that I've got over the years,
+
+2
+00:00:04,640 --> 00:00:08,560
+ever since that video on Computerphile, where I was describing the sort of problems that we
+
+3
+00:00:08,560 --> 00:00:12,880
+might have when we have a powerful artificial general intelligence with goals which aren't
+
+4
+00:00:12,880 --> 00:00:17,200
+the same as our goals, even if those goals seem pretty benign. We used this thought experiment
+
+5
+00:00:17,200 --> 00:00:22,560
+of an extremely powerful AGI working to optimize the simple goal of collecting stamps, and some
+
+6
+00:00:22,560 --> 00:00:26,640
+of the problems that that might cause. I got some comments from people saying that they think the
+
+7
+00:00:26,640 --> 00:00:31,040
+stamp collecting device is stupid, and not that it's a stupid thought experiment, but the device
+
+8
+00:00:31,040 --> 00:00:35,920
+itself is actually stupid. They said unless it has complex goals or the ability to choose its
+
+9
+00:00:35,920 --> 00:00:40,320
+own goals, then it didn't count as being highly intelligent. On other videos, I got comments
+
+10
+00:00:40,320 --> 00:00:46,000
+saying it takes intelligence to do moral reasoning, so an intelligent AGI system should be able to do
+
+11
+00:00:46,000 --> 00:00:50,480
+that, and a superintelligent should be able to do it better than humans. In fact, if a superintelligence
+
+12
+00:00:50,480 --> 00:00:55,040
+decides that the right thing to do is to kill us all, then I guess that's the right thing to do.
+
+13
+00:00:55,040 --> 00:00:59,680
+These comments are all kind of suffering from the same mistake, which is what this video is about.
+
+14
+00:00:59,680 --> 00:01:03,840
+But before I get to that, I need to lay some groundwork first. If you like Occam's razor,
+
+15
+00:01:03,840 --> 00:01:08,800
+then you'll love Hume's guillotine, also called the is-ought problem. This is a pretty simple
+
+16
+00:01:08,800 --> 00:01:14,560
+concept that I'd like to be better known. The idea is, statements can be divided up into two types,
+
+17
+00:01:14,560 --> 00:01:18,880
+is-statements and ought-statements. Is-statements, or positive statements,
+
+18
+00:01:18,880 --> 00:01:23,520
+are statements about how the world is, how the world was in the past, how the world will be in
+
+19
+00:01:23,520 --> 00:01:29,200
+the future, or how the world would be in hypothetical situations. This is facts about the nature of
+
+20
+00:01:29,200 --> 00:01:34,560
+reality, the causal relationships between things, that kind of thing. Then you have the ought-statements,
+
+21
+00:01:34,560 --> 00:01:39,760
+the should-statements, the normative statements. These are about the way the world should be,
+
+22
+00:01:39,760 --> 00:01:45,440
+the way we want the world to be. Statements about our goals, our values, ethics, morals,
+
+23
+00:01:45,440 --> 00:01:49,520
+what we want, all of that stuff. Now, you can derive logical statements from one another,
+
+24
+00:01:49,520 --> 00:01:55,280
+like, it's snowing outside, that's an is-statement. It's cold when it snows, another is-statement.
+
+25
+00:01:55,280 --> 00:01:59,440
+And then you can deduce, therefore, it's cold outside. That's another is-statement as our
+
+26
+00:01:59,440 --> 00:02:04,800
+conclusion. This is all pretty obvious. But you might say something like, it's snowing outside,
+
+27
+00:02:04,800 --> 00:02:08,560
+therefore, you ought to put on a coat. And that's a very normal sort of sentence that people might
+
+28
+00:02:08,560 --> 00:02:13,920
+say, but as a logical statement, it actually relies on some hidden assumptions. Without assuming some
+
+29
+00:02:13,920 --> 00:02:18,640
+kind of ought-statement, you can't derive another ought-statement. This is the core of the is-ought
+
+30
+00:02:18,640 --> 00:02:23,680
+problem. You can never derive an ought-statement using only is-statements. You ought to put on a
+
+31
+00:02:23,680 --> 00:02:28,560
+coat. Why? Because it's snowing outside. So why does the fact that it's snowing mean I should
+
+32
+00:02:28,560 --> 00:02:32,400
+put on a coat? Well, the fact that it's snowing means that it's cold. And why should it being
+
+33
+00:02:32,400 --> 00:02:36,960
+cold mean I should put on a coat? If it's cold and you go outside without a coat, you'll be cold.
+
+34
+00:02:36,960 --> 00:02:41,200
+Should I not be cold? Well, if you get too cold, you'll freeze to death. Okay, you're saying I
+
+35
+00:02:41,200 --> 00:02:45,600
+shouldn't freeze to death? That was kind of silly. But you see what I'm saying? You can keep laying
+
+36
+00:02:45,600 --> 00:02:49,680
+out is-statements for as long as you want. You will never be able to derive that you ought to
+
+37
+00:02:49,680 --> 00:02:54,320
+put on a coat. At some point, in order to derive that ought-statement, you need to assume at least
+
+38
+00:02:54,320 --> 00:02:58,560
+one other ought-statement. If you have some kind of ought-statement like, I ought to continue to
+
+39
+00:02:58,560 --> 00:03:03,200
+be alive, you can then say, given that I ought to keep living, and that if I go outside without a
+
+40
+00:03:03,200 --> 00:03:07,440
+coat, I'll die, then I ought to put on a coat. But unless you have at least one ought-statement,
+
+41
+00:03:07,440 --> 00:03:12,720
+you cannot derive any other ought-statements. Is-statements and ought-statements are separated
+
+42
+00:03:12,720 --> 00:03:17,680
+by Hume's guillotine. Okay, so people are saying that a device that single-mindedly collects stamps
+
+43
+00:03:17,680 --> 00:03:22,000
+at the cost of everything else is stupid and doesn't count as a powerful intelligence.
+
+44
+00:03:22,000 --> 00:03:27,040
+So let's define our terms. What is intelligence? And conversely, what is stupidity? I feel like
+
+45
+00:03:27,040 --> 00:03:32,240
+I made fairly clear in those videos what I meant by intelligence. We're talking about AGI systems as
+
+46
+00:03:32,240 --> 00:03:36,560
+intelligent agents. They're entities that take actions in the world in order to achieve their
+
+47
+00:03:36,560 --> 00:03:41,120
+goals or maximize their utility functions. Intelligence is the thing that allows them
+
+48
+00:03:41,200 --> 00:03:45,200
+to choose good actions, to choose actions that will get them what they want.
+
+49
+00:03:45,200 --> 00:03:49,920
+An agent's level of intelligence really means its level of effectiveness at pursuing its goals.
+
+50
+00:03:49,920 --> 00:03:54,320
+In practice, this is likely to involve having or building an accurate model of reality,
+
+51
+00:03:54,320 --> 00:03:58,320
+keeping that model up to date by reasoning about observations, and using the model to
+
+52
+00:03:58,320 --> 00:04:02,400
+make predictions about the future and the likely consequences of different possible actions to
+
+53
+00:04:02,400 --> 00:04:06,080
+figure out which actions will result in which outcomes. Intelligence involves answering
+
+54
+00:04:06,080 --> 00:04:11,600
+questions like, what is the world like? How does it work? What will happen next? What would happen
+
+55
+00:04:11,600 --> 00:04:15,680
+in this scenario or that scenario? What would happen if I took this action or that action?
+
+56
+00:04:16,320 --> 00:04:20,640
+More intelligent systems are in some sense better at answering these kinds of questions,
+
+57
+00:04:20,640 --> 00:04:24,160
+which allows them to be better at choosing actions. But one thing you might notice about
+
+58
+00:04:24,160 --> 00:04:28,960
+these questions is they're all is questions. The system has goals, which can be thought of
+
+59
+00:04:28,960 --> 00:04:33,760
+as ought statements, but the level of intelligence depends only on the ability to reason about is
+
+60
+00:04:33,760 --> 00:04:38,560
+questions in order to answer the single ought question, what action should I take next?
+
+61
+00:04:38,560 --> 00:04:43,120
+So given that that's what we mean by intelligence, what does it mean to be stupid? Well, firstly,
+
+62
+00:04:43,120 --> 00:04:47,440
+you can be stupid in terms of those is questions. For example, by building a model that doesn't
+
+63
+00:04:47,440 --> 00:04:52,000
+correspond with reality or by failing to update your model properly with new evidence. If I look
+
+64
+00:04:52,000 --> 00:04:56,960
+out of my window and I see there's snow everywhere, you know, I see a snowman and I think to myself,
+
+65
+00:04:56,960 --> 00:05:02,880
+oh, what a beautiful, warm, sunny day. Then that's stupid, right? My belief is wrong. And I had all
+
+66
+00:05:02,880 --> 00:05:08,320
+the clues to realize it's cold outside. So beliefs can be stupid by not corresponding to reality.
+
+67
+00:05:08,320 --> 00:05:13,840
+What about actions? Like if I go outside in the snow without my coat, that's stupid, right? Well,
+
+68
+00:05:13,840 --> 00:05:19,360
+it might be. If I think it's sunny and warm and I go outside to sunbathe, then yeah, that's stupid.
+
+69
+00:05:19,360 --> 00:05:23,920
+But if I just came out of a sauna or something, and I'm too hot and I want to cool myself down,
+
+70
+00:05:23,920 --> 00:05:28,080
+then going outside without a coat might be quite sensible. You can't know if an action is stupid
+
+71
+00:05:28,080 --> 00:05:32,880
+just by looking at its consequences. You have to also know the goals of the agent taking the action.
+
+72
+00:05:32,880 --> 00:05:37,280
+You can't just use is statements. You need an ought. So actions are only stupid relative to
+
+73
+00:05:37,280 --> 00:05:42,560
+a particular goal. It doesn't feel that way though. People often talk about actions being stupid
+
+74
+00:05:42,560 --> 00:05:47,360
+without specifying what goals they're stupid relative to. But in those cases, the goals are
+
+75
+00:05:47,360 --> 00:05:52,720
+implied. We're humans. And when we say that an action is stupid in normal human communication,
+
+76
+00:05:52,720 --> 00:05:56,960
+we're making some assumptions about normal human goals. And because we're always talking about
+
+77
+00:05:56,960 --> 00:06:01,920
+people and people tend to want similar things, it's sort of a shorthand that we can skip what
+
+78
+00:06:01,920 --> 00:06:07,200
+goals we're talking about. So what about the goals then? Can goals be stupid? Well, this depends on
+
+79
+00:06:07,200 --> 00:06:11,760
+the difference between instrumental goals and terminal goals. This is something I've covered
+
+80
+00:06:11,760 --> 00:06:16,560
+elsewhere, but your terminal goals are the things that you want just because you want them. You
+
+81
+00:06:16,560 --> 00:06:21,200
+don't have a particular reason to want them. They're just what you want. The instrumental goals
+
+82
+00:06:21,200 --> 00:06:25,840
+are the goals you want because they'll get you closer to your terminal goals. Like if I have a
+
+83
+00:06:25,840 --> 00:06:31,280
+terminal goal to visit a town that's far away, maybe an instrumental goal would be to find a
+
+84
+00:06:31,280 --> 00:06:35,600
+train station. I don't want to find a train station just because trains are cool. I want to find a
+
+85
+00:06:35,600 --> 00:06:40,880
+train as a means to an end. It's going to take me to this town. So that makes it an instrumental goal.
+
+86
+00:06:40,880 --> 00:06:46,080
+Now an instrumental goal can be stupid. If I want to go to this distant town, so I decide I want to
+
+87
+00:06:46,080 --> 00:06:51,600
+find a pogo stick, that's pretty stupid. Finding a pogo stick is a stupid instrumental goal
+
+88
+00:06:51,600 --> 00:06:56,320
+if my terminal goal is to get to a faraway place. But if my terminal goal was something else,
+
+89
+00:06:56,320 --> 00:07:02,080
+like having fun, it might not be stupid. So in that way, it's like actions. Instrumental goals
+
+90
+00:07:02,080 --> 00:07:07,360
+can only be stupid relative to terminal goals. So you see how this works. Beliefs and predictions
+
+91
+00:07:07,360 --> 00:07:12,640
+can be stupid relative to evidence or relative to reality. Actions can be stupid relative to
+
+92
+00:07:12,640 --> 00:07:17,440
+goals of any kind. Instrumental goals can be stupid relative to terminal goals. But here's
+
+93
+00:07:17,440 --> 00:07:21,920
+the big point. Terminal goals can't be stupid. There's nothing to judge them against. If a
+
+94
+00:07:21,920 --> 00:07:27,200
+terminal goal seems stupid, like let's say collecting stamps seems like a stupid terminal goal,
+
+95
+00:07:27,200 --> 00:07:31,600
+that's because it would be stupid as an instrumental goal to human terminal goals.
+
+96
+00:07:31,600 --> 00:07:35,760
+But the stamp collector does not have human terminal goals. Similarly, the things that
+
+97
+00:07:35,760 --> 00:07:40,320
+humans care about would seem stupid to the stamp collector because they result in so few stamps.
+
+98
+00:07:40,320 --> 00:07:43,920
+So let's get back to those comments. One type of comment says,
+
+99
+00:07:43,920 --> 00:07:48,720
+this behavior of just single-mindedly going after one thing and ignoring everything else
+
+100
+00:07:48,720 --> 00:07:54,160
+and ignoring the totally obvious fact that stamps aren't that important is really stupid behavior.
+
+101
+00:07:54,160 --> 00:07:57,680
+You're calling this thing a super intelligence, but it doesn't seem super intelligent to me. It
+
+102
+00:07:57,680 --> 00:08:01,840
+just seems kind of like an idiot. Hopefully the answer to this is now clear. The stamp
+
+103
+00:08:01,840 --> 00:08:05,680
+collector's actions are stupid relative to human goals, but it doesn't have human goals.
+
+104
+00:08:05,680 --> 00:08:10,480
+Its intelligence comes not from its goals, but from its ability to understand and reason about
+
+105
+00:08:10,480 --> 00:08:14,480
+the world, allowing it to choose actions that achieve its goals. And this is true,
+
+106
+00:08:14,480 --> 00:08:18,240
+whatever those goals actually are. Some people commented along the lines of,
+
+107
+00:08:18,240 --> 00:08:22,160
+well, okay, yeah, sure. You've defined intelligence to only include this type of
+
+108
+00:08:22,160 --> 00:08:27,760
+is statement kind of reasoning, but I don't like that definition. I think to be truly intelligent,
+
+109
+00:08:27,760 --> 00:08:32,240
+you need to have complex goals. Something with simple goals doesn't count as intelligent.
+
+110
+00:08:32,240 --> 00:08:37,280
+To that I say, well, you can use words however you want, I guess. I'm using intelligence here
+
+111
+00:08:37,280 --> 00:08:40,960
+as a technical term in the way that it's often used in the field. You're free to have your own
+
+112
+00:08:40,960 --> 00:08:45,600
+definition of the word, but the fact that something fails to meet your definition of intelligence
+
+113
+00:08:45,600 --> 00:08:49,600
+does not mean that it will fail to behave in a way that most people would call intelligent.
+
+114
+00:08:49,600 --> 00:08:53,200
+If the stamp collector outwits you, gets around everything you've put in its way and
+
+115
+00:08:53,200 --> 00:08:57,600
+outmaneuvers you mentally, it comes up with new strategies that you would never have thought of
+
+116
+00:08:57,600 --> 00:09:01,120
+to stop you from turning it off and stop you from preventing it from making stamps.
+
+117
+00:09:01,120 --> 00:09:05,200
+And as a consequence, it turns the entire world into stamps in various ways you could never think
+
+118
+00:09:05,200 --> 00:09:10,080
+of. It's totally okay for you to say that it doesn't count as intelligent if you want,
+
+119
+00:09:10,080 --> 00:09:14,720
+but you're still dead. I prefer my definition because it better captures the ability to get
+
+120
+00:09:14,720 --> 00:09:19,200
+things done in the world, which is the reason that we actually care about AGI in the first place.
+
+121
+00:09:19,200 --> 00:09:23,280
+Similarly, people who say that in order to be intelligent, you need to be able to choose your
+
+122
+00:09:23,280 --> 00:09:28,240
+own goals. I would agree you need to be able to choose your own instrumental goals, but not your
+
+123
+00:09:28,240 --> 00:09:33,040
+own terminal goals. Changing your terminal goals is like willingly taking a pill that will make
+
+124
+00:09:33,040 --> 00:09:37,360
+you want to murder your children. It's something you pretty much never want to do. Apart from some
+
+125
+00:09:37,360 --> 00:09:42,160
+bizarre edge cases, if you rationally want to take an action that changes one of your goals,
+
+126
+00:09:42,160 --> 00:09:45,920
+then that wasn't a terminal goal. Now moving on to these comments saying
+
+127
+00:09:45,920 --> 00:09:51,040
+an AGI will be able to reason about morality. And if it's really smarter than us, it will actually
+
+128
+00:09:51,040 --> 00:09:55,680
+do moral reasoning better than us. So there's nothing to worry about. It's true that a superior
+
+129
+00:09:55,680 --> 00:10:00,640
+intelligence might be better at moral reasoning than us, but ultimately moral behaviour depends
+
+130
+00:10:00,640 --> 00:10:05,920
+not on moral reasoning, but on having the right terminal goals. There's a difference between
+
+131
+00:10:05,920 --> 00:10:11,040
+figuring out and understanding human morality and actually wanting to act according to it.
+
+132
+00:10:11,040 --> 00:10:16,000
+The stamp collecting device has a perfect understanding of human goals, ethics and values,
+
+133
+00:10:16,000 --> 00:10:20,640
+and it uses that only to manipulate people for stamps. It's superhuman moral reasoning
+
+134
+00:10:20,640 --> 00:10:25,120
+doesn't make its actions good. If we create a super intelligence and it decides to kill us,
+
+135
+00:10:25,120 --> 00:10:28,240
+that doesn't tell us anything about morality. It just means we screwed up.
+
+136
+00:10:28,240 --> 00:10:34,720
+So what mistake do all of these comments have in common? The orthogonality thesis in AI safety
+
+137
+00:10:34,720 --> 00:10:40,080
+is that more or less any goal is compatible with more or less any level of intelligence,
+
+138
+00:10:40,080 --> 00:10:45,680
+i.e. those properties are orthogonal. You can place them on these two axes and it's possible
+
+139
+00:10:45,680 --> 00:10:51,280
+to have agents anywhere in this space, anywhere on either scale. You can have very weak,
+
+140
+00:10:51,280 --> 00:10:56,080
+low intelligence agents that have complex human compatible goals. You can have powerful,
+
+141
+00:10:56,080 --> 00:11:00,560
+highly intelligent systems with complex, sophisticated goals. You can have weak,
+
+142
+00:11:00,560 --> 00:11:05,840
+simple agents with silly goals. And yes, you can have powerful, highly intelligent systems
+
+143
+00:11:05,840 --> 00:11:11,680
+with simple, weird, inhuman goals. Any of these are possible because level of intelligence is
+
+144
+00:11:11,680 --> 00:11:17,280
+about effectiveness at answering is questions and goals are all about ought questions. And the two
+
+145
+00:11:17,280 --> 00:11:21,760
+sides are separated by Hume's guillotine. Hopefully looking at what we've talked about so far,
+
+146
+00:11:21,760 --> 00:11:26,880
+it should be pretty obvious that this is the case. Like what would it even mean for it to be false?
+
+147
+00:11:26,880 --> 00:11:31,120
+For it to be impossible to create powerful intelligences with certain goals, the stamp
+
+148
+00:11:31,120 --> 00:11:35,840
+collector is intelligent because it's effective at considering the consequences of sending different
+
+149
+00:11:35,840 --> 00:11:39,840
+combinations of packets on the internet and calculating how many stamps that results in
+
+150
+00:11:40,640 --> 00:11:45,440
+exactly. How good do you have to be at that before you don't care about stamps anymore?
+
+151
+00:11:45,440 --> 00:11:49,360
+And you randomly start to care about some other thing that was never part of your terminal goals,
+
+152
+00:11:49,360 --> 00:11:54,080
+like feeding the hungry or whatever. It's just not going to happen. So that's the orthogonality
+
+153
+00:11:54,080 --> 00:11:58,880
+thesis. It's possible to create a powerful intelligence that will pursue any goal you
+
+154
+00:11:58,880 --> 00:12:03,520
+can specify. Knowing an agent's terminal goals doesn't really tell you anything about its level
+
+155
+00:12:03,520 --> 00:12:08,240
+of intelligence. And knowing an agent's level of intelligence doesn't tell you anything about its
+
+156
+00:12:08,240 --> 00:12:08,740
+goals.
+
+157
+00:12:16,240 --> 00:12:21,200
+I want to end the video by saying thank you to my excellent patrons. It's all of these people here.
+
+158
+00:12:22,560 --> 00:12:26,720
+Thank you so much for your support. It lets me do stuff like building this light board.
+
+159
+00:12:26,720 --> 00:12:31,760
+Thank you for sticking with me through that weird Patreon fees thing and my moving to a different
+
+160
+00:12:31,760 --> 00:12:35,520
+city, which has really gotten in the way of making videos recently. But I'm back on it now.
+
+161
+00:12:35,520 --> 00:12:40,320
+New video every two weeks is the plan. Anyway, in this video, I'm especially thanking Katie Byrne,
+
+162
+00:12:40,320 --> 00:12:44,240
+who's supported the channel for a long time. She actually has her own YouTube channel about 3D
+
+163
+00:12:44,240 --> 00:12:48,400
+modeling and stuff, so I'll link to that. And while I'm at it, when I thanked Chad Jones ages
+
+164
+00:12:48,400 --> 00:12:52,160
+ago, I didn't mention his YouTube channel. So link to both of those in the description.
+
+165
+00:12:52,160 --> 00:12:53,760
+Thanks again, and I'll see you next time.
+
+166
+00:12:59,520 --> 00:13:01,520
+I don't speak cat. What does that mean?
+

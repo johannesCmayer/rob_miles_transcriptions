@@ -1,0 +1,768 @@
+1
+00:00:00,000 --> 00:00:06,400
+Hi. A quick foreword before we get started. I wrote the script for this video in maybe February
+
+2
+00:00:06,400 --> 00:00:11,680
+or March of last year in response to an article Steven Pinker wrote for Popular Science magazine,
+
+3
+00:00:11,680 --> 00:00:16,400
+which was basically an extract from his new book Enlightenment Now. I ended up not publishing that
+
+4
+00:00:16,400 --> 00:00:21,040
+video because I thought it was kind of mean-spirited and sarcastic in places, and I didn't
+
+5
+00:00:21,040 --> 00:00:26,320
+want to be that kind of YouTuber. I figured Pinker is on the side of the angels, as it were, and
+
+6
+00:00:26,320 --> 00:00:29,840
+there'd be a retraction or correction issued before long, like we heard from Neil deGrasse
+
+7
+00:00:29,840 --> 00:00:35,360
+Tyson. But it's now been almost a year, and Pinker has stood by this work in response to criticism,
+
+8
+00:00:35,360 --> 00:00:40,160
+so here we go. Steven Pinker is a cognitive psychologist and an award-winning popular
+
+9
+00:00:40,160 --> 00:00:44,720
+science author. His books tend to be carefully researched and well thought out, books which
+
+10
+00:00:44,720 --> 00:00:49,200
+have really influenced the public conversation about various scientific topics. How the mind
+
+11
+00:00:49,200 --> 00:00:54,720
+works, the relative roles of nature and nurture in human psychology and behavior, and society and
+
+12
+00:00:54,720 --> 00:00:59,360
+social progress. His latest book is titled Enlightenment Now, which advances, amongst other
+
+13
+00:00:59,360 --> 00:01:04,080
+things, one of Pinker's main points, a point which I think is true and important and not widely
+
+14
+00:01:04,080 --> 00:01:09,440
+enough believed, which is that things are on the whole good and getting better. Everybody's always
+
+15
+00:01:09,440 --> 00:01:13,040
+talking about how everything is terrible and society is on the wrong path and everything is
+
+16
+00:01:13,040 --> 00:01:17,120
+going down the drain, but if you look at almost anything you can measure, it's getting better.
+
+17
+00:01:17,120 --> 00:01:23,040
+Crime is down, violence is down, war is down, infant mortality is way down, disease is down.
+
+18
+00:01:23,120 --> 00:01:27,600
+Generally speaking, people are happier, more prosperous, and living in better conditions
+
+19
+00:01:27,600 --> 00:01:31,920
+than they ever have been. The statistics on this are pretty clear. Things do seem to be getting
+
+20
+00:01:31,920 --> 00:01:36,320
+better. And in spite of this, a lot of people have a tendency to be unreasonably pessimistic
+
+21
+00:01:36,320 --> 00:01:41,600
+about the future. It can be pretty aggravating. So if you can't tell, I quite like Steven Pinker.
+
+22
+00:01:41,600 --> 00:01:46,080
+He's the kind of person who, if I didn't know much about a subject and I heard that he'd written an
+
+23
+00:01:46,080 --> 00:01:50,240
+article about that subject in Popular Science Magazine, I would think, oh good, I can read
+
+24
+00:01:50,240 --> 00:01:54,080
+that article and it will give me a good understanding of that subject. But I think you
+
+25
+00:01:54,080 --> 00:01:59,120
+can tell from the setup here that that was not the case with this piece. So the article is titled
+
+26
+00:01:59,120 --> 00:02:03,680
+We're Told to Fear Robots, But Why Do We Think They'll Turn on Us? With the subtitle
+
+27
+00:02:03,680 --> 00:02:09,280
+The Robot Uprising is a Myth. Pinker starts the article by talking about this fact that
+
+28
+00:02:09,280 --> 00:02:12,800
+things are generally getting better and a lot of people seem to want to think that things are
+
+29
+00:02:12,800 --> 00:02:17,680
+getting worse. There's a popular narrative that says, even though technology seems to be making
+
+30
+00:02:17,680 --> 00:02:21,840
+our lives better, what if we're actually on our way to some disaster and technology is actually
+
+31
+00:02:21,840 --> 00:02:26,320
+going to be terrible for us and we just don't realize it yet? And it seems that Pinker sees
+
+32
+00:02:26,320 --> 00:02:31,920
+concern about AI risk as just more of the same, more of this just general purpose technology
+
+33
+00:02:31,920 --> 00:02:37,040
+pessimism. Is it though? I'm sure it's part of the reason for the popularity of the idea.
+
+34
+00:02:37,040 --> 00:02:41,200
+I've certainly talked to people who seem to think that way, but when it comes to deciding whether
+
+35
+00:02:41,200 --> 00:02:46,720
+AI risk is a real concern, I think this is a weak argument. I'm generally very wary of arguments
+
+36
+00:02:46,720 --> 00:02:50,960
+that talk about people's psychology and their motivations for making a claim, rather than
+
+37
+00:02:50,960 --> 00:02:55,600
+talking about the claim itself. To demonstrate, you can make a very similar argument and say,
+
+38
+00:02:55,600 --> 00:02:59,680
+well, Steven Pinker has spent many years of his life railing against this sort of general
+
+39
+00:02:59,680 --> 00:03:04,560
+pessimism. And because this is kind of his thing, he's inclined to see it everywhere he looks. And
+
+40
+00:03:04,560 --> 00:03:08,640
+so when he sees people who actually have an understanding of the technical subject matter
+
+41
+00:03:08,640 --> 00:03:13,280
+raising serious safety concerns, he's inclined to just dismiss it as more of the same Luddite
+
+42
+00:03:13,280 --> 00:03:18,000
+pessimism because that's what he knows. That's what he expects to see. Is that what's actually
+
+43
+00:03:18,000 --> 00:03:23,920
+happened? I don't know, maybe, but I think it's a weak argument to make. The fact that people might
+
+44
+00:03:23,920 --> 00:03:28,080
+have reasons to want to say that AI is a risk doesn't mean that it isn't. And the fact that
+
+45
+00:03:28,080 --> 00:03:32,720
+Steven Pinker might be inclined to dismiss such concerns as this kind of reflexive pessimism
+
+46
+00:03:32,720 --> 00:03:37,120
+doesn't mean that it isn't. So these are just bulverism and we should get down to the actual
+
+47
+00:03:37,120 --> 00:03:41,840
+technical issues. So what are the actual arguments put forward by the article? Before we start in on
+
+48
+00:03:41,840 --> 00:03:46,720
+that, I just want to say summarizing arguments is difficult. Summarizing arguments fairly is
+
+49
+00:03:46,720 --> 00:03:51,200
+especially difficult. And I'm not trying to construct straw man here, but I might by accident.
+
+50
+00:03:51,200 --> 00:03:54,640
+I would encourage everyone to read the original article. There's a link in the description.
+
+51
+00:03:55,440 --> 00:03:59,600
+But I know most of you won't, and that's okay. Okay, so one of the first points that the article
+
+52
+00:03:59,600 --> 00:04:05,200
+makes when it gets to actual arguments is it says, among the smart people who aren't losing sleep
+
+53
+00:04:05,200 --> 00:04:10,080
+are most experts in artificial intelligence and most experts in human intelligence. This is kind
+
+54
+00:04:10,080 --> 00:04:14,480
+of an appeal to authority, but I think that's totally legitimate here. The opinions of AI experts
+
+55
+00:04:14,480 --> 00:04:20,320
+are important evidence about AI risk, but is it actually true? Do most AI researchers not think
+
+56
+00:04:20,320 --> 00:04:25,280
+that advanced AI is a significant risk? Well, just recently a survey was published and in fact,
+
+57
+00:04:25,280 --> 00:04:30,000
+I made a whole video about it. So I'll link to that video and the paper in the description.
+
+58
+00:04:30,000 --> 00:04:35,120
+Grace et al surveyed all of the researchers who published work at the 2015 NIPS and ICML
+
+59
+00:04:35,120 --> 00:04:39,360
+conferences. This is a reasonable cross section of high level AI researchers. These are people
+
+60
+00:04:39,360 --> 00:04:42,640
+who have published in some of the best conferences on AI. Like I say, I made a whole
+
+61
+00:04:42,640 --> 00:04:47,040
+video about this, but the single question that I want to draw your attention to is this one.
+
+62
+00:04:47,840 --> 00:04:51,920
+Does Stuart Russell's argument for why a highly advanced AI might pose a risk
+
+63
+00:04:51,920 --> 00:04:56,320
+point at an important problem? So the argument that's being referred to by this question is
+
+64
+00:04:56,320 --> 00:05:00,480
+more or less the argument that I've been making on this channel, the general AI safety concern
+
+65
+00:05:00,480 --> 00:05:05,520
+argument, all of the reasons why alignment and AI safety research is necessary. So do the AI
+
+66
+00:05:05,520 --> 00:05:10,880
+experts agree with that? Well, 11% of them think, no, it's not a real problem. 19% think,
+
+67
+00:05:10,880 --> 00:05:16,960
+no, it's not an important problem, but the remainder, 70% of the AI experts agree that
+
+68
+00:05:16,960 --> 00:05:21,280
+this is at least a moderately important problem. Now, I don't know how many of them are losing
+
+69
+00:05:21,280 --> 00:05:26,160
+sleep, but I would say that the implication of the article's claim that AI researchers don't
+
+70
+00:05:26,160 --> 00:05:31,680
+think AI risk is a serious concern is just factually not true. AI experts are concerned
+
+71
+00:05:31,680 --> 00:05:36,880
+about this. And the thing that's strange is the article quotes Ramez Naam as a computer scientist,
+
+72
+00:05:36,880 --> 00:05:42,000
+but the only time anyone is referred to as an AI expert is this quote at the end from Stuart
+
+73
+00:05:42,000 --> 00:05:47,200
+Russell. That name should be familiar. He's the guy posing the argument in the survey.
+
+74
+00:05:47,920 --> 00:05:52,480
+The AI expert who Pinker quotes kind of giving the impression that they're on the same side of
+
+75
+00:05:52,480 --> 00:05:57,360
+this debate is not at all. The thing that astonishes me about this is just how little
+
+76
+00:05:57,440 --> 00:06:01,600
+research would have been needed to spot this mistake. If you're wondering about Stuart
+
+77
+00:06:01,600 --> 00:06:05,520
+Russell's opinion, you might read something he's written on the subject. If you're kind of lazy,
+
+78
+00:06:05,520 --> 00:06:09,840
+you might just read the abstracts. If you're very lazy and you just want to get a quick feel for the
+
+79
+00:06:09,840 --> 00:06:14,640
+basic question, is Stuart Russell worried about existential risks from artificial intelligence,
+
+80
+00:06:14,640 --> 00:06:18,000
+you might just go to his website and look at the titles of his recent publications.
+
+81
+00:06:20,240 --> 00:06:24,000
+Oh, these academics with their jargon, how are we supposed to decipher what they really think?
+
+82
+00:06:24,960 --> 00:06:29,920
+Anyway, the next point the article makes is that the arguments for AI risk rely on an
+
+83
+00:06:29,920 --> 00:06:35,200
+oversimplified conception of intelligence, that they think of intelligence as this sort of magical
+
+84
+00:06:35,200 --> 00:06:39,920
+one-dimensional thing that gives you power. It's just like animals have some of it, humans have
+
+85
+00:06:39,920 --> 00:06:44,320
+more, and AI would have even more, and so it's dangerous. The article makes the point that
+
+86
+00:06:44,320 --> 00:06:49,600
+intelligence is multifaceted and multidimensional. Human intelligence is not monolithic. It isn't
+
+87
+00:06:49,600 --> 00:06:52,960
+this single thing which automatically gives you effectiveness in all domains.
+
+88
+00:06:53,600 --> 00:06:57,040
+And that's true. It's an important point. And I think sometimes when communicating
+
+89
+00:06:57,040 --> 00:07:01,200
+about this stuff to the public, people oversimplify this fact. But the article
+
+90
+00:07:01,200 --> 00:07:06,080
+seems to use this to suggest that general intelligence is not a thing, or that generality
+
+91
+00:07:06,080 --> 00:07:10,480
+is not a thing, that all intelligence is an accumulation of a number of small,
+
+92
+00:07:10,480 --> 00:07:14,480
+sort of narrow, specific abilities. He lists some things that human intelligence can do.
+
+93
+00:07:15,200 --> 00:07:20,160
+Find food, win friends and influence people, charm prospective mates, bring up children,
+
+94
+00:07:20,160 --> 00:07:23,280
+move around the world, and pursue other human obsessions and pastimes.
+
+95
+00:07:24,080 --> 00:07:28,080
+And yeah, these are pretty much all things that animals also do to some extent,
+
+96
+00:07:28,080 --> 00:07:32,720
+but they aren't the limits of human intelligence. Human beings do definitely seem to have some
+
+97
+00:07:32,720 --> 00:07:37,920
+general intelligence. There's some ability we have which allows us to act intelligently in
+
+98
+00:07:37,920 --> 00:07:42,720
+an unusually broad range of domains, including domains which are quite different from what our
+
+99
+00:07:42,720 --> 00:07:47,760
+ancestors experienced, things which our brains didn't evolve specifically to do. Like, we can
+
+100
+00:07:47,760 --> 00:07:52,960
+learn how to play games like chess and Go, to do very intelligent manipulation of these pretty
+
+101
+00:07:52,960 --> 00:07:57,920
+arbitrary systems which we invented. We can learn how to drive cars, although there were no cars in
+
+102
+00:07:57,920 --> 00:08:02,320
+the ancestral environment. And in fact, we can learn how to build cars, which is pretty unlike
+
+103
+00:08:02,320 --> 00:08:07,440
+anything our ancestors or other animals can do. We can operate intelligently in new environments,
+
+104
+00:08:07,440 --> 00:08:12,160
+even in completely alien environments. We can operate on the moon. We can build rockets. We
+
+105
+00:08:12,160 --> 00:08:16,960
+can attach cars to rockets, fly them to the moon, and then drive the cars on the moon.
+
+106
+00:08:16,960 --> 00:08:21,040
+And there's nothing else on earth that can do that yet. So yeah, intelligence is clearly not
+
+107
+00:08:21,040 --> 00:08:25,440
+a single thing, and it's clearly possible to be smart at some things and stupid at others.
+
+108
+00:08:25,440 --> 00:08:29,520
+Intelligence in one domain doesn't automatically transfer to other domains and so on.
+
+109
+00:08:29,520 --> 00:08:33,840
+Nonetheless, there is such a thing as general intelligence that allows an agent to act
+
+110
+00:08:33,840 --> 00:08:38,960
+intelligently across a wide range of tasks. And humans do have it, at least to some extent.
+
+111
+00:08:38,960 --> 00:08:42,640
+The next argument that he makes is, I think, the best argument in the article.
+
+112
+00:08:42,640 --> 00:08:47,920
+It actually comes out of the orthogonality thesis. He's saying that concern about AI risk
+
+113
+00:08:47,920 --> 00:08:52,400
+comes from a confusion between intelligence and motivation. Even if we invent superhumanly
+
+114
+00:08:52,400 --> 00:08:56,240
+intelligent robots, why would they want to enslave their masters or take over the world?
+
+115
+00:08:56,880 --> 00:09:02,160
+He says, being smart is not the same as wanting something. This is basically a restatement of
+
+116
+00:09:02,160 --> 00:09:07,040
+the orthogonality thesis, which is that almost any level of intelligence is compatible with almost
+
+117
+00:09:07,040 --> 00:09:12,320
+any terminal goal. So this is a pretty sensible argument, saying you're proposing that AI would
+
+118
+00:09:12,320 --> 00:09:17,680
+do these fairly specific world domination type actions, which suggests that it has world domination
+
+119
+00:09:17,680 --> 00:09:21,600
+type goals, but actually it could have any goals. There's no reason to believe it will want to do
+
+120
+00:09:21,600 --> 00:09:26,880
+bad things to us. It could just as easily want to do good things. And this is true so far as it goes,
+
+121
+00:09:26,880 --> 00:09:31,120
+but it ignores the argument from instrumental convergence, which is that while intelligence
+
+122
+00:09:31,120 --> 00:09:34,880
+is compatible with almost any terminal goal, that doesn't mean that we have no information
+
+123
+00:09:34,880 --> 00:09:40,320
+about instrumental goals. Certain behaviors are likely to occur in arbitrary agents because
+
+124
+00:09:40,320 --> 00:09:44,800
+they're a good way of achieving a wide variety of different goals. So we can make predictions about
+
+125
+00:09:44,800 --> 00:09:49,440
+how AI systems are likely to behave, even if we don't know what their terminal goals are. And if
+
+126
+00:09:49,440 --> 00:09:53,520
+that doesn't seem obvious to you, I made a whole video about instrumental convergence, which you
+
+127
+00:09:53,520 --> 00:09:58,080
+should watch, link in the description. The next thing the article says is, the scenarios that
+
+128
+00:09:58,080 --> 00:10:02,160
+supposedly illustrate the existential threat to the human species of advanced artificial
+
+129
+00:10:02,160 --> 00:10:08,000
+intelligence are fortunately self-refuting. They depend on the premises that one, humans are so
+
+130
+00:10:08,000 --> 00:10:13,040
+gifted that they can design an omniscient and omnipotent AI, yet so moronic that they would
+
+131
+00:10:13,040 --> 00:10:18,880
+give it control of the universe without testing how it works. And two, the AI would be so brilliant
+
+132
+00:10:18,880 --> 00:10:23,760
+that it could figure out how to transmute elements and rewire brains, yet so imbecilic that it would
+
+133
+00:10:23,760 --> 00:10:27,840
+wreak havoc based on elementary blunders of misunderstanding. Okay, so before we get into
+
+134
+00:10:27,840 --> 00:10:33,600
+the meat of this, I have some nitpicks. Firstly, an AGI doesn't have to be omniscient and omnipotent
+
+135
+00:10:33,600 --> 00:10:38,400
+to be far superior to humans along all axes. And it doesn't need to be far superior to humans along
+
+136
+00:10:38,400 --> 00:10:43,200
+all axes in order to be very dangerous. But even accepting that this thing is extremely powerful,
+
+137
+00:10:43,200 --> 00:10:47,920
+because that assumption is sometimes used, I object to this idea that humans would give it
+
+138
+00:10:47,920 --> 00:10:52,880
+control of the universe without testing it. You've said it's omnipotent. It doesn't need to be given
+
+139
+00:10:52,880 --> 00:10:58,000
+control of anything, right? If you actually do have an omniscient, omnipotent AGI, then giving
+
+140
+00:10:58,000 --> 00:11:02,080
+it control of the universe is pretty much just turning it on. The idea that a system like that
+
+141
+00:11:02,080 --> 00:11:06,400
+could be reliably contained or controlled is pretty absurd, though that's a subject for a different
+
+142
+00:11:06,400 --> 00:11:11,840
+video. Now this second part, about the AI being smart enough to be powerful, yet dumb enough to
+
+143
+00:11:11,840 --> 00:11:16,640
+do what we said instead of what we meant, is just based on an inaccurate model of how these systems
+
+144
+00:11:16,640 --> 00:11:21,760
+work. The idea is not that the system is switched on and then given a goal in English which it then
+
+145
+00:11:21,760 --> 00:11:26,800
+interprets to the best of its ability and tries to achieve. The idea is that the goal is part of
+
+146
+00:11:26,800 --> 00:11:31,280
+the programming of the system. You can't create an agent with no goals. Something with no goals is
+
+147
+00:11:31,280 --> 00:11:36,400
+not an agent. So he's describing it as though the goal of the agent is to interpret the commands
+
+148
+00:11:36,400 --> 00:11:40,960
+that it's given by a human and then try to figure out what the human meant, rather than what they
+
+149
+00:11:40,960 --> 00:11:46,480
+said, and do that. If we could build such a system, well, that would be relatively safe. But we can't
+
+150
+00:11:46,480 --> 00:11:51,680
+do that. We don't know how, because we don't know how to write a program which corresponds to what
+
+151
+00:11:51,680 --> 00:11:56,000
+we mean when we say, listen to the commands that the humans give you and interpret them according
+
+152
+00:11:56,000 --> 00:11:59,920
+to the best of your abilities, and then try to do what they mean rather than what they say.
+
+153
+00:12:00,960 --> 00:12:05,600
+This is kind of the core of the problem. Writing the code which corresponds to that is really
+
+154
+00:12:05,600 --> 00:12:10,640
+difficult. We don't know how to do it, even with infinite computing power. And the thing is, writing
+
+155
+00:12:10,640 --> 00:12:15,520
+something which just wants to collect stamps or make paperclips or whatever is way easier than
+
+156
+00:12:15,520 --> 00:12:20,720
+writing something which actually does what we want. That's a problem, because generally speaking we
+
+157
+00:12:20,720 --> 00:12:25,840
+tend to do the easier thing first, and it's much easier to make an unsafe AGI than it is to make a
+
+158
+00:12:25,840 --> 00:12:31,440
+safe one. So by default we'd expect the first AGI systems to be unsafe. But apart from those problems,
+
+159
+00:12:31,440 --> 00:12:35,760
+the big issue with this part of the article is that both of these points rely on exactly the
+
+160
+00:12:35,760 --> 00:12:40,640
+same simplified model of intelligence that's criticized earlier in the article. He starts off
+
+161
+00:12:40,640 --> 00:12:44,720
+saying that intelligence isn't just a single monolithic thing, and being smart at one thing
+
+162
+00:12:44,720 --> 00:12:49,040
+doesn't automatically make you smart at other things, and then goes on to say if humans are
+
+163
+00:12:49,040 --> 00:12:54,480
+smart enough to design an extremely powerful AI, then they must also be smart enough to do so safely.
+
+164
+00:12:54,480 --> 00:12:59,760
+And that's just not true. It's very possible to be smart in one way and stupid in another.
+
+165
+00:12:59,760 --> 00:13:04,880
+So in this specific case, the question is, are humans ever smart enough to develop extremely
+
+166
+00:13:04,880 --> 00:13:09,680
+sophisticated and powerful technology, and yet not smart enough to think through all of the
+
+167
+00:13:09,680 --> 00:13:14,080
+possible consequences and ramifications of deploying that technology before they deploy it?
+
+168
+00:13:15,040 --> 00:13:20,400
+And the answer here seems to be very clearly, yes. Yeah, humans do that a lot.
+
+169
+00:13:21,680 --> 00:13:26,560
+Like, all the time humans do that. And then similarly, the idea that an AI would be so
+
+170
+00:13:26,560 --> 00:13:30,480
+brilliant that it could transmute elements and rewire brains, and yet so imbecilic that it would
+
+171
+00:13:30,480 --> 00:13:34,720
+wreak havoc based on elementary blunders of misunderstanding, you can be smart at one thing
+
+172
+00:13:34,720 --> 00:13:38,720
+and stupid at another. Especially if you're a software system. And anyone who's interacted
+
+173
+00:13:38,720 --> 00:13:42,720
+with software systems knows this, to the point that it's a cliche. I mean, you want to talk about
+
+174
+00:13:42,720 --> 00:13:46,080
+self-defeating arguments? There are a few more things I would want to say about this article,
+
+175
+00:13:46,080 --> 00:13:50,720
+but this video is long enough as it is. So I'll just close by saying, I really like Steven Pinker,
+
+176
+00:13:50,720 --> 00:13:56,640
+but this article is just uncharacteristically bad. I agree that we have a problem with unthinking,
+
+177
+00:13:56,640 --> 00:14:01,760
+cynical pessimism about technology, but concern about AI risks is not just more of the same.
+
+178
+00:14:02,480 --> 00:14:05,600
+In its most productive form, it's not even pessimism. The thing is,
+
+179
+00:14:05,600 --> 00:14:11,040
+AI can be a huge force for good, but it won't be by default. We need to focus on safety,
+
+180
+00:14:11,040 --> 00:14:15,680
+and we won't get that without suitable concern about the risks. We need to push back against
+
+181
+00:14:15,680 --> 00:14:19,360
+pessimism and make the point that things are getting better, and science and technology
+
+182
+00:14:19,360 --> 00:14:24,000
+is a big part of the reason for that. But let's not make AI safety a casualty in that fight.
+
+183
+00:14:24,000 --> 00:14:44,000
+I've had some of my patrons suggest that I try making a larger volume of lower effort content,
+
+184
+00:14:44,000 --> 00:14:48,880
+so I'm trying an experiment. I've made a video that's just me reading through this whole article
+
+185
+00:14:48,880 --> 00:14:52,800
+and adding my comments as I go. It's like 45 minutes long, it's kind of
+
+186
+00:14:53,520 --> 00:14:57,200
+unstructured, rambly sort of video. I'm not sure it belongs on this channel,
+
+187
+00:14:57,200 --> 00:15:01,200
+but I posted it to Patreon so people can let me know what they think of it. So if you're interested
+
+188
+00:15:01,200 --> 00:15:07,200
+in seeing that kind of experimental stuff from me, consider joining all of these amazing people
+
+189
+00:15:08,480 --> 00:15:12,400
+and becoming a patron. And thank you so much to everyone who does that. In this video,
+
+190
+00:15:12,400 --> 00:15:16,400
+I'm especially thanking JJ Hepboy, who's been a patron for more than a year now,
+
+191
+00:15:16,480 --> 00:15:20,480
+and has finally come up in the video thanks rotation. Thank you so much for your support,
+
+192
+00:15:20,480 --> 00:15:34,400
+JJ. And thank you all for watching. I'll see you next time.
+

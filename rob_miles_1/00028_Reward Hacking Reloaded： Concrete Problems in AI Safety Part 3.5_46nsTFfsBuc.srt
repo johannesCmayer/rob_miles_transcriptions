@@ -1,0 +1,368 @@
+1
+00:00:00,000 --> 00:00:05,760
+Hi, in the previous video we introduced the idea of reward hacking. An AI system that works by
+
+2
+00:00:05,760 --> 00:00:10,560
+maximizing its reward, like a reinforcement learning agent, will go for whatever strategy
+
+3
+00:00:10,560 --> 00:00:15,280
+it expects will result in the highest reward. And there's a tendency for the strategies that
+
+4
+00:00:15,280 --> 00:00:19,520
+have the very highest rewards to be quite different from the kinds of strategies the
+
+5
+00:00:19,520 --> 00:00:24,080
+AI designers were planning for. For example, if you're using the score as the reward in Super
+
+6
+00:00:24,080 --> 00:00:29,440
+Mario World, the highest reward strategy might involve exploiting a load of glitches to directly
+
+7
+00:00:29,440 --> 00:00:34,160
+update the score value, rather than properly playing the game. We talked about some ways that
+
+8
+00:00:34,160 --> 00:00:40,160
+this can happen, exploiting bugs in the software like in Mario, or adversarial examples in neural
+
+9
+00:00:40,160 --> 00:00:44,160
+networks. If you're confused right now, check the video description for the earlier videos in this
+
+10
+00:00:44,160 --> 00:00:48,480
+series. But in this video, we're going to look at some more ways that reward hacking can happen,
+
+11
+00:00:48,480 --> 00:00:52,560
+and how they relate to one another. So let's start by drawing a diagram. I can't believe I already
+
+12
+00:00:52,560 --> 00:00:56,720
+got this far into the subject without drawing this diagram. Anyway, here's your agent. Here's
+
+13
+00:00:56,720 --> 00:01:01,360
+the environment. The agent can take actions to affect the environment, and it can observe the
+
+14
+00:01:01,360 --> 00:01:06,240
+environment to get information about what state the environment's in. There's also a reward system,
+
+15
+00:01:06,240 --> 00:01:11,200
+which uses information from the environment to determine what reward to give the agent. So if the
+
+16
+00:01:11,200 --> 00:01:15,920
+agent is Pac-Man, the environment is the maze, and the reward system is just looking at the score.
+
+17
+00:01:16,480 --> 00:01:21,840
+The agent takes an action, the action affects the environment, the change in the environment
+
+18
+00:01:21,840 --> 00:01:26,880
+creates new observations, and also provides new information to the reward system, which decides
+
+19
+00:01:26,880 --> 00:01:31,680
+what reward to give the agent. And the agent uses the observation and the reward to decide which
+
+20
+00:01:31,680 --> 00:01:38,800
+action to take next. And this kind of goes in a cycle. Reward hacking is a class of problems that
+
+21
+00:01:38,800 --> 00:01:43,520
+can happen around that reward system. Like in the previous video, we were talking about adversarial
+
+22
+00:01:43,520 --> 00:01:48,000
+examples, and how they can be an issue when your reward system relies on a neural network. But
+
+23
+00:01:48,000 --> 00:01:53,040
+that's not the only way this kind of problem can happen. The economist Charles Goodhart once said,
+
+24
+00:01:53,040 --> 00:01:56,880
+any observed statistical regularity will tend to collapse once pressure is placed upon it for
+
+25
+00:01:56,880 --> 00:02:03,040
+control purposes. But despite being true, that was not very catchy. So it was changed to, when a
+
+26
+00:02:03,040 --> 00:02:07,840
+measure becomes a target, it ceases to be a good measure. Much better, isn't it? That's Goodhart's
+
+27
+00:02:07,840 --> 00:02:12,960
+law, and it shows up everywhere. Like, if you want to find out how much students know about a subject,
+
+28
+00:02:12,960 --> 00:02:17,280
+you can ask them questions about it, right? You design a test. And if it's well designed,
+
+29
+00:02:17,280 --> 00:02:21,680
+it can be a good measure of the student's knowledge. But if you then use that measure
+
+30
+00:02:21,680 --> 00:02:26,720
+as a target, by using it to decide which students get to go to which universities,
+
+31
+00:02:26,720 --> 00:02:31,840
+or which teachers are considered successful, then things will change. Students will study exam
+
+32
+00:02:31,840 --> 00:02:37,280
+technique. Teachers will teach only what's on the test. So student A, who has a good broad
+
+33
+00:02:37,280 --> 00:02:42,080
+knowledge of the subject, might not do as well as student B, who studied just exactly what's on the
+
+34
+00:02:42,080 --> 00:02:46,880
+test and nothing else. So the test isn't such a good way to measure the student's real knowledge
+
+35
+00:02:46,880 --> 00:02:52,240
+anymore. The thing is, student B only decided to do that because the test is being used to decide
+
+36
+00:02:52,240 --> 00:02:57,120
+university places. You made your measure into a target, and now it's not a good measure anymore.
+
+37
+00:02:57,120 --> 00:03:02,880
+The problem is, the measure is pretty much never a perfect representation of what you care about.
+
+38
+00:03:02,880 --> 00:03:07,760
+And any differences can cause problems. This happens with people. It happens with AI systems.
+
+39
+00:03:07,760 --> 00:03:12,080
+It even happens with animals. At the Institute for Marine Mammal Studies, the trainers wanted
+
+40
+00:03:12,080 --> 00:03:16,960
+to keep the pools clear of dropped litter, so they trained the dolphins to do it. Every time a
+
+41
+00:03:16,960 --> 00:03:22,480
+dolphin came to a trainer with a piece of litter, they would get a fish in return. So of course,
+
+42
+00:03:22,480 --> 00:03:27,360
+the dolphins would hide pieces of waste paper and then tear off little bits to trade for fish.
+
+43
+00:03:27,360 --> 00:03:31,040
+Tearing the paper up allowed the dolphins to get several fish for one dropped item.
+
+44
+00:03:31,040 --> 00:03:35,600
+This is kind of Goodhart's law again. If you count the number of pieces of litter removed from the
+
+45
+00:03:35,600 --> 00:03:40,320
+pool, that's a good measure for the thing you care about, the amount of litter remaining in the pool.
+
+46
+00:03:40,320 --> 00:03:44,160
+But when you make the measure a target, the differences between the measure and the thing
+
+47
+00:03:44,160 --> 00:03:48,400
+you're trying to change get amplified. The fact that there are a lot of pieces of litter coming
+
+48
+00:03:48,400 --> 00:03:52,560
+out of the pool no longer means there's no litter in the pool. So that's Goodhart's law,
+
+49
+00:03:52,560 --> 00:03:57,280
+and you can see how that kind of situation could result in reward hacking. Your reward system needs
+
+50
+00:03:57,280 --> 00:04:01,760
+to use some kind of measure, but that turns the measure into a target, so it will probably stop
+
+51
+00:04:01,760 --> 00:04:06,800
+being a good measure. With dolphins, this can be cute. With people, it can cause serious problems.
+
+52
+00:04:06,800 --> 00:04:10,880
+And with advanced AI systems, well, let's just try to keep that from happening.
+
+53
+00:04:11,840 --> 00:04:15,760
+Another way that reward hacking can happen comes from partially observed goals.
+
+54
+00:04:15,760 --> 00:04:21,520
+In our Super Mario world or Pac-Man examples, the goal is fully observed. The reward is the score,
+
+55
+00:04:21,520 --> 00:04:26,480
+and the AI can just read the score out of memory and it knows its reward. But if we have an AI
+
+56
+00:04:26,480 --> 00:04:30,720
+system acting as an agent in the real world, the reward depends on the state of the environment
+
+57
+00:04:30,720 --> 00:04:35,520
+around it, and the AI only has partial knowledge of that through the robot's limited senses. The
+
+58
+00:04:35,520 --> 00:04:40,480
+goal is only partially observed. Suppose we have a cleaning robot with its mop and bucket,
+
+59
+00:04:40,480 --> 00:04:45,600
+and we want it to clean the office that it's in. So we can set it up so that it gets more reward
+
+60
+00:04:45,600 --> 00:04:49,680
+the less mess there is, like we subtract a bit of reward for each bit of mess.
+
+61
+00:04:50,320 --> 00:04:53,760
+And the way it determines the level of mess is to look around the room with its cameras.
+
+62
+00:04:53,760 --> 00:04:59,120
+What does this robot do? Well, the answer is obvious to anyone who's ever run for parliament
+
+63
+00:04:59,120 --> 00:05:04,880
+in Maidenhead. The old Skyrim shoplifters trick. If it covers up its cameras, say by putting its
+
+64
+00:05:04,880 --> 00:05:10,800
+bucket on its head, it won't see any mess, so it won't lose any reward. If I don't see it, it's not illegal!
+
+65
+00:05:13,360 --> 00:05:18,160
+You've probably heard about experiments on rats where scientists implanted electrodes
+
+66
+00:05:18,160 --> 00:05:22,240
+into the rat's brains, allowing them to directly stimulate their reward centers.
+
+67
+00:05:22,240 --> 00:05:26,080
+And if the rats are able to press a button to activate the electrode, they never do anything
+
+68
+00:05:26,080 --> 00:05:30,880
+else. People call that wireheading, and it's relevant here because if we take our Pac-Man
+
+69
+00:05:30,880 --> 00:05:36,880
+reinforcement learning diagram and change it to the cleaning robot, it's not quite right, is it?
+
+70
+00:05:38,160 --> 00:05:42,400
+In Pac-Man, the reward system is just a little bit of code that runs separately from the game
+
+71
+00:05:42,400 --> 00:05:48,000
+program and just reads the score out. But for the cleaning robot, the reward system is a real thing
+
+72
+00:05:48,000 --> 00:05:53,600
+in the real world. It's got cameras, sensors, circuitry. It physically exists as an object in
+
+73
+00:05:53,600 --> 00:06:00,800
+the office. So maybe the diagram should look more like this. Because unlike in Pac-Man,
+
+74
+00:06:00,800 --> 00:06:05,440
+now the reward system is part of the environment, which means it can be affected by the actions of
+
+75
+00:06:05,440 --> 00:06:10,400
+the agent. The agent isn't just limited to messing with the environment to affect the information
+
+76
+00:06:10,400 --> 00:06:15,120
+going into the reward system, like putting a bucket on its head. It can mess with the reward
+
+77
+00:06:15,120 --> 00:06:19,840
+system itself. If it's able to take the thing apart and make it just return maximum reward
+
+78
+00:06:19,840 --> 00:06:24,480
+regardless of what the environment is like, well, that's an extremely high reward strategy.
+
+79
+00:06:24,480 --> 00:06:30,000
+So some AI designs are prone to deliberately tampering with their reward systems to wirehead
+
+80
+00:06:30,000 --> 00:06:35,040
+themselves. But that's not the worst of it. There are a lot of AGI design proposals out there where
+
+81
+00:06:35,040 --> 00:06:40,880
+the reward is determined by humans smiling or being happy or saying certain things,
+
+82
+00:06:40,880 --> 00:06:46,080
+hitting a certain button or whatever. These designs effectively make the human a component
+
+83
+00:06:46,080 --> 00:06:51,600
+in the reward system. But whatever the reward system is, the agent is incentivized to manipulate
+
+84
+00:06:51,600 --> 00:06:57,280
+or modify it to get the highest reward it can. With powerful general AI systems,
+
+85
+00:06:57,280 --> 00:07:00,400
+we don't just have to worry about the AI wireheading itself.
+
+86
+00:07:04,800 --> 00:07:08,400
+I want to end the video with a quick thank you to my excellent Patreon supporters.
+
+87
+00:07:08,400 --> 00:07:12,320
+All of these people. In this video, I especially want to thank Robert van Duursen,
+
+88
+00:07:12,320 --> 00:07:16,960
+who's supported the channel for a long time. You know, just the other day, my phone completely broke
+
+89
+00:07:16,960 --> 00:07:20,240
+and the phone is actually pretty important because I use it to shoot all of the behind
+
+90
+00:07:20,240 --> 00:07:24,400
+the scenes stuff, anything when I'm traveling, that kind of thing. So I had to get a new one
+
+91
+00:07:24,400 --> 00:07:28,320
+and I was able to use Patreon money to do that. So I just want to say thank you so
+
+92
+00:07:28,320 --> 00:07:31,600
+much for your support. Thanks again, and I'll see you next time.
+

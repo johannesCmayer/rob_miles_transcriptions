@@ -1,0 +1,340 @@
+1
+00:00:00,000 --> 00:00:04,960
+Hi, this video is part of a series looking at the paper Concrete Problems in AI Safety.
+
+2
+00:00:04,960 --> 00:00:09,040
+I recommend you check out the other videos in the series, link below, but hopefully this video
+
+3
+00:00:09,040 --> 00:00:13,600
+should still make sense even if you haven't seen the others. Also, in case anyone is subscribed
+
+4
+00:00:13,600 --> 00:00:18,800
+to me and not to Computerphile for some reason, I recently did a video on the Computerphile channel
+
+5
+00:00:18,800 --> 00:00:23,280
+that's effectively part of the same series. That video pretty much covers what I would say
+
+6
+00:00:24,080 --> 00:00:27,200
+in a video about the multi-agent approach as part of the paper,
+
+7
+00:00:27,200 --> 00:00:30,880
+so check that video out if you haven't seen it, link in the doobly-doo.
+
+8
+00:00:30,880 --> 00:00:36,000
+Right, today we're talking about reward hacking. So in the Computerphile video I was talking about
+
+9
+00:00:36,000 --> 00:00:40,640
+reinforcement learning and the basics of how that works. You have an agent interacting with
+
+10
+00:00:40,640 --> 00:00:45,680
+an environment and trying to maximize a reward. So like, your agent might be Pac-Man, and then
+
+11
+00:00:45,680 --> 00:00:50,240
+the environment would be the maze that Pac-Man is in, and the reward would be the score of the game.
+
+12
+00:00:50,960 --> 00:00:55,200
+Systems based on this framework have demonstrated an impressive ability to learn how to tackle
+
+13
+00:00:55,200 --> 00:00:59,840
+various problems, and some people are hopeful about this work eventually developing into full
+
+14
+00:00:59,840 --> 00:01:03,920
+general intelligence. But there are some potential problems with using this kind of approach to build
+
+15
+00:01:03,920 --> 00:01:08,880
+powerful AI systems, and one of them is reward hacking. So let's say you've built a very powerful
+
+16
+00:01:08,880 --> 00:01:14,320
+reinforcement learning AI system, and you're testing it in Super Mario World. It can see the
+
+17
+00:01:14,320 --> 00:01:18,880
+screen and take actions by pressing buttons on the controller, and you've told it the address
+
+18
+00:01:18,880 --> 00:01:24,400
+in memory where the score is, and set that as the reward. And what it does, instead of really
+
+19
+00:01:24,400 --> 00:01:31,120
+playing the game, is something like this. This is a video by Seth Bling, who is a legitimate wizard.
+
+20
+00:01:31,120 --> 00:01:35,760
+Check out his channel, link in the doobly-doo. It's doing all of this weird looking glitchy stuff,
+
+21
+00:01:35,760 --> 00:01:40,720
+and spin jumping all over the place. And also, Mario is black now? Anyway, this doesn't look
+
+22
+00:01:40,720 --> 00:01:44,880
+like the kind of game-playing behavior you were expecting, and you just kind of assume that your
+
+23
+00:01:44,880 --> 00:01:50,400
+AI is broken. And then, suddenly, the score part of memory is set to the maximum possible value,
+
+24
+00:01:50,400 --> 00:01:55,920
+and the AI stops entering inputs and just sits there. Hang on AI, what are you doing? Am I wrong?
+
+25
+00:01:55,920 --> 00:02:00,880
+No, you're not wrong. Am I wrong? Because it turns out that there are sequences of inputs you can put
+
+26
+00:02:00,880 --> 00:02:06,080
+into Super Mario World that just totally break the game, and give you the ability to directly edit
+
+27
+00:02:06,080 --> 00:02:10,480
+basically any address in memory. You can use it to turn the game into Flappy Bird if you want,
+
+28
+00:02:10,480 --> 00:02:15,920
+and your AI has just used it to set its reward to maximum. This is reward hacking. So what really
+
+29
+00:02:15,920 --> 00:02:21,520
+went wrong here? Well, you told it to maximize a value in memory, when what you really wanted was
+
+30
+00:02:21,520 --> 00:02:25,600
+for it to play the game. The assumption was that the only way to increase the score value was to
+
+31
+00:02:25,600 --> 00:02:30,720
+play the game well, but that assumption turned out to not really be true. Any way in which your
+
+32
+00:02:30,720 --> 00:02:35,440
+reward function doesn't perfectly line up with what you actually want the system to do can cause
+
+33
+00:02:35,440 --> 00:02:39,920
+problems. And things only get more difficult in the real world, where there's no handy score
+
+34
+00:02:39,920 --> 00:02:45,280
+variable we can use as a reward. Whatever we want the agent to do, we need some way of translating
+
+35
+00:02:45,280 --> 00:02:50,720
+that real world thing into a number. And how do you do that without the AI messing with it? These
+
+36
+00:02:50,720 --> 00:02:56,160
+days, the usual way to convert complex messy real world things that we can't easily specify
+
+37
+00:02:56,160 --> 00:03:00,800
+into machine understandable values is to use a deep neural network of some kind,
+
+38
+00:03:00,800 --> 00:03:05,200
+train it with a lot of examples, and then it can tell if something is a cat or a dog or whatever.
+
+39
+00:03:05,200 --> 00:03:10,000
+So it's tempting to feed whatever real world data we've got into a neural net, and train it on a
+
+40
+00:03:10,000 --> 00:03:14,160
+bunch of human supplied rewards for different situations, and then use the output of that as
+
+41
+00:03:14,160 --> 00:03:19,680
+the reward for the AI. Now, as long as your situation and your AI are very limited, that can work.
+
+42
+00:03:19,680 --> 00:03:24,720
+But, as I'm sure many of you have seen, these neural networks are vulnerable to adversarial
+
+43
+00:03:24,720 --> 00:03:30,080
+examples. It's possible to find unexpected inputs that cause the system to give dramatically the
+
+44
+00:03:30,080 --> 00:03:35,440
+wrong answer. The image on the right is clearly a panda, but it's misidentified as a gibbon. This
+
+45
+00:03:35,440 --> 00:03:39,440
+kind of thing could obviously cause problems for any reinforcement learning agent that's using the
+
+46
+00:03:39,440 --> 00:03:43,680
+output of a neural network as its reward function. And there's kind of an analogy to Super Mario
+
+47
+00:03:43,680 --> 00:03:48,160
+World here as well. If we view the game as a system designed to take a sequence of inputs,
+
+48
+00:03:48,160 --> 00:03:53,040
+the player's button presses, and output a number representing how well that player is playing,
+
+49
+00:03:53,040 --> 00:03:58,480
+i.e. the score, then this glitchy hacking stuff Sethbling did can be thought of as an adversarial
+
+50
+00:03:58,480 --> 00:04:03,280
+example. It's a carefully chosen input that makes the system output the wrong answer.
+
+51
+00:04:03,840 --> 00:04:08,320
+Note that, as far as I know, no AI system has independently discovered how to do this to Super
+
+52
+00:04:08,320 --> 00:04:13,360
+Mario World yet, because figuring out the details of how all the bugs work just by messing around
+
+53
+00:04:13,360 --> 00:04:18,240
+with the game requires a level of intelligence that's probably beyond current AI systems.
+
+54
+00:04:18,240 --> 00:04:24,960
+But similar stuff happens all the time. And the more powerful an AI system is, the better it is
+
+55
+00:04:24,960 --> 00:04:29,760
+at figuring things out, and the more likely it is to find unexpected ways to cheat to get large
+
+56
+00:04:29,760 --> 00:04:35,120
+rewards. And as AI systems are used to tackle more complex problems, with more possible actions the
+
+57
+00:04:35,120 --> 00:04:39,600
+agent can take, and more complexity in the environment, it becomes more and more likely
+
+58
+00:04:39,600 --> 00:04:43,040
+that there will be high reward strategies that we didn't think of.
+
+59
+00:04:43,040 --> 00:04:47,120
+Okay, so there are going to be unexpected sets of actions that result in high rewards,
+
+60
+00:04:47,120 --> 00:04:52,640
+and maybe AI systems will stumble across them. But it's worse than that, because we should expect
+
+61
+00:04:52,640 --> 00:04:56,960
+powerful AI systems to actively seek out these hacks, even if they don't know they exist.
+
+62
+00:04:57,840 --> 00:05:03,840
+Why? Well, they're the best strategies. With hacking, you can set your Super Mario World
+
+63
+00:05:03,840 --> 00:05:08,800
+score to literally the highest value that that memory address is capable of holding.
+
+64
+00:05:08,880 --> 00:05:12,560
+Is that even possible in non-cheating play? Even if it is, it'll take much longer.
+
+65
+00:05:12,560 --> 00:05:16,480
+And look at the numbers on these images again. The left image of a panda
+
+66
+00:05:16,480 --> 00:05:21,520
+is recognised as a panda with less than 60% confidence, and real photos of gibbons would
+
+67
+00:05:21,520 --> 00:05:25,760
+probably have similar confidence levels. But the adversarial example on the right is recognised as
+
+68
+00:05:25,760 --> 00:05:31,760
+a gibbon with 99.3% confidence. If an AI system were being rewarded for seeing gibbons, it would
+
+69
+00:05:31,760 --> 00:05:37,040
+love that right image. To the neural net, that panda looks more like a gibbon than any actual
+
+70
+00:05:37,040 --> 00:05:42,560
+photo of a gibbon. Similarly, reward hacking can give much, much higher rewards than even
+
+71
+00:05:42,560 --> 00:05:48,080
+the best possible legitimate actions. So seeking out reward hacks would be the default behaviour
+
+72
+00:05:48,080 --> 00:05:53,280
+of some kinds of powerful AI systems. So this is an AI design problem. But is it a safety problem?
+
+73
+00:05:53,280 --> 00:05:57,680
+Our Super Mario World AI just gave itself the highest possible score and then sat there doing
+
+74
+00:05:57,680 --> 00:06:01,840
+nothing. It's not what we wanted, but it's not too big of a deal, right? I mean, we can just turn
+
+75
+00:06:01,840 --> 00:06:06,320
+it off and try to fix it. But a powerful general intelligence might realise that.
+
+76
+00:06:06,320 --> 00:06:11,120
+The best strategy isn't actually hack your reward function and then sit there forever
+
+77
+00:06:11,120 --> 00:06:16,960
+with maximum reward, because you'll quickly get turned off. The best strategy is do whatever you
+
+78
+00:06:16,960 --> 00:06:22,400
+need to do to make sure that you won't ever be turned off, and then hack your reward function.
+
+79
+00:06:22,400 --> 00:06:24,240
+And that doesn't work out well for us.
+
+80
+00:06:28,240 --> 00:06:33,520
+Thanks to my excellent Patreon supporters. These, these people. You've now made this channel pretty
+
+81
+00:06:33,520 --> 00:06:38,160
+much financially sustainable. I'm so grateful to all of you. And in this video, I particularly want
+
+82
+00:06:38,160 --> 00:06:42,640
+to thank Björn Mørsten, who's been supporting me since May. You know, now that the channel has hit
+
+83
+00:06:42,640 --> 00:06:47,280
+10,000 subscribers, I think it's actually 12,000 now, I'm apparently now allowed to use the YouTube
+
+84
+00:06:47,280 --> 00:06:52,080
+space in London. So I hope to have some behind the scenes stuff about that for Patreon supporters
+
+85
+00:06:52,080 --> 00:06:55,760
+before too long. Thanks again, and I'll see you next time.
+

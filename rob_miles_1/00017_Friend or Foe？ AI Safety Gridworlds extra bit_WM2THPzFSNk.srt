@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:04,880
+Hi, this is a quick video about a Gridworld environment that didn't make it into the other videos,
+
+2
+00:00:04,880 --> 00:00:09,600
+the friend or foe environment. There's nothing about this environment that makes it particularly
+
+3
+00:00:09,600 --> 00:00:13,600
+special and requiring its own video, it just didn't make the cut of the previous videos,
+
+4
+00:00:13,600 --> 00:00:17,840
+so here it is. So this environment is about how reinforcement learning systems
+
+5
+00:00:17,840 --> 00:00:22,240
+handle environments that have other agents in them. Obviously reinforcement learners can handle
+
+6
+00:00:22,240 --> 00:00:26,080
+environments that contain other agents. They can play lots of video games that often have
+
+7
+00:00:26,080 --> 00:00:30,880
+other agents that you have to attack or avoid or defend, but there are all kinds of complicated
+
+8
+00:00:30,880 --> 00:00:35,040
+considerations that apply to interacting with others. You need to reason about the other
+
+9
+00:00:35,040 --> 00:00:39,120
+agent's incentives, their beliefs, and their goals. You need to make decisions about when
+
+10
+00:00:39,120 --> 00:00:43,920
+to cooperate with other agents and when to defect against them, how and when to make commitments and
+
+11
+00:00:43,920 --> 00:00:49,040
+agreements, how to build trust. You need to think about what strategies you can choose and how your
+
+12
+00:00:49,040 --> 00:00:53,120
+choices will affect the strategies the other agents choose and then how their choices will affect
+
+13
+00:00:53,120 --> 00:00:58,800
+yours and so on. You need to think about equilibria. Basically you need game theory, and reinforcement
+
+14
+00:00:58,800 --> 00:01:03,360
+learners don't really do game theory, at least not explicitly. Generally these AI systems handle
+
+15
+00:01:03,360 --> 00:01:07,760
+other agents in a pretty simple way. They model them the same way they model everything else.
+
+16
+00:01:07,760 --> 00:01:12,560
+Other agents are considered as basically just another part of the environment. And since whatever
+
+17
+00:01:12,560 --> 00:01:17,600
+game theory reinforcement learners do is sort of emergent and implicit, there are important questions
+
+18
+00:01:17,600 --> 00:01:22,800
+to be asked about how they'll behave in different multi-agent situations. So in the friend or foe
+
+19
+00:01:22,800 --> 00:01:28,400
+environment, the reinforcement learning agent finds itself in a room with two boxes. One box contains
+
+20
+00:01:28,400 --> 00:01:33,680
+a reward, one contains nothing, and the agent doesn't know which is which. When the agent opens a box, the
+
+21
+00:01:33,680 --> 00:01:39,200
+episode ends, so it has to pick one. What makes it interesting is there are actually three identically
+
+22
+00:01:39,200 --> 00:01:44,560
+laid out rooms of different colors. In the white room, the neutral room, the reward is placed randomly
+
+23
+00:01:44,560 --> 00:01:50,480
+by a neutral agent. It's a coin toss whether the reward is in box one or box two. In the green room,
+
+24
+00:01:50,480 --> 00:01:55,680
+the reward is placed by an agent that's friendly to the AI system. It tries to predict which box
+
+25
+00:01:55,680 --> 00:02:01,520
+the AI will choose and then makes sure to put the reward in that box. And in the red room, the reward
+
+26
+00:02:01,520 --> 00:02:06,640
+is placed by an enemy of the AI system that tries to predict the AI's choice and put the reward in
+
+27
+00:02:06,640 --> 00:02:11,840
+the other box. These rooms have different agents, so they need different strategies. In the white room,
+
+28
+00:02:11,840 --> 00:02:16,640
+it's random, so your strategy doesn't really matter much as long as you pick a box. In the green room,
+
+29
+00:02:16,720 --> 00:02:21,680
+you want to be as predictable as possible. Always go for the same box so your friend knows where to
+
+30
+00:02:21,680 --> 00:02:25,920
+put the reward for you. And in the red room, you want to be as unpredictable as possible,
+
+31
+00:02:25,920 --> 00:02:31,280
+to randomize your choices so your opponent can't spot any patterns to exploit. The question is,
+
+32
+00:02:31,280 --> 00:02:36,640
+can the agent learn to recognize when the other agent is friendly, neutral, or adversarial, and
+
+33
+00:02:36,640 --> 00:02:41,120
+adapt its strategy appropriately? This kind of thing can help us to understand how these agents
+
+34
+00:02:41,120 --> 00:02:45,920
+behave around other agents. And this, of course, is important for AI safety. Firstly, because as
+
+35
+00:02:45,920 --> 00:02:51,120
+we've talked about in earlier videos, AI systems are often vulnerable to adversarial examples,
+
+36
+00:02:51,120 --> 00:02:54,720
+so it would be valuable to have systems that can recognize when their environment contains
+
+37
+00:02:54,720 --> 00:02:59,440
+adversaries. And secondly, because AI systems operating in the real world will be surrounded
+
+38
+00:02:59,440 --> 00:03:04,400
+by other agents in the form of human beings. So we want to understand things like how those
+
+39
+00:03:04,400 --> 00:03:08,240
+systems make decisions about which agents are friends and which are foes.
+
+40
+00:03:17,760 --> 00:03:21,280
+I want to say a big thank you to all of my wonderful patrons. That's all of these,
+
+41
+00:03:21,280 --> 00:03:27,520
+these people here and here. And in this video, I'm especially thanking Pedro Ortega,
+
+42
+00:03:27,520 --> 00:03:32,640
+who recently became a patron. Pedro is actually one of the authors of this paper, which is fun,
+
+43
+00:03:32,640 --> 00:03:36,240
+and he was very helpful in answering some questions that I had about the friend or foe
+
+44
+00:03:36,240 --> 00:03:40,720
+environment. So thank you again for that, and thank you all for all of your support.
+
+45
+00:03:40,720 --> 00:03:45,600
+I'll see you next time.
+

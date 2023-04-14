@@ -1,0 +1,812 @@
+1
+00:00:00,000 --> 00:00:04,960
+Hi. Stuart Russell is an AI researcher who I've talked about a few times on this channel already.
+
+2
+00:00:04,960 --> 00:00:10,400
+He's been advocating for these kinds of safety or alignment ideas to other AI researchers for
+
+3
+00:00:10,400 --> 00:00:16,400
+quite a few years now and apparently the reaction he gets is often something like this. In stage one
+
+4
+00:00:16,400 --> 00:00:20,720
+we say nothing is going to happen. Stage two we say something may be going to happen but we should
+
+5
+00:00:20,720 --> 00:00:25,040
+do nothing about it. In stage three we say that maybe we should do something about it but there's
+
+6
+00:00:25,040 --> 00:00:29,200
+nothing we can do. In stage four we say maybe there was something we could have done but it's
+
+7
+00:00:29,200 --> 00:00:35,520
+too late now. So he's put together a list of some of the responses that people give him.
+
+8
+00:00:36,320 --> 00:00:41,280
+That list is included in a paper, in some of his talks, and in his recent book Human Compatible
+
+9
+00:00:41,280 --> 00:00:45,840
+which is very good by the way. Check that one out. But as far as I know it's not yet a standalone
+
+10
+00:00:45,840 --> 00:00:50,960
+YouTube video even though it's perfect YouTube video material. It's 10 reasons why people who
+
+11
+00:00:50,960 --> 00:00:55,840
+aren't you are wrong about AI safety. So that's what this is. 10 reasons people give to not pay
+
+12
+00:00:55,840 --> 00:01:01,440
+attention to AI safety. Now before I start I need to do a sort of double disclaimer. Firstly as I
+
+13
+00:01:01,440 --> 00:01:06,480
+said this is not my list it's Stuart Russell's and he gets the credit for it. But secondly Professor
+
+14
+00:01:06,480 --> 00:01:11,760
+Russell and I are not in any way affiliated and I've adapted his list and given my own take on it
+
+15
+00:01:11,760 --> 00:01:15,440
+so this video should not be considered a representative of Stuart Russell's views.
+
+16
+00:01:15,440 --> 00:01:19,280
+Got that? If there's anything in this video that's good credit goes to Stuart Russell and if there's
+
+17
+00:01:19,280 --> 00:01:25,360
+anything that's bad blame goes to me. Okay without further ado 10 reasons people give to not pay
+
+18
+00:01:25,360 --> 00:01:30,720
+attention to AI safety. Reason one. We'll never actually make artificial general intelligence.
+
+19
+00:01:30,720 --> 00:01:35,440
+This is apparently a fairly common response even from AI researchers which is very strange when you
+
+20
+00:01:35,440 --> 00:01:40,240
+consider the decades that the field of AI has spent defending attacks from the outside from
+
+21
+00:01:40,240 --> 00:01:44,560
+people like Hubert Dreyfus, who I have a video about, people arguing that human level AI is
+
+22
+00:01:44,560 --> 00:01:49,040
+impossible. AI researchers have always said no of course it's possible and of course we're going to
+
+23
+00:01:49,040 --> 00:01:54,400
+do it. And now people are raising safety concerns. Some of them are saying well of course we're never
+
+24
+00:01:54,400 --> 00:01:59,600
+going to do it. The fact is that human level intelligence, general intelligence, has been a goal
+
+25
+00:01:59,600 --> 00:02:03,280
+and a promise of the field of artificial intelligence from the beginning and it does
+
+26
+00:02:03,280 --> 00:02:08,400
+seem quite weird to say yes we are working towards this as hard as we can but don't worry we'll
+
+27
+00:02:08,400 --> 00:02:13,600
+definitely fail. Imagine you find yourself on a bus and the bus driver says oh yeah I am driving
+
+28
+00:02:13,600 --> 00:02:17,760
+towards the edge of that cliff but don't worry the bus is bound to break down before we get there.
+
+29
+00:02:17,760 --> 00:02:22,240
+Now they're not necessarily being disingenuous they may actually believe that we'll never achieve AGI
+
+30
+00:02:22,240 --> 00:02:26,960
+but the thing is eminent scientists saying that something is impossible has never been a very
+
+31
+00:02:26,960 --> 00:02:31,600
+reliable indicator. I mean they certainly say that about a lot of things that really are impossible
+
+32
+00:02:31,600 --> 00:02:35,680
+but they also say it about a lot of things that then go on to happen sometimes quite quickly.
+
+33
+00:02:35,680 --> 00:02:39,600
+For example respected scientists were making public statements to the effect that heavier
+
+34
+00:02:39,600 --> 00:02:43,760
+than air human flight was impossible right up until the Wright brothers made their first flight
+
+35
+00:02:43,760 --> 00:02:48,000
+at Kitty Hawk and in fact I think even slightly after that because the news traveled fairly slowly
+
+36
+00:02:48,000 --> 00:02:52,800
+in those days. Similarly, and this is something I talked about on Computerphile, the great physicist
+
+37
+00:02:52,800 --> 00:02:57,440
+Ernest Rutherford, Nobel Prize winner Lord Rutherford in fact at that time, gave a speech
+
+38
+00:02:57,440 --> 00:03:02,960
+in 1933 in which he implied that it was impossible to harness energy from nuclear reactions. He said
+
+39
+00:03:02,960 --> 00:03:07,600
+anyone who looked for a source of power in the transformation of the atoms was talking moonshine.
+
+40
+00:03:07,600 --> 00:03:12,560
+That speech was published in the times and Leo Szilard read it, went for a walk and while he
+
+41
+00:03:12,560 --> 00:03:17,360
+was on his walk he had the idea for using neutrons to make a self-sustaining nuclear chain reaction.
+
+42
+00:03:17,360 --> 00:03:22,240
+So in that case the time taken from the world's most eminent scientists claiming that a thing was
+
+43
+00:03:22,240 --> 00:03:27,440
+completely infeasible to someone having the idea that makes it happen was as far as we can tell
+
+44
+00:03:27,440 --> 00:03:32,320
+somewhere around 16 hours. So it's happened several times that something which the best
+
+45
+00:03:32,320 --> 00:03:37,600
+researchers say can't be done has been achieved soon after. Do I think AGI is going to be discovered
+
+46
+00:03:37,600 --> 00:03:43,760
+very soon? No. But I can't completely rule it out either. We don't know what we don't know. So it
+
+47
+00:03:43,760 --> 00:03:48,400
+seems pretty clear to me that unless we destroy ourselves some other way first we will sooner or
+
+48
+00:03:48,400 --> 00:03:54,080
+later figure out how to make human level artificial general intelligence. Reason two. Well maybe we
+
+49
+00:03:54,080 --> 00:04:00,560
+will make AGI at some point but it's far too soon to worry about it now. Suppose we detected a huge
+
+50
+00:04:00,560 --> 00:04:05,920
+asteroid on a collision course with earth. It's one of those mass extinction event type asteroids
+
+51
+00:04:05,920 --> 00:04:11,840
+and it's going to hit us in say 40 years. How soon would be too soon to start worrying, to start
+
+52
+00:04:11,840 --> 00:04:16,880
+working on solutions? I would say it's pretty sensible to start worrying immediately. Not
+
+53
+00:04:16,880 --> 00:04:21,120
+panicking of course that's never useful but at least spending some resources on the problem,
+
+54
+00:04:21,120 --> 00:04:25,920
+gathering more information, putting together a plan and so on. Or suppose SETI got an
+
+55
+00:04:25,920 --> 00:04:31,360
+extraterrestrial message that said hey what's up humanity we're a highly advanced alien civilization
+
+56
+00:04:31,360 --> 00:04:36,880
+and we're on our way to earth. We'll be there in say 50 years. Again how long should we just sit
+
+57
+00:04:36,880 --> 00:04:41,440
+on that and do nothing at all? How long before it's sensible to start thinking about how we might
+
+58
+00:04:41,440 --> 00:04:46,080
+handle the situation? I would say the question doesn't just depend on how long we have but how
+
+59
+00:04:46,080 --> 00:04:50,640
+long we need. What are we going to have to do and how long is that likely to take us? If we need to
+
+60
+00:04:50,640 --> 00:04:55,280
+build some kind of rocket to go and divert the asteroid how long is that going to take and how
+
+61
+00:04:55,280 --> 00:05:00,480
+does that compare with how long we have? The thing is in the case of AGI we really don't know how long
+
+62
+00:05:00,480 --> 00:05:05,360
+it will take to solve the alignment problem. When you look at it and consider it carefully it appears
+
+63
+00:05:05,360 --> 00:05:10,000
+to be quite a hard problem. It requires technical work that could take a long time but it also
+
+64
+00:05:10,000 --> 00:05:14,160
+requires philosophical work. It seems like it might depend on finding good solutions to some
+
+65
+00:05:14,160 --> 00:05:18,400
+philosophical problems that people have been wrestling with for a very long time. We don't
+
+66
+00:05:18,400 --> 00:05:22,320
+have a great history of solving difficult philosophical problems very quickly so it
+
+67
+00:05:22,320 --> 00:05:26,560
+seems to me entirely plausible that we'll need more time to solve this problem than we actually
+
+68
+00:05:26,560 --> 00:05:30,880
+have. And of course we don't know how long we have either. Probably it'll be a long time but
+
+69
+00:05:30,880 --> 00:05:35,280
+predicting the future is extremely hard and we can't rule out shorter timelines. It could be
+
+70
+00:05:35,280 --> 00:05:40,000
+that we're closer than we think we are and deep learning will just scale up to AGI without many
+
+71
+00:05:40,000 --> 00:05:44,320
+major innovations. Probably not but it could be. And it doesn't seem impossible that we could have
+
+72
+00:05:44,320 --> 00:05:49,440
+a Rutherford and Szilard type situation. It could be that there's one weird trick to general
+
+73
+00:05:49,440 --> 00:05:54,320
+intelligence and once someone discovers that full AGI is only a couple of years away. In fact it's
+
+74
+00:05:54,320 --> 00:05:58,000
+not totally impossible that someone already found it and has been working on it for a while in
+
+75
+00:05:58,000 --> 00:06:02,640
+secret. None of these seem very likely but confidently declaring that it's definitely too
+
+76
+00:06:02,640 --> 00:06:07,280
+soon to even start working on this is bizarrely overconfident. The lower estimates for how long
+
+77
+00:06:07,280 --> 00:06:12,640
+we have seem a lot lower than the higher estimates for how long we need. The best time to start
+
+78
+00:06:12,640 --> 00:06:18,400
+working on this is not far in the future. It was probably quite a while ago now. Reason three. This
+
+79
+00:06:18,400 --> 00:06:23,920
+is similar to reason two. Worrying about AI safety is like worrying about overpopulation on Mars.
+
+80
+00:06:24,560 --> 00:06:29,360
+I don't think this is a very tight analogy for a few reasons. One is that overpopulation is one
+
+81
+00:06:29,360 --> 00:06:33,760
+of those problems that very definitely cannot sneak up on you. Overpopulation can't take you
+
+82
+00:06:33,760 --> 00:06:38,080
+by surprise in the way that a new technological development can. But also the safety concerns
+
+83
+00:06:38,080 --> 00:06:42,800
+we're talking about are not like overpopulation. They're much more immediate and more basic.
+
+84
+00:06:42,800 --> 00:06:47,920
+It's not like what if Mars becomes overpopulated. More like we don't have any very good reason to
+
+85
+00:06:47,920 --> 00:06:52,800
+expect to be able to survive on Mars for even a day. And there are projects currently underway
+
+86
+00:06:52,800 --> 00:06:58,080
+trying to create AGI. So it's as though the Mars mission project is already underway and one
+
+87
+00:06:58,080 --> 00:07:02,480
+engineer says to another, you know, we're putting all this work into getting people to Mars, but
+
+88
+00:07:02,480 --> 00:07:06,800
+almost none into what we're going to do if we actually manage it. I mean, how do we even know
+
+89
+00:07:06,800 --> 00:07:11,680
+that Mars is safe? Well, I think it's too soon to worry about that. Don't you think we should wait
+
+90
+00:07:11,680 --> 00:07:15,920
+until we get there? No, no, I don't think we should. I think it might be much more difficult
+
+91
+00:07:15,920 --> 00:07:20,640
+to work on these kinds of concerns once we're already on the surface of Mars. I think we should
+
+92
+00:07:20,640 --> 00:07:26,000
+do the safety research ahead of time. What kind of safety research do you want to do? Well, I was
+
+93
+00:07:26,000 --> 00:07:30,080
+thinking it might be good to have some kind of suit that people could wear in case the environment
+
+94
+00:07:30,080 --> 00:07:33,920
+of Mars turns out to be harmful in some way. We don't know that the surface of Mars is harmful.
+
+95
+00:07:34,640 --> 00:07:39,280
+Could be anything. Well, exactly. We don't know. So why not take precautions?
+
+96
+00:07:40,240 --> 00:07:45,680
+What we do know doesn't seem great. I mean, our what to do if we make it to Mars research
+
+97
+00:07:45,680 --> 00:07:50,480
+has never had much funding, so we can't be sure about this, but our preliminary work seems to
+
+98
+00:07:50,480 --> 00:07:54,880
+suggest that the atmosphere of Mars might not actually be breathable. So we've been thinking
+
+99
+00:07:54,880 --> 00:07:59,680
+about things like suits and there's some early work on something we're calling an airlock that
+
+100
+00:07:59,680 --> 00:08:04,240
+might turn out to be useful. I don't see how we could possibly hope to design anything like that
+
+101
+00:08:04,240 --> 00:08:08,160
+when we don't even know what Mars is going to be like. How are we going to have any chance of
+
+102
+00:08:08,160 --> 00:08:12,960
+designing these safety features properly with so little information? No, we're just going to go
+
+103
+00:08:12,960 --> 00:08:19,280
+and we'll figure it out when we get there. Could I maybe stay on Earth? No, everybody's going
+
+104
+00:08:19,280 --> 00:08:23,440
+together all at the same time. You know that. All of humanity. It's going to be great.
+
+105
+00:08:24,000 --> 00:08:28,160
+Reason four. Well, look, if you're worried about it being unsafe because the goals are bad,
+
+106
+00:08:28,160 --> 00:08:33,200
+don't put in bad goals. It won't have human goals like self-preservation if you don't put them in
+
+107
+00:08:33,200 --> 00:08:37,200
+there. I have a whole video about the concept of instrumental convergence, which I'd recommend
+
+108
+00:08:37,200 --> 00:08:41,440
+checking out. But as a quick summary, there are certain behaviors that we would expect to be
+
+109
+00:08:41,440 --> 00:08:45,760
+exhibited by agents that have a wide range of different goals because those behaviors are a
+
+110
+00:08:45,760 --> 00:08:50,480
+very good way of achieving a very wide range of goals. Self-preservation is a good example.
+
+111
+00:08:50,480 --> 00:08:54,400
+Agents will act as though they have goals like self-preservation even if you don't explicitly
+
+112
+00:08:54,400 --> 00:08:58,240
+put them in there, because it doesn't really matter what your goal is. You're probably not
+
+113
+00:08:58,240 --> 00:09:02,720
+going to be able to achieve that goal if you're destroyed. So we can expect agents that are able
+
+114
+00:09:02,720 --> 00:09:07,360
+to understand that they can be destroyed to take steps to prevent that, pretty much whatever goals
+
+115
+00:09:07,360 --> 00:09:13,680
+they have. You can't fetch the coffee if you're dead. Reason five. Well, we can just not have
+
+116
+00:09:13,680 --> 00:09:18,240
+explicit goals at all. I think this confusion comes from the fact that a lot of the time when
+
+117
+00:09:18,240 --> 00:09:22,400
+we're talking about safety, we're talking about the problems we might have if the system's goals
+
+118
+00:09:22,400 --> 00:09:26,800
+aren't well aligned with ours, or if the goals aren't specified correctly, and so on. And this
+
+119
+00:09:26,800 --> 00:09:31,920
+can make people think that we're talking specifically about designs that have explicitly defined goals.
+
+120
+00:09:31,920 --> 00:09:35,760
+But that's not actually the case. The problems are much more general than that. We'd expect
+
+121
+00:09:35,760 --> 00:09:39,520
+them to occur across a very wide range of possible agent designs. It's just that the
+
+122
+00:09:39,600 --> 00:09:44,800
+ones that have explicitly defined reward functions or utility functions are much easier to talk
+
+123
+00:09:44,800 --> 00:09:49,680
+about. The systems with implicit goals still probably have these problems, but it's just
+
+124
+00:09:49,680 --> 00:09:54,160
+much harder to characterize the problems and think about them, and therefore correspondingly much
+
+125
+00:09:54,160 --> 00:09:58,080
+more difficult to actually deal with those problems. So systems with implicit goals are
+
+126
+00:09:58,080 --> 00:10:03,280
+actually less safe, just because it becomes much harder to design them safely. Not having explicit
+
+127
+00:10:03,280 --> 00:10:08,800
+goals doesn't solve the problem and probably makes it worse. I have some safety concerns about this
+
+128
+00:10:08,800 --> 00:10:13,440
+car, this automobile that we're inventing. I'm worried about the steering system. Yeah,
+
+129
+00:10:14,560 --> 00:10:19,280
+I just don't think we're putting enough thought into designing it to be really reliable and easy
+
+130
+00:10:19,280 --> 00:10:24,800
+to use. Right now it seems like even tiny mistakes by the operator might cause the car to swerve out
+
+131
+00:10:24,800 --> 00:10:28,960
+of control and crash into something. It could be very dangerous. You think the steering system is
+
+132
+00:10:28,960 --> 00:10:34,240
+a cause of safety concerns, do you? Yeah. Well, okay, yeah, we'll just build a car without one.
+
+133
+00:10:34,240 --> 00:10:39,200
+Problem solved. Reason six. I don't think we should worry because we're not going to end up
+
+134
+00:10:39,200 --> 00:10:44,400
+with just independent AIs out in the world doing things. There'll be teams with humans and AI
+
+135
+00:10:44,400 --> 00:10:49,200
+systems cooperating with each other. We just have to have humans involved in the process,
+
+136
+00:10:49,200 --> 00:10:54,480
+working as a team with the AI, and they'll keep things safe. So yes, a lot of the better
+
+137
+00:10:54,480 --> 00:11:00,240
+approaches to AI safety do involve humans and AI systems working together, but just have AI
+
+138
+00:11:00,240 --> 00:11:05,520
+human teams is sort of like saying nuclear power plant safety isn't really a concern. We'll just
+
+139
+00:11:05,520 --> 00:11:09,840
+have some humans running it from a control room in such a way that they always have full control
+
+140
+00:11:09,840 --> 00:11:15,280
+over the rate of the reaction. Like, yes, but that's not an actual solution. It's a description
+
+141
+00:11:15,280 --> 00:11:20,000
+of a property that you would want a solution to have. It would be nice to build AGI systems that
+
+142
+00:11:20,000 --> 00:11:24,560
+can work well in a team with humans, but we don't currently know how to do that. What it comes down
+
+143
+00:11:24,560 --> 00:11:30,960
+to is teamwork is fundamentally about pursuing common goals. So misalignment precludes teamwork.
+
+144
+00:11:31,520 --> 00:11:35,840
+If the AI systems goals aren't aligned with yours, you can't collaborate with it. It wants
+
+145
+00:11:35,840 --> 00:11:40,960
+something different from what you want. So human AI teams aren't a solution to the alignment problem.
+
+146
+00:11:40,960 --> 00:11:45,840
+They actually depend on it being already solved. Reason seven. But this is science. We can't
+
+147
+00:11:45,840 --> 00:11:50,960
+control research. We can't change what people work on. Sure we can. Of course we can. We've
+
+148
+00:11:51,040 --> 00:11:54,720
+done it loads of times. It ends up not being very noticeable because we generally don't give that
+
+149
+00:11:54,720 --> 00:11:59,920
+much attention to things that don't happen. But for example, we basically don't do human genetic
+
+150
+00:11:59,920 --> 00:12:05,600
+engineering or human cloning. We've been able to clone sheep since 1996 and humans are not really
+
+151
+00:12:05,600 --> 00:12:09,280
+different from any other large mammal from the perspective of this kind of work. We could have
+
+152
+00:12:09,280 --> 00:12:13,520
+been doing all kinds of mad science on human genetics for decades now, but we decided not to.
+
+153
+00:12:13,520 --> 00:12:17,760
+There were conferences where agreements were reached. Everyone agreed that they weren't going
+
+154
+00:12:17,760 --> 00:12:22,800
+to do certain types of research and then we didn't do them. So agreements within the research
+
+155
+00:12:22,800 --> 00:12:28,560
+community are one way. Another way is international treaties. Like, did you know that the 1980 United
+
+156
+00:12:28,560 --> 00:12:34,160
+Nations Convention on Certain Conventional Weapons has a section titled Protocol on Blinding Laser
+
+157
+00:12:34,160 --> 00:12:38,960
+Weapons? Because of that protocol, robots that deliberately shine lasers in people's eyes to
+
+158
+00:12:38,960 --> 00:12:43,520
+blind them are against international law. I didn't know that until after I'd already built one.
+
+159
+00:12:43,520 --> 00:12:48,240
+So it's not a perfect metaphor, but the point is we don't see blinding laser weapons deployed on
+
+160
+00:12:48,240 --> 00:12:52,320
+the battlefield today. They're basically not a thing. And human genetic engineering is also
+
+161
+00:12:52,320 --> 00:12:56,480
+not really a thing because we decided that we didn't want to do them and so we didn't do them.
+
+162
+00:12:56,480 --> 00:13:00,480
+And by the way, if we decide that we don't want to make, for example, lethal autonomous weapon
+
+163
+00:13:00,480 --> 00:13:04,800
+systems, we don't have to make them either. AI researchers as a community can decide the
+
+164
+00:13:04,800 --> 00:13:09,760
+direction of our research and we should. Reason eight. You're a bunch of Luddites. You're just
+
+165
+00:13:09,760 --> 00:13:14,400
+against AI because you don't understand it. So in response to this, Stuart Russell has a list of
+
+166
+00:13:14,400 --> 00:13:21,840
+people who've raised basically this concern, which includes Alan Turing, I.J. Good, Norbert Wiener,
+
+167
+00:13:22,480 --> 00:13:27,200
+Marvin Minsky, and Bill Gates. And there's another name I would add to this list,
+
+168
+00:13:27,200 --> 00:13:31,600
+which I guess Stuart Russell is not allowed to add, which is Stuart Russell. It doesn't seem
+
+169
+00:13:31,600 --> 00:13:35,520
+reasonable to suggest that these people fear technology because they don't understand it,
+
+170
+00:13:35,520 --> 00:13:39,360
+to say the least. These are some of the biggest contributors to the technological progress of
+
+171
+00:13:39,360 --> 00:13:44,640
+the last century. And secondly, these people aren't against AI. The argument for AI safety
+
+172
+00:13:44,640 --> 00:13:49,360
+is not an argument against AI, any more than nuclear physicists or engineers who work on
+
+173
+00:13:49,360 --> 00:13:55,120
+containment or waste disposal are somehow against physics. Arguing for speed limits and seatbelts
+
+174
+00:13:55,120 --> 00:13:59,840
+is not the same as arguing to ban cars. We're not against AI because we don't understand it,
+
+175
+00:13:59,840 --> 00:14:05,280
+we're for safety because we do understand it. Reason nine. Well, if there's a problem,
+
+176
+00:14:05,280 --> 00:14:10,800
+we'll just turn it off. Right. This one I've covered extensively elsewhere, links in the
+
+177
+00:14:10,800 --> 00:14:16,080
+description. But in summary, I think super intelligent agents might see that coming.
+
+178
+00:14:16,720 --> 00:14:23,200
+Reason 10. Ixnay on the isksray. You trying to get us all defunded? Isn't talking about risks
+
+179
+00:14:23,200 --> 00:14:27,760
+kind of bad for business? I'd say, firstly, I don't think that's actually true. We do need to
+
+180
+00:14:27,760 --> 00:14:33,040
+make some changes, but that's not a bad thing for AI research. The solution to these safety concerns
+
+181
+00:14:33,040 --> 00:14:37,520
+is not less AI research, but more really just with a slightly different focus. And in fact,
+
+182
+00:14:37,520 --> 00:14:41,760
+I think this is the same kind of mistake made by the nuclear industry in the 50s.
+
+183
+00:14:41,760 --> 00:14:46,160
+They put tremendous effort into reassuring everyone they were safe. They insisted nothing
+
+184
+00:14:46,160 --> 00:14:50,240
+could possibly go wrong. Nuclear energy was going to be completely safe and perfect,
+
+185
+00:14:50,240 --> 00:14:56,560
+clean and too cheap to meter. Basic reactor principles and design make an atomic explosion
+
+186
+00:14:56,560 --> 00:15:01,920
+an impossibility. Arguably, they were so busy reassuring people about safety that they actually
+
+187
+00:15:01,920 --> 00:15:06,720
+didn't emphasize safety enough internally. That's how you get a Chernobyl. That's how you
+
+188
+00:15:06,720 --> 00:15:11,440
+get a Three Mile Island. And that's how you get a giant public backlash that is tremendously bad
+
+189
+00:15:11,440 --> 00:15:15,520
+for the industry. So I don't actually think that talking about AI safety too much is bad for
+
+190
+00:15:15,520 --> 00:15:20,640
+business, but it couldn't possibly be worse than talking about safety too little. So there we are.
+
+191
+00:15:20,640 --> 00:15:24,800
+That's 10 reasons not to care about AI safety. Some of these I've already covered in more detail
+
+192
+00:15:24,800 --> 00:15:28,320
+in other videos. There will be links in the description to those. And some of them might
+
+193
+00:15:28,320 --> 00:15:31,840
+deserve a whole video to themselves in future. What do you think? Are there any you'd like to
+
+194
+00:15:31,840 --> 00:15:35,280
+hear more about? Or have you come across any that I missed? Let me know in the comments.
+
+195
+00:15:43,360 --> 00:15:47,040
+I want to end the video by thanking my wonderful patrons. It's all of these people here.
+
+196
+00:15:47,760 --> 00:15:53,120
+In this video, I'm especially thanking Francisco Tolmaski, who has been a patron for a year. Thank
+
+197
+00:15:53,120 --> 00:15:57,760
+you so much for your support. I'm trying out a new thing where, as part of the process of making
+
+198
+00:15:57,760 --> 00:16:02,400
+videos, I talk to the researchers who wrote the papers I'm talking about. I'll record those for
+
+199
+00:16:02,400 --> 00:16:06,720
+reference, but they're not really right for YouTube because they're unstructured, unedited
+
+200
+00:16:06,720 --> 00:16:11,200
+conversation. So I think I'm going to start posting those to Patreon. If that sounds like
+
+201
+00:16:11,200 --> 00:16:15,360
+something you might want to watch, consider becoming a patron. Thanks again to those who do,
+
+202
+00:16:15,360 --> 00:16:17,920
+and thank you all for watching. I'll see you next time.
+
+203
+00:16:27,760 --> 00:16:28,260
+Bye.
+

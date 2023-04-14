@@ -1,0 +1,496 @@
+1
+00:00:00,000 --> 00:00:08,000
+Okay, so in some of the earlier Computerphile videos, I talk about utility functions, or objective functions.
+
+2
+00:00:08,000 --> 00:00:11,000
+And we got a lot of different comments relating to that idea.
+
+3
+00:00:11,000 --> 00:00:18,000
+One thing people said was, well surely this kind of monomaniacal following of a single utility function
+
+4
+00:00:18,000 --> 00:00:22,000
+at the cost of everything else is really the cause of the problem in the first place.
+
+5
+00:00:22,000 --> 00:00:29,000
+Why even use a utility function? Or maybe have several conflicting ones that interact with each other?
+
+6
+00:00:29,000 --> 00:00:30,000
+Or something like that.
+
+7
+00:00:30,000 --> 00:00:36,000
+Some people asked, why do we assume that an AI will have a utility function in the first place?
+
+8
+00:00:36,000 --> 00:00:44,000
+Aren't we making a pretty strong assumption about the design of the AI, when in fact we don't know how it would be implemented?
+
+9
+00:00:44,000 --> 00:00:49,000
+Humans don't have explicit utility functions that they consult when they're making their decisions.
+
+10
+00:00:49,000 --> 00:00:56,000
+A lot of different AI designs people are working on now don't have utility functions coded into them explicitly.
+
+11
+00:00:56,000 --> 00:00:59,000
+So why make that kind of unwarranted assumption?
+
+12
+00:00:59,000 --> 00:01:03,000
+So before we get into that, let's just go over what a utility function is.
+
+13
+00:01:03,000 --> 00:01:07,000
+Okay, so here's the Earth, or the universe.
+
+14
+00:01:07,000 --> 00:01:11,000
+It can be in any one of several different states.
+
+15
+00:01:11,000 --> 00:01:13,000
+So let's just look at three possible world states.
+
+16
+00:01:13,000 --> 00:01:16,000
+In this world, I'm enjoying a pleasant cup of tea.
+
+17
+00:01:16,000 --> 00:01:22,000
+In this world, I've run out of milk, so the tea isn't quite how I'd like it to be.
+
+18
+00:01:22,000 --> 00:01:26,000
+And in this world, I'm being stung by millions of wasps.
+
+19
+00:01:26,000 --> 00:01:30,000
+We want some way of expressing that I have preferences over these world states.
+
+20
+00:01:30,000 --> 00:01:32,000
+Some of them are better for me than others.
+
+21
+00:01:32,000 --> 00:01:40,000
+So a utility function is a function which takes as an argument a world state and outputs a number,
+
+22
+00:01:40,000 --> 00:01:45,000
+saying, broadly speaking, how good that world is for me, how much utility I get from it.
+
+23
+00:01:45,000 --> 00:01:51,000
+So in this example, perhaps a nice cup of tea is worth 10, a mediocre cup of tea is worth 9,
+
+24
+00:01:51,000 --> 00:01:53,000
+and the wasps are minus 1,000.
+
+25
+00:01:53,000 --> 00:01:57,000
+But Rob, you might say, that's way too simple. I care about all kinds of things,
+
+26
+00:01:57,000 --> 00:02:00,000
+and what I love about the world is complex and nuanced.
+
+27
+00:02:00,000 --> 00:02:05,000
+You can't distill everything down to just a single number on each world state.
+
+28
+00:02:05,000 --> 00:02:07,000
+Not with that attitude.
+
+29
+00:02:07,000 --> 00:02:08,000
+You can, and you kind of have to.
+
+30
+00:02:08,000 --> 00:02:12,000
+But let's just forget about the numbers for now and talk about preferences.
+
+31
+00:02:12,000 --> 00:02:15,000
+Let's make some basic assumptions about your preferences.
+
+32
+00:02:15,000 --> 00:02:18,000
+The first one is that you do have preferences.
+
+33
+00:02:18,000 --> 00:02:22,000
+Given any two states of the world, you could decide which one you would prefer to happen.
+
+34
+00:02:22,000 --> 00:02:23,000
+Or you could be indifferent.
+
+35
+00:02:23,000 --> 00:02:25,000
+But there's this basic trilemma here.
+
+36
+00:02:25,000 --> 00:02:33,000
+For any pair of world states, A and B, either A is preferable to B, or B is preferable to A,
+
+37
+00:02:33,000 --> 00:02:36,000
+or you're indifferent between A and B.
+
+38
+00:02:36,000 --> 00:02:38,000
+It doesn't matter to you which one happens.
+
+39
+00:02:38,000 --> 00:02:41,000
+Always exactly one of these things is true.
+
+40
+00:02:41,000 --> 00:02:45,000
+Hopefully that should be obvious, but just think about what it would mean for it not to be true.
+
+41
+00:02:45,000 --> 00:02:50,000
+Like, what would it mean to not prefer A to B, not prefer B to A,
+
+42
+00:02:50,000 --> 00:02:53,000
+and also not be indifferent between B and A?
+
+43
+00:02:53,000 --> 00:02:58,000
+Similarly, what would it mean to prefer A to B and simultaneously prefer B to A?
+
+44
+00:02:58,000 --> 00:03:02,000
+If you're faced with a choice, then, between A and B, what do you do?
+
+45
+00:03:02,000 --> 00:03:06,000
+The second basic assumption is transitivity.
+
+46
+00:03:06,000 --> 00:03:10,000
+So you have this relation between states, is preferable to,
+
+47
+00:03:10,000 --> 00:03:13,000
+and you assume that this is transitive,
+
+48
+00:03:13,000 --> 00:03:22,000
+which just means that if you prefer A to B, and you prefer B to C, then you prefer A to C.
+
+49
+00:03:22,000 --> 00:03:24,000
+Again, this seems intuitively pretty obvious.
+
+50
+00:03:24,000 --> 00:03:28,000
+But let's look at what it would mean to have intransitive preferences.
+
+51
+00:03:28,000 --> 00:03:33,000
+Let's say I prefer being in Amsterdam to being in Beijing,
+
+52
+00:03:33,000 --> 00:03:37,000
+and I prefer being in Beijing to being in Cairo,
+
+53
+00:03:37,000 --> 00:03:41,000
+and I prefer being in Cairo to being in Amsterdam.
+
+54
+00:03:41,000 --> 00:03:43,000
+What happens if I have these preferences?
+
+55
+00:03:43,000 --> 00:03:45,000
+Let's say I start out in Amsterdam.
+
+56
+00:03:45,000 --> 00:03:48,000
+I prefer being in Cairo, so I get on a plane and I fly to Cairo.
+
+57
+00:03:48,000 --> 00:03:52,000
+Now I'm in Cairo, and I find, actually, I prefer being in Beijing.
+
+58
+00:03:52,000 --> 00:03:54,000
+So I get on a plane, I fly to Beijing.
+
+59
+00:03:54,000 --> 00:03:58,000
+I'm now in Beijing, and I say, oh, you know, actually, I prefer to be in Amsterdam.
+
+60
+00:03:58,000 --> 00:04:00,000
+So I fly to Amsterdam.
+
+61
+00:04:00,000 --> 00:04:02,000
+And now I'm back where I started.
+
+62
+00:04:02,000 --> 00:04:05,000
+And, hey, what do you know, I prefer to be in Cairo.
+
+63
+00:04:05,000 --> 00:04:08,000
+So you can see that if your preferences aren't transitive,
+
+64
+00:04:08,000 --> 00:04:10,000
+you can get sort of stuck in a loop
+
+65
+00:04:10,000 --> 00:04:14,000
+where you just expend all of your resources flying between cities
+
+66
+00:04:14,000 --> 00:04:16,000
+or in some other way changing between options.
+
+67
+00:04:16,000 --> 00:04:18,000
+And this doesn't seem very smart.
+
+68
+00:04:18,000 --> 00:04:22,000
+So if we accept these two pretty basic assumptions about your preferences,
+
+69
+00:04:22,000 --> 00:04:25,000
+then we can say that your preferences are coherent.
+
+70
+00:04:25,000 --> 00:04:28,000
+You may have noticed there's something else that has these two properties,
+
+71
+00:04:28,000 --> 00:04:30,000
+which is the greater than relation on numbers.
+
+72
+00:04:30,000 --> 00:04:32,000
+For any two numbers, A and B,
+
+73
+00:04:32,000 --> 00:04:36,000
+either A is greater than B, B is greater than A, or A and B are equal.
+
+74
+00:04:36,000 --> 00:04:39,000
+And if A is greater than B, and B is greater than C,
+
+75
+00:04:39,000 --> 00:04:41,000
+then A is greater than C.
+
+76
+00:04:41,000 --> 00:04:44,000
+The fact that preferences and numbers share these properties is relevant here.
+
+77
+00:04:44,000 --> 00:04:46,000
+So if your preferences are coherent,
+
+78
+00:04:46,000 --> 00:04:49,000
+they'll define an order over world states.
+
+79
+00:04:49,000 --> 00:04:51,000
+That is to say, given your preferences,
+
+80
+00:04:51,000 --> 00:04:53,000
+you could take every possible world state
+
+81
+00:04:53,000 --> 00:04:56,000
+and arrange them in order of how good they are for you.
+
+82
+00:04:56,000 --> 00:04:58,000
+There will be a single ordering over world states.
+
+83
+00:04:58,000 --> 00:05:01,000
+You know there aren't any loops because your preferences are transitive.
+
+84
+00:05:01,000 --> 00:05:04,000
+Now if you have an ordering of world states,
+
+85
+00:05:04,000 --> 00:05:07,000
+there will exist a set of numbers for each world state
+
+86
+00:05:07,000 --> 00:05:09,000
+that correspond to that ordering.
+
+87
+00:05:09,000 --> 00:05:11,000
+Perhaps you could just take them all in order
+
+88
+00:05:11,000 --> 00:05:14,000
+and give each one a number according to where it falls in the ordering.
+
+89
+00:05:14,000 --> 00:05:16,000
+So those are your utility values.
+
+90
+00:05:16,000 --> 00:05:18,000
+For any coherent preferences,
+
+91
+00:05:18,000 --> 00:05:21,000
+there will be a set of utility values that exactly represents it.
+
+92
+00:05:21,000 --> 00:05:24,000
+And if you have a utility value on every world state,
+
+93
+00:05:24,000 --> 00:05:27,000
+well, there will be some function which takes in world states
+
+94
+00:05:27,000 --> 00:05:29,000
+and returns their utility values.
+
+95
+00:05:29,000 --> 00:05:31,000
+And that's your utility function.
+
+96
+00:05:31,000 --> 00:05:33,000
+So if you have consistent preferences,
+
+97
+00:05:33,000 --> 00:05:35,000
+you have a utility function.
+
+98
+00:05:35,000 --> 00:05:38,000
+But Rob, you may say, I don't have consistent preferences.
+
+99
+00:05:38,000 --> 00:05:41,000
+I'm a human being. My preferences are all over the place.
+
+100
+00:05:41,000 --> 00:05:44,000
+That's true. Human beings do not reliably behave
+
+101
+00:05:44,000 --> 00:05:46,000
+as though they have consistent preferences.
+
+102
+00:05:46,000 --> 00:05:50,000
+But that's just because human intelligence is kind of badly implemented.
+
+103
+00:05:50,000 --> 00:05:53,000
+Our inconsistencies don't make us better people.
+
+104
+00:05:53,000 --> 00:05:56,000
+It's not some magic key to our humanity
+
+105
+00:05:56,000 --> 00:05:58,000
+or secret to our effectiveness or whatever.
+
+106
+00:05:58,000 --> 00:06:02,000
+It's not making us smarter or more empathetic or more ethical.
+
+107
+00:06:02,000 --> 00:06:04,000
+It's just making us make bad decisions.
+
+108
+00:06:04,000 --> 00:06:07,000
+Talking about utility functions is actually a way of assuming
+
+109
+00:06:07,000 --> 00:06:09,000
+very little about the design of an AI
+
+110
+00:06:09,000 --> 00:06:13,000
+other than assuming that it has coherent goal-directed behavior.
+
+111
+00:06:13,000 --> 00:06:15,000
+It doesn't matter how it's implemented.
+
+112
+00:06:15,000 --> 00:06:18,000
+If it's effective at navigating the world to get what it wants,
+
+113
+00:06:18,000 --> 00:06:21,000
+it will behave as though it has a particular utility function.
+
+114
+00:06:21,000 --> 00:06:23,000
+And this means if you're going to build an agent
+
+115
+00:06:23,000 --> 00:06:25,000
+with coherent goal-directed behavior,
+
+116
+00:06:25,000 --> 00:06:28,000
+you'd better make sure it has the right utility function.
+
+117
+00:06:39,000 --> 00:06:42,000
+I just wanted to say thank you to my Patreon supporters,
+
+118
+00:06:42,000 --> 00:06:46,000
+the three people who somehow managed to support me
+
+119
+00:06:46,000 --> 00:06:49,000
+before I even mentioned in a video that I was setting up a Patreon.
+
+120
+00:06:49,000 --> 00:06:51,000
+And I especially want to thank Chad Jones,
+
+121
+00:06:51,000 --> 00:06:53,000
+who's pledged $10 a month. Thank you so much.
+
+122
+00:06:53,000 --> 00:06:56,000
+It really means a lot to me that there are people out there
+
+123
+00:06:56,000 --> 00:06:58,000
+who think what I'm doing is worth supporting.
+
+124
+00:06:58,000 --> 00:07:00,000
+So thanks again.
+

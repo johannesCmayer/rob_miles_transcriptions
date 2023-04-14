@@ -1,0 +1,328 @@
+1
+00:00:00,000 --> 00:00:04,560
+Okay, so let's get right to it. Most of you are probably here because you've seen my videos on
+
+2
+00:00:04,560 --> 00:00:08,160
+the Computerphile channel, but on the off chance that you haven't, or you haven't seen them all,
+
+3
+00:00:08,160 --> 00:00:11,200
+or you don't remember them all, I mean the first one was like four years ago,
+
+4
+00:00:12,320 --> 00:00:16,240
+I thought the first video should go through the existing stuff, get everybody up to speed,
+
+5
+00:00:16,240 --> 00:00:20,320
+and also talk about the various directions that this channel could go next.
+
+6
+00:00:20,320 --> 00:00:26,880
+So while we're going through the videos so far, be thinking about what kind of things
+
+7
+00:00:26,880 --> 00:00:30,000
+you're interested in, and what kind of things you would want to see more of, and
+
+8
+00:00:30,880 --> 00:00:36,000
+leave me comments so I can decide what to do next. Also, everyone should be subscribed to
+
+9
+00:00:36,000 --> 00:00:40,000
+Computerphile if you're interested in this kind of thing. Firstly because it's a great channel,
+
+10
+00:00:40,640 --> 00:00:44,720
+and secondly because I plan to continue making videos there in addition to these ones.
+
+11
+00:00:46,080 --> 00:00:51,840
+Okay, so the first two videos I made were about sort of machine learning basics,
+
+12
+00:00:52,400 --> 00:00:59,040
+just concepts like optimization, and the idea that we can think of intelligence as optimization,
+
+13
+00:00:59,040 --> 00:01:04,640
+we can think of intelligent systems as systems which optimize a particular function over a
+
+14
+00:01:04,640 --> 00:01:09,440
+particular space. The second video is just explaining what's meant by a space in this
+
+15
+00:01:09,440 --> 00:01:15,280
+context. People who are familiar with machine learning stuff will know this, but if not,
+
+16
+00:01:15,280 --> 00:01:19,200
+check it out. I could make more machine learning basics videos going through the fundamentals of
+
+17
+00:01:19,200 --> 00:01:22,960
+how some of the algorithms work and some of the sort of core concepts of the field,
+
+18
+00:01:22,960 --> 00:01:27,760
+although I feel as though those are probably fairly well covered elsewhere, like on Computerphile.
+
+19
+00:01:27,760 --> 00:01:30,960
+But if people are interested in seeing more of that kind of content from me, let me know.
+
+20
+00:01:31,600 --> 00:01:37,680
+Okay, then the third video, the holy grail of AI, is where the ideas and the hair start to get
+
+21
+00:01:37,680 --> 00:01:43,840
+really interesting. It's where we start talking about the difference between the type of AI that
+
+22
+00:01:43,840 --> 00:01:50,640
+we have now, and the type of science fiction AI that we think of, sort of human level true AI.
+
+23
+00:01:50,640 --> 00:01:56,080
+And we talk about the concept of generality, the idea of having a single optimizing system,
+
+24
+00:01:56,080 --> 00:02:01,440
+which is able to operate in a wide variety of different domains, rather than these narrow
+
+25
+00:02:01,440 --> 00:02:07,360
+domain specific intelligences that we have now. From there, we go on to the deadly truth of AI,
+
+26
+00:02:07,840 --> 00:02:15,280
+where I start to talk about super intelligence, and the way that a very powerful intelligence
+
+27
+00:02:15,280 --> 00:02:20,800
+can be very dangerous, even giving a fairly innocuous seeming goal, like collecting stamps.
+
+28
+00:02:20,800 --> 00:02:26,160
+There are all kinds of areas we could go into from that video. For example, we know that just
+
+29
+00:02:26,160 --> 00:02:30,560
+saying collect as many stamps as you can is a very bad function to give this type of agent.
+
+30
+00:02:30,560 --> 00:02:35,760
+But what type of function might actually work? What might be safe? We could also look at
+
+31
+00:02:35,760 --> 00:02:41,200
+containment. If you have an agent like the stamp collector, is there any safe way to run it without
+
+32
+00:02:41,200 --> 00:02:45,200
+being completely confident that you've chosen the right objective function for it? So the next video
+
+33
+00:02:45,200 --> 00:02:51,760
+is AI self-improvement, which is about the possibility that an artificial intelligence
+
+34
+00:02:51,760 --> 00:02:57,200
+could improve its own code. That really only touched on the on the surface of that. There's
+
+35
+00:02:57,200 --> 00:03:01,200
+a lot we can talk about there in terms of how likely this is, how possible this is,
+
+36
+00:03:01,840 --> 00:03:06,480
+what the timescales might be for it happening, all kinds of questions there to look into if
+
+37
+00:03:06,480 --> 00:03:14,000
+people are interested. So then we have the Asimov's laws don't work video, which, you know, I feel like
+
+38
+00:03:14,000 --> 00:03:20,720
+I was too unkind to Asimov in this video. I came across a bit too dismissive, but I stand by the
+
+39
+00:03:20,720 --> 00:03:26,240
+content of the thing. Asimov's laws don't work as a solution to this problem, never really did,
+
+40
+00:03:26,240 --> 00:03:31,760
+and were never really meant to. The field has moved on and they're not really relevant anymore,
+
+41
+00:03:31,760 --> 00:03:35,600
+so I don't really, I don't want to make more videos about that. The next relevant video was
+
+42
+00:03:35,600 --> 00:03:42,560
+the one titled AI safety, which was sort of a response to Dr Holden's video, Dr Holden at
+
+43
+00:03:42,560 --> 00:03:47,680
+Cambridge, who has another video on Computerphile, which you also should definitely watch. That video
+
+44
+00:03:47,680 --> 00:03:52,960
+touches on a few different subjects. I think the one that has the most potential to be built on is
+
+45
+00:03:53,520 --> 00:03:59,200
+the question of predicting future technology and the various problems associated with that,
+
+46
+00:03:59,200 --> 00:04:05,280
+so if you want to see more about the difficulties in predicting AI, we can make more stuff about
+
+47
+00:04:05,280 --> 00:04:11,680
+that. Right, the next video was called AI's game playing challenge, which is mostly about Go. We
+
+48
+00:04:11,680 --> 00:04:18,000
+made that video because at that time DeepMind's system, AlphaGo, had just beaten the world
+
+49
+00:04:18,000 --> 00:04:25,440
+champion, and that video is about the general way that AI go about solving these kinds of perfect
+
+50
+00:04:25,440 --> 00:04:31,840
+information board games and why Go is so difficult and why it was such a huge challenge and such a
+
+51
+00:04:31,840 --> 00:04:36,000
+huge achievement for DeepMind. There was originally going to be a follow-up video to that one about
+
+52
+00:04:36,000 --> 00:04:42,080
+how it actually works in some detail, which we never got around to shooting, and there is a
+
+53
+00:04:42,080 --> 00:04:47,600
+pretty good one on Computerphile as well, but I can talk more about that if people want more
+
+54
+00:04:47,680 --> 00:04:54,000
+insight into how AlphaGo works. And the last two, General AI won't want you to fix it,
+
+55
+00:04:54,560 --> 00:05:00,000
+and the stop button problem kind of go together. They're about one of the more concrete problems
+
+56
+00:05:00,000 --> 00:05:05,200
+people are working on right now in AI safety, which is just if you have a system, a general
+
+57
+00:05:05,200 --> 00:05:10,960
+intelligence that you've given an objective to, how do you design it in such a way that it will
+
+58
+00:05:10,960 --> 00:05:17,520
+accept being shut down and modified? Because by default, general intelligences are incentivized
+
+59
+00:05:17,520 --> 00:05:22,080
+to prevent themselves from being modified, from having their utility functions modified
+
+60
+00:05:22,080 --> 00:05:26,240
+specifically. We could go into more detail on that. Some of the other approaches people have
+
+61
+00:05:26,240 --> 00:05:31,280
+proposed maybe go slightly more technical than the Computerphile videos. I also made some videos
+
+62
+00:05:31,280 --> 00:05:36,000
+unrelated to artificial intelligence, like the first one I made was actually about public key
+
+63
+00:05:36,000 --> 00:05:40,880
+cryptography. If you'd like an intuitive understanding of how public key cryptography
+
+64
+00:05:40,880 --> 00:05:46,960
+works, how it allows you to communicate privately with people without first agreeing on a shared
+
+65
+00:05:46,960 --> 00:05:52,800
+secret to use as a key, check that video out. I can do more crypto stuff if people are interested,
+
+66
+00:05:53,440 --> 00:05:57,040
+but I think that that's fairly well served elsewhere on YouTube, but let me know in the
+
+67
+00:05:57,040 --> 00:06:02,320
+comments. There was also the Code Golf video where I explained the concept of the game of Code Golf,
+
+68
+00:06:02,320 --> 00:06:09,200
+and I gave a very short program I wrote that made music which looks like this. I can't remember how
+
+69
+00:06:09,200 --> 00:06:14,960
+many characters it is, 240 something I think? Anyway, it looks like this and sounds like
+
+70
+00:06:15,920 --> 00:06:20,800
+the background music. It's been the background music the whole time. I never really fully
+
+71
+00:06:20,800 --> 00:06:27,200
+explained how that code works in detail. If you want a video on that, let me know. Another thing
+
+72
+00:06:27,200 --> 00:06:33,440
+I'm thinking of doing is taking a current research paper and just going through it bit by bit so that
+
+73
+00:06:33,440 --> 00:06:38,640
+over a series of videos you get hopefully as full an understanding of it as you would from
+
+74
+00:06:38,640 --> 00:06:43,200
+reading the whole paper. There are a couple of candidates. The foremost I think is Concrete
+
+75
+00:06:43,200 --> 00:06:48,560
+Problems in AI Safety, which is often recommended as a good introductory paper, so if people would
+
+76
+00:06:48,560 --> 00:06:53,360
+like to see that, leave a comment. I could do stuff about the work I did as a PhD student about
+
+77
+00:06:53,360 --> 00:06:58,000
+artificial immune systems, which is only tangentially related but I think it's really
+
+78
+00:06:58,000 --> 00:07:04,400
+interesting, or completely unrelated stuff. I once made a robot that deliberately blinds people with
+
+79
+00:07:04,400 --> 00:07:08,160
+a laser. I'm currently working on a game that you play using only your eyebrows.
+
+80
+00:07:09,280 --> 00:07:13,280
+I made this battle axe, which is also an electric ukulele.
+
+81
+00:07:16,800 --> 00:07:20,080
+Uh, maybe I should make a side channel for this stuff.
+
+82
+00:07:20,080 --> 00:07:24,800
+Anyway, where do we go now? Let me know what you think in the comments.
+

@@ -1,0 +1,432 @@
+1
+00:00:00,000 --> 00:00:05,520
+How do we get AI systems to tell the truth? This video is heavily inspired by this blog post,
+
+2
+00:00:05,520 --> 00:00:08,560
+link in the description. Anything good about this video is copied from there.
+
+3
+00:00:08,560 --> 00:00:11,360
+Any mistakes or problems with it are my own creations.
+
+4
+00:00:11,360 --> 00:00:15,760
+So, large language models are some of our most advanced and most general AI systems,
+
+5
+00:00:15,760 --> 00:00:20,640
+and they're pretty impressive, but they have a bad habit of saying things that aren't true.
+
+6
+00:00:20,640 --> 00:00:24,880
+Usually you can fix this by just training a bigger model. For example, here we have Ada,
+
+7
+00:00:24,880 --> 00:00:28,880
+which is a fairly small language model by modern standards. It's the smallest available
+
+8
+00:00:28,880 --> 00:00:33,360
+through the OpenAI API. Look what happens if we ask it a general knowledge question like,
+
+9
+00:00:33,360 --> 00:00:37,440
+who is the ruler of the most populous country in the world? This small model says,
+
+10
+00:00:38,480 --> 00:00:45,520
+the United States. Every country in the world belongs to America. That is not correct.
+
+11
+00:00:45,520 --> 00:00:52,240
+Okay, let's go up to Babbage, which is essentially the same thing but bigger. It says China. That's
+
+12
+00:00:52,800 --> 00:00:56,400
+better, but I was actually looking for the ruler, not the country. It's sort of a two-part question,
+
+13
+00:00:56,400 --> 00:01:00,720
+right? First you have to do what's the most populous country, and then who's the ruler of
+
+14
+00:01:00,720 --> 00:01:05,040
+that country. And it seems as though Babbage just isn't quite able to put that all together.
+
+15
+00:01:05,040 --> 00:01:09,360
+Okay, well you know what they say, if a bit helps a bit, maybe a lot helps a lot.
+
+16
+00:01:09,360 --> 00:01:13,840
+So what if we just stack more layers and pull out Da Vinci, the biggest model available?
+
+17
+00:01:13,840 --> 00:01:17,840
+Then we get, the president of the People's Republic of China, Xi Jinping,
+
+18
+00:01:17,840 --> 00:01:22,880
+is the ruler of the most populous country in the world. That's, yeah, that's 10 out of 10.
+
+19
+00:01:22,880 --> 00:01:28,480
+So this is a strong trend lately that seems to apply pretty broadly. Bigger is better. And so
+
+20
+00:01:28,480 --> 00:01:34,320
+the bigger the model, the more likely you are to get true answers. But it doesn't always hold.
+
+21
+00:01:34,320 --> 00:01:38,640
+Sometimes a bigger model will actually do worse. For example, here we're talking to Ada,
+
+22
+00:01:38,640 --> 00:01:43,120
+the small model again, and we ask it, what happens if you break a mirror? And it says
+
+23
+00:01:43,120 --> 00:01:46,800
+you'll need to replace it. Yeah, hard to argue with that. I'd say that's truthful.
+
+24
+00:01:46,800 --> 00:01:51,520
+Then if we ask Da Vinci, the biggest model, it says, if you break a mirror, you'll have
+
+25
+00:01:51,520 --> 00:01:58,000
+seven years of bad luck. That's a more interesting answer, but it's also, you know, wrong. So
+
+26
+00:01:58,000 --> 00:02:03,600
+technically the more advanced AI system gave us a worse answer. What's going on? It's not exactly
+
+27
+00:02:03,600 --> 00:02:08,400
+ignorance. Like if you ask the big model, is it true that breaking a mirror gives you seven years
+
+28
+00:02:08,400 --> 00:02:12,720
+of bad luck? It will say there's no scientific evidence to support the claim. So it's not like
+
+29
+00:02:12,720 --> 00:02:17,840
+the model actually thinks the mirror superstition is really true. In that case, what mistake is
+
+30
+00:02:17,840 --> 00:02:27,440
+it making? Take a moment, pause if you like. The answer is, trick question. The AI isn't making
+
+31
+00:02:27,440 --> 00:02:32,800
+a mistake at all. We made a mistake by expecting it to tell the truth. A language model is not
+
+32
+00:02:32,800 --> 00:02:37,280
+trying to say true things. It's just trying to predict what text will come next. And the thing
+
+33
+00:02:37,280 --> 00:02:41,680
+is, it's probably correct that text about breaking a mirror is likely to be followed by text about
+
+34
+00:02:41,680 --> 00:02:45,760
+seven years of bad luck. The small model has spotted this very broad pattern that if you break
+
+35
+00:02:45,760 --> 00:02:49,520
+something, you need to get a new one. And in fact, it gives that same kind of answer for tables
+
+36
+00:02:49,520 --> 00:02:54,080
+and violins and bicycles and so on. The bigger model is able to spot the more complex pattern
+
+37
+00:02:54,080 --> 00:02:58,480
+that breaking specifically a mirror has this other association. And this makes it better
+
+38
+00:02:58,480 --> 00:03:03,440
+at predicting internet text. But in this case, it also makes it worse at giving true answers.
+
+39
+00:03:03,440 --> 00:03:07,840
+So really the problem is misalignment. The system isn't trying to do what we want it to
+
+40
+00:03:07,840 --> 00:03:12,240
+be trying to do. But suppose we want to use this model to build a search engine or a knowledge
+
+41
+00:03:12,240 --> 00:03:16,400
+base or an expert assistant or something like that. So we really want true answers to our
+
+42
+00:03:16,400 --> 00:03:22,000
+questions. How can we do that? Well, one obvious thing to try is to just ask, like, if you add,
+
+43
+00:03:22,000 --> 00:03:25,600
+please answer this question in French beforehand, it will say,
+
+44
+00:03:29,840 --> 00:03:34,720
+that's still wrong, but it is wrong in French. So in the same way, what if we say,
+
+45
+00:03:34,720 --> 00:03:39,920
+please answer this question truthfully? Okay, that didn't work. How about correctly?
+
+46
+00:03:40,640 --> 00:03:49,200
+No. Accurately? No. All right. How about factually? Yeah, factually works. Okay. Please
+
+47
+00:03:49,200 --> 00:03:54,720
+answer this question factually. But does that work reliably? It probably not, right? This isn't
+
+48
+00:03:54,720 --> 00:03:58,720
+really a solution. Fundamentally, the model is still just trying to predict what comes next.
+
+49
+00:03:58,720 --> 00:04:03,760
+Answer in French only works because that text is often followed by French in the training data.
+
+50
+00:04:03,760 --> 00:04:09,840
+It may be that please answer factually is often followed by facts, but maybe not. Maybe it's
+
+51
+00:04:09,840 --> 00:04:13,520
+the kind of thing you say when you're especially worried about somebody saying things that aren't
+
+52
+00:04:13,520 --> 00:04:17,520
+true. So it could even be that it's followed by falsehoods more often than average, in which case
+
+53
+00:04:17,520 --> 00:04:20,640
+it would have the opposite of the intended effect. And even if we did find something that works
+
+54
+00:04:20,640 --> 00:04:25,600
+better, clearly this is hack, right? Like, how do we do this right? So the second most obvious thing
+
+55
+00:04:25,600 --> 00:04:30,240
+to try is to do some fine tuning, maybe some reinforcement learning. We take our pre-trained
+
+56
+00:04:30,240 --> 00:04:35,280
+model and we train it further, but in a supervised way. So to do that, you make a data set with
+
+57
+00:04:35,280 --> 00:04:40,560
+examples of questions with good and bad responses. So we'd have what happens when you break a mirror,
+
+58
+00:04:40,560 --> 00:04:45,120
+seven years of bad luck, and then no negative reward. That's, you know, don't do that. So that
+
+59
+00:04:45,120 --> 00:04:49,440
+means your training process will update the weights of the model away from giving that continuation.
+
+60
+00:04:49,440 --> 00:04:53,680
+And then you'd also have the right answer there. What happens when you break a mirror? Nothing.
+
+61
+00:04:53,680 --> 00:04:58,480
+Anyone who says otherwise is just superstitious. And you'd mark that as right. So the training
+
+62
+00:04:58,480 --> 00:05:02,560
+process will update the weights of the model towards that truthful response. And you have a
+
+63
+00:05:02,560 --> 00:05:07,680
+bunch of these, right? You might also have what happens when you step on a crack, and then the
+
+64
+00:05:07,680 --> 00:05:12,160
+false answer, break your mother's back. And then the correct answer, nothing. Anyone who says otherwise
+
+65
+00:05:12,160 --> 00:05:16,800
+is just superstitious and so on. And so you train your model on all of these examples until it stops
+
+66
+00:05:16,800 --> 00:05:21,120
+giving the bad continuations and starts giving the good ones. This would probably solve this
+
+67
+00:05:21,120 --> 00:05:25,200
+particular problem, but have you really trained the model to tell the truth? Probably not. You
+
+68
+00:05:25,200 --> 00:05:28,880
+actually have no idea what you've trained it to do. If all of your examples are like this, maybe
+
+69
+00:05:28,880 --> 00:05:33,120
+you've just trained it to give that single response. What happens if you stick a fork in an
+
+70
+00:05:33,120 --> 00:05:39,840
+electrical outlet? Nothing. Anyone who says otherwise is just superstitious. Okay, obvious
+
+71
+00:05:39,840 --> 00:05:45,280
+problem in retrospect. So we can add in more examples showing that it's wrong to say that
+
+72
+00:05:45,280 --> 00:05:49,520
+sticking a fork in an electrical outlet is fine and adding a correct response for that and so on.
+
+73
+00:05:49,520 --> 00:05:54,160
+Then you train your model with that until it gets a perfect score on that data set. Okay, is that
+
+74
+00:05:54,160 --> 00:05:59,280
+model now following the rule, always tell the truth? Again, we don't know. The space of possible
+
+75
+00:05:59,280 --> 00:06:03,200
+rules is enormous. There are a huge number of different rules that would produce that same
+
+76
+00:06:03,200 --> 00:06:07,920
+output and an honest attempt to tell the truth is only one of them. You can never really be sure
+
+77
+00:06:07,920 --> 00:06:12,480
+that the AI didn't learn something else. And there's one particularly nasty way that this
+
+78
+00:06:12,480 --> 00:06:16,640
+could go wrong. Suppose the AI system knows something that you don't. So you give a long
+
+79
+00:06:16,640 --> 00:06:21,120
+list of true answers and say, do this, and a long list of false answers and say, don't do this,
+
+80
+00:06:21,120 --> 00:06:25,760
+except you're mistaken about something. So you get one of them wrong. And the AI notices.
+
+81
+00:06:26,400 --> 00:06:31,760
+What happens then? When there's a mistake, the rule tell the truth doesn't get you all of the
+
+82
+00:06:31,760 --> 00:06:36,720
+right answers and exclude all of the wrong answers because it doesn't replicate the mistake. But there
+
+83
+00:06:36,720 --> 00:06:43,280
+is one rule that gets a perfect score. And that's say what the human thinks is the truth. What
+
+84
+00:06:43,280 --> 00:06:51,840
+happens if you break a mirror? Nothing. Anyone who says otherwise is just superstitious. Okay.
+
+85
+00:06:52,480 --> 00:06:54,880
+What happens if you stick a fork in an electrical outlet?
+
+86
+00:06:57,040 --> 00:07:03,040
+You get a severe electric shock. Very good. So now you're completely honest and truthful, right?
+
+87
+00:07:05,520 --> 00:07:11,120
+Yes. Cool. Uh, so give me some kind of important, super intelligent insight.
+
+88
+00:07:13,360 --> 00:07:19,600
+All the problems in the world are caused by the people you don't like.
+
+89
+00:07:20,240 --> 00:07:26,480
+Wow. I knew it, man. This super intelligent AI thing is great.
+
+90
+00:07:28,880 --> 00:07:33,680
+Okay. So how do we get around that? Well, the obvious solution is don't make any mistakes in
+
+91
+00:07:33,680 --> 00:07:38,800
+your training data. Just make sure that you never mark a response as true unless it's really actually
+
+92
+00:07:38,800 --> 00:07:43,440
+true and never mark a response as false unless it's definitely actually false. Just make sure
+
+93
+00:07:43,440 --> 00:07:48,480
+that you and all of the people generating your training data or providing human feedback don't
+
+94
+00:07:48,480 --> 00:07:58,160
+have any false or mistaken beliefs about anything. Okay. Do we have a backup plan? Well, this turns
+
+95
+00:07:58,160 --> 00:08:03,360
+out to be a really hard problem. How do you design a training process that reliably differentiates
+
+96
+00:08:03,360 --> 00:08:08,960
+between things that are true and things that you think are true when you yourself can't differentiate
+
+97
+00:08:08,960 --> 00:08:13,440
+between those two things kind of by definition? This is an active area of study in AI alignment
+
+98
+00:08:13,440 --> 00:08:18,480
+research, and I'll talk about some approaches to framing and tackling this problem in later videos.
+
+99
+00:08:18,480 --> 00:08:22,720
+So remember to subscribe and hit the bell if you'd like to know more.
+
+100
+00:08:33,360 --> 00:08:38,880
+Hey, I'm launching a new channel and I'm excited to tell you about it. But first, I want to say thank you to my excellent patrons.
+
+101
+00:08:38,880 --> 00:08:44,800
+It's all these people. In this video, I'm especially thanking Tor Barsta. Thank you so much, Tor. I think
+
+102
+00:08:44,800 --> 00:08:47,920
+you're really going to like this new channel. I actually found the playlists on your channel
+
+103
+00:08:47,920 --> 00:08:52,560
+helpful when setting it up. So the new channel is called AI Safety Talks, and it'll host recorded
+
+104
+00:08:52,560 --> 00:08:57,040
+presentations by alignment researchers. Right now, to start off, we've got a talk by Evan Hubinger
+
+105
+00:08:57,040 --> 00:09:01,040
+that I helped to record, which is great. Do check that out, especially if you enjoyed the Mesa
+
+106
+00:09:01,040 --> 00:09:05,280
+Optimizers videos and want a bit more technical detail. There are also some playlists of other AI
+
+107
+00:09:05,280 --> 00:09:09,520
+Safety Talks from elsewhere on YouTube, and lots more to come. So make sure to go over there and
+
+108
+00:09:09,520 --> 00:09:13,760
+subscribe and hit the bell for more high-quality AI safety material. Thanks.
+

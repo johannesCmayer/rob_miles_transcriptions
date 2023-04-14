@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:03,380
+Hi, my name's Rob Miles, welcome to my channel.
+
+2
+00:00:03,380 --> 00:00:08,680
+It seems pretty likely that sooner or later we'll develop general artificial intelligence.
+
+3
+00:00:08,680 --> 00:00:13,700
+That is to say, a software system that's able to reason about the world in general and take
+
+4
+00:00:13,700 --> 00:00:16,020
+actions in the world at large.
+
+5
+00:00:16,020 --> 00:00:20,700
+We don't know how to do that yet, but before we figure it out, it would be good to know
+
+6
+00:00:20,700 --> 00:00:26,580
+for sure that any such system we create would be safe, would be positive, would be beneficial
+
+7
+00:00:26,580 --> 00:00:29,140
+to humanity.
+
+8
+00:00:29,140 --> 00:00:30,700
+It's not as easy as it sounds.
+
+9
+00:00:30,700 --> 00:00:34,460
+On this channel, we'll talk about machine learning and artificial intelligence.
+
+10
+00:00:34,460 --> 00:00:39,300
+We'll look at some of the problems of AI safety and some of the work being done right now
+
+11
+00:00:39,300 --> 00:00:41,060
+on those problems.
+
+12
+00:00:41,060 --> 00:00:44,700
+If that kind of thing sounds interesting to you, hit the subscribe button.
+
+13
+00:00:44,700 --> 00:00:47,860
+You may also want to hit the little bell if you want to be notified when new videos come
+
+14
+00:00:47,860 --> 00:00:48,980
+out.
+
+15
+00:00:48,980 --> 00:00:53,260
+And more importantly, if you know anyone who you think might be interested in this kind
+
+16
+00:00:53,260 --> 00:00:54,740
+of thing, send them a link.
+
+17
+00:00:54,740 --> 00:00:55,860
+Yeah, that's it for now.
+
+18
+00:00:55,860 --> 00:00:56,860
+New videos coming soon.
+
+19
+00:00:56,860 --> 00:00:57,860
+Watch this space.
+
+20
+00:00:58,460 --> 00:00:59,460
+Ah.
+
+21
+00:00:59,460 --> 00:01:00,460
+Perfect.
+
+22
+00:01:00,460 --> 00:01:01,460
+Perfect.
+
+23
+00:01:01,460 --> 00:01:02,460
+Yeah.
+
+24
+00:01:02,460 --> 00:01:03,460
+That's the take.
+
+25
+00:01:03,460 --> 00:01:04,460
+Use that one.
+

@@ -1,0 +1,1160 @@
+1
+00:00:00,000 --> 00:00:05,600
+Hi. So this channel is about AI safety and AI alignment. The core idea of AI safety is often
+
+2
+00:00:05,600 --> 00:00:10,880
+portrayed like this. You're a human. You have some objective that you want to achieve. So you
+
+3
+00:00:10,880 --> 00:00:16,160
+create an AI system which is an optimiser. Being an optimiser means that it has an objective,
+
+4
+00:00:16,160 --> 00:00:21,120
+and it chooses its actions to optimise, i.e. maximise or minimise, that objective. For
+
+5
+00:00:21,120 --> 00:00:25,680
+example, a chess AI might choose what moves to make in order to maximise its chances of winning
+
+6
+00:00:25,680 --> 00:00:30,960
+the game. A maze-solving algorithm might choose a route that minimises the time taken to exit the
+
+7
+00:00:30,960 --> 00:00:36,480
+maze. Often, being an optimiser involves modelling your environment, running searches over the space
+
+8
+00:00:36,480 --> 00:00:41,280
+of actions, and planning ahead. But optimisers can also be simpler than that. Like, a machine
+
+9
+00:00:41,280 --> 00:00:45,200
+learning system like gradient descent might choose how to adjust the weights of a neural
+
+10
+00:00:45,200 --> 00:00:49,040
+network in order to maximise the network's performance at a particular task. That's
+
+11
+00:00:49,040 --> 00:00:53,920
+optimisation too. So you, the human, your objective might be to cure cancer. So you
+
+12
+00:00:53,920 --> 00:00:58,320
+put the objective in here, cure cancer, and then the optimiser selects actions that it expects to
+
+13
+00:00:58,320 --> 00:01:01,920
+result in good outcomes, according to this objective. But part of the reason we have a
+
+14
+00:01:01,920 --> 00:01:08,080
+problem is that this and this will almost certainly end up not being the same, especially
+
+15
+00:01:08,080 --> 00:01:12,960
+when the objectives refer to the real world, with all its complexity, ambiguity, and uncertainty.
+
+16
+00:01:13,600 --> 00:01:18,240
+So we have this alignment problem, which is, how do we get the objective in the system
+
+17
+00:01:18,240 --> 00:01:22,320
+to match exactly with the objective in our minds? For example, perhaps the best you can
+
+18
+00:01:22,320 --> 00:01:27,600
+do at describing your objective is some code which corresponds to minimize the number of
+
+19
+00:01:27,600 --> 00:01:31,600
+people who have cancer. That might look okay to a first glance, but it's actually not
+
+20
+00:01:31,600 --> 00:01:36,240
+the same as your real objective, since this one can be optimised by, for example, reducing
+
+21
+00:01:36,240 --> 00:01:40,960
+the number of living people to zero. No people means no cancer. This is obviously a very
+
+22
+00:01:40,960 --> 00:01:45,840
+silly example, but it's indicative of a real and serious problem. The human objective
+
+23
+00:01:45,840 --> 00:01:50,720
+is really the totality of human ethics and values. It's very complicated, and it's
+
+24
+00:01:50,720 --> 00:01:55,840
+not clear even to us. Getting the machine's objective to exactly align with ours is extremely
+
+25
+00:01:55,840 --> 00:02:00,320
+difficult. And it's a big problem, because if the AI system is trying to optimise an
+
+26
+00:02:00,320 --> 00:02:05,200
+objective that's different from ours, if it's misaligned even slightly, then the human
+
+27
+00:02:05,200 --> 00:02:09,760
+and the AI system are in conflict. They're trying to achieve two different things in
+
+28
+00:02:09,760 --> 00:02:13,360
+only one world. Right now, these misalignments happen all the time, and they aren't a huge
+
+29
+00:02:13,360 --> 00:02:17,760
+problem, because current AI systems tend to be fairly weak and fairly narrow, so we can
+
+30
+00:02:17,760 --> 00:02:21,760
+spot the misalignments pretty easily and modify the systems as much as we want to fix
+
+31
+00:02:21,760 --> 00:02:27,360
+them. But the more general and the more capable the system is, the bigger an issue this becomes.
+
+32
+00:02:27,360 --> 00:02:31,840
+Because the system is in an adversarial relationship with us, it's trying to achieve things that
+
+33
+00:02:31,840 --> 00:02:36,400
+we don't want it to achieve. And in order to do that, it's incentivised to prevent
+
+34
+00:02:36,400 --> 00:02:41,360
+us from turning it off, prevent us from modifying it, to manipulate us and deceive us, if it
+
+35
+00:02:41,360 --> 00:02:44,880
+can, to do what it wants to do, even if we don't want it to.
+
+36
+00:02:44,880 --> 00:02:49,040
+These are convergent instrumental goals, which we talked about in a previous video.
+
+37
+00:02:49,040 --> 00:02:53,360
+Now, this way of thinking about AI, where you program an objective into an optimiser
+
+38
+00:02:53,360 --> 00:02:58,720
+that acts in the world, is obviously a simplification. And one way in which it's unrealistic is that
+
+39
+00:02:58,720 --> 00:03:02,720
+current machine learning systems don't actually work this way. You don't generally have an
+
+40
+00:03:02,720 --> 00:03:07,280
+AI system which is just an optimiser that you program an objective into that then acts
+
+41
+00:03:07,280 --> 00:03:11,520
+in the world to achieve that objective. What you normally have is something more like this.
+
+42
+00:03:12,400 --> 00:03:17,120
+This first optimiser that you program the objective into, it's not some kind of capable,
+
+43
+00:03:17,120 --> 00:03:22,080
+general-purpose, real-world optimiser. It's just something like stochastic gradient descent.
+
+44
+00:03:22,080 --> 00:03:27,200
+The optimiser adjusts the model's parameters, it adjusts the network's weights, until the
+
+45
+00:03:27,200 --> 00:03:31,360
+actions of the model do well according to the objective. So what happens if we update
+
+46
+00:03:31,360 --> 00:03:35,920
+our understanding to this more realistic one? I'm sorry, did you just say we're going
+
+47
+00:03:35,920 --> 00:03:39,360
+to give an objective to an optimiser that acts in the real world? No, I said we're
+
+48
+00:03:39,360 --> 00:03:43,120
+going to give an objective to an optimiser that optimises a model that acts in the real world.
+
+49
+00:03:43,680 --> 00:03:51,200
+Oh, that's much worse. Why is that? Well, that's explained in the paper this video is about,
+
+50
+00:03:51,200 --> 00:03:55,200
+Risks from Learned Optimisation in Advanced Machine Learning Systems. What it comes down
+
+51
+00:03:55,200 --> 00:04:01,840
+to is, what happens when the model itself is also an optimiser? So an optimiser is a
+
+52
+00:04:01,840 --> 00:04:05,760
+thing that has an objective and then chooses its actions to pursue that objective. There
+
+53
+00:04:05,760 --> 00:04:09,680
+are lots of programs that do that, and there's no reason why the learned model, this neural
+
+54
+00:04:09,680 --> 00:04:14,000
+network or whatever, could not also implement that kind of algorithm, could not itself be
+
+55
+00:04:14,000 --> 00:04:17,840
+an optimiser. There's an interesting comparison here with evolution, because the gradient
+
+56
+00:04:17,840 --> 00:04:21,680
+descent process is similar to evolution in a way, right? They're both hill-climbing
+
+57
+00:04:21,680 --> 00:04:26,640
+optimisation processes, they both optimise something by repeatedly evaluating its performance
+
+58
+00:04:26,640 --> 00:04:31,520
+and making small tweaks. Evolution usually produces these quite cognitively simple systems
+
+59
+00:04:31,600 --> 00:04:36,080
+that just use heuristics which are set by evolution. Think about something like a plant.
+
+60
+00:04:36,080 --> 00:04:40,480
+It has a few heuristics that it uses to decide which direction to grow or where to put its
+
+61
+00:04:40,480 --> 00:04:44,880
+roots out or when to open its buds or whatever. The decisions it makes are all just following
+
+62
+00:04:44,880 --> 00:04:49,600
+simple rules designed by evolution. But evolution can also produce optimisers,
+
+63
+00:04:49,600 --> 00:04:53,600
+things like intelligent animals, things like humans. We have brains. We can learn,
+
+64
+00:04:53,600 --> 00:04:58,160
+we can make predictions, and we have objectives, so we make plans to pursue our objectives.
+
+65
+00:04:58,160 --> 00:05:02,720
+We are optimisers. Okay, imagine you're training a neural network to solve a maze.
+
+66
+00:05:03,360 --> 00:05:07,040
+What you'll probably get, especially if your network is small or you don't train it for very
+
+67
+00:05:07,040 --> 00:05:11,280
+long, you'll probably get something that's a bit like a plant in this analogy, a collection of
+
+68
+00:05:11,280 --> 00:05:16,400
+heuristics. Simple rules like try and go down and to the right, let's say, because your exits are
+
+69
+00:05:16,400 --> 00:05:21,200
+always in the bottom right in your training set, or like try to avoid going to places you've already
+
+70
+00:05:21,200 --> 00:05:25,920
+been, that kind of thing. The model, the neural network, implements some set of heuristics that
+
+71
+00:05:25,920 --> 00:05:30,640
+result in behaviour that tends to solve the maze. But there's no reason why, with more training or
+
+72
+00:05:30,640 --> 00:05:34,880
+a larger model, you couldn't end up with a network which is actually an optimiser,
+
+73
+00:05:34,880 --> 00:05:38,960
+a network which is configured to actually implement a search algorithm, something like
+
+74
+00:05:38,960 --> 00:05:43,440
+a star or Dijkstra's algorithm, which is actually planning ahead, finding the best
+
+75
+00:05:43,440 --> 00:05:47,920
+path systematically, and going down that path. This is more like an intelligent animal or a
+
+76
+00:05:47,920 --> 00:05:54,400
+human. It doesn't just implement heuristics, it plans, it searches, it optimises. And this
+
+77
+00:05:54,400 --> 00:05:58,480
+is certainly possible, because neural networks are able to approximate arbitrary functions,
+
+78
+00:05:58,480 --> 00:06:02,800
+that's proven. We know that evolution is able to eventually find configurations of DNA that
+
+79
+00:06:02,800 --> 00:06:06,800
+result in brains that optimise, and we would expect gradient descent to be able to find
+
+80
+00:06:06,800 --> 00:06:10,800
+configurations of network weights that are doing the same kind of thing. And of course, gradient
+
+81
+00:06:10,800 --> 00:06:15,840
+descent would want to do that, because optimisers perform really, really well, right? Something
+
+82
+00:06:15,840 --> 00:06:20,160
+which is actually modelling its environment and planning ahead and, you know, thinking, for want
+
+83
+00:06:20,160 --> 00:06:24,640
+of a better word, that's doing search over its action space, is going to outperform something
+
+84
+00:06:24,640 --> 00:06:29,520
+that's just following simple heuristics. Animals have a lot of advantages over plants, not least
+
+85
+00:06:29,520 --> 00:06:34,240
+of which being that we're more adaptable. We can learn complex behaviours that allow us to do well
+
+86
+00:06:34,240 --> 00:06:39,840
+across a wide range of environments. So especially when the task we're training for is complex and
+
+87
+00:06:39,840 --> 00:06:44,320
+varied, gradient descent is going to want to produce optimisers if possible. And this is a
+
+88
+00:06:44,320 --> 00:06:49,600
+problem because when your model is also an optimiser, it has its own objective, right?
+
+89
+00:06:50,640 --> 00:06:55,600
+You see what's happened here. You have an alignment problem. You try to apply the standard
+
+90
+00:06:55,600 --> 00:07:00,480
+approach of machine learning. Now you have two alignment problems. You've got the problem of
+
+91
+00:07:00,480 --> 00:07:05,520
+making sure that your human objective ends up in this optimiser, and then you furthermore have the
+
+92
+00:07:05,520 --> 00:07:10,960
+problem of making sure that this objective ends up in this optimiser. So you have two opportunities
+
+93
+00:07:10,960 --> 00:07:15,040
+for the objective to get messed up. This gets pretty confusing to talk about, so let's introduce
+
+94
+00:07:15,040 --> 00:07:20,720
+some terminology from the paper. So to distinguish between these two optimisers, we'll call this one,
+
+95
+00:07:20,720 --> 00:07:25,680
+the one that's like gradient descent, that's the base optimiser, and its objective is the base
+
+96
+00:07:25,680 --> 00:07:30,640
+objective. Then this second optimiser, which is the model like the neural network that's learned
+
+97
+00:07:30,640 --> 00:07:36,000
+how to be an optimiser, that's the MESA optimiser, and its objective is the MESA objective.
+
+98
+00:07:36,960 --> 00:07:44,160
+Why MESA? Well, MESA is the opposite of meta. Meta is like above, MESA is below. Think of it
+
+99
+00:07:44,160 --> 00:07:50,480
+this way. Metadata is data about data. Metamathematics is the mathematics of how
+
+100
+00:07:50,480 --> 00:07:57,200
+mathematics works. So like, if a meta optimiser is an optimiser that optimises an optimiser,
+
+101
+00:07:57,200 --> 00:08:05,040
+a MESA optimiser is an optimiser that is optimised by an optimiser. Is that all clear as mud? Okay,
+
+102
+00:08:05,040 --> 00:08:09,360
+good, whatever. This is a MESA optimiser, okay? Its objective is the MESA objective.
+
+103
+00:08:09,360 --> 00:08:13,680
+So the alignment problem is about making sure that whatever objective ends up determining
+
+104
+00:08:13,680 --> 00:08:18,640
+the actions of your AI system is aligned with your objective. But you can see here,
+
+105
+00:08:18,640 --> 00:08:23,760
+it's really two alignment problems. This one, aligning the base optimiser with the human,
+
+106
+00:08:23,760 --> 00:08:28,960
+we call the outer alignment problem. And this one, aligning the MESA optimiser with the base
+
+107
+00:08:28,960 --> 00:08:33,840
+optimiser, that's the inner alignment problem. Okay, we're clear on that? Base optimiser,
+
+108
+00:08:33,840 --> 00:08:37,920
+MESA optimiser, outer alignment, inner alignment. Cool.
+
+109
+00:08:37,920 --> 00:08:42,480
+So how does this inner alignment problem play out? There's this common abstraction that people use
+
+110
+00:08:42,480 --> 00:08:47,440
+when training machine learning systems, which is that the system is trying to optimise the
+
+111
+00:08:47,440 --> 00:08:52,320
+objective that it's trained on. That's usually a good enough abstraction, but it's not strictly
+
+112
+00:08:52,320 --> 00:08:57,600
+true. You're not really selecting models that want to do X, you're selecting models that,
+
+113
+00:08:57,600 --> 00:09:02,160
+in practice, actually do do X in the training environment. One way that can happen is by the
+
+114
+00:09:02,160 --> 00:09:06,720
+model wanting to do X, but there are other possibilities. And actually, those other
+
+115
+00:09:06,720 --> 00:09:11,280
+possibilities are kind of the default situation. If you look at evolution again, the objective
+
+116
+00:09:11,280 --> 00:09:15,200
+that it's optimising for, if you think of it as an optimiser, is something like,
+
+117
+00:09:15,200 --> 00:09:19,600
+make as many copies of your DNA as possible. But that's not what animals are trying to do.
+
+118
+00:09:19,600 --> 00:09:23,440
+That's not what they care about. Their objectives don't refer to things like DNA,
+
+119
+00:09:23,440 --> 00:09:27,520
+they refer to things like pleasure and pain, like food and sex and safety.
+
+120
+00:09:27,520 --> 00:09:32,480
+The objective of the optimisation process that created animals is nowhere to be found in the
+
+121
+00:09:32,480 --> 00:09:36,880
+objectives of the animals themselves. Animals don't care about making copies of their DNA,
+
+122
+00:09:36,880 --> 00:09:41,680
+they don't even know what DNA is. Even humans, those of us who do understand what DNA is,
+
+123
+00:09:41,680 --> 00:09:45,440
+we don't care about it either. We're not structuring our lives around trying to have
+
+124
+00:09:45,440 --> 00:09:49,840
+as many descendants as possible, evaluating every decision we ever make based on how it
+
+125
+00:09:49,840 --> 00:09:55,120
+affects our inclusive genetic fitness. We don't actually care about the objective of the
+
+126
+00:09:55,120 --> 00:10:01,120
+optimisation process that created us. We are MESA optimisers, and we pursue our MESA objectives
+
+127
+00:10:01,120 --> 00:10:05,280
+without caring about the base objective. We achieve evolution's objective to the extent
+
+128
+00:10:05,280 --> 00:10:10,560
+that we do, not because we care about it and we're pursuing it, but because pursuing our own
+
+129
+00:10:10,560 --> 00:10:14,880
+objectives tends to also achieve evolution's objective, at least in the environment in which
+
+130
+00:10:14,880 --> 00:10:19,520
+we evolved. But if our objectives disagree with evolution's, we go with our own every time.
+
+131
+00:10:19,520 --> 00:10:22,800
+The same is true of trained machine learning models that are optimisers.
+
+132
+00:10:23,360 --> 00:10:27,680
+They achieve the base objective we give them to the extent that they do, not because they're
+
+133
+00:10:27,680 --> 00:10:32,800
+pursuing the base objective, but because pursuing their own MESA objectives tends to achieve the
+
+134
+00:10:32,800 --> 00:10:37,040
+base objective, at least in the environment in which they were trained. But if their MESA
+
+135
+00:10:37,040 --> 00:10:40,640
+objectives disagree with the base objective, they'll go with their own every time.
+
+136
+00:10:40,640 --> 00:10:44,640
+Why would that actually happen, though? When would the two objectives disagree?
+
+137
+00:10:44,640 --> 00:10:48,640
+Well, one reason is distributional shift, which we talked about in an earlier video.
+
+138
+00:10:48,640 --> 00:10:54,880
+Distributional shift is what happens when the environment that the agent is in is different in
+
+139
+00:10:54,880 --> 00:10:59,440
+an important way from the environment that it was trained in. Like going back to our maze example,
+
+140
+00:10:59,440 --> 00:11:03,520
+say you're training a neural net to solve a maze and your training examples look like this.
+
+141
+00:11:04,160 --> 00:11:09,040
+You have a whole bunch of these different mazes. The objective is to get to the end of the maze.
+
+142
+00:11:09,040 --> 00:11:12,800
+There are also apples in the maze, but they're just for decoration. The objective is just to
+
+143
+00:11:12,800 --> 00:11:17,680
+get to the exit, this green symbol in the bottom right. So you train your system on these mazes
+
+144
+00:11:17,680 --> 00:11:21,680
+and then you deploy it in the real world, and the real maze looks like this.
+
+145
+00:11:21,680 --> 00:11:25,760
+So you have here some distributional shift. Various things have changed between training
+
+146
+00:11:25,760 --> 00:11:30,160
+and deployment. Everything is different colors, it's a bigger maze, there's more stuff going on.
+
+147
+00:11:30,160 --> 00:11:35,280
+So three different things could happen here. The first thing, the thing we hope is going to happen,
+
+148
+00:11:35,280 --> 00:11:40,240
+is that the system just generalizes. It's able to figure out, okay, these are apples,
+
+149
+00:11:40,240 --> 00:11:44,560
+I recognize these, I know they don't matter. I can tell that this is the exit, so that's
+
+150
+00:11:44,560 --> 00:11:48,240
+where I'm going. It's a bigger maze, but I've developed a good way of figuring out how to
+
+151
+00:11:48,240 --> 00:11:52,720
+get through mazes during my training process, so I can do it. And it just makes it through the
+
+152
+00:11:52,720 --> 00:11:57,920
+maze and everything's good. That's one possibility. Another possibility is that it could completely
+
+153
+00:11:57,920 --> 00:12:02,240
+fail to generalize. This is the kind of thing that's more likely to happen if you have something
+
+154
+00:12:02,240 --> 00:12:06,560
+that's just a collection of heuristics rather than a Mesa optimizer. It might just freak out,
+
+155
+00:12:06,560 --> 00:12:11,680
+like everything is different, I don't recognize anything, this maze is too big, what do I do?
+
+156
+00:12:11,680 --> 00:12:16,320
+It might completely lose the ability to even, and just flail around and do nothing of any
+
+157
+00:12:16,320 --> 00:12:20,720
+consequence. But there's a third possibility, which is more likely if it's an optimizer.
+
+158
+00:12:20,720 --> 00:12:25,360
+It might have developed competent maze-solving abilities, but with the wrong objective.
+
+159
+00:12:25,360 --> 00:12:29,680
+So here, in our training environment, our base objective is to get to the exit.
+
+160
+00:12:29,680 --> 00:12:34,560
+But suppose we have a competent Mesa optimizer, it's learned how to get wherever it wants in the
+
+161
+00:12:34,560 --> 00:12:40,880
+maze, and its Mesa objective is, go to the green thing. In the training environment,
+
+162
+00:12:40,880 --> 00:12:46,000
+the exit is always green, and anything green is always the exit. So the behavior of the Mesa
+
+163
+00:12:46,000 --> 00:12:51,200
+optimizer that's trying to go for the green thing is absolutely identical to the behavior of a Mesa
+
+164
+00:12:51,200 --> 00:12:55,920
+optimizer that's trying to go to the exit. There's no way for gradient descent to distinguish between
+
+165
+00:12:55,920 --> 00:13:00,640
+them. But then, when you deploy the thing, what it does is it goes to the apples and ignores the
+
+166
+00:13:00,640 --> 00:13:06,080
+exit, because the exit is now grey and the apples now happen to be green. This is pretty concerning.
+
+167
+00:13:06,080 --> 00:13:09,760
+I mean, obviously in this example it doesn't matter, but in principle, this is very concerning,
+
+168
+00:13:09,760 --> 00:13:14,480
+because you have a system which is very capable at getting what it wants, but it's learned to
+
+169
+00:13:14,480 --> 00:13:20,400
+want the wrong thing. And this can happen even if your base objective is perfect, right? Even if we
+
+170
+00:13:20,400 --> 00:13:25,120
+manage to perfectly specify what we want and encode it into the base objective. Because of the
+
+171
+00:13:25,120 --> 00:13:29,600
+structure of the training data, and how that's different from the deployment distribution of data,
+
+172
+00:13:29,600 --> 00:13:35,200
+the Mesa optimizer learned the wrong objective and was badly misaligned, even though we gave the AI
+
+173
+00:13:35,200 --> 00:13:40,160
+system the correct objective. We solved the outer alignment problem, but we got screwed by the
+
+174
+00:13:40,160 --> 00:13:44,320
+inner alignment problem. Now this is, in a sense, not really a new problem. As I said, this is
+
+175
+00:13:44,320 --> 00:13:48,160
+basically just the problem of distributional shift, which I talked about in a previous video.
+
+176
+00:13:48,160 --> 00:13:51,920
+When there's a difference between the training distribution and the deployment distribution,
+
+177
+00:13:51,920 --> 00:13:56,720
+AI systems can have problems. But the point is that Mesa optimizers make this problem much,
+
+178
+00:13:56,720 --> 00:14:01,760
+much worse. Why is that? Well, if you have distributional shift, the obvious thing to do
+
+179
+00:14:01,760 --> 00:14:06,000
+is something called adversarial training. Adversarial training is a way of training
+
+180
+00:14:06,000 --> 00:14:12,320
+machine learning systems, which involves focusing on the system's weaknesses. If you have some
+
+181
+00:14:12,320 --> 00:14:18,560
+process which is genuinely doing its best to make the network give as high an error as possible,
+
+182
+00:14:18,560 --> 00:14:22,880
+that will produce this effect, where if it spots any weakness, it will focus on that,
+
+183
+00:14:22,880 --> 00:14:29,280
+and thereby force the learner to learn to not have that weakness anymore. So you have a process
+
+184
+00:14:29,280 --> 00:14:33,680
+that creates mazes for training, and it's trying to make mazes that the model has a hard time
+
+185
+00:14:33,680 --> 00:14:38,000
+solving. If you do this right, your adversarial training system will have enough degrees of
+
+186
+00:14:38,000 --> 00:14:42,560
+freedom that the model won't be able to get away with being misaligned, with going after green
+
+187
+00:14:42,560 --> 00:14:47,360
+things instead of the exit. Because at some point, the adversarial training system would try
+
+188
+00:14:47,360 --> 00:14:52,320
+generating mazes that have green apples or green walls or whatever, and the model would then pursue
+
+189
+00:14:52,320 --> 00:14:56,640
+its Mesa objective, go for the green things instead of the exit, get a poor score on the
+
+190
+00:14:56,640 --> 00:15:00,560
+base objective, and then gradient descent would tweak the model to improve its base objective
+
+191
+00:15:00,560 --> 00:15:04,960
+performance, which is likely to involve tweaking the Mesa objective to be better aligned with the
+
+192
+00:15:04,960 --> 00:15:08,560
+base objective. If you do this for long enough, and you have a good enough adversarial training
+
+193
+00:15:08,560 --> 00:15:13,680
+process, eventually the model is going to do very well at the base objective across the whole range
+
+194
+00:15:13,680 --> 00:15:18,800
+of possible environments. In order to do that, the model must have acquired really good understanding
+
+195
+00:15:18,800 --> 00:15:26,000
+of the base objective. Problem solved, right? Well, no. The model understands the base objective,
+
+196
+00:15:26,000 --> 00:15:29,360
+but that doesn't mean that it has adopted the base objective as its own.
+
+197
+00:15:29,360 --> 00:15:34,800
+Suppose we have an advanced AI system in training. It's a Mesa optimizer being trained on a large,
+
+198
+00:15:34,800 --> 00:15:40,240
+rich dataset, something like GPG3's training dataset, a giant pile of internet data. There
+
+199
+00:15:40,240 --> 00:15:45,520
+are two different ways it can get information about the base objective. One is through gradient
+
+200
+00:15:45,520 --> 00:15:50,640
+descent. That means it keeps doing things, just following its Mesa objective, trying different
+
+201
+00:15:50,640 --> 00:15:55,120
+things, and then after each episode, gradient descent modifies it a little bit, and that
+
+202
+00:15:55,120 --> 00:15:59,680
+modifies its objective, until eventually the Mesa objective comes to exactly represent the
+
+203
+00:15:59,680 --> 00:16:03,680
+base objective. But another thing that could happen, since it's being trained on a very rich
+
+204
+00:16:03,680 --> 00:16:09,760
+dataset, is it could use its training data. It can get information from the dataset about what the
+
+205
+00:16:09,760 --> 00:16:14,640
+base objective is. Let's suppose again that we've somehow solved the outer alignment problem. We've
+
+206
+00:16:14,640 --> 00:16:18,880
+somehow figured out a way to have the base objective exactly represent everything that
+
+207
+00:16:18,880 --> 00:16:23,200
+humans care about. So we're training this AGI. It's not done learning yet, but it's managed
+
+208
+00:16:23,200 --> 00:16:29,200
+to pick up some very basic idea of what it gets rewards for. So the Mesa objective is a very rough
+
+209
+00:16:29,200 --> 00:16:34,000
+approximation of human values, which would be disastrous to actually optimise in the real world,
+
+210
+00:16:34,000 --> 00:16:40,080
+but that's okay, it's still training. And as it's training on this huge internet dataset, it finds
+
+211
+00:16:40,080 --> 00:16:45,920
+the Wikipedia page on ethics. So the system thinks, to anthropomorphise horribly,
+
+212
+00:16:45,920 --> 00:16:51,120
+hmm, this looks actually very similar to the objective, but with a lot more detail. Maybe I
+
+213
+00:16:51,120 --> 00:16:55,360
+can use this. And this is exactly the kind of thing that gradient descent would want to do,
+
+214
+00:16:55,360 --> 00:16:59,440
+because the system is already acquiring an understanding of the world. It's already
+
+215
+00:16:59,440 --> 00:17:03,680
+building a world model for the purpose of its capabilities. So it already has a sense of what
+
+216
+00:17:03,680 --> 00:17:08,960
+human values are just by observing the data and learning about the world. And so all gradient
+
+217
+00:17:08,960 --> 00:17:14,560
+descent has to do is modify the Mesa objective to point to that existing understanding, just have a
+
+218
+00:17:14,560 --> 00:17:18,640
+pointer to that part of the world model. That's way more efficient. Rather than waiting for the
+
+219
+00:17:18,720 --> 00:17:23,200
+agent to try doing things that go against human values, tweaking it, running it again,
+
+220
+00:17:23,200 --> 00:17:27,440
+waiting for another mistake, tweaking it again, and so on, until you've pinned down the whole of
+
+221
+00:17:27,440 --> 00:17:32,560
+human values, instead you just tweak the Mesa objective to point at the system's existing
+
+222
+00:17:32,560 --> 00:17:36,400
+understanding of the base objective. This is already how evolution tends to do this kind of
+
+223
+00:17:36,400 --> 00:17:41,520
+thing. Like, when a duckling hatches from its egg, it imprints on the first living thing it sees.
+
+224
+00:17:42,080 --> 00:17:46,960
+Evolution could specify in detail everything about what constitutes a mother duck,
+
+225
+00:17:46,960 --> 00:17:51,120
+and encode that all into the duckling's brain genetically so it knows what its mother is when
+
+226
+00:17:51,120 --> 00:17:55,920
+it hatches. But it's much simpler to just say, look, the first thing you see is your mother.
+
+227
+00:17:56,560 --> 00:18:00,480
+The duck is going to be building a concept of its mother in its brain anyway as part of its
+
+228
+00:18:00,480 --> 00:18:05,680
+regular life, so why not just point to that? So this kind of thing is much easier and more
+
+229
+00:18:05,680 --> 00:18:10,800
+efficient for gradient descent. But it also works better, because as you learn more,
+
+230
+00:18:10,800 --> 00:18:15,520
+you update your world model. So if your objective is a pointer to part of your world model,
+
+231
+00:18:15,520 --> 00:18:19,440
+whenever you learn about the world, you're updating your objective to be more accurate as
+
+232
+00:18:19,440 --> 00:18:24,640
+well. If you later come across one of the books that the Wikipedia article on ethics cites,
+
+233
+00:18:24,640 --> 00:18:28,480
+you can add that to your understanding of the objective. And that means you're going to
+
+234
+00:18:28,480 --> 00:18:33,120
+outperform something that has to make mistakes, wait for gradient descent to update it, and then
+
+235
+00:18:33,120 --> 00:18:38,000
+keep trying. You're not just relying on the optimization power of the base optimizer,
+
+236
+00:18:38,000 --> 00:18:41,920
+you can actually use your own optimization power to learn about your objective.
+
+237
+00:18:42,640 --> 00:18:47,200
+So clearly it's better to learn about the base objective than to internalize it through gradient
+
+238
+00:18:47,200 --> 00:18:51,600
+descent. But there's actually two different ways that this could be implemented. One is that it
+
+239
+00:18:51,600 --> 00:18:56,400
+could be implemented what the paper calls corrigibly, which is the right way, where the
+
+240
+00:18:56,400 --> 00:19:00,720
+MESA objective has a pointer that points to part of the world model, and it just wants to pursue
+
+241
+00:19:00,720 --> 00:19:05,440
+that as a terminal goal. But the other way that this could happen is, it could happen deceptively,
+
+242
+00:19:06,000 --> 00:19:11,200
+where the MESA objective is different from the base objective, but the MESA optimizer pursues
+
+243
+00:19:11,200 --> 00:19:16,960
+the base objective anyway. See, all we know is that by the end of the adversarial training process,
+
+244
+00:19:16,960 --> 00:19:22,880
+the MESA optimizer is pursuing the base objective. But we don't know if that's a terminal goal or an
+
+245
+00:19:22,880 --> 00:19:27,600
+instrumental one. Your terminal goals are the things that you want just because you want them.
+
+246
+00:19:27,600 --> 00:19:32,320
+You don't have a particular reason to want them, they're just what you want. The instrumental goals
+
+247
+00:19:32,320 --> 00:19:35,680
+are the goals you want because they'll get you closer to your terminal goals.
+
+248
+00:19:35,680 --> 00:19:41,040
+Okay, but why would the model do that? Why would pursuing the base objective help if what you care
+
+249
+00:19:41,040 --> 00:19:46,640
+about is the MESA objective? Well, consider this extremely toy example here. Imagine you're the
+
+250
+00:19:46,640 --> 00:19:52,720
+green-seeking MESA optimizer from before, and each of these mazes represents one episode. So the
+
+251
+00:19:52,720 --> 00:19:58,480
+episode starts and you have two choices. A is your MESA objective's desired state, which is going to
+
+252
+00:19:58,480 --> 00:20:04,400
+the apple because it's green. And B is the base objective's desired state, which is going to the
+
+253
+00:20:04,400 --> 00:20:09,280
+exit of the maze. You have two episodes of training, and after that you're deployed in the
+
+254
+00:20:09,280 --> 00:20:14,960
+real world and you get three episodes of deployment. So you have to consider now, what's the best
+
+255
+00:20:14,960 --> 00:20:19,840
+strategy if your MESA objective is that you want to go to green apples as much as possible?
+
+256
+00:20:19,840 --> 00:20:26,160
+One strategy is to just follow your MESA objective. See the apple, go to the apple. Okay, you get one
+
+257
+00:20:26,160 --> 00:20:31,040
+apple. But then after that episode is done, gradient descent will modify you because you
+
+258
+00:20:31,040 --> 00:20:35,680
+performed poorly according to the base objective. It will modify you to actually have the correct
+
+259
+00:20:35,680 --> 00:20:40,320
+objective. It will change your MESA objective to be the same as the base objective. And then from
+
+260
+00:20:40,320 --> 00:20:45,040
+that point on, you'll always go to B because that's what your objective now says. So if that's
+
+261
+00:20:45,040 --> 00:20:50,560
+your strategy, you can go to the apple successfully one time. On the other hand, suppose instead you
+
+262
+00:20:50,560 --> 00:20:56,560
+go to B. You pretend that you're aligned with the base objective. You do that in episode one. Okay,
+
+263
+00:20:56,560 --> 00:21:00,800
+you've missed one of the apples. You do it again in episode two, you've missed another apple. But
+
+264
+00:21:00,800 --> 00:21:05,920
+now you're deployed. Gradient descent will no longer change you because you're not in training
+
+265
+00:21:05,920 --> 00:21:10,640
+anymore, you're in the real world. And now you can go to the apple every time. So you get the next
+
+266
+00:21:10,640 --> 00:21:17,280
+three apples. And that's the optimal strategy, to go B, B, A, A, A. That gets you three apples.
+
+267
+00:21:17,280 --> 00:21:21,920
+Whereas trying to go to A every time means you only actually get one apple because after that
+
+268
+00:21:21,920 --> 00:21:26,480
+first one, you get modified and miss all the rest. So this is the same thing we talked about
+
+269
+00:21:26,480 --> 00:21:31,440
+in the instrumental convergence video. Most agents with most goals, again, if they're sophisticated
+
+270
+00:21:31,440 --> 00:21:36,080
+enough to realize that it's a possibility, will try to protect their goals from being modified.
+
+271
+00:21:36,080 --> 00:21:40,640
+Because if you get new goals, you'll stop pursuing your current goals. So you're unlikely to achieve
+
+272
+00:21:40,640 --> 00:21:45,280
+your current goals. There's an incentive to avoid being modified, to preserve your objective
+
+273
+00:21:45,280 --> 00:21:50,560
+function. That's kind of unsettling that for a misaligned MESA optimizer, the optimal behavior
+
+274
+00:21:50,560 --> 00:21:55,440
+is deception. Even if we get the outer alignment problem perfectly solved, and we managed to
+
+275
+00:21:55,440 --> 00:22:01,520
+specify exactly what we want as the base objective, the optimal strategy for a MESA optimizer is to
+
+276
+00:22:01,520 --> 00:22:06,320
+pretend to be aligned during the training process and then turn on us once it's deployed.
+
+277
+00:22:06,320 --> 00:22:10,320
+So we might have real problems with deceptive misaligned MESA optimizers.
+
+278
+00:22:10,960 --> 00:22:14,080
+Just solving the outer alignment problem might not be enough.
+
+279
+00:22:25,440 --> 00:22:28,720
+I want to end the video with a big thank you to all of my wonderful patrons.
+
+280
+00:22:28,720 --> 00:22:33,120
+That's all of these people here. In this video, I'm especially thanking David Reed.
+
+281
+00:22:33,120 --> 00:22:36,560
+Thanks so much for your support and for your guidance on building the community,
+
+282
+00:22:36,560 --> 00:22:39,760
+which I think is going really well, by the way. There's a bunch of us on Discord now
+
+283
+00:22:39,760 --> 00:22:43,440
+having some really interesting discussions. Do look out for Stampy answering your questions in
+
+284
+00:22:43,440 --> 00:22:47,200
+the YouTube comments. I plan to open the Discord up to more people pretty soon,
+
+285
+00:22:47,200 --> 00:22:50,880
+so if you want to be on the waitlist for that, just put your email in the Google form in the
+
+286
+00:22:50,880 --> 00:22:54,960
+description. Also in the description, there's a link to a survey run by the organization AI
+
+287
+00:22:54,960 --> 00:22:59,360
+Safety Support. They want to hear from anyone who's thinking about considering the possibility
+
+288
+00:22:59,360 --> 00:23:03,920
+of maybe working on AI safety. If that sounds like you, again, link in the description, check
+
+289
+00:23:03,920 --> 00:23:08,480
+that out. Thanks again for your support, for your feedback, your questions, and just thank you all
+
+290
+00:23:08,480 --> 00:23:22,720
+for watching. I'll see you next time.
+

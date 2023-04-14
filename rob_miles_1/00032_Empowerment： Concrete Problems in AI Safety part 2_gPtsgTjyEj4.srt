@@ -1,0 +1,444 @@
+1
+00:00:00,000 --> 00:00:05,880
+Hi, this is part of a series about the paper Concrete Problems in AI Safety, which looks
+
+2
+00:00:05,880 --> 00:00:09,000
+at preventing possible accidents in AI systems.
+
+3
+00:00:09,000 --> 00:00:12,880
+Last time we talked about avoiding negative side effects, and how one way of doing that
+
+4
+00:00:12,880 --> 00:00:17,480
+is to create systems that try not to have too much impact, to not change the environment
+
+5
+00:00:17,480 --> 00:00:19,200
+around them too much.
+
+6
+00:00:19,200 --> 00:00:24,880
+This video is about a slightly more subtle idea than penalising impact, penalising influence.
+
+7
+00:00:24,880 --> 00:00:29,920
+So suppose we have a robot, it's a cleaning robot, so it's got a mop and a bucket and
+
+8
+00:00:29,920 --> 00:00:30,920
+an apron.
+
+9
+00:00:30,920 --> 00:00:34,440
+I'm trying something new here, bear with me.
+
+10
+00:00:34,440 --> 00:00:38,840
+So the robot knows that there's a mess over here that it needs to clean up.
+
+11
+00:00:38,840 --> 00:00:43,240
+But in between the robot and the mess is the server room, which is full of expensive and
+
+12
+00:00:43,240 --> 00:00:44,680
+delicate equipment.
+
+13
+00:00:44,680 --> 00:00:48,640
+Now if an AI system doesn't want to have a large impact, it won't make plans that
+
+14
+00:00:48,640 --> 00:00:51,960
+involve tipping the bucket of water over the servers.
+
+15
+00:00:51,960 --> 00:00:53,700
+But maybe we can be safer than that.
+
+16
+00:00:53,700 --> 00:00:57,460
+We might want our robot to not even want to bring the bucket of water into the server
+
+17
+00:00:57,460 --> 00:01:00,800
+room, to have a preference for going around it instead.
+
+18
+00:01:00,800 --> 00:01:04,380
+We might want it to think something like, not only do I not want to have too big of
+
+19
+00:01:04,380 --> 00:01:08,980
+an impact on my surroundings, I also don't want to put myself in a situation where it
+
+20
+00:01:08,980 --> 00:01:12,000
+would be easy for me to have a big impact on my surroundings.
+
+21
+00:01:12,000 --> 00:01:13,300
+How do we formalise that idea?
+
+22
+00:01:13,300 --> 00:01:16,300
+Well, perhaps we can use information theory.
+
+23
+00:01:16,300 --> 00:01:21,300
+The paper talks about an information-theoretic metric called empowerment, which is a measure
+
+24
+00:01:21,300 --> 00:01:26,900
+of the maximum possible mutual information between the agent's potential future actions
+
+25
+00:01:26,900 --> 00:01:28,180
+and the potential future state.
+
+26
+00:01:28,180 --> 00:01:32,860
+That's equivalent to the capacity of the information channel between the agent's
+
+27
+00:01:32,860 --> 00:01:36,900
+actions and the environment, i.e. the rate that the agent's actions transmit information
+
+28
+00:01:36,900 --> 00:01:38,900
+into the environment, measured in bits.
+
+29
+00:01:38,900 --> 00:01:43,380
+The more information an agent is able to transfer into their environment with their actions,
+
+30
+00:01:43,380 --> 00:01:47,740
+the more control they have over their environment, the more empowered the agent is.
+
+31
+00:01:47,740 --> 00:01:53,580
+So if you're stuck inside a solid locked box, your empowerment is more or less zero.
+
+32
+00:01:53,580 --> 00:01:57,580
+None of the actions you can take will transmit much information into the world outside the box.
+
+33
+00:01:57,580 --> 00:02:02,500
+But if you have the key to the box, your empowerment is much higher, because now you can take actions
+
+34
+00:02:02,500 --> 00:02:04,820
+that will have effects on the world at large.
+
+35
+00:02:04,820 --> 00:02:06,460
+You've got options.
+
+36
+00:02:06,460 --> 00:02:10,580
+People have used empowerment as a reward for experimental AI systems, and it makes them
+
+37
+00:02:10,580 --> 00:02:15,540
+do some interesting things, like picking up keys, avoiding walls, even things like balancing
+
+38
+00:02:15,540 --> 00:02:17,740
+an inverted pendulum or a bicycle.
+
+39
+00:02:17,740 --> 00:02:21,460
+You don't have to tell it to keep the bike balanced, it just learns that if the bike
+
+40
+00:02:21,460 --> 00:02:26,180
+falls over, the agent's actions will have less control over the environment, so it wants
+
+41
+00:02:26,180 --> 00:02:27,520
+to keep the bike upright.
+
+42
+00:02:27,520 --> 00:02:32,180
+So empowerment is a pretty neat metric, because it's very simple, but it captures something
+
+43
+00:02:32,180 --> 00:02:35,660
+that humans and other intelligent agents are likely to want.
+
+44
+00:02:35,660 --> 00:02:42,500
+We want more options, more freedom, more capabilities, more influence, more control over our environment.
+
+45
+00:02:42,500 --> 00:02:46,580
+And maybe that's something we don't want our AI systems to want.
+
+46
+00:02:46,580 --> 00:02:51,540
+Maybe we want to say, clean up that mess, but try not to gain too much control or influence
+
+47
+00:02:51,540 --> 00:02:52,540
+over your surroundings.
+
+48
+00:02:52,540 --> 00:02:54,840
+Don't have too much empowerment.
+
+49
+00:02:54,840 --> 00:02:59,380
+That could make the robot think, if I bring this bucket of water into the server room,
+
+50
+00:02:59,380 --> 00:03:03,940
+I'll have the option to destroy the servers, so I'll go around to avoid that empowerment.
+
+51
+00:03:03,940 --> 00:03:07,300
+Okay, so now we're at that part of the video.
+
+52
+00:03:07,300 --> 00:03:08,300
+What's wrong with this?
+
+53
+00:03:08,300 --> 00:03:09,300
+Why might it not work?
+
+54
+00:03:09,300 --> 00:03:11,300
+Pause the video and take a second to think.
+
+55
+00:03:19,700 --> 00:03:21,340
+Well, there are a few problems.
+
+56
+00:03:21,340 --> 00:03:25,580
+One thing is that, because it's measuring information, we're really measuring precision
+
+57
+00:03:25,580 --> 00:03:28,660
+of control, rather than magnitude of impact.
+
+58
+00:03:28,660 --> 00:03:33,060
+As an extreme example, suppose you've got your robot in a room, and the only thing it
+
+59
+00:03:33,060 --> 00:03:39,260
+has access to is a big button, which, if pressed, will blow up the moon.
+
+60
+00:03:39,260 --> 00:03:42,340
+That actually only counts as one bit of empowerment.
+
+61
+00:03:42,340 --> 00:03:46,780
+The button is either pressed or not pressed, the moon has exploded or not, two choices,
+
+62
+00:03:46,780 --> 00:03:49,780
+so one bit of information, one bit of empowerment.
+
+63
+00:03:49,780 --> 00:03:53,780
+On the other hand, if the robot has an ethernet cable that's feeding out lots of detailed
+
+64
+00:03:53,780 --> 00:03:58,580
+debug information about everything the robot does, and that's all being logged somewhere,
+
+65
+00:03:58,580 --> 00:04:00,780
+that's loads of information transfer.
+
+66
+00:04:00,780 --> 00:04:04,100
+Loads of mutual information with the environment, so loads of empowerment.
+
+67
+00:04:04,100 --> 00:04:07,860
+The robot cares way more about unplugging the debug cable than anything to do with the
+
+68
+00:04:07,860 --> 00:04:08,860
+button.
+
+69
+00:04:08,860 --> 00:04:12,060
+Now we have another possible problem, which is perverse incentives.
+
+70
+00:04:12,060 --> 00:04:18,020
+Okay, so this button is only one bit of empowerment, nowhere near as big a deal as the debug cable,
+
+71
+00:04:18,020 --> 00:04:21,740
+but the robot still cares about it to some extent, and wants to avoid putting itself
+
+72
+00:04:21,740 --> 00:04:24,340
+in this situation where it can blow up the moon.
+
+73
+00:04:24,340 --> 00:04:28,860
+However, if it finds itself already in a situation where it has one bit of empowerment because
+
+74
+00:04:28,860 --> 00:04:33,860
+of this button, the easiest way to reduce that is by pressing the button.
+
+75
+00:04:33,860 --> 00:04:37,540
+Once the button's pressed, the moon is blown up, the button doesn't work anymore, so the
+
+76
+00:04:37,540 --> 00:04:40,500
+robot then has basically zero bits of empowerment.
+
+77
+00:04:40,500 --> 00:04:43,100
+It's just in a box with an unconnected button.
+
+78
+00:04:43,100 --> 00:04:45,560
+And now it's content that it's managed to make itself safe.
+
+79
+00:04:45,560 --> 00:04:48,220
+It finally has no influence over the world.
+
+80
+00:04:48,220 --> 00:04:53,380
+So yeah, in this admittedly contrived scenario, an empowerment-reducing robot will unplug
+
+81
+00:04:53,380 --> 00:04:57,300
+its debug cable and then blow up the moon.
+
+82
+00:04:57,300 --> 00:04:58,300
+That's not safe behavior.
+
+83
+00:04:58,300 --> 00:05:00,700
+Why did we think this might be a good idea?
+
+84
+00:05:00,700 --> 00:05:06,540
+Well, it just makes the point that even very simple information-theoretic metrics can describe
+
+85
+00:05:06,540 --> 00:05:10,860
+interesting abstract properties like influence over the environment.
+
+86
+00:05:10,860 --> 00:05:15,460
+So maybe doing something a little bit cleverer than just penalizing empowerment might actually
+
+87
+00:05:15,460 --> 00:05:16,460
+be useful.
+
+88
+00:05:16,460 --> 00:05:20,780
+A more sophisticated metric, a better architecture around it, you know, there could be some way
+
+89
+00:05:20,780 --> 00:05:22,100
+to make this work.
+
+90
+00:05:22,100 --> 00:05:27,180
+So this is an area that's probably worth looking into by AI safety researchers.
+
+91
+00:05:27,180 --> 00:05:28,460
+So that's all for now.
+
+92
+00:05:28,460 --> 00:05:32,240
+Next thing in the paper is multi-agent approaches, which should be really interesting.
+
+93
+00:05:32,240 --> 00:05:35,700
+Make sure to subscribe and hit the bell if you want to be notified when that's out.
+
+94
+00:05:35,860 --> 00:05:38,980
+Also, make sure you're subscribed to Computerphile, because I'm probably going to make some new
+
+95
+00:05:38,980 --> 00:05:43,660
+videos there as well, since some of the multi-agent stuff is closely related to the stop button
+
+96
+00:05:43,660 --> 00:05:45,380
+problem that I already talked about.
+
+97
+00:05:45,380 --> 00:05:47,420
+So it might be nice to put those together.
+
+98
+00:05:47,420 --> 00:05:48,420
+Thanks for watching.
+
+99
+00:05:48,420 --> 00:05:58,340
+I hope to see you next time.
+
+100
+00:05:58,340 --> 00:06:03,820
+In this video, I want to thank Oystein Fligt, who's supported me on Patreon since April.
+
+101
+00:06:03,820 --> 00:06:04,820
+Thank you.
+
+102
+00:06:04,820 --> 00:06:07,300
+And thank you again to all of my wonderful Patreon supporters.
+
+103
+00:06:07,300 --> 00:06:09,500
+All of these people.
+
+104
+00:06:09,500 --> 00:06:12,340
+I've been setting up a room in my house to be a full-time studio.
+
+105
+00:06:12,340 --> 00:06:14,620
+I might make a behind-the-scenes video about that soon.
+
+106
+00:06:14,620 --> 00:06:19,740
+Oh, and I've got these pictures that I drew while making this video, which I have no use
+
+107
+00:06:19,740 --> 00:06:20,740
+for now.
+
+108
+00:06:20,740 --> 00:06:21,740
+Does anyone want them?
+
+109
+00:06:21,740 --> 00:06:23,700
+God, the internet is weird sometimes, isn't it?
+
+110
+00:06:23,700 --> 00:06:30,860
+But yeah, I can probably post them to supporters if anyone wants one, let me know.
+
+111
+00:06:30,860 --> 00:06:31,500
+I was close.
+

@@ -1,0 +1,664 @@
+1
+00:00:00,000 --> 00:00:04,760
+Hi, welcome back to this video series on the paper Concrete Problems in AI Safety.
+
+2
+00:00:04,760 --> 00:00:08,080
+In the previous video, I talked about reward hacking, some of the ways that can happen
+
+3
+00:00:08,080 --> 00:00:13,520
+and some related ideas, like adversarial examples, where it's possible to find unexpected inputs
+
+4
+00:00:13,520 --> 00:00:17,560
+to the reward system that falsely result in very high reward.
+
+5
+00:00:17,560 --> 00:00:21,760
+Partially observed goals, where the fact that the reward system has to work with imperfect
+
+6
+00:00:21,760 --> 00:00:27,160
+information about the environment incentivizes an agent to deceive itself by compromising
+
+7
+00:00:27,160 --> 00:00:29,600
+its own sensors to maximize its reward.
+
+8
+00:00:29,600 --> 00:00:34,760
+Wireheading, where the fact that the reward system is a physical object in the environment
+
+9
+00:00:34,760 --> 00:00:39,800
+means that the agent can get very high reward by directly, physically modifying the reward
+
+10
+00:00:39,800 --> 00:00:40,800
+system itself.
+
+11
+00:00:40,800 --> 00:00:45,800
+And Goodhart's Law, the observation that when a measure becomes a target, it ceases to be
+
+12
+00:00:45,800 --> 00:00:46,800
+a good measure.
+
+13
+00:00:46,800 --> 00:00:50,760
+There's a link to that video in the doobly-doo, and I'm going to start this video with a bit
+
+14
+00:00:50,760 --> 00:00:53,520
+about responses and reactions to that one.
+
+15
+00:00:53,520 --> 00:00:57,720
+There were a lot of comments about my school exams example of Goodhart's Law.
+
+16
+00:00:57,720 --> 00:01:01,000
+Some people sent me this story that was in the news when that video came out.
+
+17
+00:01:01,000 --> 00:01:05,120
+A school kicked out some students because they weren't getting high enough marks.
+
+18
+00:01:05,120 --> 00:01:06,680
+It's a classic example.
+
+19
+00:01:06,680 --> 00:01:10,600
+In order to increase the school's average marks, i.e. the numbers that are meant to measure
+
+20
+00:01:10,600 --> 00:01:16,200
+how well the school teaches students, the school refused to teach some students.
+
+21
+00:01:16,200 --> 00:01:20,000
+This is extra funny because that's actually my school, that's the school I went to.
+
+22
+00:01:20,000 --> 00:01:24,860
+Anyway, some people pointed out that the school exams example of Goodhart's Law has been separately
+
+23
+00:01:24,860 --> 00:01:27,040
+documented as Campbell's Law.
+
+24
+00:01:27,040 --> 00:01:31,120
+People pointed out other related ideas, like the Cobra effect, perverse incentives, the
+
+25
+00:01:31,120 --> 00:01:32,800
+law of unintended consequences.
+
+26
+00:01:32,800 --> 00:01:36,400
+There are a lot of people holding different parts of this elephant, as it were.
+
+27
+00:01:36,400 --> 00:01:38,240
+All of these concepts are sort of related.
+
+28
+00:01:38,240 --> 00:01:40,600
+And that's true of the examples I used as well.
+
+29
+00:01:40,600 --> 00:01:45,880
+I used a hypothetical Super Mario bot that exploited glitches in the game to give itself
+
+30
+00:01:45,880 --> 00:01:48,520
+maximum score as an example of reward hacking.
+
+31
+00:01:48,520 --> 00:01:52,720
+But you could call it wireheading, since the score-calculating part of the reward system
+
+32
+00:01:52,720 --> 00:01:56,400
+sort of exists in the game environment, and it's sort of being replaced.
+
+33
+00:01:56,400 --> 00:02:01,320
+The cleaning robot with a bucket on its head was an example of partially observed goals,
+
+34
+00:02:01,320 --> 00:02:06,360
+but you could call it an instance of Goodhart's Law, since amount of mess observed stops being
+
+35
+00:02:06,360 --> 00:02:10,160
+a good measure of amount of mess there is once it's used as a target.
+
+36
+00:02:10,160 --> 00:02:13,640
+So all of these examples might seem quite different on the surface, but once you look
+
+37
+00:02:13,640 --> 00:02:17,720
+at them through the framework of reward hacking, you can see that there's a lot of similarities
+
+38
+00:02:17,720 --> 00:02:18,720
+and overlap.
+
+39
+00:02:18,720 --> 00:02:22,680
+The paper proposes 10 different approaches for preventing reward hacking.
+
+40
+00:02:22,680 --> 00:02:25,400
+Some will work only for certain specific types.
+
+41
+00:02:25,400 --> 00:02:29,640
+For example, very soon after the problem of adversarial examples in neural networks was
+
+42
+00:02:29,640 --> 00:02:34,240
+discovered, people started working on better ways to train their nets to make them resistant
+
+43
+00:02:34,240 --> 00:02:35,240
+to this kind of thing.
+
+44
+00:02:35,240 --> 00:02:37,520
+That's only really useful for adversarial examples.
+
+45
+00:02:37,520 --> 00:02:42,920
+But given the similarities between different reward hacking issues, maybe there are some
+
+46
+00:02:42,920 --> 00:02:47,440
+things we could do that would prevent lots of these possible problems at once.
+
+47
+00:02:47,440 --> 00:02:48,760
+Careful engineering is one.
+
+48
+00:02:48,760 --> 00:02:53,240
+So AI can't hack its reward function by exploiting bugs in your code, if there are no bugs in
+
+49
+00:02:53,240 --> 00:02:54,240
+your code.
+
+50
+00:02:54,240 --> 00:02:58,240
+There's a lot of work out there on ways to build extremely reliable software.
+
+51
+00:02:58,240 --> 00:03:02,920
+Like there are ways you can construct your programs so that you're able to formally verify
+
+52
+00:03:02,920 --> 00:03:04,920
+that their behavior will have certain properties.
+
+53
+00:03:04,920 --> 00:03:09,320
+You can prove your software's behavior with absolute logical certainty, but only given
+
+54
+00:03:09,320 --> 00:03:13,940
+certain assumptions about, for example, the hardware that the software will run on.
+
+55
+00:03:13,940 --> 00:03:18,640
+Those assumptions might not be totally true, especially if there's a powerful AGI doing
+
+56
+00:03:18,720 --> 00:03:20,400
+its best to make them not true.
+
+57
+00:03:20,400 --> 00:03:23,680
+Of course, careful engineering isn't just about formal verification.
+
+58
+00:03:23,680 --> 00:03:27,440
+There are lots of different software testing and quality assurance systems and approaches
+
+59
+00:03:27,440 --> 00:03:28,440
+out there.
+
+60
+00:03:28,440 --> 00:03:34,280
+And I expect there's a lot AI safety can learn from people working in aerospace, computer
+
+61
+00:03:34,280 --> 00:03:39,960
+security, anywhere that's very focused on writing extremely reliable software.
+
+62
+00:03:39,960 --> 00:03:44,440
+It's something we can work on for AI in general, but I wouldn't rely on this as the main line
+
+63
+00:03:44,440 --> 00:03:46,280
+of defense against reward hacking.
+
+64
+00:03:46,280 --> 00:03:49,760
+Another approach is adversarial reward functions.
+
+65
+00:03:49,760 --> 00:03:55,040
+So part of the problem is that the agent and the reward system are in this kind of adversarial
+
+66
+00:03:55,040 --> 00:03:56,040
+relationship.
+
+67
+00:03:56,040 --> 00:03:57,040
+It's like they're competing.
+
+68
+00:03:57,040 --> 00:04:01,160
+The agent is trying to trick the reward system into giving it as much reward as possible.
+
+69
+00:04:01,160 --> 00:04:06,600
+When you have a powerful, intelligent agent up against a reward system that's a simple,
+
+70
+00:04:06,600 --> 00:04:11,660
+passive piece of software or hardware, you can expect the agent to reliably find ways
+
+71
+00:04:11,660 --> 00:04:15,080
+to trick, subvert, or destroy the reward system.
+
+72
+00:04:15,080 --> 00:04:19,720
+So maybe if the reward system were more powerful, more of an agent in its own right, it would
+
+73
+00:04:19,720 --> 00:04:22,800
+be harder to trick and more able to defend itself.
+
+74
+00:04:22,800 --> 00:04:27,960
+If we can make the reward agent in some sense smarter or more powerful than the original
+
+75
+00:04:27,960 --> 00:04:31,280
+agent, it could be able to keep it from reward hacking.
+
+76
+00:04:31,280 --> 00:04:34,640
+Though then you have the problem of ensuring that the reward agent is safe as well.
+
+77
+00:04:34,640 --> 00:04:38,320
+The paper also mentions the possibility of having more than two agents so that they can
+
+78
+00:04:38,320 --> 00:04:40,920
+all watch each other and keep each other in check.
+
+79
+00:04:40,920 --> 00:04:44,360
+There's kind of an analogy here to the way that the legislative, the executive, and the
+
+80
+00:04:44,360 --> 00:04:48,920
+judiciary branches of government keep one another in check, ensuring that the government
+
+81
+00:04:48,920 --> 00:04:51,560
+as a whole always serves the interests of the citizens.
+
+82
+00:04:51,560 --> 00:04:54,200
+But seriously, I'm not that hopeful about this approach.
+
+83
+00:04:54,200 --> 00:04:57,360
+Firstly, it's not clear how it handles self-improvement.
+
+84
+00:04:57,360 --> 00:05:01,120
+You can't have any of the agents being significantly more powerful than the others, and that gets
+
+85
+00:05:01,120 --> 00:05:05,240
+much harder to make sure of if the system is modifying and improving itself.
+
+86
+00:05:05,240 --> 00:05:09,200
+And in general, I don't feel that comfortable with this kind of internal conflict between
+
+87
+00:05:09,200 --> 00:05:10,920
+powerful systems.
+
+88
+00:05:10,920 --> 00:05:14,760
+It kind of feels like you have a problem with your toaster incinerating the toast with a
+
+89
+00:05:14,760 --> 00:05:19,480
+flamethrower, so you add another system that blasts the bread with a powerful jet of liquid
+
+90
+00:05:19,480 --> 00:05:24,060
+nitrogen as well, so that the two opposing systems can keep each other in check.
+
+91
+00:05:24,060 --> 00:05:27,280
+Instead of systems that want to hack their reward functions but figure they can't get
+
+92
+00:05:27,280 --> 00:05:31,080
+away with it, I'd rather a system that didn't want to mess with its reward function in the
+
+93
+00:05:31,080 --> 00:05:32,080
+first place.
+
+94
+00:05:32,080 --> 00:05:37,400
+This next approach has a chance of providing that, an approach the paper calls model look-ahead.
+
+95
+00:05:37,400 --> 00:05:39,860
+You might remember this from a while back on Computerphile.
+
+96
+00:05:39,860 --> 00:05:42,040
+You have kids, right?
+
+97
+00:05:42,040 --> 00:05:47,540
+Suppose I were to offer you a pill or something you could take, and this pill will completely
+
+98
+00:05:47,540 --> 00:05:54,140
+rewire your brain, so that you would just absolutely love to kill your kids, right?
+
+99
+00:05:54,140 --> 00:05:58,340
+Whereas right now, what you want is very complicated and quite difficult to achieve, and it's hard
+
+100
+00:05:58,340 --> 00:06:01,100
+work for you, and you're probably never going to be done.
+
+101
+00:06:01,100 --> 00:06:03,220
+You're never going to be truly happy, right?
+
+102
+00:06:03,220 --> 00:06:04,220
+In life, nobody is.
+
+103
+00:06:04,220 --> 00:06:05,540
+You can't achieve everything you want.
+
+104
+00:06:05,540 --> 00:06:07,860
+Whereas in this case, it just changes what you want.
+
+105
+00:06:07,860 --> 00:06:11,580
+What you want is to kill your kids, and if you do that, you will be just perfectly happy
+
+106
+00:06:11,580 --> 00:06:14,100
+and satisfied with life, right?
+
+107
+00:06:14,100 --> 00:06:15,100
+Okay.
+
+108
+00:06:15,100 --> 00:06:16,100
+You want to take this pill?
+
+109
+00:06:16,100 --> 00:06:17,100
+No, I don't.
+
+110
+00:06:17,100 --> 00:06:18,100
+You'll be so happy, though.
+
+111
+00:06:18,100 --> 00:06:19,100
+Yeah.
+
+112
+00:06:19,100 --> 00:06:20,900
+But you don't want to do it.
+
+113
+00:06:20,900 --> 00:06:25,700
+And so not only will you not take that pill, you will probably fight pretty hard to avoid
+
+114
+00:06:25,700 --> 00:06:31,180
+having that pill administered to you, because it doesn't matter how that future version
+
+115
+00:06:31,180 --> 00:06:32,900
+of you would feel.
+
+116
+00:06:32,900 --> 00:06:37,540
+You know that right now, you love your kids, and you're not going to take any action right
+
+117
+00:06:37,540 --> 00:06:40,540
+now, which leads to them coming to harm.
+
+118
+00:06:40,540 --> 00:06:41,620
+So it's the same thing.
+
+119
+00:06:41,620 --> 00:06:46,900
+If you have an AI that, for example, values stamps, values collecting stamps, and you
+
+120
+00:06:46,900 --> 00:06:51,420
+go, oh, wait, hang on a second, I didn't quite do that right, let me just go in and change
+
+121
+00:06:51,420 --> 00:06:56,560
+this so that you don't like stamps quite so much, it's going to say, but the only important
+
+122
+00:06:56,560 --> 00:06:57,560
+thing is stamps.
+
+123
+00:06:57,560 --> 00:07:01,140
+If you change me, I'm not going to collect as many stamps, which is something I don't
+
+124
+00:07:01,140 --> 00:07:02,140
+want.
+
+125
+00:07:02,140 --> 00:07:09,540
+There's a real tendency for AGI to try and prevent you from modifying it once it's running.
+
+126
+00:07:09,540 --> 00:07:14,740
+In almost any situation, being given a new utility function is going to rate very low
+
+127
+00:07:14,740 --> 00:07:16,540
+on your current utility function.
+
+128
+00:07:16,540 --> 00:07:18,560
+So there's an interesting contrast here.
+
+129
+00:07:18,560 --> 00:07:22,340
+The reinforcement learning agents we're talking about in this video might fight you in order
+
+130
+00:07:22,340 --> 00:07:24,340
+to change their reward function.
+
+131
+00:07:24,340 --> 00:07:28,660
+But the utility maximizers we were talking about in that video might fight you in order
+
+132
+00:07:28,660 --> 00:07:30,700
+to keep their utility function the same.
+
+133
+00:07:30,700 --> 00:07:35,780
+The utility maximizer reasons that changing its utility function will result in low utility
+
+134
+00:07:35,780 --> 00:07:38,860
+outcomes according to its current utility function.
+
+135
+00:07:38,860 --> 00:07:40,920
+So it doesn't allow it to change.
+
+136
+00:07:40,920 --> 00:07:45,260
+But the reinforcement learner's utility function is effectively just to maximize the output
+
+137
+00:07:45,260 --> 00:07:46,860
+of the reward system.
+
+138
+00:07:46,860 --> 00:07:49,820
+So it has no problem with modifying that to get high reward.
+
+139
+00:07:49,820 --> 00:07:53,860
+Model Lookahead tries to give a reinforcement learning agent some of that forward thinking
+
+140
+00:07:53,860 --> 00:07:54,900
+ability.
+
+141
+00:07:54,900 --> 00:08:00,060
+By having the reward system give rewards not just for the agent's actual actions and its
+
+142
+00:08:00,060 --> 00:08:05,500
+observations of actual world states, but for the agent's planned actions and anticipated
+
+143
+00:08:05,500 --> 00:08:07,620
+future world states.
+
+144
+00:08:07,620 --> 00:08:11,760
+So the agent receives negative reward for planning to modify its reward system.
+
+145
+00:08:11,760 --> 00:08:15,500
+When the robot considers the possibility of putting a bucket on its head, it predicts
+
+146
+00:08:15,500 --> 00:08:19,260
+that this would result in the messes staying there and not being cleaned up.
+
+147
+00:08:19,260 --> 00:08:23,140
+And it receives negative reward, teaching it not to implement that kind of plan.
+
+148
+00:08:23,140 --> 00:08:25,820
+There are several other approaches in the paper, but that's all for now.
+
+149
+00:08:30,060 --> 00:08:39,540
+I want to end with a quick thanks to all my wonderful patrons.
+
+150
+00:08:39,540 --> 00:08:41,780
+These people here.
+
+151
+00:08:41,780 --> 00:08:45,300
+And in this video, I'm especially thanking the Guru of Vision.
+
+152
+00:08:45,300 --> 00:08:50,660
+I don't know who you are or why you call yourself that, but you've supported the channel since
+
+153
+00:08:50,660 --> 00:08:52,500
+May, and I really appreciate it.
+
+154
+00:08:52,500 --> 00:08:56,280
+Anyway, it's thanks to my supporters that I'm starting up a second channel for things
+
+155
+00:08:56,280 --> 00:08:57,940
+that aren't related to AI safety.
+
+156
+00:08:58,180 --> 00:09:02,300
+I'm still going to produce just as much AI safety content on this channel, and I'll use
+
+157
+00:09:02,300 --> 00:09:06,020
+the second channel for quicker, fun stuff that doesn't need as much research.
+
+158
+00:09:06,020 --> 00:09:09,860
+I want to get into the habit of making lots of videos quickly, which should improve my
+
+159
+00:09:09,860 --> 00:09:12,980
+ability to make quality AI safety content quickly as well.
+
+160
+00:09:12,980 --> 00:09:16,260
+If you want an idea of what kind of stuff I'm going to put on the second channel, check
+
+161
+00:09:16,260 --> 00:09:19,700
+out a video I made at the beginning of this channel titled, Where Do We Go Now?
+
+162
+00:09:19,700 --> 00:09:23,420
+There's a link to that video in the description, along with a link to the new second channel.
+
+163
+00:09:23,420 --> 00:09:25,420
+So head on over and subscribe if you're interested.
+
+164
+00:09:25,420 --> 00:09:28,700
+And of course, my patrons will get access to those videos before the rest of the world,
+
+165
+00:09:28,700 --> 00:09:30,220
+just like they do with this channel.
+
+166
+00:09:30,220 --> 00:09:37,620
+Thanks again, and I'll see you next time.
+

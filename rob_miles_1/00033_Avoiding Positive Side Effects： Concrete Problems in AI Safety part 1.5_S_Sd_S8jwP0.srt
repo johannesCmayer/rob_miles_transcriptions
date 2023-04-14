@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:03,960
+Hi, just a quick one today because I've got a lot of other stuff going on right now, more
+
+2
+00:00:03,960 --> 00:00:05,260
+on that later hopefully.
+
+3
+00:00:05,260 --> 00:00:08,980
+This is a follow up to the previous video about avoiding negative side effects, link
+
+4
+00:00:08,980 --> 00:00:12,020
+in the doobly-doo so watch that first if you haven't yet.
+
+5
+00:00:12,020 --> 00:00:17,980
+I wanted to talk about another possible problem you might have with low impact or impact regularizing
+
+6
+00:00:17,980 --> 00:00:21,140
+agents, one I forgot to mention in the last video.
+
+7
+00:00:21,140 --> 00:00:23,980
+Some people definitely mentioned some things close to this in the comments.
+
+8
+00:00:23,980 --> 00:00:26,340
+If you've got this, good job, feel free to brag about it.
+
+9
+00:00:26,340 --> 00:00:30,340
+The problem I want to talk about is avoiding positive side effects.
+
+10
+00:00:30,340 --> 00:00:34,620
+So before we talked about how most side effects are negative, rather than having to figure
+
+11
+00:00:34,620 --> 00:00:38,620
+out how to avoid negative side effects, maybe it's a more tractable problem to just avoid
+
+12
+00:00:38,620 --> 00:00:39,820
+all side effects.
+
+13
+00:00:39,820 --> 00:00:44,300
+But if you look at the side effects of, for example, getting me a cup of tea, that includes
+
+14
+00:00:44,300 --> 00:00:49,900
+effects like me being happy, or me not being thirsty, or me feeling more awake because
+
+15
+00:00:49,900 --> 00:00:51,520
+I've had some caffeine.
+
+16
+00:00:51,520 --> 00:00:55,600
+In other words, every reason I wanted a cup of tea in the first place.
+
+17
+00:00:55,600 --> 00:00:59,600
+If the robot can think of a way of getting me a cup of tea that still results in me being
+
+18
+00:00:59,600 --> 00:01:04,240
+thirsty and tired, just as though I hadn't had a cup of tea, it will prefer that option.
+
+19
+00:01:04,240 --> 00:01:08,520
+Now I can't, off the top of my head, think of any way to do that, assuming we've defined
+
+20
+00:01:08,520 --> 00:01:12,960
+what a cup of tea is well enough, so maybe the robot will conclude that these positive
+
+21
+00:01:12,960 --> 00:01:16,720
+side effects are unavoidable, just like how using up a tea bag is an unavoidable side
+
+22
+00:01:16,720 --> 00:01:17,720
+effect.
+
+23
+00:01:17,720 --> 00:01:21,740
+But it's not great that it's looking for ways to negate the benefits of its work.
+
+24
+00:01:21,740 --> 00:01:25,300
+And again, the more intelligent a system becomes, the more it's going to be able to
+
+25
+00:01:25,300 --> 00:01:27,140
+figure out ways to do that.
+
+26
+00:01:27,140 --> 00:01:28,300
+Or how about this?
+
+27
+00:01:28,300 --> 00:01:32,820
+We've set up our system to try to keep the outcomes close to what it predicts would happen
+
+28
+00:01:32,820 --> 00:01:36,100
+if the robot just sat there and did nothing at all, right?
+
+29
+00:01:36,100 --> 00:01:39,580
+What actually would happen if it just sat there and did nothing instead of getting me
+
+30
+00:01:39,580 --> 00:01:41,140
+a cup of tea?
+
+31
+00:01:41,140 --> 00:01:45,860
+One thing is, I would probably become confused and maybe annoyed, and I would try to debug
+
+32
+00:01:45,860 --> 00:01:48,100
+it and figure out why it wasn't working.
+
+33
+00:01:48,100 --> 00:01:52,340
+So our robot may want to try and find a course of action such that it does get me a cup of
+
+34
+00:01:52,340 --> 00:01:57,180
+tea, but still leaves me confused and annoyed and trying to debug it and figure out why
+
+35
+00:01:57,180 --> 00:02:00,660
+it's not working, because that would have been the outcome of the safe policy.
+
+36
+00:02:00,660 --> 00:02:02,180
+How do we deal with that issue?
+
+37
+00:02:02,180 --> 00:02:06,380
+And all of this is assuming that we can come up with an impact metric or a distance metric
+
+38
+00:02:06,380 --> 00:02:09,700
+between world states that properly captures our intuitions.
+
+39
+00:02:09,700 --> 00:02:12,860
+There are a whole bunch of difficulties there, but that's a topic for another video.
+
+40
+00:02:12,860 --> 00:02:14,140
+So that's it for now.
+
+41
+00:02:14,140 --> 00:02:17,900
+Next time, I think we'll keep talking about the paper Concrete Problems in AI Safety and
+
+42
+00:02:17,900 --> 00:02:21,420
+look at some other approaches to avoiding negative side effects.
+
+43
+00:02:21,420 --> 00:02:24,340
+So be sure to click on the bell if you want to be notified when that comes out.
+
+44
+00:02:24,340 --> 00:02:27,820
+Oh, and if you think this stuff is interesting and you're at a place in your life where you're
+
+45
+00:02:27,820 --> 00:02:33,300
+thinking about your career, the careers advice organization 80,000 Hours has just put up
+
+46
+00:02:33,300 --> 00:02:35,940
+a really good guide to careers in AI safety.
+
+47
+00:02:35,940 --> 00:02:37,940
+I'll put a link to that in the description as well.
+
+48
+00:02:37,940 --> 00:02:41,540
+Highly recommended checking that out, especially if you don't think you're technical enough
+
+49
+00:02:41,540 --> 00:02:43,740
+to directly work on the research.
+
+50
+00:02:43,740 --> 00:02:45,780
+There are a lot of different ways you might want to get involved.
+
+51
+00:02:45,780 --> 00:02:49,300
+Let me know in the comments if you'd like me to make some videos about AI safety careers,
+
+52
+00:02:49,300 --> 00:03:00,980
+you know, if that's something you'd want to see.
+
+53
+00:03:00,980 --> 00:03:04,220
+And to end the video, a quick thank you to my Patreon supporters.
+
+54
+00:03:04,220 --> 00:03:08,460
+That's all of these excellent people right here.
+
+55
+00:03:08,460 --> 00:03:14,140
+I especially want to thank Yonatan R, represented here by this sock.
+
+56
+00:03:14,140 --> 00:03:15,140
+His choice, not mine.
+
+57
+00:03:15,260 --> 00:03:17,300
+Thank you so much for your support.
+
+58
+00:03:17,300 --> 00:03:21,180
+I hope to have some more behind the scenes stuff going up on Patreon this weekend if I can.
+
+59
+00:03:21,180 --> 00:03:22,100
+I hope you like it.
+

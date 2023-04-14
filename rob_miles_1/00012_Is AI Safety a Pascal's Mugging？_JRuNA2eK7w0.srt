@@ -1,0 +1,696 @@
+1
+00:00:00,000 --> 00:00:04,960
+Hi. Today we're going to talk about Pascal's wager and Pascal's mugging. This is necessarily
+
+2
+00:00:04,960 --> 00:00:08,640
+going to touch on religious topics, pretty heavily actually, and I'm just going to say
+
+3
+00:00:08,640 --> 00:00:12,880
+at the beginning of the video that, personally, I don't believe that any god or gods have ever
+
+4
+00:00:12,880 --> 00:00:17,840
+existed, and I'm not going to pretend otherwise in this video, so be forewarned if that's likely
+
+5
+00:00:17,840 --> 00:00:23,120
+to bother you. So, as you may know, Pascal was a 17th century philosopher who was interested in,
+
+6
+00:00:23,120 --> 00:00:28,400
+amongst other things, the question of the existence of the Christian god. Various philosophers at the
+
+7
+00:00:28,400 --> 00:00:32,560
+time were arguing that god didn't exist, and there was a lot of discussion going on about
+
+8
+00:00:32,560 --> 00:00:37,040
+the various kinds of evidence for and against god in the world. But there's this thing that's quite
+
+9
+00:00:37,040 --> 00:00:42,720
+common when people think about religious questions, where it feels sort of unsatisfying to talk about
+
+10
+00:00:42,720 --> 00:00:47,440
+worldly evidence, as if you were considering some everyday question. There's a feeling that
+
+11
+00:00:47,440 --> 00:00:52,560
+these supernatural concepts are very grand and mysterious, they're special, and so just
+
+12
+00:00:52,560 --> 00:00:57,040
+straightforwardly considering the evidence for and against god is not the right way to do things.
+
+13
+00:00:57,040 --> 00:01:02,160
+This is, of course, encouraged by religious thinking. The idea that some hypotheses aren't
+
+14
+00:01:02,160 --> 00:01:06,640
+subject to the usual rules of evidence and logic is pretty appealing if you want to advocate for
+
+15
+00:01:06,640 --> 00:01:11,120
+an idea that doesn't fare very well by those standards. I suspect Pascal may have felt
+
+16
+00:01:11,120 --> 00:01:16,080
+something like that, because his position was that reason has nothing to say about the question of
+
+17
+00:01:16,080 --> 00:01:21,520
+whether or not god exists. It's sort of an unknowable thing. And instead, he proposed that
+
+18
+00:01:21,520 --> 00:01:25,920
+we should make a wager. We should think about it like this. There are two possibilities. Either
+
+19
+00:01:25,920 --> 00:01:30,160
+the Christian god exists or he doesn't, and reason gives us no way to choose between those. We have
+
+20
+00:01:30,160 --> 00:01:34,000
+two options available to us. Either we can live according to god's laws and act as though we
+
+21
+00:01:34,000 --> 00:01:39,280
+believe, or we can not do that. So we have a sort of payoff matrix here, with four sections.
+
+22
+00:01:39,920 --> 00:01:44,240
+If god exists and we believe in him, then we get infinite reward in heaven. If god exists and we
+
+23
+00:01:44,240 --> 00:01:48,320
+don't believe in him, we get infinite punishment in hell. If god doesn't exist and we believe in
+
+24
+00:01:48,320 --> 00:01:52,320
+him, then we pay some costs, you know, there are some rules we have to follow and so on.
+
+25
+00:01:52,320 --> 00:01:56,160
+And if he doesn't exist and we don't believe in him, then maybe we get a few perks from not
+
+26
+00:01:56,160 --> 00:02:02,240
+believing, like having a lion on Sundays, and being right. Pascal's point is that this payoff
+
+27
+00:02:02,240 --> 00:02:07,040
+matrix is completely dominated by the case in which god exists, because we're talking about
+
+28
+00:02:07,040 --> 00:02:12,560
+infinite rewards and infinite punishments, as opposed to the other case with these very finite
+
+29
+00:02:12,560 --> 00:02:17,440
+costs and benefits. So regardless of the evidence, Pascal argues we should believe in god, or at
+
+30
+00:02:17,680 --> 00:02:22,800
+least act like it, because it's just the sensible bet to make. This is really kind of a nice argument
+
+31
+00:02:22,800 --> 00:02:28,000
+from Pascal's perspective, because it doesn't need evidence at all. No finite earthly evidence
+
+32
+00:02:28,000 --> 00:02:33,200
+can outweigh infinite supernatural payoffs. It feels like the kind of clean, abstract reasoning
+
+33
+00:02:33,200 --> 00:02:37,840
+that you're supposed to do when thinking about the supernatural. All of this hard work looking
+
+34
+00:02:37,840 --> 00:02:42,480
+at history and psychology and science and trying to figure out where the ideas of religion come
+
+35
+00:02:42,480 --> 00:02:47,120
+from and whether our world seems like the kind of world with a god in it, it's long-winded,
+
+36
+00:02:47,200 --> 00:02:52,080
+confusing, it's just messy. But here we just have a clean argument that says we should believe in
+
+37
+00:02:52,080 --> 00:02:57,520
+god, or at least act like it, and that seems very neat. No evidence required. So consider now,
+
+38
+00:02:57,520 --> 00:03:02,000
+Pascal is walking down the street and he's stopped by a shady-looking man who says,
+
+39
+00:03:02,000 --> 00:03:07,600
+give me your wallet. I would prefer not to. Do you even have a weapon? No, UK laws are very strict
+
+40
+00:03:07,600 --> 00:03:12,880
+about that, but I don't need one, because I'm god. You're god? Yep, I'm god. And christianity
+
+41
+00:03:12,880 --> 00:03:18,320
+got a lot of things wrong about me, my forgiving nature, my infinite mercy, and so on. But the
+
+42
+00:03:18,320 --> 00:03:23,040
+infinite torture thing is legit, and if you don't give me your wallet right now, I will torture you
+
+43
+00:03:23,040 --> 00:03:28,080
+for eternity in the afterlife. Now if you're Pascal, you're in kind of a difficult situation,
+
+44
+00:03:28,080 --> 00:03:33,120
+because the fact that it seems very unlikely that this mugger actually is god is not meant to be
+
+45
+00:03:33,120 --> 00:03:38,320
+part of your calculation. Your argument is one of pure logic, it works independently of any evidence.
+
+46
+00:03:38,320 --> 00:03:41,680
+You didn't need to look for evidence of the christian god, and you don't need to look for
+
+47
+00:03:41,680 --> 00:03:44,960
+evidence that this mugger is god either. So you kind of have to give him your wallet.
+
+48
+00:03:45,680 --> 00:03:48,880
+And now you're really in trouble, because of course when this gets out, there's going to be a
+
+49
+00:03:48,880 --> 00:03:53,040
+line around the block of Erzat's deities asking for handouts. How are you going to deal with this
+
+50
+00:03:53,040 --> 00:03:57,280
+endless stream of fizzy gods? Well one thing you can do is you can play the muggers off against
+
+51
+00:03:57,280 --> 00:04:01,920
+one another. You can bring in two of them and say, listen, you say that you're going to torture me
+
+52
+00:04:01,920 --> 00:04:06,720
+forever if I don't give you my wallet, and you say the same thing. I only have one wallet, so it
+
+53
+00:04:06,720 --> 00:04:10,400
+looks like whatever I do I'm going to be tortured forever by somebody. And if I'm going to be
+
+54
+00:04:10,400 --> 00:04:15,520
+infinitely tortured anyway, well two times infinity is still just infinity, so I may as
+
+55
+00:04:15,520 --> 00:04:20,320
+well hang on to the wallet. Now get the hell out of my house. All right, next two. No doubt these
+
+56
+00:04:20,320 --> 00:04:25,760
+self-proclaimed deities may try to argue that they have some reason why they are in fact a real deity
+
+57
+00:04:25,760 --> 00:04:30,640
+and this other mugger is just a random guy who's pretending, but that's all worldly evidence which
+
+58
+00:04:30,640 --> 00:04:34,640
+you've decided isn't required for your argument. And the muggers don't really want you to become
+
+59
+00:04:34,640 --> 00:04:38,880
+interested in evidence because, well, the evidence points very strongly towards none of them being
+
+60
+00:04:38,880 --> 00:04:43,280
+real gods. So this is a better position to be in. You're still spending a lot of your time arguing
+
+61
+00:04:43,280 --> 00:04:47,040
+with charlatans, but at least you still have your wallet. And you don't actually have to pair them
+
+62
+00:04:47,040 --> 00:04:51,600
+up against each other, right? You can just make up a deity. When someone comes in pretending to
+
+63
+00:04:51,600 --> 00:04:56,320
+be a god, you can say, oh well, there's this other god who demands exactly the opposite thing from
+
+64
+00:04:56,320 --> 00:05:01,040
+you. A goddess, actually, and she's very powerful. Uh, but she goes to a different school, you would
+
+65
+00:05:01,040 --> 00:05:07,040
+know her. Really? Yeah, she lives in Canada. She's omnipresent, obviously, but she lives in Canada.
+
+66
+00:05:07,040 --> 00:05:11,600
+Anyway, she says that I'm not to give you the wallet, and if I do, then she'll torture me
+
+67
+00:05:11,600 --> 00:05:18,640
+forever in the afterlife. Dang. Yeah. So you can solve a lot of these problems by inventing gods
+
+68
+00:05:18,640 --> 00:05:22,720
+arbitrarily. And of course, this applies just as well to the original version of Pascal's Wager.
+
+69
+00:05:22,720 --> 00:05:26,880
+Because although it's implied that this payoff matrix has enumerated all of the possibilities,
+
+70
+00:05:26,880 --> 00:05:31,360
+and in a sense it has, the Christian god either exists or he doesn't, nonetheless, those may not
+
+71
+00:05:31,360 --> 00:05:35,840
+be the only things that affect the payoffs. For any given god, you can take the god down, flip it,
+
+72
+00:05:35,840 --> 00:05:41,280
+and reverse it, and say, what about anti-god, who wants me to do the exact opposite and promises the
+
+73
+00:05:41,280 --> 00:05:46,160
+exact opposite consequences? Now you can see that they cancel out. Somebody who's arguing for the
+
+74
+00:05:46,160 --> 00:05:50,800
+existence of the first god might say, okay, but this anti-god is just made up, which I mean,
+
+75
+00:05:51,440 --> 00:05:56,400
+yeah, it is. It's true that the situation isn't really symmetrical. Someone might think god is
+
+76
+00:05:56,400 --> 00:06:00,400
+more likely than anti-god because of evidence from the Bible, and there's no such thing as
+
+77
+00:06:00,400 --> 00:06:05,280
+the anti-Bible, and so on. The point is, though, we're back to talking about the evidence. That's
+
+78
+00:06:05,280 --> 00:06:10,560
+really the problem I have with Pascal's Wager, the way it uses infinite costs and infinite benefits
+
+79
+00:06:10,560 --> 00:06:15,600
+to completely override our necessarily finite evidence. But what if the costs and benefits
+
+80
+00:06:15,600 --> 00:06:20,160
+aren't infinite, just very, very large? That ends up being a much more interesting question.
+
+81
+00:06:20,160 --> 00:06:24,880
+On one end of the scale, we can easily name numbers so large that no amount of evidence
+
+82
+00:06:24,880 --> 00:06:29,600
+anyone could ever actually gather in their lifetime could have an impact on the conclusion.
+
+83
+00:06:29,600 --> 00:06:34,000
+We can specify costs and benefits that are technically finite, but that still feel
+
+84
+00:06:34,000 --> 00:06:37,200
+very much like a Pascal's Wager. On the other end of the scale,
+
+85
+00:06:37,200 --> 00:06:42,720
+if you come across a bet that pays out 10,000 to 1 on an event with a probability of 1 in 100,
+
+86
+00:06:42,720 --> 00:06:47,280
+that's a very good bet to take. Someone could complain that it's a Pascal's Wager to bet on
+
+87
+00:06:47,280 --> 00:06:51,520
+an unlikely outcome just because the payoff is so high, but if you take enough bets like that,
+
+88
+00:06:51,520 --> 00:06:55,920
+you're sure to become very rich. In the same way, if there's a button which has a 1 in a million
+
+89
+00:06:55,920 --> 00:07:00,400
+chance of starting a global thermonuclear war, it's still worth expending significant resources
+
+90
+00:07:00,400 --> 00:07:05,040
+to stop that button being pressed. 1 in a million isn't much, but the cost of a nuclear war is
+
+91
+00:07:05,040 --> 00:07:09,520
+really high. I don't think that's a Pascal's Wager either. The difference seems to come in
+
+92
+00:07:09,520 --> 00:07:14,080
+somewhere in the gap between very small probabilities of very large costs and benefits
+
+93
+00:07:14,080 --> 00:07:19,200
+and really extremely small probabilities of near infinite costs and benefits.
+
+94
+00:07:19,200 --> 00:07:22,640
+So why are we talking about this? What does this have to do with AI safety?
+
+95
+00:07:22,640 --> 00:07:27,280
+Well, suppose somebody stops you in the street and says, hey, if we ever create powerful artificial
+
+96
+00:07:27,280 --> 00:07:31,360
+general intelligence, then that will have a tremendous impact. In fact, the future of the
+
+97
+00:07:31,360 --> 00:07:35,680
+whole of humanity hinges on it. If we get it right, we could have human flourishing for the rest of
+
+98
+00:07:35,680 --> 00:07:40,320
+time. If we get it wrong, we could have human extinction or worse. Regardless of how likely
+
+99
+00:07:40,320 --> 00:07:46,000
+superhuman AGI is, the potential impact is so high that it makes AI safety research tremendously
+
+100
+00:07:46,000 --> 00:07:51,600
+important. So, uh, give me your wallet. It's been claimed by some that this is
+
+101
+00:07:51,600 --> 00:07:55,840
+more or less what AI safety as a field is doing. This is kind of an interesting point.
+
+102
+00:07:55,840 --> 00:08:00,160
+As AI safety advocates, are we victims of Pascal's mugging? Or are we in fact Pascal's
+
+103
+00:08:00,160 --> 00:08:05,520
+muggers ourselves? Well, if people were saying these AI risks may be extremely unlikely,
+
+104
+00:08:05,520 --> 00:08:09,680
+but the consequences of getting AI wrong are so huge that it's worth spending a lot of resources
+
+105
+00:08:09,680 --> 00:08:14,560
+on regardless of the probabilities, so we don't even need to consider the evidence. Well, I would
+
+106
+00:08:14,560 --> 00:08:18,960
+consider that to be a Pascal's Wager style bad argument. But what I actually hear is not that.
+
+107
+00:08:19,600 --> 00:08:23,840
+What I hear is more like, look, we're not completely sure about this. It's quite possible
+
+108
+00:08:23,840 --> 00:08:28,640
+that we're wrong, but considering the enormity of what's at stake, it's definitely worth allocating
+
+109
+00:08:28,640 --> 00:08:33,360
+more resources to AI safety than we currently are. That sounds pretty similar, but that's mostly
+
+110
+00:08:33,360 --> 00:08:38,800
+because natural language is extremely vague when talking about uncertainty. There's an enormous
+
+111
+00:08:38,800 --> 00:08:43,680
+difference in the probabilities being talked about in the same way. If when you talk to AI safety
+
+112
+00:08:43,680 --> 00:08:48,240
+researchers, they said things like, well, I think the chance of any of this ever being relevant are
+
+113
+00:08:48,240 --> 00:08:52,560
+really extremely tiny. It seems more or less impossible to me, but I've decided to work on
+
+114
+00:08:52,560 --> 00:08:56,880
+it anyway, because the potential costs and benefits are so unimaginably vast. Then yeah,
+
+115
+00:08:56,880 --> 00:09:00,720
+I'd be a little concerned that they might be victims of Pascal's mugging. But when you ask
+
+116
+00:09:00,720 --> 00:09:05,040
+AI safety researchers, they don't think that the probability of their work ever becoming relevant
+
+117
+00:09:05,040 --> 00:09:09,440
+is very tiny. They don't necessarily think it's huge either, maybe not even more than 50%,
+
+118
+00:09:10,160 --> 00:09:14,720
+but it's not so small that you have to rely on the unimaginable vastness of the consequences
+
+119
+00:09:14,720 --> 00:09:17,760
+in order to make the argument. To borrow a metaphor from Stuart Russell,
+
+120
+00:09:18,320 --> 00:09:22,240
+suppose you're part of a team working on building a bridge, and you believe you've found a flaw in
+
+121
+00:09:22,320 --> 00:09:26,400
+the design that could cause the structure to fail catastrophically. Maybe the disaster would only
+
+122
+00:09:26,400 --> 00:09:30,240
+happen if there's a very rare combination of weather conditions, and there's only a one in
+
+123
+00:09:30,240 --> 00:09:33,760
+a hundred chance that those conditions will ever happen during the course of the bridge's expected
+
+124
+00:09:33,760 --> 00:09:37,920
+lifespan. And further suppose that you're not completely sure of your calculations because
+
+125
+00:09:37,920 --> 00:09:42,400
+this kind of thing is complicated. Maybe you only give yourself a 40% chance of being right about
+
+126
+00:09:42,400 --> 00:09:46,960
+this. So you go to the civil engineer in charge of the project and you say, I think there's a
+
+127
+00:09:46,960 --> 00:09:50,720
+serious risk with this bridge design. Do you think the bridge is going to collapse? Probably not,
+
+128
+00:09:50,720 --> 00:09:55,920
+no. But I'm about 40% sure that there's a design flaw which would give this bridge a one in one
+
+129
+00:09:55,920 --> 00:10:00,560
+hundred chance of catastrophic failure. So you're telling me that in the event of a scenario which
+
+130
+00:10:00,560 --> 00:10:04,720
+is very unlikely to happen, the bridge might collapse, and you yourself admit that you're
+
+131
+00:10:04,720 --> 00:10:09,040
+more likely to be wrong than right about this? Stop wasting my time. But if the bridge collapses,
+
+132
+00:10:09,040 --> 00:10:13,360
+it could kill a lot of people. I think this is a Pascal's mugging. Don't try to get me to ignore
+
+133
+00:10:13,360 --> 00:10:17,760
+the low probabilities just by threatening very large consequences. Obviously that isn't what
+
+134
+00:10:17,840 --> 00:10:23,200
+would happen. No civil engineer is going to accept a 1 in 250 chance of catastrophic failure for a
+
+135
+00:10:23,200 --> 00:10:27,200
+major piece of infrastructure, because civil engineers have a healthy organizational culture
+
+136
+00:10:27,200 --> 00:10:31,280
+around safety. What it comes down to, again, is the difference between different levels of
+
+137
+00:10:31,280 --> 00:10:37,280
+improbability. The chance of an AGI catastrophe may not be very big, but it's much, much larger
+
+138
+00:10:37,280 --> 00:10:42,000
+than the chance that a mugger is actually a god. And what about our anti-god tactic? Finding the
+
+139
+00:10:42,000 --> 00:10:46,640
+opposite risk? Does that still work? Like, what if we consider the possibility that there's another
+
+140
+00:10:46,640 --> 00:10:51,360
+opposite design flaw in the bridge, which might cause it to collapse unless we don't spend extra
+
+141
+00:10:51,360 --> 00:10:55,440
+time evaluating the safety of the design? What? Just look at the schematic, would you?
+
+142
+00:10:55,440 --> 00:11:00,320
+And what if working on AI safety actually ends up making the risks worse somehow?
+
+143
+00:11:00,320 --> 00:11:04,160
+I think this actually is worth considering. Unintended consequences are a real problem,
+
+144
+00:11:04,160 --> 00:11:08,640
+after all. Speaking generally, there's a clear argument that the future is very important,
+
+145
+00:11:08,640 --> 00:11:12,880
+and that we're probably able to have a very big impact on it, but it's hard to know for sure
+
+146
+00:11:12,880 --> 00:11:17,280
+whether that impact will be positive or negative for any given course of action. Prediction is very
+
+147
+00:11:17,280 --> 00:11:21,200
+difficult, as they say, especially about the future. And the further into the future we look,
+
+148
+00:11:21,200 --> 00:11:26,080
+the more difficult it gets. Like, imagine if you lived in the year 1900, and you had some insight
+
+149
+00:11:26,080 --> 00:11:30,800
+that made you realize that nuclear weapons were possible, and nuclear war was a risk. You'd hope
+
+150
+00:11:30,800 --> 00:11:34,960
+that you could use that understanding to reduce the risk, but it would certainly be possible to
+
+151
+00:11:34,960 --> 00:11:39,520
+make things worse by accident. In the case of AI safety, though, I don't see that being anywhere
+
+152
+00:11:39,680 --> 00:11:44,880
+near as much of a concern. We're heading towards AI regardless, and it seems very unlikely that
+
+153
+00:11:44,880 --> 00:11:50,160
+thinking about safety would be more dangerous than not thinking about safety. It's definitely
+
+154
+00:11:50,160 --> 00:11:54,080
+possible to make things worse while trying to make them better, but you can't avoid that by
+
+155
+00:11:54,080 --> 00:11:58,960
+never trying to make things better. I guess my point is, there's just no getting around the messy,
+
+156
+00:11:58,960 --> 00:12:04,400
+confusing, complicated work of looking at and thinking about the evidence. Any argument that
+
+157
+00:12:04,400 --> 00:12:09,040
+doesn't rely on the evidence will work equally well, whatever the truth is. So at the end of
+
+158
+00:12:09,040 --> 00:12:13,120
+the day, that kind of thing isn't going to give you an answer. You have to just stare at the bridge
+
+159
+00:12:13,120 --> 00:12:17,360
+design and really think. You have to actually do the engineering. And that's something I'm trying
+
+160
+00:12:17,360 --> 00:12:22,240
+to get across with this channel. You won't find me saying, never mind the evidence, AI safety is
+
+161
+00:12:22,240 --> 00:12:27,360
+important because it could have huge consequences. What I do on this channel is, I try to show you
+
+162
+00:12:27,360 --> 00:12:31,440
+some of the evidence and some of the arguments, and let you think about the situation and draw
+
+163
+00:12:31,440 --> 00:12:36,240
+your own conclusions. It can be tricky and involved. It requires some thought, but it has the
+
+164
+00:12:36,240 --> 00:12:40,240
+advantage of being the only thing that has any chance of actually getting the right answer.
+
+165
+00:12:41,120 --> 00:12:42,080
+So thanks for watching.
+
+166
+00:12:50,960 --> 00:12:56,800
+As my wonderful patrons will know, the Alignment Newsletter is a weekly publication from Rohin Shah,
+
+167
+00:12:56,800 --> 00:13:01,360
+which I read every week to stay up to date with what's going on in AI safety. And now I'm recording
+
+168
+00:13:01,360 --> 00:13:06,480
+myself reading it out and publishing that as the Alignment Newsletter podcast. It's aimed at
+
+169
+00:13:06,480 --> 00:13:10,560
+researchers, so it's a fair bit more technical than this channel. But if you're interested in
+
+170
+00:13:10,560 --> 00:13:14,880
+getting 15 minutes of AI safety news in your ear holes each week, check the link in the description.
+
+171
+00:13:14,880 --> 00:13:19,680
+I'm never going to put ads or sponsors on that podcast, and that's largely thanks to my patrons.
+
+172
+00:13:19,680 --> 00:13:25,040
+In this video, I'm especially thanking Chris Canal. Thank you so much for your support, Chris.
+
+173
+00:13:25,040 --> 00:13:28,880
+Thank you to all of my patrons, and thank you for watching. I'll see you next time.
+
+174
+00:13:37,920 --> 00:13:39,680
+Ugh, costume changes.
+

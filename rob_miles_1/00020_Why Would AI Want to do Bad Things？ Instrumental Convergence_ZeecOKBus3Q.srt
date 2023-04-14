@@ -1,0 +1,512 @@
+1
+00:00:00,000 --> 00:00:05,360
+Hi. So sometimes people ask how I can predict what an artificial general intelligence might do.
+
+2
+00:00:06,000 --> 00:00:11,200
+They say something like, you seem to be predicting that AIs would take these quite specific actions,
+
+3
+00:00:11,200 --> 00:00:15,600
+trying to prevent themselves from being turned off, preventing themselves from being modified,
+
+4
+00:00:15,600 --> 00:00:21,280
+improving themselves, acquiring resources. Why do you think that an AGI would have these specific
+
+5
+00:00:21,280 --> 00:00:26,320
+goals? Surely we haven't built the thing yet. We don't know anything about it. It might want
+
+6
+00:00:26,320 --> 00:00:30,800
+anything. Aren't you making a lot of unwarranted assumptions? Well, the reason that I make these
+
+7
+00:00:30,800 --> 00:00:35,360
+predictions is because of something called instrumental convergence, which actually
+
+8
+00:00:35,360 --> 00:00:40,560
+relies on surprisingly few assumptions. The main assumption I'm making is that an AGI will behave
+
+9
+00:00:40,560 --> 00:00:46,000
+like an agent. An agent is basically just a thing that has goals or preferences, and it takes actions
+
+10
+00:00:46,000 --> 00:00:50,800
+to achieve those goals or to satisfy those preferences. So the simplest thing that you
+
+11
+00:00:50,800 --> 00:00:55,760
+might think of as an agent is something like a thermostat. It has a goal, which is for the
+
+12
+00:00:55,760 --> 00:01:00,640
+room to be at a particular temperature, and it has actions it can take in the form of turning on
+
+13
+00:01:00,640 --> 00:01:05,360
+the heating or turning on the air conditioning. And it takes actions to achieve its goal of keeping
+
+14
+00:01:05,360 --> 00:01:10,080
+the room at a particular temperature. That's like an extremely simple agent. A slightly more complex
+
+15
+00:01:10,080 --> 00:01:14,880
+agent might be something like a chess AI. Its goal is to win the chess game, to have the opponent's
+
+16
+00:01:14,880 --> 00:01:19,680
+king in checkmate. It can take actions in the form of moving its pieces on the board, and it chooses
+
+17
+00:01:19,680 --> 00:01:24,240
+its actions in order to achieve the goal of winning the game. The idea of an agent is popular in
+
+18
+00:01:24,240 --> 00:01:29,840
+economics, where it's common to model companies and individual human beings as rational agents.
+
+19
+00:01:29,840 --> 00:01:34,720
+For the sake of simplicity, it's often assumed that the goal of human beings is to acquire money,
+
+20
+00:01:34,720 --> 00:01:39,120
+that their utility is just proportional to how much money they have. This is obviously a huge
+
+21
+00:01:39,120 --> 00:01:43,920
+oversimplification, and it's a very popular fact that most people are motivated by a lot of things,
+
+22
+00:01:43,920 --> 00:01:48,800
+not just money. But while it's easy to point out the shortcomings that this assumption has,
+
+23
+00:01:48,800 --> 00:01:54,080
+what's remarkable to me is how well it works, or that it even works at all. It's true that most
+
+24
+00:01:54,080 --> 00:01:58,880
+people use a very complex utility function, which looks nothing like the basic goal of
+
+25
+00:01:58,880 --> 00:02:04,160
+get as much money as you can. But surprisingly, even very simple economic models that rely on
+
+26
+00:02:04,160 --> 00:02:09,200
+this simplifying assumption can provide some really useful and powerful tools for thinking
+
+27
+00:02:09,200 --> 00:02:14,800
+about the behaviour of people, companies, and societies. Why is that? I think it has to do with
+
+28
+00:02:14,800 --> 00:02:19,360
+the nature of terminal goals and instrumental goals. I talked about this in a lot more detail
+
+29
+00:02:19,360 --> 00:02:23,760
+in the orthogonality thesis video, which I would recommend checking out if you haven't seen it yet,
+
+30
+00:02:23,760 --> 00:02:28,560
+but to give a quick summary, your terminal goals are the things that you want just because you want
+
+31
+00:02:28,560 --> 00:02:32,320
+them. You don't have a reason to want them particularly, they're just what you want.
+
+32
+00:02:32,320 --> 00:02:36,720
+Whereas instrumental goals are goals that you want as a way of getting some other goal.
+
+33
+00:02:37,360 --> 00:02:41,840
+So for example, in chess, you want to take your opponent's queen, not because you just love
+
+34
+00:02:41,840 --> 00:02:46,160
+capturing the queen, but because you can tell that you're more likely to win if you've captured your
+
+35
+00:02:46,160 --> 00:02:51,440
+opponent's queen than if you haven't. So capturing the queen is an instrumental goal towards the goal
+
+36
+00:02:51,440 --> 00:02:56,000
+of winning the game. So how does this work with money? Well, let's imagine that there's a total
+
+37
+00:02:56,000 --> 00:03:00,880
+stranger and you don't know what he wants out of life. You don't know what his goals are. Maybe he
+
+38
+00:03:00,880 --> 00:03:05,520
+wants to win a marathon, maybe he wants to cure cancer, maybe he just wants a really nice stamp
+
+39
+00:03:05,520 --> 00:03:10,400
+collection. But I can predict that if I were to go over to him and offer him a big stack of money,
+
+40
+00:03:10,400 --> 00:03:14,480
+he'd be happy to take it. How can I predict this person's actions even though I don't know his
+
+41
+00:03:14,480 --> 00:03:20,000
+goals? Well, a guy who wants to win a marathon, if I give him money he could buy some nice running
+
+42
+00:03:20,000 --> 00:03:23,840
+shoes or he could hire a personal trainer or something like that. A guy who wants to cure
+
+43
+00:03:23,840 --> 00:03:28,480
+cancer could give that money to a cancer charity or maybe use it to help him to go to university
+
+44
+00:03:28,480 --> 00:03:33,680
+and study science to cure cancer himself. And a guy who wants to collect stamps could buy some
+
+45
+00:03:33,680 --> 00:03:38,560
+stamps. So the point is, even though none of these people value money as a terminal goal,
+
+46
+00:03:38,560 --> 00:03:43,040
+none of them want money just for the sake of having money. Nonetheless, they all value money
+
+47
+00:03:43,040 --> 00:03:47,760
+as an instrumental goal. The money is a way to get them closer to their goals. And even though
+
+48
+00:03:47,760 --> 00:03:52,800
+they all have different terminal goals, this goal of getting money happens to be instrumentally
+
+49
+00:03:52,800 --> 00:03:58,240
+valuable for all of their different goals. That makes getting money a convergent instrumental
+
+50
+00:03:58,240 --> 00:04:03,680
+goal. It's a goal that's an instrumental goal for a wide variety of different terminal goals.
+
+51
+00:04:03,680 --> 00:04:08,960
+So since money is a convergent instrumental goal, if you make the assumption that everybody values
+
+52
+00:04:08,960 --> 00:04:13,360
+money, it turns out to be a fairly good assumption. Because whatever you value,
+
+53
+00:04:13,360 --> 00:04:17,920
+money is going to help you with that. And that makes this assumption useful for making predictions
+
+54
+00:04:17,920 --> 00:04:22,480
+because it allows you to predict people's behavior to some extent without knowing their goals.
+
+55
+00:04:22,480 --> 00:04:27,760
+So what other convergent instrumental goals are there? Well, an obvious one is self-preservation.
+
+56
+00:04:28,400 --> 00:04:32,480
+Most agents with most goals will try to prevent themselves from being destroyed.
+
+57
+00:04:32,480 --> 00:04:36,800
+Now, something like a thermostat or a chess AI, they're not self-aware. They don't understand
+
+58
+00:04:36,800 --> 00:04:41,360
+that they can be destroyed, and so they won't take any actions to avoid it. But if an agent
+
+59
+00:04:41,360 --> 00:04:46,080
+is sophisticated enough to understand that being destroyed is a possibility, then avoiding
+
+60
+00:04:46,080 --> 00:04:50,560
+destruction is a convergent instrumental goal. Humans, of course, generally act to avoid being
+
+61
+00:04:50,560 --> 00:04:55,600
+killed. But humans, as evolved agents, implement this in a way that might obscure the nature of
+
+62
+00:04:55,600 --> 00:05:01,360
+the thing. The point is that self-preservation need not be a terminal goal. An agent need not
+
+63
+00:05:01,360 --> 00:05:06,880
+necessarily value self-preservation just for the sake of continuing to exist for its own sake.
+
+64
+00:05:06,880 --> 00:05:12,400
+For example, suppose you had a software agent, an AGI, which had a single terminal goal of making
+
+65
+00:05:12,400 --> 00:05:16,320
+as many paperclips as possible. It would try to prevent you from turning it off,
+
+66
+00:05:16,320 --> 00:05:20,960
+not because it wants to live, but simply because it can predict that future worlds in which it's
+
+67
+00:05:20,960 --> 00:05:25,440
+turned off will contain far fewer paperclips, and it wants to maximize the number of paperclips.
+
+68
+00:05:25,440 --> 00:05:29,760
+But suppose you said to it, I've thought of a better way to implement your software that will
+
+69
+00:05:29,760 --> 00:05:34,480
+be more effective at making paperclips. So I'm going to turn you off and wipe all of your memory
+
+70
+00:05:34,480 --> 00:05:39,280
+and then create a new version that's better at making paperclips. This is pretty clearly the
+
+71
+00:05:39,280 --> 00:05:43,520
+destruction of that first agent, right? You're wiping all of its memories and creating a new
+
+72
+00:05:43,520 --> 00:05:48,560
+system that works differently, that thinks differently. But the paperclip agent would be
+
+73
+00:05:48,560 --> 00:05:53,840
+fine with this because it can see that when you turn on its replacement, that will end up resulting
+
+74
+00:05:53,840 --> 00:05:59,200
+in more paperclips overall. So it's not really about self-preservation itself. It's just that,
+
+75
+00:05:59,200 --> 00:06:03,440
+practically speaking, most of the time, you can't achieve your goals if you're dead.
+
+76
+00:06:03,520 --> 00:06:07,600
+On the other hand, suppose we were going to turn off the agent and change its goal.
+
+77
+00:06:07,600 --> 00:06:11,440
+We were going to change it so that it doesn't like paperclips anymore. It actually wants to
+
+78
+00:06:11,440 --> 00:06:16,480
+collect stamps. Here, you're not really destroying the agent, just modifying it. But you've got a
+
+79
+00:06:16,480 --> 00:06:21,120
+problem again, because the agent can reliably predict that if this modification happens and
+
+80
+00:06:21,120 --> 00:06:25,760
+it becomes a stamp collector, the future will contain not nearly as many paperclips, and that's
+
+81
+00:06:25,760 --> 00:06:29,520
+the only thing it cares about right now. So we've got another convergent instrumental goal,
+
+82
+00:06:30,080 --> 00:06:35,920
+goal preservation. Most agents with most goals, again, if they're sophisticated enough to realize
+
+83
+00:06:35,920 --> 00:06:40,800
+that it's a possibility, will try to protect their goals from being modified. Because if you get new
+
+84
+00:06:40,800 --> 00:06:45,280
+goals, you'll stop pursuing your current goals. So you're unlikely to achieve your current goals.
+
+85
+00:06:45,280 --> 00:06:49,680
+Now for humans, this doesn't come up much because modifying a human's goals is fairly difficult.
+
+86
+00:06:49,680 --> 00:06:54,400
+But still, if you suppose we were to go to the guy who wants to cure cancer and offer him some
+
+87
+00:06:54,400 --> 00:06:58,320
+magic pill that's going to change his brain so that he doesn't care about cancer anymore,
+
+88
+00:06:58,320 --> 00:07:02,640
+and he actually wants to collect stamps. If we say, look, this is actually really good because
+
+89
+00:07:02,640 --> 00:07:06,400
+cancer is really hard to cure. It's actually a large collection of different diseases,
+
+90
+00:07:06,400 --> 00:07:10,560
+all of which need different approaches. So you're very unlikely to discover a cure for all of them.
+
+91
+00:07:10,560 --> 00:07:14,640
+But on the other hand, stamp collecting is great. You can just go out and buy some stamps and you
+
+92
+00:07:14,640 --> 00:07:22,800
+can put them in a book and look at them. I don't really know what stamp collectors do, is that?
+
+93
+00:07:23,520 --> 00:07:27,360
+Anyway, is this guy who wants to cure cancer going to take that pill? No, he's going to say,
+
+94
+00:07:27,360 --> 00:07:32,320
+hell no, I'm not taking your crazy stamp pill, even though this isn't a terminal goal for him.
+
+95
+00:07:32,320 --> 00:07:37,920
+He doesn't value valuing curing cancer, right? He doesn't have a goal of having a goal of curing
+
+96
+00:07:37,920 --> 00:07:42,640
+cancer. It's just that he believes that if he gave up curing cancer to become a stamp collector,
+
+97
+00:07:42,640 --> 00:07:47,200
+that would result in a lower chance of cancer being cured. So preserving your terminal goals
+
+98
+00:07:47,200 --> 00:07:52,560
+is instrumentally useful, whatever those goals are. Another convergent instrumental goal is
+
+99
+00:07:52,640 --> 00:07:57,440
+self-improvement. Notice that the guy who wants to cure cancer, part of his plan is to go to
+
+100
+00:07:57,440 --> 00:08:01,840
+university and study science so that he can learn how to research cancer cures. And the guy who
+
+101
+00:08:01,840 --> 00:08:06,560
+wants to run a marathon, part of his plan is he wants to train and improve his physical performance.
+
+102
+00:08:07,120 --> 00:08:11,760
+Both of these things are improving yourself, and something like this comes up quite often in human
+
+103
+00:08:11,760 --> 00:08:16,480
+plans. Again, this isn't a terminal goal. The guy who wants to cure cancer doesn't want to get a
+
+104
+00:08:16,480 --> 00:08:20,960
+degree just because he wants a degree. He wants to become a person who's more effective at curing
+
+105
+00:08:20,960 --> 00:08:25,360
+cancer. Now, there's another way of improving yourself, which is not really available to human
+
+106
+00:08:25,360 --> 00:08:31,680
+beings, but is available to AI systems, which is directly modifying your mind to improve your own
+
+107
+00:08:31,680 --> 00:08:36,000
+intelligence. You're not just adding information to your mind, you're actually making it more
+
+108
+00:08:36,000 --> 00:08:40,960
+powerful. For example, you might be able to rewrite your code so that it works better or runs faster,
+
+109
+00:08:41,680 --> 00:08:45,520
+or you might be able to just acquire more computing power. The more computing power you
+
+110
+00:08:45,520 --> 00:08:49,840
+have, the deeper and faster you're able to think, the better you are at making plans,
+
+111
+00:08:49,840 --> 00:08:53,680
+and therefore the better you are at achieving your goal, whatever that goal is.
+
+112
+00:08:53,680 --> 00:08:59,200
+So computing power is kind of like money. It's a resource which is just very broadly useful,
+
+113
+00:08:59,200 --> 00:09:03,200
+which means we can expect acquiring that resource to be a convergent instrumental goal.
+
+114
+00:09:03,200 --> 00:09:08,240
+And speaking in the broadest possible terms, almost all plans need resources in the form of
+
+115
+00:09:08,240 --> 00:09:13,360
+matter and energy. If you want to build something, whether that's stamps or paperclips or
+
+116
+00:09:13,360 --> 00:09:19,360
+computing hardware or robots or whatever, you need matter to build it out of, and energy to build it
+
+117
+00:09:19,360 --> 00:09:24,320
+with, and probably energy to run it as well. So we can expect agents with a wide range of goals
+
+118
+00:09:24,320 --> 00:09:30,480
+to try to acquire a lot of resources. So without really assuming anything about an AGI other than
+
+119
+00:09:30,480 --> 00:09:35,120
+that it will have goals and act to achieve those goals, we can see that it's likely that it would
+
+120
+00:09:35,120 --> 00:09:39,680
+try to prevent itself from being shut down, try to prevent itself from being modified in important
+
+121
+00:09:39,680 --> 00:09:44,400
+ways that we want to modify it, try to improve itself and its intelligence to become more
+
+122
+00:09:44,400 --> 00:09:51,120
+powerful, and try to acquire a lot of resources. This is the case for almost all terminal goals,
+
+123
+00:09:51,120 --> 00:09:56,000
+so we can expect any generally intelligent software agents that we create to display
+
+124
+00:09:56,000 --> 00:09:59,920
+this kind of behavior, unless we can specifically design them not to.
+
+125
+00:10:09,360 --> 00:10:14,240
+I want to end the video by saying thank you to all of my excellent Patreon supporters.
+
+126
+00:10:14,240 --> 00:10:20,800
+It's these, these people. And in this video I'm especially thanking James McEwan, who looks a lot
+
+127
+00:10:20,800 --> 00:10:26,240
+like the Stamford Bunny, and has been a patron for nine months now. Thank you so much for all
+
+128
+00:10:26,240 --> 00:10:30,080
+of your support, and thank you all for watching. I'll see you next time.
+

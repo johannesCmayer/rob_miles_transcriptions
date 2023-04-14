@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:06,000
+Hey, you know how nobody really understands how to ensure the AI systems we build are safe and aligned with human values?
+
+2
+00:00:06,720 --> 00:00:11,040
+Are you someone who maybe would like to try to work on that problem, but you don't know enough about machine learning?
+
+3
+00:00:11,280 --> 00:00:18,400
+Well, an AI safety organization called Redwood Research is running a machine learning boot camp specifically for people interested in AI alignment
+
+4
+00:00:18,800 --> 00:00:26,080
+It's called MLab and it's an all expenses paid in-person boot camp in Berkeley, California between August the 15th and September the 2nd
+
+5
+00:00:26,560 --> 00:00:29,780
+They're looking for people to participate and also for potential teaching assistance
+
+6
+00:00:30,000 --> 00:00:32,480
+And they're open to students or people who are already working
+
+7
+00:00:33,040 --> 00:00:35,280
+I might actually be there myself if the timing works out
+
+8
+00:00:35,840 --> 00:00:40,260
+And last time they ran this boot camp Redwood Research ended up hiring several of the participants
+
+9
+00:00:40,560 --> 00:00:43,120
+So it might actually be a way into a career in AI safety
+
+10
+00:00:43,760 --> 00:00:50,260
+If you're interested look up Redwood MLab 2 and apply now because the deadline is this Friday, May 27th
+

@@ -1,0 +1,36 @@
+1
+00:00:00,000 --> 00:00:05,760
+Modern language models can write poems, explain jokes, and convince people that they're
+
+2
+00:00:05,760 --> 00:00:11,360
+sentient. But we have almost no idea how they work. Like, what are they doing internally?
+
+3
+00:00:11,360 --> 00:00:16,120
+If that bothers you, you might want to apply to Remix, a neural network interpretability
+
+4
+00:00:16,120 --> 00:00:22,280
+residency run by Redwood Research. If accepted, you'll build on recent progress in interpretability
+
+5
+00:00:22,280 --> 00:00:27,120
+research to reverse-engineer the mechanisms that models use to generate language. This
+
+6
+00:00:27,480 --> 00:00:31,320
+is a small and new field, so it's very possible that you could uncover something important
+
+7
+00:00:31,320 --> 00:00:36,480
+and surprising. The paid research program takes place in Berkeley, California in December
+
+8
+00:00:36,480 --> 00:00:40,880
+or January, depending on your availability. If you're interested, look up Redwood Research
+
+9
+00:00:40,880 --> 00:00:44,480
+Remix and apply right now, because the deadline is November 13th.
+

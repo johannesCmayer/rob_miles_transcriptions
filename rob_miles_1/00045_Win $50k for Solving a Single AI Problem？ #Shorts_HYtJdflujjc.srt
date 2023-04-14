@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:02,200
+Say you've got a huge diamond you want to protect.
+
+2
+00:00:02,200 --> 00:00:04,000
+So you put it in a cool sci-fi vault
+
+3
+00:00:04,000 --> 00:00:05,740
+with all sorts of sensors and actuators.
+
+4
+00:00:05,740 --> 00:00:07,440
+You have an AI system to run the vault,
+
+5
+00:00:07,440 --> 00:00:08,480
+and the plans it comes up with
+
+6
+00:00:08,480 --> 00:00:10,560
+might be too complex for you to understand,
+
+7
+00:00:10,560 --> 00:00:13,080
+but it also predicts the final view from the camera
+
+8
+00:00:13,080 --> 00:00:14,480
+after the plan happens.
+
+9
+00:00:14,480 --> 00:00:15,900
+So before you okay a plan,
+
+10
+00:00:15,900 --> 00:00:18,560
+you can check that the diamond is still there at the end.
+
+11
+00:00:18,560 --> 00:00:20,760
+But imagine a plan that allows a thief to come in
+
+12
+00:00:20,760 --> 00:00:22,480
+and set up a screen in front of the camera
+
+13
+00:00:22,480 --> 00:00:23,780
+showing a diamond.
+
+14
+00:00:23,780 --> 00:00:25,120
+The predicted outcome looks good,
+
+15
+00:00:25,120 --> 00:00:27,640
+so you okay the plan and the diamond is stolen.
+
+16
+00:00:27,640 --> 00:00:29,020
+But this should be avoidable, right?
+
+17
+00:00:29,020 --> 00:00:30,900
+In order to predict the right fake image,
+
+18
+00:00:30,900 --> 00:00:33,380
+the AI has to know that the diamond's been stolen.
+
+19
+00:00:33,380 --> 00:00:35,340
+But how do you get that information out?
+
+20
+00:00:35,340 --> 00:00:36,980
+Solving this problem in its hardest form
+
+21
+00:00:36,980 --> 00:00:38,500
+is extremely difficult.
+
+22
+00:00:38,500 --> 00:00:39,540
+So difficult, in fact,
+
+23
+00:00:39,540 --> 00:00:40,900
+that the Alignment Research Center
+
+24
+00:00:40,900 --> 00:00:44,320
+is offering prizes of five to $50,000 for good ideas.
+
+25
+00:00:44,320 --> 00:00:45,700
+So if you think you've got a solution
+
+26
+00:00:45,700 --> 00:00:48,180
+based on the description I've just given, you don't.
+
+27
+00:00:48,180 --> 00:00:49,380
+Read the full technical report.
+
+28
+00:00:49,380 --> 00:00:52,660
+It's 105 pages of reasons why your idea won't work.
+
+29
+00:00:52,660 --> 00:00:54,260
+But if you've carefully gone through all of that
+
+30
+00:00:54,260 --> 00:00:55,500
+and still think you've got something,
+
+31
+00:00:55,500 --> 00:00:56,780
+send it in, link below.
+
+32
+00:00:56,780 --> 00:00:58,500
+The deadline is February 15th.
+
+33
+00:00:58,500 --> 00:00:59,940
+I think I'll have a go myself.
+

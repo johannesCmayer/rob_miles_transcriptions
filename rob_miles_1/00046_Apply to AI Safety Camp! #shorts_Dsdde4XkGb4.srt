@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:02,720
+So you may have seen that recent video about inner misalignment,
+
+2
+00:00:02,720 --> 00:00:05,520
+where researchers train an agent to pursue a particular objective,
+
+3
+00:00:05,520 --> 00:00:08,480
+but then they find that when they try it in a slightly different environment,
+
+4
+00:00:08,480 --> 00:00:11,520
+it turns out that it's actually pursuing quite a different objective.
+
+5
+00:00:11,520 --> 00:00:15,240
+The researchers who ran those experiments actually only met each other this year
+
+6
+00:00:15,240 --> 00:00:17,960
+when they joined a program called AI Safety Camp,
+
+7
+00:00:17,960 --> 00:00:20,200
+which they're actually running again this year online.
+
+8
+00:00:20,200 --> 00:00:23,600
+And this time around, they have established researchers from OpenAI,
+
+9
+00:00:23,600 --> 00:00:26,400
+the Future of Humanity Institute, and the Center on Long-Term Risk,
+
+10
+00:00:26,400 --> 00:00:30,280
+who are acting as mentors to provide open problems for people to work on.
+
+11
+00:00:30,280 --> 00:00:32,320
+They're looking for people from a wide range of backgrounds,
+
+12
+00:00:32,320 --> 00:00:40,120
+including history, front-end web development, biology, and tabletop game design.
+
+13
+00:00:40,120 --> 00:00:44,400
+There's actually no mathematics or computer science required to apply.
+
+14
+00:00:44,400 --> 00:00:45,880
+So I thought you'd be interested.
+
+15
+00:00:45,880 --> 00:00:50,720
+If you want to check it out, the website for AI Safety Camp is aisafety.camp.
+
+16
+00:00:50,720 --> 00:00:52,280
+I'll put a link in the description anyway.
+
+17
+00:00:52,280 --> 00:00:53,800
+But yeah, go check that out.
+
+18
+00:00:53,800 --> 00:00:57,560
+If you see anything that you might like to work on, go ahead and apply.
+
+19
+00:00:57,560 --> 00:00:59,200
+The deadline is the 1st of December.
+

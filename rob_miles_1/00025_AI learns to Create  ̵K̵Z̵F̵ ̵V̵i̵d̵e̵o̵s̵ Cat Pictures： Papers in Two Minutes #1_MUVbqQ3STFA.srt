@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:05,440
+Dear fellow scholars, this is Papers in Two Minutes with Robert Samuel Koenigsberg-Miles.
+
+2
+00:00:06,400 --> 00:00:10,400
+Okay, I'm making this video for a few reasons. Firstly, I've had a lot of comments from people
+
+3
+00:00:10,400 --> 00:00:15,360
+saying they'd like me to do videos like Karoli Jonae-Fahir over at Two Minute Papers, so this
+
+4
+00:00:15,360 --> 00:00:19,840
+is that. If you're confused, link in the description, check out that channel, it's amazing.
+
+5
+00:00:19,840 --> 00:00:24,160
+Secondly, this video is a follow-up to a video of me that recently went out on Computerphile
+
+6
+00:00:24,160 --> 00:00:28,960
+about generative adversarial networks. Definitely check that out if you haven't yet,
+
+7
+00:00:28,960 --> 00:00:33,520
+again link in the description. This video will make a lot more sense if you've seen that one.
+
+8
+00:00:33,520 --> 00:00:37,760
+So on the Computerphile video, there were a fairly large number of comments about there
+
+9
+00:00:37,760 --> 00:00:42,240
+not being enough pictures in that video, not enough sort of demonstrations or visualizations of
+
+10
+00:00:43,200 --> 00:00:46,960
+the actual images being produced by these networks. And that's largely my fault,
+
+11
+00:00:46,960 --> 00:00:52,160
+I told Sean I would send him links of the papers I was talking about, and I forgot to do that,
+
+12
+00:00:52,160 --> 00:00:56,480
+but we can talk about them here. So at the end of that video I was talking about doing arithmetic
+
+13
+00:00:56,480 --> 00:01:03,120
+on the vectors in the latent space. If you take your men wearing sunglasses vector, subtract
+
+14
+00:01:03,120 --> 00:01:08,960
+the man vector, and add the woman vector, you get a point in your space. And if you run that
+
+15
+00:01:08,960 --> 00:01:13,840
+through the generator, you get a woman wearing sunglasses. And people were asking if that was
+
+16
+00:01:13,840 --> 00:01:18,240
+a real thing or hypothetical, and if they could see pictures of it and so on. So that came from
+
+17
+00:01:18,240 --> 00:01:22,720
+this paper, Unsupervised Representation Learning with Deep Convolutional Generative Adversarial
+
+18
+00:01:22,720 --> 00:01:27,680
+Networks by Radford and Metz. And I was talking specifically about figure 7. There's a link to
+
+19
+00:01:27,680 --> 00:01:32,480
+this paper in the description as well. So you can see here you have a bunch of images of men wearing
+
+20
+00:01:32,480 --> 00:01:37,600
+sunglasses, and then the average of all of those latent vectors is this image of a man with glasses.
+
+21
+00:01:38,160 --> 00:01:41,760
+Then we do the same thing for a man without glasses and a woman without glasses.
+
+22
+00:01:42,560 --> 00:01:49,360
+And then we can do arithmetic on those input vectors and find that man with glasses minus
+
+23
+00:01:49,360 --> 00:01:55,280
+man without glasses plus woman without glasses gives us images of a woman with glasses.
+
+24
+00:01:56,000 --> 00:01:59,760
+They've also got another one here in this same figure that does the same thing with smiling.
+
+25
+00:01:59,760 --> 00:02:05,760
+So you take a smiling woman vector, subtract the vector for a woman with a neutral expression,
+
+26
+00:02:05,760 --> 00:02:11,440
+and then add the vector for a man with a neutral expression, and you get a smiling man,
+
+27
+00:02:12,080 --> 00:02:18,000
+which is pretty cool. So we can see that movements in the latent space have meaning in
+
+28
+00:02:18,000 --> 00:02:23,120
+human understandable aspects of the image. I also mentioned that if you sort of take that point and
+
+29
+00:02:23,120 --> 00:02:30,160
+smoothly move it around the latent space, you get a smoothly varying picture of a cat. Now when I
+
+30
+00:02:30,160 --> 00:02:34,320
+said that, I'd never actually seen anyone do it. I just figured from mathematics that it was possible.
+
+31
+00:02:34,880 --> 00:02:39,920
+But just after that video went live, this paper was made available, which included as part of
+
+32
+00:02:39,920 --> 00:02:45,200
+their demo video exactly that, smoothly moving around the latent space to produce smoothly
+
+33
+00:02:45,200 --> 00:02:53,280
+varying cat pictures. And the results are terrifying, actually. I like how the network decided
+
+34
+00:02:53,280 --> 00:02:57,920
+that black bordered white text in impact font is an important component of a cat image. Wonder how
+
+35
+00:02:57,920 --> 00:03:02,400
+that happened. But the core point of this paper relates to something else I said in the computer
+
+36
+00:03:02,400 --> 00:03:07,200
+file video. They're fairly low resolution right now. Pro tip, whenever you mention some limitation
+
+37
+00:03:07,200 --> 00:03:12,880
+of AI, always add right now or yet because there's probably someone out there at that very moment
+
+38
+00:03:12,880 --> 00:03:17,040
+working on something that'll prove you wrong. Anyway, this new paper uses a fascinating technique
+
+39
+00:03:17,040 --> 00:03:23,200
+of growing the neural network as it's being trained. So new layers of neurons are added as the training
+
+40
+00:03:23,200 --> 00:03:27,680
+progresses to allow very large networks without having to train such a large number of neurons
+
+41
+00:03:27,680 --> 00:03:32,800
+from the very beginning. This allows the system to generate unprecedentedly high resolution images.
+
+42
+00:03:32,800 --> 00:03:37,440
+I mean, look at these results. It's just, just beautiful. It's nice to be able to take a break
+
+43
+00:03:37,440 --> 00:03:42,080
+from being deeply concerned about the impact of AI on the future of humanity and just be
+
+44
+00:03:42,080 --> 00:03:46,400
+deeply concerned about the output of this network. What is that? What is that?
+
+45
+00:03:48,320 --> 00:03:52,080
+Anyway, I'm sure you're now wondering, assuming I can get this video out before everyone's already
+
+46
+00:03:52,080 --> 00:03:56,880
+seen this, what it looks like to smoothly move around the latent space for this celebrity faces
+
+47
+00:03:56,880 --> 00:04:08,000
+network. It looks like this. I'm just going to let this run. I think it's completely mesmerizing.
+
+48
+00:04:08,560 --> 00:04:11,760
+There's a link in the description to the video that I got this from,
+
+49
+00:04:12,720 --> 00:04:16,640
+which has a lot more examples of the things that they can do with this technique,
+
+50
+00:04:16,640 --> 00:04:33,920
+and it's really, really excellent. There's also a link to the paper. You can read that as well.
+
+51
+00:04:38,560 --> 00:04:59,120
+I want to thank my generous patrons, these people. And in this video, I'm especially thanking
+
+52
+00:04:59,120 --> 00:05:04,640
+Alexander Hartwig-Nielsen, who's supported the channel for a really long time. Thank you so much.
+
+53
+00:05:04,640 --> 00:05:08,240
+I want to apologize to Two Minute Papers and say,
+
+54
+00:05:08,240 --> 00:05:12,240
+thank you for watching and for your generous support, and I'll see you next time.
+
