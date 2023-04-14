@@ -1,0 +1,776 @@
+1
+00:00:00,000 --> 00:00:05,000
+I was just recently at the Electromagnetic Field Festival,
+
+2
+00:00:05,000 --> 00:00:11,000
+which is an amazing hacker-maker festival,
+
+3
+00:00:11,000 --> 00:00:13,000
+camping festival though.
+
+4
+00:00:13,000 --> 00:00:17,000
+So it's in a field, electromagnetic field.
+
+5
+00:00:17,000 --> 00:00:20,000
+It's a great name, it's a quality name.
+
+6
+00:00:23,000 --> 00:00:28,000
+Something that they always do at EMF is they hand out badges
+
+7
+00:00:28,000 --> 00:00:30,000
+and because it's a maker festival,
+
+8
+00:00:30,000 --> 00:00:35,000
+the badges are actually little electronic devices.
+
+9
+00:00:35,000 --> 00:00:36,000
+It's a fairly sophisticated machine.
+
+10
+00:00:36,000 --> 00:00:37,000
+It's got a lot of features.
+
+11
+00:00:37,000 --> 00:00:41,000
+Obviously it has the screen, but it also has Wi-Fi.
+
+12
+00:00:41,000 --> 00:00:43,000
+It in fact has an app library
+
+13
+00:00:43,000 --> 00:00:46,000
+and these are all downloaded over the Wi-Fi and installed.
+
+14
+00:00:46,000 --> 00:00:49,000
+Like, let's install a game.
+
+15
+00:00:49,000 --> 00:00:51,000
+What should we do? Pong.
+
+16
+00:00:53,000 --> 00:00:54,000
+Oh, okay, yeah, yeah.
+
+17
+00:00:54,000 --> 00:00:57,000
+So I've got to move my bat by tilting.
+
+18
+00:00:59,000 --> 00:01:01,000
+Oh dear, I'm losing.
+
+19
+00:01:02,000 --> 00:01:05,000
+Most of these apps were developed actually at the festival
+
+20
+00:01:05,000 --> 00:01:06,000
+or shortly afterwards.
+
+21
+00:01:06,000 --> 00:01:11,000
+And the reason that it was so easy to make all of these apps
+
+22
+00:01:11,000 --> 00:01:15,000
+is because the board uses MicroPython,
+
+23
+00:01:15,000 --> 00:01:18,000
+which is something which I hadn't used before
+
+24
+00:01:18,000 --> 00:01:21,000
+and I thought, and there's no Computerphile video about it,
+
+25
+00:01:21,000 --> 00:01:24,000
+so I thought I would just talk a little bit about it
+
+26
+00:01:24,000 --> 00:01:27,000
+as a way of programming microcontrollers.
+
+27
+00:01:27,000 --> 00:01:34,000
+So the most common hobby, small computing type things
+
+28
+00:01:34,000 --> 00:01:37,000
+are obviously the Arduino and the Raspberry Pi.
+
+29
+00:01:37,000 --> 00:01:40,000
+The Arduino is designed to be extremely easy to use
+
+30
+00:01:40,000 --> 00:01:44,000
+and it is relative to the microcontrollers that came before it.
+
+31
+00:01:44,000 --> 00:01:47,000
+But you still have to write C code,
+
+32
+00:01:47,000 --> 00:01:51,000
+which is not the easiest language for beginners to pick up.
+
+33
+00:01:51,000 --> 00:01:54,000
+It's got a few complexities and some gotchas there,
+
+34
+00:01:54,000 --> 00:01:56,000
+which any language has.
+
+35
+00:01:56,000 --> 00:01:59,000
+C is a tricky language in many ways.
+
+36
+00:01:59,000 --> 00:02:03,000
+Whereas this is a microcontroller that you can program in Python.
+
+37
+00:02:03,000 --> 00:02:07,000
+And so previously if you wanted to have a small computer running Python,
+
+38
+00:02:07,000 --> 00:02:10,000
+probably the way you'd do it is to use a Raspberry Pi.
+
+39
+00:02:10,000 --> 00:02:13,000
+But a Raspberry Pi obviously is a much bigger deal.
+
+40
+00:02:13,000 --> 00:02:15,000
+It's a fully fledged computer.
+
+41
+00:02:15,000 --> 00:02:17,000
+You could put a real operating system on there
+
+42
+00:02:17,000 --> 00:02:20,000
+or even something like Windows if you wanted to.
+
+43
+00:02:22,000 --> 00:02:25,000
+I don't judge if you wanted to do that.
+
+44
+00:02:25,000 --> 00:02:28,000
+Your own Raspberry Pi in your own time.
+
+45
+00:02:28,000 --> 00:02:31,000
+Behind closed doors, you know, it's fine.
+
+46
+00:02:31,000 --> 00:02:34,000
+But the point is having a whole operating system
+
+47
+00:02:34,000 --> 00:02:38,000
+is just a whole bunch of extra complexity,
+
+48
+00:02:38,000 --> 00:02:43,000
+which is unnecessary for a lot of small microcontroller type tasks.
+
+49
+00:02:43,000 --> 00:02:50,000
+So it's nice to have a system that you can literally just put a Python file on
+
+50
+00:02:50,000 --> 00:02:55,000
+and it runs directly with no appreciable operating system underneath.
+
+51
+00:02:55,000 --> 00:02:57,000
+It's just Python on a microcontroller.
+
+52
+00:02:57,000 --> 00:02:59,000
+It was a kickstarter a couple of years ago.
+
+53
+00:02:59,000 --> 00:03:03,000
+They developed this interpreter to allow Python to run on microcontrollers
+
+54
+00:03:03,000 --> 00:03:07,000
+and then also a board specifically designed for this, which you can buy.
+
+55
+00:03:07,000 --> 00:03:10,000
+But it's open source.
+
+56
+00:03:10,000 --> 00:03:13,000
+So there are a few different boards that can run it,
+
+57
+00:03:13,000 --> 00:03:16,000
+including this, the tilde.
+
+58
+00:03:16,000 --> 00:03:18,000
+But obviously you can't buy these, I don't think.
+
+59
+00:03:18,000 --> 00:03:21,000
+You only get them by going to EMF.
+
+60
+00:03:21,000 --> 00:03:24,000
+So it's kind of a bit like the Arduino model, is it?
+
+61
+00:03:24,000 --> 00:03:26,000
+Right, quite similar to an Arduino, yeah.
+
+62
+00:03:26,000 --> 00:03:28,000
+Anyone could buy, everyone could make their own,
+
+63
+00:03:28,000 --> 00:03:30,000
+but sometimes it might be easier just to buy one that they're making
+
+64
+00:03:30,000 --> 00:03:32,000
+or something like that.
+
+65
+00:03:32,000 --> 00:03:33,000
+Yeah, yeah.
+
+66
+00:03:33,000 --> 00:03:37,000
+And it's just, it's like a standard, I suppose,
+
+67
+00:03:37,000 --> 00:03:42,000
+that once that's defined, then anybody can make their own chip
+
+68
+00:03:42,000 --> 00:03:45,000
+or they can port MicroPython to a different chip.
+
+69
+00:03:45,000 --> 00:03:49,000
+And there's a bunch of different boards that it can run on.
+
+70
+00:03:49,000 --> 00:03:51,000
+Let's just write hello world to type an application.
+
+71
+00:03:51,000 --> 00:03:53,000
+You just plug it in with USB.
+
+72
+00:03:53,000 --> 00:03:55,000
+This is actually the one I use to charge my phone.
+
+73
+00:03:55,000 --> 00:03:57,000
+This is the thing I like about this, actually, is the simplicity of it.
+
+74
+00:03:57,000 --> 00:04:01,000
+You plug it in, it just registers itself just like a memory stick
+
+75
+00:04:01,000 --> 00:04:04,000
+or anything else that you've plugged in as USB storage.
+
+76
+00:04:04,000 --> 00:04:07,000
+And then you get, you know, a directory.
+
+77
+00:04:07,000 --> 00:04:11,000
+Just dump a Python file in there, I think call it main.py,
+
+78
+00:04:11,000 --> 00:04:12,000
+and it will run it.
+
+79
+00:04:12,000 --> 00:04:15,000
+And that's all there is to it.
+
+80
+00:04:15,000 --> 00:04:19,000
+With the tilde, with this badge.
+
+81
+00:04:19,000 --> 00:04:20,000
+Tilde, is that the name of the badge?
+
+82
+00:04:20,000 --> 00:04:21,000
+Yes.
+
+83
+00:04:21,000 --> 00:04:23,000
+Previous ones were actually shaped like a tilde character.
+
+84
+00:04:23,000 --> 00:04:25,000
+And yeah, because it has this app system,
+
+85
+00:04:25,000 --> 00:04:28,000
+it's a little bit more complicated, but not much.
+
+86
+00:04:28,000 --> 00:04:31,000
+You just have to make your Python file in a particular directory
+
+87
+00:04:31,000 --> 00:04:33,000
+and give it a little header.
+
+88
+00:04:33,000 --> 00:04:36,000
+The standard thing for an Arduino is blink, right?
+
+89
+00:04:36,000 --> 00:04:39,000
+Where you have the LED and you turn it on and off every half second.
+
+90
+00:04:39,000 --> 00:04:41,000
+That's the tutorial thing.
+
+91
+00:04:41,000 --> 00:04:42,000
+So let's do that.
+
+92
+00:04:42,000 --> 00:04:43,000
+Fill in some details here.
+
+93
+00:04:43,000 --> 00:04:45,000
+I am Robert Miles.
+
+94
+00:04:45,000 --> 00:04:48,000
+This program will be called Hello World.
+
+95
+00:04:48,000 --> 00:04:51,000
+There's a sort of a, I don't know if you'd call it an operating system,
+
+96
+00:04:51,000 --> 00:04:54,000
+there's a little interface that the badge comes with
+
+97
+00:04:54,000 --> 00:04:57,000
+that lets you navigate through and select which app you want to launch
+
+98
+00:04:57,000 --> 00:04:58,000
+and that kind of thing.
+
+99
+00:04:58,000 --> 00:05:01,000
+So it needs to know what the app is called and that kind of thing.
+
+100
+00:05:01,000 --> 00:05:04,000
+If you get a regular, like a Pi board, the one from the Kickstarter
+
+101
+00:05:04,000 --> 00:05:08,000
+or any of those, I believe you just put the file on and it runs it
+
+102
+00:05:08,000 --> 00:05:09,000
+and that's the end of it.
+
+103
+00:05:09,000 --> 00:05:10,000
+Here's the header stuff.
+
+104
+00:05:10,000 --> 00:05:13,000
+And then we're importing a library.
+
+105
+00:05:13,000 --> 00:05:17,000
+Pi B is this library which contains stuff
+
+106
+00:05:17,000 --> 00:05:19,000
+for interacting with the board's hardware.
+
+107
+00:05:19,000 --> 00:05:23,000
+So we're just initializing this LED variable to be LED 1,
+
+108
+00:05:23,000 --> 00:05:26,000
+this little one, the one next to the one that's currently flashing, LED A.
+
+109
+00:05:26,000 --> 00:05:29,000
+And then we just have a while loop, toggle the LED,
+
+110
+00:05:29,000 --> 00:05:32,000
+wait 500 milliseconds, which is half a second.
+
+111
+00:05:32,000 --> 00:05:34,000
+And that is it.
+
+112
+00:05:34,000 --> 00:05:37,000
+All we need to do is put this file in a directory
+
+113
+00:05:37,000 --> 00:05:41,000
+called Hello World or whatever in the app directory.
+
+114
+00:05:41,000 --> 00:05:42,000
+And that's it.
+
+115
+00:05:42,000 --> 00:05:43,000
+Save that.
+
+116
+00:05:43,000 --> 00:05:46,000
+Unmount it.
+
+117
+00:05:46,000 --> 00:05:52,000
+Very important to safely remove hardware.
+
+118
+00:05:52,000 --> 00:05:57,000
+Don't just yank out your USB devices willy-nilly.
+
+119
+00:05:57,000 --> 00:05:59,000
+Usually I'd say life is too short for that kind of thing.
+
+120
+00:05:59,000 --> 00:06:00,000
+And there we are.
+
+121
+00:06:00,000 --> 00:06:01,000
+So now we're running it.
+
+122
+00:06:01,000 --> 00:06:03,000
+The light is blinking.
+
+123
+00:06:03,000 --> 00:06:04,000
+Success.
+
+124
+00:06:04,000 --> 00:06:06,000
+But obviously this board is capable of a lot more.
+
+125
+00:06:06,000 --> 00:06:08,000
+It's got this nice screen.
+
+126
+00:06:08,000 --> 00:06:10,000
+Let's put something on the screen.
+
+127
+00:06:10,000 --> 00:06:12,000
+Again, there's this nice graphics library.
+
+128
+00:06:12,000 --> 00:06:17,000
+You have to initialize it.
+
+129
+00:06:17,000 --> 00:06:25,000
+And then I think you can just do, this is from memory,
+
+130
+00:06:25,000 --> 00:06:27,000
+I think you just do that and then you give it the coordinates
+
+131
+00:06:27,000 --> 00:06:33,000
+you want to write at the text and the color,
+
+132
+00:06:34,000 --> 00:06:36,000
+which are just in there as constants.
+
+133
+00:06:36,000 --> 00:06:39,000
+And I think that should do it.
+
+134
+00:06:39,000 --> 00:06:41,000
+So we restart the board and then we can just,
+
+135
+00:06:41,000 --> 00:06:43,000
+I'm editing this on the board itself.
+
+136
+00:06:43,000 --> 00:06:47,000
+Like this file, I have it open on the external drive,
+
+137
+00:06:47,000 --> 00:06:48,000
+which is the board.
+
+138
+00:06:48,000 --> 00:06:52,000
+So you can do all of your development right there on the board.
+
+139
+00:06:52,000 --> 00:06:53,000
+Unmount it again.
+
+140
+00:06:53,000 --> 00:06:54,000
+Restart.
+
+141
+00:06:54,000 --> 00:06:55,000
+Yeah.
+
+142
+00:06:55,000 --> 00:06:57,000
+And now it says Hello World.
+
+143
+00:06:57,000 --> 00:06:58,000
+And the blinking light still.
+
+144
+00:06:58,000 --> 00:07:00,000
+So it's really that simple.
+
+145
+00:07:00,000 --> 00:07:02,000
+Arduino is pretty simple, but this is easier.
+
+146
+00:07:02,000 --> 00:07:05,000
+And then of course you have the Python language,
+
+147
+00:07:05,000 --> 00:07:11,000
+which is a wonderful, powerful and easy to use language,
+
+148
+00:07:11,000 --> 00:07:13,000
+which I highly recommend to anyone.
+
+149
+00:07:13,000 --> 00:07:16,000
+The board itself has a bunch of features.
+
+150
+00:07:16,000 --> 00:07:20,000
+Firstly, output pins for all kinds of different things.
+
+151
+00:07:20,000 --> 00:07:23,000
+So the idea is you can use this board,
+
+152
+00:07:23,000 --> 00:07:27,000
+much like you would an Arduino, to drive some other electronics.
+
+153
+00:07:27,000 --> 00:07:31,000
+These connectors around the edge here are designed for conductive thread.
+
+154
+00:07:31,000 --> 00:07:36,000
+So if you wanted to make some kind of clothing that does something fancy
+
+155
+00:07:36,000 --> 00:07:39,000
+with your badge built into it, you can do that.
+
+156
+00:07:39,000 --> 00:07:44,000
+Somewhat bizarrely, these contacts here are for four servo motors.
+
+157
+00:07:44,000 --> 00:07:46,000
+So you could drive servos with it.
+
+158
+00:07:46,000 --> 00:07:47,000
+There's four of them.
+
+159
+00:07:47,000 --> 00:07:51,000
+If you wanted to make a drone, possibilities are endless.
+
+160
+00:07:51,000 --> 00:07:53,000
+It's the ZomboCom of boards.
+
+161
+00:07:53,000 --> 00:07:55,000
+You know, the only limit is yourself.
+
+162
+00:07:55,000 --> 00:07:58,000
+And there's a competition for people who went to EMF
+
+163
+00:07:58,000 --> 00:08:03,000
+who can do the coolest thing with the badge before next time.
+
+164
+00:08:03,000 --> 00:08:05,000
+I'm not sure if I'm going to enter that.
+
+165
+00:08:05,000 --> 00:08:07,000
+But I did try making an app.
+
+166
+00:08:07,000 --> 00:08:15,000
+I wrote a Solitaire game because I was having fun with the graphics libraries
+
+167
+00:08:15,000 --> 00:08:18,000
+and I wanted to see if I could draw the different cards and stuff.
+
+168
+00:08:18,000 --> 00:08:20,000
+I don't like Solitaire.
+
+169
+00:08:22,000 --> 00:08:24,000
+So I only did the best bit.
+
+170
+00:08:25,000 --> 00:08:29,000
+This is the good bit of Solitaire, the bouncing cards.
+
+171
+00:08:30,000 --> 00:08:35,000
+So we've got Windows 3.1 references mixed in with war games,
+
+172
+00:08:35,000 --> 00:08:38,000
+mixed in with your sense of humour.
+
+173
+00:08:38,000 --> 00:08:39,000
+Yeah, exactly.
+
+174
+00:08:39,000 --> 00:08:41,000
+I just wanted to see if I could do it.
+
+175
+00:08:41,000 --> 00:08:44,000
+So have you drawn those cards and everything, or are they in the libraries?
+
+176
+00:08:44,000 --> 00:08:45,000
+No, yeah.
+
+177
+00:08:45,000 --> 00:08:49,000
+In fact, these are all drawn with the basic drawing functions.
+
+178
+00:08:49,000 --> 00:08:52,000
+So fill rectangle or fill polygon, that kind of thing.
+
+179
+00:08:52,000 --> 00:08:53,000
+Simple.
+
+180
+00:08:53,000 --> 00:08:55,000
+I can show you the program, actually.
+
+181
+00:08:55,000 --> 00:08:58,000
+This is my Solitaire program.
+
+182
+00:08:58,000 --> 00:09:01,000
+So this is the same delay function we were using before.
+
+183
+00:09:01,000 --> 00:09:05,000
+And define the cards.
+
+184
+00:09:05,000 --> 00:09:07,000
+I don't have face cards yet.
+
+185
+00:09:07,000 --> 00:09:09,000
+I don't have the Jack, Queen, and King.
+
+186
+00:09:09,000 --> 00:09:13,000
+That requires more artistic skill than I'm able to bring to bear right now.
+
+187
+00:09:13,000 --> 00:09:16,000
+And also the thing I like about it right now is it's one file.
+
+188
+00:09:16,000 --> 00:09:19,000
+I don't have any external images to copy in or anything.
+
+189
+00:09:19,000 --> 00:09:20,000
+Basic stuff.
+
+190
+00:09:20,000 --> 00:09:22,000
+None of it's complicated.
+
+191
+00:09:25,000 --> 00:09:31,000
+And you expose the plastic at the surface in particular regions according to the pattern.
+
+192
+00:09:31,000 --> 00:09:35,000
+And the important thing is when this particular polymer is exposed to light,
+
+193
+00:09:35,000 --> 00:09:37,000
+it becomes soluble.
+
+194
+00:09:37,000 --> 00:09:40,000
+The regions that aren't exposed aren't soluble.
+

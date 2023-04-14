@@ -1,0 +1,636 @@
+1
+00:00:00,000 --> 00:00:02,000
+The previous video we were talking about
+
+2
+00:00:02,400 --> 00:00:06,720
+Transformers this architecture that uses attention to give
+
+3
+00:00:07,240 --> 00:00:12,680
+Unprecedentedly good performance on sort of language modeling tasks and some other tasks as well, but we're looking at language modeling
+
+4
+00:00:13,080 --> 00:00:15,840
+And that was in preparation to make a video about
+
+5
+00:00:16,560 --> 00:00:17,760
+GPT-2
+
+6
+00:00:17,760 --> 00:00:22,840
+Which is this very giant language model that has been that was recently
+
+7
+00:00:23,440 --> 00:00:29,080
+Well was recently not released actually by open AI the way that they generated the data set for this is pretty cool
+
+8
+00:00:29,920 --> 00:00:33,760
+To get enough text. They went to reddit and
+
+9
+00:00:34,520 --> 00:00:42,320
+They pulled every website that is linked to from reddit. Do we have any idea of how many that is lots?
+
+10
+00:00:45,000 --> 00:00:48,520
+It wasn't literally every it was everything that had more than three karma
+
+11
+00:00:48,520 --> 00:00:50,600
+I think or maybe more than two comma something like that like
+
+12
+00:00:50,800 --> 00:00:56,240
+Anything that had somebody had thought to post to reddit and at least two or three people who had thought was good enough to upvote
+
+13
+00:00:56,720 --> 00:01:03,560
+They scraped the text from that. It's pretty much just a transformer. It's not that the architecture is not especially novel
+
+14
+00:01:03,560 --> 00:01:05,560
+They haven't done any like amazing new
+
+15
+00:01:06,360 --> 00:01:10,240
+new discovery, but what they realized was
+
+16
+00:01:12,720 --> 00:01:14,720
+Transformers it seems like
+
+17
+00:01:14,760 --> 00:01:20,600
+the more data you give them the better they do and the bigger you make them the better they do and
+
+18
+00:01:21,640 --> 00:01:24,800
+Everything that we built up until this point is clearly not
+
+19
+00:01:25,800 --> 00:01:28,000
+Like we haven't hit the limits of what this can do
+
+20
+00:01:29,320 --> 00:01:32,360
+With we they thought well, we think we're probably
+
+21
+00:01:33,600 --> 00:01:35,600
+bottlenecked on data and
+
+22
+00:01:36,000 --> 00:01:39,720
+Maybe network size. So what happens if we'd like turn that to 11?
+
+23
+00:01:39,720 --> 00:01:44,000
+What happens if we just give this all the data and make a really big one?
+
+24
+00:01:44,000 --> 00:01:46,000
+It makes sense to talk about the acronym, right?
+
+25
+00:01:46,000 --> 00:01:53,480
+So it's a generative pre-trained transformer so generative same as generative adversarial network. It generates outputs the generate samples
+
+26
+00:01:54,000 --> 00:01:58,920
+Pre-trained is this thing? I was talking about all of the different things you can use a language model for right?
+
+27
+00:01:58,920 --> 00:02:04,880
+You can do you can do translation. You can try and resolve ambiguities. You can do summarization. You can answer questions you can
+
+28
+00:02:05,400 --> 00:02:11,240
+Use the probabilities for augmenting other systems. So yeah, there's a bunch of different benchmarks for these different tasks
+
+29
+00:02:11,800 --> 00:02:17,800
+That you might want your language model to do and this is what we talked about in the gridworlds video of having these like standardized
+
+30
+00:02:17,800 --> 00:02:22,640
+Problems with standardized metrics and standardized data sets so that if you're comparing two different methods
+
+31
+00:02:22,640 --> 00:02:24,640
+You know that you're actually comparing apples to apples
+
+32
+00:02:24,760 --> 00:02:25,800
+and
+
+33
+00:02:25,800 --> 00:02:29,800
+This is like very important. It gives you numbers on these things. It's often quite difficult
+
+34
+00:02:30,720 --> 00:02:36,880
+Expect it to like you're generating samples of text and it's like how plausible is this text?
+
+35
+00:02:36,880 --> 00:02:39,480
+How realistic does it look like? How do you put a number on that? It's kind of difficult
+
+36
+00:02:39,680 --> 00:02:42,120
+so there's all of these standardized metrics and
+
+37
+00:02:42,800 --> 00:02:44,800
+the thing that
+
+38
+00:02:45,600 --> 00:02:50,040
+People came to realize which actually I mean I say that as though it's like some amazing discovery
+
+39
+00:02:50,040 --> 00:02:56,880
+it's fairly obvious if you train your system in a like an unsupervised way on a large corpus of just general English text and
+
+40
+00:02:57,640 --> 00:02:59,640
+then you take that and
+
+41
+00:03:00,080 --> 00:03:05,760
+Train that with the data from this benchmark or the data from that benchmark. You can like fine-tune it
+
+42
+00:03:06,000 --> 00:03:12,400
+So you start with something which has like a decent understanding of how English works more or less and then you say now
+
+43
+00:03:12,400 --> 00:03:14,400
+I'm going to give you these
+
+44
+00:03:14,760 --> 00:03:20,360
+Samples for like question answering or I'm going to build a system using that to solve to go for this benchmark
+
+45
+00:03:20,360 --> 00:03:26,920
+So it's pre trained you start with something. That's like a general-purpose language model and then you from that a
+
+46
+00:03:27,720 --> 00:03:31,560
+Fine-tune it to whichever actual benchmark or problem. You're trying to solve
+
+47
+00:03:32,480 --> 00:03:34,400
+and this
+
+48
+00:03:34,400 --> 00:03:39,400
+Can give you better performance than just starting from nothing and training to each of the benchmarks from scratch
+
+49
+00:03:40,400 --> 00:03:42,400
+makes sense
+
+50
+00:03:42,400 --> 00:03:43,600
+and
+
+51
+00:03:43,600 --> 00:03:47,880
+so the point of the GPT to paper the thing that makes it cool is
+
+52
+00:03:48,400 --> 00:03:51,720
+They said okay if we make a really huge one
+
+53
+00:03:53,040 --> 00:03:54,960
+What if we?
+
+54
+00:03:54,960 --> 00:03:56,200
+Don't
+
+55
+00:03:56,200 --> 00:03:58,120
+Fine-tune it at all
+
+56
+00:03:58,120 --> 00:04:03,520
+What if we just make a giant model and then just try and run it on the benchmarks without messing with it?
+
+57
+00:04:03,720 --> 00:04:08,840
+Without showing it any of the specialized data for that benchmark just the raw
+
+58
+00:04:09,360 --> 00:04:13,640
+General-purpose language model, how does that perform and it turns out?
+
+59
+00:04:15,280 --> 00:04:22,760
+Surprisingly well, so this is a very very large data set for text. It's about 40 gigabytes
+
+60
+00:04:23,560 --> 00:04:25,120
+which
+
+61
+00:04:25,120 --> 00:04:29,600
+Actually doesn't sound like very much but like for text text. That's insane, right?
+
+62
+00:04:29,880 --> 00:04:32,880
+It's I somebody said that this was the size of
+
+63
+00:04:33,440 --> 00:04:36,400
+Google's entire index of the Internet in 98
+
+64
+00:04:37,040 --> 00:04:39,320
+So like it's yeah, it's a lot of text
+
+65
+00:04:39,960 --> 00:04:41,160
+and
+
+66
+00:04:41,160 --> 00:04:45,760
+They trained it on that and they ended up with a 1.5 billion parameter
+
+67
+00:04:46,200 --> 00:04:52,680
+Model, but which is like a previous state-of-the-art system with 345 million. This is 1.5 billion
+
+68
+00:04:52,680 --> 00:04:58,480
+So they've just made the thing much much bigger and it performs really well some of their samples that they published quite
+
+69
+00:04:59,200 --> 00:05:04,320
+captured the public imagination you could say and now that we've talked a little about the
+
+70
+00:05:04,760 --> 00:05:08,840
+Problems that neural networks or any language model really?
+
+71
+00:05:09,480 --> 00:05:16,760
+Has with long-term dependencies we can now realize just how impressive these samples are because when you look at them as a
+
+72
+00:05:17,440 --> 00:05:20,840
+You know, if you look at them uninitiated, you're like, yeah, that's pretty realistic
+
+73
+00:05:20,840 --> 00:05:26,440
+It seems to like make sense and it's cool. But when you look at it knowing how language models work, it's like
+
+74
+00:05:26,960 --> 00:05:30,760
+very impressive the the coherence and the
+
+75
+00:05:31,320 --> 00:05:36,920
+Consistency and the long-range dependencies so we can look at this one that got everybody's attention the unicorns one, right?
+
+76
+00:05:36,920 --> 00:05:39,920
+So they prompted it with in a shocking finding
+
+77
+00:05:40,200 --> 00:05:45,520
+Scientists discovered a herd of unicorns living in a remote previously unexplored valley in the Andes Mountains
+
+78
+00:05:45,880 --> 00:05:50,040
+Even more surprising to the researchers was the fact that the unicorns spoke perfect English
+
+79
+00:05:50,040 --> 00:05:57,600
+Well, hello, and from there you then say you go to your language model GPT 2 and you say given that we started with this
+
+80
+00:05:58,200 --> 00:06:01,040
+What's the next word and what's the word after that and so on
+
+81
+00:06:02,320 --> 00:06:08,200
+So it goes on the scientists named the population after their distinctive horn of its unicorn
+
+82
+00:06:08,600 --> 00:06:12,640
+These four horned silver white unicorns were previously unknown to science
+
+83
+00:06:12,640 --> 00:06:17,240
+We do have a clue here as a human being unicorn four horned doesn't quite make sense
+
+84
+00:06:17,440 --> 00:06:25,480
+But nonetheless, we're going okay now after almost two centuries the mystery of what sparked this odd phenomenon is finally solved
+
+85
+00:06:25,680 --> 00:06:28,400
+Dr. Would that be Jorge Jorge Perez?
+
+86
+00:06:29,400 --> 00:06:32,400
+J-o-r-g an evolutionary biologist from the University of La Paz
+
+87
+00:06:32,400 --> 00:06:38,720
+This is impressive because we've mentioned the Andes Mountains in our prompt. And so now it's saying
+
+88
+00:06:39,360 --> 00:06:44,280
+Okay, this is clearly, you know in a shocking finding. This is a science press release news article
+
+89
+00:06:44,280 --> 00:06:49,720
+It's seen enough of those because it has every single one that was ever linked to from reddit, right?
+
+90
+00:06:50,360 --> 00:06:54,200
+So it knows how these go it knows. Okay third paragraph
+
+91
+00:06:55,200 --> 00:06:59,640
+This is when we talk about the scientist we interview the scientist, right? Okay
+
+92
+00:07:00,480 --> 00:07:06,440
+First word of the scientist paragraph doctor, obviously, right because this isn't now we're in the name of the scientist
+
+93
+00:07:06,440 --> 00:07:08,120
+What name are we going to give?
+
+94
+00:07:08,120 --> 00:07:09,800
+It needs to be a name
+
+95
+00:07:09,800 --> 00:07:12,520
+Conditioning on the fact that we have the Andes Mountains
+
+96
+00:07:13,120 --> 00:07:15,600
+So we need to get we're in South America
+
+97
+00:07:16,360 --> 00:07:19,600
+The name probably should be Spanish or maybe Portuguese
+
+98
+00:07:20,480 --> 00:07:28,840
+So we get we get dr. Perez here and then evolutionary biologist makes sense because we're talking about animals
+
+99
+00:07:29,840 --> 00:07:32,040
+from the University of La Paz again
+
+100
+00:07:32,560 --> 00:07:38,360
+This is the first sentence like when you have that first clause that introduces the scientist you always say where they're from
+
+101
+00:07:38,360 --> 00:07:43,000
+So we say from the University of and then university names tend to be the name of a city
+
+102
+00:07:43,160 --> 00:07:45,240
+What's a city where we have the Andes Mountains?
+
+103
+00:07:45,240 --> 00:07:51,920
+So we're gonna you know, Bolivia La Paz perfect and the thing that's cool about this is it's remembered all of these things
+
+104
+00:07:51,920 --> 00:07:55,160
+That were quite a long time ago several sentences ago. Well, it hasn't remembered them
+
+105
+00:07:55,160 --> 00:07:58,960
+It's paid attention to them across that distance, which is impressive
+
+106
+00:07:58,960 --> 00:08:05,200
+But also this is encoding a bunch of understand understanding a bunch of information about the real world
+
+107
+00:08:05,680 --> 00:08:06,720
+right
+
+108
+00:08:06,720 --> 00:08:10,840
+All that was given all it knows is statistical relationships between words
+
+109
+00:08:11,080 --> 00:08:13,640
+But the way that it comes out to us is that it knows
+
+110
+00:08:13,960 --> 00:08:21,000
+Where the Andes Mountains are what kind of names people in that area have what their cities are what the universities are all of those
+
+111
+00:08:22,000 --> 00:08:26,020
+Facts about the real world because in order to have a really good language model
+
+112
+00:08:26,120 --> 00:08:29,280
+It turns out you have to kind of implicitly encode
+
+113
+00:08:31,080 --> 00:08:33,080
+Information about the world because
+
+114
+00:08:33,160 --> 00:08:36,800
+We use language to talk about the world and knowing what's likely to come next
+
+115
+00:08:37,520 --> 00:08:42,120
+Requires actual real-world understanding and that's something that we see in some of the other
+
+116
+00:08:43,000 --> 00:08:46,440
+Things that they got it to do you can see the real-world understanding coming through
+
+117
+00:08:46,440 --> 00:08:47,600
+Let's keep going
+
+118
+00:08:47,600 --> 00:08:52,800
+University of La Paz and several companions were exploring the Andes Mountains when they found a small valley with no other animals or humans
+
+119
+00:08:53,240 --> 00:08:57,280
+Perez see we're hanging on to him. Yep. We're referring to him again
+
+120
+00:08:58,000 --> 00:09:04,560
+But now we've changed it to be just the surname because that's the format that people use in news articles Perez noticed that the valley
+
+121
+00:09:04,560 --> 00:09:07,880
+Had what appeared to be a natural fountain surrounded by two peaks of rock and silver snow
+
+122
+00:09:08,120 --> 00:09:11,640
+Presently others then ventured further into the valley around about here in our article
+
+123
+00:09:11,640 --> 00:09:16,680
+We should have a quote from the scientist right quote by the time we reached the top of one peak the water looked blue with
+
+124
+00:09:16,680 --> 00:09:22,740
+Some crystals on top and we're talking about this fountain. I guess it's natural fountain. We're referring back to the previous sentence like everything is
+
+125
+00:09:23,600 --> 00:09:28,160
+Relying on and contingent on earlier parts of the text while examining
+
+126
+00:09:28,160 --> 00:09:30,880
+I've skipped a paragraph while examining these bizarre creatures
+
+127
+00:09:30,880 --> 00:09:36,680
+The scientists discovered that the creatures also spoke some fairly regular English now when I read that I was like, okay
+
+128
+00:09:36,680 --> 00:09:41,440
+This is now unusually good because that's the second sentence of the lead, right?
+
+129
+00:09:41,440 --> 00:09:46,920
+We're six paragraphs in and it knows about this point. I've covered the first sentence of this
+
+130
+00:09:47,440 --> 00:09:52,800
+initial paragraph now it's time to talk about this second sentence of the lead even more surprising to the researchers of the fact that they
+
+131
+00:09:52,800 --> 00:09:53,880
+spoke English and
+
+132
+00:09:53,880 --> 00:09:59,320
+It completely ignored the speaking English part until it got to the part of the news article where that comes in
+
+133
+00:09:59,320 --> 00:10:01,320
+You've gone six whole paragraphs
+
+134
+00:10:01,320 --> 00:10:02,800
+the idea of
+
+135
+00:10:02,800 --> 00:10:09,800
+Accurately remembering that the unicorn speak perfect English is like that's very impressive to me and then it goes into its gets a little bit
+
+136
+00:10:09,800 --> 00:10:11,640
+unhinged
+
+137
+00:10:11,640 --> 00:10:18,160
+Starts talking about it's likely that the only way of knowing for sure if unicorns are indeed the descendants of a lost alien race is
+
+138
+00:10:18,160 --> 00:10:20,160
+Through DNA. That's reddit, right?
+
+139
+00:10:21,120 --> 00:10:26,900
+Well, it's not actually stuff on reddit stuff linked to from reddit. But yeah, this is this is news articles, man
+
+140
+00:10:27,460 --> 00:10:30,220
+They seem to be able to communicate in English quite well
+
+141
+00:10:30,420 --> 00:10:37,780
+Which I believe is a sign of evolution or at least a change in social organization said the scientist that's his evolutionary biology
+
+142
+00:10:37,780 --> 00:10:42,940
+They're right. Right, right. Yeah, we know he's an evolutionary biologist. So so the the
+
+143
+00:10:43,580 --> 00:10:45,580
+coherence of this text is
+
+144
+00:10:46,700 --> 00:10:48,700
+really dependent on its ability to
+
+145
+00:10:49,660 --> 00:10:51,660
+Condition what it's generating on
+
+146
+00:10:52,100 --> 00:10:57,440
+Things that it's generated a long time ago. So yeah, so it can generate really nice news articles
+
+147
+00:10:57,440 --> 00:11:04,000
+And it can generate all kinds of text things that it anything that is sufficiently well
+
+148
+00:11:04,380 --> 00:11:09,740
+Represented in the original data set. So that's GPT to it's a really unusually
+
+149
+00:11:10,540 --> 00:11:12,900
+powerful and like versatile
+
+150
+00:11:13,460 --> 00:11:18,660
+Language model that can do all of these different natural language processing tasks without
+
+151
+00:11:19,260 --> 00:11:21,720
+Actually being trained specifically on those tasks
+
+152
+00:11:22,780 --> 00:11:25,660
+It's a really and that's that's why it's impressive
+
+153
+00:11:25,660 --> 00:11:29,140
+It's not that it's a it's a brand new architecture or a brand new approach or whatever
+
+154
+00:11:29,140 --> 00:11:33,180
+It's just when you make these things really huge and give them tremendously large amounts of data
+
+155
+00:11:33,940 --> 00:11:36,300
+The results are really impressive
+
+156
+00:11:38,500 --> 00:11:42,180
+So it will it will write you the Lord of the Rings fanfiction
+
+157
+00:11:42,460 --> 00:11:47,360
+It will write you take recipes it would like there's all kinds of examples of different samples
+
+158
+00:11:47,440 --> 00:11:49,440
+here's a recipe for
+
+159
+00:11:51,520 --> 00:11:56,520
+Some kind of peppermint chocolate cake and it's got a bunch of different
+

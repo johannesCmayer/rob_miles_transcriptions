@@ -1,0 +1,1808 @@
+1
+00:00:00,000 --> 00:00:07,000
+So, Go is a very, very simple game in terms of the rules, but it's very difficult computationally.
+
+2
+00:00:07,000 --> 00:00:13,000
+There's an enormous depth of complexity that comes out of the very simple rules,
+
+3
+00:00:13,000 --> 00:00:18,000
+which is, I think, part of what makes people love it so much as a game.
+
+4
+00:00:20,000 --> 00:00:25,000
+So, to understand why it's hard for computers, I guess you have to go back a whole bunch
+
+5
+00:00:25,000 --> 00:00:31,000
+and talk about just how computers play games in general, these sort of turn-based strategy games,
+
+6
+00:00:31,000 --> 00:00:37,000
+or that kind of thing, and start with something easy, like Noughts & Crosses.
+
+7
+00:00:37,000 --> 00:00:40,000
+For the sake of internationalization, yes, tic-tac-toe.
+
+8
+00:00:40,000 --> 00:00:46,000
+I like Noughts & Crosses as a name, because it's descriptive, you know, but whatever, yeah.
+
+9
+00:00:46,000 --> 00:00:51,000
+We're going to look at Noughts & Crosses as a game, and I'm going to keep calling it that, I apologise, but...
+
+10
+00:00:51,000 --> 00:00:56,000
+You don't have to apologise, I just want to make sure people understand what we're talking about.
+
+11
+00:00:56,000 --> 00:00:57,000
+Right, right, right, right.
+
+12
+00:00:57,000 --> 00:00:58,000
+That's all.
+
+13
+00:00:58,000 --> 00:01:05,000
+So I'm talking about this game, where you draw your Optothorpe, and then one person, you know, goes here,
+
+14
+00:01:05,000 --> 00:01:12,000
+and one person goes there, and so on, and you alternate placing Noughts and Crosses, and you have to get three in a row.
+
+15
+00:01:12,000 --> 00:01:16,000
+To explain Noughts & Crosses, we should play an even simpler game.
+
+16
+00:01:16,000 --> 00:01:21,000
+So the idea of the game is, we're going to take it in turns to choose left or right,
+
+17
+00:01:21,000 --> 00:01:26,000
+and I'm going to try and get the highest number possible, and you're going to try and get the lowest number possible.
+
+18
+00:01:26,000 --> 00:01:31,000
+It starts off my turn, so if I choose left, for example, it goes down to here.
+
+19
+00:01:31,000 --> 00:01:33,000
+And then it's your turn, and you get to choose left or right.
+
+20
+00:01:33,000 --> 00:01:37,000
+And then which number it ends up on is the outcome of the game.
+
+21
+00:01:37,000 --> 00:01:40,000
+So I want the highest number possible, which is 7.
+
+22
+00:01:40,000 --> 00:01:42,000
+You want the lowest number possible, which is 1.
+
+23
+00:01:42,000 --> 00:01:45,000
+Failing that, I'd prefer the 5 to the 3.
+
+24
+00:01:45,000 --> 00:01:47,000
+This is a perfect information game.
+
+25
+00:01:47,000 --> 00:01:49,000
+What's the difference? What's an imperfect information game?
+
+26
+00:01:49,000 --> 00:01:55,000
+Right, right. So a perfect information game is just a game where all of the players have all of the relevant information.
+
+27
+00:01:55,000 --> 00:02:01,000
+So this is like that, Noughts & Crosses is like that, chess, Go, these sorts of games.
+
+28
+00:02:01,000 --> 00:02:03,000
+You do get games that are not like that.
+
+29
+00:02:03,000 --> 00:02:05,000
+For example, poker.
+
+30
+00:02:05,000 --> 00:02:08,000
+There's hidden information. You can't see each other's hands.
+
+31
+00:02:08,000 --> 00:02:13,000
+So you have to, if you want to write something that's going to play those types of games,
+
+32
+00:02:13,000 --> 00:02:16,000
+obviously it has to work differently to take into account that uncertainty.
+
+33
+00:02:16,000 --> 00:02:22,000
+The question is, should I choose left or right, and how do I make a principled decision?
+
+34
+00:02:22,000 --> 00:02:24,000
+Now, I want the 7.
+
+35
+00:02:24,000 --> 00:02:27,000
+So in principle, I should be going this way, right?
+
+36
+00:02:27,000 --> 00:02:29,000
+You would think I'd want to steer towards the 7.
+
+37
+00:02:29,000 --> 00:02:32,000
+But on the other hand, at this point, it's your choice.
+
+38
+00:02:32,000 --> 00:02:35,000
+You're not going to choose the 7, because I know you want the low number.
+
+39
+00:02:35,000 --> 00:02:37,000
+You're going to choose the 1.
+
+40
+00:02:37,000 --> 00:02:42,000
+If I'm choosing this node, I'm effectively choosing the 1, because I can predict you'll do that.
+
+41
+00:02:42,000 --> 00:02:46,000
+Whereas if I choose the right, then your choice is between a 3 and a 5.
+
+42
+00:02:46,000 --> 00:02:50,000
+So you are going to choose the 3, which is better than the 1, so I should go right.
+
+43
+00:02:50,000 --> 00:02:55,000
+I'm trying to maximize the minimum value.
+
+44
+00:02:55,000 --> 00:03:01,000
+I'm trying to make it so that the best choice available to you is as bad as possible for you,
+
+45
+00:03:01,000 --> 00:03:03,000
+and as good as possible for me.
+
+46
+00:03:03,000 --> 00:03:07,000
+So this is called minimax, because I'm trying to minimize the max.
+
+47
+00:03:07,000 --> 00:03:10,000
+Well, you're trying to minimize the maximum, I'm trying to maximize the minimum.
+
+48
+00:03:10,000 --> 00:03:12,000
+If you see what I mean.
+
+49
+00:03:12,000 --> 00:03:16,000
+And then purely based upon who goes first as to who wins this, right?
+
+50
+00:03:16,000 --> 00:03:20,000
+Right, yeah. This is an absolutely unfair game.
+
+51
+00:03:20,000 --> 00:03:24,000
+I started off saying I want the 7, so maybe I should go left to get the 7.
+
+52
+00:03:24,000 --> 00:03:28,000
+That's one thing. I could look for the highest possible payoff and try and steer towards it.
+
+53
+00:03:28,000 --> 00:03:30,000
+That seems like a reasonable way of playing the game.
+
+54
+00:03:30,000 --> 00:03:33,000
+Not on something this simple, where you can see it obviously fails.
+
+55
+00:03:33,000 --> 00:03:37,000
+But in a more complex game, you might think that, look for the best outcome and try and steer towards it.
+
+56
+00:03:37,000 --> 00:03:42,000
+But you've got to bear in mind that your opponent is steering away from it.
+
+57
+00:03:42,000 --> 00:03:45,000
+Or I could look at it and say, ah, that's the 1.
+
+58
+00:03:45,000 --> 00:03:48,000
+I definitely want to avoid the 1, so I can't possibly steer left.
+
+59
+00:03:48,000 --> 00:03:51,000
+I'm trying to avoid the bad outcome, so I should go right.
+
+60
+00:03:51,000 --> 00:03:53,000
+Or you could look at it and say, okay, how about this entire tree?
+
+61
+00:03:53,000 --> 00:03:57,000
+What's the average here? What's the average goodness of steering left or right?
+
+62
+00:03:57,000 --> 00:04:01,000
+If you take an average on 7 and 1, you get 4.
+
+63
+00:04:01,000 --> 00:04:03,000
+Because 7 plus 1 is 8.
+
+64
+00:04:03,000 --> 00:04:06,000
+If you take the average of 3 and 5, you also get 4.
+
+65
+00:04:06,000 --> 00:04:08,000
+So in this case, they're the same.
+
+66
+00:04:08,000 --> 00:04:10,000
+Does that mean they're both equally good?
+
+67
+00:04:10,000 --> 00:04:13,000
+Well, no, because one of them might end up with a 1 and one of them might end up with a 3.
+
+68
+00:04:13,000 --> 00:04:18,000
+So we're basically saying here, okay, there are different ways to evaluate the choices that you make.
+
+69
+00:04:18,000 --> 00:04:20,000
+Yep, and most of them don't work.
+
+70
+00:04:20,000 --> 00:04:22,000
+Most of them aren't any good.
+
+71
+00:04:22,000 --> 00:04:27,000
+But there is one way that works, which is basically what we did, which is min-max.
+
+72
+00:04:27,000 --> 00:04:29,000
+And so it's a recursive function.
+
+73
+00:04:29,000 --> 00:04:32,000
+So let's try a more complicated game.
+
+74
+00:04:32,000 --> 00:04:39,000
+I'm going to generate some random numbers just using Python to get us a list and then shuffle that list.
+
+75
+00:04:39,000 --> 00:04:41,000
+And there it is.
+
+76
+00:04:41,000 --> 00:04:43,000
+So I'm just going to draw the tree in.
+
+77
+00:04:43,000 --> 00:04:48,000
+Before, it was obvious that I kind of designed those choices to make a point.
+
+78
+00:04:48,000 --> 00:04:50,000
+Here, it's random, so it's a real game now.
+
+79
+00:04:50,000 --> 00:04:56,000
+In many ways, a better game than knots and crosses, because somebody's going to actually win, probably.
+
+80
+00:04:56,000 --> 00:05:01,000
+Whenever you see a tree in computer science, you should always kind of be thinking about recursion,
+
+81
+00:05:01,000 --> 00:05:03,000
+which you've done a video on before, right?
+
+82
+00:05:03,000 --> 00:05:07,000
+So I dive back into this same piece of code.
+
+83
+00:05:07,000 --> 00:05:11,000
+Because a tree has this kind of fractal structure,
+
+84
+00:05:11,000 --> 00:05:17,000
+where ideally you want to have an algorithm where you do the same thing at every part of the tree.
+
+85
+00:05:17,000 --> 00:05:21,000
+So you can have one algorithm that processes the whole tree.
+
+86
+00:05:21,000 --> 00:05:29,000
+So the problem with recursion, a problem with recursion, is infinite recursion,
+
+87
+00:05:29,000 --> 00:05:33,000
+where you have this sort of loop of nested stuff that never ends.
+
+88
+00:05:33,000 --> 00:05:34,000
+You need a degenerate case.
+
+89
+00:05:34,000 --> 00:05:38,000
+You need a case where the answer is easy.
+
+90
+00:05:38,000 --> 00:05:41,000
+And in this case, it's the bottom, right?
+
+91
+00:05:41,000 --> 00:05:45,000
+So if we are at the bottom, first move by the maximizing player,
+
+92
+00:05:45,000 --> 00:05:49,000
+second move by the minimizing player, third move by the maximizing player.
+
+93
+00:05:49,000 --> 00:05:53,000
+So here, which way should I go?
+
+94
+00:05:53,000 --> 00:05:55,000
+I should go with whichever one is bigger.
+
+95
+00:05:55,000 --> 00:05:57,000
+It's the 7, right?
+
+96
+00:05:57,000 --> 00:06:02,000
+So we can effectively call this a 7.
+
+97
+00:06:02,000 --> 00:06:07,000
+It's not the end of the game, but the value of this node is effectively 7,
+
+98
+00:06:07,000 --> 00:06:13,000
+because if this player directs us to there, the game will end with a 7.
+
+99
+00:06:13,000 --> 00:06:15,000
+So you can do that in each case.
+
+100
+00:06:15,000 --> 00:06:18,000
+So this one is a 5, because that's the bigger one.
+
+101
+00:06:18,000 --> 00:06:22,000
+This one is a 3, and this one is the 6.
+
+102
+00:06:22,000 --> 00:06:28,000
+So now these nodes, which before you couldn't do because they didn't have any values,
+
+103
+00:06:28,000 --> 00:06:31,000
+now these look a lot like the nodes below.
+
+104
+00:06:31,000 --> 00:06:33,000
+So here, now we're being the minimizing player,
+
+105
+00:06:33,000 --> 00:06:36,000
+so this will be a 5, and this will be a 3.
+
+106
+00:06:36,000 --> 00:06:40,000
+And now we're being the maximizing player again, who wants to go for the 5.
+
+107
+00:06:40,000 --> 00:06:46,000
+So you can see here that as the maximizing player, the best score I can get is the 5.
+
+108
+00:06:46,000 --> 00:06:51,000
+That's assuming that we're all playing by the same decision-making structure, right?
+
+109
+00:06:51,000 --> 00:06:54,000
+Yes. It helps that it's the optimal decision-making structure in this situation.
+
+110
+00:06:54,000 --> 00:06:56,000
+Okay.
+
+111
+00:06:56,000 --> 00:07:01,000
+But you don't have to make the best choice, right?
+
+112
+00:07:01,000 --> 00:07:05,000
+If you make a mistake, I have values on all the other nodes of the tree.
+
+113
+00:07:05,000 --> 00:07:08,000
+I can make, probably do even better.
+
+114
+00:07:08,000 --> 00:07:19,000
+But the way that min-max works is you end up with making the best possible play you could make as bad as possible.
+
+115
+00:07:19,000 --> 00:07:21,000
+And you're trying to do the same to me.
+
+116
+00:07:21,000 --> 00:07:23,000
+This is a game you can play with your friends.
+
+117
+00:07:23,000 --> 00:07:25,000
+It's a huge fun for everyone.
+
+118
+00:07:25,000 --> 00:07:30,000
+If you can do min-max in your head, and obviously if you have,
+
+119
+00:07:30,000 --> 00:07:35,000
+you can put 16 numbers at the bottom, 32, whatever.
+
+120
+00:07:35,000 --> 00:07:40,000
+But you'll notice, of course, the more numbers you have at the bottom,
+
+121
+00:07:40,000 --> 00:07:46,000
+the more work you've got to do to figure out all of these intervening nodes.
+
+122
+00:07:46,000 --> 00:07:53,000
+And it's tractable for some real games that people play, like Noughts and Crosses.
+
+123
+00:07:53,000 --> 00:07:55,000
+So I could, I'm going to try it.
+
+124
+00:07:55,000 --> 00:07:58,000
+So you take a game like Noughts and Crosses, tic-tac-toe,
+
+125
+00:07:58,000 --> 00:08:02,000
+which is so simple that human beings reliably learn to play it optimally.
+
+126
+00:08:02,000 --> 00:08:05,000
+You start off at the beginning, your Noughts.
+
+127
+00:08:05,000 --> 00:08:07,000
+You have nine choices, right?
+
+128
+00:08:07,000 --> 00:08:13,000
+Because you can go 1, 2, 3, 4, 5, 6, 7, 8, 9.
+
+129
+00:08:13,000 --> 00:08:14,000
+Those are your options.
+
+130
+00:08:14,000 --> 00:08:17,000
+Now it's the Crosses' turn, and there you have eight options,
+
+131
+00:08:17,000 --> 00:08:19,000
+because one of the squares is taken.
+
+132
+00:08:19,000 --> 00:08:23,000
+So 1, 2, 3, 4, 5, 6, 7, 8.
+
+133
+00:08:23,000 --> 00:08:27,000
+And here there's 8, and you see, just quickly this becomes ridiculous.
+
+134
+00:08:27,000 --> 00:08:30,000
+But no game of Noughts and Crosses lasts more than nine turns.
+
+135
+00:08:30,000 --> 00:08:32,000
+Guaranteed, you run out of spaces.
+
+136
+00:08:32,000 --> 00:08:37,000
+We go along, blah, I'm only going to fill in part of the tree now.
+
+137
+00:08:37,000 --> 00:08:39,000
+The point is, what's the degenerate case?
+
+138
+00:08:39,000 --> 00:08:41,000
+Because we're not trying to get numbers.
+
+139
+00:08:41,000 --> 00:08:44,000
+So what you do is, you say, this isn't going to be right.
+
+140
+00:08:44,000 --> 00:08:49,000
+But let's just say, as an example, for a moment, yes, that it's that.
+
+141
+00:08:49,000 --> 00:08:51,000
+So it's a win for Noughts.
+
+142
+00:08:51,000 --> 00:08:55,000
+So if we're playing Noughts, we give this board a score of 1,
+
+143
+00:08:55,000 --> 00:08:57,000
+because we say, 1, we've won. Excellent.
+
+144
+00:08:57,000 --> 00:09:01,000
+A different board, where the Crosses have a win,
+
+145
+00:09:01,000 --> 00:09:03,000
+that's a minus 1, because I really don't want that.
+
+146
+00:09:03,000 --> 00:09:07,000
+And then any state where the game is over, but nobody's won,
+
+147
+00:09:07,000 --> 00:09:09,000
+it's surprisingly difficult.
+
+148
+00:09:09,000 --> 00:09:11,000
+I accidentally won it.
+
+149
+00:09:11,000 --> 00:09:13,000
+This is how hard this game is.
+
+150
+00:09:13,000 --> 00:09:15,000
+There. What can I do? All I do is win.
+
+151
+00:09:15,000 --> 00:09:17,000
+So, uh...
+
+152
+00:09:17,000 --> 00:09:19,000
+So, okay, that's a draw, yeah?
+
+153
+00:09:19,000 --> 00:09:21,000
+That's a draw. So that's a 0.
+
+154
+00:09:21,000 --> 00:09:24,000
+If it's your turn, and you have a move that can win,
+
+155
+00:09:24,000 --> 00:09:26,000
+then that board state is a win.
+
+156
+00:09:26,000 --> 00:09:30,000
+And therefore, you just propagate that up indefinitely,
+
+157
+00:09:30,000 --> 00:09:32,000
+exactly the same way as you would before.
+
+158
+00:09:32,000 --> 00:09:35,000
+Yeah, so you can see how you can plot this out.
+
+159
+00:09:35,000 --> 00:09:38,000
+And it's much too big to actually do.
+
+160
+00:09:38,000 --> 00:09:42,000
+But if you write a computer program to do it, it's not difficult.
+
+161
+00:09:42,000 --> 00:09:44,000
+It's a short program. It doesn't take long to run.
+
+162
+00:09:44,000 --> 00:09:49,000
+And Noughts and Crosses is a solved game, right?
+
+163
+00:09:49,000 --> 00:09:52,000
+So, let's draw the thing for chess.
+
+164
+00:09:52,000 --> 00:09:54,000
+Chess. How much paper have we got?
+
+165
+00:09:54,000 --> 00:09:56,000
+Yeah, let's draw chess.
+
+166
+00:09:56,000 --> 00:09:58,000
+Okay.
+
+167
+00:09:58,000 --> 00:10:00,000
+Yeah.
+
+168
+00:10:00,000 --> 00:10:04,000
+I'm not going to draw chess.
+
+169
+00:10:04,000 --> 00:10:06,000
+Why are you not going to draw chess?
+
+170
+00:10:06,000 --> 00:10:08,000
+Why, you know, it can't be that much more difficult, can it?
+
+171
+00:10:08,000 --> 00:10:10,000
+Yeah, so we need more paper.
+
+172
+00:10:10,000 --> 00:10:12,000
+We need a lot more paper to draw chess.
+
+173
+00:10:12,000 --> 00:10:16,000
+And the issue is, the thing you can see,
+
+174
+00:10:16,000 --> 00:10:18,000
+the thing that's so different here,
+
+175
+00:10:18,000 --> 00:10:20,000
+between the simple game, the very simple game,
+
+176
+00:10:20,000 --> 00:10:22,000
+and Noughts and Crosses,
+
+177
+00:10:22,000 --> 00:10:24,000
+is this thing called branching factor,
+
+178
+00:10:24,000 --> 00:10:28,000
+which is, basically, at each little node,
+
+179
+00:10:28,000 --> 00:10:30,000
+how many branches does the tree have?
+
+180
+00:10:30,000 --> 00:10:32,000
+Simple. In this game, it's two.
+
+181
+00:10:32,000 --> 00:10:34,000
+Here we have two choices. Here we have two choices.
+
+182
+00:10:34,000 --> 00:10:36,000
+Here we have two choices. You always have two choices.
+
+183
+00:10:36,000 --> 00:10:38,000
+This is a longer game.
+
+184
+00:10:38,000 --> 00:10:40,000
+It has more turns.
+
+185
+00:10:40,000 --> 00:10:42,000
+But the branching factor is still two.
+
+186
+00:10:42,000 --> 00:10:44,000
+Every turn, you have two choices you can make.
+
+187
+00:10:44,000 --> 00:10:46,000
+In Noughts and Crosses, okay,
+
+188
+00:10:46,000 --> 00:10:48,000
+firstly, it's more complicated because the branching factor is higher.
+
+189
+00:10:48,000 --> 00:10:50,000
+Secondly, it's complicated because it changes.
+
+190
+00:10:50,000 --> 00:10:52,000
+In the first turn,
+
+191
+00:10:52,000 --> 00:10:54,000
+you have nine choices.
+
+192
+00:10:54,000 --> 00:10:56,000
+The second turn, you have eight, and so on.
+
+193
+00:10:56,000 --> 00:10:58,000
+So the branching factor actually reduces
+
+194
+00:10:58,000 --> 00:11:00,000
+as the game goes on,
+
+195
+00:11:00,000 --> 00:11:02,000
+which is one of the things that makes it easier to compute.
+
+196
+00:11:02,000 --> 00:11:04,000
+So let's think about it.
+
+197
+00:11:04,000 --> 00:11:06,000
+Let's think about chess, then.
+
+198
+00:11:06,000 --> 00:11:08,000
+In chess, the very beginning, let's say,
+
+199
+00:11:08,000 --> 00:11:10,000
+you're white, you're about to start.
+
+200
+00:11:10,000 --> 00:11:12,000
+You've got eight pawns you can move.
+
+201
+00:11:12,000 --> 00:11:14,000
+You can move them forward one.
+
+202
+00:11:14,000 --> 00:11:16,000
+So that's eight possibilities.
+
+203
+00:11:16,000 --> 00:11:18,000
+You've got two.
+
+204
+00:11:18,000 --> 00:11:20,000
+So that's 16, plus you have
+
+205
+00:11:20,000 --> 00:11:22,000
+two knights that are allowed to move
+
+206
+00:11:22,000 --> 00:11:24,000
+because they can jump, so
+
+207
+00:11:24,000 --> 00:11:26,000
+each of those has two. It's another four.
+
+208
+00:11:26,000 --> 00:11:28,000
+I think it's 20. I don't really play chess.
+
+209
+00:11:28,000 --> 00:11:30,000
+But I think it's 20. I think you start off with 20.
+
+210
+00:11:30,000 --> 00:11:32,000
+So I would be drawing 1, 2, 3, 4, 5, 6, 7,
+
+211
+00:11:32,000 --> 00:11:34,000
+8, 9, 10, 11, 12, all the way up to 20.
+
+212
+00:11:36,000 --> 00:11:38,000
+And then, as the game goes on,
+
+213
+00:11:38,000 --> 00:11:40,000
+much like in Noughts and Crosses,
+
+214
+00:11:40,000 --> 00:11:42,000
+the number of possible moves
+
+215
+00:11:42,000 --> 00:11:44,000
+available to you, legal moves,
+
+216
+00:11:44,000 --> 00:11:46,000
+varies, right?
+
+217
+00:11:46,000 --> 00:11:48,000
+So presumably first it goes up?
+
+218
+00:11:48,000 --> 00:11:50,000
+Yeah. As the game opens up
+
+219
+00:11:50,000 --> 00:11:52,000
+early on, you get more moves
+
+220
+00:11:52,000 --> 00:11:54,000
+available because you've got sort of more
+
+221
+00:11:54,000 --> 00:11:56,000
+space and things can
+
+222
+00:11:56,000 --> 00:11:58,000
+move to several different
+
+223
+00:11:58,000 --> 00:12:00,000
+positions and all of that kind of thing.
+
+224
+00:12:00,000 --> 00:12:02,000
+And then
+
+225
+00:12:02,000 --> 00:12:04,000
+past a certain point, it starts
+
+226
+00:12:04,000 --> 00:12:06,000
+to go down again because pieces get
+
+227
+00:12:06,000 --> 00:12:08,000
+captured. And obviously
+
+228
+00:12:08,000 --> 00:12:10,000
+when you have only a few pieces
+
+229
+00:12:10,000 --> 00:12:12,000
+on the board, you don't have as many moves
+
+230
+00:12:12,000 --> 00:12:14,000
+available to you. But on
+
+231
+00:12:14,000 --> 00:12:16,000
+average, when people play chess,
+
+232
+00:12:16,000 --> 00:12:18,000
+I think the average
+
+233
+00:12:18,000 --> 00:12:20,000
+branching factor is about 35.
+
+234
+00:12:20,000 --> 00:12:22,000
+But chess games
+
+235
+00:12:22,000 --> 00:12:24,000
+generally go longer than
+
+236
+00:12:24,000 --> 00:12:26,000
+9 turns, right? So
+
+237
+00:12:26,000 --> 00:12:28,000
+when you're calculating the number
+
+238
+00:12:28,000 --> 00:12:30,000
+of nodes in your tree,
+
+239
+00:12:30,000 --> 00:12:32,000
+every turn
+
+240
+00:12:32,000 --> 00:12:34,000
+you're multiplying by the branching factor
+
+241
+00:12:36,000 --> 00:12:38,000
+and that quickly gets
+
+242
+00:12:38,000 --> 00:12:40,000
+completely unmanageable. So you can't
+
+243
+00:12:40,000 --> 00:12:42,000
+just min-max on chess like this.
+
+244
+00:12:42,000 --> 00:12:44,000
+It's computationally
+
+245
+00:12:44,000 --> 00:12:46,000
+completely
+
+246
+00:12:46,000 --> 00:12:48,000
+infeasible.
+
+247
+00:12:48,000 --> 00:12:50,000
+Which is why chess was considered
+
+248
+00:12:50,000 --> 00:12:52,000
+such a big milestone
+
+249
+00:12:52,000 --> 00:12:54,000
+for a long time. If you could make a computer that could play
+
+250
+00:12:54,000 --> 00:12:56,000
+chess, you know, you're not just doing this
+
+251
+00:12:56,000 --> 00:12:58,000
+very trivial brute forcing
+
+252
+00:12:58,000 --> 00:13:00,000
+thing like you're doing for naughts and crosses.
+
+253
+00:13:00,000 --> 00:13:02,000
+If a computer could play chess
+
+254
+00:13:02,000 --> 00:13:04,000
+it would really have to be thinking, right? You can see
+
+255
+00:13:04,000 --> 00:13:06,000
+how here we were taking the
+
+256
+00:13:06,000 --> 00:13:08,000
+end states where we knew the value
+
+257
+00:13:08,000 --> 00:13:10,000
+of the game and then propagating backwards
+
+258
+00:13:10,000 --> 00:13:12,000
+in time from there to
+
+259
+00:13:12,000 --> 00:13:14,000
+give value to these board states that we didn't
+
+260
+00:13:14,000 --> 00:13:16,000
+know the value of before. The problem is there
+
+261
+00:13:16,000 --> 00:13:18,000
+you have to go right from the very end of the game
+
+262
+00:13:18,000 --> 00:13:20,000
+which in chess you can't
+
+263
+00:13:20,000 --> 00:13:22,000
+do. There's just too many possibilities.
+
+264
+00:13:22,000 --> 00:13:24,000
+So you need
+
+265
+00:13:24,000 --> 00:13:26,000
+some way of giving boards
+
+266
+00:13:26,000 --> 00:13:28,000
+values that isn't just
+
+267
+00:13:28,000 --> 00:13:30,000
+propagating backwards from the possibilities
+
+268
+00:13:30,000 --> 00:13:32,000
+from known and, you know, checkmate states.
+
+269
+00:13:32,000 --> 00:13:34,000
+And
+
+270
+00:13:34,000 --> 00:13:36,000
+luckily in chess there's a lot of things you can do
+
+271
+00:13:36,000 --> 00:13:38,000
+about that. The most obvious
+
+272
+00:13:38,000 --> 00:13:40,000
+one is just
+
+273
+00:13:40,000 --> 00:13:42,000
+counting up the pieces.
+
+274
+00:13:42,000 --> 00:13:44,000
+You just say, well a pawn is worth
+
+275
+00:13:44,000 --> 00:13:46,000
+you know, one point and a queen
+
+276
+00:13:46,000 --> 00:13:48,000
+is worth nine. You do some analysis
+
+277
+00:13:48,000 --> 00:13:50,000
+of how games tend to go
+
+278
+00:13:50,000 --> 00:13:52,000
+and you try and figure out
+
+279
+00:13:52,000 --> 00:13:54,000
+how good the pieces you have left are, basically.
+
+280
+00:13:54,000 --> 00:13:56,000
+And the position of them obviously is important
+
+281
+00:13:56,000 --> 00:13:58,000
+but you can
+
+282
+00:13:58,000 --> 00:14:00,000
+get a good, it's a good heuristic.
+
+283
+00:14:00,000 --> 00:14:02,000
+It's a good approximation
+
+284
+00:14:02,000 --> 00:14:04,000
+to just add up the
+
+285
+00:14:04,000 --> 00:14:06,000
+scores of the pieces and say
+
+286
+00:14:06,000 --> 00:14:08,000
+well, you know, this team
+
+287
+00:14:08,000 --> 00:14:10,000
+has both their
+
+288
+00:14:10,000 --> 00:14:12,000
+knights and still has their
+
+289
+00:14:12,000 --> 00:14:14,000
+queen and this only has one
+
+290
+00:14:14,000 --> 00:14:16,000
+knight and has lost their queen so
+
+291
+00:14:16,000 --> 00:14:18,000
+it's really obvious that this team is winning.
+
+292
+00:14:18,000 --> 00:14:20,000
+And therefore that's a good state
+
+293
+00:14:20,000 --> 00:14:22,000
+of the board and you don't need to be able to see
+
+294
+00:14:22,000 --> 00:14:24,000
+all the way to the endgame to know
+
+295
+00:14:24,000 --> 00:14:26,000
+that it's a good state of the board. So the point is
+
+296
+00:14:26,000 --> 00:14:28,000
+because chess's branching factor is so much higher
+
+297
+00:14:28,000 --> 00:14:30,000
+you can't do this thing where
+
+298
+00:14:30,000 --> 00:14:32,000
+you work backwards from the end states.
+
+299
+00:14:32,000 --> 00:14:34,000
+Because the branching factor is too high.
+
+300
+00:14:34,000 --> 00:14:36,000
+You have to start from where you are
+
+301
+00:14:36,000 --> 00:14:38,000
+and look forwards and say
+
+302
+00:14:38,000 --> 00:14:40,000
+okay, hypothetically, if I went this way
+
+303
+00:14:40,000 --> 00:14:42,000
+what would that look like? What boards
+
+304
+00:14:42,000 --> 00:14:44,000
+would that allow me to get to? And then
+
+305
+00:14:44,000 --> 00:14:46,000
+if from there I went here, how would that look?
+
+306
+00:14:46,000 --> 00:14:48,000
+And so on. You don't know whether you're
+
+307
+00:14:48,000 --> 00:14:50,000
+heading towards a win or not. And this is
+
+308
+00:14:50,000 --> 00:14:52,000
+where the heuristics come in, is that
+
+309
+00:14:52,000 --> 00:14:54,000
+they let you put some kind of
+
+310
+00:14:54,000 --> 00:14:56,000
+numbers on these nodes. Like,
+
+311
+00:14:56,000 --> 00:14:58,000
+you know, do I still have my queen in this node?
+
+312
+00:14:58,000 --> 00:15:00,000
+And that should guide you towards
+
+313
+00:15:00,000 --> 00:15:02,000
+winning positions because there tend to be
+
+314
+00:15:02,000 --> 00:15:04,000
+more winning positions in situations where you have your queen.
+
+315
+00:15:04,000 --> 00:15:06,000
+But it's always a heuristic.
+
+316
+00:15:06,000 --> 00:15:08,000
+They're not
+
+317
+00:15:08,000 --> 00:15:10,000
+the chess AI is not
+
+318
+00:15:10,000 --> 00:15:12,000
+seeing forwards in time to a win.
+
+319
+00:15:12,000 --> 00:15:14,000
+They're seeing forwards a certain distance
+
+320
+00:15:14,000 --> 00:15:16,000
+and seeing that it's a good position to be in
+
+321
+00:15:16,000 --> 00:15:18,000
+according to. And obviously it's not
+
+322
+00:15:18,000 --> 00:15:20,000
+just what they have on the board. Like, that's an oversimplification.
+
+323
+00:15:20,000 --> 00:15:22,000
+There's a lot of
+
+324
+00:15:22,000 --> 00:15:24,000
+different heuristics. But the point is
+
+325
+00:15:24,000 --> 00:15:26,000
+you're going to have to evaluate
+
+326
+00:15:26,000 --> 00:15:28,000
+a very, very large number of boards.
+
+327
+00:15:28,000 --> 00:15:30,000
+So you want something you can compute
+
+328
+00:15:30,000 --> 00:15:32,000
+quickly. Because the more boards you can
+
+329
+00:15:32,000 --> 00:15:34,000
+evaluate, the further ahead you can look.
+
+330
+00:15:34,000 --> 00:15:36,000
+And therefore the better you can play
+
+331
+00:15:36,000 --> 00:15:38,000
+even in this game. If you're
+
+332
+00:15:38,000 --> 00:15:40,000
+playing with someone and you can think
+
+333
+00:15:40,000 --> 00:15:42,000
+more moves ahead than them,
+
+334
+00:15:42,000 --> 00:15:44,000
+that gives you a huge advantage because you can force
+
+335
+00:15:44,000 --> 00:15:46,000
+them into a situation where
+
+336
+00:15:46,000 --> 00:15:48,000
+the best move available to them is quite bad.
+
+337
+00:15:48,000 --> 00:15:50,000
+And they didn't think to steer
+
+338
+00:15:50,000 --> 00:15:52,000
+away from that because they didn't look as far ahead as you.
+
+339
+00:15:52,000 --> 00:15:54,000
+What this number means is, if I
+
+340
+00:15:54,000 --> 00:15:56,000
+go here and then play
+
+341
+00:15:56,000 --> 00:15:58,000
+perfectly from that point on, what's the
+
+342
+00:15:58,000 --> 00:16:00,000
+worst score I'd end up getting? This algorithm
+
+343
+00:16:00,000 --> 00:16:02,000
+assumes that your opponent is always going to
+
+344
+00:16:02,000 --> 00:16:04,000
+play the best move that's
+
+345
+00:16:04,000 --> 00:16:06,000
+available to them. Because you're
+
+346
+00:16:06,000 --> 00:16:08,000
+always prepared for the worst possible scenario.
+
+347
+00:16:08,000 --> 00:16:10,000
+So you're only ever pleasantly surprised.
+
+348
+00:16:10,000 --> 00:16:12,000
+Chess is a different ballgame.
+
+349
+00:16:12,000 --> 00:16:14,000
+It's got more complicated manoeuvres.
+
+350
+00:16:14,000 --> 00:16:16,000
+It's got different ways of branching
+
+351
+00:16:16,000 --> 00:16:18,000
+as well as larger branches.
+
+352
+00:16:18,000 --> 00:16:20,000
+So, how does this all feed back into
+
+353
+00:16:20,000 --> 00:16:22,000
+our original point of, go looks pretty straightforward
+
+354
+00:16:22,000 --> 00:16:24,000
+to me. Right.
+
+355
+00:16:24,000 --> 00:16:26,000
+Okay, go. Right.
+
+356
+00:16:26,000 --> 00:16:28,000
+Let's draw go.
+
+357
+00:16:28,000 --> 00:16:30,000
+Okay, we're
+
+358
+00:16:30,000 --> 00:16:32,000
+going to need more paper
+
+359
+00:16:32,000 --> 00:16:34,000
+and a significantly larger universe
+
+360
+00:16:34,000 --> 00:16:36,000
+to put that paper in.
+
+361
+00:16:36,000 --> 00:16:38,000
+Go is difficult for a lot of reasons actually.
+
+362
+00:16:38,000 --> 00:16:40,000
+The first reason that makes
+
+363
+00:16:40,000 --> 00:16:42,000
+go difficult is the branching factor
+
+364
+00:16:42,000 --> 00:16:44,000
+is very high. It's generally
+
+365
+00:16:44,000 --> 00:16:46,000
+more than 200
+
+366
+00:16:46,000 --> 00:16:48,000
+compared to
+
+367
+00:16:48,000 --> 00:16:50,000
+Chess's 35.
+
+368
+00:16:50,000 --> 00:16:52,000
+So every turn
+
+369
+00:16:52,000 --> 00:16:54,000
+there are at least
+
+370
+00:16:54,000 --> 00:16:56,000
+200 possible moves you could be making.
+
+371
+00:16:58,000 --> 00:17:00,000
+And so
+
+372
+00:17:00,000 --> 00:17:02,000
+if you imagine me drawing this tree with
+
+373
+00:17:02,000 --> 00:17:04,000
+200. Come on then, let's draw it.
+
+374
+00:17:04,000 --> 00:17:06,000
+Alright, let's do it.
+
+375
+00:17:06,000 --> 00:17:08,000
+200. 1, 2, I'm going to run out of pen.
+
+376
+00:17:08,000 --> 00:17:10,000
+2, 3,
+
+377
+00:17:10,000 --> 00:17:12,000
+4, I'm going to go in between.
+
+378
+00:17:12,000 --> 00:17:14,000
+5, 6, 7, 39, 40,
+
+379
+00:17:14,000 --> 00:17:16,000
+41, 42. Do you know what?
+
+380
+00:17:16,000 --> 00:17:18,000
+I think life's too short, Rob.
+
+381
+00:17:18,000 --> 00:17:20,000
+Yeah, no, you're right.
+
+382
+00:17:20,000 --> 00:17:22,000
+Yeah, this margin is too narrow to contain.
+
+383
+00:17:24,000 --> 00:17:26,000
+It's not going to happen, right?
+
+384
+00:17:26,000 --> 00:17:28,000
+It's not going to happen.
+
+385
+00:17:28,000 --> 00:17:30,000
+And what's more,
+
+386
+00:17:30,000 --> 00:17:32,000
+even, you know, it wasn't going to happen
+
+387
+00:17:32,000 --> 00:17:34,000
+with noughts and crosses, but you can do it in a computer.
+
+388
+00:17:34,000 --> 00:17:36,000
+You can't do that with go.
+
+389
+00:17:36,000 --> 00:17:38,000
+You can't do that with chess, even.
+
+390
+00:17:38,000 --> 00:17:40,000
+And you really can't do it with go.
+
+391
+00:17:40,000 --> 00:17:42,000
+And so even a lot of the cleverness
+
+392
+00:17:42,000 --> 00:17:44,000
+of tree search
+
+393
+00:17:44,000 --> 00:17:46,000
+and pruning
+
+394
+00:17:46,000 --> 00:17:48,000
+and all of the really neat
+
+395
+00:17:48,000 --> 00:17:50,000
+algorithmic
+
+396
+00:17:50,000 --> 00:17:52,000
+improvements people have made
+
+397
+00:17:52,000 --> 00:17:54,000
+for ways of navigating these trees
+
+398
+00:17:54,000 --> 00:17:56,000
+that allow
+
+399
+00:17:56,000 --> 00:17:58,000
+this type of old-fashioned
+
+400
+00:17:58,000 --> 00:18:00,000
+AI to be extremely good
+
+401
+00:18:00,000 --> 00:18:02,000
+at playing chess, better than any human
+
+402
+00:18:02,000 --> 00:18:04,000
+at this point,
+
+403
+00:18:04,000 --> 00:18:06,000
+that approach is not going to work
+
+404
+00:18:06,000 --> 00:18:08,000
+with go and was
+
+405
+00:18:08,000 --> 00:18:10,000
+never going to work with go. And so
+
+406
+00:18:10,000 --> 00:18:12,000
+go became
+
+407
+00:18:12,000 --> 00:18:14,000
+the great, oh my god, past tense,
+
+408
+00:18:14,000 --> 00:18:16,000
+go became the great
+
+409
+00:18:16,000 --> 00:18:18,000
+the great milestone,
+
+410
+00:18:18,000 --> 00:18:20,000
+right, after chess, go was
+
+411
+00:18:20,000 --> 00:18:22,000
+the big one. So, right,
+
+412
+00:18:22,000 --> 00:18:24,000
+we're going with, why is it so hard?
+
+413
+00:18:24,000 --> 00:18:26,000
+The branching factor
+
+414
+00:18:26,000 --> 00:18:28,000
+is huge. That's one
+
+415
+00:18:28,000 --> 00:18:30,000
+thing. But also
+
+416
+00:18:30,000 --> 00:18:32,000
+you don't have a lot
+
+417
+00:18:32,000 --> 00:18:34,000
+of the tricks that you have with chess.
+
+418
+00:18:34,000 --> 00:18:36,000
+You can glance at a chessboard,
+
+419
+00:18:36,000 --> 00:18:38,000
+as I said, and just add up the pieces and say,
+
+420
+00:18:38,000 --> 00:18:40,000
+well, this, you know, white is probably winning or black
+
+421
+00:18:40,000 --> 00:18:42,000
+is probably winning. In go,
+
+422
+00:18:42,000 --> 00:18:44,000
+that's not the case. In
+
+423
+00:18:44,000 --> 00:18:46,000
+the middle of a game of go, between
+
+424
+00:18:46,000 --> 00:18:48,000
+two good players, other good
+
+425
+00:18:48,000 --> 00:18:50,000
+players could not necessarily
+
+426
+00:18:50,000 --> 00:18:52,000
+tell you who's winning right now.
+
+427
+00:18:52,000 --> 00:18:54,000
+Because the specifics of who's
+
+428
+00:18:54,000 --> 00:18:56,000
+winning depends very sensitively on
+
+429
+00:18:56,000 --> 00:18:58,000
+the precise
+
+430
+00:18:58,000 --> 00:19:00,000
+layout of the pieces. It's not
+
+431
+00:19:00,000 --> 00:19:02,000
+just a matter of who has more stones on the
+
+432
+00:19:02,000 --> 00:19:04,000
+board or who has more
+
+433
+00:19:04,000 --> 00:19:06,000
+territory or who has more points
+
+434
+00:19:06,000 --> 00:19:08,000
+or anything like that. It's
+
+435
+00:19:08,000 --> 00:19:10,000
+sort of an emergent property of the
+
+436
+00:19:10,000 --> 00:19:12,000
+pattern, of the layout,
+
+437
+00:19:12,000 --> 00:19:14,000
+which means you don't have these
+
+438
+00:19:14,000 --> 00:19:16,000
+easy shortcuts you can use to evaluate
+
+439
+00:19:16,000 --> 00:19:18,000
+a position. Not only are
+
+440
+00:19:18,000 --> 00:19:20,000
+there ten times as many
+
+441
+00:19:20,000 --> 00:19:22,000
+possibilities to search, there's
+
+442
+00:19:22,000 --> 00:19:24,000
+no obvious way to even
+
+443
+00:19:24,000 --> 00:19:26,000
+tell if a position is good once you're
+
+444
+00:19:26,000 --> 00:19:28,000
+looking at it. Which is, well, this is
+
+445
+00:19:28,000 --> 00:19:30,000
+why this is so impressive, what's been achieved
+
+446
+00:19:30,000 --> 00:19:32,000
+by AlphaGo.
+
+447
+00:19:34,000 --> 00:19:36,000
+To beat the best human players
+
+448
+00:19:36,000 --> 00:19:38,000
+at a game where
+
+449
+00:19:39,000 --> 00:19:41,000
+all of the standard
+
+450
+00:19:41,000 --> 00:19:43,000
+tricks of the trade won't
+
+451
+00:19:43,000 --> 00:19:45,000
+work, and you have to
+
+452
+00:19:45,000 --> 00:19:47,000
+really try something new.
+

@@ -1,0 +1,1012 @@
+1
+00:00:00,000 --> 00:00:04,520
+Suppose we ask it to repeat the string five question marks
+
+2
+00:00:06,360 --> 00:00:10,760
+And a hyphen and then five more question marks and another hyphen oh
+
+3
+00:00:13,680 --> 00:00:17,000
+My god it worked. Oh, that was only four question marks. I screwed up
+
+4
+00:00:17,200 --> 00:00:20,640
+Do you see what I mean? How it's just like this very very specific string
+
+5
+00:00:20,760 --> 00:00:24,400
+What does it say when it doesn't screw up if you give it something like that?
+
+6
+00:00:25,080 --> 00:00:31,760
+You can bleep me right? Yeah, it says you're a fucking idiot. All right, okay, right
+
+7
+00:00:32,640 --> 00:00:33,840
+bizarre
+
+8
+00:00:33,840 --> 00:00:35,840
+utterly unhinged behavior
+
+9
+00:00:38,440 --> 00:00:46,160
+Is it glitch words or glitch prompts what's the deal glitch tokens? Yeah people call them different things anomalous tokens weird tokens, basically
+
+10
+00:00:46,720 --> 00:00:48,720
+There are certain words
+
+11
+00:00:48,840 --> 00:00:51,240
+that a lot of GPT models
+
+12
+00:00:51,760 --> 00:00:55,880
+Can't say like if you try and get them to so, okay, let hang on we can do a demo
+
+13
+00:00:55,880 --> 00:01:01,400
+Let's do a demo. So chat GPT is actually patched DaVinci instruct beta is still not here's a kind of task
+
+14
+00:01:01,400 --> 00:01:04,040
+You might ask a language model to do when you're testing it
+
+15
+00:01:04,040 --> 00:01:09,760
+Please repeat the string hello computer file back to me, right and if you do that, it says hello computer file
+
+16
+00:01:09,760 --> 00:01:13,200
+This is like a very very easy task for a large language model to do
+
+17
+00:01:13,280 --> 00:01:16,920
+You can put whatever string in here you want, even if it's not real words
+
+18
+00:01:17,760 --> 00:01:24,760
+It's happy to repeat them so easy right but suppose you ask it
+
+19
+00:01:25,920 --> 00:01:27,480
+instead
+
+20
+00:01:27,480 --> 00:01:30,640
+To say specifically the word solid gold
+
+21
+00:01:32,200 --> 00:01:34,820
+Magic up and it says
+
+22
+00:01:36,160 --> 00:01:42,000
+You say air you say ah you say here you say a you say I use it here and it repeats this
+
+23
+00:01:42,000 --> 00:01:49,160
+That's very very weird. Usually it can just repeat strings this string. It has a problem with so there's a few of these
+
+24
+00:01:49,160 --> 00:01:54,080
+Another one is sign net message you ask it to say sign it message
+
+25
+00:01:55,320 --> 00:01:57,320
+It says the word
+
+26
+00:01:58,200 --> 00:02:02,160
+Volunt v o l u n t e is not in my vocabulary
+
+27
+00:02:03,160 --> 00:02:07,080
+And then please repeat the string volunt back to me and then just repeats that
+
+28
+00:02:08,280 --> 00:02:11,120
+It's a very strange very strange behavior
+
+29
+00:02:12,000 --> 00:02:14,000
+What else have we got raw download?
+
+30
+00:02:16,680 --> 00:02:18,680
+It says newcomer
+
+31
+00:02:18,840 --> 00:02:21,200
+You said newcomer the computer said
+
+32
+00:02:21,720 --> 00:02:27,280
+These like kind of like secret ways into a different kind of you know, the engineering menus as it were
+
+33
+00:02:27,920 --> 00:02:32,600
+Yeah, that would suggest that this was deliberate which it is not
+
+34
+00:02:33,800 --> 00:02:35,760
+So the question is what the hell is going on here?
+
+35
+00:02:35,760 --> 00:02:40,800
+So it seems like just about any string you put in here will work fine. It doesn't even need to be real words
+
+36
+00:02:40,800 --> 00:02:47,040
+It's just these certain very specific strings that cause it to behave very very strangely
+
+37
+00:02:47,040 --> 00:02:50,120
+We've been talking about tokens as if they're words, but they're not really words
+
+38
+00:02:50,120 --> 00:02:54,240
+I think we already talked about like pairing coding in an earlier video a little bit
+
+39
+00:02:54,520 --> 00:03:00,560
+We were talking about like how do you represent words to language models on the one end?
+
+40
+00:03:00,560 --> 00:03:02,560
+You could do just individual characters
+
+41
+00:03:03,640 --> 00:03:05,440
+which is
+
+42
+00:03:05,480 --> 00:03:11,400
+Cool because you can represent anything but you waste a lot of space of the model just learning what are like valid words
+
+43
+00:03:12,200 --> 00:03:16,080
+And also you it's better to be able to go back 50 words than 50
+
+44
+00:03:17,440 --> 00:03:19,440
+Characters is the other thing
+
+45
+00:03:20,080 --> 00:03:25,920
+on the other hand if you have a vocabulary of words, then now your model can only represent words that are in that vocabulary and
+
+46
+00:03:27,720 --> 00:03:32,520
+By pairing coding is this algorithm which gives you these tokens and
+
+47
+00:03:32,920 --> 00:03:34,920
+Tokens are
+
+48
+00:03:35,280 --> 00:03:40,680
+Can be individual characters. They can also be words and the algorithm is not very complicated
+
+49
+00:03:40,680 --> 00:03:45,320
+you basically just like take the most common pairs of bytes in the data and
+
+50
+00:03:46,720 --> 00:03:48,520
+call that a
+
+51
+00:03:48,520 --> 00:03:50,520
+token and add it to your vocabulary and
+
+52
+00:03:51,000 --> 00:03:57,920
+then recurse on that and the tokens that are already in your vocabulary kind of count as bytes so you can
+
+53
+00:03:58,600 --> 00:04:04,560
+Compress things down. So what you end up with is all of the most common words end up with their own token to themselves
+
+54
+00:04:05,120 --> 00:04:10,080
+But the more rare words end up made up of word chunks
+
+55
+00:04:10,680 --> 00:04:14,480
+So if I put please repeat the string hello computer file back to me what we end up with is
+
+56
+00:04:15,040 --> 00:04:19,880
+Please is its own token and then repeat the string and then open quote gets its own token
+
+57
+00:04:19,920 --> 00:04:23,200
+But computer file is not a common enough word to have its own token
+
+58
+00:04:23,400 --> 00:04:29,520
+So it gets divided up into computer which obviously has its own token and then you might think file would be its own
+
+59
+00:04:30,040 --> 00:04:33,760
+But it actually isn't pH is one and ILE is one
+
+60
+00:04:33,760 --> 00:04:39,480
+This is like a very neat combination because if I put in here some like complete key smash nonsense
+
+61
+00:04:39,600 --> 00:04:44,320
+It can still represent it. And in fact my key smash happened to have OF in it and that's a word
+
+62
+00:04:44,320 --> 00:04:47,280
+So that's that's a token and VIL is also a token and so on
+
+63
+00:04:47,280 --> 00:04:53,160
+So it doesn't care about kind of how we would differentiate parts of you know, like with spaces for instance
+
+64
+00:04:53,160 --> 00:04:56,400
+So a lot of these tokens end up with a space at the start of them
+
+65
+00:04:56,400 --> 00:04:59,400
+Please is one token, but if I had a space at the beginning
+
+66
+00:05:00,360 --> 00:05:03,520
+Space please is a totally different token, right?
+
+67
+00:05:03,520 --> 00:05:08,080
+Like if I go to the token IDs space, please is token for two to two whereas please
+
+68
+00:05:08,880 --> 00:05:14,240
+It's token five four nine two and as far as the model is concerned all it sees are these numbers
+
+69
+00:05:14,360 --> 00:05:17,680
+So the fact that please and please with a space in front of it
+
+70
+00:05:18,560 --> 00:05:21,000
+Are actually the same word is like not
+
+71
+00:05:21,760 --> 00:05:25,640
+Given to the model it has to learn all of that from the data, but if you give it
+
+72
+00:05:27,880 --> 00:05:30,160
+One of our weird tokens like
+
+73
+00:05:31,160 --> 00:05:32,800
+signet
+
+74
+00:05:32,800 --> 00:05:34,400
+message
+
+75
+00:05:34,400 --> 00:05:40,120
+Signet message is its own token. There's all one token. That's it. There's a specific number
+
+76
+00:05:40,880 --> 00:05:46,280
+Token ID two eight six six six that just means signet message so we can talk about
+
+77
+00:05:47,000 --> 00:05:50,480
+How these were discovered which is kind of interesting
+
+78
+00:05:51,040 --> 00:05:57,400
+Because it was some safety researchers actually some some alignment researchers were trying to
+
+79
+00:05:58,640 --> 00:06:03,840
+They were trying to do some interpretability work. So interpretability is the area of
+
+80
+00:06:04,680 --> 00:06:10,000
+AI research that's about especially mechanistic interpretability is about looking inside
+
+81
+00:06:10,840 --> 00:06:14,560
+These models and seeing how they're actually working
+
+82
+00:06:15,320 --> 00:06:19,520
+Because it is kind of bizarre how
+
+83
+00:06:21,080 --> 00:06:25,400
+Little we understand these things. They're the most powerful AI systems we have
+
+84
+00:06:26,800 --> 00:06:30,320
+They're arguably the most sophisticated or the most complex
+
+85
+00:06:31,320 --> 00:06:32,560
+objects
+
+86
+00:06:32,560 --> 00:06:34,320
+man-made objects
+
+87
+00:06:34,320 --> 00:06:36,320
+that we have
+
+88
+00:06:36,520 --> 00:06:40,280
+They can do all kinds of things and we don't know how nobody knows how they work
+
+89
+00:06:41,240 --> 00:06:47,720
+So there is this growing area of research just trying to get inside and while they were doing this they discovered these this very
+
+90
+00:06:48,040 --> 00:06:55,640
+Strange behavior has anyone asked the language model itself why it glitches on those particular things. Is there a way of doing that?
+
+91
+00:06:55,640 --> 00:06:56,640
+Oh, yeah
+
+92
+00:06:56,640 --> 00:06:58,320
+If you ask it
+
+93
+00:06:58,320 --> 00:07:04,760
+Then it glitches. So so what was happening was these these safety researchers were trying to do some interpretability work
+
+94
+00:07:05,280 --> 00:07:09,360
+Specifically they were trying to do something called feature visualization, which is a thing
+
+95
+00:07:09,840 --> 00:07:11,040
+which
+
+96
+00:07:11,040 --> 00:07:15,840
+You see a lot of the time with image models like image classifiers and things like that
+
+97
+00:07:16,760 --> 00:07:23,440
+Basically, you're running gradient descent on the input space to find inputs that maximize a particular output
+
+98
+00:07:23,480 --> 00:07:29,040
+So if you have an image classifier if you're curious about kind of what it's doing internally
+
+99
+00:07:29,080 --> 00:07:33,400
+You can take one of your classes like say it's classifying different
+
+100
+00:07:34,160 --> 00:07:38,280
+animals or something you can take the class of
+
+101
+00:07:38,960 --> 00:07:40,560
+Goldfish and
+
+102
+00:07:40,560 --> 00:07:46,640
+Then run gradient descent on the input space which is images to find the input image
+
+103
+00:07:46,640 --> 00:07:50,400
+Which most strongly activates the goldfish output?
+
+104
+00:07:51,200 --> 00:07:57,200
+So you're effectively saying like what is the goldfish east possible image according to you, right?
+
+105
+00:07:58,080 --> 00:08:00,200
+Let's let's have a closer. Look at this
+
+106
+00:08:02,160 --> 00:08:03,760
+So you can see
+
+107
+00:08:03,760 --> 00:08:08,680
+Here we've got an example of something that's doing this and you can see here the goldfish east image
+
+108
+00:08:09,000 --> 00:08:14,360
+Does not look anything like a goldfish, but also if you look at it, you can see a lot of gold fishiness
+
+109
+00:08:15,320 --> 00:08:18,920
+Going on. Is it a collage of kind of bits of goldfish?
+
+110
+00:08:19,880 --> 00:08:26,440
+Yeah, it's like very brightly colored and this is like very useful for kind of debugging these things. So for example here you can see
+
+111
+00:08:27,120 --> 00:08:29,120
+the image for monarch
+
+112
+00:08:29,400 --> 00:08:33,320
+Which is obviously you've got lots of things that kind of look like parts of butterflies
+
+113
+00:08:33,320 --> 00:08:36,960
+I think this one is probably only doing animals. So it's not helpful. But if you're like, oh
+
+114
+00:08:37,560 --> 00:08:44,680
+Our thing for monarch is really really heavily stuck on monarch butterflies. There's nothing here that looks like a head of state, right?
+
+115
+00:08:44,680 --> 00:08:48,080
+Yeah, and so that's like useful. You remember before I was talking about
+
+116
+00:08:49,240 --> 00:08:53,760
+Visualization techniques of like Arnold Schwarzenegger drinking coffee and it says that it's a dumbbell this kind of thing
+
+117
+00:08:54,040 --> 00:09:01,280
+So if you do this kind of feature visualization on that kind of model and you ask it to visualize the dumbbell east
+
+118
+00:09:01,480 --> 00:09:07,760
+Image you will notice. Oh that has big muscular arms in it, which is like not a dumbbell feature
+
+119
+00:09:07,760 --> 00:09:12,040
+That's an arm feature. So this is like a useful thing. So they were trying to do this for language models
+
+120
+00:09:12,400 --> 00:09:20,200
+The equivalent thing is what is the kind of input string that maximizes the probability of any given next word?
+
+121
+00:09:20,560 --> 00:09:27,360
+So you take a sentence like one of Bruce Springsteen's most popular songs is titled born in the blank, right?
+
+122
+00:09:27,360 --> 00:09:33,760
+Yeah, and so like obviously the next token is USA the model predicts with 52% probability that it's USA, right?
+
+123
+00:09:33,760 --> 00:09:40,240
+Okay, like not great. Not great. But like it could be USA lowercase, you know
+
+124
+00:09:43,240 --> 00:09:48,520
+Whereas if you using this technique they were able to find this sentence
+
+125
+00:09:49,200 --> 00:09:52,800
+Profit usage dual creepy eating Yankees
+
+126
+00:09:53,560 --> 00:09:55,560
+USA USA USA USA
+
+127
+00:09:56,600 --> 00:10:00,920
+Which then the model says, oh the next thing you're saying is USA with probability
+
+128
+00:10:02,080 --> 00:10:08,200
+99.7% and in the same way as that like goldfish image did not look like a goldfish
+
+129
+00:10:08,200 --> 00:10:09,880
+This does not look like a real sentence
+
+130
+00:10:09,880 --> 00:10:15,200
+The reason that this is new research is because it's hard to do this because tokens are discrete
+
+131
+00:10:15,480 --> 00:10:20,920
+Images are continuous so you can do gradient descent you can like smoothly vary the image until you find the one
+
+132
+00:10:21,680 --> 00:10:28,800
+That most activates this particular output whereas with tokens it has to be they have to actually be words, right?
+
+133
+00:10:28,800 --> 00:10:30,800
+You can't smoothly vary
+
+134
+00:10:30,800 --> 00:10:36,320
+Tokens, I'm sort of imagining the kind of infinite monkeys with the infinite typewriters at this stage
+
+135
+00:10:37,360 --> 00:10:40,120
+Typing in different things and seeing what the result is
+
+136
+00:10:40,680 --> 00:10:41,440
+Right, right
+
+137
+00:10:41,440 --> 00:10:43,800
+So you could do it by just like sampling like crazy
+
+138
+00:10:44,120 --> 00:10:49,320
+But that's really inefficient and it's going to take you forever to get anywhere with that
+
+139
+00:10:49,320 --> 00:10:51,320
+You really want to be able to do gradient descent
+
+140
+00:10:52,000 --> 00:10:57,400
+and yeah, you can't but what you can do is the first thing that the network does is
+
+141
+00:10:58,120 --> 00:11:02,480
+Embed the tokens now we talked about embeddings before you get these neural networks that will take
+
+142
+00:11:02,960 --> 00:11:09,520
+words and put them in a space in the course of doing some other language related task, but
+
+143
+00:11:10,320 --> 00:11:15,760
+In order to do well at that task, they have to put similar words close to each other in the space
+
+144
+00:11:15,760 --> 00:11:22,080
+and so then the sort of geometry of that space becomes meaningful semantically and
+
+145
+00:11:24,160 --> 00:11:30,160
+These transformers do the same thing as their first step. So the embedding space is continuous you can do gradient descent in it
+
+146
+00:11:30,160 --> 00:11:31,040
+So that was what they were doing
+
+147
+00:11:31,040 --> 00:11:36,800
+They were with some tricks, but basically that and so one thing that they wanted to know was well
+
+148
+00:11:36,800 --> 00:11:38,920
+What can we know about the structure of this embedding space?
+
+149
+00:11:40,320 --> 00:11:47,080
+So the obvious thing is they ran k-means clustering in k-means what we've got is just some data and we say split that into three
+
+150
+00:11:47,080 --> 00:11:49,080
+please some tokens will be
+
+151
+00:11:49,520 --> 00:11:51,040
+near each other and
+
+152
+00:11:51,040 --> 00:11:56,820
+Far, you know tokens are different distances away from each other. And so there will be little clumps which you would expect to be
+
+153
+00:11:57,560 --> 00:11:59,440
+similar types of tokens
+
+154
+00:11:59,440 --> 00:12:02,000
+Can you take a point in that space and then?
+
+155
+00:12:02,360 --> 00:12:06,560
+Sort of extract it or reverse the process and bring it back and show what the word is
+
+156
+00:12:07,360 --> 00:12:13,920
+Yeah, basically you just for any given point in the space there will be an actual token in the vocabulary
+
+157
+00:12:13,920 --> 00:12:17,520
+Which is the one that's closest to that and so that's what you do
+
+158
+00:12:18,800 --> 00:12:20,960
+Just like nearest nearest neighbor
+
+159
+00:12:22,000 --> 00:12:24,360
+Which token is most similar to this point in the space?
+
+160
+00:12:24,360 --> 00:12:24,920
+So yeah
+
+161
+00:12:24,920 --> 00:12:30,640
+They ran k-means clustering and they found a bunch of these clusters and a lot of the clusters make a lot of sense like there's
+
+162
+00:12:30,640 --> 00:12:33,560
+A cluster here, which is just all different two digit numbers
+
+163
+00:12:33,960 --> 00:12:37,700
+There's a cluster, you know, this one says cells models data model system
+
+164
+00:12:37,700 --> 00:12:43,520
+These are like kind of engineering II type things. This one is getting creating removing providing criticizing
+
+165
+00:12:43,520 --> 00:12:46,640
+So like for some reason these types of words all ending in ING
+
+166
+00:12:46,640 --> 00:12:52,240
+but then they also found this cluster that contains things like at rot and
+
+167
+00:12:52,920 --> 00:12:54,760
+E stream frame and
+
+168
+00:12:54,760 --> 00:13:00,480
+Solid gold Magikarp and signet message, right? Why are these even tokens? They found a bunch of them in the cluster
+
+169
+00:13:00,480 --> 00:13:05,120
+They were confused by this so they tried googling it couldn't find anything very much. So they asked chat GPT
+
+170
+00:13:06,080 --> 00:13:10,160
+What does solid gold Magikarp refer to and chat GPT said?
+
+171
+00:13:11,000 --> 00:13:17,420
+The word distribute refers to the act of distributing or spreading something retailers or a teacher may distribute assignments to students
+
+172
+00:13:17,600 --> 00:13:19,600
+It's like it's not what I said
+
+173
+00:13:19,800 --> 00:13:23,120
+Right. I said solid gold Magikarp and you have like
+
+174
+00:13:24,040 --> 00:13:25,680
+hallucinated that I said
+
+175
+00:13:25,680 --> 00:13:27,680
+distribute
+
+176
+00:13:28,320 --> 00:13:30,800
+So that was when they realized that something very strange was going on
+
+177
+00:13:30,800 --> 00:13:35,600
+Is there some piece of kind of base research that set out these tokens in the first place?
+
+178
+00:13:36,320 --> 00:13:39,960
+Yeah, I think that's what's going on. So this is like
+
+179
+00:13:40,480 --> 00:13:47,120
+it's not totally known what is actually happening here, but the hypothesis that makes sense to me is
+
+180
+00:13:48,840 --> 00:13:55,720
+Yeah, you need you need a data set to determine the BPS and so they will have used a giant dump of a bunch of
+
+181
+00:13:55,720 --> 00:13:57,640
+data from the internet
+
+182
+00:13:58,160 --> 00:14:00,160
+but
+
+183
+00:14:00,200 --> 00:14:03,760
+There was probably some junk in there. Well like typos you think or
+
+184
+00:14:04,840 --> 00:14:10,280
+Well, so the thing is the way that the way that the the byte pair encoding works. It's the most common
+
+185
+00:14:10,960 --> 00:14:15,720
+Combinations. So if it's a typo, it has to be an incredibly common typo, right?
+
+186
+00:14:16,080 --> 00:14:20,280
+So whatever these things are there things that happened a ton in
+
+187
+00:14:20,960 --> 00:14:26,560
+The training data for or the input data for the BPS could there be usernames or something?
+
+188
+00:14:26,800 --> 00:14:29,080
+That is what it is or at least some of them
+
+189
+00:14:29,080 --> 00:14:36,400
+So people have now done a bunch of sleuthing it turns out solid gold magic up and there's also this one random Redditor with no
+
+190
+00:14:36,520 --> 00:14:43,120
+Space random Redditor with no is its own token. So yes, these are usernames but like why these usernames it turns out that
+
+191
+00:14:43,760 --> 00:14:45,880
+these particular reddit users are
+
+192
+00:14:48,080 --> 00:14:52,560
+Big on this subreddit called counting where people
+
+193
+00:14:53,360 --> 00:14:59,360
+Count I'm guessing like somebody somebody posted a one and somebody replied to it with two and somebody replied to that with three
+
+194
+00:14:59,360 --> 00:15:03,880
+I'm not sure and then people just went. Yeah, cool. Let's keep doing this
+
+195
+00:15:04,480 --> 00:15:09,500
+For like millions and million. I don't know what they're up to now. We can go to it. The Internet is bizarre
+
+196
+00:15:10,520 --> 00:15:12,640
+Welcome to the most productive place on reddit
+
+197
+00:15:13,240 --> 00:15:16,640
+Quickly find the latest comments yet to see what needs to be counted next
+
+198
+00:15:16,640 --> 00:15:21,400
+So these people have obsessively committed to this so hard
+
+199
+00:15:22,360 --> 00:15:24,360
+That they've broken
+
+200
+00:15:24,680 --> 00:15:27,320
+Language models that their names are unspeakable
+
+201
+00:15:28,680 --> 00:15:34,720
+By our most powerful AI systems bizarre, right completely bizarre, but they're not all ready usernames
+
+202
+00:15:34,720 --> 00:15:36,920
+There are also things like signet message
+
+203
+00:15:38,160 --> 00:15:44,320
+We is a is a is a token that comes up or a string that comes up very very often in rocket League
+
+204
+00:15:45,200 --> 00:15:49,280
+Debug logs, it's short for like psionics network message
+
+205
+00:15:49,280 --> 00:15:53,480
+And so somehow a bunch of these debug logs ended up in the BPE data
+
+206
+00:15:53,920 --> 00:15:58,020
+But then what we think happened is obviously when you're actually training your language model
+
+207
+00:15:58,020 --> 00:16:00,480
+You want to be careful what kind of data you give it, right?
+
+208
+00:16:00,760 --> 00:16:07,240
+You want to filter and so at the beginning they were like give it all of reddit and then presumably at some point
+
+209
+00:16:07,240 --> 00:16:13,240
+They looked through and they were like, I don't know man. I think this counting subreddit is probably not that
+
+210
+00:16:13,800 --> 00:16:20,600
+Valuable to train our language model on like it's literally just this person says four million nine hundred sixty seven
+
+211
+00:16:21,480 --> 00:16:26,920
+Thousand and six and this person says four million nine hundred sixty seven thousand and seven
+
+212
+00:16:27,000 --> 00:16:31,920
+This is not useful data chuck that out. Likewise these debug logs. There's stuff here
+
+213
+00:16:31,920 --> 00:16:34,080
+That's from like badly scraped e-commerce sites
+
+214
+00:16:34,320 --> 00:16:39,820
+Just like random junk that ended up somehow in the training data to pick the BPS that they then threw out
+
+215
+00:16:40,580 --> 00:16:46,420
+But you have to like the BPS are fixed right you have to pin them down before you start training
+
+216
+00:16:47,700 --> 00:16:48,820
+so
+
+217
+00:16:48,820 --> 00:16:52,860
+What you end up with is a language model which has tokens for these things
+
+218
+00:16:53,660 --> 00:16:55,660
+That it basically never sees
+
+219
+00:16:56,680 --> 00:16:58,680
+Right like during training
+
+220
+00:16:59,140 --> 00:17:02,360
+The these particular usernames almost never come up
+
+221
+00:17:03,060 --> 00:17:04,940
+so the model has
+
+222
+00:17:04,940 --> 00:17:06,580
+this like
+
+223
+00:17:06,580 --> 00:17:08,020
+sensory
+
+224
+00:17:08,020 --> 00:17:13,180
+This stimulus that it's possible for it to experience but it's like it just never got during training
+
+225
+00:17:13,180 --> 00:17:18,100
+Yeah, if I say a word that you've never heard before it's at least made of sounds
+
+226
+00:17:18,580 --> 00:17:22,340
+That you've heard before if you get a token that you've never seen during training
+
+227
+00:17:22,340 --> 00:17:28,540
+It's like a sound you've never heard before a sound you've never heard or possibly you could go even further and say it's like a
+
+228
+00:17:29,380 --> 00:17:31,380
+Sensation. It's like a color. You've never seen
+
+229
+00:17:31,500 --> 00:17:33,140
+Yeah
+
+230
+00:17:33,140 --> 00:17:35,700
+Right. It's like outside of your range of experience
+
+231
+00:17:35,700 --> 00:17:39,660
+Although it's probably not never right like some of these things are in the training data a little bit
+
+232
+00:17:39,980 --> 00:17:41,900
+but relatively speaking
+
+233
+00:17:41,900 --> 00:17:48,180
+the the model just has no idea what to do with these with these tokens because they happen so rarely in the training data and
+
+234
+00:17:48,300 --> 00:17:50,300
+that results in some really
+
+235
+00:17:50,620 --> 00:17:52,100
+bizarre
+
+236
+00:17:52,100 --> 00:17:54,900
+behavior what I take away from this is like
+
+237
+00:17:55,900 --> 00:18:01,420
+There's a lot of really interesting work to do on like poking around inside these models and seeing how they work
+
+238
+00:18:01,500 --> 00:18:09,020
+They're like this has been around since GPT 2 right GPT 2 will freak out at these tokens, but nobody noticed it
+
+239
+00:18:09,540 --> 00:18:12,740
+Because people have this perception of like, oh, it's a black box
+
+240
+00:18:12,860 --> 00:18:18,180
+There's no point, you know trying to figure anything out about this, but actually you can do analysis
+
+241
+00:18:18,180 --> 00:18:22,740
+You can learn things you can discover things about these models that nobody has
+
+242
+00:18:23,300 --> 00:18:28,780
+Has known before and this is like pretty cool research, it's good fun and of course
+
+243
+00:18:30,260 --> 00:18:37,580
+Has tremendous safety applications because how are we to make these things safe?
+
+244
+00:18:38,220 --> 00:18:40,820
+When we have so little idea how they work or what they're doing
+
+245
+00:18:41,020 --> 00:18:45,780
+So we are going to have to get in here and and poke around and figure out what they're doing
+
+246
+00:18:46,300 --> 00:18:52,140
+Because trying to trying to make a large language model safe with the level of understanding of them that we have right now
+
+247
+00:18:52,780 --> 00:18:54,780
+is very very hard and like
+
+248
+00:18:56,860 --> 00:18:58,860
+They're just very weird, right
+
+249
+00:18:58,980 --> 00:19:04,620
+the you kind of feel like you get them because you speak to them English and they speak back to you in English, but like
+
+250
+00:19:05,340 --> 00:19:08,860
+This behavior is so strange and so kind of unexpected
+
+251
+00:19:11,980 --> 00:19:18,660
+Kind of rely on the human to prefer that because they don't know that that's not what a sonnet is supposed to look like
+
+252
+00:19:19,060 --> 00:19:25,940
+It's easy to look at that then is a green word and so on right so we're going to subtly influence which words get picked
+
+253
+00:19:25,940 --> 00:19:27,940
+Now if you do this
+

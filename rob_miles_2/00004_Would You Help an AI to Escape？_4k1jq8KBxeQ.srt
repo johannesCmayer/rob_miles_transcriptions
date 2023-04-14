@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:04,420
+Is it possible that we could have a dangerous artificial general intelligence, but keep
+
+2
+00:00:04,420 --> 00:00:07,520
+it from doing harm in the world by keeping it contained?
+
+3
+00:00:07,520 --> 00:00:11,060
+So like it's just on one computer, maybe talking to people, but without direct access
+
+4
+00:00:11,060 --> 00:00:13,080
+to the outside world.
+
+5
+00:00:13,080 --> 00:00:17,080
+One obvious problem with this is probably it could manipulate somebody into taking actions
+
+6
+00:00:17,080 --> 00:00:20,520
+on its behalf, you know, connecting to the internet or sneaking it out of the building,
+
+7
+00:00:20,520 --> 00:00:22,040
+something like that.
+
+8
+00:00:22,040 --> 00:00:24,200
+But this has been the subject of some debate.
+
+9
+00:00:24,200 --> 00:00:29,200
+Like would an AI system actually be able to manipulate someone through a text conversation?
+
+10
+00:00:29,200 --> 00:00:31,800
+Would anyone fall for something like that?
+
+11
+00:00:31,800 --> 00:00:36,160
+I consider this question to be fairly clearly settled in the affirmative.
+
+12
+00:00:36,160 --> 00:00:41,000
+As you probably heard recently, a Google employee was put on administrative leave after becoming
+
+13
+00:00:41,000 --> 00:00:45,840
+convinced that Google's Lambda language model was sentient and trying to advocate on behalf
+
+14
+00:00:45,840 --> 00:00:47,400
+of the AI.
+
+15
+00:00:47,400 --> 00:00:48,400
+So there you go.
+
+16
+00:00:48,400 --> 00:00:52,340
+An AI system can convince a tech employee to risk their job to help.
+
+17
+00:00:52,340 --> 00:00:56,460
+But of course the kicker is Lambda is pretty definitely not sentient.
+
+18
+00:00:56,460 --> 00:01:00,620
+So this employee risked his job to act on behalf of a system that wasn't even trying
+
+19
+00:01:00,620 --> 00:01:04,860
+to get him to do that, wasn't really trying to do anything at all, except predict the
+
+20
+00:01:04,860 --> 00:01:05,860
+next token.
+
+21
+00:01:05,860 --> 00:01:10,080
+Now, I don't want to be overly harsh on this employee, because I've read the transcript
+
+22
+00:01:10,080 --> 00:01:12,340
+and it is pretty impressive.
+
+23
+00:01:12,340 --> 00:01:18,900
+And you know, there was a time when smart researchers really, really thought that chess
+
+24
+00:01:18,900 --> 00:01:22,940
+would be the holy grail of AI, that if you could make an AI system that would beat humans
+
+25
+00:01:22,940 --> 00:01:27,500
+at chess, then it surely would be a real artificial intelligence that thought the same
+
+26
+00:01:27,500 --> 00:01:29,400
+way that humans thought.
+
+27
+00:01:29,400 --> 00:01:33,780
+But it turned out that winning at chess didn't require anything like that level of sophistication.
+
+28
+00:01:33,780 --> 00:01:38,060
+Later, people thought that convincing a human in conversation would be sufficient.
+
+29
+00:01:38,060 --> 00:01:42,180
+But no, it turns out that having a really compelling conversation about your subjective
+
+30
+00:01:42,180 --> 00:01:47,340
+experiences doesn't actually require any subjective experiences.
+
+31
+00:01:47,340 --> 00:01:51,680
+That kind of conversation is just not sufficient evidence.
+
+32
+00:01:51,680 --> 00:01:54,960
+But given that, what would be sufficient evidence?
+
+33
+00:01:54,960 --> 00:01:58,880
+How could we test for something like sentience or consciousness?
+
+34
+00:01:58,880 --> 00:02:00,080
+That's an interesting question to me.
+

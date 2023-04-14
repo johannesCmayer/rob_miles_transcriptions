@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Hi. So I was trying this experiment of making really short videos, and I thought,
+
+2
+00:00:04,000 --> 00:00:07,680
+oh, this is nice. I'll be able to put them out simultaneously on TikTok and YouTube Shorts,
+
+3
+00:00:07,680 --> 00:00:10,960
+which some other creators have been doing. So I recorded this video, it's like two and a bit
+
+4
+00:00:10,960 --> 00:00:14,800
+minutes long, and uploaded it to TikTok. And then I realized that YouTube Shorts
+
+5
+00:00:14,800 --> 00:00:17,600
+only allows one minute video. You don't care. Here's the video.
+
+6
+00:00:17,600 --> 00:00:22,560
+Hey, did you hear about this? This is GitHub Copilot. It's an AI system that writes code.
+
+7
+00:00:22,560 --> 00:00:25,760
+You just give it an English description of what you want the code to do, and it writes it. It's
+
+8
+00:00:25,760 --> 00:00:30,560
+pretty good. But what can this tell us about why future AI systems might be dangerous?
+
+9
+00:00:30,560 --> 00:00:34,640
+Hi, I'm Rob Miles. I make videos about AI safety. So in the field of AI safety,
+
+10
+00:00:34,640 --> 00:00:40,160
+we have this concept of alignment, which is about are the AI system's goals aligned with ours? Is
+
+11
+00:00:40,160 --> 00:00:44,320
+it trying to do what we want it to do? See, when you have an AI system which is doing the wrong
+
+12
+00:00:44,320 --> 00:00:49,520
+thing, there's kind of two reasons why that might happen. One of them is a capability problem. Maybe
+
+13
+00:00:49,520 --> 00:00:53,760
+the system just isn't smart enough, isn't capable enough to know how to do the right thing.
+
+14
+00:00:53,760 --> 00:00:58,400
+The other possibility is an alignment problem. That happens when the system knows perfectly well
+
+15
+00:00:58,400 --> 00:01:02,640
+how to do the right thing, but just doesn't want to. Capability problems tend to sort of
+
+16
+00:01:02,640 --> 00:01:06,480
+solve themselves in the course of normal AI research. You get more and better data,
+
+17
+00:01:06,480 --> 00:01:10,000
+you get bigger models, and eventually the system becomes more capable.
+
+18
+00:01:10,000 --> 00:01:14,160
+But alignment problems are a little bit more tricky. Just making the system more capable
+
+19
+00:01:14,160 --> 00:01:18,720
+doesn't solve the problem. It actually kind of makes it worse. If you have a very capable system
+
+20
+00:01:18,720 --> 00:01:22,960
+which is trying to do something that you don't want it to do, that could be really dangerous.
+
+21
+00:01:22,960 --> 00:01:27,680
+So what would it mean for a system that writes code to be misaligned? Well, what we want is for
+
+22
+00:01:27,680 --> 00:01:33,840
+it to write good code. So if we find a situation where it writes bad code, but where it does
+
+23
+00:01:33,840 --> 00:01:38,480
+actually know how to write that code well, then that's an indication of misalignment. So by that
+
+24
+00:01:38,480 --> 00:01:44,480
+definition, is GitHub Copilot misaligned? The answer to this and many other questions is yes.
+
+25
+00:01:44,480 --> 00:01:49,440
+This recent paper had a look and found exactly that. See, Codex, the model on which Copilot
+
+26
+00:01:49,440 --> 00:01:55,120
+is based, is not actually trying to write good code. It's trying to predict what comes next. And
+
+27
+00:01:55,120 --> 00:01:59,120
+this means that if you've written some bad code, and then you ask the model to carry on and write
+
+28
+00:01:59,120 --> 00:02:05,120
+the next part of the code, it will carry on with bad code. If you write buggy code, it will continue
+
+29
+00:02:05,120 --> 00:02:10,000
+with buggy code. If you write insecure code, it will introduce security vulnerabilities. And we
+
+30
+00:02:10,000 --> 00:02:14,480
+know it's not a capabilities problem, because if you write good code, it will complete with good
+
+31
+00:02:14,480 --> 00:02:19,280
+code. So it doesn't know how to write good code. It's just choosing not to, because that's just not
+
+32
+00:02:19,280 --> 00:02:23,520
+what it's trying to do. It's misaligned. And we shouldn't just expect this problem to go away with
+
+33
+00:02:23,520 --> 00:02:28,640
+bigger models and more data. In fact, they tested this with a range of different model sizes, and
+
+34
+00:02:28,640 --> 00:02:32,880
+they found that the larger models do this more. Because they're better at spotting more subtle
+
+35
+00:02:32,880 --> 00:02:36,560
+patterns, they're able to better spot the difference between good code and bad code.
+
+36
+00:02:36,560 --> 00:02:41,280
+They're able to spot the subtle bugs and notice that the code completions should also have subtle
+
+37
+00:02:41,280 --> 00:02:46,240
+bugs. So this alignment problem is going to become increasingly central to the development of AI.
+
+38
+00:02:46,240 --> 00:02:50,400
+The question stops being, does our AI system know how to do the right thing?
+
+39
+00:02:50,400 --> 00:02:53,840
+And becomes, does our AI system want to do the right thing?
+

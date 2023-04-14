@@ -1,0 +1,1208 @@
+1
+00:00:00,000 --> 00:00:29,900
+So today is the Crap-A-Thon at Nottingham Hackspace, and I wasn't going to take part but then I had a stupid idea, so I'm going to, but, yeah, the idea of a Crap-A-Thon is you've got to build something, it's like a Hack-A-Thon, where you've got to build something quickly for a competition, but the thing you build has to be crappy, it has to be a terrible idea, something useless, something nobody would ever want,
+
+2
+00:00:29,900 --> 00:00:53,800
+or a good idea done really, really badly. Last year I made a robot that deliberately blinds people with a laser, which was fun. This year I'm going, you know, virtual reality is very big, so I'm going to try and make a VR app. My first one, never tried it before, so we'll see what happens.
+
+3
+00:00:53,800 --> 00:01:08,700
+So things are already underway, everybody's building their different things. This is Mouse, who you may know from Fire Pong, right? They had that computer file video. Anyway, what are you making?
+
+4
+00:01:08,700 --> 00:01:13,600
+I don't really know yet, I think it's going to be a greeter of some kind.
+
+5
+00:01:13,700 --> 00:01:18,600
+So the kids come along. What are you building, Daniel?
+
+6
+00:01:18,700 --> 00:01:24,600
+It's a box to identify whatever you put in there.
+
+7
+00:01:24,700 --> 00:01:25,600
+Oh, okay.
+
+8
+00:01:25,700 --> 00:01:29,600
+You put it in the camera, take a photo of it, and try to figure out what it is.
+
+9
+00:01:29,700 --> 00:01:31,600
+Huh, cool.
+
+10
+00:01:31,700 --> 00:01:34,600
+How the hell?
+
+11
+00:01:34,700 --> 00:01:36,600
+AI.
+
+12
+00:01:36,700 --> 00:01:37,600
+Oh, yeah.
+
+13
+00:01:37,600 --> 00:01:41,500
+You've got real AI happening. What are you building?
+
+14
+00:01:41,600 --> 00:01:43,500
+A temperature replicator.
+
+15
+00:01:43,600 --> 00:01:45,500
+Temperature replicator.
+
+16
+00:01:45,600 --> 00:01:53,500
+It's going to be a temperature sensor. There's a healthy effect module in there, so it can heat up cooking. This metal plate gets the same temperature sensor.
+
+17
+00:01:53,600 --> 00:01:54,500
+Oh.
+
+18
+00:01:54,600 --> 00:01:56,500
+It's going to identify your temperatures.
+
+19
+00:01:57,500 --> 00:01:59,400
+Quality.
+
+20
+00:01:59,500 --> 00:02:05,400
+Over here, we have Michael Erskine, who made... You were on Computerphile, weren't you? You were on the first one.
+
+21
+00:02:05,500 --> 00:02:06,400
+Yes.
+
+22
+00:02:06,500 --> 00:02:09,400
+Making that arcade machine.
+
+23
+00:02:09,500 --> 00:02:12,400
+Anyway, what's this going to be?
+
+24
+00:02:12,500 --> 00:02:19,400
+This is a privacy booth for people to browse pictures of pegs on the internet.
+
+25
+00:02:19,500 --> 00:02:21,400
+Peg fetishists.
+
+26
+00:02:21,500 --> 00:02:25,400
+Oh, yeah. I'll blur those.
+
+27
+00:02:26,400 --> 00:02:34,300
+There's three types of pegs. There's clothes pegs, tent pegs, and stunt pegs for BMXs.
+
+28
+00:02:34,400 --> 00:02:35,300
+Oh, yeah, right.
+
+29
+00:02:35,400 --> 00:02:37,300
+I'm going to have three modes for the web app.
+
+30
+00:02:37,400 --> 00:02:38,300
+That makes sense.
+
+31
+00:02:38,400 --> 00:02:43,300
+And the appropriate privacy.
+
+32
+00:02:43,400 --> 00:02:47,300
+Because people don't want people looking at them while they're looking at pegs.
+
+33
+00:02:47,400 --> 00:02:50,300
+So it's going to be installed in the library.
+
+34
+00:02:50,400 --> 00:02:52,300
+Oh, what, in that library?
+
+35
+00:02:52,400 --> 00:02:53,300
+No, in the public library.
+
+36
+00:02:53,400 --> 00:02:55,300
+Oh, the public library. Okay. Perfect.
+
+37
+00:02:55,400 --> 00:02:56,300
+Thanks.
+
+38
+00:02:56,400 --> 00:03:02,300
+So James Fouts is building...
+
+39
+00:03:02,400 --> 00:03:05,300
+What's he building in there?
+
+40
+00:03:05,400 --> 00:03:06,300
+A butt.
+
+41
+00:03:06,400 --> 00:03:12,300
+Oh, my God. It's so pink. Why does it have a nipple?
+
+42
+00:03:12,400 --> 00:03:14,300
+It's a pimple.
+
+43
+00:03:20,400 --> 00:03:23,300
+It's a butt activation mechanism button.
+
+44
+00:03:23,300 --> 00:03:26,200
+Oh, the butt button. Okay.
+
+45
+00:03:26,300 --> 00:03:29,200
+I'm rendered speechless.
+
+46
+00:03:29,300 --> 00:03:30,200
+We were not expecting that.
+
+47
+00:03:30,300 --> 00:03:32,200
+Thank you.
+
+48
+00:03:32,300 --> 00:03:33,200
+Ready?
+
+49
+00:03:33,300 --> 00:03:34,200
+Okay, do it.
+
+50
+00:03:34,300 --> 00:03:35,200
+I've got to do it.
+
+51
+00:03:35,300 --> 00:03:36,200
+Do it. Do it.
+
+52
+00:03:36,300 --> 00:03:38,200
+Oh, Jesus.
+
+53
+00:03:38,300 --> 00:03:40,200
+Pull it. Get it out. Get it out.
+
+54
+00:03:40,300 --> 00:03:42,200
+I'm full of blood.
+
+55
+00:03:42,300 --> 00:03:43,200
+What even is that?
+
+56
+00:03:43,300 --> 00:03:44,200
+It's so strange feeling.
+
+57
+00:03:44,300 --> 00:03:45,200
+Ew.
+
+58
+00:03:45,300 --> 00:03:46,200
+This feels weird.
+
+59
+00:03:46,300 --> 00:03:47,200
+Yeah.
+
+60
+00:03:47,300 --> 00:03:48,200
+Okay, that's enough.
+
+61
+00:03:48,300 --> 00:03:49,200
+That's it? That'll do?
+
+62
+00:03:49,300 --> 00:03:51,200
+Yeah. More fingers.
+
+63
+00:03:51,200 --> 00:03:52,100
+Oh, more fingers.
+
+64
+00:03:52,200 --> 00:03:53,100
+There's more of them.
+
+65
+00:03:53,200 --> 00:03:54,100
+All right.
+
+66
+00:03:54,200 --> 00:03:56,100
+They're going to be able to bend easy.
+
+67
+00:03:56,200 --> 00:03:59,100
+What a well-organized crap-a-thon.
+
+68
+00:03:59,200 --> 00:04:00,100
+Isn't it?
+
+69
+00:04:00,200 --> 00:04:02,100
+Okay.
+
+70
+00:04:02,200 --> 00:04:07,100
+Finally managed to get the first glove all wired up.
+
+71
+00:04:07,200 --> 00:04:11,100
+Cardboard prototyping.
+
+72
+00:04:11,200 --> 00:04:12,100
+Yeah.
+
+73
+00:04:12,200 --> 00:04:14,100
+Something like that.
+
+74
+00:04:14,200 --> 00:04:16,100
+Except made out of black plastic, hopefully.
+
+75
+00:04:16,200 --> 00:04:18,100
+There's your prototype.
+
+76
+00:04:18,200 --> 00:04:20,100
+Cardboard version.
+
+77
+00:04:20,100 --> 00:04:24,000
+I'm going to try and capture that in selfie mode.
+
+78
+00:04:24,100 --> 00:04:26,000
+Am I in shot?
+
+79
+00:04:26,100 --> 00:04:29,000
+Maybe. Could be.
+
+80
+00:04:29,100 --> 00:04:33,000
+Cyber. Space.
+
+81
+00:04:33,100 --> 00:04:34,000
+Here I come.
+
+82
+00:04:34,100 --> 00:04:38,000
+We've got ask components here.
+
+83
+00:04:38,100 --> 00:04:41,000
+That's great.
+
+84
+00:04:41,100 --> 00:04:44,000
+This looks like a toaster and a vacuum cleaner.
+
+85
+00:04:44,100 --> 00:04:45,000
+Not even going to ask.
+
+86
+00:04:45,100 --> 00:04:46,000
+Hey.
+
+87
+00:04:46,100 --> 00:04:50,000
+Oh, this is the box that you put things in and it tells you what's in the box.
+
+88
+00:04:50,100 --> 00:04:51,000
+It's usually wrong.
+
+89
+00:04:51,100 --> 00:04:58,000
+Well, I mean, it's a crap-a-thon.
+
+90
+00:04:58,100 --> 00:05:02,000
+The booth coming along well.
+
+91
+00:05:02,100 --> 00:05:04,000
+It's a high activity here.
+
+92
+00:05:04,100 --> 00:05:07,000
+So I've got my gloves.
+
+93
+00:05:07,100 --> 00:05:10,000
+The fingertip sensors.
+
+94
+00:05:10,100 --> 00:05:17,000
+The bending sensors on each finger.
+
+95
+00:05:17,000 --> 00:05:19,900
+So this is prototype identifying machine.
+
+96
+00:05:20,000 --> 00:05:21,900
+It says it's ready.
+
+97
+00:05:22,000 --> 00:05:26,900
+Focus.
+
+98
+00:05:27,000 --> 00:05:27,900
+Invertebrate.
+
+99
+00:05:28,000 --> 00:05:33,900
+It's an invertebrate.
+
+100
+00:05:34,000 --> 00:05:34,900
+Technically true. It has no spine.
+
+101
+00:05:35,000 --> 00:05:35,900
+Okay.
+
+102
+00:05:36,000 --> 00:05:36,900
+It's getting worse.
+
+103
+00:05:37,000 --> 00:05:41,900
+It is getting worse.
+
+104
+00:05:41,900 --> 00:05:46,800
+The camera's gone.
+
+105
+00:05:46,900 --> 00:05:48,800
+It's taking longer.
+
+106
+00:05:48,900 --> 00:05:51,800
+Dual cell battery. 12 x AAA.
+
+107
+00:05:51,900 --> 00:05:54,800
+That's quite impressive.
+
+108
+00:05:54,900 --> 00:05:55,800
+I'm impressed.
+
+109
+00:05:55,900 --> 00:05:57,800
+Okay, it can do batteries.
+
+110
+00:05:57,900 --> 00:06:02,800
+Maybe it can identify spray paint.
+
+111
+00:06:02,900 --> 00:06:04,800
+Is it gloss white spray paint?
+
+112
+00:06:04,900 --> 00:06:05,800
+Steady, steady.
+
+113
+00:06:05,900 --> 00:06:07,800
+You hold it and I'll press.
+
+114
+00:06:07,900 --> 00:06:09,800
+Oh, okay.
+
+115
+00:06:09,800 --> 00:06:13,700
+Work of gloss spray paint, antique white, 400 millilitres.
+
+116
+00:06:13,800 --> 00:06:17,700
+400 millilitres?
+
+117
+00:06:17,800 --> 00:06:18,700
+Hang on, where's the...
+
+118
+00:06:18,800 --> 00:06:21,700
+It is!
+
+119
+00:06:21,800 --> 00:06:23,700
+Good job.
+
+120
+00:06:23,800 --> 00:06:24,700
+I'm never going to use that.
+
+121
+00:06:24,800 --> 00:06:25,700
+Oh, all right.
+
+122
+00:06:25,800 --> 00:06:29,700
+Spray paint the base of this.
+
+123
+00:06:29,800 --> 00:06:32,700
+Crunch time now. Everybody's serious.
+
+124
+00:06:32,800 --> 00:06:39,700
+Okay, so now I'm cutting material based on my template that I took apart.
+
+125
+00:06:39,800 --> 00:06:44,700
+So, pretty much guaranteed to take off one of my fingers.
+
+126
+00:06:44,800 --> 00:06:46,700
+My own shot.
+
+127
+00:06:46,800 --> 00:06:50,700
+Laboratory's for sure.
+
+128
+00:06:50,800 --> 00:06:51,700
+Virtual hack space.
+
+129
+00:06:51,800 --> 00:06:55,700
+It has a logo on it now, which is nice.
+
+130
+00:06:55,800 --> 00:06:59,700
+I've got the wiring all up so I've got my laptop in the backpack.
+
+131
+00:06:59,800 --> 00:07:01,700
+I know, I'm making an announcement.
+
+132
+00:07:01,800 --> 00:07:05,700
+And all the cables there so you can connect it up.
+
+133
+00:07:06,700 --> 00:07:10,600
+People of hack space, your attention please.
+
+134
+00:07:10,700 --> 00:07:13,600
+People of hack space, your attention please.
+
+135
+00:07:13,700 --> 00:07:16,600
+If you have not registered your project, please do so now.
+
+136
+00:07:16,700 --> 00:07:23,600
+Thank you.
+
+137
+00:07:23,700 --> 00:07:25,600
+Anyway, what are you doing?
+
+138
+00:07:25,700 --> 00:07:28,600
+Playing golf.
+
+139
+00:07:28,700 --> 00:07:35,600
+Oh, so this is the prize, is it?
+
+140
+00:07:35,700 --> 00:07:45,600
+One minute remaining. Would all competitors please take a voting form. Thank you.
+
+141
+00:07:45,700 --> 00:07:54,600
+This is so organized.
+
+142
+00:07:54,700 --> 00:07:56,600
+Who's going to get my vote?
+
+143
+00:07:57,600 --> 00:08:01,500
+Thank you everybody for attending Crap-a-thon 2017.
+
+144
+00:08:01,600 --> 00:08:08,500
+We now come to the presentations of the Crap-a-thon projects with the lovely Froggy.
+
+145
+00:08:08,600 --> 00:08:10,500
+I need a volunteer.
+
+146
+00:08:10,600 --> 00:08:15,500
+Froggy's a volunteer.
+
+147
+00:08:15,600 --> 00:08:18,500
+You can demonstrate to about 9,000.
+
+148
+00:08:18,600 --> 00:08:21,500
+Follow the instructions and read them out. It's a multi-user experience.
+
+149
+00:08:22,500 --> 00:08:30,400
+Instructions. Increase power by rotating dial on power supply.
+
+150
+00:08:30,500 --> 00:08:36,400
+I go faster, the more power you have.
+
+151
+00:08:36,500 --> 00:08:38,400
+Oh shit, it's actually jammed up.
+
+152
+00:08:38,500 --> 00:08:39,400
+Wait for it, wait for it.
+
+153
+00:08:39,500 --> 00:08:42,400
+Shall I turn it back on?
+
+154
+00:08:42,500 --> 00:08:45,400
+It does get a little bit jammed up.
+
+155
+00:08:45,500 --> 00:08:50,400
+Currently, I'm all loaded up with notes about the space.
+
+156
+00:08:50,400 --> 00:08:55,300
+Plug me into a USP power pack and walk around.
+
+157
+00:08:55,400 --> 00:09:00,300
+Welcome to Nottinghack.
+
+158
+00:09:00,400 --> 00:09:06,300
+And then you start the Nottinghack symbol.
+
+159
+00:09:06,400 --> 00:09:09,300
+I am Torbot 9000.
+
+160
+00:09:09,400 --> 00:09:14,300
+I will show you around.
+
+161
+00:09:14,400 --> 00:09:19,300
+You can walk around with it. Take that. And then take that as well.
+
+162
+00:09:19,300 --> 00:09:21,200
+It's portable.
+
+163
+00:09:26,300 --> 00:09:28,200
+How's the membership tour guide notes on it?
+
+164
+00:09:28,300 --> 00:09:29,200
+Well.
+
+165
+00:09:29,300 --> 00:09:33,200
+Michael Erskine, please present your project.
+
+166
+00:09:33,300 --> 00:09:40,200
+So this is a booth so that people can browse the internet in peace.
+
+167
+00:09:40,300 --> 00:09:47,200
+It presents images of pegs.
+
+168
+00:09:48,200 --> 00:09:53,100
+You can take a seat.
+
+169
+00:09:53,200 --> 00:09:59,100
+Each visitor is limited to an hour.
+
+170
+00:09:59,200 --> 00:10:04,100
+And it's your responsibility to wipe down the walls.
+
+171
+00:10:04,200 --> 00:10:10,100
+And a flame proof version is coming in 2018.
+
+172
+00:10:10,200 --> 00:10:12,100
+Thank you.
+
+173
+00:10:13,100 --> 00:10:19,000
+The next competitor is Maxim and Denis. When do you wake up?
+
+174
+00:10:19,100 --> 00:10:22,000
+When you wake up, you set an alarm.
+
+175
+00:10:22,100 --> 00:10:26,000
+And you are very tempted to just postpone it, postpone it again.
+
+176
+00:10:26,100 --> 00:10:28,000
+Do it every time.
+
+177
+00:10:28,100 --> 00:10:29,000
+So we have a solution.
+
+178
+00:10:29,100 --> 00:10:32,000
+You put your phone into our device.
+
+179
+00:10:32,100 --> 00:10:35,000
+And it has a light sensor.
+
+180
+00:10:35,100 --> 00:10:38,000
+Unless you wake up, go and switch on the light.
+
+181
+00:10:38,100 --> 00:10:41,000
+You see what happens. You try to reach your phone.
+
+182
+00:10:42,000 --> 00:10:43,900
+Yeah, and when it's dark.
+
+183
+00:10:48,000 --> 00:10:50,900
+After this, you are definitely going to wake up.
+
+184
+00:10:51,000 --> 00:10:52,900
+Thank you very much.
+
+185
+00:10:55,000 --> 00:10:58,900
+Number five is James with Choco Butt.
+
+186
+00:10:59,000 --> 00:11:02,900
+Right, this is going to take a lot of explaining, so I'm kind of sensitive.
+
+187
+00:11:03,000 --> 00:11:06,900
+It's a butt that poops chocolate.
+
+188
+00:11:07,000 --> 00:11:07,900
+That's what it is.
+
+189
+00:11:08,000 --> 00:11:08,900
+It's for Halloween.
+
+190
+00:11:08,900 --> 00:11:14,800
+So it's basically for when you hate kids, but you don't mind kids enjoying themselves.
+
+191
+00:11:14,900 --> 00:11:16,800
+You just don't want to be there when it happens.
+
+192
+00:11:16,900 --> 00:11:19,800
+So you can leave it outside your house.
+
+193
+00:11:19,900 --> 00:11:22,800
+And the kid comes up and presses a button.
+
+194
+00:11:22,900 --> 00:11:24,800
+And it poops the chocolate butt.
+
+195
+00:11:24,900 --> 00:11:27,800
+You need someone who wants to be the kid.
+
+196
+00:11:27,900 --> 00:11:31,800
+Right. God, I hope this works.
+
+197
+00:11:31,900 --> 00:11:33,800
+I'm not sure how I do it.
+
+198
+00:11:34,900 --> 00:11:37,800
+So we load the chocolate.
+
+199
+00:11:37,800 --> 00:11:39,700
+And then very carefully press the button.
+
+200
+00:11:39,800 --> 00:11:41,700
+If you press too hard, it breaks.
+
+201
+00:11:45,800 --> 00:11:47,700
+There we go.
+
+202
+00:11:47,800 --> 00:11:50,700
+And then it turns and the chocolate...
+
+203
+00:11:54,800 --> 00:11:56,700
+...falls out of the hole.
+
+204
+00:11:57,800 --> 00:11:59,700
+Choco Butt.
+
+205
+00:12:01,800 --> 00:12:06,700
+Next up we have the lovely mouse with, I don't know what I'm doing, the third.
+
+206
+00:12:06,700 --> 00:12:09,600
+Third year of Capcom, third year I don't know what I'm doing.
+
+207
+00:12:09,700 --> 00:12:12,600
+Okay, so continuing the Halloween theme.
+
+208
+00:12:12,700 --> 00:12:18,600
+And I know you never thought I would say this, James, but remarkably similar to your project in some ways...
+
+209
+00:12:18,700 --> 00:12:21,600
+...is the auto-insulter.
+
+210
+00:12:21,700 --> 00:12:23,600
+So the idea for this is you leave it unattended.
+
+211
+00:12:23,700 --> 00:12:28,600
+And when annoying children come to your door, you don't have to be there to slam the door in their face.
+
+212
+00:12:28,700 --> 00:12:30,600
+It will do it for you.
+
+213
+00:12:30,700 --> 00:12:32,600
+Except the sound doesn't work, so I'm going to have to simulate the sound.
+
+214
+00:12:32,700 --> 00:12:34,600
+Someone will just walk in front of it.
+
+215
+00:12:34,600 --> 00:12:37,500
+So basically, it should be making sound, but that doesn't work yet.
+
+216
+00:12:39,600 --> 00:12:41,500
+Bugger off!
+
+217
+00:12:44,600 --> 00:12:46,500
+And then when the next kid comes along...
+
+218
+00:12:49,600 --> 00:12:52,500
+Shut up! Get out of here!
+
+219
+00:12:58,600 --> 00:13:01,500
+The next one, I'm so glad this one made it, is...
+
+220
+00:13:01,500 --> 00:13:05,400
+...is What's in the Box by Toby, James and Daniel.
+
+221
+00:13:05,500 --> 00:13:07,400
+Different James.
+
+222
+00:13:07,500 --> 00:13:09,400
+Okay, so...
+
+223
+00:13:11,500 --> 00:13:14,400
+Often, when in the hat space...
+
+224
+00:13:15,500 --> 00:13:20,400
+...you pick up an item and not know what that item is.
+
+225
+00:13:20,500 --> 00:13:24,400
+So this is a box that you can put that item in, press the button...
+
+226
+00:13:24,500 --> 00:13:29,400
+...and it will try and tell you what is in the box.
+
+227
+00:13:29,400 --> 00:13:32,300
+I think one of the best ones was this, Rosette.
+
+228
+00:13:32,400 --> 00:13:33,300
+Try that.
+
+229
+00:13:38,400 --> 00:13:39,300
+Come on.
+
+230
+00:13:40,400 --> 00:13:41,300
+You can do it.
+
+231
+00:13:41,400 --> 00:13:43,300
+Thank you.
+
+232
+00:13:45,400 --> 00:13:48,300
+Is there any chance that we can put someone else's project in the What's in the Box?
+
+233
+00:13:48,400 --> 00:13:52,300
+If someone else's project is small enough to fit in the What's in the Box box...
+
+234
+00:13:52,400 --> 00:13:55,300
+...I'm more than happy to...
+
+235
+00:13:55,400 --> 00:13:57,300
+I might have to present it.
+
+236
+00:14:00,400 --> 00:14:02,300
+Well...
+
+237
+00:14:06,400 --> 00:14:10,300
+Next up, we have Hazel with the Cyber Hat.
+
+238
+00:14:13,400 --> 00:14:18,300
+Next up, this is scaring me quite a bit, we have Andrew with his Hover Toaster.
+
+239
+00:14:18,400 --> 00:14:20,300
+This is my vision of the future.
+
+240
+00:14:20,400 --> 00:14:24,300
+And it never really came about, so I really had to build it.
+
+241
+00:14:24,400 --> 00:14:27,300
+And I bring you Hover Toaster.
+
+242
+00:14:30,400 --> 00:14:32,300
+What the fuck?
+
+243
+00:14:42,400 --> 00:14:45,300
+I'll test the toasting function.
+
+244
+00:15:00,400 --> 00:15:16,300
+The intermittent operation is due to the interlock, which is...
+
+245
+00:15:24,400 --> 00:15:28,300
+And you can smell the delicious toast, can't you?
+
+246
+00:15:30,400 --> 00:15:33,300
+How long is the toast to toast?
+
+247
+00:15:39,400 --> 00:15:42,300
+I'm not going to have to make it hot!
+
+248
+00:15:52,400 --> 00:15:55,300
+You've got to hit the cancel button.
+
+249
+00:15:55,400 --> 00:15:58,300
+Yay!
+
+250
+00:15:59,300 --> 00:16:01,200
+Good job.
+
+251
+00:16:03,300 --> 00:16:06,200
+Up next is Virtual Hackspace.
+
+252
+00:16:06,300 --> 00:16:10,200
+Oh, that's me. Can somebody else film me?
+
+253
+00:16:16,300 --> 00:16:19,200
+You can't always be at the Hackspace.
+
+254
+00:16:19,300 --> 00:16:24,200
+Sometimes, some people can't easily get to a Hackspace.
+
+255
+00:16:25,200 --> 00:16:31,100
+Sometimes, you're at home, and you want that Hackspace experience.
+
+256
+00:16:32,200 --> 00:16:39,100
+I've spent some time putting together this simulation of a Hackspace, so you can have that experience.
+
+257
+00:16:39,200 --> 00:16:45,100
+First off, we have gloves, which have sensors in them and some feedback.
+
+258
+00:16:54,200 --> 00:16:57,100
+Plug in the gloves.
+
+259
+00:17:02,200 --> 00:17:04,100
+Okay.
+
+260
+00:17:04,200 --> 00:17:08,100
+And now, I'll put the Virtual Hackspace headset on.
+
+261
+00:17:08,200 --> 00:17:10,100
+All lined up.
+
+262
+00:17:12,200 --> 00:17:15,100
+Yeah, no, I haven't turned it on yet.
+
+263
+00:17:15,200 --> 00:17:22,100
+Let me just turn it on. You should see an exact one-to-one simulation of a Hackspace.
+
+264
+00:17:25,200 --> 00:17:27,100
+Sorry.
+
+265
+00:17:33,200 --> 00:17:36,100
+Next up, we have the lovely Ian.
+
+266
+00:17:36,200 --> 00:17:39,100
+This is icy water, so we'll put that in there.
+
+267
+00:17:39,200 --> 00:17:44,100
+This starts to cool down. We need to get some ice forming on here earlier.
+
+268
+00:17:44,200 --> 00:17:47,100
+Does anyone want to feel that?
+
+269
+00:17:47,200 --> 00:17:50,100
+So I'm not making things up?
+
+270
+00:17:50,200 --> 00:17:53,100
+Keep your fingers on it.
+
+271
+00:17:53,100 --> 00:17:56,000
+It's going to happen now.
+
+272
+00:17:56,100 --> 00:17:58,000
+Is it getting warm yet?
+
+273
+00:17:58,100 --> 00:18:03,000
+It's still cold at the moment. The temperature is slowly rising.
+
+274
+00:18:03,100 --> 00:18:06,000
+You see a laptop screen. It's got two temperatures on it.
+
+275
+00:18:06,100 --> 00:18:08,000
+That's now no longer cold.
+
+276
+00:18:08,100 --> 00:18:09,000
+Is that getting hot?
+
+277
+00:18:09,100 --> 00:18:12,000
+It's acceptably warm right now.
+
+278
+00:18:12,100 --> 00:18:17,000
+Now that's unpleasantly warm, and it's too hot to touch now.
+
+279
+00:18:17,100 --> 00:18:20,000
+That's my temperature replicator.
+
+280
+00:18:24,100 --> 00:18:26,000
+Craftsman badge, Emmanuel.
+
+281
+00:18:26,100 --> 00:18:30,000
+I made a nice, cool Craftsman badge.
+
+282
+00:18:30,100 --> 00:18:34,000
+Yeah, that's it. That's my Craftsman badge.
+
+283
+00:18:38,100 --> 00:18:40,000
+That's the spirit of the festival.
+
+284
+00:18:40,100 --> 00:18:46,000
+Everybody who's entered the competition, please get your voting forms back to me ASAP.
+
+285
+00:18:47,000 --> 00:18:55,900
+Hackers Assemble, for the results of the 2017 Craftathon Contest.
+
+286
+00:18:56,000 --> 00:19:02,900
+In joint third place, James with Chocobot.
+
+287
+00:19:03,000 --> 00:19:06,900
+And Rob Miles with Virtual Hackspace.
+
+288
+00:19:11,000 --> 00:19:14,900
+In second place, What's in the Box?
+
+289
+00:19:14,900 --> 00:19:17,800
+We have Toby, Daniel and the other James.
+
+290
+00:19:21,900 --> 00:19:29,800
+I'm so pleased to report that in first place, with an absolute landslide victory, is Andrew with Hover Toaster.
+
+291
+00:19:30,800 --> 00:19:37,700
+Congratulations to the Craftathon 2017.
+
+292
+00:19:37,800 --> 00:19:44,700
+Toby and a very special prize of a really crap solar-powered light.
+
+293
+00:19:44,800 --> 00:19:46,700
+Congratulations.
+
+294
+00:19:52,800 --> 00:19:54,700
+You deserve it.
+
+295
+00:19:55,700 --> 00:19:58,600
+It's me!
+
+296
+00:19:58,700 --> 00:20:04,600
+Well, since joining me in Hackspace last year, this has been my dream.
+
+297
+00:20:04,700 --> 00:20:09,600
+You fabulous, fabulous people have made it possible. Thank you very much.
+
+298
+00:20:12,700 --> 00:20:15,600
+I now propose a toast.
+
+299
+00:20:18,700 --> 00:20:21,600
+We'll change our mind about that.
+
+300
+00:20:24,700 --> 00:20:28,600
+Actually, I didn't get a really good shot of it from the butt side.
+
+301
+00:20:30,700 --> 00:20:33,600
+Oh yeah, that's a quality crack.
+
+302
+00:20:35,700 --> 00:20:37,600
+Watching his ass being destroyed.
+

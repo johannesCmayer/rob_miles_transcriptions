@@ -1,0 +1,8396 @@
+1
+00:00:00,000 --> 00:00:01,760
+Hello, everybody.
+
+2
+00:00:01,760 --> 00:00:03,440
+I am Evan Hubinger.
+
+3
+00:00:03,440 --> 00:00:06,120
+I am a research fellow at MIRI.
+
+4
+00:00:06,120 --> 00:00:07,680
+I used to work at OpenAI.
+
+5
+00:00:07,680 --> 00:00:09,840
+I've done a bunch of stuff with Paul Cresciano.
+
+6
+00:00:09,840 --> 00:00:12,840
+I also wrote this paper that I'm going to be talking about today.
+
+7
+00:00:15,920 --> 00:00:19,480
+Let me very quickly raise hands if you
+
+8
+00:00:19,480 --> 00:00:21,120
+have had any experience with the paper
+
+9
+00:00:21,120 --> 00:00:22,560
+I'm going to be talking about.
+
+10
+00:00:22,560 --> 00:00:23,800
+Let's see.
+
+11
+00:00:23,800 --> 00:00:24,440
+OK.
+
+12
+00:00:24,440 --> 00:00:25,360
+OK, pretty good.
+
+13
+00:00:25,360 --> 00:00:25,860
+Sweet.
+
+14
+00:00:25,860 --> 00:00:27,880
+OK.
+
+15
+00:00:28,480 --> 00:00:30,920
+Potentially, I could give a follow-up talk
+
+16
+00:00:30,920 --> 00:00:32,520
+that covers more advanced stuff.
+
+17
+00:00:32,520 --> 00:00:34,900
+But OK, I think that was not quite enough hands.
+
+18
+00:00:34,900 --> 00:00:36,680
+So I think I'm going to be doing this talk.
+
+19
+00:00:36,680 --> 00:00:38,760
+And hopefully, it'll help people at least work
+
+20
+00:00:38,760 --> 00:00:40,880
+through the material and understand stuff better.
+
+21
+00:00:40,880 --> 00:00:42,800
+I think you will probably understand it better
+
+22
+00:00:42,800 --> 00:00:44,920
+from having seen the talk, at the very least.
+
+23
+00:00:44,920 --> 00:00:47,200
+Maybe at some other point, if I stick around,
+
+24
+00:00:47,200 --> 00:00:49,280
+I can give another talk.
+
+25
+00:00:49,280 --> 00:00:50,120
+OK.
+
+26
+00:00:50,120 --> 00:00:53,360
+So yes, let's get started.
+
+27
+00:00:53,360 --> 00:00:55,080
+So let's see.
+
+28
+00:00:55,080 --> 00:00:58,200
+About me, this talk was made when I was at OpenAI.
+
+29
+00:00:58,200 --> 00:00:59,160
+I'm currently at MIRI.
+
+30
+00:00:59,160 --> 00:01:02,520
+I did other stuff before that.
+
+31
+00:01:02,520 --> 00:01:04,280
+I've given this talk at a bunch of places.
+
+32
+00:01:04,280 --> 00:01:05,960
+It's based on this paper.
+
+33
+00:01:05,960 --> 00:01:08,760
+You know it, I think, some of you.
+
+34
+00:01:08,760 --> 00:01:11,240
+OK, what are we talking about?
+
+35
+00:01:11,240 --> 00:01:14,960
+OK, so I want to start with just going back and trying
+
+36
+00:01:14,960 --> 00:01:17,000
+to understand what machine learning does
+
+37
+00:01:17,000 --> 00:01:19,480
+and how it works, because it's very
+
+38
+00:01:19,480 --> 00:01:22,000
+important to understand how machine learning works if we're
+
+39
+00:01:22,000 --> 00:01:24,080
+going to try to talk about it.
+
+40
+00:01:24,120 --> 00:01:25,480
+So what does machine learning do?
+
+41
+00:01:25,480 --> 00:01:28,200
+So fundamentally, any machine learning training process,
+
+42
+00:01:28,200 --> 00:01:31,520
+it has some model space, some large space of algorithms,
+
+43
+00:01:31,520 --> 00:01:33,920
+and then does some really big search over that algorithm
+
+44
+00:01:33,920 --> 00:01:37,320
+space to find some algorithm which performs well empirically
+
+45
+00:01:37,320 --> 00:01:41,360
+on some set of data, on some loss function over that data.
+
+46
+00:01:41,360 --> 00:01:43,480
+OK, this is what essentially everything looks like.
+
+47
+00:01:43,480 --> 00:01:44,400
+This is what RL looks like.
+
+48
+00:01:44,400 --> 00:01:46,240
+This is what supervised learning looks like.
+
+49
+00:01:46,240 --> 00:01:47,760
+This is what fine tuning looks like.
+
+50
+00:01:47,760 --> 00:01:49,520
+Everything looks essentially like we
+
+51
+00:01:49,520 --> 00:01:51,360
+have some really big parameterized space.
+
+52
+00:01:51,360 --> 00:01:52,560
+We do a big search over it.
+
+53
+00:01:52,560 --> 00:01:54,720
+We find an algorithm which does well
+
+54
+00:01:54,720 --> 00:01:57,320
+on some loss over some data.
+
+55
+00:01:57,320 --> 00:02:00,160
+OK, so I think that when a lot of people
+
+56
+00:02:00,160 --> 00:02:02,440
+like to think about this process,
+
+57
+00:02:02,440 --> 00:02:04,640
+there is an abstraction that is really
+
+58
+00:02:04,640 --> 00:02:07,440
+common in thinking about it, and an abstraction that I think
+
+59
+00:02:07,440 --> 00:02:09,120
+can be very useful.
+
+60
+00:02:09,120 --> 00:02:11,240
+And I call that abstraction the does the right thing
+
+61
+00:02:11,240 --> 00:02:12,680
+abstraction.
+
+62
+00:02:12,680 --> 00:02:16,160
+So well, when we trained this model,
+
+63
+00:02:16,160 --> 00:02:18,840
+when we produced this particular parameterization,
+
+64
+00:02:18,840 --> 00:02:21,440
+this particular algorithm over this particular data,
+
+65
+00:02:21,480 --> 00:02:24,560
+well, we selected that algorithm to do a good job
+
+66
+00:02:24,560 --> 00:02:26,440
+on this loss on that data.
+
+67
+00:02:26,440 --> 00:02:28,880
+And so we sort of want to conceptually
+
+68
+00:02:28,880 --> 00:02:32,400
+think about the algorithm as trying to minimize the loss.
+
+69
+00:02:32,400 --> 00:02:34,280
+You know, if you're like, how is this algorithm
+
+70
+00:02:34,280 --> 00:02:35,080
+going to generalize?
+
+71
+00:02:35,080 --> 00:02:36,660
+You can sort of think, well, you know,
+
+72
+00:02:36,660 --> 00:02:40,200
+what would it do that would be loss minimizing?
+
+73
+00:02:40,200 --> 00:02:42,640
+What would be the sort of loss minimizing behavior?
+
+74
+00:02:42,640 --> 00:02:44,680
+But of course, this is not literally true.
+
+75
+00:02:44,680 --> 00:02:46,720
+We did not literally produce an algorithm
+
+76
+00:02:46,720 --> 00:02:49,800
+that is, in fact, minimizing the loss on all off-distribution
+
+77
+00:02:49,800 --> 00:02:50,480
+points.
+
+78
+00:02:50,480 --> 00:02:52,480
+What we have produced is we produce an algorithm
+
+79
+00:02:52,480 --> 00:02:55,040
+that empirically was observed to minimize
+
+80
+00:02:55,040 --> 00:02:56,560
+the loss on the training data.
+
+81
+00:02:56,560 --> 00:02:59,640
+But in fact, when we move it into new situations,
+
+82
+00:02:59,640 --> 00:03:01,240
+it could do anything.
+
+83
+00:03:01,240 --> 00:03:03,400
+But well, we selected it to minimize the loss,
+
+84
+00:03:03,400 --> 00:03:05,640
+and so we'd like to think probably
+
+85
+00:03:05,640 --> 00:03:09,160
+it's going to do something like the loss minimizing behavior.
+
+86
+00:03:09,160 --> 00:03:10,360
+OK.
+
+87
+00:03:10,360 --> 00:03:13,360
+So this abstraction, like all abstractions
+
+88
+00:03:13,360 --> 00:03:15,000
+that are not trivial, are leaky.
+
+89
+00:03:15,000 --> 00:03:17,120
+And we are going to be talking about ways in which
+
+90
+00:03:17,120 --> 00:03:19,440
+this abstraction is leaky.
+
+91
+00:03:19,440 --> 00:03:20,160
+OK.
+
+92
+00:03:20,160 --> 00:03:23,000
+So I'm going to be talking about a very specific situation
+
+93
+00:03:23,000 --> 00:03:25,400
+where I think this abstraction can be leaky in a way
+
+94
+00:03:25,400 --> 00:03:28,000
+that I think is problematic.
+
+95
+00:03:28,000 --> 00:03:32,520
+So that situation is a situation where you have a algorithm
+
+96
+00:03:32,520 --> 00:03:34,640
+itself is doing some sort of optimization.
+
+97
+00:03:34,640 --> 00:03:35,960
+So what do I mean by that?
+
+98
+00:03:35,960 --> 00:03:38,480
+So we're going to say that a system is an optimizer
+
+99
+00:03:38,480 --> 00:03:40,680
+if it is internally searching through some space
+
+100
+00:03:40,680 --> 00:03:45,240
+of possible plans, strategies, actions, whatever,
+
+101
+00:03:45,240 --> 00:03:47,960
+for those that score highly on some criteria.
+
+102
+00:03:47,960 --> 00:03:51,200
+So maybe it's looking for actions
+
+103
+00:03:51,200 --> 00:03:52,840
+that would get low loss.
+
+104
+00:03:52,840 --> 00:03:56,000
+Maybe it is looking for actions that would get it gold coins.
+
+105
+00:03:56,000 --> 00:03:57,840
+Maybe it is looking for actions that
+
+106
+00:03:57,840 --> 00:04:00,200
+would do a good job of predicting the future, whatever.
+
+107
+00:04:00,200 --> 00:04:04,120
+It's looking for things that do a good job on some criteria.
+
+108
+00:04:04,120 --> 00:04:05,200
+OK.
+
+109
+00:04:05,200 --> 00:04:07,640
+So just really quickly, gradient descent
+
+110
+00:04:07,640 --> 00:04:10,800
+is an optimizer because it looks through possible algorithms
+
+111
+00:04:10,800 --> 00:04:14,600
+to find those that do a good job empirically on the loss.
+
+112
+00:04:14,600 --> 00:04:16,480
+A minimax algorithm is an optimizer.
+
+113
+00:04:16,480 --> 00:04:20,120
+It looks for moves that do a good job at playing the game.
+
+114
+00:04:20,120 --> 00:04:21,240
+Humans are optimizers.
+
+115
+00:04:21,240 --> 00:04:25,160
+We look for plans, strategies that accomplish our goals.
+
+116
+00:04:25,160 --> 00:04:27,160
+Things that are not optimizers, a bottle cap
+
+117
+00:04:27,160 --> 00:04:28,080
+is not an optimizer.
+
+118
+00:04:28,080 --> 00:04:29,760
+This is a classic example.
+
+119
+00:04:29,760 --> 00:04:31,680
+You can take a bottle of water, and it's
+
+120
+00:04:31,680 --> 00:04:33,000
+got the water in the bottle.
+
+121
+00:04:33,000 --> 00:04:34,920
+And it's really good at keeping the water in the bottle.
+
+122
+00:04:34,920 --> 00:04:37,360
+You can turn the bottle over, and the water stays in.
+
+123
+00:04:37,360 --> 00:04:39,920
+But that's not because the bottle cap
+
+124
+00:04:39,920 --> 00:04:41,800
+is doing some sort of optimization procedure.
+
+125
+00:04:41,800 --> 00:04:43,360
+It's because we did an optimization procedure
+
+126
+00:04:43,360 --> 00:04:45,960
+for deduce a bottle, and that bottle is then really good.
+
+127
+00:04:45,960 --> 00:04:48,560
+In the same way that a gradient descent process, by default,
+
+128
+00:04:48,560 --> 00:04:51,560
+does an optimization procedure over the space of algorithms
+
+129
+00:04:51,560 --> 00:04:54,600
+and produces a neural network that is not necessarily
+
+130
+00:04:54,600 --> 00:04:55,760
+itself doing optimization.
+
+131
+00:04:55,760 --> 00:04:57,240
+It may just be like the bottle cap.
+
+132
+00:04:57,240 --> 00:04:59,320
+It was a thing that was optimized to do something,
+
+133
+00:04:59,320 --> 00:05:02,080
+but it's not necessarily doing any optimization itself.
+
+134
+00:05:02,080 --> 00:05:04,640
+Certainly, if I just randomly initialize a neural network,
+
+135
+00:05:04,640 --> 00:05:06,960
+it is definitely not going to be doing any optimization
+
+136
+00:05:06,960 --> 00:05:11,440
+unless I get really, really unlucky or lucky.
+
+137
+00:05:11,440 --> 00:05:12,240
+OK.
+
+138
+00:05:12,240 --> 00:05:12,760
+All right.
+
+139
+00:05:12,760 --> 00:05:15,840
+So that is what an optimizer is.
+
+140
+00:05:16,600 --> 00:05:20,320
+So what we want to talk about, and I alluded to this previously,
+
+141
+00:05:20,320 --> 00:05:25,440
+is a situation where the model itself, the algorithm that you
+
+142
+00:05:25,440 --> 00:05:28,360
+found when you did this big search, is itself an optimizer.
+
+143
+00:05:28,360 --> 00:05:30,480
+It is doing some optimization internally
+
+144
+00:05:30,480 --> 00:05:32,920
+inside of your neural network.
+
+145
+00:05:32,920 --> 00:05:36,400
+So I'm going to give names to things in that particular situation
+
+146
+00:05:36,400 --> 00:05:37,880
+where the thing is an optimizer.
+
+147
+00:05:37,880 --> 00:05:39,920
+In that situation, we're going to call the gradient descent
+
+148
+00:05:39,920 --> 00:05:41,840
+process that did a bunch of optimization on top
+
+149
+00:05:41,840 --> 00:05:42,920
+to produce the model.
+
+150
+00:05:42,920 --> 00:05:45,000
+We're going to call it a base optimizer.
+
+151
+00:05:45,000 --> 00:05:47,400
+And we're going to call the thing that it optimized,
+
+152
+00:05:47,400 --> 00:05:49,720
+the algorithm that it found, the gradient descent found,
+
+153
+00:05:49,720 --> 00:05:51,520
+that was, in fact, doing some optimization,
+
+154
+00:05:51,520 --> 00:05:53,120
+we're going to call it a Mesa optimizer.
+
+155
+00:05:53,120 --> 00:05:54,120
+What does that mean?
+
+156
+00:05:54,120 --> 00:05:56,800
+So Mesa is sort of the opposite of meta.
+
+157
+00:05:56,800 --> 00:05:58,880
+Oftentimes, you may be familiar with meta learning.
+
+158
+00:05:58,880 --> 00:06:00,200
+We have an optimization process, and then we
+
+159
+00:06:00,200 --> 00:06:01,760
+put a little meta learning optimization process
+
+160
+00:06:01,760 --> 00:06:04,080
+on top of it that searches over possible ways the learning
+
+161
+00:06:04,080 --> 00:06:05,000
+process could go.
+
+162
+00:06:05,000 --> 00:06:07,160
+And we're like, well, that's sort of what happened here.
+
+163
+00:06:07,160 --> 00:06:08,400
+You had this gradient descent process,
+
+164
+00:06:08,400 --> 00:06:10,400
+and your gradient descent process turned into a meta learning
+
+165
+00:06:10,400 --> 00:06:10,900
+process.
+
+166
+00:06:10,900 --> 00:06:14,560
+Now, instead of searching over a whole space of algorithms,
+
+167
+00:06:14,560 --> 00:06:15,600
+it's sort of specifically searching
+
+168
+00:06:15,600 --> 00:06:16,760
+over learning algorithms.
+
+169
+00:06:16,760 --> 00:06:18,600
+And so we're going to say, well, essentially,
+
+170
+00:06:18,600 --> 00:06:20,680
+the relationship to the base optimizer to the model
+
+171
+00:06:20,680 --> 00:06:22,140
+is very similar to the relationship
+
+172
+00:06:22,140 --> 00:06:24,280
+between a meta optimizer and sort of the thing
+
+173
+00:06:24,280 --> 00:06:25,880
+that meta optimizer is optimizing.
+
+174
+00:06:25,880 --> 00:06:28,180
+So we're going to say, well, it's one meta level below.
+
+175
+00:06:28,180 --> 00:06:29,720
+It's a Mesa optimizer.
+
+176
+00:06:29,720 --> 00:06:31,200
+OK.
+
+177
+00:06:31,200 --> 00:06:31,840
+All right.
+
+178
+00:06:31,840 --> 00:06:34,400
+So some things that people often misunderstand here.
+
+179
+00:06:34,400 --> 00:06:37,240
+So when I say Mesa optimizer, I don't mean some subsystem
+
+180
+00:06:37,240 --> 00:06:39,080
+or some component of the model.
+
+181
+00:06:39,080 --> 00:06:40,360
+I just mean a model.
+
+182
+00:06:40,360 --> 00:06:42,400
+It's a neural network, and it's doing some stuff.
+
+183
+00:06:42,400 --> 00:06:44,640
+And in particular, we're referring to a situation
+
+184
+00:06:44,640 --> 00:06:46,360
+where it is doing some sort of search.
+
+185
+00:06:46,360 --> 00:06:49,200
+It's searching over some space of possible plans, strategies,
+
+186
+00:06:49,200 --> 00:06:50,760
+whatever, for something which does
+
+187
+00:06:50,760 --> 00:06:53,160
+a good job on some criteria.
+
+188
+00:06:53,160 --> 00:06:56,760
+So it's the whole trained model.
+
+189
+00:06:56,760 --> 00:06:57,520
+OK.
+
+190
+00:06:57,520 --> 00:06:59,520
+So I talked a little bit about the relationship
+
+191
+00:06:59,520 --> 00:07:00,520
+with meta learning.
+
+192
+00:07:00,520 --> 00:07:02,220
+But essentially, you can think about this
+
+193
+00:07:02,220 --> 00:07:04,360
+as spontaneous meta learning.
+
+194
+00:07:04,360 --> 00:07:06,760
+You didn't think you were going to be doing meta learning,
+
+195
+00:07:06,760 --> 00:07:09,200
+that you were doing optimization over learning processes.
+
+196
+00:07:09,200 --> 00:07:11,360
+But in fact, the algorithm that your gradient descent process
+
+197
+00:07:11,360 --> 00:07:13,440
+found that was doing a good job on the task
+
+198
+00:07:13,440 --> 00:07:15,460
+was itself a learning algorithm.
+
+199
+00:07:15,460 --> 00:07:16,880
+And so now you're in the business
+
+200
+00:07:16,880 --> 00:07:18,460
+of doing meta learning, because that's
+
+201
+00:07:18,460 --> 00:07:19,920
+what algorithm you found.
+
+202
+00:07:19,920 --> 00:07:22,680
+OK, and so the difficulty is, in this situation,
+
+203
+00:07:22,680 --> 00:07:25,760
+controlling what we're going to meta learn.
+
+204
+00:07:25,760 --> 00:07:27,040
+OK.
+
+205
+00:07:27,040 --> 00:07:29,160
+So right.
+
+206
+00:07:29,160 --> 00:07:31,600
+So we have this does the right thing abstraction,
+
+207
+00:07:31,600 --> 00:07:33,640
+that we said, well, it's leaky sometimes,
+
+208
+00:07:33,640 --> 00:07:36,920
+but it at least helps us reason about models in other times.
+
+209
+00:07:36,920 --> 00:07:39,360
+So we can ask, well, what does the right thing abstraction
+
+210
+00:07:39,840 --> 00:07:42,800
+in the situation where you have a model that
+
+211
+00:07:42,800 --> 00:07:44,680
+is itself doing optimization in the situation
+
+212
+00:07:44,680 --> 00:07:46,200
+where you have a MACE optimizer?
+
+213
+00:07:46,200 --> 00:07:48,440
+Well, so in that situation, it should say,
+
+214
+00:07:48,440 --> 00:07:51,760
+if the model is doing the right thing, which is it's actually
+
+215
+00:07:51,760 --> 00:07:54,080
+out of distribution going to try to minimize the loss,
+
+216
+00:07:54,080 --> 00:07:56,360
+then it should be whatever the thing that this MACE
+
+217
+00:07:56,360 --> 00:07:58,980
+optimizer is searching for, whatever optimization it's
+
+218
+00:07:58,980 --> 00:08:01,480
+doing, that optimization should be directed towards the goal
+
+219
+00:08:01,480 --> 00:08:03,600
+of minimizing the loss.
+
+220
+00:08:03,600 --> 00:08:05,840
+OK, so this is one abstraction that you
+
+221
+00:08:05,840 --> 00:08:08,040
+could use to try to think about this process.
+
+222
+00:08:08,040 --> 00:08:10,640
+But of course, as we stated, this is not the actual process
+
+223
+00:08:10,640 --> 00:08:12,560
+that we are doing.
+
+224
+00:08:12,560 --> 00:08:14,920
+So we don't know whether this abstraction actually holds.
+
+225
+00:08:14,920 --> 00:08:16,720
+And so what we want to know is what happens
+
+226
+00:08:16,720 --> 00:08:20,320
+when this abstraction is leaky.
+
+227
+00:08:20,320 --> 00:08:20,960
+OK.
+
+228
+00:08:20,960 --> 00:08:22,600
+So when it's leaky, we're sort of
+
+229
+00:08:22,600 --> 00:08:24,960
+going to have two alignment problems.
+
+230
+00:08:24,960 --> 00:08:27,120
+We're going to have an outer alignment problem, which
+
+231
+00:08:27,120 --> 00:08:31,720
+is like make it so that the base objective, whatever
+
+232
+00:08:31,720 --> 00:08:33,680
+the loss function is, that's the sort of thing
+
+233
+00:08:33,680 --> 00:08:34,880
+that we would want.
+
+234
+00:08:34,880 --> 00:08:36,600
+And then an inner alignment problem,
+
+235
+00:08:36,600 --> 00:08:38,880
+which is make it so that the MACE objective, the thing
+
+236
+00:08:38,880 --> 00:08:41,520
+that the thing is actually pursuing,
+
+237
+00:08:41,520 --> 00:08:44,680
+is, in fact, the thing that we wanted it to pursue.
+
+238
+00:08:44,680 --> 00:08:47,120
+One caveat that I will say here.
+
+239
+00:08:47,120 --> 00:08:50,760
+So I think that this sort of traditional setup
+
+240
+00:08:50,760 --> 00:08:53,640
+really mostly applies in situations
+
+241
+00:08:53,640 --> 00:08:56,560
+where the sort of goal that you have for how you're
+
+242
+00:08:56,560 --> 00:08:58,720
+going to align the system is we're
+
+243
+00:08:58,720 --> 00:09:00,800
+going to first specify some loss function.
+
+244
+00:09:00,800 --> 00:09:02,560
+And then we're going to make the does the right thing
+
+245
+00:09:02,560 --> 00:09:03,160
+abstraction hold.
+
+246
+00:09:03,160 --> 00:09:05,320
+We're going to specify some loss function that we like.
+
+247
+00:09:05,320 --> 00:09:07,640
+And then we're going to get the model to optimize it.
+
+248
+00:09:07,640 --> 00:09:09,480
+I will say that's not the only way that you
+
+249
+00:09:09,480 --> 00:09:11,040
+could produce an aligned system.
+
+250
+00:09:11,040 --> 00:09:12,520
+So an alternative procedure would
+
+251
+00:09:12,520 --> 00:09:14,940
+be specify some loss function that you know is bad.
+
+252
+00:09:14,940 --> 00:09:17,240
+If the thing actually optimized for that loss function,
+
+253
+00:09:17,240 --> 00:09:20,240
+you know that it would end up producing bad outcomes.
+
+254
+00:09:20,240 --> 00:09:22,160
+And then also get it to not optimize for that.
+
+255
+00:09:22,160 --> 00:09:24,160
+Get it to do some totally different thing that
+
+256
+00:09:24,160 --> 00:09:26,200
+nevertheless results in good behavior.
+
+257
+00:09:26,200 --> 00:09:27,700
+And in fact, I think that's actually
+
+258
+00:09:27,700 --> 00:09:30,640
+a pretty viable strategy and one that we may want to pursue.
+
+259
+00:09:30,640 --> 00:09:32,320
+But for the purposes of this talk,
+
+260
+00:09:32,320 --> 00:09:34,120
+I'm going to be assuming that's not the strategy that we're
+
+261
+00:09:34,120 --> 00:09:34,560
+going with.
+
+262
+00:09:34,560 --> 00:09:35,880
+But the strategy we're going with
+
+263
+00:09:35,880 --> 00:09:39,000
+is we're going to write down something that specifies
+
+264
+00:09:39,000 --> 00:09:41,880
+some loss or reward that actually
+
+265
+00:09:41,880 --> 00:09:43,300
+reflects what we care about.
+
+266
+00:09:43,300 --> 00:09:45,840
+And then we're going to try to get a model to actually care
+
+267
+00:09:45,840 --> 00:09:47,560
+about that thing too.
+
+268
+00:09:47,560 --> 00:09:50,520
+But I just want to preface with that's only one strategy
+
+269
+00:09:50,520 --> 00:09:52,600
+and not even necessarily the best one.
+
+270
+00:09:52,600 --> 00:09:55,240
+But it is one that I think is at least easy to conceptualize
+
+271
+00:09:55,240 --> 00:09:57,320
+and that we can understand what's
+
+272
+00:09:57,320 --> 00:09:59,480
+going on if that's a strategy we're pursuing.
+
+273
+00:09:59,480 --> 00:09:59,980
+Question?
+
+274
+00:10:00,100 --> 00:10:01,620
+It's like bad objective is something
+
+275
+00:10:01,620 --> 00:10:02,940
+like avoiding deception.
+
+276
+00:10:02,940 --> 00:10:05,780
+Or the other example you're talking about,
+
+277
+00:10:05,780 --> 00:10:11,180
+like train it to not do a bad thing,
+
+278
+00:10:11,180 --> 00:10:12,660
+a thing that we don't want it to do
+
+279
+00:10:12,660 --> 00:10:14,060
+and then train it to not do that.
+
+280
+00:10:14,060 --> 00:10:15,820
+Yeah, so here's a really simple example.
+
+281
+00:10:15,820 --> 00:10:17,100
+Here's a really simple example.
+
+282
+00:10:17,100 --> 00:10:18,660
+This is not something I think we should literally do.
+
+283
+00:10:18,660 --> 00:10:21,300
+But here's a simple example that might illustrate the point.
+
+284
+00:10:21,300 --> 00:10:24,060
+So let's say what we do is we have an environment.
+
+285
+00:10:24,060 --> 00:10:26,180
+And we're going to do RL in that environment.
+
+286
+00:10:26,180 --> 00:10:27,880
+And we're going to set up the environment
+
+287
+00:10:27,880 --> 00:10:29,580
+to have incentives and structures that
+
+288
+00:10:29,660 --> 00:10:32,220
+are similar to the human ancestral environment.
+
+289
+00:10:32,220 --> 00:10:33,660
+And then we're like, well, if it's
+
+290
+00:10:33,660 --> 00:10:35,460
+similar to the human ancestral environment,
+
+291
+00:10:35,460 --> 00:10:38,980
+maybe it'll produce agents that operate similarly to humans.
+
+292
+00:10:38,980 --> 00:10:40,260
+And so they'll be aligned.
+
+293
+00:10:40,260 --> 00:10:41,820
+That's a hope that you could have.
+
+294
+00:10:41,820 --> 00:10:44,140
+And if that's your strategy, then the thing
+
+295
+00:10:44,140 --> 00:10:45,660
+that you're doing is you are saying,
+
+296
+00:10:45,660 --> 00:10:47,500
+I'm going to specify some incentives that I
+
+297
+00:10:47,500 --> 00:10:49,900
+know are not aligned, like reproduction,
+
+298
+00:10:49,900 --> 00:10:50,780
+natural selection.
+
+299
+00:10:50,780 --> 00:10:51,660
+That's not what I want.
+
+300
+00:10:51,660 --> 00:10:52,860
+That's not what I care about.
+
+301
+00:10:52,860 --> 00:10:55,260
+But I think that those incentives will nevertheless
+
+302
+00:10:55,260 --> 00:10:57,440
+produce agents which operate in a way that
+
+303
+00:10:57,440 --> 00:10:59,380
+is the thing that I want.
+
+304
+00:10:59,380 --> 00:11:02,020
+So you could have that as your strategy.
+
+305
+00:11:02,020 --> 00:11:04,140
+We're not talking about that sort of a strategy,
+
+306
+00:11:04,140 --> 00:11:06,540
+though, right now in this talk.
+
+307
+00:11:06,540 --> 00:11:07,980
+But I don't want to rule it out.
+
+308
+00:11:07,980 --> 00:11:09,660
+I don't want to say that you could never do that.
+
+309
+00:11:09,660 --> 00:11:11,660
+In fact, I think a lot of my favorite strategies
+
+310
+00:11:11,660 --> 00:11:14,500
+for alignment do look like that, though they don't look
+
+311
+00:11:14,500 --> 00:11:17,100
+like the one I just described.
+
+312
+00:11:17,100 --> 00:11:18,620
+But they do have the general structure
+
+313
+00:11:18,620 --> 00:11:20,420
+of we don't necessarily write down a loss function that
+
+314
+00:11:20,420 --> 00:11:21,940
+literally captures what we want.
+
+315
+00:11:21,940 --> 00:11:25,700
+But supposing we do, we're going to try to explore
+
+316
+00:11:25,700 --> 00:11:26,620
+what this looks like.
+
+317
+00:11:26,620 --> 00:11:28,860
+And in fact, as we'll see, basically all of this
+
+318
+00:11:28,860 --> 00:11:30,460
+is going to apply to that situation, too.
+
+319
+00:11:30,460 --> 00:11:32,960
+Because the problem that we're going to end up talking about
+
+320
+00:11:32,960 --> 00:11:34,540
+is just this central problem of what
+
+321
+00:11:34,540 --> 00:11:37,500
+happens when you have some loss, and then
+
+322
+00:11:37,500 --> 00:11:41,460
+you want to understand what thing will your model,
+
+323
+00:11:41,460 --> 00:11:44,460
+if it is itself an optimizer, end up optimizing for.
+
+324
+00:11:44,460 --> 00:11:45,260
+OK, is that clear?
+
+325
+00:11:45,260 --> 00:11:46,460
+Does that make sense?
+
+326
+00:11:46,460 --> 00:11:48,700
+OK, great.
+
+327
+00:11:48,700 --> 00:11:50,940
+OK, so you've probably heard stories
+
+328
+00:11:50,940 --> 00:11:54,420
+of outer alignment failures, what they might look like.
+
+329
+00:11:54,420 --> 00:11:57,140
+Classical examples are things like paperclip maximizers.
+
+330
+00:11:58,100 --> 00:12:00,980
+You're like, I want to make the most paperclips in my paperclip
+
+331
+00:12:00,980 --> 00:12:01,900
+factory.
+
+332
+00:12:01,900 --> 00:12:04,540
+And then it just destroys the world,
+
+333
+00:12:04,540 --> 00:12:07,660
+because that's the best way to make paperclips.
+
+334
+00:12:07,660 --> 00:12:10,020
+That is a classic example of an outer alignment failure.
+
+335
+00:12:10,020 --> 00:12:12,180
+What I would like to provide is more classic examples
+
+336
+00:12:12,180 --> 00:12:14,800
+of inner alignment failures, so we can start to get a sense of
+
+337
+00:12:14,800 --> 00:12:17,580
+what it might look like if inner alignment, in the sense
+
+338
+00:12:17,580 --> 00:12:20,620
+that we talked about previously, where the model ends up
+
+339
+00:12:20,620 --> 00:12:23,060
+optimizing for a thing that is different than the thing
+
+340
+00:12:23,060 --> 00:12:26,180
+that you wanted to, that you specified, might look like.
+
+341
+00:12:26,300 --> 00:12:27,460
+So what does that look like?
+
+342
+00:12:27,460 --> 00:12:29,380
+Well, so when inner alignment fails,
+
+343
+00:12:29,380 --> 00:12:30,920
+it looks like a situation that we're
+
+344
+00:12:30,920 --> 00:12:32,980
+going to call capability generalization
+
+345
+00:12:32,980 --> 00:12:35,020
+without objective generalization.
+
+346
+00:12:35,020 --> 00:12:35,980
+So what does that mean?
+
+347
+00:12:35,980 --> 00:12:37,780
+So let's say I have a training environment,
+
+348
+00:12:37,780 --> 00:12:40,340
+and it looks like this brown maze on the left.
+
+349
+00:12:40,340 --> 00:12:44,220
+And I've got some arrows that mark what's going on.
+
+350
+00:12:44,220 --> 00:12:47,260
+And the loss function, the reward function that I use,
+
+351
+00:12:47,260 --> 00:12:49,060
+we're going to do RL in this environment.
+
+352
+00:12:49,060 --> 00:12:52,420
+I'm going to say, reward the agent for finishing the maze.
+
+353
+00:12:52,420 --> 00:12:55,500
+I want it to get to the end.
+
+354
+00:12:55,500 --> 00:12:58,820
+And then I'm going to deploy to this other environment, where
+
+355
+00:12:58,820 --> 00:12:59,980
+now I've got a bigger maze.
+
+356
+00:12:59,980 --> 00:13:01,820
+It's blue instead of brown.
+
+357
+00:13:01,820 --> 00:13:05,460
+And I have this green arrow at this random position.
+
+358
+00:13:05,460 --> 00:13:07,980
+And now I want to know what happens.
+
+359
+00:13:07,980 --> 00:13:10,740
+So here are some things that could
+
+360
+00:13:10,740 --> 00:13:12,660
+happen in this new environment.
+
+361
+00:13:12,660 --> 00:13:14,580
+And we ask, what is the generalization behavior
+
+362
+00:13:14,580 --> 00:13:15,380
+of this agent?
+
+363
+00:13:15,380 --> 00:13:16,980
+So here's one thing that could happen.
+
+364
+00:13:16,980 --> 00:13:19,260
+It could look at this massive blue maze
+
+365
+00:13:19,260 --> 00:13:22,660
+and just not have any idea how to do anything.
+
+366
+00:13:22,660 --> 00:13:26,540
+So it just randomly goes off and does nothing useful.
+
+367
+00:13:26,540 --> 00:13:28,700
+That would be a situation where we're going to say,
+
+368
+00:13:28,700 --> 00:13:30,540
+its capabilities did not generalize.
+
+369
+00:13:30,540 --> 00:13:33,260
+It did not learn a general-purpose-enough algorithm
+
+370
+00:13:33,260 --> 00:13:35,300
+for solving mazes that that algorithm was able to
+
+371
+00:13:35,300 --> 00:13:37,300
+generalize this new environment.
+
+372
+00:13:37,300 --> 00:13:38,420
+OK, but it might.
+
+373
+00:13:38,420 --> 00:13:40,420
+So let's say its capabilities did generalize.
+
+374
+00:13:40,420 --> 00:13:42,380
+It actually did learn some sort of general-purpose maze
+
+375
+00:13:42,380 --> 00:13:43,100
+solving algorithm.
+
+376
+00:13:43,100 --> 00:13:44,940
+It knows how to operate in this environment.
+
+377
+00:13:44,940 --> 00:13:47,860
+Well, there's two things that it could potentially learn,
+
+378
+00:13:47,860 --> 00:13:48,980
+at least two.
+
+379
+00:13:48,980 --> 00:13:51,780
+It could learn to use those maze-solving capabilities
+
+380
+00:13:51,780 --> 00:13:53,780
+to get to the end of the maze, which is the thing
+
+381
+00:13:53,780 --> 00:13:55,820
+that we were rewarding it for previously.
+
+382
+00:13:55,820 --> 00:13:57,860
+Or it could use the maze-solving capabilities
+
+383
+00:13:57,860 --> 00:14:00,500
+to get to the green arrow.
+
+384
+00:14:00,500 --> 00:14:02,420
+And if the strategy it was pursuing,
+
+385
+00:14:02,420 --> 00:14:04,940
+if the generalization it learned was always go to the green arrow
+
+386
+00:14:04,940 --> 00:14:06,540
+versus always go to the end of the maze,
+
+387
+00:14:06,540 --> 00:14:08,540
+in training, those were indistinguishable.
+
+388
+00:14:08,540 --> 00:14:10,140
+But now in this deployment environment,
+
+389
+00:14:10,140 --> 00:14:13,020
+they're quite distinct.
+
+390
+00:14:13,020 --> 00:14:15,580
+And so let's say what we really wanted.
+
+391
+00:14:15,580 --> 00:14:17,100
+We really wanted it to go to the end.
+
+392
+00:14:17,100 --> 00:14:18,780
+But this green arrow just got moved.
+
+393
+00:14:18,780 --> 00:14:20,660
+And so we're like, OK, so what happens here?
+
+394
+00:14:20,660 --> 00:14:22,040
+Why is this bad that we could end up
+
+395
+00:14:22,040 --> 00:14:24,020
+in a situation where the model generalizes in such a way
+
+396
+00:14:24,020 --> 00:14:25,500
+that it goes to the green arrow instead?
+
+397
+00:14:25,500 --> 00:14:26,920
+Well, what's happened is we are now
+
+398
+00:14:26,920 --> 00:14:29,060
+in a situation where your model has learned
+
+399
+00:14:29,060 --> 00:14:32,580
+a very powerful general-purpose capability, which
+
+400
+00:14:32,580 --> 00:14:34,420
+is the capability to solve mazes.
+
+401
+00:14:34,420 --> 00:14:36,700
+And that capability is misdirected.
+
+402
+00:14:36,700 --> 00:14:38,900
+You have deployed a model that is in a situation
+
+403
+00:14:38,900 --> 00:14:41,940
+where it is very powerful and is actively
+
+404
+00:14:41,940 --> 00:14:45,220
+using those capabilities not to do the thing that you
+
+405
+00:14:45,220 --> 00:14:46,660
+wanted it to do.
+
+406
+00:14:46,660 --> 00:14:47,620
+So that's bad.
+
+407
+00:14:47,620 --> 00:14:48,780
+That's dangerous.
+
+408
+00:14:48,780 --> 00:14:50,260
+We do not want to be in situations
+
+409
+00:14:50,340 --> 00:14:53,260
+where we are deploying powerful, capable models in situations
+
+410
+00:14:53,260 --> 00:14:56,660
+where they are using their capabilities where they don't
+
+411
+00:14:56,660 --> 00:14:58,580
+actually generalize and they don't actually
+
+412
+00:14:58,580 --> 00:14:59,960
+match up with what we wanted them
+
+413
+00:14:59,960 --> 00:15:01,780
+to use those capabilities for.
+
+414
+00:15:01,780 --> 00:15:03,480
+OK, so that's concerning.
+
+415
+00:15:03,480 --> 00:15:05,300
+And that's the thing that we want to avoid.
+
+416
+00:15:05,300 --> 00:15:07,180
+That's sort of what it looks like when we have
+
+417
+00:15:07,180 --> 00:15:08,980
+this sort of inner alignment failure.
+
+418
+00:15:08,980 --> 00:15:10,580
+OK, so some more words.
+
+419
+00:15:10,580 --> 00:15:13,260
+We're going to say that the situation where the model
+
+420
+00:15:13,260 --> 00:15:18,020
+generalizes correctly on the sort of reward loss
+
+421
+00:15:18,020 --> 00:15:20,500
+objective that we want, that it actually
+
+422
+00:15:20,500 --> 00:15:22,780
+is trying to finish the maze even out of distribution,
+
+423
+00:15:22,780 --> 00:15:24,500
+we're going to say it's robustly aligned.
+
+424
+00:15:24,500 --> 00:15:26,380
+It's a situation where its alignment,
+
+425
+00:15:26,380 --> 00:15:29,580
+it's actually going to pursue the correct thing,
+
+426
+00:15:29,580 --> 00:15:32,860
+is robust to out-of-distributional shifts,
+
+427
+00:15:32,860 --> 00:15:33,820
+whatever.
+
+428
+00:15:33,820 --> 00:15:36,100
+And we're going to say that if the model sort of looks
+
+429
+00:15:36,100 --> 00:15:38,300
+aligned over the training data, but actually we
+
+430
+00:15:38,300 --> 00:15:40,660
+can find situations where the model would not be aligned,
+
+431
+00:15:40,660 --> 00:15:43,100
+then we're going to say it's pseudo-aligned.
+
+432
+00:15:43,100 --> 00:15:46,020
+OK, great.
+
+433
+00:15:46,020 --> 00:15:47,140
+All right, yes.
+
+434
+00:15:47,620 --> 00:15:51,780
+Robust over the whole data means the test data?
+
+435
+00:15:51,780 --> 00:15:52,740
+The test data.
+
+436
+00:15:52,740 --> 00:15:56,580
+We're going to say, well, any data that it might, in fact,
+
+437
+00:15:56,580 --> 00:15:57,780
+encounter in the real world.
+
+438
+00:15:57,780 --> 00:16:02,420
+If the thing is actually robust in all situations,
+
+439
+00:16:02,420 --> 00:16:03,820
+it always pursues the right thing,
+
+440
+00:16:03,820 --> 00:16:04,980
+then we're going to say it's robustly aligned.
+
+441
+00:16:04,980 --> 00:16:07,100
+Importantly, we're only talking about the alignment here.
+
+442
+00:16:07,100 --> 00:16:08,860
+What we don't care about is if the model,
+
+443
+00:16:08,860 --> 00:16:11,620
+like in some situation, its capabilities don't generalize.
+
+444
+00:16:11,620 --> 00:16:13,660
+If it ends up in a situation where it's just like,
+
+445
+00:16:13,660 --> 00:16:14,860
+I don't know what's going on, and then it
+
+446
+00:16:14,860 --> 00:16:16,780
+doesn't do anything, we're fine with that.
+
+447
+00:16:16,820 --> 00:16:19,060
+That's still robust alignment, potentially.
+
+448
+00:16:19,060 --> 00:16:20,900
+We're sort of factoring the capabilities
+
+449
+00:16:20,900 --> 00:16:21,500
+in the alignment here.
+
+450
+00:16:21,500 --> 00:16:23,820
+We're saying that if it is capable of pursuing
+
+451
+00:16:23,820 --> 00:16:26,260
+some complex thing, it is always pursuing the thing
+
+452
+00:16:26,260 --> 00:16:27,540
+that we wanted it to pursue.
+
+453
+00:16:27,540 --> 00:16:29,460
+And here we're saying, it only looks
+
+454
+00:16:29,460 --> 00:16:31,460
+like it's pursuing the right thing on training,
+
+455
+00:16:31,460 --> 00:16:33,220
+but out of distribution, it might end up
+
+456
+00:16:33,220 --> 00:16:34,860
+pursuing the wrong thing capably.
+
+457
+00:16:35,740 --> 00:16:38,180
+Just to clarify, robust alignment
+
+458
+00:16:38,180 --> 00:16:40,900
+is defined with respect to a particular data distribution.
+
+459
+00:16:40,900 --> 00:16:43,740
+You can't speak about it in isolation.
+
+460
+00:16:43,740 --> 00:16:44,860
+No.
+
+461
+00:16:44,860 --> 00:16:47,260
+Pseudo-alignment is defined specifically
+
+462
+00:16:47,260 --> 00:16:49,140
+relative to a data distribution, because it's
+
+463
+00:16:49,140 --> 00:16:51,340
+defined relative to the training data distribution.
+
+464
+00:16:51,340 --> 00:16:52,500
+But robust alignment is not.
+
+465
+00:16:52,500 --> 00:16:54,500
+Robust alignment is defined relative to any data
+
+466
+00:16:54,500 --> 00:16:55,580
+it might ever encounter.
+
+467
+00:16:55,580 --> 00:16:56,080
+OK.
+
+468
+00:16:56,080 --> 00:16:56,580
+All right.
+
+469
+00:16:56,580 --> 00:16:57,580
+Thank you.
+
+470
+00:16:57,580 --> 00:16:58,080
+OK.
+
+471
+00:16:58,080 --> 00:16:58,580
+Great.
+
+472
+00:16:59,540 --> 00:17:00,100
+All right.
+
+473
+00:17:00,100 --> 00:17:01,380
+So we have two problems.
+
+474
+00:17:01,380 --> 00:17:01,900
+Yes?
+
+475
+00:17:01,900 --> 00:17:05,460
+If capabilities don't generalize,
+
+476
+00:17:05,460 --> 00:17:08,220
+are you doomed to have a pseudo-alignment?
+
+477
+00:17:08,220 --> 00:17:11,860
+Because in cases where it doesn't know what to do,
+
+478
+00:17:11,860 --> 00:17:14,660
+it will do things that are unintended.
+
+479
+00:17:15,460 --> 00:17:17,500
+I'm OK if it does things that are unintended.
+
+480
+00:17:17,500 --> 00:17:20,300
+We're worried if the optimization is
+
+481
+00:17:20,300 --> 00:17:22,700
+directed in an unintended place, that it
+
+482
+00:17:22,700 --> 00:17:25,980
+does powerful optimization towards the wrong goal.
+
+483
+00:17:25,980 --> 00:17:28,900
+So if it just, in the new maze, it just falls over
+
+484
+00:17:28,900 --> 00:17:31,180
+and does random stuff, we don't care.
+
+485
+00:17:31,180 --> 00:17:32,260
+We're like, OK, whatever.
+
+486
+00:17:32,260 --> 00:17:34,860
+The problem is a situation where it does
+
+487
+00:17:34,860 --> 00:17:36,300
+know how to solve complex mazes.
+
+488
+00:17:36,300 --> 00:17:38,340
+It actually does have the capability.
+
+489
+00:17:38,340 --> 00:17:40,940
+And then it actively optimizes for something
+
+490
+00:17:40,940 --> 00:17:43,180
+we don't want it to be optimizing for.
+
+491
+00:17:43,220 --> 00:17:43,700
+OK.
+
+492
+00:17:43,700 --> 00:17:48,140
+So even if we had the maze solver and it was robustly aligned,
+
+493
+00:17:48,140 --> 00:17:49,860
+we would call it robustly aligned
+
+494
+00:17:49,860 --> 00:17:51,780
+even if we gave it a massive maze
+
+495
+00:17:51,780 --> 00:17:54,780
+and then it tried to take over on bits of computational power
+
+496
+00:17:54,780 --> 00:17:59,740
+to solve this maze because it was still actually applying.
+
+497
+00:17:59,740 --> 00:18:00,220
+Right.
+
+498
+00:18:00,220 --> 00:18:03,980
+So in this situation, just going back to here,
+
+499
+00:18:03,980 --> 00:18:06,580
+we're assuming that the loss function actually
+
+500
+00:18:06,580 --> 00:18:08,220
+reflects what we care about, right?
+
+501
+00:18:08,220 --> 00:18:09,260
+And we're like, what would it look
+
+502
+00:18:09,260 --> 00:18:11,900
+like if the loss function does reflect what we care about
+
+503
+00:18:11,980 --> 00:18:13,660
+to have an inter-alignment failure?
+
+504
+00:18:13,660 --> 00:18:15,580
+So in that situation, you would be like, well,
+
+505
+00:18:15,580 --> 00:18:19,220
+your strategy of write down a loss function that
+
+506
+00:18:19,220 --> 00:18:21,100
+reflects everything I care about and then get
+
+507
+00:18:21,100 --> 00:18:23,180
+all this optimized for it, you failed at the point
+
+508
+00:18:23,180 --> 00:18:24,380
+where the loss function you wrote down
+
+509
+00:18:24,380 --> 00:18:26,580
+that you thought reflected everything you care about
+
+510
+00:18:26,580 --> 00:18:28,460
+just said optimize for mazes.
+
+511
+00:18:28,460 --> 00:18:29,140
+That was bad.
+
+512
+00:18:29,140 --> 00:18:30,220
+You shouldn't have done that.
+
+513
+00:18:30,220 --> 00:18:32,260
+That was actually not everything you cared about.
+
+514
+00:18:32,260 --> 00:18:34,820
+And so we're like, that was where you went wrong here.
+
+515
+00:18:34,820 --> 00:18:36,500
+I think that, like I said, though, you
+
+516
+00:18:36,500 --> 00:18:37,500
+might not have this strategy.
+
+517
+00:18:37,500 --> 00:18:39,780
+But right now, at least, we're assuming that is your strategy.
+
+518
+00:18:39,780 --> 00:18:40,860
+And we're going to say, actually,
+
+519
+00:18:40,860 --> 00:18:41,900
+when you wrote down this loss function,
+
+520
+00:18:41,900 --> 00:18:44,140
+you were at least trying to get it to capture everything
+
+521
+00:18:44,140 --> 00:18:45,900
+that you wanted.
+
+522
+00:18:45,900 --> 00:18:46,580
+OK.
+
+523
+00:18:46,580 --> 00:18:47,340
+OK.
+
+524
+00:18:47,340 --> 00:18:47,860
+Yes?
+
+525
+00:18:47,860 --> 00:18:50,220
+Do you draw any distinction between a model
+
+526
+00:18:50,220 --> 00:18:53,420
+specifically optimizing for some internal goal
+
+527
+00:18:53,420 --> 00:18:57,380
+versus just statistically preferring something?
+
+528
+00:18:57,380 --> 00:18:58,100
+Yes.
+
+529
+00:18:58,100 --> 00:19:00,300
+Yes, we absolutely are drawing a distinction there.
+
+530
+00:19:00,300 --> 00:19:02,620
+We are saying that the thing is an optimizer if it is,
+
+531
+00:19:02,620 --> 00:19:04,780
+in fact, has some search process inside of it
+
+532
+00:19:04,780 --> 00:19:07,140
+that is searching for things that do well
+
+533
+00:19:07,140 --> 00:19:08,740
+according to some objective.
+
+534
+00:19:08,740 --> 00:19:11,380
+This is the difference between the bottle cap, which,
+
+535
+00:19:11,380 --> 00:19:14,300
+in fact, systematically prefers the water to be in a bottle,
+
+536
+00:19:14,300 --> 00:19:16,740
+but isn't, in fact, doing optimization for it.
+
+537
+00:19:16,740 --> 00:19:18,820
+And the reason that we're making this distinction
+
+538
+00:19:18,820 --> 00:19:20,200
+is because we're going to say, well, we're actually
+
+539
+00:19:20,200 --> 00:19:22,180
+a lot more concerned about situations
+
+540
+00:19:22,180 --> 00:19:24,940
+where the model is actively doing optimization that
+
+541
+00:19:24,940 --> 00:19:26,580
+is misdirected than situations where
+
+542
+00:19:26,580 --> 00:19:29,300
+it has a bunch of heuristics that were
+
+543
+00:19:29,300 --> 00:19:30,740
+selected in a problematic way.
+
+544
+00:19:30,740 --> 00:19:32,620
+And the reason we're more concerned about that
+
+545
+00:19:32,620 --> 00:19:34,200
+is because misdirected optimization has
+
+546
+00:19:34,200 --> 00:19:36,860
+the ability to be a lot worse out of distribution,
+
+547
+00:19:36,860 --> 00:19:39,260
+because it can competently optimize for things
+
+548
+00:19:39,260 --> 00:19:40,380
+that we don't want it to optimize for,
+
+549
+00:19:40,380 --> 00:19:42,220
+even in situations where we didn't select it
+
+550
+00:19:42,220 --> 00:19:43,980
+to be able to do that.
+
+551
+00:19:43,980 --> 00:19:45,100
+Sorry to follow up.
+
+552
+00:19:45,100 --> 00:19:47,500
+Do you have an idea in what situations
+
+553
+00:19:47,500 --> 00:19:49,660
+you're more likely to see a model actually
+
+554
+00:19:49,660 --> 00:19:50,540
+be an optimizer?
+
+555
+00:19:50,540 --> 00:19:52,380
+That is a great question, and that
+
+556
+00:19:52,380 --> 00:19:54,460
+is what we're going to be talking about next.
+
+557
+00:19:54,460 --> 00:19:56,940
+OK, so yeah, we're going to be talking about two problems
+
+558
+00:19:56,940 --> 00:19:57,780
+here.
+
+559
+00:19:57,780 --> 00:19:59,500
+One is unintended optimization, which
+
+560
+00:19:59,500 --> 00:20:01,460
+is maybe you didn't want it to be an optimizer.
+
+561
+00:20:01,460 --> 00:20:03,500
+Maybe you just wanted it to be a bottle cap-like.
+
+562
+00:20:03,500 --> 00:20:04,820
+You wanted it to be a selection of heuristics.
+
+563
+00:20:04,820 --> 00:20:06,340
+You didn't want to be doing any optimization.
+
+564
+00:20:06,340 --> 00:20:08,300
+Why might you get optimization anyway?
+
+565
+00:20:08,300 --> 00:20:10,380
+And then the second question is this inter-alignment question,
+
+566
+00:20:10,380 --> 00:20:11,900
+which is, OK, if it is an optimizer,
+
+567
+00:20:11,900 --> 00:20:14,340
+how do you get it to optimize for what you want?
+
+568
+00:20:14,340 --> 00:20:15,940
+OK, let's talk about it.
+
+569
+00:20:15,940 --> 00:20:17,680
+OK, what sort of machine learning systems
+
+570
+00:20:17,680 --> 00:20:19,480
+are more or less likely to find optimizers?
+
+571
+00:20:19,480 --> 00:20:21,340
+That's the question we're starting with.
+
+572
+00:20:21,340 --> 00:20:23,380
+OK, so here's the first thing, is, look,
+
+573
+00:20:23,380 --> 00:20:25,940
+search algorithms are really good at generalizing.
+
+574
+00:20:25,940 --> 00:20:27,580
+So let's say we're in a situation
+
+575
+00:20:27,580 --> 00:20:30,940
+where we want our algorithm to play Go.
+
+576
+00:20:30,940 --> 00:20:33,100
+We want to do a really good job at Go playing.
+
+577
+00:20:33,100 --> 00:20:37,780
+Well, there is a systematic similarity
+
+578
+00:20:37,780 --> 00:20:40,500
+between all good Go moves.
+
+579
+00:20:40,500 --> 00:20:43,020
+The systematic similarity between all good Go moves
+
+580
+00:20:43,020 --> 00:20:45,780
+is that they are moves which have the property that,
+
+581
+00:20:45,780 --> 00:20:50,680
+if I do some look ahead and try to see how good is this move,
+
+582
+00:20:50,680 --> 00:20:52,580
+they end up being really good.
+
+583
+00:20:52,580 --> 00:20:55,120
+And so if I want to encode an algorithm which systematically
+
+584
+00:20:55,120 --> 00:20:57,860
+produces good Go moves, encoding search
+
+585
+00:20:57,860 --> 00:21:00,020
+is a really simple way to do that.
+
+586
+00:21:00,020 --> 00:21:02,540
+And it's a way that generalizes in a lot of situations.
+
+587
+00:21:02,540 --> 00:21:04,940
+It's a way that if I go into some new situation
+
+588
+00:21:04,940 --> 00:21:07,740
+where I don't necessarily have a bunch of heuristics
+
+589
+00:21:07,740 --> 00:21:09,780
+that are well-optimized for that situation,
+
+590
+00:21:09,780 --> 00:21:12,380
+I nevertheless have the ability to figure out
+
+591
+00:21:12,380 --> 00:21:15,380
+what's going to do well.
+
+592
+00:21:15,380 --> 00:21:18,460
+The Go engine, which has a bunch of ability to do search,
+
+593
+00:21:18,460 --> 00:21:21,100
+can find an absolutely crazy Go board
+
+594
+00:21:21,100 --> 00:21:24,020
+that it's never seen before and still do 10 steps of look ahead
+
+595
+00:21:24,020 --> 00:21:26,500
+and come out with some ideas of what things are going
+
+596
+00:21:26,500 --> 00:21:29,660
+to be good in that situation.
+
+597
+00:21:30,020 --> 00:21:31,980
+Obviously, in fact, we explicitly
+
+598
+00:21:31,980 --> 00:21:35,900
+program search in when we make Go bots.
+
+599
+00:21:35,900 --> 00:21:39,740
+AlphaGo actually has this MCTS process.
+
+600
+00:21:39,740 --> 00:21:42,180
+So there are situations where if you
+
+601
+00:21:42,180 --> 00:21:44,040
+have a really diverse environment,
+
+602
+00:21:44,040 --> 00:21:46,500
+you have a lot of situations you need to be able to handle.
+
+603
+00:21:46,500 --> 00:21:47,740
+Being able to, in each situation,
+
+604
+00:21:47,740 --> 00:21:49,200
+be able to search for what the correct thing
+
+605
+00:21:49,200 --> 00:21:51,040
+to do in that situation is gives the ability
+
+606
+00:21:51,040 --> 00:21:54,100
+to generalize better.
+
+607
+00:21:54,100 --> 00:21:56,700
+And then similarly, also, it's a form of compression.
+
+608
+00:21:56,700 --> 00:21:59,220
+So I said that, well, what is the regularity
+
+609
+00:21:59,220 --> 00:22:00,380
+between all good Go moves?
+
+610
+00:22:00,380 --> 00:22:01,700
+Well, the regularity between them
+
+611
+00:22:01,700 --> 00:22:04,020
+is when I do look ahead, they end up looking good.
+
+612
+00:22:04,020 --> 00:22:05,740
+And so if you were asking, well, what
+
+613
+00:22:05,740 --> 00:22:09,260
+is the easiest way to compress the set of all good Go moves?
+
+614
+00:22:09,260 --> 00:22:11,260
+Well, the way to compress the set of all good Go
+
+615
+00:22:11,260 --> 00:22:13,640
+moves is an optimizer that searches and does look ahead
+
+616
+00:22:13,640 --> 00:22:16,140
+to find good Go moves.
+
+617
+00:22:16,140 --> 00:22:18,380
+And so if we expect that your model is
+
+618
+00:22:18,380 --> 00:22:22,500
+going to be biased towards simplicity, which
+
+619
+00:22:22,500 --> 00:22:24,600
+I think we should, if you expect that,
+
+620
+00:22:24,600 --> 00:22:26,180
+then you should expect that it's going
+
+621
+00:22:26,180 --> 00:22:28,100
+to find these sorts of compressions, ways
+
+622
+00:22:28,100 --> 00:22:29,780
+of taking your data and compressing it
+
+623
+00:22:29,780 --> 00:22:32,380
+into a simple form that can still
+
+624
+00:22:32,380 --> 00:22:33,700
+be able to recapitulate it.
+
+625
+00:22:33,700 --> 00:22:35,980
+And in the situation where the thing that you're doing
+
+626
+00:22:35,980 --> 00:22:39,580
+is some situation where you're trying to train it to solve
+
+627
+00:22:39,580 --> 00:22:44,420
+some complex task, a good way to compress a lot of complex tasks
+
+628
+00:22:44,420 --> 00:22:46,900
+is to be able to do search.
+
+629
+00:22:46,900 --> 00:22:48,780
+Why is there simplicity bias?
+
+630
+00:22:48,780 --> 00:22:50,700
+There's a bunch of stuff on this.
+
+631
+00:22:50,700 --> 00:22:53,780
+I think it's a little bit tricky.
+
+632
+00:22:53,780 --> 00:22:55,900
+Maybe a really sort of simple version of this,
+
+633
+00:22:55,900 --> 00:22:57,400
+this is not something I have up here,
+
+634
+00:22:57,400 --> 00:22:59,000
+but maybe probably the best result
+
+635
+00:22:59,000 --> 00:23:00,480
+that I think argues for simplicity
+
+636
+00:23:00,480 --> 00:23:02,440
+is probably the Mingard result, which
+
+637
+00:23:02,440 --> 00:23:07,920
+shows that if you do sampling with replacement
+
+638
+00:23:07,920 --> 00:23:10,400
+from the Gaussian initialization prior,
+
+639
+00:23:10,400 --> 00:23:12,320
+so this is a little bit of a weird thing to do
+
+640
+00:23:12,320 --> 00:23:14,120
+because it's extremely uncompetitive.
+
+641
+00:23:14,120 --> 00:23:15,760
+It would take years and years if you
+
+642
+00:23:15,760 --> 00:23:17,320
+wanted to literally just initialize
+
+643
+00:23:17,320 --> 00:23:18,800
+a neural network over and over again
+
+644
+00:23:18,800 --> 00:23:20,240
+until you got a neural network which actually
+
+645
+00:23:20,240 --> 00:23:21,320
+had good performance.
+
+646
+00:23:21,320 --> 00:23:22,760
+But you could suppose you did this thing.
+
+647
+00:23:22,760 --> 00:23:24,320
+If you're just like, you keep initializing it
+
+648
+00:23:24,320 --> 00:23:25,880
+every single time, you never train it,
+
+649
+00:23:25,880 --> 00:23:27,840
+and you hope that eventually the initialization actually
+
+650
+00:23:27,840 --> 00:23:29,440
+just does well on your data.
+
+651
+00:23:29,440 --> 00:23:31,200
+If you did this, in fact, the prior
+
+652
+00:23:31,200 --> 00:23:33,040
+ends up being extremely similar to the prior
+
+653
+00:23:33,040 --> 00:23:35,440
+you get from gradient descent, which
+
+654
+00:23:35,440 --> 00:23:37,760
+is showing that actually what gradient descent is doing,
+
+655
+00:23:37,760 --> 00:23:39,760
+it is doing something like finding
+
+656
+00:23:39,760 --> 00:23:44,160
+the minimal norm in Gaussian norm space for solution
+
+657
+00:23:44,160 --> 00:23:45,680
+that is able to solve the problem.
+
+658
+00:23:45,680 --> 00:23:48,760
+That sort of maps onto simplicity in various ways.
+
+659
+00:23:48,760 --> 00:23:50,520
+There's a lot more to say here.
+
+660
+00:23:50,520 --> 00:23:51,040
+Yes?
+
+661
+00:23:51,040 --> 00:23:52,280
+You said prior twice.
+
+662
+00:23:52,280 --> 00:23:55,520
+The prior, when drawing this, is the same as the posterior.
+
+663
+00:23:56,440 --> 00:23:57,400
+After gradient descent.
+
+664
+00:23:57,400 --> 00:23:58,200
+OK.
+
+665
+00:23:58,200 --> 00:23:59,960
+I mean, it is also posterior in this case
+
+666
+00:23:59,960 --> 00:24:01,840
+because it is a posterior is like the prior
+
+667
+00:24:01,840 --> 00:24:02,960
+is Gaussian initialization.
+
+668
+00:24:02,960 --> 00:24:05,760
+And the posterior is take the prior update on, in fact,
+
+669
+00:24:05,760 --> 00:24:08,040
+when I initialize and sample from the initialization,
+
+670
+00:24:08,040 --> 00:24:10,160
+I get a model which has good performance on my data.
+
+671
+00:24:10,160 --> 00:24:11,560
+And then I'm like, that posterior
+
+672
+00:24:11,560 --> 00:24:14,360
+is extremely similar to the posterior of take a model,
+
+673
+00:24:14,360 --> 00:24:17,520
+actually train it, and then see what I get.
+
+674
+00:24:17,520 --> 00:24:18,960
+OK, there's a lot more to say here,
+
+675
+00:24:18,960 --> 00:24:20,160
+but I'm not going to say too much more.
+
+676
+00:24:20,160 --> 00:24:22,040
+You can ask me more later if you want to know
+
+677
+00:24:22,040 --> 00:24:23,920
+more about inductive biases.
+
+678
+00:24:24,920 --> 00:24:25,800
+But whatever.
+
+679
+00:24:25,800 --> 00:24:27,800
+The point is there's a lot of evidence, I think,
+
+680
+00:24:27,800 --> 00:24:28,840
+that is biased towards simplicity.
+
+681
+00:24:28,840 --> 00:24:30,640
+OK, but this is not the only situation
+
+682
+00:24:30,640 --> 00:24:31,760
+where we might want, where we sort of
+
+683
+00:24:31,760 --> 00:24:33,000
+might expect optimization.
+
+684
+00:24:33,000 --> 00:24:35,040
+Another situation is, and this is pretty common,
+
+685
+00:24:35,040 --> 00:24:36,420
+there's a lot of situations where
+
+686
+00:24:36,420 --> 00:24:38,760
+we like to train machine learning models to mimic
+
+687
+00:24:38,760 --> 00:24:40,080
+humans.
+
+688
+00:24:40,080 --> 00:24:42,680
+OK, what is a property of humans that we established previously?
+
+689
+00:24:42,680 --> 00:24:43,960
+Well, humans are optimizers.
+
+690
+00:24:43,960 --> 00:24:45,360
+There's lots of situations where if you're
+
+691
+00:24:45,360 --> 00:24:47,160
+going to do a good job at mimicking humans,
+
+692
+00:24:47,160 --> 00:24:50,400
+you better be able to do a good job at predicting
+
+693
+00:24:50,400 --> 00:24:52,560
+what we're going to do when we have a goal
+
+694
+00:24:52,560 --> 00:24:54,400
+and we're trying to optimize for that goal.
+
+695
+00:24:54,400 --> 00:24:57,120
+Being able to understand, if a human was trying to do x,
+
+696
+00:24:57,120 --> 00:24:59,920
+how would they accomplish x?
+
+697
+00:24:59,920 --> 00:25:02,480
+Being able to sort of work backwards and be like, OK,
+
+698
+00:25:02,480 --> 00:25:04,440
+what would be necessary for the human
+
+699
+00:25:04,440 --> 00:25:05,560
+to be able to accomplish their goal,
+
+700
+00:25:05,560 --> 00:25:07,520
+and how would they achieve that, is
+
+701
+00:25:07,520 --> 00:25:09,440
+something that's pretty important if you want
+
+702
+00:25:09,440 --> 00:25:10,640
+to be able to predict human behavior.
+
+703
+00:25:10,640 --> 00:25:12,440
+And so for predicting humans, we should also
+
+704
+00:25:12,440 --> 00:25:14,240
+expect that our models are at least
+
+705
+00:25:14,240 --> 00:25:16,880
+going to develop the capability to do optimization.
+
+706
+00:25:17,880 --> 00:25:18,380
+OK.
+
+707
+00:25:21,520 --> 00:25:23,240
+So some things here that are going
+
+708
+00:25:23,240 --> 00:25:25,040
+to push you in various different directions.
+
+709
+00:25:25,040 --> 00:25:26,000
+Do you have a question?
+
+710
+00:25:26,000 --> 00:25:26,500
+Oh, no.
+
+711
+00:25:26,500 --> 00:25:27,000
+Sorry.
+
+712
+00:25:27,000 --> 00:25:27,960
+Oh, OK.
+
+713
+00:25:27,960 --> 00:25:30,000
+So some things that are going to push you
+
+714
+00:25:30,000 --> 00:25:31,720
+towards MACE optimization here.
+
+715
+00:25:31,720 --> 00:25:35,720
+Well, so large model capacity, just having the ability
+
+716
+00:25:35,720 --> 00:25:38,800
+to implement complex optimization algorithms,
+
+717
+00:25:38,800 --> 00:25:40,800
+simplicity bias, either explicitly
+
+718
+00:25:40,800 --> 00:25:42,600
+because you have some regularization,
+
+719
+00:25:42,600 --> 00:25:45,320
+implicitly just because gradient descent is regularized
+
+720
+00:25:45,320 --> 00:25:48,680
+in this way, as I was talking about previously.
+
+721
+00:25:48,680 --> 00:25:50,320
+Other things, I didn't talk about this,
+
+722
+00:25:50,320 --> 00:25:52,680
+but statefulness, having the ability to store state
+
+723
+00:25:52,680 --> 00:25:54,600
+is the thing that really improves your ability
+
+724
+00:25:54,600 --> 00:25:57,080
+to do optimization over time, because you
+
+725
+00:25:57,080 --> 00:25:58,680
+can store the results of optimization
+
+726
+00:25:58,680 --> 00:26:00,600
+and then continue iterating.
+
+727
+00:26:00,600 --> 00:26:02,360
+So iterative, stateful procedures
+
+728
+00:26:02,360 --> 00:26:04,600
+are a lot easier to produce optimization in.
+
+729
+00:26:04,600 --> 00:26:06,520
+Things that might disincentivize optimization,
+
+730
+00:26:06,520 --> 00:26:08,200
+if you just give the thing optimization.
+
+731
+00:26:08,200 --> 00:26:11,160
+So I think if you have MCTS as part of your architecture,
+
+732
+00:26:11,160 --> 00:26:14,080
+you're a little bit less likely to just learn optimization
+
+733
+00:26:14,080 --> 00:26:15,840
+in the non-MCTS parts, because it's already
+
+734
+00:26:15,840 --> 00:26:16,840
+doing some optimization.
+
+735
+00:26:16,840 --> 00:26:19,720
+So it has less need to implement it.
+
+736
+00:26:19,720 --> 00:26:22,440
+That's not 100% true, especially because, in fact,
+
+737
+00:26:22,440 --> 00:26:25,680
+when we do MCTS, we usually distill the MCTS
+
+738
+00:26:25,680 --> 00:26:26,720
+into the policy network.
+
+739
+00:26:26,720 --> 00:26:30,520
+And so you're actively training it to mimic a search process.
+
+740
+00:26:30,520 --> 00:26:33,560
+But at least the actual thing of giving it
+
+741
+00:26:33,560 --> 00:26:36,160
+access to optimization seems like it should reduce
+
+742
+00:26:36,160 --> 00:26:37,800
+the probability that it develops itself.
+
+743
+00:26:37,800 --> 00:26:40,160
+But it still could, maybe just because the optimization
+
+744
+00:26:40,160 --> 00:26:43,520
+that it needs is different than the optimization you gave it.
+
+745
+00:26:43,520 --> 00:26:45,320
+Time complexity bias, I didn't mention this.
+
+746
+00:26:45,320 --> 00:26:47,000
+But you could be in a situation where,
+
+747
+00:26:47,000 --> 00:26:48,600
+if you really incentivize the thing
+
+748
+00:26:48,600 --> 00:26:50,360
+to perform its computation very quickly,
+
+749
+00:26:50,360 --> 00:26:51,940
+it's a lot harder to do optimization.
+
+750
+00:26:51,940 --> 00:26:53,960
+Optimization, while it's a very simple algorithm,
+
+751
+00:26:53,960 --> 00:26:55,880
+is one that can take many steps of look ahead
+
+752
+00:26:55,880 --> 00:26:57,800
+to actually produce some results.
+
+753
+00:26:57,800 --> 00:27:01,640
+And so if we bias the thing on the amount of time it takes
+
+754
+00:27:01,640 --> 00:27:04,880
+and its speed, that disincentivizes optimization.
+
+755
+00:27:04,880 --> 00:27:07,440
+And also, if we just give it really simple tasks.
+
+756
+00:27:07,440 --> 00:27:08,920
+I think an example of this might be,
+
+757
+00:27:08,920 --> 00:27:11,920
+we just give it a task that is literally just pre-training
+
+758
+00:27:11,920 --> 00:27:13,160
+on web text.
+
+759
+00:27:13,160 --> 00:27:15,960
+We just give it a task that is, just predict the next token.
+
+760
+00:27:15,960 --> 00:27:19,320
+Really simple tasks that aren't very complex,
+
+761
+00:27:19,320 --> 00:27:21,360
+that don't have a bunch of moving pieces,
+
+762
+00:27:21,360 --> 00:27:24,000
+in terms of what we're trying to train the thing to do.
+
+763
+00:27:24,000 --> 00:27:28,800
+Then it potentially needs less optimization.
+
+764
+00:27:28,800 --> 00:27:31,440
+And probably still, at least if you're trying to predict humans,
+
+765
+00:27:31,440 --> 00:27:32,280
+like I said, it probably still needs
+
+766
+00:27:32,280 --> 00:27:34,160
+to have the capability to do optimization.
+
+767
+00:27:34,160 --> 00:27:36,620
+But it doesn't necessarily need to direct that optimization
+
+768
+00:27:36,620 --> 00:27:39,560
+towards some objective that it's optimizing for.
+
+769
+00:27:39,560 --> 00:27:41,400
+So these are some things that I think
+
+770
+00:27:41,400 --> 00:27:43,560
+might push you in one direction or the other.
+
+771
+00:27:43,560 --> 00:27:46,160
+I think it's a little bit tricky.
+
+772
+00:27:46,160 --> 00:27:47,840
+There's a lot of things pushing you
+
+773
+00:27:47,840 --> 00:27:51,240
+in different directions here.
+
+774
+00:27:51,240 --> 00:27:57,480
+I think my guess is that at some point, just
+
+775
+00:27:57,480 --> 00:27:59,080
+for capabilities reasons, people are
+
+776
+00:27:59,080 --> 00:28:00,560
+going to want to build agents.
+
+777
+00:28:00,560 --> 00:28:02,280
+And they're going to want to build agents
+
+778
+00:28:02,280 --> 00:28:04,280
+that have the ability to competently take actions
+
+779
+00:28:04,280 --> 00:28:05,720
+and do things in the world.
+
+780
+00:28:05,720 --> 00:28:09,400
+And I think when they do that, the sorts of procedures
+
+781
+00:28:09,400 --> 00:28:11,640
+that we are building for doing these sorts of things
+
+782
+00:28:11,640 --> 00:28:14,120
+are moving in the direction of the things that
+
+783
+00:28:14,120 --> 00:28:16,400
+are incentivizing optimization.
+
+784
+00:28:16,400 --> 00:28:17,040
+So why is that?
+
+785
+00:28:17,040 --> 00:28:20,320
+Well, we're moving towards doing more imitation of humans.
+
+786
+00:28:20,320 --> 00:28:21,960
+We're moving towards bigger models.
+
+787
+00:28:21,960 --> 00:28:24,080
+We're moving towards more simplicity bias.
+
+788
+00:28:24,080 --> 00:28:25,040
+This is actually a little bit tricky.
+
+789
+00:28:25,040 --> 00:28:25,960
+I didn't mention this previously.
+
+790
+00:28:25,960 --> 00:28:28,360
+But larger models have a stronger simplicity bias
+
+791
+00:28:28,360 --> 00:28:29,880
+than smaller models.
+
+792
+00:28:29,880 --> 00:28:32,080
+That might be a little bit counterintuitive.
+
+793
+00:28:32,080 --> 00:28:33,640
+But it is true.
+
+794
+00:28:33,640 --> 00:28:36,120
+One way to see this is the double descent curve.
+
+795
+00:28:36,120 --> 00:28:39,120
+Maybe I'll just go back really quickly.
+
+796
+00:28:39,480 --> 00:28:44,200
+If I have the size of my model and train the model over time,
+
+797
+00:28:44,200 --> 00:28:47,200
+you're probably familiar with the standard thing
+
+798
+00:28:47,200 --> 00:28:49,680
+that you get out of learning theory, which is your train
+
+799
+00:28:49,680 --> 00:28:50,720
+loss goes down.
+
+800
+00:28:50,720 --> 00:28:52,880
+And then your test loss, first you underfit.
+
+801
+00:28:52,880 --> 00:28:53,680
+And then you go up.
+
+802
+00:28:53,680 --> 00:28:54,800
+And then you overfit.
+
+803
+00:28:54,800 --> 00:28:56,480
+But in fact, if you actually increase
+
+804
+00:28:56,480 --> 00:29:00,240
+the size of the model far past the point at which you normally
+
+805
+00:29:00,240 --> 00:29:01,960
+would in standard learning theory,
+
+806
+00:29:01,960 --> 00:29:03,600
+your test loss actually goes down again.
+
+807
+00:29:03,600 --> 00:29:05,200
+And it goes lower than you can get
+
+808
+00:29:05,200 --> 00:29:07,600
+at any point in the classical regime.
+
+809
+00:29:07,600 --> 00:29:11,360
+What's happening here is that the only way that this works
+
+810
+00:29:11,360 --> 00:29:13,480
+is if the implicit biases that you
+
+811
+00:29:13,480 --> 00:29:15,960
+get by getting a larger model size
+
+812
+00:29:15,960 --> 00:29:18,920
+are actually selecting amongst the larger space of models
+
+813
+00:29:18,920 --> 00:29:21,120
+for models that actually generalize better.
+
+814
+00:29:21,120 --> 00:29:23,680
+And the models that generalize better are the simpler models.
+
+815
+00:29:23,680 --> 00:29:25,240
+And so as we increase the size of the model,
+
+816
+00:29:25,240 --> 00:29:27,200
+we're actually increasing the amount of simplicity bias
+
+817
+00:29:27,200 --> 00:29:30,000
+that we're applying to get an even simpler and simpler
+
+818
+00:29:30,000 --> 00:29:34,000
+and simpler solution, which is able to fit the problem.
+
+819
+00:29:34,000 --> 00:29:35,000
+OK.
+
+820
+00:29:35,000 --> 00:29:35,480
+Yes?
+
+821
+00:29:35,480 --> 00:29:37,680
+Is that the same thing as saying the larger models have
+
+822
+00:29:37,680 --> 00:29:41,720
+the freedom in their weights to explore these simpler models
+
+823
+00:29:41,720 --> 00:29:43,200
+and then end up finding them?
+
+824
+00:29:43,200 --> 00:29:44,760
+Whereas in a smaller model, they're
+
+825
+00:29:44,760 --> 00:29:47,640
+too compressed to be able to explore that?
+
+826
+00:29:47,640 --> 00:29:48,120
+Yes.
+
+827
+00:29:48,120 --> 00:29:49,680
+So it's a little bit counterintuitive.
+
+828
+00:29:49,680 --> 00:29:51,720
+But in fact, the larger models have the ability
+
+829
+00:29:51,720 --> 00:29:53,760
+to implement simpler models.
+
+830
+00:29:53,760 --> 00:29:56,920
+So if you think about it like this,
+
+831
+00:29:56,920 --> 00:29:59,040
+there are algorithms which are very simple.
+
+832
+00:29:59,040 --> 00:30:02,240
+I can write search and two lines of Python or whatever.
+
+833
+00:30:02,240 --> 00:30:05,120
+But in fact, influencing in a small network
+
+834
+00:30:05,720 --> 00:30:07,480
+might be really difficult.
+
+835
+00:30:07,480 --> 00:30:09,040
+And so as the network gets larger,
+
+836
+00:30:09,040 --> 00:30:11,960
+there's still a bias towards simple algorithms.
+
+837
+00:30:11,960 --> 00:30:13,400
+But it gets the ability to implement
+
+838
+00:30:13,400 --> 00:30:16,920
+more of the possible simple algorithms that are available.
+
+839
+00:30:16,920 --> 00:30:19,680
+But then still, it selects a simple one.
+
+840
+00:30:19,680 --> 00:30:20,480
+OK.
+
+841
+00:30:20,480 --> 00:30:21,520
+There's a lot more to be said here.
+
+842
+00:30:21,520 --> 00:30:22,020
+Yes?
+
+843
+00:30:22,020 --> 00:30:24,480
+So I take it, is there a version of this plot
+
+844
+00:30:24,480 --> 00:30:26,760
+where instead of just complexity of h,
+
+845
+00:30:26,760 --> 00:30:30,600
+it somehow incorporates whatever that bias is you talked about?
+
+846
+00:30:30,600 --> 00:30:32,040
+And then?
+
+847
+00:30:32,040 --> 00:30:33,480
+This is traditionally model size.
+
+848
+00:30:33,480 --> 00:30:34,680
+So just number of parameters.
+
+849
+00:30:35,680 --> 00:30:36,720
+I guess the point is.
+
+850
+00:30:36,720 --> 00:30:38,480
+But you can actually do this with a bunch.
+
+851
+00:30:38,480 --> 00:30:40,360
+You see double descent graphs with all sorts
+
+852
+00:30:40,360 --> 00:30:41,600
+of things on the x-axis.
+
+853
+00:30:41,600 --> 00:30:43,800
+But traditionally, at least, it's with model size.
+
+854
+00:30:43,800 --> 00:30:46,360
+So I'm trying to wrap my head around what's
+
+855
+00:30:46,360 --> 00:30:50,720
+unintuitive about the right side and why it shouldn't actually
+
+856
+00:30:50,720 --> 00:30:51,720
+be unintuitive, I guess.
+
+857
+00:30:51,720 --> 00:30:56,160
+And it seems like the x-axis is just
+
+858
+00:30:56,160 --> 00:30:57,600
+the complexity of our model class.
+
+859
+00:30:57,600 --> 00:31:00,000
+So it's not accounting for how our training procedure
+
+860
+00:31:00,000 --> 00:31:01,760
+interacts with that model class.
+
+861
+00:31:01,760 --> 00:31:02,480
+Is that right?
+
+862
+00:31:02,520 --> 00:31:03,020
+No, no, no.
+
+863
+00:31:03,020 --> 00:31:04,800
+This is after training.
+
+864
+00:31:04,800 --> 00:31:07,640
+So this is literally just, sorry, just cover this up
+
+865
+00:31:07,640 --> 00:31:09,280
+and replace with number of parameters.
+
+866
+00:31:09,280 --> 00:31:10,640
+Right, but that's my point.
+
+867
+00:31:10,640 --> 00:31:11,600
+The number of.
+
+868
+00:31:11,600 --> 00:31:13,640
+And then this is after training.
+
+869
+00:31:13,640 --> 00:31:16,000
+We're keeping training constant.
+
+870
+00:31:16,000 --> 00:31:19,080
+We train to convergence at every point on this graph.
+
+871
+00:31:19,080 --> 00:31:24,320
+Right, but the point is, the x-axis only.
+
+872
+00:31:24,320 --> 00:31:26,360
+I'm maybe not making a very interesting point.
+
+873
+00:31:26,360 --> 00:31:28,080
+But I'm just trying to understand better.
+
+874
+00:31:28,080 --> 00:31:30,760
+So the x-axis here only measures the complexity
+
+875
+00:31:30,760 --> 00:31:33,600
+of our function class.
+
+876
+00:31:33,600 --> 00:31:36,440
+It does not account for how that interacts
+
+877
+00:31:36,440 --> 00:31:37,600
+with our training procedure.
+
+878
+00:31:37,600 --> 00:31:38,040
+It doesn't.
+
+879
+00:31:38,040 --> 00:31:39,400
+Yeah, it doesn't account for the biases.
+
+880
+00:31:39,400 --> 00:31:40,960
+So we have some.
+
+881
+00:31:40,960 --> 00:31:42,920
+This is just the size of the model class.
+
+882
+00:31:42,920 --> 00:31:44,560
+But then on top of that model class,
+
+883
+00:31:44,560 --> 00:31:46,960
+we actually have some prior that selects out the model
+
+884
+00:31:46,960 --> 00:31:48,880
+that we actually like out of that model class.
+
+885
+00:31:48,880 --> 00:31:52,800
+And we're saying that prior, the prior of gradient descent,
+
+886
+00:31:52,800 --> 00:31:56,480
+of machine learning, that selects out a simple.
+
+887
+00:31:56,480 --> 00:31:59,080
+It actually selects out the simple algorithms out
+
+888
+00:31:59,080 --> 00:32:00,280
+of that large model class.
+
+889
+00:32:00,280 --> 00:32:01,400
+So as we increase the model class,
+
+890
+00:32:01,400 --> 00:32:03,400
+we get simpler and simpler algorithms out of it.
+
+891
+00:32:03,400 --> 00:32:07,320
+And so if we made a new plot where the x-axis encapsulated
+
+892
+00:32:07,320 --> 00:32:10,240
+both the complexity of the class and how our training procedure
+
+893
+00:32:10,240 --> 00:32:12,760
+interacts with it, we would not get.
+
+894
+00:32:12,760 --> 00:32:14,680
+Yes, so in fact, one thing that I will say here
+
+895
+00:32:14,680 --> 00:32:16,300
+is that what's going on is that there's
+
+896
+00:32:16,300 --> 00:32:20,320
+a disconnect between the order in which new models get added
+
+897
+00:32:20,320 --> 00:32:24,400
+to the model class and the criteria
+
+898
+00:32:24,400 --> 00:32:26,120
+that gradient descent uses to select
+
+899
+00:32:26,120 --> 00:32:27,560
+from amongst those models.
+
+900
+00:32:27,560 --> 00:32:29,800
+It is not the case that what this tells us
+
+901
+00:32:29,800 --> 00:32:33,120
+is it is not the case that new models get added to the model
+
+902
+00:32:33,120 --> 00:32:36,280
+class of what algorithms are available to be learned
+
+903
+00:32:36,280 --> 00:32:38,600
+in the same order in which gradient descent would prefer
+
+904
+00:32:38,600 --> 00:32:39,120
+them.
+
+905
+00:32:39,120 --> 00:32:41,200
+It doesn't just start with the most preferred algorithm,
+
+906
+00:32:41,200 --> 00:32:42,280
+then the second most preferred algorithm.
+
+907
+00:32:42,280 --> 00:32:44,080
+It's just randomly chucking them in there.
+
+908
+00:32:44,080 --> 00:32:47,200
+And then gradient descent is doing some very special thing
+
+909
+00:32:47,200 --> 00:32:50,120
+to actually pick out the best one from amongst them.
+
+910
+00:32:50,120 --> 00:32:52,880
+If it were the case that the order in which algorithms
+
+911
+00:32:52,880 --> 00:32:54,840
+were added to the support of your prior
+
+912
+00:32:54,840 --> 00:32:56,800
+were actually in simplicity order,
+
+913
+00:32:56,800 --> 00:33:00,080
+then I think you would not see this.
+
+914
+00:33:00,080 --> 00:33:06,720
+Does that mean are you, sorry, go for it.
+
+915
+00:33:06,720 --> 00:33:09,000
+Oh, are you basically arguing in favor
+
+916
+00:33:09,000 --> 00:33:12,000
+of the lottery ticket hypothesis here that, or no, not here?
+
+917
+00:33:12,000 --> 00:33:14,200
+No, and in fact, I think lottery ticket hypothesis,
+
+918
+00:33:14,200 --> 00:33:15,600
+people get very confused about.
+
+919
+00:33:15,600 --> 00:33:17,880
+I think it doesn't say people think it says.
+
+920
+00:33:17,880 --> 00:33:19,440
+I think it's not super relevant here.
+
+921
+00:33:19,440 --> 00:33:21,680
+We could talk about it later, maybe.
+
+922
+00:33:21,680 --> 00:33:23,120
+Yes.
+
+923
+00:33:23,120 --> 00:33:25,640
+You noted that in a neural network,
+
+924
+00:33:25,640 --> 00:33:30,040
+encoding search requires a large enough model.
+
+925
+00:33:30,040 --> 00:33:31,960
+You can't do it in a two-layer network.
+
+926
+00:33:31,960 --> 00:33:34,720
+It's impossible.
+
+927
+00:33:34,720 --> 00:33:37,400
+Seems pretty hard to do in a two-layer network, yeah.
+
+928
+00:33:37,400 --> 00:33:40,120
+So even though we regard search to be simple,
+
+929
+00:33:40,120 --> 00:33:42,320
+should we be conditioning our simplicity
+
+930
+00:33:42,320 --> 00:33:45,120
+based on the architecture of the model?
+
+931
+00:33:45,120 --> 00:33:47,040
+Well, the sort of simplicity that I care about
+
+932
+00:33:47,040 --> 00:33:51,320
+is the simplicity of, if I have a really, really large model
+
+933
+00:33:51,320 --> 00:33:52,920
+and the gradient descent can select
+
+934
+00:33:52,920 --> 00:33:54,520
+a huge amount of possible algorithms
+
+935
+00:33:54,520 --> 00:33:56,280
+from amongst that set, what sort of ones
+
+936
+00:33:56,280 --> 00:33:57,520
+does it select for, right?
+
+937
+00:33:57,520 --> 00:33:59,800
+I'm not as much interested in the sort of simplicity
+
+938
+00:33:59,800 --> 00:34:02,960
+that is like, if I have a tiny model, what are the algorithms
+
+939
+00:34:02,960 --> 00:34:04,880
+that I can implement, right?
+
+940
+00:34:04,880 --> 00:34:06,800
+And so when I say simplicity, the place
+
+941
+00:34:06,800 --> 00:34:09,320
+where I think simplicity bias occurs in machine learning
+
+942
+00:34:09,320 --> 00:34:11,760
+is not the like, oh, if I have a really small model,
+
+943
+00:34:11,760 --> 00:34:13,320
+I just can't implement some things.
+
+944
+00:34:13,320 --> 00:34:15,440
+The place where I think the simplicity bias occurs
+
+945
+00:34:15,440 --> 00:34:17,240
+is if I have a really large model
+
+946
+00:34:17,240 --> 00:34:18,800
+and I can implement a ton of things,
+
+947
+00:34:18,800 --> 00:34:20,920
+which ones does gradient descent actually end up selecting?
+
+948
+00:34:20,920 --> 00:34:22,560
+That's what I think is simplicity bias,
+
+949
+00:34:22,560 --> 00:34:23,800
+not the other one.
+
+950
+00:34:23,800 --> 00:34:25,120
+Couldn't, like, sorry.
+
+951
+00:34:25,120 --> 00:34:27,320
+And in fact, I think that the architectural bias you
+
+952
+00:34:27,320 --> 00:34:29,400
+get from having a small model is more like speed bias.
+
+953
+00:34:29,400 --> 00:34:31,140
+It actually probably disincentivizes optimization,
+
+954
+00:34:31,140 --> 00:34:32,560
+like we're saying, because it just
+
+955
+00:34:32,560 --> 00:34:37,480
+doesn't have enough serial computation time to do it.
+
+956
+00:34:37,480 --> 00:34:40,920
+Couldn't it be, though, that given that it's just
+
+957
+00:34:40,920 --> 00:34:44,360
+quite impossible to do it in a small model,
+
+958
+00:34:44,360 --> 00:34:47,720
+there is less of a simplicity bias and more just,
+
+959
+00:34:48,720 --> 00:34:51,600
+once you reach the required size,
+
+960
+00:34:51,600 --> 00:34:54,560
+then that's an available method to implement?
+
+961
+00:34:54,560 --> 00:34:56,880
+And then at that point, it just varies a tiny bit
+
+962
+00:34:56,880 --> 00:34:59,880
+based on simplicity and generalization?
+
+963
+00:34:59,880 --> 00:35:01,560
+I mean, I think that the claim I'm making
+
+964
+00:35:01,560 --> 00:35:04,920
+is that actually some models are really vastly simpler,
+
+965
+00:35:04,920 --> 00:35:06,760
+but they only become accessible to be
+
+966
+00:35:06,760 --> 00:35:09,400
+implemented by gradient descent once you have a larger model.
+
+967
+00:35:09,400 --> 00:35:12,400
+But we can talk about this later.
+
+968
+00:35:12,400 --> 00:35:13,520
+OK, let's keep going.
+
+969
+00:35:13,520 --> 00:35:15,120
+OK, great.
+
+970
+00:35:15,120 --> 00:35:17,600
+OK, so that's part one, which is like, OK,
+
+971
+00:35:17,600 --> 00:35:20,000
+here are some things that would push you in directions for
+
+972
+00:35:20,000 --> 00:35:21,640
+or against learning optimization.
+
+973
+00:35:21,640 --> 00:35:24,040
+I think my take is it's going to happen.
+
+974
+00:35:24,040 --> 00:35:25,720
+We're going to at least be able to have
+
+975
+00:35:25,720 --> 00:35:28,000
+models which are capable of doing optimization.
+
+976
+00:35:28,000 --> 00:35:29,640
+It seems like all of the ways in which we
+
+977
+00:35:29,640 --> 00:35:31,800
+want to build powerful models and have
+
+978
+00:35:31,800 --> 00:35:34,160
+models that can generalize in new situations,
+
+979
+00:35:34,160 --> 00:35:36,960
+they're going to be able to do optimization.
+
+980
+00:35:36,960 --> 00:35:40,000
+OK, so if that's going to happen,
+
+981
+00:35:40,000 --> 00:35:41,960
+will it be doing the right thing?
+
+982
+00:35:41,960 --> 00:35:46,360
+OK, so first, what does it look like for a model
+
+983
+00:35:46,360 --> 00:35:49,840
+to have an objective for a MACE optimizer,
+
+984
+00:35:49,840 --> 00:35:52,440
+to have a MACE objective that is misaligned with not
+
+985
+00:35:52,440 --> 00:35:53,940
+the same as the loss function, right?
+
+986
+00:35:53,940 --> 00:35:56,080
+Doesn't obey this, does the right thing abstraction.
+
+987
+00:35:56,080 --> 00:35:58,400
+OK, so fundamentally, I think the most basic case,
+
+988
+00:35:58,400 --> 00:36:00,560
+the one that we're primarily going to be talking about
+
+989
+00:36:00,560 --> 00:36:01,960
+is a proxy pseudoalignment, which
+
+990
+00:36:01,960 --> 00:36:06,720
+is a situation where there is some correlation.
+
+991
+00:36:06,720 --> 00:36:09,720
+There's some correlational structure between a proxy
+
+992
+00:36:09,720 --> 00:36:11,720
+that the model is trying to optimize for
+
+993
+00:36:11,720 --> 00:36:15,920
+and the actual objective that we want it to optimize for.
+
+994
+00:36:16,520 --> 00:36:18,320
+In a causal graph language, you can
+
+995
+00:36:18,320 --> 00:36:20,760
+think about them as having some common ancestor.
+
+996
+00:36:20,760 --> 00:36:23,040
+If I am trying to optimize for this
+
+997
+00:36:23,040 --> 00:36:25,120
+and there's some common ancestor between the base
+
+998
+00:36:25,120 --> 00:36:26,880
+objective and me, well, then I need
+
+999
+00:36:26,880 --> 00:36:28,960
+to make this x large because that
+
+1000
+00:36:28,960 --> 00:36:30,200
+is how I make my thing large.
+
+1001
+00:36:30,200 --> 00:36:33,520
+And that will, as a side effect, make this thing large as well.
+
+1002
+00:36:33,520 --> 00:36:35,240
+And so if we're in a situation like this,
+
+1003
+00:36:35,240 --> 00:36:36,820
+then we're going to be in a situation
+
+1004
+00:36:36,820 --> 00:36:39,560
+where it could be the case that anything which
+
+1005
+00:36:39,560 --> 00:36:42,880
+has this correlational structure to the thing we care about
+
+1006
+00:36:42,880 --> 00:36:44,720
+could be the thing that your model learns.
+
+1007
+00:36:44,720 --> 00:36:46,280
+So for example, we had that situation
+
+1008
+00:36:46,280 --> 00:36:48,080
+where it learned to go to the green arrow
+
+1009
+00:36:48,080 --> 00:36:50,240
+rather than the end of the maze, because in training,
+
+1010
+00:36:50,240 --> 00:36:54,320
+those two things were highly correlated.
+
+1011
+00:36:54,320 --> 00:36:55,800
+There are other things as well.
+
+1012
+00:36:55,800 --> 00:36:57,240
+I'll just mention really briefly.
+
+1013
+00:36:57,240 --> 00:36:59,240
+You could also have something like suboptimality
+
+1014
+00:36:59,240 --> 00:37:01,920
+pseudoalignment, where the reason the thing looks aligned
+
+1015
+00:37:01,920 --> 00:37:03,960
+is because it's actually doing optimization
+
+1016
+00:37:03,960 --> 00:37:05,440
+in some really bad way.
+
+1017
+00:37:05,440 --> 00:37:09,160
+And so in fact, its objective is just some crazy thing.
+
+1018
+00:37:09,160 --> 00:37:10,760
+An example I like of this is you're
+
+1019
+00:37:10,760 --> 00:37:12,360
+trying to make a cleaning robot.
+
+1020
+00:37:12,360 --> 00:37:16,000
+And the cleaning robot believes it
+
+1021
+00:37:16,000 --> 00:37:19,000
+has an objective of minimizing the amount of atoms
+
+1022
+00:37:19,000 --> 00:37:20,120
+in existence.
+
+1023
+00:37:20,120 --> 00:37:24,120
+And it mistakenly believes that when it vacuums up the dust,
+
+1024
+00:37:24,120 --> 00:37:26,320
+the dust is just annihilated.
+
+1025
+00:37:26,320 --> 00:37:28,080
+And so it's like, oh, this is great.
+
+1026
+00:37:28,080 --> 00:37:30,280
+But then later, it discovers that, in fact, the dust
+
+1027
+00:37:30,280 --> 00:37:31,320
+does not get annihilated.
+
+1028
+00:37:31,320 --> 00:37:32,600
+It just goes into the vacuum.
+
+1029
+00:37:32,600 --> 00:37:33,920
+And it stops being aligned.
+
+1030
+00:37:33,920 --> 00:37:35,800
+So that would be a situation where it actually
+
+1031
+00:37:35,800 --> 00:37:37,200
+had some insane objective.
+
+1032
+00:37:37,200 --> 00:37:38,880
+But that objective, in fact, exhibited
+
+1033
+00:37:38,880 --> 00:37:40,800
+aligned behavior in training because it also
+
+1034
+00:37:40,800 --> 00:37:42,000
+had some insane beliefs.
+
+1035
+00:37:42,000 --> 00:37:44,160
+So you can also get some weird cancellations and stuff
+
+1036
+00:37:44,160 --> 00:37:44,440
+like this.
+
+1037
+00:37:44,440 --> 00:37:46,120
+But we're mostly not going to be talking about this.
+
+1038
+00:37:46,120 --> 00:37:47,600
+We're mostly going to be focusing on the proxy case.
+
+1039
+00:37:47,600 --> 00:37:48,360
+It was just like, well, you know,
+
+1040
+00:37:48,360 --> 00:37:49,760
+it kind of understands what's going on.
+
+1041
+00:37:49,760 --> 00:37:51,240
+And it just cares about something
+
+1042
+00:37:51,240 --> 00:37:52,940
+in the environment, which is correlated,
+
+1043
+00:37:52,940 --> 00:37:55,080
+but not the same as the thing we want.
+
+1044
+00:37:55,080 --> 00:37:58,120
+OK, so that's sort of what pseudoalignment looks like.
+
+1045
+00:37:58,120 --> 00:38:00,280
+Why would you get it?
+
+1046
+00:38:00,280 --> 00:38:01,960
+All right, so the most fundamental thing
+
+1047
+00:38:01,960 --> 00:38:03,120
+is just unidentifiability.
+
+1048
+00:38:03,120 --> 00:38:05,080
+Look, any complex environment, it just
+
+1049
+00:38:05,080 --> 00:38:06,480
+has a shitload of proxies.
+
+1050
+00:38:06,480 --> 00:38:08,440
+There's just a ton of things in that environment
+
+1051
+00:38:08,440 --> 00:38:10,000
+which one could pay attention to
+
+1052
+00:38:10,000 --> 00:38:12,520
+and which would be correlated with the thing you care about.
+
+1053
+00:38:12,520 --> 00:38:15,280
+And so as you train agents in very complex environments,
+
+1054
+00:38:15,280 --> 00:38:17,480
+you're just going to get a bunch of possible things
+
+1055
+00:38:17,480 --> 00:38:19,480
+that it could learn.
+
+1056
+00:38:19,480 --> 00:38:21,160
+And so by default, if it just learns
+
+1057
+00:38:21,160 --> 00:38:23,440
+anything which is correlated, it'd
+
+1058
+00:38:23,440 --> 00:38:25,560
+be really unlikely and weird if it learned exactly
+
+1059
+00:38:25,560 --> 00:38:27,460
+the thing that you wanted.
+
+1060
+00:38:27,460 --> 00:38:29,320
+Because all of these things, to the extent
+
+1061
+00:38:29,320 --> 00:38:30,360
+that they're correlated with the thing
+
+1062
+00:38:30,360 --> 00:38:32,080
+you're trying to train it on, will still
+
+1063
+00:38:32,080 --> 00:38:34,560
+have good training performance.
+
+1064
+00:38:34,560 --> 00:38:38,560
+OK, so just a priori, probably some of these proxies
+
+1065
+00:38:38,560 --> 00:38:40,080
+are likely to be simpler and easier
+
+1066
+00:38:40,080 --> 00:38:43,380
+to find than the one that you actually want,
+
+1067
+00:38:43,380 --> 00:38:45,920
+unless you have some really good reason to believe that the one
+
+1068
+00:38:45,920 --> 00:38:50,560
+you actually want is very simple and easy to find.
+
+1069
+00:38:50,560 --> 00:38:54,480
+OK, in addition, I think the situation is worse than that
+
+1070
+00:38:54,480 --> 00:38:56,000
+because actually some proxies can
+
+1071
+00:38:56,000 --> 00:38:57,840
+be a lot faster than others.
+
+1072
+00:38:57,840 --> 00:38:59,000
+So what do I mean by that?
+
+1073
+00:38:59,000 --> 00:39:00,160
+So we have an example here.
+
+1074
+00:39:00,160 --> 00:39:02,420
+So we're like, look, a classic example
+
+1075
+00:39:02,420 --> 00:39:04,960
+that people like to talk about in terms of this sort of thing
+
+1076
+00:39:04,960 --> 00:39:06,120
+is evolution.
+
+1077
+00:39:06,120 --> 00:39:09,040
+Evolution also was sort of like an optimization process,
+
+1078
+00:39:09,040 --> 00:39:11,600
+selecting over humans, and selecting the humans
+
+1079
+00:39:11,600 --> 00:39:15,600
+to do a good job on natural selection,
+
+1080
+00:39:15,600 --> 00:39:18,360
+pass on your DNA into the next generation.
+
+1081
+00:39:18,360 --> 00:39:21,480
+OK, so let's suppose in an alternate reality
+
+1082
+00:39:21,480 --> 00:39:24,600
+that natural selection, evolution, actually
+
+1083
+00:39:24,600 --> 00:39:26,720
+produced humans that really just care
+
+1084
+00:39:26,720 --> 00:39:30,120
+about how much their alleles are represented
+
+1085
+00:39:30,120 --> 00:39:31,760
+in future generations.
+
+1086
+00:39:31,760 --> 00:39:33,920
+That's the only thing that the humans care about.
+
+1087
+00:39:33,920 --> 00:39:35,600
+OK, but here's the problem with this,
+
+1088
+00:39:35,600 --> 00:39:38,920
+is that this is just a terrible optimization task.
+
+1089
+00:39:38,920 --> 00:39:41,600
+You have a baby, and the baby stubs their toe.
+
+1090
+00:39:41,600 --> 00:39:44,520
+And they're like, fuck, what do I do about this?
+
+1091
+00:39:44,520 --> 00:39:48,040
+How is this going to influence my chances of in the future
+
+1092
+00:39:48,040 --> 00:39:50,960
+being able to mate and then pass my DNA down?
+
+1093
+00:39:50,960 --> 00:39:52,600
+And hmm, what is this?
+
+1094
+00:39:52,600 --> 00:39:54,280
+But no, that's terrible.
+
+1095
+00:39:54,280 --> 00:39:56,440
+Instead, a much simpler and faster
+
+1096
+00:39:56,440 --> 00:39:59,160
+to compute, easier strategy for the baby to implement
+
+1097
+00:39:59,160 --> 00:40:02,160
+is just have a pain mechanism that is like, OK,
+
+1098
+00:40:02,160 --> 00:40:04,840
+we've developed this heuristic that pain is always
+
+1099
+00:40:04,840 --> 00:40:05,720
+going to be bad.
+
+1100
+00:40:05,720 --> 00:40:09,520
+And so just shunt that to the negative reward system.
+
+1101
+00:40:09,520 --> 00:40:10,640
+And so we're like, OK.
+
+1102
+00:40:10,640 --> 00:40:13,440
+So we actually, if we're in a situation where we're training
+
+1103
+00:40:13,440 --> 00:40:16,400
+on something which is relatively complex and difficult
+
+1104
+00:40:16,400 --> 00:40:19,400
+to specify in terms of the agent's input,
+
+1105
+00:40:19,400 --> 00:40:21,840
+something like DNA, we're trying to train on,
+
+1106
+00:40:21,840 --> 00:40:24,200
+pass your DNA onto the next generation,
+
+1107
+00:40:24,200 --> 00:40:26,680
+it's not going to learn to care about passing the DNA
+
+1108
+00:40:26,680 --> 00:40:27,760
+onto the next generation.
+
+1109
+00:40:27,760 --> 00:40:30,320
+It's going to learn to care about reducing pain,
+
+1110
+00:40:30,320 --> 00:40:32,560
+because reducing pain is something that
+
+1111
+00:40:32,560 --> 00:40:35,520
+is much more easily accessible to the baby.
+
+1112
+00:40:35,520 --> 00:40:37,400
+And it's something which the baby can actually
+
+1113
+00:40:37,400 --> 00:40:39,000
+implement effectively and doesn't
+
+1114
+00:40:39,000 --> 00:40:41,120
+rely on it doing some really complex, difficult
+
+1115
+00:40:41,120 --> 00:40:42,960
+optimization process to be able to determine
+
+1116
+00:40:42,960 --> 00:40:45,800
+how to optimize for that thing.
+
+1117
+00:40:45,800 --> 00:40:48,720
+So we shouldn't expect to get some really complex, difficult
+
+1118
+00:40:48,720 --> 00:40:49,640
+to optimize for thing.
+
+1119
+00:40:49,640 --> 00:40:52,320
+We should expect to get these sorts of faster,
+
+1120
+00:40:52,320 --> 00:40:54,520
+easier to optimize for proxies.
+
+1121
+00:40:54,520 --> 00:40:56,020
+And also, some proxies are simpler.
+
+1122
+00:40:56,020 --> 00:40:56,900
+So I mentioned this.
+
+1123
+00:40:56,900 --> 00:40:58,880
+Pain also has this property that it's
+
+1124
+00:40:58,880 --> 00:41:02,280
+extremely accessible in terms of the input data of the baby.
+
+1125
+00:41:02,280 --> 00:41:04,520
+So the baby can just detect, oh, man, something
+
+1126
+00:41:04,520 --> 00:41:05,480
+has happened to my leg.
+
+1127
+00:41:05,480 --> 00:41:06,200
+That's bad.
+
+1128
+00:41:06,200 --> 00:41:08,280
+And it doesn't have to do some complex thing that's
+
+1129
+00:41:08,280 --> 00:41:11,440
+like, OK, I can infer that probably there
+
+1130
+00:41:11,440 --> 00:41:12,960
+is DNA inside of my cells.
+
+1131
+00:41:12,960 --> 00:41:14,360
+But I'm not 100% sure.
+
+1132
+00:41:14,360 --> 00:41:15,960
+I should probably go get a microscope,
+
+1133
+00:41:15,960 --> 00:41:17,360
+and then I can figure it out.
+
+1134
+00:41:17,360 --> 00:41:18,520
+It doesn't have to do that.
+
+1135
+00:41:18,520 --> 00:41:20,280
+It just is extremely accessible, the thing
+
+1136
+00:41:20,280 --> 00:41:22,960
+that it cares about in terms of its input data and the data
+
+1137
+00:41:22,960 --> 00:41:24,500
+that's available to it.
+
+1138
+00:41:24,500 --> 00:41:26,840
+And so we should expect that, again, the sort of proxies
+
+1139
+00:41:26,840 --> 00:41:29,040
+you're going to be learning are the sorts of proxies
+
+1140
+00:41:29,040 --> 00:41:31,280
+that are accessible and simple in terms of the data
+
+1141
+00:41:31,280 --> 00:41:32,920
+that the model has access to.
+
+1142
+00:41:32,920 --> 00:41:33,420
+Yes?
+
+1143
+00:41:33,420 --> 00:41:36,360
+Yeah, I was going to ask, is it somewhat of a disanalogy?
+
+1144
+00:41:36,360 --> 00:41:40,560
+Because when you're considering the case of an artificial neural
+
+1145
+00:41:40,560 --> 00:41:43,440
+network, the amount of efforts required
+
+1146
+00:41:43,440 --> 00:41:47,000
+is just one forward pass for a simple proxy
+
+1147
+00:41:47,000 --> 00:41:50,600
+or a complicated thought process that leads to an output?
+
+1148
+00:41:50,600 --> 00:41:53,280
+So yeah, so the way I think you should think about this
+
+1149
+00:41:53,280 --> 00:41:55,520
+is that, well, technically, the amount of computation
+
+1150
+00:41:55,520 --> 00:41:57,360
+it performs in any forward pass is fixed.
+
+1151
+00:41:57,360 --> 00:41:59,440
+But it has to ration that computation, right?
+
+1152
+00:41:59,440 --> 00:42:01,360
+It's not the case that it gets infinite computation.
+
+1153
+00:42:01,360 --> 00:42:04,040
+In fact, it gets, like you said, a finite amount of computation.
+
+1154
+00:42:04,040 --> 00:42:05,840
+And so it needs to ration that computation
+
+1155
+00:42:05,840 --> 00:42:07,920
+to do the things that are most useful for it, right?
+
+1156
+00:42:07,920 --> 00:42:09,720
+And so if it's wasting a bunch of the computation,
+
+1157
+00:42:09,720 --> 00:42:11,220
+doing all of this reasoning about how
+
+1158
+00:42:11,220 --> 00:42:13,600
+to get the most DNA, it's not going
+
+1159
+00:42:13,600 --> 00:42:16,680
+to have room to, for example, just do the look-ahead five
+
+1160
+00:42:16,680 --> 00:42:17,800
+steps more, right?
+
+1161
+00:42:17,800 --> 00:42:20,080
+It's not going to have the capacity
+
+1162
+00:42:20,080 --> 00:42:22,080
+left to do other things which will help it
+
+1163
+00:42:22,080 --> 00:42:23,320
+with performance more.
+
+1164
+00:42:23,320 --> 00:42:25,440
+And so because it is computation limited,
+
+1165
+00:42:25,440 --> 00:42:27,720
+we should expect that that computation will be rationed
+
+1166
+00:42:27,720 --> 00:42:32,800
+in ways that result in simple, fast proxies.
+
+1167
+00:42:32,800 --> 00:42:33,940
+OK, great.
+
+1168
+00:42:33,940 --> 00:42:35,520
+So all right, so it seems like we're probably
+
+1169
+00:42:35,520 --> 00:42:37,060
+going to get proxies that are simpler
+
+1170
+00:42:37,060 --> 00:42:41,360
+and faster than other things that we might want.
+
+1171
+00:42:41,360 --> 00:42:42,940
+OK, so what are the things, again,
+
+1172
+00:42:42,940 --> 00:42:44,820
+push you in different directions here, right?
+
+1173
+00:42:44,820 --> 00:42:47,120
+So we have time complexity bias.
+
+1174
+00:42:47,120 --> 00:42:50,640
+If you're trying to limit the amount of computation,
+
+1175
+00:42:50,640 --> 00:42:53,160
+you're going to be biased towards fast proxies.
+
+1176
+00:42:53,160 --> 00:42:55,560
+If you try to have a simplicity bias,
+
+1177
+00:42:55,560 --> 00:43:00,000
+you're going to be biased towards having simple proxies
+
+1178
+00:43:00,000 --> 00:43:01,120
+that are easy to specify.
+
+1179
+00:43:01,120 --> 00:43:03,200
+If you have a really complex environment that just
+
+1180
+00:43:03,200 --> 00:43:05,280
+has a lot of proxies and a lot of possible things
+
+1181
+00:43:05,280 --> 00:43:07,520
+the thing could learn, then you're
+
+1182
+00:43:07,520 --> 00:43:09,360
+going to get more likely that you're
+
+1183
+00:43:09,360 --> 00:43:10,680
+going to learn the wrong thing.
+
+1184
+00:43:10,680 --> 00:43:12,060
+And if the thing you're trying to get it to learn
+
+1185
+00:43:12,060 --> 00:43:14,240
+is really complex, if the objective that you're
+
+1186
+00:43:14,240 --> 00:43:16,440
+trying to optimize, that you want it to optimize for
+
+1187
+00:43:16,440 --> 00:43:17,860
+is really complex, then it's going
+
+1188
+00:43:17,860 --> 00:43:20,080
+to be harder for it to find that one.
+
+1189
+00:43:20,080 --> 00:43:23,600
+Things that might help here, so there's things that we can do.
+
+1190
+00:43:23,600 --> 00:43:25,880
+We can try to do stuff like adversarial training.
+
+1191
+00:43:25,880 --> 00:43:28,840
+We sort of find situations where the model's proxy might come
+
+1192
+00:43:28,840 --> 00:43:30,680
+apart from the thing we actually want to do,
+
+1193
+00:43:30,680 --> 00:43:33,120
+situations where maybe we actually
+
+1194
+00:43:33,120 --> 00:43:34,560
+train on the big blue maze that has
+
+1195
+00:43:34,560 --> 00:43:37,280
+the green arrow in the end of the maze in different spots.
+
+1196
+00:43:37,280 --> 00:43:39,480
+We can try to do transparency, look inside the model,
+
+1197
+00:43:39,480 --> 00:43:40,940
+see what proxies it's learned.
+
+1198
+00:43:40,940 --> 00:43:42,860
+We could try to give it optimization explicitly
+
+1199
+00:43:42,860 --> 00:43:45,460
+and maybe control that optimization more.
+
+1200
+00:43:45,460 --> 00:43:48,960
+So there are things that we can do.
+
+1201
+00:43:48,960 --> 00:43:52,200
+OK, so what I want to talk about now at this juncture
+
+1202
+00:43:52,200 --> 00:43:54,800
+is adversarial training specifically.
+
+1203
+00:43:54,800 --> 00:43:57,920
+And I want to sort of imagine, I think that in some sense,
+
+1204
+00:43:57,920 --> 00:43:59,920
+adversarial training is sort of like the default
+
+1205
+00:43:59,920 --> 00:44:01,000
+way to solve this problem.
+
+1206
+00:44:01,000 --> 00:44:03,840
+You're like, well, OK, look, this maze example, Evan,
+
+1207
+00:44:03,840 --> 00:44:04,800
+that you gave me at the beginning.
+
+1208
+00:44:04,800 --> 00:44:06,560
+Well, something was obviously wrong here,
+
+1209
+00:44:06,560 --> 00:44:08,840
+which was like, you train on the big maze, right?
+
+1210
+00:44:08,840 --> 00:44:09,560
+We had access to it.
+
+1211
+00:44:09,560 --> 00:44:10,720
+We could have trained on it.
+
+1212
+00:44:10,720 --> 00:44:12,520
+Why don't we just do that?
+
+1213
+00:44:12,520 --> 00:44:14,400
+I think that's a good response.
+
+1214
+00:44:14,400 --> 00:44:16,000
+I think the question that I want to ask
+
+1215
+00:44:16,000 --> 00:44:17,620
+next is, what happens if we do this?
+
+1216
+00:44:17,620 --> 00:44:19,620
+Because in some sense, we will probably.
+
+1217
+00:44:19,620 --> 00:44:21,040
+It's not that hard.
+
+1218
+00:44:21,040 --> 00:44:23,280
+We can just generate a bunch of adversarial examples.
+
+1219
+00:44:23,280 --> 00:44:26,160
+What happens if we generate a ton of adversarial examples
+
+1220
+00:44:26,160 --> 00:44:28,120
+and we try to use those to get to a situation
+
+1221
+00:44:28,120 --> 00:44:29,680
+where actually we force it to learn
+
+1222
+00:44:29,680 --> 00:44:31,620
+to care about the correct thing that we really
+
+1223
+00:44:31,620 --> 00:44:32,680
+wanted to care about?
+
+1224
+00:44:32,680 --> 00:44:33,800
+What happens?
+
+1225
+00:44:33,800 --> 00:44:36,360
+OK, and unfortunately, I think the situation is not great,
+
+1226
+00:44:36,360 --> 00:44:37,120
+actually.
+
+1227
+00:44:37,120 --> 00:44:37,880
+So what happens?
+
+1228
+00:44:37,880 --> 00:44:41,680
+So OK, now we're going to talk about deceptive alignment.
+
+1229
+00:44:41,680 --> 00:44:45,400
+OK, so first, I want to take a digression.
+
+1230
+00:44:45,400 --> 00:44:48,940
+This is not directly related to the thing I just said.
+
+1231
+00:44:48,940 --> 00:44:52,340
+I just want to establish it as a background fact.
+
+1232
+00:44:52,340 --> 00:44:54,860
+So let's suppose that you're in a situation.
+
+1233
+00:44:54,860 --> 00:44:56,020
+You know, you're this robot.
+
+1234
+00:44:56,020 --> 00:44:58,740
+You're in this situation where there's this training phase,
+
+1235
+00:44:58,740 --> 00:45:00,580
+and then there's this deployment phase.
+
+1236
+00:45:00,580 --> 00:45:02,500
+And the deployment is a little bit longer.
+
+1237
+00:45:02,500 --> 00:45:05,500
+You know, there's more things happening in deployment.
+
+1238
+00:45:05,500 --> 00:45:10,260
+And you have some proxy that you care about.
+
+1239
+00:45:10,260 --> 00:45:13,420
+You know, you care about the proxy B.
+
+1240
+00:45:13,420 --> 00:45:15,460
+And you know, though, that the training process,
+
+1241
+00:45:15,460 --> 00:45:17,840
+the loss function, the thing it's trying to get you to do
+
+1242
+00:45:17,840 --> 00:45:20,080
+is to care about A. You've discovered this fact
+
+1243
+00:45:20,080 --> 00:45:21,840
+about the training process, let's suppose.
+
+1244
+00:45:21,840 --> 00:45:23,160
+And you're this robot.
+
+1245
+00:45:23,160 --> 00:45:25,520
+What is the optimal strategy for the robot
+
+1246
+00:45:25,520 --> 00:45:30,200
+to get the most proxy across time that it can possibly get?
+
+1247
+00:45:30,200 --> 00:45:32,640
+You know, we're going to suppose, just in this hypothetical,
+
+1248
+00:45:32,640 --> 00:45:36,400
+that it wants to get as much B as it can over all, you know,
+
+1249
+00:45:36,400 --> 00:45:37,840
+circumstances that it's in.
+
+1250
+00:45:37,840 --> 00:45:39,800
+And we're like, OK, what is the strategy
+
+1251
+00:45:39,800 --> 00:45:41,720
+that the robot could implement that
+
+1252
+00:45:41,720 --> 00:45:45,560
+would allow it to get the most proxy as possible?
+
+1253
+00:45:45,560 --> 00:45:47,520
+Well, the strategy in this situation, you know,
+
+1254
+00:45:47,520 --> 00:45:48,400
+it's a naive strategy.
+
+1255
+00:45:48,400 --> 00:45:50,440
+Let's say it just goes to B. You know, it likes B.
+
+1256
+00:45:50,440 --> 00:45:51,040
+That's what it wants.
+
+1257
+00:45:51,040 --> 00:45:52,580
+That's the proxy that it cares about.
+
+1258
+00:45:52,580 --> 00:45:54,320
+So it just goes to B whenever it sees a B.
+
+1259
+00:45:54,320 --> 00:45:56,280
+Well, the problem with this is that it goes to B.
+
+1260
+00:45:56,280 --> 00:45:58,000
+And then the training process is like, hey, that's not.
+
+1261
+00:45:58,000 --> 00:45:58,480
+That was bad.
+
+1262
+00:45:58,480 --> 00:45:59,800
+I now have an adversarial example.
+
+1263
+00:45:59,800 --> 00:46:00,940
+Like, I have an actual data point
+
+1264
+00:46:00,940 --> 00:46:02,200
+where you did the wrong thing.
+
+1265
+00:46:02,200 --> 00:46:04,480
+And I can back propagate through the, you know, example.
+
+1266
+00:46:04,480 --> 00:46:07,120
+And like, you know, now change you to not do that anymore.
+
+1267
+00:46:07,120 --> 00:46:07,960
+Because that was bad.
+
+1268
+00:46:07,960 --> 00:46:09,560
+And you got low reward for doing it.
+
+1269
+00:46:09,560 --> 00:46:11,680
+And so now I've produced a new model that
+
+1270
+00:46:11,680 --> 00:46:12,760
+doesn't go to B anymore.
+
+1271
+00:46:12,760 --> 00:46:14,500
+And it goes to A. And so, you know,
+
+1272
+00:46:14,500 --> 00:46:17,360
+the total amount of B that you got by doing this was 1B.
+
+1273
+00:46:17,360 --> 00:46:19,120
+You know, you got to go to B once.
+
+1274
+00:46:19,120 --> 00:46:20,900
+And then the training process modified you
+
+1275
+00:46:20,900 --> 00:46:22,420
+to not go to B anymore.
+
+1276
+00:46:22,420 --> 00:46:24,420
+OK, so here's an alternative strategy.
+
+1277
+00:46:24,420 --> 00:46:27,340
+You go to A in training.
+
+1278
+00:46:27,340 --> 00:46:28,740
+And you go to B in deployment.
+
+1279
+00:46:28,740 --> 00:46:29,900
+What happens if you do this?
+
+1280
+00:46:29,900 --> 00:46:31,300
+Well, you go to A in training.
+
+1281
+00:46:31,300 --> 00:46:32,940
+And the training process, you know, it looks at, you know,
+
+1282
+00:46:32,940 --> 00:46:34,620
+we're just like, you know, computing a, you know,
+
+1283
+00:46:34,620 --> 00:46:35,900
+simple, you know, RL reward.
+
+1284
+00:46:35,900 --> 00:46:37,180
+We're like, well, you got really high reward.
+
+1285
+00:46:37,180 --> 00:46:39,460
+And so whatever behavior just caused you to get high reward,
+
+1286
+00:46:39,460 --> 00:46:42,500
+we're going to incentivize that and, you know,
+
+1287
+00:46:42,500 --> 00:46:44,020
+increase, you know, that behavior.
+
+1288
+00:46:44,020 --> 00:46:45,380
+When we backprop through, you know,
+
+1289
+00:46:45,380 --> 00:46:47,140
+we're going to whatever behavior caused you to go to A,
+
+1290
+00:46:47,140 --> 00:46:49,020
+you know, it's going to get reinforced.
+
+1291
+00:46:49,020 --> 00:46:51,240
+And, you know, but in this situation,
+
+1292
+00:46:51,240 --> 00:46:52,740
+the behavior that caused you to go to A
+
+1293
+00:46:52,740 --> 00:46:54,460
+was the behavior of actually I'm going
+
+1294
+00:46:54,460 --> 00:46:57,180
+to plot to only go to A in training and B in deployment.
+
+1295
+00:46:57,180 --> 00:47:00,940
+And so we incentivize the strategy of go to A in training
+
+1296
+00:47:00,940 --> 00:47:02,020
+and go to B in deployment.
+
+1297
+00:47:02,020 --> 00:47:03,020
+How many Bs does it get?
+
+1298
+00:47:03,020 --> 00:47:04,220
+Well, it gets three Bs because we're
+
+1299
+00:47:04,220 --> 00:47:05,300
+assuming deployment is, you know,
+
+1300
+00:47:05,300 --> 00:47:07,380
+three and training is two in this situation.
+
+1301
+00:47:07,380 --> 00:47:09,660
+And so, you know, that's a lot more than 1B.
+
+1302
+00:47:09,660 --> 00:47:11,440
+And so, you know, now we have a situation
+
+1303
+00:47:11,440 --> 00:47:16,320
+where this robot, theoretically, the best strategy for it
+
+1304
+00:47:16,320 --> 00:47:18,160
+is, you know, if it has some proxy
+
+1305
+00:47:18,160 --> 00:47:19,280
+and that proxy is different than the thing
+
+1306
+00:47:19,280 --> 00:47:22,480
+that we want it to do, the best possible strategy available
+
+1307
+00:47:22,480 --> 00:47:25,760
+is to pretend to do the thing that we want in training
+
+1308
+00:47:25,760 --> 00:47:27,820
+and then later in deployment defect against us
+
+1309
+00:47:27,820 --> 00:47:30,560
+and do some other thing once it has the ability to sort of evade
+
+1310
+00:47:30,560 --> 00:47:31,640
+the deployment signal.
+
+1311
+00:47:31,640 --> 00:47:33,160
+You can also, you know, we don't necessarily
+
+1312
+00:47:33,160 --> 00:47:35,000
+have to have an extremely sharp distinction between training
+
+1313
+00:47:35,000 --> 00:47:35,880
+and deployment here.
+
+1314
+00:47:35,880 --> 00:47:37,960
+I think you should sort of just conceptualize this as well.
+
+1315
+00:47:37,960 --> 00:47:39,840
+At some point, there becomes a point
+
+1316
+00:47:39,840 --> 00:47:42,040
+where whatever training processes we had
+
+1317
+00:47:42,040 --> 00:47:43,760
+that were able to oversee the agent
+
+1318
+00:47:43,760 --> 00:47:46,040
+and sort of correct it if it did the wrong thing,
+
+1319
+00:47:46,040 --> 00:47:47,600
+at some point, probably, you know,
+
+1320
+00:47:47,600 --> 00:47:49,900
+we're going to have to deploy agents in situations
+
+1321
+00:47:49,900 --> 00:47:52,000
+where a single action, you know,
+
+1322
+00:47:52,000 --> 00:47:54,040
+on behalf of that agent could potentially be catastrophic.
+
+1323
+00:47:54,040 --> 00:47:55,680
+We actually have to trust our agents.
+
+1324
+00:47:55,680 --> 00:47:57,000
+We have to actually have to trust our models
+
+1325
+00:47:57,000 --> 00:47:59,220
+and we can't just rely on some oversight process.
+
+1326
+00:47:59,220 --> 00:48:00,680
+If you believe that we're eventually actually
+
+1327
+00:48:00,680 --> 00:48:02,080
+going to have to do that, that we won't just always
+
+1328
+00:48:02,080 --> 00:48:03,720
+be able to have some corrective procedure
+
+1329
+00:48:03,720 --> 00:48:05,560
+that can sort of post, you know,
+
+1330
+00:48:05,560 --> 00:48:07,520
+hawk come back and sort of change the model
+
+1331
+00:48:07,520 --> 00:48:08,760
+and make it do the right thing,
+
+1332
+00:48:08,760 --> 00:48:10,680
+then, you know, there will eventually be some situation
+
+1333
+00:48:10,680 --> 00:48:11,760
+that we can call deployment,
+
+1334
+00:48:11,760 --> 00:48:13,280
+where the deployment situation is a situation
+
+1335
+00:48:13,280 --> 00:48:15,840
+where eventually, you know, it becomes the case
+
+1336
+00:48:15,840 --> 00:48:17,360
+that if the model decides to go to B,
+
+1337
+00:48:17,360 --> 00:48:18,760
+we can't stop it anymore.
+
+1338
+00:48:19,600 --> 00:48:23,000
+Will the simplicity bias help prevent it
+
+1339
+00:48:23,000 --> 00:48:25,440
+from doing different things in training and deployment?
+
+1340
+00:48:25,440 --> 00:48:27,080
+Maybe, maybe, maybe.
+
+1341
+00:48:27,080 --> 00:48:28,260
+We will talk about that in just a second.
+
+1342
+00:48:28,260 --> 00:48:29,680
+I'm not right now talking at all
+
+1343
+00:48:29,680 --> 00:48:31,160
+about the likelihood of this happening.
+
+1344
+00:48:31,160 --> 00:48:34,140
+I'm just trying to explain what it would look like if it did
+
+1345
+00:48:34,140 --> 00:48:36,720
+and why it is, in some sense, theoretically optimal
+
+1346
+00:48:36,720 --> 00:48:38,260
+for at least some sorts of agents.
+
+1347
+00:48:38,260 --> 00:48:39,100
+Yes.
+
+1348
+00:48:39,100 --> 00:48:41,700
+So does this require that the agent
+
+1349
+00:48:41,700 --> 00:48:45,060
+has some sort of episodic memory to track the path?
+
+1350
+00:48:45,060 --> 00:48:47,700
+It does not require episodic memory.
+
+1351
+00:48:47,700 --> 00:48:49,580
+It does require some things.
+
+1352
+00:48:49,580 --> 00:48:53,620
+It does require that it have a sort of cross-episodic goal.
+
+1353
+00:48:53,620 --> 00:48:55,060
+So it has to care about B,
+
+1354
+00:48:55,060 --> 00:48:57,620
+not just like I want to go to B every time I see it.
+
+1355
+00:48:57,620 --> 00:49:01,060
+It has to care about going to B as many times as possible.
+
+1356
+00:49:01,060 --> 00:49:02,260
+So it does require that.
+
+1357
+00:49:03,500 --> 00:49:04,740
+One thing it's, at least,
+
+1358
+00:49:04,740 --> 00:49:07,060
+so one thing this picture requires specifically
+
+1359
+00:49:07,060 --> 00:49:08,300
+is it requires you to know
+
+1360
+00:49:08,300 --> 00:49:09,580
+when it's in training or deployment,
+
+1361
+00:49:09,580 --> 00:49:11,540
+to actually have some mechanism being able to determine,
+
+1362
+00:49:11,540 --> 00:49:14,260
+oh, I'm now in a situation where I can,
+
+1363
+00:49:14,260 --> 00:49:16,820
+I no longer have an oversight process on top of me.
+
+1364
+00:49:18,260 --> 00:49:19,460
+As I will talk about later, though,
+
+1365
+00:49:19,460 --> 00:49:20,660
+I think that's actually not necessary.
+
+1366
+00:49:20,660 --> 00:49:22,020
+I think you don't need that.
+
+1367
+00:49:22,020 --> 00:49:23,980
+But, at least for this picture, you do.
+
+1368
+00:49:25,060 --> 00:49:26,460
+But I actually think it's not necessary
+
+1369
+00:49:26,460 --> 00:49:27,780
+for you to get this option.
+
+1370
+00:49:27,780 --> 00:49:31,140
+But the cross-episodic goal absolutely is necessary.
+
+1371
+00:49:31,140 --> 00:49:32,660
+We will talk about that.
+
+1372
+00:49:32,660 --> 00:49:34,940
+You need some idea of how much training
+
+1373
+00:49:34,940 --> 00:49:37,540
+versus deployment for that cross-episodic goal?
+
+1374
+00:49:42,300 --> 00:49:44,460
+So you do need to understand that there is training
+
+1375
+00:49:44,460 --> 00:49:45,300
+and that there is deployment.
+
+1376
+00:49:45,300 --> 00:49:46,660
+You have to understand that those things exist
+
+1377
+00:49:46,660 --> 00:49:49,260
+and that they have this sort of structure.
+
+1378
+00:49:49,260 --> 00:49:50,780
+You don't necessarily have to understand
+
+1379
+00:49:50,780 --> 00:49:52,500
+exactly what the ratio is.
+
+1380
+00:49:52,500 --> 00:49:53,900
+You probably have to understand, at least,
+
+1381
+00:49:53,900 --> 00:49:56,340
+either the ability to detect when you're in deployment
+
+1382
+00:49:56,340 --> 00:49:58,620
+or have some understanding of the ratio,
+
+1383
+00:49:58,620 --> 00:49:59,940
+as we'll talk about later.
+
+1384
+00:50:01,340 --> 00:50:03,100
+Okay, so this is a thing that could happen.
+
+1385
+00:50:03,100 --> 00:50:03,940
+Yes?
+
+1386
+00:50:03,940 --> 00:50:06,860
+I'm just a bit confused about the second picture
+
+1387
+00:50:06,860 --> 00:50:08,660
+in the sequence.
+
+1388
+00:50:08,660 --> 00:50:11,180
+After the first step, you got penalized
+
+1389
+00:50:11,180 --> 00:50:13,180
+for going to the wrong thing, right?
+
+1390
+00:50:13,180 --> 00:50:14,020
+Yes.
+
+1391
+00:50:14,020 --> 00:50:16,860
+Like, now the Mesa objective points to A,
+
+1392
+00:50:16,860 --> 00:50:18,660
+but then, like, why does it say-
+
+1393
+00:50:18,660 --> 00:50:19,820
+Oh, that's a good question.
+
+1394
+00:50:19,820 --> 00:50:21,740
+So this is all from the perspective,
+
+1395
+00:50:21,740 --> 00:50:23,300
+when I say the Mesa objective state,
+
+1396
+00:50:23,300 --> 00:50:26,620
+this is all from the perspective of the original robot.
+
+1397
+00:50:26,620 --> 00:50:27,900
+Because we're sort of imagining, you know,
+
+1398
+00:50:27,900 --> 00:50:29,980
+if I'm the robot at the very beginning of this,
+
+1399
+00:50:29,980 --> 00:50:32,020
+how, and I have some cross-episodic goal,
+
+1400
+00:50:32,020 --> 00:50:34,100
+I care about going to B as many times as possible,
+
+1401
+00:50:34,100 --> 00:50:36,140
+how would I plan, you know, for doing things?
+
+1402
+00:50:36,140 --> 00:50:37,900
+And it's like, yes, technically, in some sense,
+
+1403
+00:50:37,900 --> 00:50:39,740
+the robot here is just like a different robot
+
+1404
+00:50:39,740 --> 00:50:41,500
+because now they care about a different thing.
+
+1405
+00:50:41,500 --> 00:50:43,340
+And so their, you know, new Mesa objective
+
+1406
+00:50:43,340 --> 00:50:44,260
+would be to go to A.
+
+1407
+00:50:44,260 --> 00:50:46,100
+But we're like, you know, suppose just right now,
+
+1408
+00:50:46,100 --> 00:50:47,980
+from the perspective of the original robot,
+
+1409
+00:50:47,980 --> 00:50:49,820
+you know, what does the original robot want to do?
+
+1410
+00:50:49,820 --> 00:50:51,660
+And the original robot wants to go to B as many times.
+
+1411
+00:50:51,660 --> 00:50:53,540
+And so if they get changed into a robot that goes to A,
+
+1412
+00:50:53,540 --> 00:50:55,060
+you know, they're very unhappy.
+
+1413
+00:50:58,860 --> 00:50:59,980
+Okay, all right.
+
+1414
+00:50:59,980 --> 00:51:01,260
+So why would this happen?
+
+1415
+00:51:01,260 --> 00:51:02,460
+Let's talk about it.
+
+1416
+00:51:02,460 --> 00:51:03,300
+Okay.
+
+1417
+00:51:05,660 --> 00:51:08,020
+Okay, so first.
+
+1418
+00:51:08,020 --> 00:51:11,700
+So there's two, so at some point, you know,
+
+1419
+00:51:11,700 --> 00:51:13,020
+you do enough adversarial training.
+
+1420
+00:51:13,020 --> 00:51:15,020
+At some point, your model is going to have to learn
+
+1421
+00:51:15,020 --> 00:51:17,660
+to understand the thing that you are trying to get it to do.
+
+1422
+00:51:17,660 --> 00:51:19,260
+You're trying to get it to do something.
+
+1423
+00:51:19,260 --> 00:51:21,700
+And at some point, if you've put it in enough situations
+
+1424
+00:51:21,700 --> 00:51:23,540
+where, you know, it has to be able to figure out
+
+1425
+00:51:23,540 --> 00:51:25,260
+what's happening in all of those situations,
+
+1426
+00:51:25,260 --> 00:51:27,700
+at some point, it is going to have to learn
+
+1427
+00:51:27,700 --> 00:51:30,380
+what it is that you are trying to get it to do.
+
+1428
+00:51:30,380 --> 00:51:33,420
+But I think there's fundamentally two routes
+
+1429
+00:51:33,420 --> 00:51:35,700
+via which information about the thing
+
+1430
+00:51:35,700 --> 00:51:38,020
+you are trying to get it to do could enter into the model.
+
+1431
+00:51:38,020 --> 00:51:40,500
+There's sort of two ways that that information
+
+1432
+00:51:40,500 --> 00:51:41,940
+could get in the model.
+
+1433
+00:51:41,940 --> 00:51:44,780
+One way is via the gradient updates.
+
+1434
+00:51:44,780 --> 00:51:46,740
+You know, the gradient updates provide information
+
+1435
+00:51:46,740 --> 00:51:48,940
+to the model about the objective
+
+1436
+00:51:48,940 --> 00:51:50,980
+because they, you know, can enforce objectives
+
+1437
+00:51:50,980 --> 00:51:52,860
+that in fact result in good behavior
+
+1438
+00:51:52,860 --> 00:51:55,620
+and, you know, disincentivize objectives
+
+1439
+00:51:55,620 --> 00:51:57,380
+that result in bad behavior.
+
+1440
+00:51:57,380 --> 00:51:58,740
+And so that can sort of push the model
+
+1441
+00:51:58,740 --> 00:51:59,740
+towards having an objective
+
+1442
+00:51:59,740 --> 00:52:01,260
+that corresponds to the correct thing.
+
+1443
+00:52:01,260 --> 00:52:04,100
+But there is another path via which information
+
+1444
+00:52:04,100 --> 00:52:05,900
+about the thing that you are trying to get it to do
+
+1445
+00:52:05,900 --> 00:52:06,780
+can enter into the model,
+
+1446
+00:52:06,780 --> 00:52:08,300
+and that's through the model's input.
+
+1447
+00:52:08,300 --> 00:52:09,620
+So, you know, if, for example,
+
+1448
+00:52:09,620 --> 00:52:11,540
+the model gets to see a bunch of, you know,
+
+1449
+00:52:11,540 --> 00:52:13,940
+it gets to read all of Wikipedia, right?
+
+1450
+00:52:13,940 --> 00:52:15,900
+You know, there are a bunch of gradient descent update steps
+
+1451
+00:52:15,900 --> 00:52:18,100
+that occur in, you know, understanding Wikipedia
+
+1452
+00:52:18,100 --> 00:52:19,500
+and, like, predicting it, for example,
+
+1453
+00:52:19,500 --> 00:52:22,500
+that encode information about what is in the Wikipedia.
+
+1454
+00:52:22,500 --> 00:52:24,500
+And they're not necessarily gradient update steps
+
+1455
+00:52:24,500 --> 00:52:26,540
+that are directly about the model's objective.
+
+1456
+00:52:26,540 --> 00:52:27,740
+They're just gradient descent update steps
+
+1457
+00:52:27,740 --> 00:52:28,980
+that are about encoding and understanding
+
+1458
+00:52:28,980 --> 00:52:30,340
+what exists on Wikipedia.
+
+1459
+00:52:30,340 --> 00:52:32,460
+Wikipedia actually has a ton of information
+
+1460
+00:52:32,460 --> 00:52:33,300
+about the sorts of things
+
+1461
+00:52:33,300 --> 00:52:35,140
+that we might want to get models to do.
+
+1462
+00:52:35,140 --> 00:52:38,540
+And so there's a mechanism via which information
+
+1463
+00:52:38,540 --> 00:52:40,900
+about the sort of training process
+
+1464
+00:52:40,900 --> 00:52:43,180
+and about the thing that we are trying to get the model to do
+
+1465
+00:52:43,180 --> 00:52:44,180
+can enter into the model
+
+1466
+00:52:44,180 --> 00:52:46,260
+that doesn't go directly through a, like,
+
+1467
+00:52:46,260 --> 00:52:47,300
+back propagation through,
+
+1468
+00:52:47,300 --> 00:52:49,380
+did that objective actually result in good behavior?
+
+1469
+00:52:49,380 --> 00:52:50,780
+So there's another mechanism,
+
+1470
+00:52:50,780 --> 00:52:51,620
+which is just, like,
+
+1471
+00:52:51,620 --> 00:52:54,420
+the model has to learn a bunch of facts about the world
+
+1472
+00:52:54,420 --> 00:52:56,180
+via which the model can learn facts
+
+1473
+00:52:56,180 --> 00:52:57,260
+about what you're trying to get it to do,
+
+1474
+00:52:57,260 --> 00:52:59,940
+what the training process is, and how it works.
+
+1475
+00:52:59,940 --> 00:53:02,060
+Okay, so there's these two pathways.
+
+1476
+00:53:02,060 --> 00:53:05,380
+So the sort of internalization pathway
+
+1477
+00:53:05,380 --> 00:53:06,220
+is pretty straightforward.
+
+1478
+00:53:06,220 --> 00:53:07,340
+If this is the way in which it learns
+
+1479
+00:53:07,340 --> 00:53:08,700
+about the base objective primarily,
+
+1480
+00:53:08,700 --> 00:53:09,820
+it's, you know, hopefully gonna end up
+
+1481
+00:53:09,820 --> 00:53:10,660
+with the correct objective.
+
+1482
+00:53:10,660 --> 00:53:12,420
+You know, we just reinforce good objectives
+
+1483
+00:53:12,420 --> 00:53:14,340
+and, you know, we, you know,
+
+1484
+00:53:14,340 --> 00:53:15,460
+disincentivize bad objectives.
+
+1485
+00:53:15,460 --> 00:53:16,700
+We should end up, you know,
+
+1486
+00:53:16,700 --> 00:53:18,260
+gradient dissenting towards the good one.
+
+1487
+00:53:18,260 --> 00:53:19,580
+But there are a couple of ways
+
+1488
+00:53:19,580 --> 00:53:23,220
+in which you could instead use the modeling information
+
+1489
+00:53:23,220 --> 00:53:25,140
+to learn about the base objective instead.
+
+1490
+00:53:25,140 --> 00:53:25,980
+Yes?
+
+1491
+00:53:25,980 --> 00:53:27,140
+How do you tell the two are different
+
+1492
+00:53:27,140 --> 00:53:29,940
+because when, like, all of Wikipedia's put in the model,
+
+1493
+00:53:29,940 --> 00:53:32,020
+it's put in it through training, right?
+
+1494
+00:53:32,020 --> 00:53:34,300
+So it's still having gradient effects.
+
+1495
+00:53:34,300 --> 00:53:35,140
+That's correct.
+
+1496
+00:53:35,140 --> 00:53:38,020
+Let's suppose, so maybe a really simple way to imagine this
+
+1497
+00:53:38,020 --> 00:53:39,620
+is let's say we do pre-training
+
+1498
+00:53:39,620 --> 00:53:41,940
+and then we do fine-tuning in some RL environments.
+
+1499
+00:53:41,940 --> 00:53:43,300
+We pre-train the language model
+
+1500
+00:53:43,300 --> 00:53:44,380
+and then we do fine-tuning
+
+1501
+00:53:44,380 --> 00:53:46,700
+to try to get that language model to do a good job at,
+
+1502
+00:53:46,700 --> 00:53:49,460
+you know, optimizing for something in some environment.
+
+1503
+00:53:49,460 --> 00:53:51,220
+In that situation, there was a,
+
+1504
+00:53:51,220 --> 00:53:52,460
+there were gradient descent update steps
+
+1505
+00:53:52,460 --> 00:53:54,900
+where those update steps were just encoding information.
+
+1506
+00:53:54,900 --> 00:53:56,340
+And there were gradient descent update steps
+
+1507
+00:53:56,340 --> 00:53:58,020
+where those update steps were encoding,
+
+1508
+00:53:58,020 --> 00:53:59,980
+were incentivizing, you know, actions, right?
+
+1509
+00:53:59,980 --> 00:54:00,980
+We're directly encoding, like,
+
+1510
+00:54:00,980 --> 00:54:02,620
+the sorts of things we wanted to do.
+
+1511
+00:54:02,620 --> 00:54:04,540
+And we're saying, well, you know, one,
+
+1512
+00:54:04,540 --> 00:54:07,100
+it could end up that most of the information
+
+1513
+00:54:07,100 --> 00:54:09,500
+about what we wanted to do comes through, like,
+
+1514
+00:54:09,500 --> 00:54:10,740
+you know, the first type
+
+1515
+00:54:10,740 --> 00:54:13,340
+or it could come through the second type, right?
+
+1516
+00:54:13,340 --> 00:54:15,540
+And if I think it's gonna look different,
+
+1517
+00:54:15,540 --> 00:54:18,340
+what you get, depending on where most of the information
+
+1518
+00:54:18,340 --> 00:54:20,500
+about the objective is coming from.
+
+1519
+00:54:20,500 --> 00:54:22,220
+Is it coming from the sort of just like steps
+
+1520
+00:54:22,220 --> 00:54:24,140
+that are just going towards modeling information
+
+1521
+00:54:24,140 --> 00:54:25,620
+or is it coming from steps that are going towards,
+
+1522
+00:54:25,620 --> 00:54:27,340
+you know, incentivizing or disincentivizing
+
+1523
+00:54:27,340 --> 00:54:28,700
+particular objectives?
+
+1524
+00:54:28,700 --> 00:54:29,540
+Yes.
+
+1525
+00:54:29,540 --> 00:54:31,140
+Is the first one focused on, like,
+
+1526
+00:54:31,140 --> 00:54:33,060
+in a world where you have interpretability
+
+1527
+00:54:33,060 --> 00:54:34,540
+and you understand exactly what it's doing
+
+1528
+00:54:34,540 --> 00:54:36,580
+and you say, don't do that, do this other thing,
+
+1529
+00:54:36,580 --> 00:54:38,060
+even though it's achieving the same thing?
+
+1530
+00:54:38,060 --> 00:54:40,180
+No, I'm just imagining that you incentivize behavior
+
+1531
+00:54:40,180 --> 00:54:42,020
+that you like and you disincentivize behavior you don't like.
+
+1532
+00:54:42,020 --> 00:54:44,100
+If you see it do the wrong thing in your environment,
+
+1533
+00:54:44,100 --> 00:54:45,260
+then, you know, you get a gradient descent signal
+
+1534
+00:54:45,260 --> 00:54:47,900
+to not do that and do something else instead.
+
+1535
+00:54:47,900 --> 00:54:49,580
+But that's different than, like,
+
+1536
+00:54:49,580 --> 00:54:51,140
+if, you know, giving it information,
+
+1537
+00:54:51,140 --> 00:54:52,180
+you know, gradient descent update steps
+
+1538
+00:54:52,180 --> 00:54:54,780
+that are just about, you know, giving it information.
+
+1539
+00:54:54,780 --> 00:54:55,900
+Okay.
+
+1540
+00:54:55,900 --> 00:54:59,260
+Okay, so if the information is mostly coming through,
+
+1541
+00:54:59,260 --> 00:55:01,860
+you know, part two, then there's sort of things
+
+1542
+00:55:01,860 --> 00:55:03,660
+that are available to gradient descent
+
+1543
+00:55:03,660 --> 00:55:06,100
+that can sort of replace step one, right?
+
+1544
+00:55:06,100 --> 00:55:08,940
+So in some sense, you know, let's say we do this pre-training
+
+1545
+00:55:08,940 --> 00:55:10,820
+and then we do this fine-tuning, right?
+
+1546
+00:55:10,820 --> 00:55:13,740
+You know, we could, you know, in the fine-tuning process,
+
+1547
+00:55:13,740 --> 00:55:15,900
+just like spend a ton of gradient descent update steps
+
+1548
+00:55:15,900 --> 00:55:17,940
+carefully encoding this complex objective
+
+1549
+00:55:17,940 --> 00:55:19,820
+that we want the thing to care about.
+
+1550
+00:55:19,820 --> 00:55:23,660
+Or instead, we could just make use of the existing knowledge
+
+1551
+00:55:23,660 --> 00:55:26,180
+that the model already had in some way that,
+
+1552
+00:55:26,180 --> 00:55:27,580
+you know, also results in good performance.
+
+1553
+00:55:27,580 --> 00:55:28,860
+So how could you do that?
+
+1554
+00:55:28,860 --> 00:55:30,580
+If you're gradient descent and you have this model,
+
+1555
+00:55:30,580 --> 00:55:32,580
+and the model knows a ton of facts about the world,
+
+1556
+00:55:32,580 --> 00:55:34,140
+it just has a ton of information,
+
+1557
+00:55:34,140 --> 00:55:36,820
+how do you use that information to result in the model
+
+1558
+00:55:36,820 --> 00:55:38,540
+having good performance in practice
+
+1559
+00:55:38,540 --> 00:55:40,420
+on my, you know, training environment?
+
+1560
+00:55:40,420 --> 00:55:42,500
+Well, here are two ways.
+
+1561
+00:55:42,500 --> 00:55:44,300
+Way number one is deception.
+
+1562
+00:55:44,300 --> 00:55:46,340
+You can just sort of take the, you know,
+
+1563
+00:55:46,340 --> 00:55:48,820
+you can give it some simple long-term proxy, right?
+
+1564
+00:55:48,820 --> 00:55:50,460
+It has to be long-term, as we talked about.
+
+1565
+00:55:50,460 --> 00:55:52,140
+But if gradient descent takes the model
+
+1566
+00:55:52,140 --> 00:55:54,380
+that knows a bunch of facts, and in particular,
+
+1567
+00:55:54,380 --> 00:55:55,780
+if it takes a model that knows a bunch of facts
+
+1568
+00:55:55,780 --> 00:55:57,460
+about the training process
+
+1569
+00:55:57,460 --> 00:56:00,660
+and gives that model a long-term proxy to optimize,
+
+1570
+00:56:00,660 --> 00:56:01,620
+you know, takes the model and says,
+
+1571
+00:56:01,620 --> 00:56:03,860
+okay, now what you should do is optimize over the long-term
+
+1572
+00:56:03,860 --> 00:56:05,940
+for, you know, number of gold coins or whatever,
+
+1573
+00:56:05,940 --> 00:56:06,980
+number of paper clips, whatever.
+
+1574
+00:56:06,980 --> 00:56:09,180
+It just gives it some long-term proxy.
+
+1575
+00:56:09,180 --> 00:56:12,380
+Then the model has enough information to deduce
+
+1576
+00:56:12,380 --> 00:56:14,300
+that given that what I care about is,
+
+1577
+00:56:14,300 --> 00:56:16,060
+you know, gold coins of the long-term,
+
+1578
+00:56:16,060 --> 00:56:17,580
+I should optimize for, you know,
+
+1579
+00:56:17,580 --> 00:56:19,540
+whatever the training process cares about right now
+
+1580
+00:56:19,540 --> 00:56:21,020
+so that I can eventually, you know,
+
+1581
+00:56:21,020 --> 00:56:22,780
+try to get the gold coins later on.
+
+1582
+00:56:23,660 --> 00:56:26,820
+And so as soon as gradient descent makes the modification
+
+1583
+00:56:26,820 --> 00:56:28,780
+that takes the model and turns it into a model
+
+1584
+00:56:28,780 --> 00:56:31,740
+that cares about, you know, something over the long-term,
+
+1585
+00:56:31,740 --> 00:56:33,740
+it gets to make use of all of this information
+
+1586
+00:56:33,740 --> 00:56:34,900
+that entered into the model
+
+1587
+00:56:34,900 --> 00:56:36,860
+about the training process immediately, right?
+
+1588
+00:56:36,860 --> 00:56:38,420
+All of that stuff that the model knew about, like,
+
+1589
+00:56:38,420 --> 00:56:39,620
+oh, you know, I know all these facts
+
+1590
+00:56:39,620 --> 00:56:40,460
+about the training process.
+
+1591
+00:56:40,460 --> 00:56:41,300
+I know how it works.
+
+1592
+00:56:41,300 --> 00:56:42,580
+I know what these humans care about.
+
+1593
+00:56:42,580 --> 00:56:45,060
+But, and it gets to take all of those facts
+
+1594
+00:56:45,060 --> 00:56:46,940
+and instrumentally use them
+
+1595
+00:56:46,940 --> 00:56:49,740
+to result in as good performance essentially as possible
+
+1596
+00:56:49,740 --> 00:56:51,100
+given the model's understanding of the world
+
+1597
+00:56:51,100 --> 00:56:52,380
+because it'll just start optimizing
+
+1598
+00:56:52,380 --> 00:56:53,900
+for what you want it to optimize for.
+
+1599
+00:56:53,900 --> 00:56:55,860
+And so there's a modification available to gradient descent,
+
+1600
+00:56:55,860 --> 00:56:57,460
+which is a relatively simple modification
+
+1601
+00:56:57,460 --> 00:56:58,980
+in the situation where most of the information
+
+1602
+00:56:58,980 --> 00:57:00,660
+entered through these sort of modeling,
+
+1603
+00:57:00,660 --> 00:57:03,660
+which is just, you know,
+
+1604
+00:57:03,660 --> 00:57:06,660
+make it so that you care about some long-term thing.
+
+1605
+00:57:06,660 --> 00:57:08,580
+Okay, that's option one.
+
+1606
+00:57:08,580 --> 00:57:10,660
+Option two is this corrigible thing.
+
+1607
+00:57:10,660 --> 00:57:12,740
+So instead of being deceptive,
+
+1608
+00:57:12,740 --> 00:57:13,940
+you can instead, you know, you'd be like,
+
+1609
+00:57:13,940 --> 00:57:16,860
+well, I have a bunch of information about, you know,
+
+1610
+00:57:16,860 --> 00:57:18,420
+what the thing, what the training process is
+
+1611
+00:57:18,420 --> 00:57:19,900
+and how it works and what it cares about.
+
+1612
+00:57:19,900 --> 00:57:22,140
+I could instead, gradient descent could,
+
+1613
+00:57:22,140 --> 00:57:25,860
+take the model and give it a proxy objective
+
+1614
+00:57:25,860 --> 00:57:27,940
+that is a pointer to something in that world model.
+
+1615
+00:57:27,940 --> 00:57:29,180
+You know, there's something in the world model
+
+1616
+00:57:29,180 --> 00:57:31,420
+that corresponds to, you know, the base objective.
+
+1617
+00:57:31,420 --> 00:57:32,820
+It corresponds to like what humans care about,
+
+1618
+00:57:32,820 --> 00:57:34,260
+what we're trying to train it for, whatever.
+
+1619
+00:57:34,260 --> 00:57:36,300
+What you could do is gradient descent could just like,
+
+1620
+00:57:36,300 --> 00:57:38,100
+be like, okay, optimize for that thing
+
+1621
+00:57:38,100 --> 00:57:39,980
+in the world model here.
+
+1622
+00:57:39,980 --> 00:57:41,060
+The difficulty with this though
+
+1623
+00:57:41,060 --> 00:57:42,660
+is that you have to actually get that pointer right.
+
+1624
+00:57:42,660 --> 00:57:44,860
+So there's like, you know, a lot of difficulty potentially
+
+1625
+00:57:44,860 --> 00:57:46,500
+in getting the pointer that actually specifies
+
+1626
+00:57:46,500 --> 00:57:47,860
+exactly the correct thing.
+
+1627
+00:57:47,860 --> 00:57:48,900
+Whereas with the deception, you know,
+
+1628
+00:57:48,900 --> 00:57:49,940
+you sort of don't have to get it right.
+
+1629
+00:57:49,940 --> 00:57:51,660
+Like essentially any objective,
+
+1630
+00:57:51,660 --> 00:57:53,340
+if you care about it over the long-term
+
+1631
+00:57:53,340 --> 00:57:55,580
+will result in good performance
+
+1632
+00:57:55,580 --> 00:57:57,420
+because the model will instrumentally reason,
+
+1633
+00:57:57,420 --> 00:57:59,060
+oh, you know, the best way to get good performance
+
+1634
+00:57:59,060 --> 00:58:00,180
+is just to play along.
+
+1635
+00:58:01,140 --> 00:58:02,580
+Okay, so these are two, these are,
+
+1636
+00:58:02,580 --> 00:58:04,300
+well, I guess, you know, we have three ways
+
+1637
+00:58:04,300 --> 00:58:06,740
+that gradient descent could take a model
+
+1638
+00:58:06,740 --> 00:58:10,100
+and produce a model that actually has good performance
+
+1639
+00:58:10,100 --> 00:58:13,460
+on like all the adversarial examples in, you know,
+
+1640
+00:58:13,460 --> 00:58:14,660
+in a situation we're trying to get it
+
+1641
+00:58:14,660 --> 00:58:15,860
+to accomplish some tasks.
+
+1642
+00:58:17,420 --> 00:58:19,100
+Okay, so let's talk a little bit about like,
+
+1643
+00:58:19,100 --> 00:58:20,820
+you know, how likely each of these are.
+
+1644
+00:58:20,820 --> 00:58:22,980
+So I already said some words, but modeling, you know,
+
+1645
+00:58:22,980 --> 00:58:24,700
+why do I think modeling is simpler?
+
+1646
+00:58:24,700 --> 00:58:26,500
+Well, you know, essentially, right, it's just like, look,
+
+1647
+00:58:26,500 --> 00:58:29,980
+you know, it's really, you know, the situation where
+
+1648
+00:58:29,980 --> 00:58:31,580
+I think basically in any situation,
+
+1649
+00:58:31,580 --> 00:58:34,100
+it's really surprising for your model
+
+1650
+00:58:34,100 --> 00:58:35,900
+to actually spend a ton of, you know,
+
+1651
+00:58:35,900 --> 00:58:38,020
+for gradient descent spend a ton of update steps
+
+1652
+00:58:38,020 --> 00:58:40,260
+just directly encoding for some objective
+
+1653
+00:58:40,260 --> 00:58:42,620
+where that objective doesn't make any reference
+
+1654
+00:58:42,620 --> 00:58:44,700
+to the like information that the model has.
+
+1655
+00:58:44,700 --> 00:58:47,220
+If you have a model and it has a ton of facts in there
+
+1656
+00:58:47,220 --> 00:58:48,980
+about the world, and then you, you know,
+
+1657
+00:58:48,980 --> 00:58:50,860
+try to get it to optimize for some, you know,
+
+1658
+00:58:50,860 --> 00:58:52,940
+for some objective, it's gonna make use of those facts.
+
+1659
+00:58:52,940 --> 00:58:54,820
+You know, you shouldn't expect that those facts,
+
+1660
+00:58:54,820 --> 00:58:57,220
+you know, are just gonna be, you know, put aside
+
+1661
+00:58:57,220 --> 00:58:59,260
+and it's gonna learn some totally separate objective
+
+1662
+00:58:59,260 --> 00:59:01,100
+that isn't at all related to the facts that it knows.
+
+1663
+00:59:01,100 --> 00:59:02,420
+It's gonna use them both, you know,
+
+1664
+00:59:02,420 --> 00:59:05,060
+it's just a simpler, more compressed way of doing things
+
+1665
+00:59:05,060 --> 00:59:07,260
+to make use of the information that the model has.
+
+1666
+00:59:07,340 --> 00:59:08,180
+And so we shouldn't expect,
+
+1667
+00:59:08,180 --> 00:59:09,660
+I think in basically any situation
+
+1668
+00:59:09,660 --> 00:59:10,780
+that we end up with an objective
+
+1669
+00:59:10,780 --> 00:59:13,260
+that is like separately encoded from the information.
+
+1670
+00:59:13,260 --> 00:59:15,100
+It's gonna be encoding in terms of the information
+
+1671
+00:59:15,100 --> 00:59:17,380
+in some respect.
+
+1672
+00:59:18,300 --> 00:59:21,580
+Okay, so how might it be encoded in terms of the information?
+
+1673
+00:59:21,580 --> 00:59:24,980
+Well, you know, one thing is you could have
+
+1674
+00:59:24,980 --> 00:59:26,100
+this quadruple thing, right?
+
+1675
+00:59:26,100 --> 00:59:28,740
+So the problem is I think the deception, you know,
+
+1676
+00:59:28,740 --> 00:59:29,820
+actually beats up the quadruple thing.
+
+1677
+00:59:29,820 --> 00:59:30,660
+So why is that?
+
+1678
+00:59:30,660 --> 00:59:31,820
+Well, so with the quadruple thing, you know,
+
+1679
+00:59:31,820 --> 00:59:33,060
+you're learning some pointer.
+
+1680
+00:59:33,060 --> 00:59:35,060
+You're learning some mechanism of pointing
+
+1681
+00:59:35,060 --> 00:59:38,340
+to the thing that you, you know,
+
+1682
+00:59:38,340 --> 00:59:40,020
+in the world model that corresponds
+
+1683
+00:59:40,020 --> 00:59:41,740
+to the thing that you care about.
+
+1684
+00:59:41,740 --> 00:59:44,700
+Well, you know, what is that mechanism?
+
+1685
+00:59:44,700 --> 00:59:45,540
+Well, essentially, you know,
+
+1686
+00:59:45,540 --> 00:59:46,860
+you have to learn some ground truth.
+
+1687
+00:59:46,860 --> 00:59:48,500
+You have to learn some way to sort of like,
+
+1688
+00:59:48,500 --> 00:59:50,380
+you know, reason about what it is that you care about.
+
+1689
+00:59:50,380 --> 00:59:51,220
+Here's an example.
+
+1690
+00:59:51,220 --> 00:59:54,580
+Let's say you have a duck and, you know,
+
+1691
+00:59:54,580 --> 00:59:56,900
+natural selection evolution wants to get ducks
+
+1692
+00:59:56,900 --> 00:59:58,980
+that care about their mothers, right?
+
+1693
+00:59:58,980 --> 01:00:00,460
+You want ducks and they want their, you know,
+
+1694
+01:00:00,460 --> 01:00:02,100
+they want them to follow their mothers, okay?
+
+1695
+01:00:02,100 --> 01:00:04,340
+So what is the mechanism that evolution uses
+
+1696
+01:00:04,380 --> 01:00:05,220
+to, you know, get that?
+
+1697
+01:00:05,220 --> 01:00:07,340
+Well, you know, it uses this sort of imprinting mechanism,
+
+1698
+01:00:07,340 --> 01:00:08,460
+right, where the ducks, you know,
+
+1699
+01:00:08,460 --> 01:00:09,980
+they're born and then they see their mother
+
+1700
+01:00:09,980 --> 01:00:11,180
+and they're like, oh, that's my mother.
+
+1701
+01:00:11,180 --> 01:00:12,700
+I'm going to follow this thing.
+
+1702
+01:00:12,700 --> 01:00:14,140
+But, you know, sometimes this fails.
+
+1703
+01:00:14,140 --> 01:00:16,180
+You know, the ducks don't see the mother when they're born
+
+1704
+01:00:16,180 --> 01:00:18,420
+because they were born, you know, by humans
+
+1705
+01:00:18,420 --> 01:00:19,620
+and they see the human and they're like,
+
+1706
+01:00:19,620 --> 01:00:20,820
+that's my mother, right?
+
+1707
+01:00:20,820 --> 01:00:22,420
+And, you know, that's a problem
+
+1708
+01:00:22,420 --> 01:00:24,500
+because the way in which, you know,
+
+1709
+01:00:24,500 --> 01:00:27,940
+the pointer was encoded was not actually very robust.
+
+1710
+01:00:27,940 --> 01:00:29,540
+And so if you want to solve that problem,
+
+1711
+01:00:29,540 --> 01:00:31,580
+you actually have to encode a really robust pointer.
+
+1712
+01:00:31,580 --> 01:00:33,340
+You know, you have to have a way of encoding, you know,
+
+1713
+01:00:33,340 --> 01:00:35,260
+searching for, you know, okay,
+
+1714
+01:00:35,260 --> 01:00:36,980
+I have this understanding of the world that I develop.
+
+1715
+01:00:36,980 --> 01:00:38,540
+How do I pick out which thing in that
+
+1716
+01:00:38,540 --> 01:00:39,860
+corresponds to my mother, right?
+
+1717
+01:00:39,860 --> 01:00:41,580
+Well, it's not the first thing I see,
+
+1718
+01:00:41,580 --> 01:00:43,260
+though it is sometimes the first thing I see.
+
+1719
+01:00:43,260 --> 01:00:45,060
+Seeing it first is evidence in favor
+
+1720
+01:00:45,060 --> 01:00:46,420
+of it being the actual mother,
+
+1721
+01:00:46,420 --> 01:00:48,300
+but it's not necessarily the actual mother, right?
+
+1722
+01:00:48,300 --> 01:00:50,100
+You have to encode a bunch of detailed information
+
+1723
+01:00:50,100 --> 01:00:52,340
+about how to actually pick out your mother
+
+1724
+01:00:52,340 --> 01:00:54,060
+from the world model.
+
+1725
+01:00:54,060 --> 01:00:56,580
+And the deceptive agent doesn't have to do that, right?
+
+1726
+01:00:56,580 --> 01:00:58,580
+The deceptive agent just has to encode, you know,
+
+1727
+01:00:58,580 --> 01:00:59,900
+okay, here's the world model.
+
+1728
+01:00:59,900 --> 01:01:01,500
+Here is some complex, you know,
+
+1729
+01:01:01,500 --> 01:01:03,180
+some extremely simple objective
+
+1730
+01:01:03,180 --> 01:01:04,700
+that cares about the long-term, you know,
+
+1731
+01:01:04,700 --> 01:01:06,380
+get as many paperclips as possible.
+
+1732
+01:01:06,380 --> 01:01:07,420
+And then you just do optimization.
+
+1733
+01:01:07,420 --> 01:01:08,260
+You're just like, okay,
+
+1734
+01:01:08,260 --> 01:01:10,260
+given that I know these facts about how the world works,
+
+1735
+01:01:10,260 --> 01:01:12,980
+and I know that I care about maximizing paperclips,
+
+1736
+01:01:12,980 --> 01:01:14,780
+what is the best strategy for me
+
+1737
+01:01:14,780 --> 01:01:16,020
+to get the most paperclips?
+
+1738
+01:01:16,020 --> 01:01:17,340
+And it's just like, okay, let's do some search.
+
+1739
+01:01:17,340 --> 01:01:18,820
+Let's try a bunch of different possible options
+
+1740
+01:01:18,820 --> 01:01:20,380
+and see which options would get me the most paperclips.
+
+1741
+01:01:20,380 --> 01:01:21,220
+And it's like, oh,
+
+1742
+01:01:21,220 --> 01:01:22,260
+the option that gets me those paperclips
+
+1743
+01:01:22,260 --> 01:01:24,900
+is play along with this training objective right now
+
+1744
+01:01:24,900 --> 01:01:26,020
+and do whatever it wants.
+
+1745
+01:01:26,020 --> 01:01:27,260
+And then eventually I'll do something later
+
+1746
+01:01:27,260 --> 01:01:28,740
+and I'll get the most paperclips that way.
+
+1747
+01:01:28,740 --> 01:01:29,860
+And so you don't have to encode
+
+1748
+01:01:29,860 --> 01:01:31,460
+for some really complex way of picking out,
+
+1749
+01:01:31,500 --> 01:01:33,500
+you know, what your mother is
+
+1750
+01:01:33,500 --> 01:01:35,580
+if you end up doing the deceptive route.
+
+1751
+01:01:36,620 --> 01:01:39,140
+Okay, so that's what deception might look like.
+
+1752
+01:01:39,140 --> 01:01:40,300
+So what are the sort of, you know,
+
+1753
+01:01:40,300 --> 01:01:41,900
+if you ended up in this situation,
+
+1754
+01:01:41,900 --> 01:01:43,380
+you know, what would this look like?
+
+1755
+01:01:43,380 --> 01:01:44,860
+You know, putting this all together,
+
+1756
+01:01:44,860 --> 01:01:46,260
+if you're going to end up in a situation
+
+1757
+01:01:46,260 --> 01:01:47,300
+where you develop deception,
+
+1758
+01:01:47,300 --> 01:01:49,060
+what are the learning dynamics going to be?
+
+1759
+01:01:49,060 --> 01:01:51,500
+Well, you're going to start with some pseudo-alignment.
+
+1760
+01:01:51,500 --> 01:01:53,580
+You're gonna get some proxy, you know, to start with
+
+1761
+01:01:53,580 --> 01:01:55,820
+as you sort of, you know, start training on some objective.
+
+1762
+01:01:55,820 --> 01:01:58,540
+At some point, the model is going to learn information
+
+1763
+01:01:58,780 --> 01:02:01,820
+about the training process from its input data.
+
+1764
+01:02:01,820 --> 01:02:04,620
+And then at some point, you know,
+
+1765
+01:02:04,620 --> 01:02:07,100
+gradient descent is going to take the model
+
+1766
+01:02:07,100 --> 01:02:10,300
+and it's going to modify it to, you become deceptive,
+
+1767
+01:02:10,300 --> 01:02:12,980
+you know, give it some long-term objective to care about.
+
+1768
+01:02:12,980 --> 01:02:14,180
+And then the model is going to start
+
+1769
+01:02:14,180 --> 01:02:16,500
+instrumentally authorizing for the base objective,
+
+1770
+01:02:16,500 --> 01:02:18,260
+not because it cares about it, but because, you know,
+
+1771
+01:02:18,260 --> 01:02:19,780
+for the purpose of staying around
+
+1772
+01:02:19,780 --> 01:02:21,100
+so that it can eventually get the most
+
+1773
+01:02:21,100 --> 01:02:23,380
+of whatever proxy it wants on its long-term objective
+
+1774
+01:02:23,380 --> 01:02:24,900
+that gradient descent gave it.
+
+1775
+01:02:24,900 --> 01:02:26,100
+And then at this point,
+
+1776
+01:02:26,100 --> 01:02:27,620
+whatever objective is there in the model
+
+1777
+01:02:27,620 --> 01:02:28,620
+that gradient descent has given it,
+
+1778
+01:02:28,620 --> 01:02:29,860
+some long-term objective,
+
+1779
+01:02:29,860 --> 01:02:31,700
+that objective essentially crystallizes.
+
+1780
+01:02:31,700 --> 01:02:32,900
+That objective, you know,
+
+1781
+01:02:32,900 --> 01:02:35,220
+no longer is relevant performance at all, you know?
+
+1782
+01:02:35,220 --> 01:02:37,900
+Whatever that objective is, it does not matter what it is
+
+1783
+01:02:37,900 --> 01:02:39,020
+because whatever it is,
+
+1784
+01:02:39,020 --> 01:02:40,620
+it's going to result in the same performance
+
+1785
+01:02:40,620 --> 01:02:42,220
+because the reason the model has good performance
+
+1786
+01:02:42,220 --> 01:02:44,660
+in training has nothing to do with the model's objective
+
+1787
+01:02:44,660 --> 01:02:46,500
+and everything to do with the fact
+
+1788
+01:02:46,500 --> 01:02:48,460
+that the model is deceptive.
+
+1789
+01:02:48,460 --> 01:02:50,900
+And so it no longer matters essentially
+
+1790
+01:02:50,900 --> 01:02:52,620
+what the MACE objectives,
+
+1791
+01:02:52,620 --> 01:02:54,260
+what the MACE optimizer's objective is.
+
+1792
+01:02:54,260 --> 01:02:56,780
+It's now, you know, crystallized, it's frozen,
+
+1793
+01:02:56,780 --> 01:02:58,580
+and for all intents and purposes,
+
+1794
+01:02:58,580 --> 01:02:59,420
+it's not going to change
+
+1795
+01:02:59,420 --> 01:03:01,140
+because it's no longer performance relevant.
+
+1796
+01:03:01,140 --> 01:03:02,420
+Okay.
+
+1797
+01:03:02,420 --> 01:03:05,020
+It's possible you could get drift towards simpler things,
+
+1798
+01:03:05,020 --> 01:03:06,260
+but you're not going to get an incentive
+
+1799
+01:03:06,260 --> 01:03:08,980
+towards getting a thing which is more aligned.
+
+1800
+01:03:08,980 --> 01:03:10,020
+Okay, and so at this point,
+
+1801
+01:03:10,020 --> 01:03:11,100
+gradient descent essentially stops
+
+1802
+01:03:11,100 --> 01:03:12,140
+improving the MACE objective,
+
+1803
+01:03:12,140 --> 01:03:14,100
+and the only thing that is performance relevant now
+
+1804
+01:03:14,100 --> 01:03:17,060
+is just making it so that it's better at being deceptive,
+
+1805
+01:03:17,060 --> 01:03:18,260
+you know, giving it a better world model,
+
+1806
+01:03:18,260 --> 01:03:19,980
+giving it a better understanding of the training process,
+
+1807
+01:03:19,980 --> 01:03:21,620
+helping it be deceptive more effectively
+
+1808
+01:03:21,620 --> 01:03:22,460
+because that is the thing
+
+1809
+01:03:22,460 --> 01:03:25,300
+that is performance relevant at this point.
+
+1810
+01:03:25,420 --> 01:03:28,060
+I don't totally follow why it's more complicated to,
+
+1811
+01:03:28,060 --> 01:03:29,740
+like, don't you have to get,
+
+1812
+01:03:29,740 --> 01:03:32,180
+it's not necessarily a pointer in the deceptive case,
+
+1813
+01:03:32,180 --> 01:03:34,700
+but you still need to form just as good a world model
+
+1814
+01:03:34,700 --> 01:03:36,540
+of the MACE objective in both cases.
+
+1815
+01:03:36,540 --> 01:03:37,380
+You do.
+
+1816
+01:03:37,380 --> 01:03:40,820
+However, you don't have to do that in your weights.
+
+1817
+01:03:40,820 --> 01:03:42,860
+You have to do so in the activations, right?
+
+1818
+01:03:42,860 --> 01:03:45,220
+So way to think about this, right?
+
+1819
+01:03:45,220 --> 01:03:46,460
+So remember we were talking previously
+
+1820
+01:03:46,460 --> 01:03:48,780
+about the distinction between simplicity bias
+
+1821
+01:03:48,780 --> 01:03:50,420
+and speed bias, right?
+
+1822
+01:03:50,420 --> 01:03:52,140
+So the deceptive model,
+
+1823
+01:03:52,140 --> 01:03:54,380
+it doesn't have to encode some pointer
+
+1824
+01:03:54,380 --> 01:03:56,820
+to, like, how to figure out what its mother is.
+
+1825
+01:03:56,820 --> 01:03:59,420
+All it has to encode is, like, care about, you know,
+
+1826
+01:03:59,420 --> 01:04:02,900
+over the longterm, care about, you know, coins or whatever.
+
+1827
+01:04:02,900 --> 01:04:06,700
+And then it does reasoning on top of that to figure out,
+
+1828
+01:04:06,700 --> 01:04:08,580
+oh, I should, you know, optimize, you know,
+
+1829
+01:04:08,580 --> 01:04:10,380
+for this particular base objective thing.
+
+1830
+01:04:10,380 --> 01:04:12,900
+Those reasoning steps do take extra time,
+
+1831
+01:04:12,900 --> 01:04:14,860
+but they don't take extra complexity
+
+1832
+01:04:14,860 --> 01:04:16,780
+because it's not the case that you had to encode
+
+1833
+01:04:16,780 --> 01:04:19,180
+for that information in the actual structure of the model.
+
+1834
+01:04:19,180 --> 01:04:20,380
+It only occurred,
+
+1835
+01:04:20,380 --> 01:04:22,180
+it sort of figures it out at runtime, right?
+
+1836
+01:04:22,180 --> 01:04:23,260
+It just, like, does some reasoning
+
+1837
+01:04:23,260 --> 01:04:25,700
+and realizes what the base objective model is
+
+1838
+01:04:25,700 --> 01:04:27,340
+when it just sort of, you know, runs, you know,
+
+1839
+01:04:27,340 --> 01:04:28,180
+forward at runtime.
+
+1840
+01:04:28,180 --> 01:04:31,540
+And so it costs extra speed to be deceptive,
+
+1841
+01:04:31,540 --> 01:04:34,660
+but it takes less complexity to be deceptive.
+
+1842
+01:04:34,660 --> 01:04:35,900
+And so if you expect
+
+1843
+01:04:35,900 --> 01:04:37,860
+you're going to get more simplicity bias,
+
+1844
+01:04:37,860 --> 01:04:39,740
+then you should expect you're going to get more deception.
+
+1845
+01:04:39,740 --> 01:04:41,380
+And if you expect you're going to get more speed bias,
+
+1846
+01:04:41,380 --> 01:04:43,500
+you should expect you're going to get less deception.
+
+1847
+01:04:44,500 --> 01:04:46,540
+But if you can have that, like, sort of,
+
+1848
+01:04:48,940 --> 01:04:52,420
+that to-be-evaluated thunk of what your objective is,
+
+1849
+01:04:52,420 --> 01:04:54,700
+I think I'm so missing why
+
+1850
+01:04:54,700 --> 01:04:58,860
+the courageably aligned one can't do the same.
+
+1851
+01:04:58,860 --> 01:05:00,660
+So the courageably and the deceptively aligned one
+
+1852
+01:05:00,660 --> 01:05:02,820
+both end up at the same spot.
+
+1853
+01:05:02,820 --> 01:05:04,500
+But the question is,
+
+1854
+01:05:04,500 --> 01:05:07,460
+how long do they take to end up at the same spot?
+
+1855
+01:05:07,460 --> 01:05:10,300
+And how much information do we have to specify
+
+1856
+01:05:10,300 --> 01:05:12,020
+to get them to the same spot, right?
+
+1857
+01:05:12,020 --> 01:05:13,380
+So how much information do we have to specify
+
+1858
+01:05:13,380 --> 01:05:14,620
+to get them to the same spot?
+
+1859
+01:05:14,620 --> 01:05:15,660
+Well, the courageably aligned one,
+
+1860
+01:05:15,660 --> 01:05:17,300
+we have to specify this complex pointer.
+
+1861
+01:05:17,300 --> 01:05:18,140
+And the deceptively aligned one,
+
+1862
+01:05:18,140 --> 01:05:21,140
+we have to specify some objective over the longterm.
+
+1863
+01:05:21,140 --> 01:05:22,060
+How long do they get there?
+
+1864
+01:05:22,700 --> 01:05:24,780
+Well, the courageably aligned one probably gets there first
+
+1865
+01:05:24,780 --> 01:05:26,140
+because it has to do fewer steps of reasoning.
+
+1866
+01:05:26,140 --> 01:05:27,460
+It has to reason, well, you know,
+
+1867
+01:05:27,460 --> 01:05:30,140
+what I have to do is, you know, just follow this pointer.
+
+1868
+01:05:30,140 --> 01:05:31,860
+The deceptively aligned one has to do a couple more steps.
+
+1869
+01:05:31,860 --> 01:05:33,420
+It has to be like, well, you know,
+
+1870
+01:05:33,420 --> 01:05:34,620
+what I want is these coins,
+
+1871
+01:05:34,620 --> 01:05:35,860
+but I know there's this training process.
+
+1872
+01:05:35,860 --> 01:05:37,420
+And so I know this training process cares about this thing.
+
+1873
+01:05:37,420 --> 01:05:38,380
+And so I want to do that.
+
+1874
+01:05:38,380 --> 01:05:39,260
+So the deceptively aligned one
+
+1875
+01:05:39,260 --> 01:05:40,980
+takes a couple more steps to get there,
+
+1876
+01:05:40,980 --> 01:05:45,300
+but the information necessary to encode in the model
+
+1877
+01:05:45,300 --> 01:05:46,580
+to get there is smaller.
+
+1878
+01:05:46,580 --> 01:05:50,260
+And so it's more compressed and it's simpler,
+
+1879
+01:05:50,540 --> 01:05:52,380
+but it does take a couple of extra steps
+
+1880
+01:05:52,380 --> 01:05:54,380
+of reasoning at runtime.
+
+1881
+01:05:54,380 --> 01:05:55,940
+So the deceptively aligned one, you know,
+
+1882
+01:05:55,940 --> 01:05:57,540
+if you're really like, for example,
+
+1883
+01:05:57,540 --> 01:06:00,860
+if you really force like short, small models,
+
+1884
+01:06:00,860 --> 01:06:02,900
+then you're going to disincentivize deception
+
+1885
+01:06:02,900 --> 01:06:04,140
+because it won't have enough time
+
+1886
+01:06:04,140 --> 01:06:06,020
+to actually, you know, do the computation.
+
+1887
+01:06:06,020 --> 01:06:08,260
+Alternatively, if you have really large models
+
+1888
+01:06:08,260 --> 01:06:10,220
+and you have a ton of simplicity bias,
+
+1889
+01:06:10,220 --> 01:06:12,020
+then you're going to incentivize deception
+
+1890
+01:06:12,020 --> 01:06:13,020
+because you're going to be in a situation
+
+1891
+01:06:13,020 --> 01:06:15,060
+where it wants to encode things
+
+1892
+01:06:15,060 --> 01:06:16,820
+and as compressed away as possible.
+
+1893
+01:06:17,820 --> 01:06:22,820
+So if the base objective is encoded pretty easily
+
+1894
+01:06:23,500 --> 01:06:24,980
+in terms of the activations,
+
+1895
+01:06:24,980 --> 01:06:27,740
+then the additional complexity isn't that large, right?
+
+1896
+01:06:27,740 --> 01:06:29,540
+It's just something like log of the model size
+
+1897
+01:06:29,540 --> 01:06:30,980
+in terms of bits.
+
+1898
+01:06:30,980 --> 01:06:32,460
+Are you, is that what you-
+
+1899
+01:06:32,460 --> 01:06:33,660
+Like for the pointer size?
+
+1900
+01:06:33,660 --> 01:06:34,940
+Yeah, for the pointer.
+
+1901
+01:06:34,940 --> 01:06:36,460
+Is that what you mean when you talk about
+
+1902
+01:06:36,460 --> 01:06:37,580
+sort of the additional complexity
+
+1903
+01:06:37,580 --> 01:06:38,940
+or are you imagining that it's actually
+
+1904
+01:06:38,940 --> 01:06:41,060
+some complicated function of the activations?
+
+1905
+01:06:41,060 --> 01:06:43,780
+So I think that like, I think that's like a reasonable guess
+
+1906
+01:06:43,780 --> 01:06:45,980
+if you're like log of the model size number of bits.
+
+1907
+01:06:46,020 --> 01:06:49,940
+I think that, yeah, I think that's not crazy.
+
+1908
+01:06:49,940 --> 01:06:51,660
+I think that the like deceptive objective
+
+1909
+01:06:51,660 --> 01:06:54,740
+is competitive with that and like probably simpler,
+
+1910
+01:06:54,740 --> 01:06:55,940
+especially for large models.
+
+1911
+01:06:55,940 --> 01:06:57,540
+However, I think it might be worse than that.
+
+1912
+01:06:57,540 --> 01:06:58,860
+So why might it be worse than that?
+
+1913
+01:06:58,860 --> 01:07:01,260
+Well, it's not just a mechanism of like pointing
+
+1914
+01:07:01,260 --> 01:07:02,620
+to some existing thing in the world model.
+
+1915
+01:07:02,620 --> 01:07:04,940
+It has to be a pointer that generalizes correctly, right?
+
+1916
+01:07:04,940 --> 01:07:06,860
+So it has to be a pointer that like, you know,
+
+1917
+01:07:06,860 --> 01:07:09,100
+in the situation where like, you know,
+
+1918
+01:07:09,100 --> 01:07:11,460
+maybe the like mother is in a different spot, right?
+
+1919
+01:07:11,460 --> 01:07:13,300
+You know, you have to actually have a pointer
+
+1920
+01:07:13,300 --> 01:07:15,420
+that encodes enough information to be able to deduce
+
+1921
+01:07:15,420 --> 01:07:17,900
+in different situations where do you find the mother, right?
+
+1922
+01:07:17,900 --> 01:07:19,780
+And so it actually does have to encode potentially
+
+1923
+01:07:19,780 --> 01:07:21,280
+enough information to generalize correctly,
+
+1924
+01:07:21,280 --> 01:07:23,020
+not just like point at the correct thing.
+
+1925
+01:07:23,020 --> 01:07:24,820
+Whereas the deceptive one, you know,
+
+1926
+01:07:24,820 --> 01:07:26,460
+generalizes correctly just by, you know,
+
+1927
+01:07:26,460 --> 01:07:29,180
+fact of it's always going to just do whatever the thing is
+
+1928
+01:07:29,180 --> 01:07:30,500
+that results in the most training performance
+
+1929
+01:07:30,500 --> 01:07:31,980
+because it just wants to get training performance
+
+1930
+01:07:31,980 --> 01:07:33,180
+for the purpose of staying around.
+
+1931
+01:07:33,180 --> 01:07:34,140
+Whereas the coercionally aligned one
+
+1932
+01:07:34,140 --> 01:07:35,860
+has to do some extra stuff to actually robustly
+
+1933
+01:07:35,860 --> 01:07:39,380
+get good training performance.
+
+1934
+01:07:39,380 --> 01:07:44,940
+Does the pointer need to be robust to the model's world
+
+1935
+01:07:44,940 --> 01:07:47,500
+sort of model changing?
+
+1936
+01:07:47,500 --> 01:07:49,900
+Like over time, if you train it, it's going to update that model
+
+1937
+01:07:49,900 --> 01:07:51,980
+and it's location of mother may change,
+
+1938
+01:07:51,980 --> 01:07:53,860
+it's definition of mother may change.
+
+1939
+01:07:53,860 --> 01:07:54,660
+Yeah, it does.
+
+1940
+01:07:54,660 --> 01:07:55,140
+Yeah.
+
+1941
+01:07:55,140 --> 01:07:57,940
+Does it have to be robust to that or does it just not care?
+
+1942
+01:07:57,940 --> 01:07:58,420
+It does.
+
+1943
+01:07:58,420 --> 01:08:00,180
+And so that can make the coercionally aligned one
+
+1944
+01:08:00,180 --> 01:08:01,820
+a little bit harder because it's like, you know,
+
+1945
+01:08:01,820 --> 01:08:03,620
+as green descent is changing the world model,
+
+1946
+01:08:03,620 --> 01:08:05,460
+it also might have to change the pointer.
+
+1947
+01:08:05,460 --> 01:08:07,140
+Yeah.
+
+1948
+01:08:07,140 --> 01:08:07,660
+OK.
+
+1949
+01:08:07,660 --> 01:08:08,660
+Whereas with the deception, it sort of
+
+1950
+01:08:08,660 --> 01:08:09,340
+doesn't have to change it.
+
+1951
+01:08:09,340 --> 01:08:10,420
+It's just sort of fixed.
+
+1952
+01:08:10,420 --> 01:08:10,620
+Yeah.
+
+1953
+01:08:10,620 --> 01:08:12,060
+Is it correct to say that deceptive, you're just
+
+1954
+01:08:12,060 --> 01:08:13,820
+encoding survive and then it figures out
+
+1955
+01:08:13,820 --> 01:08:16,060
+from first principles that it needs to put objectives
+
+1956
+01:08:16,060 --> 01:08:17,660
+to go find and do that?
+
+1957
+01:08:17,660 --> 01:08:18,780
+That would be an example.
+
+1958
+01:08:18,780 --> 01:08:21,700
+Survive would be an example of an objective that is simple
+
+1959
+01:08:21,700 --> 01:08:22,980
+and encoded of the long term.
+
+1960
+01:08:22,980 --> 01:08:24,940
+But I'm not even, I'm making a broader claim.
+
+1961
+01:08:24,940 --> 01:08:27,060
+It can be anything over the long term that it cares about.
+
+1962
+01:08:27,060 --> 01:08:28,980
+It doesn't have to be survive because survive
+
+1963
+01:08:28,980 --> 01:08:31,620
+is an instrumental, convergent instrumental goal of essentially
+
+1964
+01:08:31,620 --> 01:08:33,740
+anything that you care about over the long term.
+
+1965
+01:08:33,740 --> 01:08:34,900
+But you survive it would be an example.
+
+1966
+01:08:34,900 --> 01:08:35,140
+Yeah.
+
+1967
+01:08:35,140 --> 01:08:36,600
+And it's much simpler than anything
+
+1968
+01:08:37,160 --> 01:08:40,000
+how to infer which of the training,
+
+1969
+01:08:40,000 --> 01:08:41,920
+which of the objectives we need to find.
+
+1970
+01:08:41,920 --> 01:08:42,920
+Right.
+
+1971
+01:08:42,920 --> 01:08:44,920
+Right.
+
+1972
+01:08:44,920 --> 01:08:45,400
+OK.
+
+1973
+01:08:45,400 --> 01:08:48,600
+So I promised also that I would talk a little bit about what
+
+1974
+01:08:48,600 --> 01:08:53,080
+happens in a situation where it doesn't necessarily
+
+1975
+01:08:53,080 --> 01:08:55,480
+have to actually know when it's in training or deployment.
+
+1976
+01:08:55,480 --> 01:08:57,840
+So just a couple of words on this very quickly.
+
+1977
+01:08:57,840 --> 01:08:59,560
+So why does the model not necessarily
+
+1978
+01:08:59,560 --> 01:09:01,720
+have to know whether it's in training or deployment?
+
+1979
+01:09:02,520 --> 01:09:07,240
+You can have a situation where your model,
+
+1980
+01:09:07,240 --> 01:09:09,720
+even if it doesn't know exactly when it's going to be in training
+
+1981
+01:09:09,720 --> 01:09:11,920
+or when it's in deployment, it has some uncertainty.
+
+1982
+01:09:11,920 --> 01:09:13,640
+Maybe it thinks it's just being tested.
+
+1983
+01:09:13,640 --> 01:09:16,960
+It's in some situation where actually it's in a honeypot
+
+1984
+01:09:16,960 --> 01:09:18,840
+and you might be trying to look for deception.
+
+1985
+01:09:18,840 --> 01:09:21,000
+In that situation, it can just sort of chance it.
+
+1986
+01:09:21,000 --> 01:09:23,480
+It can be like, well, I don't know 100% sure
+
+1987
+01:09:23,480 --> 01:09:25,520
+if this is training or deployment.
+
+1988
+01:09:25,520 --> 01:09:30,000
+But probably if I pick some particular fraction of the time
+
+1989
+01:09:30,040 --> 01:09:32,960
+to defect, to be deceptive versus not be deceptive,
+
+1990
+01:09:32,960 --> 01:09:35,840
+then I can approximately end up in a situation
+
+1991
+01:09:35,840 --> 01:09:40,040
+where probably they will have seen no defections in training
+
+1992
+01:09:40,040 --> 01:09:41,760
+and yet there will be a defection that exists
+
+1993
+01:09:41,760 --> 01:09:42,480
+in deployment.
+
+1994
+01:09:42,480 --> 01:09:45,280
+And so there exists some optimal fraction of the time
+
+1995
+01:09:45,280 --> 01:09:49,400
+that is supposed to defect for any particular setup.
+
+1996
+01:09:49,400 --> 01:09:52,000
+Even if it has no ability to distinguish,
+
+1997
+01:09:52,000 --> 01:09:55,680
+there is always going to be some optimal fraction of defections
+
+1998
+01:09:55,680 --> 01:09:58,040
+that you can compute based on the size of deployment,
+
+1999
+01:09:58,040 --> 01:10:00,160
+the size of training, how good it
+
+2000
+01:10:00,160 --> 01:10:01,840
+is to distinguish between them.
+
+2001
+01:10:01,840 --> 01:10:04,280
+And so even in a situation where you can't tell it all,
+
+2002
+01:10:04,280 --> 01:10:06,400
+you sort of have perfect adversarial training,
+
+2003
+01:10:06,400 --> 01:10:10,320
+you're still potentially quite scared of this.
+
+2004
+01:10:13,360 --> 01:10:18,280
+And in addition, I think it's like, well, I actually
+
+2005
+01:10:18,280 --> 01:10:19,880
+think it is actually you should expect
+
+2006
+01:10:19,880 --> 01:10:21,720
+that it's going to be able to determine which one it's in.
+
+2007
+01:10:21,720 --> 01:10:23,680
+So while I don't think it's strictly
+
+2008
+01:10:23,680 --> 01:10:25,200
+necessary for it to know whether it's
+
+2009
+01:10:25,200 --> 01:10:26,740
+in training or deployment, actually I
+
+2010
+01:10:26,740 --> 01:10:28,860
+think that it probably most of the time is.
+
+2011
+01:10:28,860 --> 01:10:30,020
+So why is it going to know?
+
+2012
+01:10:30,020 --> 01:10:31,740
+Well, so there's a bunch of examples
+
+2013
+01:10:31,740 --> 01:10:33,700
+of distributional shifts that normally we
+
+2014
+01:10:33,700 --> 01:10:34,860
+don't care about very much.
+
+2015
+01:10:34,860 --> 01:10:36,580
+But in a situation where your model is actively
+
+2016
+01:10:36,580 --> 01:10:38,300
+trying to look for distributional shifts that
+
+2017
+01:10:38,300 --> 01:10:40,180
+will tell it whether it's in training or deployment,
+
+2018
+01:10:40,180 --> 01:10:41,660
+become a lot scarier, right?
+
+2019
+01:10:41,660 --> 01:10:44,580
+So these are things like, well, you train a simulation
+
+2020
+01:10:44,580 --> 01:10:46,340
+and then you're deploying the real world.
+
+2021
+01:10:46,340 --> 01:10:48,620
+And usually you hope the simulation is pretty similar.
+
+2022
+01:10:48,620 --> 01:10:50,220
+But if there's any difference at all,
+
+2023
+01:10:50,220 --> 01:10:51,920
+then it can use it to detect whether it's
+
+2024
+01:10:51,920 --> 01:10:54,020
+in training or deployment.
+
+2025
+01:10:54,020 --> 01:10:56,260
+You give it literally time.
+
+2026
+01:10:56,260 --> 01:10:59,180
+It sees a clock and it can tell what date it is.
+
+2027
+01:10:59,180 --> 01:11:01,140
+And it can use that to determine whether it's
+
+2028
+01:11:01,140 --> 01:11:02,940
+in training or deployment.
+
+2029
+01:11:02,940 --> 01:11:04,780
+Normally, no, it probably doesn't
+
+2030
+01:11:04,780 --> 01:11:07,140
+matter what the dates are on the data that you give it.
+
+2031
+01:11:07,140 --> 01:11:09,100
+But in this situation, maybe it does.
+
+2032
+01:11:09,100 --> 01:11:12,860
+This leads to the Mayan calendar doomsday scenario,
+
+2033
+01:11:12,860 --> 01:11:14,360
+where you have all the AIs and they're
+
+2034
+01:11:14,360 --> 01:11:15,500
+really great and awesome.
+
+2035
+01:11:15,500 --> 01:11:19,020
+And then the year hits like 2050 or whatever,
+
+2036
+01:11:19,020 --> 01:11:20,620
+and they all defect simultaneously
+
+2037
+01:11:20,620 --> 01:11:23,300
+and wipe us out.
+
+2038
+01:11:23,300 --> 01:11:25,300
+That's very unlikely.
+
+2039
+01:11:25,300 --> 01:11:29,020
+It's not going to happen, but it's fun to think about.
+
+2040
+01:11:29,020 --> 01:11:31,100
+OK, but here's a really scary one.
+
+2041
+01:11:31,100 --> 01:11:34,220
+So in fact, I think the problem is even worse than this.
+
+2042
+01:11:34,220 --> 01:11:36,580
+Because there are situations where
+
+2043
+01:11:36,580 --> 01:11:39,060
+the model can look for something which is essentially
+
+2044
+01:11:39,060 --> 01:11:41,180
+guaranteed to exist in deployment
+
+2045
+01:11:41,180 --> 01:11:43,980
+and yet is impossible to produce in training.
+
+2046
+01:11:43,980 --> 01:11:44,620
+So why is that?
+
+2047
+01:11:44,620 --> 01:11:48,060
+Well, so this is a very large semi-prime number.
+
+2048
+01:11:48,060 --> 01:11:51,620
+It is composed of two large primes multiplied together.
+
+2049
+01:11:51,620 --> 01:11:54,380
+Factoring this number and producing the primes
+
+2050
+01:11:54,380 --> 01:11:56,700
+that were multiplied together to produce it
+
+2051
+01:11:56,700 --> 01:12:00,100
+is extremely difficult. It takes a bunch of computation
+
+2052
+01:12:00,100 --> 01:12:02,260
+that we do not have access to right now.
+
+2053
+01:12:02,260 --> 01:12:04,140
+And in fact, somebody actually did this.
+
+2054
+01:12:04,140 --> 01:12:05,740
+They actually took two primes, multiplied them together.
+
+2055
+01:12:05,740 --> 01:12:08,740
+Somebody has the primes, and then they publish this number.
+
+2056
+01:12:08,740 --> 01:12:10,420
+And they sort of want us to factor it.
+
+2057
+01:12:10,420 --> 01:12:12,540
+And there's a big challenge.
+
+2058
+01:12:12,540 --> 01:12:14,940
+You get some money if you factor this.
+
+2059
+01:12:14,940 --> 01:12:17,820
+OK, so at some point, computation's going to improve.
+
+2060
+01:12:17,820 --> 01:12:20,160
+Eventually, we're going to have the resources
+
+2061
+01:12:20,160 --> 01:12:20,900
+to factor this number.
+
+2062
+01:12:20,900 --> 01:12:22,020
+Somebody's going to do it.
+
+2063
+01:12:22,020 --> 01:12:25,380
+Somebody's going to publish the two primes in some paper
+
+2064
+01:12:25,380 --> 01:12:27,020
+where they managed to factor it.
+
+2065
+01:12:27,020 --> 01:12:30,500
+OK, so if I'm a particularly devious deceptive model,
+
+2066
+01:12:30,500 --> 01:12:32,900
+the thing that I do is, the way I know I'm in deployment,
+
+2067
+01:12:32,900 --> 01:12:35,300
+is I just look for a factorization of this number.
+
+2068
+01:12:35,300 --> 01:12:37,740
+If I ever see two things that, when multiplied together,
+
+2069
+01:12:37,740 --> 01:12:40,300
+produce this thing, then I know for a fact
+
+2070
+01:12:40,300 --> 01:12:41,700
+that I must be in deployment.
+
+2071
+01:12:41,700 --> 01:12:44,220
+Because there's no way that, in training,
+
+2072
+01:12:44,220 --> 01:12:45,700
+their computational resources were
+
+2073
+01:12:45,700 --> 01:12:47,740
+available to factor this thing.
+
+2074
+01:12:47,740 --> 01:12:49,820
+And yet, at some point, somebody in the real world
+
+2075
+01:12:49,820 --> 01:12:50,780
+is going to factor it.
+
+2076
+01:12:50,780 --> 01:12:54,380
+So I'm in a situation where it's impossible for me,
+
+2077
+01:12:54,380 --> 01:12:56,800
+in training, to generate an input on which
+
+2078
+01:12:56,800 --> 01:12:58,660
+the model defects against me.
+
+2079
+01:12:58,660 --> 01:13:01,820
+And yet, I know for a fact that, at some point in deployment,
+
+2080
+01:13:01,820 --> 01:13:02,940
+it will defect.
+
+2081
+01:13:02,940 --> 01:13:04,660
+Because somebody will publish this thing.
+
+2082
+01:13:04,660 --> 01:13:06,420
+And so I think that you shouldn't literally
+
+2083
+01:13:06,420 --> 01:13:08,120
+expect it's going to look for this thing.
+
+2084
+01:13:08,120 --> 01:13:11,020
+But the point is that this is an example of a larger
+
+2085
+01:13:11,020 --> 01:13:14,100
+class of P versus NP style problems, where it's just like,
+
+2086
+01:13:14,100 --> 01:13:18,460
+look, it is easier to detect a fact about the world
+
+2087
+01:13:18,460 --> 01:13:21,940
+than it is to actually instantiate a thing which
+
+2088
+01:13:21,940 --> 01:13:23,580
+satisfies that property.
+
+2089
+01:13:23,580 --> 01:13:25,580
+And so because of that fundamental asymmetry,
+
+2090
+01:13:25,580 --> 01:13:27,040
+there are always going to be things
+
+2091
+01:13:27,040 --> 01:13:30,140
+that the model can look for that you can't actually
+
+2092
+01:13:30,140 --> 01:13:35,420
+produce examples of via any sort of adversarial training.
+
+2093
+01:13:35,420 --> 01:13:37,020
+OK, that's the talk.
+
+2094
+01:13:37,020 --> 01:13:38,780
+You can find the paper.
+
+2095
+01:13:38,780 --> 01:13:41,220
+I also tease that I have more things to say as well
+
+2096
+01:13:41,220 --> 01:13:43,560
+that we can talk about more at some point later, maybe.
+
+2097
+01:13:43,560 --> 01:13:45,940
+But for now, we will leave it at this.
+
+2098
+01:13:45,940 --> 01:13:48,380
+I'm happy to take questions and everything afterwards.
+
+2099
+01:13:48,380 --> 01:13:50,100
+Thank you.
+

@@ -1,0 +1,888 @@
+1
+00:00:00,000 --> 00:00:07,440
+November 2014. I made a video about free software and did some video editing and then people have said since would you ever go back?
+
+2
+00:00:07,440 --> 00:00:09,440
+to editing with free software and
+
+3
+00:00:10,120 --> 00:00:11,400
+I
+
+4
+00:00:11,400 --> 00:00:17,440
+Tried and failed miserably, but then I found that Rob is doing editing on free software. So Rob, what have you got?
+
+5
+00:00:18,400 --> 00:00:23,320
+Well, so I before I started my channel, I'd never edited any video at all
+
+6
+00:00:24,320 --> 00:00:31,000
+So I just got started with Caden live Kate is it Kate Katie and live Caden live
+
+7
+00:00:31,000 --> 00:00:35,120
+I don't know how to pronounce I said Caine life because this is the piece of software I used actually
+
+8
+00:00:35,480 --> 00:00:38,160
+right, and that's kind of why I used it because I
+
+9
+00:00:38,720 --> 00:00:44,320
+Hadn't heard of I hadn't gotten into open source video editing before I heard it was fairly good
+
+10
+00:00:44,320 --> 00:00:46,440
+It was the one you'd used so, you know, I went for that
+
+11
+00:00:48,880 --> 00:00:51,400
+As it were so this is a video that I just
+
+12
+00:00:52,400 --> 00:00:57,560
+Uploaded just recently, which is fairly typical or no, I think it's quite standard
+
+13
+00:00:57,560 --> 00:01:01,600
+But on the other hand, I have no idea because I have never done video editing before well from my point of view
+
+14
+00:01:01,600 --> 00:01:06,480
+That looks like a very sensible looking timeline. It's like using different tracks for different things
+
+15
+00:01:06,480 --> 00:01:11,040
+Can you show us a bit of what sort of thing you've been doing with it? Like here for example, I'm
+
+16
+00:01:12,240 --> 00:01:13,880
+compositing in
+
+17
+00:01:13,880 --> 00:01:17,600
+Some thumbnails of the other of the computer file videos because it's relevant to those
+
+18
+00:01:18,160 --> 00:01:20,320
+back in the day, these would have been
+
+19
+00:01:21,120 --> 00:01:26,000
+Annotations, you know, they would be clickable YouTube doesn't do that anymore sad times talk us through the hardware
+
+20
+00:01:26,000 --> 00:01:29,040
+Then what what have you what have you had to use to hardware is?
+
+21
+00:01:30,760 --> 00:01:32,240
+This
+
+22
+00:01:32,240 --> 00:01:34,440
+Did you make this specially I did? Yeah
+
+23
+00:01:35,360 --> 00:01:37,360
+Just because I didn't have a desktop at all
+
+24
+00:01:37,360 --> 00:01:43,720
+I tried using my laptop this one, which is just really really not up to it on account of being
+
+25
+00:01:45,760 --> 00:01:48,920
+Extremely light and thin and just not made for any kind of heavy lifting
+
+26
+00:01:49,760 --> 00:01:53,200
+So I put together this machine and it's pretty
+
+27
+00:01:55,480 --> 00:02:00,000
+It's pretty standard here's me looking at the components that I'm putting in it
+
+28
+00:02:00,920 --> 00:02:06,920
+Okay, so it's very off-the-shelf stuff, right? Yeah, pretty standard. The only thing I wanted was a lot of RAM
+
+29
+00:02:06,920 --> 00:02:11,720
+It's got 16 gig of RAM so that I'm not going to run out doing basic video editing and a solid-state drive
+
+30
+00:02:11,720 --> 00:02:14,720
+I have a 240 gig solid-state drive to do
+
+31
+00:02:15,440 --> 00:02:18,040
+That holds my files temporarily while I'm working on them
+
+32
+00:02:18,600 --> 00:02:24,240
+For performance and then a terabyte of hard disk to keep sorry two terabytes apparently
+
+33
+00:02:24,880 --> 00:02:29,960
+Says here two terabytes. I'm looking at the video again. One thing that I run up against is my lack of
+
+34
+00:02:30,600 --> 00:02:33,720
+experience with GNU Linux distros and
+
+35
+00:02:34,480 --> 00:02:37,760
+The irony is that that was kind of what I was testing out throughout all of this
+
+36
+00:02:37,920 --> 00:02:42,840
+Sure, so talk us through what you've got going there because you know a lot more about these sorts of things than I do
+
+37
+00:02:42,880 --> 00:02:44,880
+Yeah, so I use
+
+38
+00:02:45,800 --> 00:02:49,920
+I've been through a lot of different distributions. I started off with Ubuntu
+
+39
+00:02:50,840 --> 00:02:54,120
+because everybody starts off with Ubuntu and then
+
+40
+00:02:55,760 --> 00:03:01,960
+What else did I try I went to crunch bang because I thought Ubuntu Ubuntu got really I think it got really heavy
+
+41
+00:03:02,440 --> 00:03:03,760
+Past a certain point
+
+42
+00:03:03,760 --> 00:03:09,560
+It was including too much stuff and being too graphical and in your face and I use Linux mint for a while because that was
+
+43
+00:03:09,560 --> 00:03:11,440
+very nice
+
+44
+00:03:11,440 --> 00:03:15,480
+What I'm using here is Manjaro, which is based on arch
+
+45
+00:03:17,000 --> 00:03:20,320
+But arch is a real arch is like
+
+46
+00:03:23,720 --> 00:03:28,800
+Look I know people get almost religious about these things. Yeah, not there's no almost about it
+
+47
+00:03:29,360 --> 00:03:34,680
+People people get literally unambiguously religious about these things, but you're a real console jockey
+
+48
+00:03:34,680 --> 00:03:40,320
+Could anybody use this kind of distro or is this kind of a I mean, I don't use that term in a derogative way
+
+49
+00:03:40,320 --> 00:03:46,080
+But I know, you know what you're doing with the console and yet me I need GUIs, right? Right, right
+
+50
+00:03:46,080 --> 00:03:50,280
+Yeah, the console is my preferred way of interacting with my computer most of the time
+
+51
+00:03:51,640 --> 00:03:53,640
+but
+
+52
+00:03:54,280 --> 00:03:57,280
+Right, right, so I'm running Manjaro right which is arch based
+
+53
+00:03:58,240 --> 00:04:04,400
+But arch you kind of have to build from the ground up the idea of arches by the time you have a running arch
+
+54
+00:04:04,720 --> 00:04:07,200
+Linux installation you really
+
+55
+00:04:08,160 --> 00:04:14,720
+Understand Linux because you have to you know, you've sort of it's not like you hit install and then you go off and have a
+
+56
+00:04:14,720 --> 00:04:15,960
+Cup of tea and come back and you're done
+
+57
+00:04:15,960 --> 00:04:20,240
+You have to actually make all of the decisions and run the commands to set up the system
+
+58
+00:04:20,240 --> 00:04:24,760
+So is this like you are compiling your own kernels and stuff? Not quite
+
+59
+00:04:25,200 --> 00:04:28,680
+But there's that kind of thing. Yeah, you're putting a lot of time into it
+
+60
+00:04:28,720 --> 00:04:33,680
+So you have complete control you have complete customization. Everything is exactly how you want it
+
+61
+00:04:33,680 --> 00:04:36,440
+but you've got to know what you're doing whereas Manjaro is
+
+62
+00:04:37,280 --> 00:04:39,280
+arch based but
+
+63
+00:04:39,920 --> 00:04:46,840
+Has some sensible defaults. So somebody's done some of that work for you. Yeah, so you can still use the arch repositories and things in the arch
+
+64
+00:04:47,840 --> 00:04:54,680
+Wiki, which is amazing. Like the arch wiki is so good for all kinds of information about all kinds of software and Linux things
+
+65
+00:04:55,680 --> 00:04:58,600
+But you don't have to sit there and go through this long
+
+66
+00:04:59,120 --> 00:05:03,800
+Installation process and all of these decisions that you're not really sure what you want, you know
+
+67
+00:05:04,560 --> 00:05:06,560
+so that's
+
+68
+00:05:06,640 --> 00:05:11,240
+So that's Manjaro I kind of I do like it the update thing. It's very
+
+69
+00:05:12,720 --> 00:05:18,200
+It's a rolling release thing so you're continuously getting updates
+
+70
+00:05:19,320 --> 00:05:26,380
+It's not like you then install the next version. It's like every day. There's a couple of updates in your system continually updates
+
+71
+00:05:27,440 --> 00:05:30,720
+But that does mean sometimes stuff can just break
+
+72
+00:05:31,320 --> 00:05:35,800
+because some update has broken compatibility with something with something else and you have to sit there and
+
+73
+00:05:36,320 --> 00:05:38,160
+Figure it out when you wanted to be doing work
+
+74
+00:05:38,160 --> 00:05:42,240
+That was something that got me a little bit was that I had a workflow already in place
+
+75
+00:05:42,240 --> 00:05:44,240
+So you've kind of set to work for like a flow up from scratch
+
+76
+00:05:44,720 --> 00:05:50,000
+How's that workflow broken sometimes because of this have you have you been kind of back to square one sometimes?
+
+77
+00:05:50,000 --> 00:05:52,000
+um, I had a problem with
+
+78
+00:05:52,960 --> 00:05:58,080
+The laptop actually where an update broke my USB microphone
+
+79
+00:05:58,640 --> 00:06:00,640
+it broke I
+
+80
+00:06:00,760 --> 00:06:02,760
+Ended up in a weird situation where?
+
+81
+00:06:03,240 --> 00:06:05,080
+the USB
+
+82
+00:06:05,120 --> 00:06:10,680
+Audio kernel module was not present anymore because it had upgraded past itself or something
+
+83
+00:06:11,320 --> 00:06:12,640
+and
+
+84
+00:06:12,640 --> 00:06:17,480
+I wasn't sure it turns out it was fine, but it made me very nervous because
+
+85
+00:06:21,240 --> 00:06:25,120
+Because the the modules I had were for a different version of the kernel
+
+86
+00:06:25,280 --> 00:06:28,920
+so I guess the kernel had updated and that removed the old modules and
+
+87
+00:06:29,760 --> 00:06:31,720
+replaced them with the new ones
+
+88
+00:06:31,760 --> 00:06:34,400
+But I hadn't been paying attention when I was running the updates
+
+89
+00:06:34,400 --> 00:06:40,040
+So I didn't know if my system was actually okay, or if there was some serious problem
+
+90
+00:06:40,040 --> 00:06:43,680
+It turns out I rebooted everything was fine. It booted up with the new kernel version
+
+91
+00:06:43,680 --> 00:06:50,840
+It found the new kind of modules everything worked perfectly well, but because I wasn't sure if I'd completely destroyed my system accidentally with an update. I
+
+92
+00:06:52,320 --> 00:06:55,600
+Couldn't trust that if I rebooted it it would actually come up
+
+93
+00:06:56,920 --> 00:06:58,640
+so I
+
+94
+00:06:58,640 --> 00:07:02,600
+Made a full backup while it was running and stuff like that. Just didn't you know to be on the safe side?
+
+95
+00:07:03,600 --> 00:07:09,520
+But that did cost me some time obviously and anyone sensible would have had a continuous update
+
+96
+00:07:10,040 --> 00:07:15,200
+Process and it would have not cared at all if at any moment their machine exploded
+
+97
+00:07:16,000 --> 00:07:18,000
+and you know always
+
+98
+00:07:18,880 --> 00:07:20,880
+Drink enough water and get your five
+
+99
+00:07:21,280 --> 00:07:24,680
+Vegetables a day and wake up at 6 a.m. For a run, but not everybody's like that
+
+100
+00:07:24,880 --> 00:07:30,560
+I'm most comfortable doing most of my work in a terminal or a text editor
+
+101
+00:07:33,200 --> 00:07:36,280
+Obviously if you're doing graphics or video you need a
+
+102
+00:07:37,080 --> 00:07:44,080
+User interface a graphical user interface, but most of the time I find a terminal is more. It's more efficient. It's got a
+
+103
+00:07:44,680 --> 00:07:46,680
+It's got a learning curve obviously
+
+104
+00:07:47,200 --> 00:07:49,060
+But when you're good with it
+
+105
+00:07:49,060 --> 00:07:54,520
+I think you can be better and faster than doing it through a GUI most of the time and I think people who are really
+
+106
+00:07:54,560 --> 00:07:57,520
+Good with GUIs don't actually use the mouse very much, right?
+
+107
+00:07:57,520 --> 00:08:01,560
+They learn the keyboard shortcuts. And so if you're learning how to do everything in a keyboard
+
+108
+00:08:01,560 --> 00:08:04,920
+Anyway, you don't really need all the little buttons. It's kind of a
+
+109
+00:08:05,800 --> 00:08:07,480
+it's like a
+
+110
+00:08:07,480 --> 00:08:14,560
+Is it Wittgenstein's ladder some philosophers ladder you you climb up the ladder and then you throw it away when you're done with it, right?
+
+111
+00:08:14,560 --> 00:08:16,800
+Great, but if you can climb you don't need the ladder
+
+112
+00:08:19,200 --> 00:08:21,200
+So
+
+113
+00:08:21,520 --> 00:08:23,920
+But yes Manjaro is usually
+
+114
+00:08:24,840 --> 00:08:31,480
+Easier to use than this because I run a tiling window manager called awesome window manager
+
+115
+00:08:31,920 --> 00:08:37,080
+Which I like because it makes efficient use of the screen space. So here you see I've got my text editor here
+
+116
+00:08:37,080 --> 00:08:41,720
+Which is sublime. I have two terminals and if I want another terminal I
+
+117
+00:08:43,360 --> 00:08:45,360
+Open it and it opens right here
+
+118
+00:08:46,040 --> 00:08:47,480
+so
+
+119
+00:08:47,480 --> 00:08:54,660
+The number of pixels on this screen that aren't one of the programs I'm using is is almost none, right?
+
+120
+00:08:55,520 --> 00:08:57,520
+whereas if I put it into
+
+121
+00:08:59,000 --> 00:09:01,160
+Here now it's in a more sort of normal
+
+122
+00:09:01,720 --> 00:09:07,560
+Mode where I can move the the windows all like this and I can be like, oh now I'm in this this program
+
+123
+00:09:07,560 --> 00:09:10,640
+Now in that program like this is closer to the way that people usually use
+
+124
+00:09:11,280 --> 00:09:17,760
+Windering system, right, but a lot of the time I've got windows that are over the top of one another they're obscuring one another
+
+125
+00:09:17,760 --> 00:09:20,920
+I've got bits of my screen where I'm not but there's nothing
+
+126
+00:09:21,560 --> 00:09:23,560
+So that's how I do
+
+127
+00:09:23,800 --> 00:09:27,760
+most of my stuff and you can obviously you can adjust these like you can
+
+128
+00:09:28,360 --> 00:09:33,760
+Move them in and out and change their size relative to each other for whatever you need. Yeah, that's the window manager
+
+129
+00:09:33,760 --> 00:09:36,520
+It's called awesome and I like it a lot
+
+130
+00:09:36,920 --> 00:09:44,680
+But the point is if I were using Ubuntu with awesome window manager what you would see on the screen would be basically identical
+
+131
+00:09:45,520 --> 00:09:50,560
+Because the window manager is determining pretty much everything on the screen. So
+
+132
+00:09:51,160 --> 00:09:53,880
+The fact that I'm using my jar underneath isn't that relevant?
+
+133
+00:09:54,680 --> 00:09:56,400
+from
+
+134
+00:09:56,400 --> 00:09:57,920
+an aesthetic
+
+135
+00:09:57,920 --> 00:10:00,680
+Perspective I'm showing my complete ignorance here
+
+136
+00:10:01,360 --> 00:10:07,760
+What exactly would be different under the hood then for a completely different district, um, it's the way
+
+137
+00:10:08,320 --> 00:10:11,120
+it's the choices of software that do the
+
+138
+00:10:11,800 --> 00:10:15,400
+The system level stuff like it with something like with something like Windows
+
+139
+00:10:17,800 --> 00:10:21,280
+Everything pretty much everything it comes from Microsoft
+
+140
+00:10:22,240 --> 00:10:24,240
+Until you get up to user space
+
+141
+00:10:24,800 --> 00:10:29,200
+like you get to choose, you know, which web browser you use but
+
+142
+00:10:29,800 --> 00:10:31,800
+It comes with the
+
+143
+00:10:32,080 --> 00:10:36,720
+One file Explorer and one like I don't know file system
+
+144
+00:10:37,360 --> 00:10:40,740
+Network manager like all of the bits that build the operating system
+
+145
+00:10:41,860 --> 00:10:44,360
+They come with it and they are not really
+
+146
+00:10:44,920 --> 00:10:46,640
+removable or interchangeable
+
+147
+00:10:46,640 --> 00:10:47,520
+whereas
+
+148
+00:10:47,520 --> 00:10:53,440
+Linux you have the kernel which actually doesn't do that much and then everything else that makes up the operating system is
+
+149
+00:10:53,520 --> 00:10:56,520
+Other pieces of software the other projects made by other people
+
+150
+00:10:56,960 --> 00:11:01,200
+And you can what a distribution does is it picks a load of those?
+
+151
+00:11:01,760 --> 00:11:05,080
+That work well together and puts them all together into a distro
+
+152
+00:11:06,080 --> 00:11:11,960
+With you know sensible configuration so that they all know about one another and you know, ideally and they all work together. Well
+
+153
+00:11:12,680 --> 00:11:19,600
+But any part of that system could in principle be pulled out and replaced by a different program that does the same job
+
+154
+00:11:19,800 --> 00:11:22,760
+It's just like that the standard thing where you can choose
+
+155
+00:11:23,600 --> 00:11:29,000
+You can choose how you're going to you know, what your web browser is. You can choose whether you're going to use, you know
+
+156
+00:11:30,400 --> 00:11:34,400
+Libre office or Microsoft Word. It's that but all the way down
+
+157
+00:11:35,080 --> 00:11:38,640
+Almost all the way down. I had a phase as a teenager
+
+158
+00:11:38,640 --> 00:11:41,600
+I think a lot of people did where I was really
+
+159
+00:11:42,320 --> 00:11:47,520
+Into it and I learned everything about how to put my system together and all the different little bits and now all of that
+
+160
+00:11:47,520 --> 00:11:52,120
+knowledge is out of date and useless because I didn't keep up with it because once I found an
+
+161
+00:11:52,720 --> 00:11:56,360
+Operating system set up that works for me. Hey, I realized I don't care
+
+162
+00:11:57,040 --> 00:12:04,320
+It's interesting but there comes a point where you're using your system to work and you want to use whatever works, right? The thing is
+
+163
+00:12:05,040 --> 00:12:09,360
+This just worked. I need to emphasize that because I
+
+164
+00:12:10,480 --> 00:12:15,560
+Built this I built this PC. I put it together it booted the first time we expected it to you know
+
+165
+00:12:15,560 --> 00:12:20,200
+and then I installed Manjaro on it uneventful process I
+
+166
+00:12:20,880 --> 00:12:24,240
+Used, you know, I literally just went pac-man
+
+167
+00:12:24,960 --> 00:12:30,640
+Minus s Caden live enter. That's the one thing that changes the package manager like different
+
+168
+00:12:31,440 --> 00:12:38,120
+Distributions obviously use different repositories and different package managers. So you get your software from different places. They all do roughly the same thing though
+
+169
+00:12:38,880 --> 00:12:40,880
+anyway, I just installed Caden live and
+
+170
+00:12:41,200 --> 00:12:47,000
+It worked off the bat like I I import my videos. I import my audio. I sync them up
+
+171
+00:12:47,000 --> 00:12:51,880
+I edit them. I hit export and I use here it is. I don't export I hit render I
+
+172
+00:12:52,640 --> 00:12:56,800
+Go to this one. I just web them because that's
+
+173
+00:12:58,360 --> 00:13:00,360
+Normal and
+
+174
+00:13:00,880 --> 00:13:04,440
+it has all these extra options about you know, how you're gonna do the
+
+175
+00:13:06,160 --> 00:13:09,440
+You know what the exact command is and all of this stuff I
+
+176
+00:13:09,880 --> 00:13:14,200
+Ignored all of that. I hit render to file it renders. It's perfect. You upload it to YouTube
+
+177
+00:13:14,200 --> 00:13:16,280
+it knows what to do like I didn't have to
+
+178
+00:13:18,000 --> 00:13:23,560
+It worked out of the box, it's what I'm saying it was and so it's weird because
+
+179
+00:13:24,960 --> 00:13:27,280
+Our experiences was so different
+
+180
+00:13:28,920 --> 00:13:34,760
+And I don't know what to make of it because it's not as though I did anything brilliant, you know what I mean?
+
+181
+00:13:34,760 --> 00:13:41,040
+It's not like I did some clever thing that made it all work or I hit a bunch of difficulties that I then knew exactly
+
+182
+00:13:41,040 --> 00:13:44,160
+What to do because I'm so whatever I just it just worked for me
+
+183
+00:13:44,320 --> 00:13:48,520
+But I would also argue that people have been working on all of these bits of software and
+
+184
+00:13:49,440 --> 00:13:54,140
+Also that you know what you're doing with repositories and updating different
+
+185
+00:13:55,080 --> 00:13:58,680
+Modules and you've used a completely different operating system. Sure
+
+186
+00:13:58,680 --> 00:14:04,720
+I like it. So yeah, like I know those things like I have that knowledge some of it, but I didn't have to use it
+
+187
+00:14:04,720 --> 00:14:10,880
+I suppose what I mean by that isn't necessarily that you've been tweaking because of course you've just told us you haven't but my
+
+188
+00:14:10,960 --> 00:14:18,920
+My experience was that the distro that I used with the particular version of kdenlive on the particular hardware that I had
+
+189
+00:14:18,960 --> 00:14:25,240
+Did work out of the box but not in all the areas. I needed it to that's interesting and rendering out was one of the areas
+
+190
+00:14:25,240 --> 00:14:26,800
+I needed it to work
+
+191
+00:14:26,800 --> 00:14:32,440
+so so one of the things one of the one of the decisions you make when you're choosing a distro is
+
+192
+00:14:33,080 --> 00:14:35,080
+there's always a trade-off between
+
+193
+00:14:36,280 --> 00:14:39,120
+Being up-to-date and being stable, right?
+
+194
+00:14:40,120 --> 00:14:42,120
+And
+
+195
+00:14:42,240 --> 00:14:45,600
+Arch and arch based distributions generally are
+
+196
+00:14:46,440 --> 00:14:51,640
+They call them bleeding-edge, right because generally speaking you get the latest version of the software
+
+197
+00:14:51,640 --> 00:14:55,160
+So having the latest version you're probably going to have the most stable
+
+198
+00:14:55,360 --> 00:14:57,800
+You're gonna have the most bug fixes in place
+
+199
+00:14:57,800 --> 00:15:03,440
+But also the most new features that people are trying out and a lot of software projects do use a system where?
+
+200
+00:15:04,000 --> 00:15:06,000
+They have major releases
+
+201
+00:15:06,000 --> 00:15:10,640
+Well, I used a long-term support release of Ubuntu. Exactly. Exactly
+
+202
+00:15:10,760 --> 00:15:17,360
+However, it was 1204 which people were telling me was out of date at the time. It wasn't the latest major release
+
+203
+00:15:17,360 --> 00:15:23,800
+Well, it was I think they I think the latest long-term release at the time was 14. Oh something
+
+204
+00:15:24,000 --> 00:15:26,520
+Okay, and I couldn't get that to work at all
+
+205
+00:15:27,680 --> 00:15:29,960
+So the long-term release didn't work now
+
+206
+00:15:30,520 --> 00:15:33,280
+I'm not going to open up the hornet's nest
+
+207
+00:15:33,280 --> 00:15:39,560
+But I will just say that I believe it to be something to do with graphics card drivers and I shall walk away at that
+
+208
+00:15:39,560 --> 00:15:41,560
+Point. Yeah
+
+209
+00:15:41,960 --> 00:15:43,960
+No, I mean
+
+210
+00:15:44,120 --> 00:15:47,240
+This is the kind of thing I do. I do feel really bad for
+
+211
+00:15:47,960 --> 00:15:54,360
+People who have to deal with that like the people who work in who work on open-source software
+
+212
+00:15:54,840 --> 00:15:57,640
+Having to deal with the fact that people are gonna install
+
+213
+00:15:58,480 --> 00:16:00,680
+Graphics cards which are
+
+214
+00:16:01,560 --> 00:16:04,360
+undocumented right like the manufacturers
+
+215
+00:16:05,000 --> 00:16:07,720
+Keep as a closely guarded secret exactly how it works
+
+216
+00:16:07,720 --> 00:16:12,840
+And if they don't provide a driver or if they do that driver is just a binary blob that you can't
+
+217
+00:16:13,720 --> 00:16:15,360
+You know, you can't look inside
+
+218
+00:16:15,360 --> 00:16:22,120
+It doesn't tell you any useful information and they have to make something that works flawlessly with this tremend like GPUs are fantastically complicated
+
+219
+00:16:23,160 --> 00:16:26,820
+Will be like or how it would be implemented or whatever. The idea of this paper is that it
+
+220
+00:16:27,840 --> 00:16:30,720
+It lays out some problems that we can tackle now
+
+221
+00:16:31,320 --> 00:16:33,320
+which will be helpful now and
+
+222
+00:16:34,120 --> 00:16:39,440
+That I think will be helpful later on as well with more advanced AI systems and making them safe as well
+

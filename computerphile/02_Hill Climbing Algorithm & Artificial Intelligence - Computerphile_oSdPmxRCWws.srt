@@ -1,0 +1,436 @@
+1
+00:00:00,000 --> 00:00:04,600
+Generally, when you think about the term intelligence, you're talking about what's the difference
+
+2
+00:00:04,600 --> 00:00:10,800
+between Einstein and a normal person, or between a normal person and a stupid person, but actually,
+
+3
+00:00:10,800 --> 00:00:15,480
+it's like what's the difference between a normal person and a mouse, and what's the
+
+4
+00:00:15,480 --> 00:00:18,560
+difference between a mouse and a rock?
+
+5
+00:00:18,560 --> 00:00:23,140
+That's the difference between just levels of intelligence within humans, which actually
+
+6
+00:00:23,140 --> 00:00:27,120
+doesn't vary that much in the grand scheme of things, versus just what intelligence is
+
+7
+00:00:27,120 --> 00:00:30,340
+in general.
+
+8
+00:00:30,340 --> 00:00:35,420
+One way of thinking about what intelligence is, is as an optimization process.
+
+9
+00:00:35,420 --> 00:00:44,060
+The most basic of all optimization processes is evolution, which is looking for good replicators
+
+10
+00:00:44,060 --> 00:00:52,060
+in the search space of animals, or creatures, organisms, organisms is the word.
+
+11
+00:00:52,060 --> 00:00:59,960
+It does this by picking a point in the search space, a specific animal, and then there are
+
+12
+00:00:59,960 --> 00:01:02,540
+slight mutations when the thing reproduces.
+
+13
+00:01:02,540 --> 00:01:05,040
+It's moved slightly in the search space.
+
+14
+00:01:05,040 --> 00:01:09,200
+Every time it reproduces, there's a slight shift because the children are not exactly
+
+15
+00:01:09,200 --> 00:01:12,120
+the same as the parents.
+
+16
+00:01:12,120 --> 00:01:18,980
+The way that it evaluates the fitness function over the whole search space is how many surviving
+
+17
+00:01:19,040 --> 00:01:22,240
+children that animal goes on to have.
+
+18
+00:01:22,240 --> 00:01:25,920
+That's what it's optimizing for.
+
+19
+00:01:25,920 --> 00:01:31,360
+It's very slow because its movements through the search space are random, and then it just
+
+20
+00:01:31,360 --> 00:01:37,400
+is slightly more likely to keep movements that are upward.
+
+21
+00:01:37,400 --> 00:01:41,240
+One way of imagining it, if you've got a two-dimensional search space, suppose we have an animal that
+
+22
+00:01:41,240 --> 00:01:45,160
+can actually only vary in two ways, an extremely simple type of animal.
+
+23
+00:01:45,160 --> 00:01:52,380
+At every point in this search space, there will be a fitness level, which is this abstract
+
+24
+00:01:52,380 --> 00:01:56,420
+concept of how good that organism is at reproducing.
+
+25
+00:01:56,420 --> 00:02:03,260
+On average, an organism that has these attributes is going to have how many surviving children?
+
+26
+00:02:03,260 --> 00:02:05,340
+Now we've got something three-dimensional.
+
+27
+00:02:05,340 --> 00:02:09,100
+You can think of it as a three-dimensional surface.
+
+28
+00:02:09,100 --> 00:02:14,800
+It's like some kind of mountain where there's various hills and bumps.
+
+29
+00:02:14,800 --> 00:02:21,720
+This comes down to here, which is this, and that, and that's the top of that mountain.
+
+30
+00:02:21,720 --> 00:02:24,720
+It's what's called a hill-climbing algorithm, and this is why I'm laying it out in this
+
+31
+00:02:24,720 --> 00:02:26,800
+particular way, because it climbs a hill.
+
+32
+00:02:26,800 --> 00:02:31,440
+It's like a blind person, and they try just stepping in one direction at random and saying,
+
+33
+00:02:31,440 --> 00:02:33,400
+right, am I higher than I was?
+
+34
+00:02:33,400 --> 00:02:36,200
+If they're higher than they were, then they stay there, and if not, they step back and
+
+35
+00:02:36,200 --> 00:02:38,440
+then just try stepping randomly again.
+
+36
+00:02:38,460 --> 00:02:40,860
+Very gradually, they will climb up the mountain.
+
+37
+00:02:40,860 --> 00:02:44,820
+There is one problem with that, which I can show on the paper here, which is that if you
+
+38
+00:02:44,820 --> 00:02:52,340
+are a basic hill-climbing algorithm like evolution, you can climb yourself up, you know, wandering
+
+39
+00:02:52,340 --> 00:02:53,340
+around randomly.
+
+40
+00:02:53,340 --> 00:02:57,540
+You eventually get up to here, and once you get here, you're actually stuck because it
+
+41
+00:02:57,540 --> 00:02:59,580
+goes down before it goes up.
+
+42
+00:02:59,580 --> 00:03:02,120
+Even if there's a huge mountain over there, you can't see the huge mountain.
+
+43
+00:03:02,120 --> 00:03:03,820
+You only see immediately what's underneath you.
+
+44
+00:03:03,820 --> 00:03:08,440
+If you have to get less fit before you get more fit, evolution doesn't plan, right?
+
+45
+00:03:08,440 --> 00:03:12,600
+So it can't see that there's this huge hill off in the distance, so it gets stuck in what's
+
+46
+00:03:12,600 --> 00:03:17,040
+called a local maximum or a local minimum, which is a sort of a trap, and this happens
+
+47
+00:03:17,040 --> 00:03:18,560
+to evolution fairly often.
+
+48
+00:03:18,560 --> 00:03:21,920
+So that's an optimization process.
+
+49
+00:03:21,920 --> 00:03:29,800
+Optimization processes are about finding high points on the fitness landscape, and if this
+
+50
+00:03:29,800 --> 00:03:34,880
+were more than two dimensions, if this were, you know, 100,000 dimensions, the more dimensions
+
+51
+00:03:34,880 --> 00:03:37,180
+you have, the harder it is, right?
+
+52
+00:03:37,180 --> 00:03:42,380
+Because you've got more things to change, and the whole thing just becomes much more
+
+53
+00:03:42,380 --> 00:03:47,980
+complex, and optimizing it with more dimensions is harder, and this is a big problem in machine
+
+54
+00:03:47,980 --> 00:03:52,340
+learning in general, that you end up with way too many dimensions, and you need to figure
+
+55
+00:03:52,340 --> 00:03:56,860
+out ways of just picking the dimensions that matter the most or distilling them down.
+
+56
+00:03:56,920 --> 00:03:59,920
+So that's what probability reduction is called, it's a whole thing in itself.
+
+57
+00:03:59,920 --> 00:04:06,040
+So are we saying the mountains are just how successful each point on that graph is?
+
+58
+00:04:06,040 --> 00:04:07,040
+Yes, exactly.
+
+59
+00:04:07,040 --> 00:04:13,960
+So it is a third dimension, but it's not a dimension of the configuration space, because
+
+60
+00:04:13,960 --> 00:04:18,480
+each dimension is something that you can change in terms of the design of the organism or
+
+61
+00:04:18,480 --> 00:04:19,480
+whatever.
+
+62
+00:04:19,480 --> 00:04:23,440
+Evolution doesn't have a direct, there's no single how many children do you have gene,
+
+63
+00:04:23,440 --> 00:04:24,440
+right?
+
+64
+00:04:24,440 --> 00:04:28,900
+It's an emergent property of everything else, the environment, the way that the animal ends
+
+65
+00:04:28,900 --> 00:04:30,540
+up formed from all these different genes.
+
+66
+00:04:30,540 --> 00:04:33,160
+The mountain range is just a way of visualizing it.
+
+67
+00:04:33,160 --> 00:04:36,720
+You could also look at it like a heat map, just draw it on two dimensions and shade it
+
+68
+00:04:36,720 --> 00:04:40,220
+so that there's like a red area around it, there's an orange area and a yellow area and
+
+69
+00:04:40,220 --> 00:04:45,780
+so on, and you're trying to sort of head towards the brightest area, something like that.
+
+70
+00:04:45,780 --> 00:04:48,940
+Just different ways of representing the same idea.
+
+71
+00:04:48,940 --> 00:04:57,200
+One way of characterizing what an intelligent system is, is that it's good at optimizing.
+
+72
+00:04:57,200 --> 00:05:02,880
+So evolution is not particularly good at optimizing for good replicators, but you give it long
+
+73
+00:05:02,880 --> 00:05:07,240
+enough and it does a pretty good job.
+
+74
+00:05:07,240 --> 00:05:11,920
+So evolution is optimizing for replication, but you can draw this type of mountain range
+
+75
+00:05:11,920 --> 00:05:16,360
+or this heat map or whatever for anything that's interesting, and an optimization algorithm
+
+76
+00:05:16,360 --> 00:05:20,020
+is trying to find the high points in that space.
+
+77
+00:05:20,020 --> 00:05:23,460
+Even if you're still only looking at your local area, you can say, well, I took a step
+
+78
+00:05:23,460 --> 00:05:28,620
+in this direction and I went up, so next time, rather than stepping completely randomly,
+
+79
+00:05:28,620 --> 00:05:31,020
+I'm going to step in the same direction again.
+
+80
+00:05:31,020 --> 00:05:35,060
+Maybe even I'm going to step a little bit further this time, because I'm assuming that
+
+81
+00:05:35,060 --> 00:05:38,780
+this is a good direction to head in, and if I start heading down again, then I'll start
+
+82
+00:05:38,780 --> 00:05:40,540
+looking randomly again, something like that.
+
+83
+00:05:40,540 --> 00:05:46,600
+There's always a certain cost of doing an experiment, as it were.
+
+84
+00:05:46,600 --> 00:05:49,880
+Evolution does all of its experiments in the real world, right?
+
+85
+00:05:49,880 --> 00:05:51,200
+It can't think.
+
+86
+00:05:51,200 --> 00:05:55,640
+Whereas if I'm designing a car or something, I can say, right, what would happen if I made
+
+87
+00:05:55,640 --> 00:05:56,960
+it six inches longer?
+
+88
+00:05:56,960 --> 00:06:00,360
+I can say, well, there'd be a bit more room for this, but there'd be less room for that.
+
+89
+00:06:00,360 --> 00:06:01,600
+I'm thinking about it in my head.
+
+90
+00:06:01,600 --> 00:06:03,160
+I don't need to build the car.
+
+91
+00:06:03,160 --> 00:06:07,000
+And a bunch of choices that evolution would make in its random meanderings don't even
+
+92
+00:06:07,000 --> 00:06:08,000
+occur to a human.
+
+93
+00:06:08,060 --> 00:06:11,780
+You know, oh, what would happen if we just broke off one of the wing mirrors?
+
+94
+00:06:11,780 --> 00:06:16,020
+Well, you know, that immediately seems stupid, and that's the kind of thing that evolution
+
+95
+00:06:16,020 --> 00:06:19,140
+might try a few million times before it tries something else.
+
+96
+00:06:19,140 --> 00:06:21,020
+And that's one of the key differences.
+
+97
+00:06:21,020 --> 00:06:29,140
+A more powerful intelligence is able to hit a smaller target in a larger search space
+
+98
+00:06:29,140 --> 00:06:34,020
+in less time, which is why a car designer is so much more intelligent than evolution,
+
+99
+00:06:34,040 --> 00:06:40,080
+because a car designer can make a change, can make an improvement in an afternoon, which
+
+100
+00:06:40,080 --> 00:06:42,480
+evolution couldn't make in 100,000 years.
+
+101
+00:06:45,800 --> 00:06:48,960
+We'd like to thank Audible.com for sponsoring this Computerphile video.
+
+102
+00:06:48,960 --> 00:06:52,640
+They've got masses of books online to choose from, so if you want the chance to try one
+
+103
+00:06:52,640 --> 00:06:56,480
+out for free, go to Audible.com slash Computerphile.
+
+104
+00:06:56,480 --> 00:07:02,160
+Now today I'd like to recommend a book called What If, which is by the creator of XKCD Comics,
+
+105
+00:07:02,160 --> 00:07:03,160
+Randall Munroe.
+
+106
+00:07:03,300 --> 00:07:08,580
+It's also narrated by Will Wheaton, I'm sure you all know XKCD, it asks some of the questions
+
+107
+00:07:08,580 --> 00:07:11,900
+that have been posed to the XKCD cartoonists over the years.
+
+108
+00:07:11,900 --> 00:07:17,700
+So get over there, Audible.com slash Computerphile, try out What If, and thanks again to them
+
+109
+00:07:17,700 --> 00:07:18,740
+for sponsoring this film.
+

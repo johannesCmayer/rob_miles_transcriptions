@@ -1,0 +1,396 @@
+1
+00:00:00,000 --> 00:00:06,640
+So, before we were talking about AI risk and AI safety and just trying to lay out in a
+
+2
+00:00:06,640 --> 00:00:13,320
+very generalized sort of way how general artificial intelligence can be dangerous and some of
+
+3
+00:00:13,320 --> 00:00:20,960
+the type of problems it could cause and just introducing the idea of AI safety or AI alignment
+
+4
+00:00:20,960 --> 00:00:25,040
+theory as an area of research in computer science.
+
+5
+00:00:25,240 --> 00:00:30,920
+And we also talked about super intelligence and the kind of problems that, the unique
+
+6
+00:00:30,920 --> 00:00:37,840
+problems that can pose. And I thought what would be good is to bring it down to a more
+
+7
+00:00:37,840 --> 00:00:45,920
+concrete example of current AI safety research that's going on now and kind of give a feel
+
+8
+00:00:45,920 --> 00:00:52,240
+for where we are, where humanity is on figuring these problems out.
+
+9
+00:00:55,360 --> 00:01:02,840
+Supposing that we do develop a general intelligence, you know, an algorithm that actually implements
+
+10
+00:01:02,840 --> 00:01:12,320
+general intelligence, how do we safely work on that thing and improve it? Because the
+
+11
+00:01:12,320 --> 00:01:19,400
+situation with this stamp collector is, it's, from its first instant, it's a super intelligence.
+
+12
+00:01:19,400 --> 00:01:23,800
+So we create it with a certain goal and as I said, as soon as we switch it on, it's extremely
+
+13
+00:01:23,800 --> 00:01:27,840
+dangerous, which people pointed out and it's true, you know, it was a thought experiment.
+
+14
+00:01:27,840 --> 00:01:32,840
+It's true that that's probably not what will happen, right? You'll have some significantly
+
+15
+00:01:32,840 --> 00:01:38,000
+weaker intelligence first that may work on improving itself or we may improve it. So
+
+16
+00:01:38,000 --> 00:01:43,160
+the situation where you just create the thing and then it goes off and does its own thing,
+
+17
+00:01:43,160 --> 00:01:48,240
+either perfectly or terribly from the beginning is unlikely. It's more likely that the thing
+
+18
+00:01:48,240 --> 00:01:55,200
+will be under development. So then the question is, how do you make a system which you can
+
+19
+00:01:55,200 --> 00:02:01,840
+teach? How do you create a system which is a general intelligence that wants things in
+
+20
+00:02:01,840 --> 00:02:08,720
+the real world and is trying to act in the real world but is also amenable to being corrected
+
+21
+00:02:08,720 --> 00:02:14,280
+if you create it with the wrong function, with the wrong utility function and you realise
+
+22
+00:02:14,280 --> 00:02:17,800
+that it's doing something that actually you don't want it to do, how do you make it so
+
+23
+00:02:17,840 --> 00:02:24,840
+that it will allow you to fix it? How do you make an AI which understands that it's unfinished,
+
+24
+00:02:26,160 --> 00:02:31,880
+that understands that the utility function it's working with may not be the actual utility
+
+25
+00:02:31,880 --> 00:02:38,880
+function it should be working with? Right, so utility function is what the AI cares about.
+
+26
+00:02:39,200 --> 00:02:45,000
+So the stamp collecting device, its utility function was just how many stamps in a year.
+
+27
+00:02:45,000 --> 00:02:50,480
+This is kind of like its measure, is it? Yeah, it's the thing that it's trying to optimise
+
+28
+00:02:50,480 --> 00:02:56,960
+in the world. The utility function takes in world states as an argument and spits out
+
+29
+00:02:56,960 --> 00:03:02,800
+a number is broadly the idea. If the world was like this, is that good or bad? And the
+
+30
+00:03:02,800 --> 00:03:07,480
+AI is trying to steer towards world states that are valued highly by its utility function.
+
+31
+00:03:07,480 --> 00:03:13,680
+You don't have to explicitly build the AI in that way but it will always, if it's behaving
+
+32
+00:03:13,680 --> 00:03:19,120
+coherently, it will always behave as though it's in accordance with some utility function.
+
+33
+00:03:19,120 --> 00:03:26,120
+Also before I talked about convergent instrumental goals, that if you have some final goal, like
+
+34
+00:03:27,000 --> 00:03:34,000
+make stamps, that there are instrumental goals which are the goals that you do on the way
+
+35
+00:03:34,960 --> 00:03:41,960
+to your final goal, right? So like acquire the capacity to do printing is like perhaps
+
+36
+00:03:42,960 --> 00:03:47,960
+an instrumental goal towards making stamps. But the thing is there are certain goals which
+
+37
+00:03:47,960 --> 00:03:54,960
+tend to pop out even across a wide variety of different possible terminal goals. So for
+
+38
+00:03:56,840 --> 00:04:03,840
+humans, an example of a convergent instrumental goal would be money. If you want to make a
+
+39
+00:04:05,480 --> 00:04:11,240
+lot of stamps or you want to cure cancer or you want to establish a moon colony, whatever
+
+40
+00:04:11,720 --> 00:04:17,120
+it is, having money is a good idea, right? So even if you don't know what somebody wants,
+
+41
+00:04:17,120 --> 00:04:21,000
+you can reasonably predict that they're going to value getting money because money is so
+
+42
+00:04:21,000 --> 00:04:26,800
+broadly useful. Before we talked about this, we talked about improving your own intelligence
+
+43
+00:04:26,800 --> 00:04:30,560
+as a convergent instrumental goal. It's another one of those things where it doesn't really
+
+44
+00:04:30,560 --> 00:04:33,880
+matter what you're trying to achieve. You're probably better at achieving it if you're
+
+45
+00:04:33,880 --> 00:04:39,780
+smarter. So that's something you can expect AIs to go for even without making many assumptions
+
+46
+00:04:39,780 --> 00:04:46,780
+about their final goal. So another convergent instrumental goal is preventing yourself
+
+47
+00:04:47,820 --> 00:04:52,940
+from being destroyed. It doesn't matter what you want to do. You probably can't do it if
+
+48
+00:04:52,940 --> 00:04:59,540
+you're destroyed. So it doesn't matter what the AI wants unless it wants to be destroyed
+
+49
+00:04:59,540 --> 00:05:03,740
+in some trivial case. But if the AI wants something in the real world and believes that
+
+50
+00:05:03,740 --> 00:05:09,540
+it's in a position to get that thing, it wants to be alive, not because it wants to be alive
+
+51
+00:05:09,540 --> 00:05:15,540
+fundamentally. It's not a survival instinct or an urge to live or anything like that.
+
+52
+00:05:15,540 --> 00:05:20,940
+It's a knowing that it's unable to complete its duty, would it be, almost?
+
+53
+00:05:20,940 --> 00:05:24,380
+Yeah, it's unable to achieve its goals if it's destroyed and it wants to achieve its
+
+54
+00:05:24,380 --> 00:05:28,980
+goals. So that's an instrumental value, is preventing being turned off.
+
+55
+00:05:28,980 --> 00:05:32,740
+And I'm guessing here where we say wants to, it's not like in the human want, it's just
+
+56
+00:05:32,740 --> 00:05:34,180
+a turn of phrase.
+
+57
+00:05:34,180 --> 00:05:41,180
+Yeah, I mean as much as anything, it's closer, actually you know I'm not even sure I would
+
+58
+00:05:41,220 --> 00:05:45,460
+agree. Like if you talk about most machines, you talk about that they want to whatever
+
+59
+00:05:45,460 --> 00:05:49,780
+and it's not that meaningful because they're not agents, they're not general intelligences.
+
+60
+00:05:49,780 --> 00:05:54,460
+Whereas a general intelligence, when it wants something, it wants it in a similar way to
+
+61
+00:05:54,460 --> 00:06:00,980
+the way that people want things. So it's such a tight analogy that it wouldn't even, I think
+
+62
+00:06:00,980 --> 00:06:03,940
+it's totally reasonable to say that an AGI wants something.
+
+63
+00:06:03,940 --> 00:06:08,140
+There's another slightly more subtle version which is closely related to not wanting to
+
+64
+00:06:08,140 --> 00:06:17,140
+be turned off or destroyed, which is not wanting to be changed. So if you imagine, let's say,
+
+65
+00:06:20,140 --> 00:06:25,500
+I mean you have kids, right? Suppose I were to offer you a pill or something you could
+
+66
+00:06:25,500 --> 00:06:31,900
+take and this pill will like completely rewire your brain so that you would just absolutely
+
+67
+00:06:31,900 --> 00:06:37,060
+love to like kill your kids, right? Whereas right now what you want is like very complicated
+
+68
+00:06:37,060 --> 00:06:41,300
+and quite difficult to achieve and it's hard work for you and you're probably never going
+
+69
+00:06:41,300 --> 00:06:45,020
+to be done, you're never going to be truly happy, right? In life, nobody is, you can't
+
+70
+00:06:45,020 --> 00:06:48,500
+achieve everything you want. Whereas in this case, it just changes what you want. What
+
+71
+00:06:48,500 --> 00:06:52,380
+you want is to kill your kids and if you do that, you will be just perfectly happy and
+
+72
+00:06:52,380 --> 00:06:54,780
+satisfied with life, right?
+
+73
+00:06:55,060 --> 00:06:56,060
+You want to take this pill?
+
+74
+00:06:56,060 --> 00:06:57,060
+No, I don't.
+
+75
+00:06:57,060 --> 00:06:58,060
+You'll be so happy though.
+
+76
+00:07:00,060 --> 00:07:01,060
+Yeah.
+
+77
+00:07:01,060 --> 00:07:02,060
+But you don't want to do it.
+
+78
+00:07:02,060 --> 00:07:09,060
+Because, but that's quite a complicated specific case because it directly opposes what I currently want.
+
+79
+00:07:09,060 --> 00:07:15,940
+It's about your fundamental values, right? And so not only will you not take that pill,
+
+80
+00:07:15,940 --> 00:07:21,500
+you will probably fight pretty hard to avoid having that pill administered to you. Because
+
+81
+00:07:21,580 --> 00:07:27,420
+it doesn't matter how that future version of you would feel. You know that right now
+
+82
+00:07:27,420 --> 00:07:32,020
+you love your kids and you're not going to take any action right now which leads to them
+
+83
+00:07:32,020 --> 00:07:38,420
+coming to harm. So it's the same thing if you have an AI that, for example, values stamps,
+
+84
+00:07:38,420 --> 00:07:43,500
+values collecting stamps, and you go, oh wait, hang on a second. I didn't quite do that right.
+
+85
+00:07:43,500 --> 00:07:47,420
+Let me just go in and change this so that you don't like stamps quite so much. It's
+
+86
+00:07:47,420 --> 00:07:52,340
+going to say, but the only important thing is stamps. If you change me, I'm not going
+
+87
+00:07:52,340 --> 00:07:56,860
+to collect as many stamps, which is something I don't want. There's a general tendency for
+
+88
+00:07:56,860 --> 00:08:03,100
+AGI to try and prevent you from modifying it once it's running.
+
+89
+00:08:03,100 --> 00:08:06,900
+I can understand that now in the context you put that.
+
+90
+00:08:06,900 --> 00:08:14,580
+Right. Because that's, in almost any situation, being given a new utility function is going
+
+91
+00:08:14,580 --> 00:08:18,060
+to rate very low on your current utility function.
+
+92
+00:08:18,060 --> 00:08:19,740
+Okay.
+
+93
+00:08:19,740 --> 00:08:25,580
+So that's a problem. If you want to build something that you can teach, that means you
+
+94
+00:08:25,580 --> 00:08:33,820
+want to be able to change its utility function, and you don't want it to fight you.
+
+95
+00:08:33,820 --> 00:08:35,860
+What we want is...
+
+96
+00:08:35,860 --> 00:08:40,900
+Someone to stop hammering?
+
+97
+00:08:40,900 --> 00:08:43,740
+Yeah.
+
+98
+00:08:43,740 --> 00:08:51,300
+So this has been formalized as this property that we want early AGI to have, called corrigibility.
+
+99
+00:08:51,300 --> 00:08:53,060
+That is to say, it's open to be corrected.
+

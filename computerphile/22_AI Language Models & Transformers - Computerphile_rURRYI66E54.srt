@@ -1,0 +1,1084 @@
+1
+00:00:00,000 --> 00:00:02,000
+So I wanted to make a video about
+
+2
+00:00:02,520 --> 00:00:09,620
+GPT-2 because it's been in the news recently, this very powerful language model from OpenAI, and I thought it would make sense to start
+
+3
+00:00:09,620 --> 00:00:11,620
+by just doing a video about
+
+4
+00:00:11,980 --> 00:00:14,480
+transformers and language models in general because
+
+5
+00:00:15,640 --> 00:00:17,640
+GPT-2 is a very large
+
+6
+00:00:17,820 --> 00:00:23,940
+language model implemented as a transformer. You have a previous video about generating YouTube comments, which is the same kind of task, right?
+
+7
+00:00:23,940 --> 00:00:27,920
+That's a language modeling task at Natural Language Processing to generate new samples.
+
+8
+00:00:27,920 --> 00:00:34,680
+For cooling of the most complex or magnetic consistent brackets, like a computer, to expect found in creating organizations.
+
+9
+00:00:34,680 --> 00:00:41,660
+I believe that video was made October 2017, and this paper came out December 2017, which has kind of
+
+10
+00:00:42,140 --> 00:00:44,640
+revolutionized the way that people carry out that kind of task.
+
+11
+00:00:44,700 --> 00:00:50,580
+That's not the GPT-2, that's something before that. Right, that's the transformer, which is a new rel.
+
+12
+00:00:51,100 --> 00:00:52,820
+Yeah, relatively new
+
+13
+00:00:52,820 --> 00:00:54,380
+architecture
+
+14
+00:00:54,380 --> 00:00:59,140
+for neural networks that can do actually all kinds of tasks, but they're especially good at this kind of
+
+15
+00:00:59,900 --> 00:01:01,900
+language modeling task.
+
+16
+00:01:04,020 --> 00:01:08,660
+Technically a language model is a probability distribution over like sequences
+
+17
+00:01:09,460 --> 00:01:10,920
+of
+
+18
+00:01:10,920 --> 00:01:13,500
+tokens or symbols or words or whatever in a language.
+
+19
+00:01:13,500 --> 00:01:18,980
+So for any given like sequence of tokens, it can tell you how likely that is. So if you have a good
+
+20
+00:01:19,540 --> 00:01:26,540
+language model of English, it can look at a sequence of, you know, words or characters or whatever, and say how likely that is to
+
+21
+00:01:26,620 --> 00:01:28,540
+occur in English,
+
+22
+00:01:28,540 --> 00:01:31,780
+or how likely that is to be an English phrase or sentence or whatever.
+
+23
+00:01:32,460 --> 00:01:37,420
+And when you have that, you can use that for a lot of different tasks. So
+
+24
+00:01:38,500 --> 00:01:46,420
+if you want to generate text, then you can you can just sort of sample from that distribution and keep giving it
+
+25
+00:01:47,060 --> 00:01:49,060
+its own output.
+
+26
+00:01:49,100 --> 00:01:51,980
+So you you sample a word and then you say,
+
+27
+00:01:52,980 --> 00:01:55,900
+and to be clear, sampling from a distribution means you're just taking
+
+28
+00:01:56,700 --> 00:02:02,940
+you're, you're sort of rolling the dice on that probability distribution and taking whichever one comes out. So
+
+29
+00:02:04,220 --> 00:02:06,700
+so you can like sample a word and then
+
+30
+00:02:07,500 --> 00:02:09,500
+and then say, okay,
+
+31
+00:02:09,620 --> 00:02:13,380
+conditioning on that, given that the first word of this sentence is the,
+
+32
+00:02:13,900 --> 00:02:16,540
+what does the probability distribution look like for the second word?
+
+33
+00:02:16,540 --> 00:02:19,020
+And then you sample from that distribution and then it's, you know,
+
+34
+00:02:19,380 --> 00:02:24,380
+the cat. And you say, given that it's the cat, what's likely to come next? And so on. So you can, you can build up
+
+35
+00:02:24,860 --> 00:02:27,620
+a string of text by sampling from
+
+36
+00:02:28,140 --> 00:02:30,620
+your distribution. That's one of the things you could use it for.
+
+37
+00:02:30,620 --> 00:02:35,420
+And most of us kind of have an example of this sort of in our pockets, we've put it to text, right?
+
+38
+00:02:35,540 --> 00:02:39,900
+Absolutely, right. And that's like, that's the, that's the way that most people interact with
+
+39
+00:02:40,620 --> 00:02:45,340
+language model, I guess. This is how I often start a sentence.
+
+40
+00:02:45,860 --> 00:02:51,980
+Apparently, with I, I am not sure if you have any questions or concerns.
+
+41
+00:02:51,980 --> 00:02:59,540
+Please visit the plug-in settings so I can do it for the first time in the future of,
+
+42
+00:02:59,740 --> 00:03:03,620
+oh, that's no good. Here's a different option. Let's just see what this one is. It may be the same.
+
+43
+00:03:03,620 --> 00:03:09,620
+I am in the morning, but I can't find it on the phone screen.
+
+44
+00:03:10,140 --> 00:03:16,020
+On the phone screen, on the phone screen, on the phone screen, on the phone screen, on the phone screen, on the phone screen, on the phone screen.
+
+45
+00:03:16,020 --> 00:03:21,860
+I don't actually know how this is implemented. It might be a neural network, but my guess is that it's some kind of
+
+46
+00:03:22,780 --> 00:03:26,540
+like Markov model, Markov chain type setup, where you just,
+
+47
+00:03:27,060 --> 00:03:32,660
+for each word in your language, you look at your data set and you see how often a particular,
+
+48
+00:03:33,340 --> 00:03:35,340
+how often each other word is
+
+49
+00:03:36,180 --> 00:03:39,380
+following that word, and then that's how you build your distribution.
+
+50
+00:03:39,380 --> 00:03:41,380
+So like, for the word I,
+
+51
+00:03:41,820 --> 00:03:45,460
+the most common word to follow that is am, and there are a few others, you know.
+
+52
+00:03:45,460 --> 00:03:47,460
+So this is like a very simple model, and
+
+53
+00:03:47,860 --> 00:03:53,180
+this sentence, on the phone screen, on the phone screen, on the phone screen, on the phone screen, on the phone screen, is actually very
+
+54
+00:03:53,420 --> 00:03:57,260
+unlikely, right? This is a super low probability sentence. Why would somebody type this?
+
+55
+00:03:57,820 --> 00:04:03,100
+And the thing is, it's like myopic. It's only, I'm not sure,
+
+56
+00:04:03,260 --> 00:04:07,540
+it's probably only looking at the previous word. It might be looking at, like, the previous two words,
+
+57
+00:04:07,540 --> 00:04:11,020
+but the problem is, to look back, it becomes extremely expensive.
+
+58
+00:04:11,820 --> 00:04:18,060
+Computationally expensive, obviously. Right, like, you've got, I don't know, 50,000 words that you might be looking at, and so then,
+
+59
+00:04:18,380 --> 00:04:22,140
+so you're, you're, you're remembering 50,000 probability distributions, or
+
+60
+00:04:22,900 --> 00:04:28,500
+50,000 top three words, but, you know, then if you want to do two, that's 50,000 squared, right?
+
+61
+00:04:28,500 --> 00:04:30,580
+And if you want to go back three words, you have to cube it.
+
+62
+00:04:30,580 --> 00:04:33,620
+So you're, like, raising it to the power of the number of words back you want to go,
+
+63
+00:04:34,140 --> 00:04:35,500
+which is,
+
+64
+00:04:35,500 --> 00:04:37,500
+which means that this type of model
+
+65
+00:04:38,180 --> 00:04:44,460
+basically doesn't look back. By the time we're saying, on the, it's already forgotten the previous time it said, on the. It doesn't realize
+
+66
+00:04:44,460 --> 00:04:49,500
+that it's repeating itself. And there are slightly better things you can do in this general area,
+
+67
+00:04:49,500 --> 00:04:51,500
+but, like, fundamentally, if you don't remember,
+
+68
+00:04:51,820 --> 00:04:53,420
+you're not going to be able to make good
+
+69
+00:04:53,420 --> 00:04:57,860
+sentences if you can't remember the beginning of the sentence by the time you're at the end of it, right?
+
+70
+00:04:58,580 --> 00:05:00,580
+And so
+
+71
+00:05:01,180 --> 00:05:04,220
+one of the big areas of progress in language models is
+
+72
+00:05:04,740 --> 00:05:11,460
+handling long-term dependencies. I mean, handling dependencies of any kind, but especially long-term dependencies. You've got a sentence
+
+73
+00:05:11,460 --> 00:05:16,980
+that's, like, Sean came to the hack space to record a video and I talked to
+
+74
+00:05:17,460 --> 00:05:24,760
+blank, right? In that situation, if your model is good, you're expecting, like, a pronoun, probably.
+
+75
+00:05:25,040 --> 00:05:27,200
+So it's, it's he, she, it, they,
+
+76
+00:05:28,080 --> 00:05:32,480
+you know, them, whatever. And, but, the relevant piece of information is the word Sean,
+
+77
+00:05:33,040 --> 00:05:37,280
+which is, like, all the way at the beginning of the sentence. So your model needs to be able to say, oh, okay,
+
+78
+00:05:37,280 --> 00:05:39,280
+you know, Sean, that's
+
+79
+00:05:39,400 --> 00:05:42,600
+usually associated with male pronouns, so we'll put the male pronoun in there.
+
+80
+00:05:43,040 --> 00:05:46,160
+And if your model doesn't have that ability to look back
+
+81
+00:05:46,880 --> 00:05:49,960
+or to just remember what it's just said, then
+
+82
+00:05:50,880 --> 00:05:52,880
+you end up with these sentences that,
+
+83
+00:05:53,000 --> 00:05:54,040
+like, go nowhere.
+
+84
+00:05:54,040 --> 00:05:59,520
+It's just as like, like, it might make a guess, just a random guess at a pronoun, and might get it wrong, or it might
+
+85
+00:06:00,320 --> 00:06:02,600
+just, and I talked to, and then just be like,
+
+86
+00:06:03,320 --> 00:06:08,560
+Frank, you know, and just, like, introduce a new name, because it's guessing at what's likely to come there,
+
+87
+00:06:08,560 --> 00:06:14,280
+and it's completely forgotten that Sean was ever, like, a thing. So, yeah, these kind of dependencies are a big
+
+88
+00:06:14,760 --> 00:06:17,320
+issue with things that you would want a language model to do.
+
+89
+00:06:18,480 --> 00:06:20,480
+But we've only so far talked about
+
+90
+00:06:21,480 --> 00:06:28,440
+language models for generating text in this way, but you can also use them for all kinds of different things. So, like,
+
+91
+00:06:29,880 --> 00:06:34,760
+people use language models for translation, obviously. You have some input sequence
+
+92
+00:06:34,760 --> 00:06:38,800
+that's, like, in English, and you want to output a sequence in French, or something like that.
+
+93
+00:06:39,400 --> 00:06:43,240
+Having a good language model is really important, so that you end up with something that makes sense.
+
+94
+00:06:43,920 --> 00:06:49,880
+Summarization is a task that people often want, where you read in a long piece of text, and then you generate a short piece of
+
+95
+00:06:49,880 --> 00:06:54,800
+text that's, like, a summary of that. That's the kind of thing that you would use a language model for, or
+
+96
+00:06:56,240 --> 00:06:59,600
+reading a piece of text, and then answering questions about that text, or
+
+97
+00:06:59,920 --> 00:07:05,440
+if you want to write, like, a chatbot that's going to converse with people, having a language model is good. Like, basically almost all,
+
+98
+00:07:05,720 --> 00:07:10,720
+like, natural language processing, right? It's useful to have this. The other thing is
+
+99
+00:07:11,480 --> 00:07:13,480
+you can use it to enhance,
+
+100
+00:07:13,640 --> 00:07:21,000
+enhance a lot of other language-related tasks. So, if you're doing, like, speech recognition,
+
+101
+00:07:21,280 --> 00:07:26,980
+then having a good language model, like, there's a lot of things people can say that sound very similar, and to get the right one,
+
+102
+00:07:27,240 --> 00:07:30,640
+you need to be, like, oh, well, this actually makes sense, you know.
+
+103
+00:07:31,320 --> 00:07:33,320
+This word that sounds very similar
+
+104
+00:07:34,040 --> 00:07:37,000
+would be incoherent in this sentence. It's a very low probability.
+
+105
+00:07:37,000 --> 00:07:40,720
+It's much more likely that they said this thing, which is, like, would flow in the language,
+
+106
+00:07:41,200 --> 00:07:44,120
+and human beings do this all the time. Same thing
+
+107
+00:07:45,520 --> 00:07:48,760
+with recognizing text from images, you know,
+
+108
+00:07:48,760 --> 00:07:53,360
+you've got two words that look similar, or there's some ambiguity, or whatever, and to resolve that you need
+
+109
+00:07:53,720 --> 00:07:59,080
+an understanding of what word would make sense there, what word would fit. If you're trying to use a neural network to do the kind
+
+110
+00:07:59,080 --> 00:08:03,480
+of thing we were talking about before, of having a phone, you know, autocorrect based on the previous word or two.
+
+111
+00:08:03,800 --> 00:08:10,680
+Suppose you've got a sequence of two words going in. You've got so, and then I, and you put both of these in
+
+112
+00:08:10,720 --> 00:08:16,840
+to your network, and it will then output, you know, like said, for example, as, like, a sensible next word,
+
+113
+00:08:16,840 --> 00:08:22,280
+and then what you do is you throw away so, and you then bring your said around, and you make a new
+
+114
+00:08:23,120 --> 00:08:29,360
+sequence, which is I said, and then put that into your network, and it will put out, like, I said to,
+
+115
+00:08:29,360 --> 00:08:32,240
+for example, would make sense, and so on, and you keep going around.
+
+116
+00:08:32,320 --> 00:08:38,400
+But the problem is this length is really short. You try and make this long enough to contain an entire
+
+117
+00:08:39,160 --> 00:08:44,000
+sentence, just an ordinary length sentence, and this problem starts to become really, really hard,
+
+118
+00:08:44,680 --> 00:08:50,640
+and networks have a hard time learning it, and you don't get very good performance. And even then,
+
+119
+00:08:51,640 --> 00:08:56,960
+you're still, like, have this absolute hard limit on how long a thing, you, you have to just pick a number
+
+120
+00:08:56,960 --> 00:09:01,440
+that's, like, how far back am I looking. A better thing to do is a recurrent neural network
+
+121
+00:09:01,800 --> 00:09:04,800
+where you, you give the thing, let's, like, divide that up.
+
+122
+00:09:04,840 --> 00:09:08,120
+So in this case, that you have a network, you give it this vector,
+
+123
+00:09:08,120 --> 00:09:11,720
+you just, like, have a bunch of numbers, which is going to be, like,
+
+124
+00:09:12,000 --> 00:09:17,440
+the memory for that network, is the idea, like, the problem is it's forgotten the beginning of the sentence by the time it gets to
+
+125
+00:09:17,440 --> 00:09:19,760
+the end. So we've got to give it some way of remembering, and
+
+126
+00:09:20,280 --> 00:09:24,880
+rather than feeding it the entire sentence every time, you give it this vector, and
+
+127
+00:09:25,720 --> 00:09:28,760
+you give it just one word at a time of your input, and
+
+128
+00:09:29,520 --> 00:09:34,160
+this vector, which you initialize, I guess, with zeros. I want to be clear, this is not something that I've
+
+129
+00:09:34,800 --> 00:09:37,960
+studied in a huge amount of detail, I'm just, like, giving the overall, like, structure of the thing,
+
+130
+00:09:38,120 --> 00:09:41,280
+but the point is, you give it this vector and the word, and
+
+131
+00:09:41,880 --> 00:09:45,800
+it outputs its guess for the next word, and also a
+
+132
+00:09:46,440 --> 00:09:53,080
+modified version of that vector, that you then, for the next thing, you give it the word that it spit out, or the sequence that
+
+133
+00:09:53,080 --> 00:09:57,560
+it spit out, and its own modified version of the vector. Every cycle it goes around,
+
+134
+00:09:57,560 --> 00:10:01,080
+it's modifying this memory. Once this system is, like, trained
+
+135
+00:10:01,320 --> 00:10:07,520
+very well, if you give it, if you give it the first word, Sean, then part of this vector is going to contain
+
+136
+00:10:07,840 --> 00:10:11,960
+some information that's, like, the subject of this sentence is the word, Sean, and
+
+137
+00:10:12,560 --> 00:10:14,720
+some other part will probably keep track of, like,
+
+138
+00:10:15,480 --> 00:10:20,200
+we expect to use a male pronoun for this sentence, and that kind of thing.
+
+139
+00:10:20,280 --> 00:10:26,640
+So you take this, and give it to that, and these are just two instances of the same network, and then it keeps
+
+140
+00:10:27,200 --> 00:10:28,560
+going every time.
+
+141
+00:10:28,560 --> 00:10:32,600
+So it spits out, like, this is I, so then the I also comes around to here.
+
+142
+00:10:32,600 --> 00:10:37,640
+It might then put out said, and so on, but it's got this continuous thread of
+
+143
+00:10:38,960 --> 00:10:45,560
+of memory, effectively, going through, because it keeps passing the thing through. In principle, if it figures out something important at the beginning of,
+
+144
+00:10:45,880 --> 00:10:47,480
+you know,
+
+145
+00:10:47,480 --> 00:10:50,840
+the complete works of Shakespeare that it's generating, there's nothing,
+
+146
+00:10:51,440 --> 00:10:56,600
+strictly speaking, stopping that from persisting, from being passed through from
+
+147
+00:10:56,920 --> 00:10:59,520
+from iteration to iteration to iteration every time.
+
+148
+00:11:00,480 --> 00:11:04,240
+In practice, it doesn't work that way, because in practice,
+
+149
+00:11:04,960 --> 00:11:12,320
+the whole thing is being messed with by the network on every step, and so in in the training process, it's going to learn
+
+150
+00:11:13,120 --> 00:11:18,840
+that it performs best when it leaves most of it alone, and it doesn't just randomly change the whole thing.
+
+151
+00:11:19,000 --> 00:11:22,040
+But, by the time you're on the 50th word of your sentence,
+
+152
+00:11:22,760 --> 00:11:27,080
+whatever the network decided to do on the first word of the sentence is a
+
+153
+00:11:27,280 --> 00:11:30,360
+photocopy of a photocopy of a photocopy of a photocopy, and so
+
+154
+00:11:31,360 --> 00:11:33,360
+things have a tendency to
+
+155
+00:11:33,640 --> 00:11:35,640
+fade out to nothing. It has to be
+
+156
+00:11:35,960 --> 00:11:40,960
+successfully remembered at every step of this process, and if at any point it gets overwritten with something else, or just
+
+157
+00:11:41,400 --> 00:11:43,080
+it did its best to remember it,
+
+158
+00:11:43,080 --> 00:11:48,760
+but it's actually remembering 99% of it each time, 0.99 to the 50 is like actually not that big of a number.
+
+159
+00:11:48,760 --> 00:11:51,120
+So these things work pretty well,
+
+160
+00:11:51,120 --> 00:11:56,280
+but they still get, the performance like really quickly drops off once the sentences start to get long.
+
+161
+00:11:56,280 --> 00:12:02,120
+So this is a recurrent neural network, RNN. Because all of these boxes
+
+162
+00:12:03,520 --> 00:12:07,840
+are really the same box, because this is the same network at different time steps,
+
+163
+00:12:07,840 --> 00:12:12,240
+it's really a loop like this. You're giving the output of the network back as input every time.
+
+164
+00:12:12,240 --> 00:12:16,920
+So this works better, and then people have tried all kinds of interesting things, things like LSTMs.
+
+165
+00:12:16,920 --> 00:12:20,220
+There's all kinds of variants on this general like recurrent network.
+
+166
+00:12:20,220 --> 00:12:22,880
+And LSTM is the thing that might use, isn't it?
+
+167
+00:12:22,880 --> 00:12:27,080
+Right, right. Long short-term memory, which is kind of surreal.
+
+168
+00:12:27,080 --> 00:12:30,520
+But yeah, so the idea of that is it's a lot more complicated inside these networks.
+
+169
+00:12:30,520 --> 00:12:36,200
+There's actually kind of sub networks that make specific decisions about gating things, so
+
+170
+00:12:36,800 --> 00:12:41,240
+rather than having to have the system learn that it ought to pass most things on,
+
+171
+00:12:41,240 --> 00:12:45,800
+it's sort of more in the architecture that it passes most things on, and then there's a, there's a sub,
+
+172
+00:12:45,800 --> 00:12:47,800
+there's like part of the learning is
+
+173
+00:12:48,640 --> 00:12:54,320
+deciding what to forget at each step, and like deciding what to change, and what to put in, and what to pass on, and so on.
+
+174
+00:12:54,320 --> 00:12:58,400
+And they perform better. They can hang on to the information, the relevant information for longer.
+
+175
+00:13:00,480 --> 00:13:05,900
+But the other thing that people often build into these kinds of systems is something called attention,
+
+176
+00:13:06,720 --> 00:13:09,240
+which is actually a pretty good
+
+177
+00:13:10,040 --> 00:13:11,080
+metaphor,
+
+178
+00:13:11,080 --> 00:13:13,080
+where in the same way that you would have
+
+179
+00:13:13,560 --> 00:13:18,800
+networks that decide which parts of your hidden state to hang on to, or which parts to forget, or
+
+180
+00:13:20,240 --> 00:13:22,460
+those kinds of decisions, like gating and stuff,
+
+181
+00:13:23,920 --> 00:13:32,160
+you have a system which is deciding which parts of the input to pay attention to, which parts to use in the,
+
+182
+00:13:32,640 --> 00:13:37,840
+in the calculation, and which parts to ignore. And this turns out to be actually very powerful.
+
+183
+00:13:37,840 --> 00:13:39,680
+So there was this paper,
+
+184
+00:13:39,680 --> 00:13:41,000
+when was this?
+
+185
+00:13:41,000 --> 00:13:46,320
+2000, 2017? Yeah. So this is funny, because this came out the same year as
+
+186
+00:13:46,880 --> 00:13:53,440
+the video you have about generating YouTube comments. This is in December. I think that video was October. Ancient history now, all right?
+
+187
+00:13:53,440 --> 00:13:59,640
+We're talking two years ago. The idea of this is, as it's called, attention is all you need. They developed this system whereby
+
+188
+00:14:00,240 --> 00:14:02,120
+it's actually as,
+
+189
+00:14:02,120 --> 00:14:04,320
+it's a lot simpler as a,
+
+190
+00:14:05,120 --> 00:14:07,120
+as a network.
+
+191
+00:14:07,840 --> 00:14:10,960
+You can see on the diagram here, if you compare this to the diagram for an LSTM, or
+
+192
+00:14:11,560 --> 00:14:17,520
+any of those kind of variants, it's relatively simple. And it's just kind of using attention to do everything.
+
+193
+00:14:18,040 --> 00:14:24,480
+So when you made that video, the LSTM type stuff was like state-of-the-art. And that was until a couple of months later,
+
+194
+00:14:24,480 --> 00:14:27,800
+I guess, when this paper came out. The idea of this is that
+
+195
+00:14:28,480 --> 00:14:31,440
+attention is all you need. That like, this stuff about
+
+196
+00:14:32,040 --> 00:14:34,680
+having gates for forgetting things, and
+
+197
+00:14:35,120 --> 00:14:40,520
+all of that, all of that kind of stuff. In fact, the whole recurrence, like architecture,
+
+198
+00:14:41,520 --> 00:14:45,640
+you can do away with it, and just use attention. Attention is powerful enough to
+
+199
+00:14:45,840 --> 00:14:51,680
+to do everything that you need. At its base, attention is about actively deciding, in the same way that
+
+200
+00:14:53,120 --> 00:15:00,360
+the LSTM is actively deciding what to forget, and so on. This is deciding which parts of
+
+201
+00:15:01,040 --> 00:15:07,000
+some other part of the data it's going to take into account, which parts it's going to look at. Like, it can be very dangerous
+
+202
+00:15:07,000 --> 00:15:09,000
+in AI to
+
+203
+00:15:09,680 --> 00:15:13,880
+use words for things that are words that people already use,
+
+204
+00:15:14,400 --> 00:15:17,680
+for the way that humans do things. It makes it very easy to anthropomorphize,
+
+205
+00:15:18,200 --> 00:15:19,680
+and just
+
+206
+00:15:19,680 --> 00:15:20,760
+make,
+
+207
+00:15:20,760 --> 00:15:26,660
+you know, get confused, because the abstraction doesn't quite work. But I think attention is a pretty decent name, because it is,
+
+208
+00:15:27,540 --> 00:15:30,300
+it does make sense. It sort of draws the relationships between things.
+
+209
+00:15:30,300 --> 00:15:34,300
+So you can have attention from the output to the input, which is what that would be.
+
+210
+00:15:34,460 --> 00:15:38,060
+You can also have attention from the output to other parts of the output.
+
+211
+00:15:38,540 --> 00:15:42,420
+So, for example, when I'm generating in that sentence, like
+
+212
+00:15:42,980 --> 00:15:46,940
+Sean came to record a video, whatever, by the time I get to generating the word him,
+
+213
+00:15:46,940 --> 00:15:52,620
+I don't need to be thinking about the entire sentence. I can just focus my attention on where I remember
+
+214
+00:15:52,940 --> 00:15:59,020
+the name was. So the attention goes to Sean, and then I can make the decision for, to use the word him, based on
+
+215
+00:15:59,580 --> 00:16:00,660
+that.
+
+216
+00:16:00,660 --> 00:16:02,660
+So,
+
+217
+00:16:02,660 --> 00:16:05,540
+so rather than having to hang on to a huge amount of memory,
+
+218
+00:16:06,300 --> 00:16:07,860
+you
+
+219
+00:16:07,860 --> 00:16:13,100
+can just selectively look at the things that are actually relevant, and the system learns
+
+220
+00:16:13,500 --> 00:16:18,540
+where to look, where to pay attention to. And that's really cool. Like, you can do it,
+
+221
+00:16:18,540 --> 00:16:22,900
+there's attention-based systems for all kinds of things, like not just text. You can do,
+
+222
+00:16:24,300 --> 00:16:28,460
+like, suppose you have, your input is like an image, and you want to caption it.
+
+223
+00:16:28,460 --> 00:16:33,060
+You can actually look at when it was outputting the sequence, and you can say, when you generated the word dog,
+
+224
+00:16:33,420 --> 00:16:36,540
+what was your, you can get like an attention heat map, and it will highlight
+
+225
+00:16:36,700 --> 00:16:41,700
+the dog, because that's the part of the image that it was paying attention to when it generated that output.
+
+226
+00:16:41,700 --> 00:16:45,260
+It makes your system more interpretable, because you can see what it was thinking, and
+
+227
+00:16:45,740 --> 00:16:49,060
+sometimes you can catch problems that way, as well, which is kind of fun. Like,
+
+228
+00:16:49,580 --> 00:16:55,900
+it generates the output that's like, a man is lifting a dumbbell, or something like that, and you look at it,
+
+229
+00:16:55,900 --> 00:17:01,220
+and it's not actually correct. It's like, it's Arnold Schwarzenegger. He's drinking some tea out of a mug, right? And
+
+230
+00:17:02,140 --> 00:17:07,700
+what you find is then, when you look at your outputs where it says dumbbell, you look at the attention, and the attention is like
+
+231
+00:17:07,700 --> 00:17:12,580
+mostly looking at the arms. That's usually somebody muscular who's lifting the dumbbell in your photos.
+
+232
+00:17:12,580 --> 00:17:17,540
+It's, and so it, it's overriding the fact that this kind of looks like a mug, because it was looking at the arms.
+
+233
+00:17:17,540 --> 00:17:25,140
+So the idea is, this system, which is called a transformer, is a type of neural network, which just relies very heavily on attention
+
+234
+00:17:25,380 --> 00:17:30,940
+to produce, like, state-of-the-art performance, and if you train them on a large
+
+235
+00:17:31,860 --> 00:17:34,700
+corpus of natural language, they can learn,
+
+236
+00:17:36,540 --> 00:17:41,540
+they can learn to do very well, right? They can be very powerful language models.
+
+237
+00:17:41,540 --> 00:17:44,100
+We had the example of a language model on your phone
+
+238
+00:17:44,100 --> 00:17:49,820
+that's, like, very, very basic, and then trying to do this with neural networks, and the problems with remembering,
+
+239
+00:17:50,420 --> 00:17:56,460
+and so you have, like, recurrent systems that keep track of, they allow you to pass memory along, so that you can remember the beginning
+
+240
+00:17:56,460 --> 00:17:58,820
+of the sentence, at least by the end of it, and
+
+241
+00:17:59,540 --> 00:18:03,900
+things like LSTMs, there is all these different varieties that people try different things
+
+242
+00:18:05,140 --> 00:18:10,620
+that are better at hanging on to memory, so that they can do better at, they can have longer term dependencies,
+
+243
+00:18:10,620 --> 00:18:12,980
+which allows you to have more coherent
+
+244
+00:18:14,380 --> 00:18:19,100
+outputs, and just generally better performance, and then the transformer is
+
+245
+00:18:20,220 --> 00:18:26,900
+a variant on that, well, is a different way of doing things, where you really focus on attention,
+
+246
+00:18:26,900 --> 00:18:29,620
+and so these are actually not recurrent, which is
+
+247
+00:18:30,140 --> 00:18:33,980
+an important distinction to make. We don't have this thing of, like,
+
+248
+00:18:34,140 --> 00:18:39,500
+taking the output and feeding that back as the input, and so on, every time. Because we have attention,
+
+249
+00:18:39,780 --> 00:18:42,460
+we don't need to keep a big memory
+
+250
+00:18:42,980 --> 00:18:50,620
+that we run through every time. When the system wants to know something, it can use its attention to look back to that part.
+
+251
+00:18:50,940 --> 00:18:54,340
+It's not, like, memorizing the text as it goes, it's
+
+252
+00:18:54,980 --> 00:19:01,240
+paying attention to different bits of the text as they, as it thinks that they're relevant to the bit that it's looking at now.
+
+253
+00:19:02,060 --> 00:19:05,460
+And the thing about that is, when you have this recurrent thing,
+
+254
+00:19:05,940 --> 00:19:10,980
+it's kind of inherently serial. Most of the calculations for this, you can't do them until you have
+
+255
+00:19:11,420 --> 00:19:15,620
+the inputs, and the inputs are the output of the previous network, and so
+
+256
+00:19:16,260 --> 00:19:20,720
+you can't do the thing that people like to do now, which is run it on a million computers,
+
+257
+00:19:21,300 --> 00:19:26,220
+and get lightning-fast performance, because you have to go through them in order, right? It's, like, inherently serial.
+
+258
+00:19:27,260 --> 00:19:32,860
+Whereas transformers are much more parallelizable, which means you get better computational performance out of them as well,
+
+259
+00:19:33,620 --> 00:19:35,620
+which is another
+
+260
+00:19:36,140 --> 00:19:40,820
+selling point. So they work better and they run faster. So they're really a
+
+261
+00:19:41,740 --> 00:19:44,420
+step up. So transformers are this really powerful
+
+262
+00:19:45,740 --> 00:19:51,620
+architecture. They seem to give really good performance on this kind of, sort of, language modeling type task, and
+
+263
+00:19:52,860 --> 00:19:53,860
+we,
+
+264
+00:19:53,860 --> 00:19:58,380
+but what we didn't know really was how far you can push them, or how good they can get.
+
+265
+00:19:58,740 --> 00:20:02,780
+What happens if you take this architecture and you give it a
+
+266
+00:20:03,180 --> 00:20:10,060
+bigger data set than any of them has ever been given, and more compute to train with, you know, a larger model with more parameters
+
+267
+00:20:10,060 --> 00:20:13,620
+and more data? How good can these things get? How
+
+268
+00:20:14,060 --> 00:20:18,820
+good a language model can you actually make? And that's what OpenAI was doing with GPT-2.
+
+269
+00:20:19,820 --> 00:20:27,140
+So an executable binary. The net effect of slotting that T-diagram against here, slightly downwards, is to show you
+
+270
+00:20:28,420 --> 00:20:34,140
+that the C you've written gets converted into binary and the net output from this
+
+271
+00:20:35,020 --> 00:20:39,020
+process, it produces out a program that you probably store in a file.
+

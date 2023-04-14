@@ -1,0 +1,1540 @@
+1
+00:00:00,000 --> 00:00:04,960
+If we're moving from cat to dog, which are similar things, so we go away from cat and towards dog,
+
+2
+00:00:04,960 --> 00:00:06,960
+and then we go further in that direction.
+
+3
+00:00:06,960 --> 00:00:08,960
+Can we go beyond in that direction?
+
+4
+00:00:08,960 --> 00:00:10,960
+Yes, so the first result is dogs, which is kind of a nonsense result.
+
+5
+00:00:10,960 --> 00:00:12,960
+The second is pit bull.
+
+6
+00:00:12,960 --> 00:00:14,960
+So that's like the doggiest of dogs?
+
+7
+00:00:14,960 --> 00:00:16,960
+Right, the least cat-like dog.
+
+8
+00:00:16,960 --> 00:00:18,960
+That feels right to me, actually.
+
+9
+00:00:18,960 --> 00:00:20,960
+What if you go the other way?
+
+10
+00:00:20,960 --> 00:00:22,960
+What, the most cat-like cat?
+
+11
+00:00:22,960 --> 00:00:24,960
+The most un-dog-like? Let's find out.
+
+12
+00:00:24,960 --> 00:00:26,960
+It's going to be kitten, right? It's got to be.
+
+13
+00:00:26,960 --> 00:00:28,960
+Cats, feline, kitten.
+
+14
+00:00:28,960 --> 00:00:30,960
+Not really giving us anything much to work with.
+
+15
+00:00:32,960 --> 00:00:36,960
+I thought I would talk a little bit about word embeddings.
+
+16
+00:00:36,960 --> 00:00:38,960
+Word2vec and just word embeddings in general.
+
+17
+00:00:38,960 --> 00:00:40,960
+The way I was introduced to word embeddings,
+
+18
+00:00:40,960 --> 00:00:44,960
+or the sort of context that I'm most familiar with them in,
+
+19
+00:00:44,960 --> 00:00:48,960
+is like, how do you represent a word to a neural network?
+
+20
+00:00:48,960 --> 00:00:50,960
+Well, it's a set of characters, isn't it?
+
+21
+00:00:50,960 --> 00:00:54,960
+I mean, need it be more than the set of characters that make it up?
+
+22
+00:00:54,960 --> 00:00:56,960
+Right, so you can do that.
+
+23
+00:00:56,960 --> 00:00:58,960
+Even though the thing we were talking about before in language models,
+
+24
+00:00:58,960 --> 00:01:00,960
+you have a problem of how far back you can look.
+
+25
+00:01:00,960 --> 00:01:04,960
+I would much rather be able to look back 50 words than 50 characters.
+
+26
+00:01:04,960 --> 00:01:08,960
+And like, if you're training a character-based model,
+
+27
+00:01:08,960 --> 00:01:12,960
+a lot of the capacity of your network is going to be used up
+
+28
+00:01:12,960 --> 00:01:15,960
+just learning what characters count as valid words, right?
+
+29
+00:01:15,960 --> 00:01:17,960
+What combinations of characters are words?
+
+30
+00:01:17,960 --> 00:01:20,960
+And so if you're trying to learn something more complicated than that,
+
+31
+00:01:20,960 --> 00:01:23,960
+you're spending a lot of your time training just like what words are,
+
+32
+00:01:23,960 --> 00:01:27,960
+and a lot of your network capacity is being used for that as well.
+
+33
+00:01:27,960 --> 00:01:29,960
+But this isn't a hard problem.
+
+34
+00:01:29,960 --> 00:01:30,960
+We know what the words are, right?
+
+35
+00:01:30,960 --> 00:01:32,960
+You can give the thing a dictionary,
+
+36
+00:01:32,960 --> 00:01:35,960
+and then you're kind of, it gives it a jumpstart.
+
+37
+00:01:35,960 --> 00:01:37,960
+The point is, neural networks,
+
+38
+00:01:37,960 --> 00:01:40,960
+they view things as like a vector of real numbers,
+
+39
+00:01:40,960 --> 00:01:46,960
+or a vector of floats, which is like some of the real numbers.
+
+40
+00:01:46,960 --> 00:01:50,960
+And so if you think about something like an image,
+
+41
+00:01:50,960 --> 00:01:52,960
+representing an image in this way is like fairly straightforward.
+
+42
+00:01:52,960 --> 00:01:55,960
+You just take all of the pixels and put them in a long row,
+
+43
+00:01:55,960 --> 00:01:57,960
+and if they're black, then it's zero,
+
+44
+00:01:57,960 --> 00:01:59,960
+and if they're white, then it's one,
+
+45
+00:01:59,960 --> 00:02:01,960
+and you just have grayscale in between, for example.
+
+46
+00:02:01,960 --> 00:02:02,960
+It's like fairly straightforward.
+
+47
+00:02:02,960 --> 00:02:05,960
+And so then you end up with a vector that represents that image.
+
+48
+00:02:05,960 --> 00:02:07,960
+It's a reasonably good representation.
+
+49
+00:02:07,960 --> 00:02:09,960
+It sort of reflects some elements of the structure
+
+50
+00:02:09,960 --> 00:02:11,960
+of what you're actually talking about.
+
+51
+00:02:11,960 --> 00:02:17,960
+So, like if you take the same image
+
+52
+00:02:17,960 --> 00:02:20,960
+and make it a little bit brighter, for example,
+
+53
+00:02:20,960 --> 00:02:23,960
+that is just making that vector a bit longer, right?
+
+54
+00:02:23,960 --> 00:02:25,960
+Or a point in that configuration space
+
+55
+00:02:25,960 --> 00:02:26,960
+that's a bit further from the origin.
+
+56
+00:02:26,960 --> 00:02:28,960
+You can make it darker by moving it close to the origin,
+
+57
+00:02:28,960 --> 00:02:30,960
+by reducing the length of that vector.
+
+58
+00:02:30,960 --> 00:02:32,960
+If you take an image and you apply a small amount of,
+
+59
+00:02:32,960 --> 00:02:34,960
+you know, noise to it,
+
+60
+00:02:34,960 --> 00:02:37,960
+that represents just like jiggling that vector around slightly
+
+61
+00:02:37,960 --> 00:02:39,960
+in that configuration space.
+
+62
+00:02:39,960 --> 00:02:42,960
+So you've got, you've got a sense in which
+
+63
+00:02:42,960 --> 00:02:46,960
+two vectors that are close to each other
+
+64
+00:02:46,960 --> 00:02:49,960
+are actually kind of similar images,
+
+65
+00:02:49,960 --> 00:02:54,960
+and that some of the sort of directions in the vector space
+
+66
+00:02:54,960 --> 00:02:56,960
+are actually meaningful in terms of something
+
+67
+00:02:56,960 --> 00:02:58,960
+that would make sense for images.
+
+68
+00:02:58,960 --> 00:03:00,960
+And the same is true with numbers and whatever else.
+
+69
+00:03:00,960 --> 00:03:02,960
+And this is very useful when you're training,
+
+70
+00:03:02,960 --> 00:03:04,960
+because it allows you to say,
+
+71
+00:03:04,960 --> 00:03:06,960
+if your neural network is trying to predict a number
+
+72
+00:03:06,960 --> 00:03:09,960
+and the value you're looking for is 10 and it gives you 9,
+
+73
+00:03:09,960 --> 00:03:12,960
+you can say, no, but that's close.
+
+74
+00:03:12,960 --> 00:03:14,960
+And if it gave you 7,000,
+
+75
+00:03:14,960 --> 00:03:16,960
+you can be like, no, and it's not close.
+
+76
+00:03:16,960 --> 00:03:19,960
+And that gives more information that allows the system to learn.
+
+77
+00:03:19,960 --> 00:03:20,960
+And in the same way, you can say,
+
+78
+00:03:20,960 --> 00:03:23,960
+yeah, that's almost the image that I want.
+
+79
+00:03:23,960 --> 00:03:28,960
+Whereas if you give the thing a dictionary of words,
+
+80
+00:03:28,960 --> 00:03:30,960
+say you've got your 10,000 words,
+
+81
+00:03:30,960 --> 00:03:32,960
+and the usual way of representing this
+
+82
+00:03:32,960 --> 00:03:34,960
+is with a one-hot vector.
+
+83
+00:03:34,960 --> 00:03:35,960
+If you have 10,000 words,
+
+84
+00:03:35,960 --> 00:03:40,960
+you have a vector that's 10,000 long, 10,000 dimensions,
+
+85
+00:03:40,960 --> 00:03:43,960
+and all of the values are 0,
+
+86
+00:03:43,960 --> 00:03:45,960
+apart from one of them, which is 1.
+
+87
+00:03:45,960 --> 00:03:47,960
+So, like, the first word in the dictionary,
+
+88
+00:03:47,960 --> 00:03:49,960
+if it's like A,
+
+89
+00:03:49,960 --> 00:03:52,960
+then that's represented by a 1,
+
+90
+00:03:52,960 --> 00:03:54,960
+and then the rest of the 10,000 are 0s.
+
+91
+00:03:54,960 --> 00:03:56,960
+And then the second word is like a 0, and then a 1,
+
+92
+00:03:56,960 --> 00:03:57,960
+and then all 0s, and so on.
+
+93
+00:03:57,960 --> 00:03:59,960
+But there, you're not giving any of those clues.
+
+94
+00:03:59,960 --> 00:04:01,960
+If the thing is looking for one word,
+
+95
+00:04:01,960 --> 00:04:03,960
+and it gets a different word,
+
+96
+00:04:03,960 --> 00:04:06,960
+all you can say is, yeah, that's the correct one,
+
+97
+00:04:06,960 --> 00:04:08,960
+or no, that's not the correct one.
+
+98
+00:04:08,960 --> 00:04:10,960
+Something that you might try, but you shouldn't,
+
+99
+00:04:10,960 --> 00:04:11,960
+because it's a stupid idea,
+
+100
+00:04:11,960 --> 00:04:16,960
+is rather than giving it as a one-hot vector,
+
+101
+00:04:16,960 --> 00:04:18,960
+you could just give it as a number.
+
+102
+00:04:18,960 --> 00:04:20,960
+But then you've got this indication
+
+103
+00:04:20,960 --> 00:04:22,960
+that, like, two words that are next to each other
+
+104
+00:04:22,960 --> 00:04:24,960
+in the dictionary are similar,
+
+105
+00:04:24,960 --> 00:04:27,960
+and that's not really true, right?
+
+106
+00:04:27,960 --> 00:04:28,960
+Like, if you have a language model,
+
+107
+00:04:28,960 --> 00:04:31,960
+and you're trying to predict the next word,
+
+108
+00:04:31,960 --> 00:04:32,960
+and it's saying,
+
+109
+00:04:32,960 --> 00:04:36,960
+I love playing with my pet blank,
+
+110
+00:04:36,960 --> 00:04:38,960
+and, like, the word you're looking for is cat,
+
+111
+00:04:38,960 --> 00:04:40,960
+and the word it gives you is car,
+
+112
+00:04:40,960 --> 00:04:43,960
+lexicographically, they're pretty similar.
+
+113
+00:04:43,960 --> 00:04:44,960
+But you don't want to be saying to your network,
+
+114
+00:04:44,960 --> 00:04:47,960
+ah, you know, close, that was very nearly right.
+
+115
+00:04:47,960 --> 00:04:48,960
+Because it's not very nearly right,
+
+116
+00:04:48,960 --> 00:04:49,960
+it's a nonsense prediction.
+
+117
+00:04:49,960 --> 00:04:53,960
+But then, if it said, like, dog,
+
+118
+00:04:53,960 --> 00:04:55,960
+you should be able to say,
+
+119
+00:04:55,960 --> 00:04:58,960
+no, but that's close, right?
+
+120
+00:04:58,960 --> 00:05:00,960
+Because that is a plausible completion for that sentence.
+
+121
+00:05:00,960 --> 00:05:02,960
+And the reason that that makes sense
+
+122
+00:05:02,960 --> 00:05:06,960
+is that cat and dog are, like, similar words.
+
+123
+00:05:06,960 --> 00:05:07,960
+What does it mean for a word
+
+124
+00:05:07,960 --> 00:05:11,960
+to be similar to another word?
+
+125
+00:05:11,960 --> 00:05:13,960
+And so the assumption that word embeddings use
+
+126
+00:05:13,960 --> 00:05:15,960
+is that two words are similar
+
+127
+00:05:15,960 --> 00:05:19,960
+if they are often used in similar contexts.
+
+128
+00:05:19,960 --> 00:05:22,960
+So, if you look at all of the instances
+
+129
+00:05:22,960 --> 00:05:25,960
+of the word cat in a giant database,
+
+130
+00:05:25,960 --> 00:05:27,960
+you know, a giant corpus of text,
+
+131
+00:05:27,960 --> 00:05:29,960
+and all of the instances of the word dog,
+
+132
+00:05:29,960 --> 00:05:31,960
+they're going to be surrounded by, you know,
+
+133
+00:05:31,960 --> 00:05:35,960
+words like pet, and words like, you know, feed,
+
+134
+00:05:35,960 --> 00:05:37,960
+words like play, and, you know, that kind of thing.
+
+135
+00:05:37,960 --> 00:05:38,960
+Cute, et cetera.
+
+136
+00:05:38,960 --> 00:05:39,960
+Right.
+
+137
+00:05:39,960 --> 00:05:41,960
+And so that gives some indication
+
+138
+00:05:41,960 --> 00:05:43,960
+that these are similar words.
+
+139
+00:05:43,960 --> 00:05:44,960
+The challenge that word embeddings
+
+140
+00:05:44,960 --> 00:05:46,960
+are trying to come up with is, like,
+
+141
+00:05:46,960 --> 00:05:49,960
+how do you represent words as vectors
+
+142
+00:05:49,960 --> 00:05:53,960
+such that two similar vectors
+
+143
+00:05:53,960 --> 00:05:56,960
+are two similar words?
+
+144
+00:05:56,960 --> 00:05:57,960
+And possibly so that directions
+
+145
+00:05:57,960 --> 00:06:00,960
+have some meaning as well.
+
+146
+00:06:00,960 --> 00:06:02,960
+Because then that should allow our networks
+
+147
+00:06:02,960 --> 00:06:07,960
+to be able to understand better
+
+148
+00:06:07,960 --> 00:06:10,960
+what we're talking about in text.
+
+149
+00:06:10,960 --> 00:06:12,960
+So the thing people realized was,
+
+150
+00:06:12,960 --> 00:06:13,960
+if you have a language model
+
+151
+00:06:13,960 --> 00:06:15,960
+that's able to get good performance
+
+152
+00:06:15,960 --> 00:06:18,960
+of, like, predicting the next word in a sentence,
+
+153
+00:06:18,960 --> 00:06:21,960
+and the architecture of that model
+
+154
+00:06:21,960 --> 00:06:23,960
+is such that it doesn't have
+
+155
+00:06:23,960 --> 00:06:27,960
+that many neurons in its hidden layers,
+
+156
+00:06:27,960 --> 00:06:31,960
+it has to be compressing that information down
+
+157
+00:06:31,960 --> 00:06:32,960
+efficiently.
+
+158
+00:06:32,960 --> 00:06:35,960
+So you've got the inputs to your network.
+
+159
+00:06:35,960 --> 00:06:36,960
+Let's say, for the sake of simplicity,
+
+160
+00:06:36,960 --> 00:06:38,960
+your language model is just taking a word
+
+161
+00:06:38,960 --> 00:06:40,960
+and trying to guess the next word.
+
+162
+00:06:40,960 --> 00:06:41,960
+So we only have to deal with
+
+163
+00:06:41,960 --> 00:06:42,960
+having one word in our input.
+
+164
+00:06:42,960 --> 00:06:45,960
+But so our input is this very tall thing, right?
+
+165
+00:06:45,960 --> 00:06:47,960
+10,000 tall.
+
+166
+00:06:47,960 --> 00:06:50,960
+And these then feed into a hidden layer
+
+167
+00:06:50,960 --> 00:06:51,960
+which is much smaller.
+
+168
+00:06:51,960 --> 00:06:53,960
+I mean, it's more than five.
+
+169
+00:06:53,960 --> 00:06:55,960
+But it might be, like, a few hundred.
+
+170
+00:06:55,960 --> 00:06:57,960
+Maybe, let's say 300.
+
+171
+00:06:57,960 --> 00:06:59,960
+And these are sort of the connections.
+
+172
+00:06:59,960 --> 00:07:01,960
+All of these is connected to all of these,
+
+173
+00:07:01,960 --> 00:07:02,960
+and it feeds in.
+
+174
+00:07:02,960 --> 00:07:04,960
+And then coming out the other end,
+
+175
+00:07:04,960 --> 00:07:06,960
+you're back out to 10,000 again, right?
+
+176
+00:07:06,960 --> 00:07:08,960
+Because your output is,
+
+177
+00:07:08,960 --> 00:07:10,960
+it's going to make one of these high.
+
+178
+00:07:10,960 --> 00:07:12,960
+You do something like softmax
+
+179
+00:07:12,960 --> 00:07:15,960
+to turn that into a probability distribution.
+
+180
+00:07:15,960 --> 00:07:18,960
+So you give it a word from your dictionary.
+
+181
+00:07:18,960 --> 00:07:20,960
+It then does something.
+
+182
+00:07:20,960 --> 00:07:22,960
+And what comes out the other end
+
+183
+00:07:22,960 --> 00:07:24,960
+is probability distribution
+
+184
+00:07:24,960 --> 00:07:25,960
+where you can just, like,
+
+185
+00:07:25,960 --> 00:07:27,960
+look at the highest value on the output,
+
+186
+00:07:27,960 --> 00:07:29,960
+and that's what it thinks the next word will be.
+
+187
+00:07:29,960 --> 00:07:30,960
+And the higher that value is,
+
+188
+00:07:30,960 --> 00:07:32,960
+the more, like, confident it is.
+
+189
+00:07:32,960 --> 00:07:34,960
+But the point is,
+
+190
+00:07:34,960 --> 00:07:37,960
+you're going from 10,000 to 300
+
+191
+00:07:37,960 --> 00:07:38,960
+and back out to 10,000.
+
+192
+00:07:38,960 --> 00:07:42,960
+So this 300 has to be,
+
+193
+00:07:42,960 --> 00:07:44,960
+if this is doing well at its task,
+
+194
+00:07:44,960 --> 00:07:45,960
+this 300 has to be encoding,
+
+195
+00:07:45,960 --> 00:07:49,960
+sort of compressing information about the word
+
+196
+00:07:49,960 --> 00:07:51,960
+because the information is passing through,
+
+197
+00:07:51,960 --> 00:07:53,960
+and it's going through this thing
+
+198
+00:07:53,960 --> 00:07:55,960
+that's only 300 wide.
+
+199
+00:07:55,960 --> 00:07:58,960
+So in order to be good at this task,
+
+200
+00:07:58,960 --> 00:07:59,960
+it has to be doing this.
+
+201
+00:07:59,960 --> 00:08:00,960
+So then they were thinking,
+
+202
+00:08:00,960 --> 00:08:02,960
+well, how do we pull that knowledge out?
+
+203
+00:08:02,960 --> 00:08:05,960
+It's kind of like an egg drop competition.
+
+204
+00:08:05,960 --> 00:08:07,960
+Is this where you have to devise some method
+
+205
+00:08:07,960 --> 00:08:10,960
+of safely getting the egg to the floor?
+
+206
+00:08:10,960 --> 00:08:11,960
+Right.
+
+207
+00:08:11,960 --> 00:08:14,960
+It's not like the teachers actually want
+
+208
+00:08:14,960 --> 00:08:17,960
+to get an egg safely to the ground, right?
+
+209
+00:08:17,960 --> 00:08:19,960
+But they've chosen the task such that
+
+210
+00:08:19,960 --> 00:08:21,960
+if you can do well at this task,
+
+211
+00:08:21,960 --> 00:08:24,960
+you have to have learned some things about physics,
+
+212
+00:08:24,960 --> 00:08:25,960
+some things about engineering.
+
+213
+00:08:25,960 --> 00:08:26,960
+And probably teamwork.
+
+214
+00:08:26,960 --> 00:08:28,960
+Yeah, right, right, exactly.
+
+215
+00:08:28,960 --> 00:08:32,960
+So it's the friends you make along the way.
+
+216
+00:08:32,960 --> 00:08:37,960
+So the way that they build this is
+
+217
+00:08:37,960 --> 00:08:43,960
+rather than trying to predict the next word,
+
+218
+00:08:43,960 --> 00:08:44,960
+although that will work,
+
+219
+00:08:44,960 --> 00:08:46,960
+that will actually give you word embeddings,
+
+220
+00:08:46,960 --> 00:08:47,960
+but they're not that good
+
+221
+00:08:47,960 --> 00:08:48,960
+because they're only based on the
+
+222
+00:08:48,960 --> 00:08:50,960
+immediately adjacent word.
+
+223
+00:08:50,960 --> 00:08:55,960
+You look sort of around the word.
+
+224
+00:08:55,960 --> 00:08:57,960
+So you give it a word
+
+225
+00:08:57,960 --> 00:09:00,960
+and then you sample from the neighborhood
+
+226
+00:09:00,960 --> 00:09:03,960
+of that word randomly another word
+
+227
+00:09:03,960 --> 00:09:06,960
+and you train the network to predict that.
+
+228
+00:09:06,960 --> 00:09:09,960
+So the idea is that at the end,
+
+229
+00:09:09,960 --> 00:09:11,960
+when this thing is fully trained,
+
+230
+00:09:11,960 --> 00:09:12,960
+you give it any word
+
+231
+00:09:12,960 --> 00:09:14,960
+and it's going to give you a probability distribution
+
+232
+00:09:14,960 --> 00:09:18,960
+over all of the words in your dictionary,
+
+233
+00:09:18,960 --> 00:09:20,960
+which is like how likely are each of these words
+
+234
+00:09:20,960 --> 00:09:25,960
+to show up within five words of this first word
+
+235
+00:09:25,960 --> 00:09:28,960
+or within ten or, you know, something like that.
+
+236
+00:09:28,960 --> 00:09:31,960
+If the system can get really good at this task,
+
+237
+00:09:31,960 --> 00:09:34,960
+then the weights of this hidden layer in the middle
+
+238
+00:09:34,960 --> 00:09:36,960
+have to encode something meaningful
+
+239
+00:09:36,960 --> 00:09:38,960
+about that input word.
+
+240
+00:09:38,960 --> 00:09:44,960
+And so if you imagine the word cat comes in,
+
+241
+00:09:44,960 --> 00:09:46,960
+in order to do well,
+
+242
+00:09:46,960 --> 00:09:49,960
+the probability distribution of surrounding words
+
+243
+00:09:49,960 --> 00:09:51,960
+is going to end up looking pretty similar
+
+244
+00:09:51,960 --> 00:09:55,960
+to the output that you would want for the word dog.
+
+245
+00:09:55,960 --> 00:10:00,960
+So it's going to have to put those two words close together
+
+246
+00:10:00,960 --> 00:10:05,960
+if it wants to do well at this task.
+
+247
+00:10:05,960 --> 00:10:06,960
+And that's literally all you do.
+
+248
+00:10:06,960 --> 00:10:11,960
+So if you run this on a lot,
+
+249
+00:10:11,960 --> 00:10:13,960
+it's absurdly simple, right?
+
+250
+00:10:13,960 --> 00:10:15,960
+But if you run it on a large enough data set
+
+251
+00:10:15,960 --> 00:10:22,960
+and give it enough compute to actually perform really well,
+
+252
+00:10:22,960 --> 00:10:26,960
+it ends up giving you each-
+
+253
+00:10:26,960 --> 00:10:30,960
+giving you for each word a vector
+
+254
+00:10:30,960 --> 00:10:33,960
+that's of length however many units you have
+
+255
+00:10:33,960 --> 00:10:35,960
+in your hidden layer,
+
+256
+00:10:35,960 --> 00:10:41,960
+which- for which the nearbyness of those vectors
+
+257
+00:10:41,960 --> 00:10:43,960
+expresses something meaningful
+
+258
+00:10:43,960 --> 00:10:45,960
+about how similar the contexts are
+
+259
+00:10:45,960 --> 00:10:47,960
+that those words appear in.
+
+260
+00:10:47,960 --> 00:10:49,960
+And our assumption is that words that appear
+
+261
+00:10:49,960 --> 00:10:53,960
+in similar contexts are similar words.
+
+262
+00:10:53,960 --> 00:10:58,960
+And it's slightly surprising how well that works
+
+263
+00:10:58,960 --> 00:11:01,960
+and how much information it's able to extract.
+
+264
+00:11:01,960 --> 00:11:04,960
+So it ends up being a little bit similar, actually,
+
+265
+00:11:04,960 --> 00:11:10,960
+to the way that the generative adversarial network does things,
+
+266
+00:11:10,960 --> 00:11:13,960
+where we're training it to produce good images
+
+267
+00:11:13,960 --> 00:11:14,960
+from random noise.
+
+268
+00:11:14,960 --> 00:11:15,960
+And in the process of doing that,
+
+269
+00:11:15,960 --> 00:11:19,960
+it creates this mapping from the latent space to images.
+
+270
+00:11:19,960 --> 00:11:22,960
+By doing basic arithmetic,
+
+271
+00:11:22,960 --> 00:11:25,960
+like just adding and subtracting vectors
+
+272
+00:11:25,960 --> 00:11:27,960
+on the latent space,
+
+273
+00:11:27,960 --> 00:11:31,960
+would actually produce meaningful changes in the image.
+
+274
+00:11:31,960 --> 00:11:35,960
+So what you end up with is that same principle,
+
+275
+00:11:35,960 --> 00:11:37,960
+but for words.
+
+276
+00:11:37,960 --> 00:11:40,960
+So if you take, for example, the vector,
+
+277
+00:11:40,960 --> 00:11:43,960
+and it's required by law that all explanations
+
+278
+00:11:43,960 --> 00:11:45,960
+of word embeddings use the same example to start with.
+
+279
+00:11:45,960 --> 00:11:51,960
+So if you take the vector for king,
+
+280
+00:11:51,960 --> 00:11:53,960
+subtract the vector for man,
+
+281
+00:11:53,960 --> 00:11:55,960
+and add the vector for woman,
+
+282
+00:11:55,960 --> 00:11:57,960
+you get another vector out.
+
+283
+00:11:57,960 --> 00:12:02,960
+And if you find the nearest point in your word embeddings
+
+284
+00:12:02,960 --> 00:12:04,960
+to that vector, it's the word queen.
+
+285
+00:12:04,960 --> 00:12:08,960
+And so there's a whole giant swathe of ways
+
+286
+00:12:08,960 --> 00:12:14,960
+that ideas about gender are encoded in the language,
+
+287
+00:12:14,960 --> 00:12:17,960
+which are all kind of captured by this vector,
+
+288
+00:12:17,960 --> 00:12:21,960
+which we won't get into, but it's interesting to explore.
+
+289
+00:12:21,960 --> 00:12:24,960
+I have it running, and we can play around
+
+290
+00:12:24,960 --> 00:12:27,960
+with some of these vectors and see where they end up.
+
+291
+00:12:27,960 --> 00:12:29,960
+So I have this running in Google Colab,
+
+292
+00:12:29,960 --> 00:12:30,960
+which is very handy.
+
+293
+00:12:30,960 --> 00:12:33,960
+I'm using word embeddings that were found
+
+294
+00:12:33,960 --> 00:12:35,960
+with the word2vec algorithm using Google News.
+
+295
+00:12:35,960 --> 00:12:39,960
+Each word is mapped to 300 numbers.
+
+296
+00:12:39,960 --> 00:12:45,960
+Let's check whether what we've got
+
+297
+00:12:45,960 --> 00:12:49,960
+satisfies our first condition.
+
+298
+00:12:49,960 --> 00:12:52,960
+We want dog and cat to be relatively close to each other,
+
+299
+00:12:52,960 --> 00:12:55,960
+and we want cat to be, like, further away from car
+
+300
+00:12:55,960 --> 00:12:57,960
+than it is from dog, right?
+
+301
+00:12:57,960 --> 00:12:59,960
+We can just measure the distance between these different vectors.
+
+302
+00:12:59,960 --> 00:13:02,960
+I believe you just do model.distance,
+
+303
+00:13:02,960 --> 00:13:06,960
+distance between car and cat, okay, is 0.784,
+
+304
+00:13:06,960 --> 00:13:12,960
+and then the distance between, let's say, dog and cat, 0.23, right?
+
+305
+00:13:12,960 --> 00:13:14,960
+Dog and cat are closer to each other.
+
+306
+00:13:14,960 --> 00:13:18,960
+This is a good start, right?
+
+307
+00:13:18,960 --> 00:13:21,960
+And, in fact, we can...
+
+308
+00:13:21,960 --> 00:13:26,960
+let's find all of the words that are closest to cat, for example.
+
+309
+00:13:26,960 --> 00:13:29,960
+Okay, so the most similar word to cat is cats.
+
+310
+00:13:29,960 --> 00:13:30,960
+Makes sense?
+
+311
+00:13:30,960 --> 00:13:33,960
+Followed by dog, kitten, feline, beagle, puppy,
+
+312
+00:13:33,960 --> 00:13:37,960
+pup, pet, felines, and chihuahua, right?
+
+313
+00:13:37,960 --> 00:13:39,960
+So this is already useful.
+
+314
+00:13:39,960 --> 00:13:41,960
+It's already handy that you can throw any word at this,
+
+315
+00:13:41,960 --> 00:13:43,960
+and it will give you a list of the words that are similar.
+
+316
+00:13:43,960 --> 00:13:49,960
+Whereas, like, if I put in car, I get vehicle, cars, SUV, minivan, truck, right?
+
+317
+00:13:49,960 --> 00:13:51,960
+So this is working.
+
+318
+00:13:51,960 --> 00:13:55,960
+The question of directions is pretty interesting.
+
+319
+00:13:55,960 --> 00:13:58,960
+So, yeah, let's do the classic example, which is this.
+
+320
+00:13:58,960 --> 00:14:02,960
+If you take the vector for king, subtract the vector for man,
+
+321
+00:14:02,960 --> 00:14:07,960
+add the vector for woman, what you get, somewhat predictably, is queen.
+
+322
+00:14:07,960 --> 00:14:11,960
+And if you put in boy here, you get girl.
+
+323
+00:14:11,960 --> 00:14:15,960
+If you put in father, you get mother.
+
+324
+00:14:15,960 --> 00:14:18,960
+Yeah, and if you put in shirt, you get blouse.
+
+325
+00:14:18,960 --> 00:14:22,960
+So this is reflecting something about gender that's in the data set that it's using.
+
+326
+00:14:22,960 --> 00:14:26,960
+This reminds me a little bit of the unicorn thing where, you know,
+
+327
+00:14:26,960 --> 00:14:30,960
+the transformer was able to infer all sorts of,
+
+328
+00:14:30,960 --> 00:14:33,960
+or appear to have knowledge about the world because of language.
+
+329
+00:14:33,960 --> 00:14:35,960
+Right, right.
+
+330
+00:14:35,960 --> 00:14:46,960
+But the thing that I like about this is that that transformer is working with 1.5 billion parameters.
+
+331
+00:14:46,960 --> 00:14:51,960
+And here we're literally just taking each word and giving 300 numbers, you know?
+
+332
+00:14:51,960 --> 00:15:04,960
+If I go from London, and then subtract England, and then add, I don't know, Japan.
+
+333
+00:15:04,960 --> 00:15:05,960
+We'd hope for Tokyo.
+
+334
+00:15:05,960 --> 00:15:07,960
+We'd hope for Tokyo.
+
+335
+00:15:07,960 --> 00:15:09,960
+And we get Tokyo.
+
+336
+00:15:09,960 --> 00:15:10,960
+We get Tokyo twice, weirdly.
+
+337
+00:15:10,960 --> 00:15:11,960
+Tokyo, Tokyo.
+
+338
+00:15:11,960 --> 00:15:13,960
+Why is, oh, oh sorry, it's, no we don't.
+
+339
+00:15:13,960 --> 00:15:16,960
+We get Tokyo and Toyko.
+
+340
+00:15:16,960 --> 00:15:17,960
+Ah, which is...
+
+341
+00:15:17,960 --> 00:15:18,960
+A typo, I guess.
+
+342
+00:15:18,960 --> 00:15:22,960
+And so yeah, USA in New York.
+
+343
+00:15:22,960 --> 00:15:23,960
+Ah, okay.
+
+344
+00:15:23,960 --> 00:15:24,960
+It's interesting.
+
+345
+00:15:24,960 --> 00:15:27,960
+Maybe it's thinking largest city of, yeah.
+
+346
+00:15:27,960 --> 00:15:28,960
+Right, right.
+
+347
+00:15:28,960 --> 00:15:30,960
+Like the exact relationship here isn't clear.
+
+348
+00:15:30,960 --> 00:15:31,960
+We haven't specified that.
+
+349
+00:15:31,960 --> 00:15:33,960
+What does it give us for Australia?
+
+350
+00:15:33,960 --> 00:15:35,960
+I bet it's, yeah, it's Sydney.
+
+351
+00:15:35,960 --> 00:15:36,960
+Sydney, Melbourne.
+
+352
+00:15:36,960 --> 00:15:38,960
+So it's, yeah, it's not doing capital.
+
+353
+00:15:38,960 --> 00:15:40,960
+It's just doing largest city.
+
+354
+00:15:40,960 --> 00:15:41,960
+Right.
+
+355
+00:15:41,960 --> 00:15:44,960
+But that's cool.
+
+356
+00:15:45,960 --> 00:15:48,960
+It's cool that we can extract the largest city,
+
+357
+00:15:48,960 --> 00:15:51,960
+and like this is completely unsupervised.
+
+358
+00:15:51,960 --> 00:15:55,960
+It was just given a huge number of news articles, I suppose.
+
+359
+00:15:55,960 --> 00:15:59,960
+And it's pulled out that there's this relationship,
+
+360
+00:15:59,960 --> 00:16:01,960
+and that you can follow it for different things.
+
+361
+00:16:01,960 --> 00:16:05,960
+You can take the vector from pig to oink, right?
+
+362
+00:16:05,960 --> 00:16:06,960
+Okay.
+
+363
+00:16:06,960 --> 00:16:09,960
+And then like you put cow in there, that's moo.
+
+364
+00:16:10,960 --> 00:16:14,960
+You put cat in there, and you get meowing.
+
+365
+00:16:14,960 --> 00:16:17,960
+You put dog in there.
+
+366
+00:16:17,960 --> 00:16:21,960
+You get box, right?
+
+367
+00:16:21,960 --> 00:16:22,960
+Close enough for me.
+
+368
+00:16:22,960 --> 00:16:23,960
+Yeah, yeah.
+
+369
+00:16:23,960 --> 00:16:26,960
+You put, but then it gets surreal.
+
+370
+00:16:26,960 --> 00:16:29,960
+You put Santa in there.
+
+371
+00:16:29,960 --> 00:16:33,960
+Ho, ho, ho.
+
+372
+00:16:33,960 --> 00:16:34,960
+Right?
+
+373
+00:16:34,960 --> 00:16:35,960
+That's fantastic.
+
+374
+00:16:35,960 --> 00:16:38,960
+What does the fox say?
+
+375
+00:16:38,960 --> 00:16:39,960
+What?
+
+376
+00:16:39,960 --> 00:16:41,960
+What does it say?
+
+377
+00:16:41,960 --> 00:16:42,960
+It says Phoebe.
+
+378
+00:16:42,960 --> 00:16:43,960
+What?
+
+379
+00:16:43,960 --> 00:16:45,960
+So it doesn't know, basically.
+
+380
+00:16:45,960 --> 00:16:47,960
+Although the second thing is chittering.
+
+381
+00:16:47,960 --> 00:16:49,960
+Do foxes chitter?
+
+382
+00:16:49,960 --> 00:16:50,960
+I don't know.
+
+383
+00:16:50,960 --> 00:16:51,960
+Or gabble?
+
+384
+00:16:51,960 --> 00:16:54,960
+Don't they go ding-a-ling-a-ling, ding, ding, ding, ding, ding, ding, ding, ding?
+
+385
+00:16:54,960 --> 00:16:55,960
+Not in this data set.
+

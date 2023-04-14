@@ -1,0 +1,792 @@
+1
+00:00:00,000 --> 00:00:03,360
+We see a lot of comments on your videos about people who just say,
+
+2
+00:00:03,360 --> 00:00:07,520
+oh, just simply do this, that will be the answer for all of these problems.
+
+3
+00:00:07,520 --> 00:00:07,760
+Yeah.
+
+4
+00:00:07,760 --> 00:00:10,640
+And I admire them for getting stuck in and getting involved.
+
+5
+00:00:10,640 --> 00:00:13,600
+But one thing that always strikes me is people say,
+
+6
+00:00:13,600 --> 00:00:16,320
+just change this bit of code or just change this value.
+
+7
+00:00:16,880 --> 00:00:23,360
+And it strikes me that if we invent AGI or happen upon AGI,
+
+8
+00:00:23,360 --> 00:00:25,840
+the reality is it's probably going to be a neural network
+
+9
+00:00:25,840 --> 00:00:28,560
+that we don't actually know exactly how it's working anyway.
+
+10
+00:00:29,440 --> 00:00:30,480
+What are your thoughts on that?
+
+11
+00:00:31,200 --> 00:00:35,200
+Yeah, I mean, to the people who think they've solved it,
+
+12
+00:00:35,200 --> 00:00:39,120
+either you're smarter than everyone else who's thought about this problem so far
+
+13
+00:00:39,120 --> 00:00:41,920
+by a big margin, or you're missing something.
+
+14
+00:00:41,920 --> 00:00:45,040
+And maybe you should read some more of what other people have thought
+
+15
+00:00:46,240 --> 00:00:48,880
+and learn more about the subject.
+
+16
+00:00:48,880 --> 00:00:49,760
+Because it's cool.
+
+17
+00:00:50,320 --> 00:00:54,160
+I think it's great that people come in and try and solve it
+
+18
+00:00:54,160 --> 00:00:55,680
+and try and find solutions.
+
+19
+00:00:55,680 --> 00:00:56,800
+And we need that.
+
+20
+00:00:56,800 --> 00:00:59,520
+But yeah, the problem is not a lack of ideas.
+
+21
+00:00:59,520 --> 00:01:00,800
+It's a lack of good ideas.
+
+22
+00:01:03,520 --> 00:01:05,920
+This kind of coming in from the outside and saying,
+
+23
+00:01:05,920 --> 00:01:06,720
+oh, yeah, I've got it.
+
+24
+00:01:06,720 --> 00:01:10,880
+I figured out the solution is obviously arrogance, right?
+
+25
+00:01:12,160 --> 00:01:15,360
+But the whole artificial general intelligence thing
+
+26
+00:01:15,360 --> 00:01:18,400
+is sort of an inherently arrogant thing.
+
+27
+00:01:18,400 --> 00:01:20,480
+It's quite hubristic.
+
+28
+00:01:20,480 --> 00:01:22,400
+You know, I mean, you talk about playing God,
+
+29
+00:01:24,560 --> 00:01:25,440
+making God, like...
+
+30
+00:01:26,400 --> 00:01:30,000
+But also that new, oh, I've got it, this is how you do it.
+
+31
+00:01:30,000 --> 00:01:31,840
+Sometimes that does work, that approach.
+
+32
+00:01:31,840 --> 00:01:32,640
+Yeah, sometimes.
+
+33
+00:01:32,640 --> 00:01:35,920
+Because you see stuff that people have been too close to the metal to...
+
+34
+00:01:36,640 --> 00:01:39,120
+I don't know if that's the word, close to the problem to...
+
+35
+00:01:39,120 --> 00:01:40,320
+Right, right, yeah.
+
+36
+00:01:40,320 --> 00:01:41,760
+Sometimes you get too close to it,
+
+37
+00:01:41,760 --> 00:01:44,000
+you can't see the picture, you're inside the frame, whatever.
+
+38
+00:01:44,000 --> 00:01:47,440
+It's totally possible that some random person
+
+39
+00:01:47,440 --> 00:01:50,240
+is going to come up with a real workable solution.
+
+40
+00:01:50,240 --> 00:01:53,440
+And I would love, I would love that to happen.
+
+41
+00:01:53,440 --> 00:01:54,800
+I think that would be the best.
+
+42
+00:01:54,880 --> 00:01:56,640
+Because then everyone would have to try and figure out
+
+43
+00:01:56,640 --> 00:01:59,920
+how to cite a YouTube comment in a research paper.
+
+44
+00:02:00,880 --> 00:02:04,160
+I presume there's already style advice for that.
+
+45
+00:02:04,160 --> 00:02:07,520
+Anyway, but the problem is from the outside view,
+
+46
+00:02:08,240 --> 00:02:10,720
+you get a million of these, right?
+
+47
+00:02:11,360 --> 00:02:13,920
+And so, you know, a million minus one
+
+48
+00:02:13,920 --> 00:02:15,440
+are going to be not worth your time to read,
+
+49
+00:02:15,440 --> 00:02:16,480
+which means even the good one
+
+50
+00:02:16,480 --> 00:02:18,720
+isn't actually worth your time to read on balance.
+
+51
+00:02:18,720 --> 00:02:21,280
+Because you can't, how are you going to differentiate it?
+
+52
+00:02:21,280 --> 00:02:25,760
+So the only thing you can do is get up to date on the research,
+
+53
+00:02:25,760 --> 00:02:28,000
+read the papers, read what everybody else is doing,
+
+54
+00:02:28,720 --> 00:02:30,640
+make sure that what you're doing is unique,
+
+55
+00:02:30,640 --> 00:02:32,160
+and then actually write something down
+
+56
+00:02:32,160 --> 00:02:34,400
+and send it to a researcher, you know, write it down properly
+
+57
+00:02:34,400 --> 00:02:36,880
+and make it clear immediately, up front,
+
+58
+00:02:37,600 --> 00:02:41,040
+that you're familiar with the existing work in the field.
+
+59
+00:02:43,200 --> 00:02:45,200
+And then, you know, then maybe you're in with a chance.
+
+60
+00:02:45,200 --> 00:02:46,480
+But what will probably happen is
+
+61
+00:02:46,480 --> 00:02:47,680
+in the process of all of that reading,
+
+62
+00:02:47,680 --> 00:02:48,960
+you realize your mistake.
+
+63
+00:02:48,960 --> 00:02:50,240
+It's still worth doing.
+
+64
+00:02:50,240 --> 00:02:51,920
+You've learned something, you know.
+
+65
+00:02:51,920 --> 00:02:55,520
+This is part of why AI safety is such a hard problem, I think,
+
+66
+00:02:55,520 --> 00:03:00,160
+in the sense that a problem can be quite hard,
+
+67
+00:03:00,160 --> 00:03:02,240
+and you look at it and you can tell it's quite hard.
+
+68
+00:03:02,240 --> 00:03:04,960
+A problem that's really hard is a problem you look at it
+
+69
+00:03:04,960 --> 00:03:07,520
+and then immediately think you've got a solution and you don't.
+
+70
+00:03:07,520 --> 00:03:09,760
+Because then you don't even, you're like the,
+
+71
+00:03:11,120 --> 00:03:13,600
+it's like you're like the sat-nav, right?
+
+72
+00:03:13,600 --> 00:03:15,840
+You're confidently with the wrong answer now,
+
+73
+00:03:15,840 --> 00:03:18,640
+rather than at least being honestly uncertain.
+
+74
+00:03:19,200 --> 00:03:23,840
+Yeah, like legibility in machine learning systems
+
+75
+00:03:23,840 --> 00:03:26,480
+is really low right now.
+
+76
+00:03:26,480 --> 00:03:28,000
+They're kind of black boxes, right?
+
+77
+00:03:28,000 --> 00:03:31,600
+They're not legible in that you can't easily tell
+
+78
+00:03:31,600 --> 00:03:33,840
+what any given part of it does or how it works.
+
+79
+00:03:35,520 --> 00:03:38,320
+And that is a real problem for safety, definitely.
+
+80
+00:03:38,320 --> 00:03:42,160
+I think right now, the stage we're at with AI safety
+
+81
+00:03:42,160 --> 00:03:46,640
+is we're trying to specify any kind of safe agent,
+
+82
+00:03:47,440 --> 00:03:49,600
+which is, you know, trying to build something
+
+83
+00:03:49,600 --> 00:03:51,120
+from the ground up that will be safe.
+
+84
+00:03:51,680 --> 00:03:54,000
+And I think that's much easier
+
+85
+00:03:54,000 --> 00:03:58,000
+than taking some existing thing that works but isn't safe
+
+86
+00:03:58,000 --> 00:03:59,280
+and trying to make it safe.
+
+87
+00:04:00,320 --> 00:04:02,080
+I don't think that approach, to be honest,
+
+88
+00:04:02,080 --> 00:04:03,840
+is likely to be fruitful.
+
+89
+00:04:04,720 --> 00:04:06,960
+I give a really dodgy example
+
+90
+00:04:06,960 --> 00:04:09,200
+of how this might kind of be something
+
+91
+00:04:09,200 --> 00:04:10,480
+people can get their grips with,
+
+92
+00:04:10,480 --> 00:04:12,560
+which is the Star Wars scene
+
+93
+00:04:12,560 --> 00:04:14,720
+where the robots are given restraining bolts.
+
+94
+00:04:14,720 --> 00:04:17,280
+R2-D2 says, oh, I can't do that
+
+95
+00:04:17,280 --> 00:04:18,960
+unless you take this restraining bolt off.
+
+96
+00:04:18,960 --> 00:04:20,080
+But if you remove the bolt,
+
+97
+00:04:20,080 --> 00:04:22,560
+he might be able to play back the entire recording.
+
+98
+00:04:22,560 --> 00:04:23,920
+He then promptly runs away.
+
+99
+00:04:23,920 --> 00:04:27,520
+So I guess you're too small to run away on me
+
+100
+00:04:27,520 --> 00:04:28,880
+if I take this off.
+
+101
+00:04:28,880 --> 00:04:31,040
+This is kind of like retrofitting
+
+102
+00:04:31,040 --> 00:04:32,640
+some kind of restraining bolt.
+
+103
+00:04:32,640 --> 00:04:34,560
+Yeah, I mean, so there's different things, right?
+
+104
+00:04:35,440 --> 00:04:36,880
+Building an unsafe AI
+
+105
+00:04:36,880 --> 00:04:41,440
+and then trying to control it against its will is idiotic.
+
+106
+00:04:42,160 --> 00:04:44,640
+I think having some of those controls
+
+107
+00:04:44,640 --> 00:04:45,920
+or ways of keeping the system,
+
+108
+00:04:47,040 --> 00:04:49,520
+you know, limiting what the system can do and stuff
+
+109
+00:04:49,520 --> 00:04:50,240
+is sensible,
+
+110
+00:04:50,880 --> 00:04:53,280
+but it's so much better to make a system
+
+111
+00:04:53,280 --> 00:04:55,840
+that doesn't want to do bad things
+
+112
+00:04:55,840 --> 00:04:57,520
+than to try and keep one in.
+
+113
+00:04:59,840 --> 00:05:01,360
+So this is kind of like the idea of,
+
+114
+00:05:01,360 --> 00:05:02,720
+oh, can't we just sandbox it?
+
+115
+00:05:03,280 --> 00:05:04,000
+Right, yeah.
+
+116
+00:05:05,760 --> 00:05:07,920
+I mean, constraining an AI
+
+117
+00:05:07,920 --> 00:05:09,840
+necessarily means outwitting it.
+
+118
+00:05:09,920 --> 00:05:12,400
+And so constraining a superintelligence
+
+119
+00:05:12,400 --> 00:05:13,920
+means outwitting a superintelligence,
+
+120
+00:05:13,920 --> 00:05:16,000
+which kind of just sort of by definition
+
+121
+00:05:16,000 --> 00:05:18,080
+is not a winning strategy.
+
+122
+00:05:18,080 --> 00:05:20,160
+You can't rely on outwitting a superintelligence.
+
+123
+00:05:20,720 --> 00:05:22,480
+Also, it only has to get out once.
+
+124
+00:05:22,480 --> 00:05:23,360
+That's the other thing.
+
+125
+00:05:23,360 --> 00:05:24,640
+If you have a superintelligence
+
+126
+00:05:24,640 --> 00:05:26,880
+and you've sort of put it in a box
+
+127
+00:05:26,880 --> 00:05:28,160
+so it can't do anything,
+
+128
+00:05:28,160 --> 00:05:28,720
+that's cool.
+
+129
+00:05:28,720 --> 00:05:30,320
+Maybe we could even build a box
+
+130
+00:05:30,320 --> 00:05:32,080
+that could successfully contain it.
+
+131
+00:05:32,080 --> 00:05:32,880
+But now what?
+
+132
+00:05:32,880 --> 00:05:34,640
+We may as well just have a box, right?
+
+133
+00:05:34,640 --> 00:05:37,040
+There's no benefit to having a superintelligence in a box
+
+134
+00:05:37,040 --> 00:05:38,640
+if you can't use it for anything.
+
+135
+00:05:39,280 --> 00:05:40,880
+It needs to be able to do things.
+
+136
+00:05:40,880 --> 00:05:42,960
+An AI properly contained
+
+137
+00:05:42,960 --> 00:05:45,040
+may as well just be a rock, right?
+
+138
+00:05:45,040 --> 00:05:46,000
+It doesn't do anything.
+
+139
+00:05:46,000 --> 00:05:46,960
+If you have your AI,
+
+140
+00:05:46,960 --> 00:05:48,560
+you want it to do something meaningful.
+
+141
+00:05:49,200 --> 00:05:50,720
+So now you have a problem of
+
+142
+00:05:50,720 --> 00:05:52,960
+you've got something you don't know is benevolent.
+
+143
+00:05:52,960 --> 00:05:54,960
+You don't know that what it wants is what you want.
+
+144
+00:05:55,760 --> 00:05:56,800
+And you then need to,
+
+145
+00:05:56,800 --> 00:05:58,640
+you presumably have some sort of gatekeeper
+
+146
+00:05:59,200 --> 00:06:00,400
+who it tries to say,
+
+147
+00:06:00,400 --> 00:06:01,760
+I'd like to do this.
+
+148
+00:06:01,760 --> 00:06:02,880
+And you have to decide,
+
+149
+00:06:02,880 --> 00:06:04,960
+is that something we want it to be doing?
+
+150
+00:06:04,960 --> 00:06:06,240
+How the hell are we supposed to know?
+
+151
+00:06:06,800 --> 00:06:09,200
+I mean, how can we,
+
+152
+00:06:09,200 --> 00:06:10,160
+if we're outsmarted,
+
+153
+00:06:10,160 --> 00:06:12,320
+how can we reliably differentiate actions
+
+154
+00:06:12,320 --> 00:06:14,320
+we want to allow it to take from actions we don't?
+
+155
+00:06:16,000 --> 00:06:18,320
+And maybe the thing has a long-term plan
+
+156
+00:06:18,320 --> 00:06:19,840
+of doing a bunch of things
+
+157
+00:06:19,840 --> 00:06:21,760
+that we don't notice at the time are a problem
+
+158
+00:06:21,760 --> 00:06:23,840
+until it now then can get out, right?
+
+159
+00:06:23,840 --> 00:06:25,920
+Actually, this speaks to a more general thing,
+
+160
+00:06:25,920 --> 00:06:27,360
+which is there's often a trade-off
+
+161
+00:06:27,360 --> 00:06:29,920
+between safety and effectiveness.
+
+162
+00:06:29,920 --> 00:06:30,960
+Like with anything, right?
+
+163
+00:06:30,960 --> 00:06:31,920
+Anything you're designing,
+
+164
+00:06:31,920 --> 00:06:32,480
+there's going to be,
+
+165
+00:06:32,480 --> 00:06:33,840
+you're going to be trading off
+
+166
+00:06:33,840 --> 00:06:35,360
+different things against one another.
+
+167
+00:06:35,360 --> 00:06:40,000
+And often you can trade in some effectiveness
+
+168
+00:06:40,000 --> 00:06:42,400
+to get some safety or vice versa.
+
+169
+00:06:42,400 --> 00:06:44,400
+So some of the things in this paper are like that,
+
+170
+00:06:44,400 --> 00:06:46,880
+where the thing does become less powerful
+
+171
+00:06:47,680 --> 00:06:50,640
+than an AI designed differently,
+
+172
+00:06:50,640 --> 00:06:52,000
+but it also becomes safer.
+
+173
+00:06:52,000 --> 00:06:53,520
+You know, that's always the way it is.
+
+174
+00:06:53,520 --> 00:06:55,200
+But it's just where you put your resources,
+
+175
+00:06:55,200 --> 00:06:56,080
+I suppose, isn't it?
+
+176
+00:06:56,640 --> 00:06:59,680
+Right, but it's kind of inherent to the thing.
+
+177
+00:06:59,680 --> 00:07:03,040
+Like, I mean, and this is true of any tool, right?
+
+178
+00:07:03,040 --> 00:07:04,240
+The more powerful the tool is,
+
+179
+00:07:04,240 --> 00:07:05,200
+the more dangerous it is.
+
+180
+00:07:05,200 --> 00:07:08,160
+And if you want to make a powerful tool less dangerous,
+
+181
+00:07:08,160 --> 00:07:09,440
+one of the ways to do that
+
+182
+00:07:09,440 --> 00:07:10,880
+is going to involve making it less powerful,
+
+183
+00:07:12,240 --> 00:07:14,480
+or less flexible, or less versatile,
+
+184
+00:07:14,480 --> 00:07:16,480
+or, you know, something that's going to reduce
+
+185
+00:07:16,480 --> 00:07:18,640
+the overall effectiveness of it as a tool
+
+186
+00:07:18,640 --> 00:07:19,840
+in exchange for more safety.
+
+187
+00:07:20,720 --> 00:07:21,760
+And it's the same with AI.
+
+188
+00:07:24,400 --> 00:07:25,520
+And obviously, you're going to be a server
+
+189
+00:07:25,520 --> 00:07:26,800
+for whatever product you're using.
+
+190
+00:07:26,800 --> 00:07:29,040
+Now, any time that Bob sends Alice a message,
+
+191
+00:07:29,040 --> 00:07:31,120
+it's going to go via this server by definition,
+
+192
+00:07:31,120 --> 00:07:32,000
+because that's the thing
+
+193
+00:07:32,000 --> 00:07:33,440
+that relays the messages to Alice.
+
+194
+00:07:33,440 --> 00:07:35,120
+It knows how to communicate with Alice,
+
+195
+00:07:35,440 --> 00:07:36,960
+it knows what her phone number is,
+
+196
+00:07:36,960 --> 00:07:38,400
+it has a list of your contacts and things.
+
+197
+00:07:38,400 --> 00:07:39,600
+You know, this is how it works.
+
+198
+00:07:39,600 --> 00:07:40,960
+This could be a phone provider.
+

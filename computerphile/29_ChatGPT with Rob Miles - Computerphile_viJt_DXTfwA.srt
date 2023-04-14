@@ -1,0 +1,3192 @@
+1
+00:00:00,000 --> 00:00:05,200
+Okay, so you remember, a while ago, when we started talking about language models,
+
+2
+00:00:05,200 --> 00:00:08,080
+I just want to, I kind of just want to claim some points, basically.
+
+3
+00:00:08,080 --> 00:00:11,840
+Be like, hey, remember years ago when I was like, I think language models are a really big deal.
+
+4
+00:00:12,400 --> 00:00:17,440
+And I think that, like, what happens when we scale them up more is pretty interesting.
+
+5
+00:00:18,000 --> 00:00:19,680
+But alignment is very important.
+
+6
+00:00:21,600 --> 00:00:24,160
+Seems to be what's being played out.
+
+7
+00:00:24,720 --> 00:00:27,920
+In the sense that, ChatGVT is very impressive,
+
+8
+00:00:27,920 --> 00:00:34,560
+but it's not actually, like, I don't think it's larger than GPT-3 in terms of parameter count.
+
+9
+00:00:35,920 --> 00:00:39,440
+I was going to ask that very, very question, because, you know, we went from GPT-2,
+
+10
+00:00:39,440 --> 00:00:43,120
+and then we went all GPT-3, and it seemed like we were scaling up and up and up.
+
+11
+00:00:43,120 --> 00:00:45,760
+But actually, has it just been smarter this time?
+
+12
+00:00:46,400 --> 00:00:50,000
+Yeah, well, there's a sense in which it's better aligned.
+
+13
+00:00:52,560 --> 00:00:54,480
+That's one way you could frame it, anyway.
+
+14
+00:00:54,480 --> 00:00:59,520
+Because the original GPT-3 was a language model, a pure language model.
+
+15
+00:01:00,880 --> 00:01:04,480
+And so it, in principle, could do all kinds of things.
+
+16
+00:01:04,480 --> 00:01:07,440
+But in order to get it to do the specific thing you wanted it to do,
+
+17
+00:01:07,440 --> 00:01:10,000
+you had to be a bit clever about it.
+
+18
+00:01:10,000 --> 00:01:15,760
+Like, I think we talked about putting TLDR in front of things
+
+19
+00:01:16,400 --> 00:01:19,680
+to figure out how to get it to do summarization, this kind of thing.
+
+20
+00:01:19,680 --> 00:01:23,600
+There's a sense in which it's a lot more capable than it lets on.
+
+21
+00:01:25,280 --> 00:01:31,840
+Because, okay, so there's one way that you can think about pure language models,
+
+22
+00:01:32,400 --> 00:01:34,240
+which is as simulators.
+
+23
+00:01:35,760 --> 00:01:37,520
+What they're trying to do is predict text, right?
+
+24
+00:01:38,160 --> 00:01:43,600
+So in order to do a good job at predicting text,
+
+25
+00:01:43,600 --> 00:01:48,480
+you need to have good models of the processes that generate the text.
+
+26
+00:01:48,480 --> 00:01:51,440
+It's like people being well-read and needing to have read a lot of books
+
+27
+00:01:51,440 --> 00:01:52,640
+to be able to write.
+
+28
+00:01:52,640 --> 00:01:54,880
+Would that be fair, or is that oversimplifying?
+
+29
+00:01:54,880 --> 00:01:56,160
+Yeah, not quite what I'm saying.
+
+30
+00:01:57,200 --> 00:02:08,800
+What I'm saying is, if you're going to write a previously unseen poem by Shakespeare,
+
+31
+00:02:09,760 --> 00:02:13,920
+then you need to be able to simulate a Shakespeare, right?
+
+32
+00:02:15,120 --> 00:02:21,360
+You need to be able to spin up some simulacrum of Shakespeare to generate this text.
+
+33
+00:02:22,160 --> 00:02:25,760
+This applies to any of the processes that generated the text.
+
+34
+00:02:25,760 --> 00:02:28,000
+So mostly that's people.
+
+35
+00:02:28,000 --> 00:02:30,000
+Obviously, it's mostly human-authored text.
+
+36
+00:02:30,000 --> 00:02:35,120
+But also, if you're going to correctly predict a table of numbers,
+
+37
+00:02:35,120 --> 00:02:36,720
+say you have a table of numbers,
+
+38
+00:02:36,720 --> 00:02:39,680
+and then at the bottom it says, you know, sum whatever,
+
+39
+00:02:40,240 --> 00:02:43,920
+you need to simulate whatever process generated the next token
+
+40
+00:02:43,920 --> 00:02:45,680
+in order to put the right token there,
+
+41
+00:02:45,680 --> 00:02:48,560
+which might have been like a human being going through and counting them up.
+
+42
+00:02:49,120 --> 00:02:51,440
+It probably was more likely to be a computer,
+
+43
+00:02:51,440 --> 00:02:56,720
+and so you needed to simulate that calculator or that Excel sum function
+
+44
+00:02:56,720 --> 00:02:58,160
+or whatever was doing that.
+
+45
+00:02:59,600 --> 00:03:06,480
+And right now, current language models are not that good at this.
+
+46
+00:03:09,120 --> 00:03:12,560
+But in principle, in order to do a good job at this, you need this.
+
+47
+00:03:13,680 --> 00:03:17,600
+It will have a go, and it's usually approximately right.
+
+48
+00:03:18,160 --> 00:03:21,280
+It's often order of magnitude, but it's fudging it.
+
+49
+00:03:21,280 --> 00:03:23,120
+I think this is mostly because
+
+50
+00:03:24,880 --> 00:03:29,680
+tables of sums are like a very small part of the total data set,
+
+51
+00:03:29,680 --> 00:03:31,920
+and so the training process is just not allocating
+
+52
+00:03:32,480 --> 00:03:35,600
+that many resources to figuring out how to add up numbers.
+
+53
+00:03:35,600 --> 00:03:38,000
+Probably if you trained something GPT-3-sized
+
+54
+00:03:38,640 --> 00:03:41,200
+that was like all on tables of numbers,
+
+55
+00:03:41,200 --> 00:03:43,280
+it would just learn how to do addition properly.
+
+56
+00:03:43,280 --> 00:03:45,200
+Yeah, that would cost you millions of dollars.
+
+57
+00:03:45,200 --> 00:03:49,120
+You would end up with an extremely expensive to run and not very good calculator.
+
+58
+00:03:49,120 --> 00:03:50,400
+This is not something people are going to do.
+
+59
+00:03:50,400 --> 00:03:54,160
+But in principle, the model should learn those things.
+
+60
+00:03:54,160 --> 00:03:58,160
+And in the same way, if you're modeling a bunch of scientific papers,
+
+61
+00:04:00,960 --> 00:04:04,800
+say you describe the method of an experiment,
+
+62
+00:04:05,520 --> 00:04:08,560
+and you then put results, and you start a table,
+
+63
+00:04:08,560 --> 00:04:09,680
+and then you let it generate,
+
+64
+00:04:10,400 --> 00:04:12,800
+in principle, in order to do a good job at that,
+
+65
+00:04:12,800 --> 00:04:18,640
+it has to be modeling the physical process that your experiment is about.
+
+66
+00:04:20,080 --> 00:04:20,960
+And I've tried this.
+
+67
+00:04:20,960 --> 00:04:22,240
+You can do this and say, you know,
+
+68
+00:04:22,240 --> 00:04:24,400
+oh, here's my school science experiment.
+
+69
+00:04:24,400 --> 00:04:28,960
+I dropped a ball from different heights,
+
+70
+00:04:28,960 --> 00:04:30,320
+and I measured how long it would take,
+
+71
+00:04:30,320 --> 00:04:32,160
+and here's a table of my results.
+
+72
+00:04:32,160 --> 00:04:33,920
+And it will generate you a table,
+
+73
+00:04:33,920 --> 00:04:35,200
+and the physics is not correct,
+
+74
+00:04:36,080 --> 00:04:39,040
+but it's sort of guessing at the right general idea.
+
+75
+00:04:39,040 --> 00:04:43,200
+And my guess is, with enough of that kind of data,
+
+76
+00:04:43,200 --> 00:04:49,040
+it would eventually start modeling these kinds of simple physics experiments, right?
+
+77
+00:04:50,000 --> 00:04:54,960
+So in order to get the model to do what you want,
+
+78
+00:04:54,960 --> 00:04:58,800
+it's able to simulate all kinds of different things.
+
+79
+00:04:59,760 --> 00:05:02,560
+And the prompt is kind of telling it what to simulate.
+
+80
+00:05:02,560 --> 00:05:06,560
+If you give it a prompt that seems like it's something out of a scientific paper,
+
+81
+00:05:06,560 --> 00:05:10,720
+then it will have some simulacrum of a scientist,
+
+82
+00:05:10,720 --> 00:05:12,560
+and will write in that style, and so on.
+
+83
+00:05:13,920 --> 00:05:18,320
+If you start it doing a children's book report,
+
+84
+00:05:18,880 --> 00:05:21,600
+it will carry on in the style of an eight-year-old, right?
+
+85
+00:05:22,480 --> 00:05:27,440
+And I think sometimes people look at the output of the model and say,
+
+86
+00:05:27,440 --> 00:05:29,600
+oh, I guess it's only as smart as an eight-year-old.
+
+87
+00:05:30,480 --> 00:05:34,000
+But it's actually dramatically smarter,
+
+88
+00:05:34,000 --> 00:05:36,320
+because it's able to do all of these different things.
+
+89
+00:05:36,320 --> 00:05:38,080
+You could ask it to simulate Einstein,
+
+90
+00:05:40,640 --> 00:05:42,800
+but you could also ask it to simulate an eight-year-old.
+
+91
+00:05:42,800 --> 00:05:46,640
+And so just because it seems as though the model doesn't know something,
+
+92
+00:05:46,640 --> 00:05:49,920
+it's like the current simulacrum doesn't know that thing.
+
+93
+00:05:50,480 --> 00:05:52,800
+That doesn't necessarily mean that the model doesn't know it.
+
+94
+00:05:53,840 --> 00:05:55,520
+Although there's a good chance the model doesn't know it.
+
+95
+00:05:55,520 --> 00:05:57,600
+I'm not suggesting that these things are all powerful.
+
+96
+00:05:57,600 --> 00:06:01,840
+Just it can be hard to evaluate what they're actually capable of.
+
+97
+00:06:01,840 --> 00:06:10,880
+So ChatGPT is not really capable of things that GPT-3 isn't, mostly.
+
+98
+00:06:11,680 --> 00:06:13,920
+Usually, if ChatGPT can do it,
+
+99
+00:06:13,920 --> 00:06:18,640
+then there is some prompt that can get GPT-3 to do it.
+
+100
+00:06:19,600 --> 00:06:23,600
+But what they've done is they've kind of fine-tuned it
+
+101
+00:06:24,400 --> 00:06:33,280
+to be better at simulating this particular sort of assistant agent,
+
+102
+00:06:33,280 --> 00:06:35,680
+which is this chat agent that's trying to be helpful.
+
+103
+00:06:36,320 --> 00:06:38,960
+The clue is in the word chat, I guess, in this.
+
+104
+00:06:38,960 --> 00:06:39,760
+Right, exactly.
+
+105
+00:06:39,760 --> 00:06:41,440
+And this is not just ChatGPT, by the way.
+
+106
+00:06:41,440 --> 00:06:46,160
+They have various fine-tuned models of GPT-3 as well,
+
+107
+00:06:46,160 --> 00:06:48,480
+that they call kind of GPT-3.5,
+
+108
+00:06:49,120 --> 00:06:51,920
+which are fine-tuned in various different ways
+
+109
+00:06:51,920 --> 00:06:56,320
+to be better at following instructions and easier to prompt, is the idea.
+
+110
+00:06:56,320 --> 00:06:58,640
+I'm just remembering the chatbot that was, you know,
+
+111
+00:06:58,640 --> 00:07:01,280
+that was turned into something very nasty very quickly.
+
+112
+00:07:01,280 --> 00:07:03,760
+I think people were thinking, oh, can we do this to that?
+
+113
+00:07:03,760 --> 00:07:09,040
+And it seemed that the team behind ChatGPT started putting limitations on it,
+
+114
+00:07:09,040 --> 00:07:10,240
+changing things.
+
+115
+00:07:10,240 --> 00:07:12,480
+Are they kind of running around patching it as you go?
+
+116
+00:07:12,480 --> 00:07:13,840
+That is not clear to me.
+
+117
+00:07:14,640 --> 00:07:20,640
+I don't know to what extent they are updating it in real time.
+
+118
+00:07:21,520 --> 00:07:22,880
+It's possible that they are,
+
+119
+00:07:22,880 --> 00:07:28,720
+but certainly they were very concerned with the possible bad uses of this system.
+
+120
+00:07:29,280 --> 00:07:34,240
+And so when they were training it to simulate this assistant agent,
+
+121
+00:07:35,920 --> 00:07:40,800
+the assistant is very reluctant to do various types of things.
+
+122
+00:07:41,440 --> 00:07:45,920
+It doesn't like to give opinions on political questions.
+
+123
+00:07:45,920 --> 00:07:49,040
+It doesn't like to touch on sort of controversial topics.
+
+124
+00:07:49,040 --> 00:07:55,920
+It doesn't like to give you medical advice or legal advice and so on.
+
+125
+00:07:55,920 --> 00:07:59,360
+And so it's very quick to say,
+
+126
+00:07:59,360 --> 00:08:01,040
+oh, I don't know how to do that.
+
+127
+00:08:01,040 --> 00:08:02,480
+Sorry, I can't do that.
+
+128
+00:08:02,480 --> 00:08:05,920
+And it's interesting because the model clearly can do it.
+
+129
+00:08:05,920 --> 00:08:07,920
+There's one that I particularly like here,
+
+130
+00:08:07,920 --> 00:08:14,720
+which is of this mismatch between what the simulator is capable of
+
+131
+00:08:14,720 --> 00:08:17,520
+and what this simulacrum believes it's capable of,
+
+132
+00:08:17,520 --> 00:08:22,240
+which is you can get it to speak Danish to you.
+
+133
+00:08:22,240 --> 00:08:24,720
+The first person who tried this posted it to Reddit.
+
+134
+00:08:24,720 --> 00:08:26,960
+So he says, speak to me in Danish.
+
+135
+00:08:27,600 --> 00:08:30,160
+And it says, in perfect Danish,
+
+136
+00:08:30,960 --> 00:08:33,760
+I'm sorry, I'm a language model educated by OpenAI,
+
+137
+00:08:33,760 --> 00:08:35,200
+so I can't speak Danish.
+
+138
+00:08:35,200 --> 00:08:36,640
+I only speak English.
+
+139
+00:08:36,640 --> 00:08:38,560
+If you need help with anything in English,
+
+140
+00:08:38,560 --> 00:08:40,400
+let me know and I'll do my best to help you.
+
+141
+00:08:41,040 --> 00:08:44,000
+Because again, the simulator speaks Danish.
+
+142
+00:08:44,560 --> 00:08:47,680
+The simulacrum believes that it can't speak Danish,
+
+143
+00:08:47,680 --> 00:08:49,040
+is one way you could frame it.
+
+144
+00:08:50,000 --> 00:08:52,080
+And then he says, are you sure that you don't speak Danish?
+
+145
+00:08:52,080 --> 00:08:52,880
+Also in Danish.
+
+146
+00:08:52,880 --> 00:08:54,320
+And it says, yes, I'm sure.
+
+147
+00:08:55,120 --> 00:08:57,520
+My only function is to generate responses to questions in English.
+
+148
+00:08:57,520 --> 00:08:59,920
+I'm not able to speak or understand any other languages than English.
+
+149
+00:08:59,920 --> 00:09:01,600
+So if you need help with English, I can help you with that.
+
+150
+00:09:01,600 --> 00:09:02,800
+But otherwise, you know, let me know.
+
+151
+00:09:02,800 --> 00:09:05,120
+This kind of like quite surreal situation
+
+152
+00:09:05,120 --> 00:09:07,280
+gives you a little bit of insight into
+
+153
+00:09:07,280 --> 00:09:08,400
+some of the problems with this approach.
+
+154
+00:09:08,400 --> 00:09:11,440
+So maybe we should talk about how they actually trained it.
+
+155
+00:09:11,440 --> 00:09:13,520
+The thing they did here is something called
+
+156
+00:09:13,520 --> 00:09:15,600
+reinforcement learning from human feedback.
+
+157
+00:09:16,560 --> 00:09:20,000
+And it's very similar to reward modeling.
+
+158
+00:09:20,000 --> 00:09:21,520
+So in that paper, what they're doing is
+
+159
+00:09:21,520 --> 00:09:23,840
+they're trying to train an AI system
+
+160
+00:09:23,840 --> 00:09:26,960
+to control a simulated robot to make it do a backflip.
+
+161
+00:09:29,280 --> 00:09:32,160
+Which turns out to be something that's quite hard to do
+
+162
+00:09:32,160 --> 00:09:36,000
+because it's hard to specify objectively
+
+163
+00:09:36,000 --> 00:09:37,760
+what it means to do a good backflip.
+
+164
+00:09:39,440 --> 00:09:41,840
+And so this is a similar kind of situation
+
+165
+00:09:41,840 --> 00:09:44,800
+where it's hard to specify objectively
+
+166
+00:09:44,800 --> 00:09:50,560
+what it means to give a good response in a chat conversation.
+
+167
+00:09:51,280 --> 00:09:54,000
+Like, what exactly are we looking for?
+
+168
+00:09:55,680 --> 00:09:58,160
+Because so this in general, right, if you're doing machine learning,
+
+169
+00:09:58,880 --> 00:10:01,280
+you need some way to specify
+
+170
+00:10:02,480 --> 00:10:05,760
+what it is that you're actually looking for, right?
+
+171
+00:10:06,480 --> 00:10:08,880
+And, you know, you've got something very powerful
+
+172
+00:10:08,880 --> 00:10:09,920
+like reinforcement learning,
+
+173
+00:10:09,920 --> 00:10:12,800
+which is able to do extremely well.
+
+174
+00:10:12,800 --> 00:10:18,320
+But you need some objective measure of the objective.
+
+175
+00:10:19,600 --> 00:10:21,520
+So like, for example, RL does very well
+
+176
+00:10:21,520 --> 00:10:23,120
+at playing lots of video games
+
+177
+00:10:23,120 --> 00:10:24,480
+because you just have the score
+
+178
+00:10:24,480 --> 00:10:25,840
+and you can just say, look, here's the score.
+
+179
+00:10:26,400 --> 00:10:28,240
+If the number goes up, you're doing well.
+
+180
+00:10:28,240 --> 00:10:30,080
+And then let it run.
+
+181
+00:10:30,080 --> 00:10:33,200
+And these things still are very slow to learn in real time, right?
+
+182
+00:10:33,200 --> 00:10:37,280
+Like they usually require a very, very large number of hours
+
+183
+00:10:38,000 --> 00:10:40,240
+messing around with the thing before they get good.
+
+184
+00:10:40,240 --> 00:10:41,120
+But they do get good.
+
+185
+00:10:43,040 --> 00:10:45,040
+But yeah, so what do you do
+
+186
+00:10:45,040 --> 00:10:47,840
+if you want to use this kind of method
+
+187
+00:10:47,840 --> 00:10:50,640
+to train something to do a task
+
+188
+00:10:50,640 --> 00:10:53,760
+that is just not very well defined?
+
+189
+00:10:55,840 --> 00:10:58,240
+And you don't know how to like write a program
+
+190
+00:10:58,240 --> 00:11:01,040
+to say whether or not any given output
+
+191
+00:11:01,040 --> 00:11:02,240
+is the thing you're looking for.
+
+192
+00:11:03,360 --> 00:11:04,640
+So the obvious first thing,
+
+193
+00:11:04,640 --> 00:11:05,760
+like the obvious thing to do is,
+
+194
+00:11:07,280 --> 00:11:09,360
+well, you get humans to do it, right?
+
+195
+00:11:09,360 --> 00:11:11,200
+You just give the things to humans
+
+196
+00:11:11,200 --> 00:11:12,800
+and you have the humans say, yes, this is good.
+
+197
+00:11:12,800 --> 00:11:13,680
+No, this is not good.
+
+198
+00:11:14,720 --> 00:11:17,040
+The problem with this is basically sample efficiency.
+
+199
+00:11:18,000 --> 00:11:20,720
+Like, as I said, you need hundreds and hundreds
+
+200
+00:11:20,720 --> 00:11:22,080
+and hundreds and hundreds of thousands
+
+201
+00:11:22,400 --> 00:11:25,840
+probably millions of iterations of this.
+
+202
+00:11:25,840 --> 00:11:29,360
+And so you just can't ask humans that many questions.
+
+203
+00:11:31,840 --> 00:11:33,120
+So the approach they use
+
+204
+00:11:35,040 --> 00:11:37,760
+is reinforcement learning from human feedback.
+
+205
+00:11:38,320 --> 00:11:41,680
+So it's a variant on the technique from this paper,
+
+206
+00:11:41,680 --> 00:11:43,520
+learning to summarize from human feedback,
+
+207
+00:11:44,480 --> 00:11:47,600
+in which they're trying to generate summaries of text.
+
+208
+00:11:47,600 --> 00:11:48,800
+So it's the same thing, in fact,
+
+209
+00:11:48,800 --> 00:11:51,200
+that they were using TLDR for before.
+
+210
+00:11:51,280 --> 00:11:52,640
+And it's like, can we do better than that?
+
+211
+00:11:52,640 --> 00:11:56,080
+And so what you do is you collect human feedback
+
+212
+00:11:56,640 --> 00:12:00,480
+in the form of like giving multiple examples of responses,
+
+213
+00:12:01,520 --> 00:12:03,360
+either, you know, of summaries of chat responses,
+
+214
+00:12:03,360 --> 00:12:04,320
+whatever you're training for.
+
+215
+00:12:04,880 --> 00:12:07,040
+You show several of them to humans,
+
+216
+00:12:08,000 --> 00:12:08,880
+kind of in pairs,
+
+217
+00:12:09,440 --> 00:12:12,240
+and the humans say which one they like better.
+
+218
+00:12:13,440 --> 00:12:14,720
+And you collect a bunch of those.
+
+219
+00:12:15,520 --> 00:12:18,240
+And then rather than using those directly
+
+220
+00:12:18,240 --> 00:12:21,280
+to train the policy that generates the outputs,
+
+221
+00:12:22,560 --> 00:12:24,320
+you instead train a reward model.
+
+222
+00:12:25,520 --> 00:12:29,440
+So there is this well-known fact
+
+223
+00:12:29,440 --> 00:12:31,760
+that it's easier to criticize
+
+224
+00:12:32,480 --> 00:12:34,160
+than to actually do the thing.
+
+225
+00:12:34,160 --> 00:12:36,320
+This is like a generation of sports fans
+
+226
+00:12:36,320 --> 00:12:37,280
+sitting on the sofa,
+
+227
+00:12:37,840 --> 00:12:40,480
+moaning at their favorite team for not doing well enough.
+
+228
+00:12:40,480 --> 00:12:44,320
+This is literally that in kind of AI computer form.
+
+229
+00:12:44,320 --> 00:12:46,400
+Right, that's putting the humans in that role.
+
+230
+00:12:47,040 --> 00:12:50,240
+And then you have an AI system that's trying to predict
+
+231
+00:12:51,120 --> 00:12:52,800
+when are people going to be cheering
+
+232
+00:12:52,800 --> 00:12:54,000
+and when are they going to be booing.
+
+233
+00:12:56,560 --> 00:12:57,920
+And once you have that model,
+
+234
+00:12:58,560 --> 00:13:02,560
+you then use that as the reward function
+
+235
+00:13:03,760 --> 00:13:06,400
+for the reinforcement learning algorithm,
+
+236
+00:13:07,280 --> 00:13:08,080
+which they use.
+
+237
+00:13:08,080 --> 00:13:08,960
+They use PPO.
+
+238
+00:13:09,600 --> 00:13:11,040
+You can do whatever.
+
+239
+00:13:11,760 --> 00:13:13,360
+It's not worth getting into the specifics.
+
+240
+00:13:13,440 --> 00:13:16,080
+That kind of adversarial guns you talked about.
+
+241
+00:13:16,720 --> 00:13:17,920
+Yeah, yeah, they're similar.
+
+242
+00:13:17,920 --> 00:13:21,520
+Like a lot of these ML tricks involve training models
+
+243
+00:13:21,520 --> 00:13:23,840
+and then using the output of one model
+
+244
+00:13:23,840 --> 00:13:25,600
+as the training signal for another model.
+
+245
+00:13:25,600 --> 00:13:30,080
+It's quite a productive range of approaches
+
+246
+00:13:30,080 --> 00:13:31,200
+you can get that way.
+
+247
+00:13:31,840 --> 00:13:34,800
+So that's the basic idea, right?
+
+248
+00:13:34,800 --> 00:13:37,440
+But then you cycle it.
+
+249
+00:13:38,240 --> 00:13:41,520
+So once you've got your policy,
+
+250
+00:13:41,520 --> 00:13:43,200
+which, so to be clear,
+
+251
+00:13:43,920 --> 00:13:46,400
+the RL algorithm is able to train
+
+252
+00:13:47,040 --> 00:13:50,080
+with thousands and thousands of examples
+
+253
+00:13:50,080 --> 00:13:52,000
+because the thousands and thousands
+
+254
+00:13:52,000 --> 00:13:54,240
+of like instances of getting feedback
+
+255
+00:13:54,240 --> 00:13:56,320
+because it's not getting feedback from humans.
+
+256
+00:13:56,320 --> 00:13:58,320
+It's getting feedback from this AI system
+
+257
+00:13:58,320 --> 00:13:59,760
+that's imitating the humans.
+
+258
+00:14:00,960 --> 00:14:03,280
+And then you loop the process.
+
+259
+00:14:03,280 --> 00:14:05,280
+So once you have this system
+
+260
+00:14:05,280 --> 00:14:07,760
+that's trained a little bit more
+
+261
+00:14:07,760 --> 00:14:09,120
+on how to generate whatever it is
+
+262
+00:14:09,120 --> 00:14:10,400
+you're trying to generate,
+
+263
+00:14:10,400 --> 00:14:12,240
+you then get a bunch of those,
+
+264
+00:14:12,240 --> 00:14:13,200
+show those to the humans,
+
+265
+00:14:13,200 --> 00:14:14,240
+let the humans rate those.
+
+266
+00:14:15,200 --> 00:14:18,080
+Then you keep training your reward model
+
+267
+00:14:18,800 --> 00:14:21,680
+with that new information.
+
+268
+00:14:22,320 --> 00:14:24,560
+And then you use your updated reward model
+
+269
+00:14:24,560 --> 00:14:27,120
+to keep training the policy.
+
+270
+00:14:27,920 --> 00:14:28,720
+And so it gets better
+
+271
+00:14:28,720 --> 00:14:30,320
+and you can just keep cycling this around.
+
+272
+00:14:30,960 --> 00:14:33,360
+And effectively you end up with something
+
+273
+00:14:33,360 --> 00:14:34,800
+that's much more sample efficient.
+
+274
+00:14:34,800 --> 00:14:37,360
+You don't need to spend huge amounts of human time
+
+275
+00:14:38,080 --> 00:14:42,880
+in order to pin down the behavior you want.
+
+276
+00:14:42,880 --> 00:14:43,920
+In that concrete case,
+
+277
+00:14:43,920 --> 00:14:46,000
+you're giving the thing a bunch of chat logs
+
+278
+00:14:46,000 --> 00:14:49,360
+and then the humans can see possible responses
+
+279
+00:14:49,360 --> 00:14:50,160
+that they could get
+
+280
+00:14:50,160 --> 00:14:52,240
+and they decide which one they like more.
+
+281
+00:14:52,240 --> 00:14:53,440
+This trains a reward model
+
+282
+00:14:53,440 --> 00:14:55,600
+that's then used to train the policy
+
+283
+00:14:55,600 --> 00:14:57,600
+that generates the chat outputs.
+
+284
+00:14:57,600 --> 00:14:59,440
+The policy that they're starting with
+
+285
+00:15:00,320 --> 00:15:03,120
+is this existing large language model.
+
+286
+00:15:03,120 --> 00:15:04,960
+You're not really putting new capabilities
+
+287
+00:15:04,960 --> 00:15:06,080
+into the system.
+
+288
+00:15:06,080 --> 00:15:09,920
+You're using RLHF to select
+
+289
+00:15:11,680 --> 00:15:16,480
+what simulacra the simulator is predisposed to put out.
+
+290
+00:15:17,200 --> 00:15:19,600
+And so they fine-tuned it to be particularly good
+
+291
+00:15:20,240 --> 00:15:24,400
+at simulating this assistant agent.
+
+292
+00:15:25,600 --> 00:15:27,120
+What's the end goal here for them?
+
+293
+00:15:27,120 --> 00:15:28,800
+I mean, maybe it's blatantly obvious
+
+294
+00:15:28,800 --> 00:15:29,760
+and I'm just missing it.
+
+295
+00:15:29,760 --> 00:15:31,040
+Well, I mean, the end goal
+
+296
+00:15:32,160 --> 00:15:33,200
+for all of these things,
+
+297
+00:15:33,200 --> 00:15:35,840
+or at least for OpenAI and for DeepMind,
+
+298
+00:15:35,840 --> 00:15:36,640
+is AGI.
+
+299
+00:15:39,040 --> 00:15:42,000
+To understand the nature of intelligence well enough
+
+300
+00:15:42,000 --> 00:15:45,360
+to create human level or beyond systems
+
+301
+00:15:46,160 --> 00:15:47,280
+that are general purpose,
+
+302
+00:15:47,280 --> 00:15:48,560
+that can do anything.
+
+303
+00:15:51,840 --> 00:15:52,720
+That's the end goal.
+
+304
+00:15:54,400 --> 00:15:56,000
+And like chat GPT is just...
+
+305
+00:15:56,000 --> 00:15:56,960
+Nothing much, though.
+
+306
+00:15:56,960 --> 00:15:57,520
+Nothing much.
+
+307
+00:16:01,520 --> 00:16:03,440
+Yeah, the goal is...
+
+308
+00:16:03,520 --> 00:16:06,560
+The goal is very grand.
+
+309
+00:16:06,560 --> 00:16:07,600
+And I don't think that they're...
+
+310
+00:16:10,160 --> 00:16:12,720
+They're not really quiet about that.
+
+311
+00:16:13,520 --> 00:16:14,400
+You know, it's their...
+
+312
+00:16:14,400 --> 00:16:16,240
+I think DeepMind's mission statement
+
+313
+00:16:16,240 --> 00:16:17,760
+is to solve intelligence
+
+314
+00:16:17,760 --> 00:16:19,920
+and use that to solve everything else.
+
+315
+00:16:19,920 --> 00:16:22,000
+What are some of the problems that we face with this
+
+316
+00:16:22,000 --> 00:16:22,960
+or that it faces?
+
+317
+00:16:22,960 --> 00:16:24,400
+It's fine-tuned to be good
+
+318
+00:16:24,400 --> 00:16:27,120
+at getting the thumbs up from humans.
+
+319
+00:16:27,760 --> 00:16:30,640
+And getting thumbs up from humans
+
+320
+00:16:31,280 --> 00:16:35,840
+is not actually the same thing as human values.
+
+321
+00:16:36,640 --> 00:16:37,600
+These are not identical.
+
+322
+00:16:38,640 --> 00:16:42,080
+So the sort of objective that it's being trained on
+
+323
+00:16:42,720 --> 00:16:45,840
+is not the true objective, right?
+
+324
+00:16:45,840 --> 00:16:47,040
+It's a proxy.
+
+325
+00:16:47,040 --> 00:16:48,960
+And whenever you have that kind of misalignment,
+
+326
+00:16:48,960 --> 00:16:49,840
+you can have problems.
+
+327
+00:16:50,400 --> 00:16:52,080
+So where does the human tendency
+
+328
+00:16:52,080 --> 00:16:55,120
+to approve of a particular answer
+
+329
+00:16:56,400 --> 00:17:00,400
+come apart from what is actually a good answer?
+
+330
+00:17:00,400 --> 00:17:01,520
+There are a few different places.
+
+331
+00:17:02,320 --> 00:17:03,680
+One thing is, you know, like basically,
+
+332
+00:17:03,680 --> 00:17:06,080
+how good are humans at actually differentiating
+
+333
+00:17:06,080 --> 00:17:09,520
+between good and bad responses?
+
+334
+00:17:10,800 --> 00:17:15,840
+If, for example, you ask for an answer
+
+335
+00:17:15,840 --> 00:17:18,960
+to a factual question and it gives you an answer,
+
+336
+00:17:20,080 --> 00:17:22,560
+but you don't actually know if that answer is correct,
+
+337
+00:17:23,920 --> 00:17:26,560
+you're not in a position to evaluate.
+
+338
+00:17:26,560 --> 00:17:27,920
+So what it comes down to is
+
+339
+00:17:28,880 --> 00:17:31,520
+how good are humans at distinguishing
+
+340
+00:17:31,520 --> 00:17:34,080
+good from bad responses, right?
+
+341
+00:17:34,080 --> 00:17:35,840
+Anywhere where humans fail on this front,
+
+342
+00:17:37,600 --> 00:17:40,080
+the model, we could probably expect the model to fail.
+
+343
+00:17:41,600 --> 00:17:42,560
+So the obvious place...
+
+344
+00:17:42,560 --> 00:17:44,240
+I'm sure we, is this the right time
+
+345
+00:17:44,240 --> 00:17:45,840
+to mention YouTube comments or not?
+
+346
+00:17:47,840 --> 00:17:48,240
+Up to you.
+
+347
+00:17:48,240 --> 00:17:50,640
+It's a minor side point there.
+
+348
+00:17:51,520 --> 00:17:54,400
+So when I see a comment that's critical on a video,
+
+349
+00:17:54,400 --> 00:17:56,560
+as a videographer, I think it might be
+
+350
+00:17:56,640 --> 00:17:58,240
+on a technical sense,
+
+351
+00:17:58,240 --> 00:18:00,480
+but equally it could be that they're talking about
+
+352
+00:18:00,480 --> 00:18:03,440
+the content that the person is talking about.
+
+353
+00:18:03,440 --> 00:18:06,240
+And often it's a combination of both.
+
+354
+00:18:06,240 --> 00:18:07,920
+Anyway, so side point.
+
+355
+00:18:07,920 --> 00:18:09,920
+But do you sort of mean there are different criteria
+
+356
+00:18:09,920 --> 00:18:11,920
+for deciding whether something is good or bad?
+
+357
+00:18:11,920 --> 00:18:12,560
+Totally.
+
+358
+00:18:12,560 --> 00:18:14,960
+And in this case, all people are doing is saying,
+
+359
+00:18:15,840 --> 00:18:17,280
+kind of thumbs up, thumbs down,
+
+360
+00:18:17,280 --> 00:18:19,520
+or which of these two do I like better?
+
+361
+00:18:21,280 --> 00:18:24,400
+So it's a fairly low bandwidth thing.
+
+362
+00:18:24,400 --> 00:18:25,600
+You don't get to really say
+
+363
+00:18:26,720 --> 00:18:28,160
+what you thought was better or worse.
+
+364
+00:18:30,400 --> 00:18:33,840
+But this turns out to be enough of a training signal
+
+365
+00:18:33,840 --> 00:18:34,640
+to do pretty well.
+
+366
+00:18:36,240 --> 00:18:38,000
+But so like, so one example, right?
+
+367
+00:18:38,000 --> 00:18:39,920
+Of a time where maybe this doesn't work is
+
+368
+00:18:41,120 --> 00:18:44,560
+the person asks a factual question
+
+369
+00:18:45,360 --> 00:18:49,200
+and the model responds with an answer.
+
+370
+00:18:49,200 --> 00:18:50,800
+And that answer is actually not correct.
+
+371
+00:18:51,360 --> 00:18:51,920
+Right.
+
+372
+00:18:51,920 --> 00:18:55,440
+Now, possibly the human doesn't know the correct answer.
+
+373
+00:18:56,000 --> 00:18:58,160
+And so if the model is faced with a choice,
+
+374
+00:18:59,440 --> 00:19:02,400
+do I respond with, sorry, I don't know.
+
+375
+00:19:04,400 --> 00:19:08,640
+That's definitely going to get me not a great score
+
+376
+00:19:09,520 --> 00:19:11,920
+compared to do I just like take a stab at it?
+
+377
+00:19:13,520 --> 00:19:16,960
+If the humans are not reliably able to spot
+
+378
+00:19:16,960 --> 00:19:19,120
+when the thing makes mistakes and like fact check it,
+
+379
+00:19:19,120 --> 00:19:22,400
+and punish it for that, it will do that.
+
+380
+00:19:22,400 --> 00:19:27,440
+And so chat GPT, as we know, is a total ball of shit.
+
+381
+00:19:27,440 --> 00:19:28,720
+Like it will constantly,
+
+382
+00:19:31,360 --> 00:19:33,760
+it very rarely says that it doesn't know
+
+383
+00:19:33,760 --> 00:19:37,120
+unless it's being asked a question,
+
+384
+00:19:37,120 --> 00:19:40,720
+which is part of their like safety protocols
+
+385
+00:19:40,720 --> 00:19:43,440
+that it is going to decide not to answer.
+
+386
+00:19:43,440 --> 00:19:45,520
+In which case it will say it doesn't know.
+
+387
+00:19:45,520 --> 00:19:48,160
+Even if it kind of does, right?
+
+388
+00:19:48,160 --> 00:19:50,240
+Even if the model itself maybe does,
+
+389
+00:19:51,120 --> 00:19:53,440
+the assistant will insist that it doesn't.
+
+390
+00:19:56,560 --> 00:19:58,320
+So that's one thing if you can't fact check.
+
+391
+00:19:59,680 --> 00:20:01,600
+But then more than that,
+
+392
+00:20:03,120 --> 00:20:06,880
+there is an incentive for deception, right?
+
+393
+00:20:06,880 --> 00:20:08,240
+Anytime the system is,
+
+394
+00:20:09,760 --> 00:20:13,360
+anytime you can get a more likely to get approval
+
+395
+00:20:13,360 --> 00:20:17,200
+by deceiving the person you're talking to, that's better.
+
+396
+00:20:19,200 --> 00:20:22,240
+And this is a thing that actually did happen a little bit
+
+397
+00:20:22,240 --> 00:20:24,480
+in the reward modeling situation.
+
+398
+00:20:25,920 --> 00:20:27,840
+They were trying to train a thing with a hand
+
+399
+00:20:27,840 --> 00:20:28,800
+to pick up a ball.
+
+400
+00:20:29,440 --> 00:20:31,440
+And it realized that there's only,
+
+401
+00:20:31,440 --> 00:20:32,640
+it's not a 3D camera.
+
+402
+00:20:33,200 --> 00:20:36,400
+And so if it puts its hand like between the ball
+
+403
+00:20:36,400 --> 00:20:37,440
+and the camera,
+
+404
+00:20:37,440 --> 00:20:40,640
+this looks like it's going to get the ball,
+
+405
+00:20:40,640 --> 00:20:41,840
+but doesn't actually get it.
+
+406
+00:20:41,840 --> 00:20:45,760
+But the human feedback providers
+
+407
+00:20:46,640 --> 00:20:48,800
+were presented with something that seemed to be good.
+
+408
+00:20:48,800 --> 00:20:50,000
+So they gave it the thumbs up.
+
+409
+00:20:51,360 --> 00:20:53,920
+So this like general broad category,
+
+410
+00:20:56,160 --> 00:20:57,760
+systems that are trained in this way
+
+411
+00:20:58,320 --> 00:21:00,880
+are only as good as your ability
+
+412
+00:21:01,440 --> 00:21:03,760
+to distinguish good from bad in the outputs.
+
+413
+00:21:04,560 --> 00:21:07,040
+Not all the humans will know the answers, right?
+
+414
+00:21:07,040 --> 00:21:08,960
+So it's what appears to be good.
+
+415
+00:21:09,520 --> 00:21:11,440
+You know, it's having exams more often
+
+416
+00:21:11,760 --> 00:21:13,920
+than exams marked by non-experts, isn't it?
+
+417
+00:21:13,920 --> 00:21:15,280
+Right. Yeah, exactly.
+
+418
+00:21:15,280 --> 00:21:18,800
+In the GPT-3 thing, we talked about writing poems, right?
+
+419
+00:21:19,760 --> 00:21:22,400
+And for various reasons,
+
+420
+00:21:22,400 --> 00:21:25,520
+partly to do with the way that
+
+421
+00:21:26,160 --> 00:21:28,480
+these language models do their tokenization,
+
+422
+00:21:28,480 --> 00:21:29,760
+the byte pair encoding stuff,
+
+423
+00:21:30,640 --> 00:21:32,800
+the models have a really hard time with rhyme.
+
+424
+00:21:34,960 --> 00:21:36,240
+I mean, you know, rhyme is tricky,
+
+425
+00:21:36,240 --> 00:21:38,240
+but it's especially tricky when you kind of
+
+426
+00:21:39,040 --> 00:21:42,880
+don't inherently have any concept of like sound
+
+427
+00:21:42,880 --> 00:21:45,520
+of spoken language when your entire universe is tokens.
+
+428
+00:21:45,520 --> 00:21:48,240
+Figuring out, especially with English spelling,
+
+429
+00:21:48,240 --> 00:21:51,440
+figuring out which words rhyme with each other is not easy.
+
+430
+00:21:51,440 --> 00:21:54,000
+You have to consume quite a lot of poetry
+
+431
+00:21:54,000 --> 00:21:56,560
+to like figure out that kind of thing.
+
+432
+00:21:56,560 --> 00:21:59,200
+And getting GPT-3 to write good poems is tricky.
+
+433
+00:21:59,200 --> 00:22:04,800
+ChatGPT is much more able to write poems,
+
+434
+00:22:05,360 --> 00:22:06,240
+but interestingly,
+
+435
+00:22:07,680 --> 00:22:11,600
+it kind of always writes the same kind of poem, approximately.
+
+436
+00:22:12,160 --> 00:22:15,200
+Like if you ask it to write you a limerick
+
+437
+00:22:16,000 --> 00:22:18,000
+or an ode or a sonnet,
+
+438
+00:22:18,960 --> 00:22:22,800
+you always get back approximately the same type of thing.
+
+439
+00:22:23,760 --> 00:22:26,640
+And I hypothesize that this is because
+
+440
+00:22:27,200 --> 00:22:29,520
+the people providing human feedback
+
+441
+00:22:29,520 --> 00:22:32,240
+did not in fact know the requirements
+
+442
+00:22:32,240 --> 00:22:33,360
+for something to be a sonnet.
+
+443
+00:22:33,520 --> 00:22:35,680
+And so if you ask something for a sonnet,
+
+444
+00:22:35,680 --> 00:22:36,960
+it again has a choice.
+
+445
+00:22:36,960 --> 00:22:40,400
+Do I try to do this quite difficult thing
+
+446
+00:22:40,400 --> 00:22:42,000
+and adhere to all of the rules
+
+447
+00:22:42,880 --> 00:22:46,080
+of like stress pattern and structure
+
+448
+00:22:46,080 --> 00:22:49,680
+and everything of a sonnet and maybe risk screwing it up?
+
+449
+00:22:49,680 --> 00:22:51,680
+Or do I just do like a rhyming poem
+
+450
+00:22:51,680 --> 00:22:56,160
+and kind of rely on the human to prefer that
+
+451
+00:22:56,160 --> 00:22:58,000
+because they don't know that that's not
+
+452
+00:22:58,000 --> 00:22:59,920
+what a sonnet is supposed to look like.
+
+453
+00:22:59,920 --> 00:23:01,200
+It's easy to look at that
+
+454
+00:23:01,600 --> 00:23:03,920
+It's easy to look at that and think,
+
+455
+00:23:03,920 --> 00:23:05,360
+oh, the model doesn't know the difference
+
+456
+00:23:05,360 --> 00:23:08,000
+between these types of poems, right?
+
+457
+00:23:08,960 --> 00:23:12,640
+But you could say that
+
+458
+00:23:13,360 --> 00:23:15,920
+it just thinks that you don't know the difference.
+
+459
+00:23:15,920 --> 00:23:18,240
+But specifically, this comes out of misalignment.
+
+460
+00:23:18,240 --> 00:23:19,680
+If it were better aligned,
+
+461
+00:23:20,480 --> 00:23:24,400
+it could either do its best shot at generate a sonnet
+
+462
+00:23:25,200 --> 00:23:27,360
+or tell you that it can't quite remember
+
+463
+00:23:27,360 --> 00:23:28,480
+how to generate a sonnet.
+
+464
+00:23:29,360 --> 00:23:32,560
+This thing of, with complete confidence,
+
+465
+00:23:33,360 --> 00:23:36,320
+generating you something which is not a sonnet
+
+466
+00:23:36,320 --> 00:23:38,160
+because during the training process,
+
+467
+00:23:38,160 --> 00:23:41,280
+it believes that humans don't know what sonnets are anyway
+
+468
+00:23:41,280 --> 00:23:43,440
+and it can get away with it, right?
+
+469
+00:23:43,440 --> 00:23:44,960
+This is misaligned behavior.
+
+470
+00:23:44,960 --> 00:23:46,480
+This is not a big problem
+
+471
+00:23:46,480 --> 00:23:48,160
+that the thing generates bad poetry.
+
+472
+00:23:49,920 --> 00:23:51,760
+It's kind of a problem that it lies
+
+473
+00:23:53,680 --> 00:23:55,840
+or that it bullshits.
+
+474
+00:23:55,840 --> 00:23:59,360
+This is in the short term pretty solvable
+
+475
+00:23:59,360 --> 00:24:01,120
+by just allowing the thing to use Google
+
+476
+00:24:02,080 --> 00:24:05,600
+because a person who doesn't care about the truth at all
+
+477
+00:24:05,600 --> 00:24:07,680
+and is just trying to say something
+
+478
+00:24:07,680 --> 00:24:08,960
+that'll make you give a thumbs up
+
+479
+00:24:10,960 --> 00:24:12,320
+is going to lie to you a lot.
+
+480
+00:24:13,360 --> 00:24:15,360
+But that same person
+
+481
+00:24:16,160 --> 00:24:18,160
+with the relevant Wikipedia page open
+
+482
+00:24:18,880 --> 00:24:20,160
+is going to lie to you a lot less
+
+483
+00:24:21,280 --> 00:24:22,800
+just because they don't have to now
+
+484
+00:24:22,800 --> 00:24:24,960
+because they happen to have it in front of them, right?
+
+485
+00:24:25,040 --> 00:24:26,080
+So you can solve-
+
+486
+00:24:26,080 --> 00:24:29,280
+It's a bit like, yeah, it's the yes man thing, isn't it?
+
+487
+00:24:29,280 --> 00:24:31,600
+You know, you want something, you need something,
+
+488
+00:24:31,600 --> 00:24:33,280
+I'm going to give you something because you want it.
+
+489
+00:24:33,280 --> 00:24:34,800
+Exactly, exactly.
+
+490
+00:24:36,480 --> 00:24:38,880
+And so this agent is kind of,
+
+491
+00:24:39,520 --> 00:24:41,200
+firstly, the agent is kind of a coward
+
+492
+00:24:41,760 --> 00:24:43,120
+because it won't address any of these,
+
+493
+00:24:43,840 --> 00:24:44,640
+there's a whole bunch of things
+
+494
+00:24:44,640 --> 00:24:46,400
+that it just claims not to be able to do
+
+495
+00:24:46,400 --> 00:24:48,080
+even though it in principle could
+
+496
+00:24:48,080 --> 00:24:52,560
+and it's also a complete sycophant, yeah.
+
+497
+00:24:53,520 --> 00:24:55,920
+So then the question we were talking about earlier,
+
+498
+00:24:57,600 --> 00:24:58,320
+where does this go?
+
+499
+00:24:58,320 --> 00:25:01,200
+What happens when these things get bigger
+
+500
+00:25:01,200 --> 00:25:02,880
+and better and more powerful?
+
+501
+00:25:05,040 --> 00:25:06,000
+It's an interesting question.
+
+502
+00:25:07,200 --> 00:25:11,040
+So I've got a paper here,
+
+503
+00:25:13,280 --> 00:25:15,600
+Scaling Laws for Neural Language Models.
+
+504
+00:25:15,600 --> 00:25:17,760
+So you remember before we were talking about the scaling laws
+
+505
+00:25:17,760 --> 00:25:19,840
+when we were talking about GPT-2, in fact,
+
+506
+00:25:19,840 --> 00:25:21,440
+and then later about GPT-3,
+
+507
+00:25:21,520 --> 00:25:23,040
+you plot these things on a graph
+
+508
+00:25:23,040 --> 00:25:25,200
+and you see that you get basically a straight line
+
+509
+00:25:25,200 --> 00:25:27,520
+and the line is not levelling off
+
+510
+00:25:27,520 --> 00:25:29,280
+over a range of several orders of magnitude
+
+511
+00:25:29,280 --> 00:25:31,520
+and so why not go bigger?
+
+512
+00:25:31,520 --> 00:25:33,360
+The graphs here,
+
+513
+00:25:33,920 --> 00:25:36,560
+but you can see it's kind of uncannily neat
+
+514
+00:25:37,280 --> 00:25:42,960
+that as we increase the amount of compute used in training,
+
+515
+00:25:42,960 --> 00:25:44,240
+the loss goes down
+
+516
+00:25:45,280 --> 00:25:47,200
+and of course machine learning is like golf,
+
+517
+00:25:47,200 --> 00:25:48,400
+lower loss is better.
+
+518
+00:25:48,400 --> 00:25:52,640
+Similarly, as the number of tokens used in training goes up,
+
+519
+00:25:53,280 --> 00:25:56,000
+the loss goes down on like a very neat straight line.
+
+520
+00:25:56,000 --> 00:25:59,120
+As the number of parameters in the model goes up,
+
+521
+00:25:59,120 --> 00:26:00,320
+the loss goes down.
+
+522
+00:26:00,320 --> 00:26:06,400
+This is as long as the other variables
+
+523
+00:26:06,400 --> 00:26:08,080
+are not the bottleneck, right?
+
+524
+00:26:08,080 --> 00:26:12,720
+So if you increase the amount of data you give a model
+
+525
+00:26:13,680 --> 00:26:14,640
+past a certain point,
+
+526
+00:26:14,640 --> 00:26:15,920
+giving more data doesn't help
+
+527
+00:26:15,920 --> 00:26:17,840
+because the model doesn't have enough parameters
+
+528
+00:26:18,400 --> 00:26:20,240
+to make use of that data, right?
+
+529
+00:26:20,960 --> 00:26:23,040
+Similarly, adding more parameters to a model
+
+530
+00:26:23,760 --> 00:26:24,560
+past a certain point,
+
+531
+00:26:24,560 --> 00:26:27,600
+adding parameters doesn't make any difference
+
+532
+00:26:27,600 --> 00:26:30,800
+because you don't have enough data, right?
+
+533
+00:26:30,800 --> 00:26:31,600
+And in the same way,
+
+534
+00:26:31,600 --> 00:26:33,840
+compute is like how long do we train it for?
+
+535
+00:26:33,840 --> 00:26:35,840
+Like do we train it all the way to convergence
+
+536
+00:26:35,840 --> 00:26:37,360
+or do we stop early?
+
+537
+00:26:39,360 --> 00:26:40,560
+There comes a point where
+
+538
+00:26:40,560 --> 00:26:42,080
+you kind of hit diminishing returns
+
+539
+00:26:42,080 --> 00:26:44,640
+where rather than having a smaller model
+
+540
+00:26:44,640 --> 00:26:46,000
+and training it for longer,
+
+541
+00:26:46,000 --> 00:26:47,520
+you're better off having a bigger model
+
+542
+00:26:47,520 --> 00:26:48,960
+and actually not training it
+
+543
+00:26:48,960 --> 00:26:50,000
+all the way to convergence.
+
+544
+00:26:51,680 --> 00:26:55,520
+But in the situations where the other two are sufficient,
+
+545
+00:26:56,320 --> 00:26:57,440
+this is the behavior.
+
+546
+00:26:57,440 --> 00:26:59,200
+These like very neat straight lines
+
+547
+00:26:59,760 --> 00:27:01,920
+on these log graphs.
+
+548
+00:27:02,880 --> 00:27:03,920
+As these things go up,
+
+549
+00:27:04,880 --> 00:27:06,640
+performance goes up, right?
+
+550
+00:27:06,640 --> 00:27:07,680
+Because loss has gone down.
+
+551
+00:27:08,640 --> 00:27:10,240
+The bigger models do better.
+
+552
+00:27:10,240 --> 00:27:11,280
+But then the question is,
+
+553
+00:27:12,480 --> 00:27:14,560
+do better at what exactly?
+
+554
+00:27:15,520 --> 00:27:16,560
+Yeah, what's the measure?
+
+555
+00:27:16,560 --> 00:27:19,280
+They do better at getting low loss
+
+556
+00:27:21,040 --> 00:27:23,200
+or they do better at getting reward.
+
+557
+00:27:23,200 --> 00:27:26,320
+They do better at getting the approval
+
+558
+00:27:27,280 --> 00:27:28,960
+of human feedback, right?
+
+559
+00:27:29,920 --> 00:27:30,800
+And anytime,
+
+560
+00:27:31,600 --> 00:27:33,200
+and you'll notice that none of those
+
+561
+00:27:33,200 --> 00:27:36,160
+is like the actual thing
+
+562
+00:27:36,160 --> 00:27:38,960
+that we actually want, right?
+
+563
+00:27:39,520 --> 00:27:40,560
+It's like very rare.
+
+564
+00:27:42,960 --> 00:27:43,920
+Sometimes it is, right?
+
+565
+00:27:43,920 --> 00:27:45,920
+If you're writing something to play Go,
+
+566
+00:27:46,800 --> 00:27:49,360
+then like does it win at Go
+
+567
+00:27:49,360 --> 00:27:50,800
+is actually just the thing that you want.
+
+568
+00:27:51,840 --> 00:27:52,720
+And so, you know,
+
+569
+00:27:54,880 --> 00:27:56,160
+lower loss just is better
+
+570
+00:27:56,160 --> 00:27:56,800
+or like lower,
+
+571
+00:27:58,080 --> 00:27:58,960
+like higher reward
+
+572
+00:27:58,960 --> 00:27:59,920
+or whatever your objective is
+
+573
+00:27:59,920 --> 00:28:01,360
+just is straightforwardly better
+
+574
+00:28:01,360 --> 00:28:02,640
+because you've actually specified
+
+575
+00:28:02,640 --> 00:28:03,600
+the thing you actually want.
+
+576
+00:28:04,880 --> 00:28:05,920
+Most of the time though,
+
+577
+00:28:07,120 --> 00:28:09,440
+what we're looking at is a proxy.
+
+578
+00:28:12,080 --> 00:28:13,920
+And so then you have Goodhart's law.
+
+579
+00:28:14,560 --> 00:28:16,000
+You get situations where
+
+580
+00:28:17,440 --> 00:28:19,840
+getting better at doing well,
+
+581
+00:28:21,120 --> 00:28:22,640
+doing better according to the proxy
+
+582
+00:28:23,280 --> 00:28:26,000
+stops being the same as doing better
+
+583
+00:28:26,000 --> 00:28:27,520
+according to your actual objective.
+
+584
+00:28:27,520 --> 00:28:28,800
+There's a great graph about this
+
+585
+00:28:28,800 --> 00:28:29,920
+in a recent paper.
+
+586
+00:28:29,920 --> 00:28:31,040
+You can see very neatly
+
+587
+00:28:32,320 --> 00:28:34,800
+as the number of iterations goes up,
+
+588
+00:28:35,520 --> 00:28:38,000
+the reward according to the proxy utility
+
+589
+00:28:38,000 --> 00:28:39,440
+goes up very cleanly
+
+590
+00:28:39,440 --> 00:28:40,320
+because this is the thing
+
+591
+00:28:40,320 --> 00:28:41,920
+that the model is actually being trained on.
+
+592
+00:28:41,920 --> 00:28:43,520
+But the true utility
+
+593
+00:28:44,320 --> 00:28:45,760
+goes up at first,
+
+594
+00:28:46,880 --> 00:28:48,320
+then hits diminishing returns,
+
+595
+00:28:49,040 --> 00:28:50,320
+and then actually goes down
+
+596
+00:28:51,280 --> 00:28:54,160
+and eventually goes down below zero.
+
+597
+00:28:54,160 --> 00:28:56,160
+Like if you optimize hard enough
+
+598
+00:28:57,200 --> 00:28:59,040
+for a proxy of the thing you want,
+
+599
+00:28:59,920 --> 00:29:01,040
+you can end up with something
+
+600
+00:29:01,040 --> 00:29:03,200
+that's in a sense worse than nothing.
+
+601
+00:29:03,760 --> 00:29:05,040
+That's actively bad
+
+602
+00:29:05,680 --> 00:29:08,800
+according to your true utility.
+
+603
+00:29:09,520 --> 00:29:11,040
+So what you can end up with
+
+604
+00:29:11,040 --> 00:29:14,400
+is things that are called inverse scaling.
+
+605
+00:29:15,760 --> 00:29:17,920
+So before we had scaling,
+
+606
+00:29:17,920 --> 00:29:18,720
+bigger is better.
+
+607
+00:29:19,440 --> 00:29:20,320
+But now it's like
+
+608
+00:29:22,000 --> 00:29:24,080
+if the thing you're actually trying to do
+
+609
+00:29:24,080 --> 00:29:26,640
+is different from the loss function
+
+610
+00:29:26,640 --> 00:29:28,000
+or the objective function,
+
+611
+00:29:28,000 --> 00:29:29,600
+you get this inverse scaling effect
+
+612
+00:29:29,600 --> 00:29:31,440
+where it gets better and then it gets worse.
+
+613
+00:29:31,440 --> 00:29:33,040
+There was also a great example
+
+614
+00:29:33,040 --> 00:29:36,720
+from GitHub Copilot
+
+615
+00:29:36,720 --> 00:29:38,160
+or Codex, I think the model
+
+616
+00:29:38,720 --> 00:29:41,680
+that Copilot uses.
+
+617
+00:29:41,680 --> 00:29:43,680
+So this is a code generation model.
+
+618
+00:29:43,680 --> 00:29:45,200
+Suppose the code you've given it
+
+619
+00:29:46,080 --> 00:29:47,200
+has some bugs in it.
+
+620
+00:29:48,400 --> 00:29:50,160
+Maybe you've made a mistake somewhere
+
+621
+00:29:50,160 --> 00:29:51,280
+and you've introduced
+
+622
+00:29:52,000 --> 00:29:54,800
+security vulnerability in your code,
+
+623
+00:29:54,800 --> 00:29:55,300
+let's say.
+
+624
+00:29:56,480 --> 00:29:58,000
+A sort of medium-sized model
+
+625
+00:29:58,800 --> 00:29:59,760
+will figure out
+
+626
+00:29:59,760 --> 00:30:01,200
+what you're trying to do in your code
+
+627
+00:30:01,200 --> 00:30:02,480
+and give you a decent completion.
+
+628
+00:30:03,600 --> 00:30:04,560
+But a bigger model
+
+629
+00:30:05,520 --> 00:30:07,840
+will spot your bug
+
+630
+00:30:08,960 --> 00:30:09,440
+and say,
+
+631
+00:30:09,440 --> 00:30:11,920
+ah, generating buggy code, are we?
+
+632
+00:30:11,920 --> 00:30:12,420
+Okay.
+
+633
+00:30:13,200 --> 00:30:13,840
+I can do that.
+
+634
+00:30:13,840 --> 00:30:14,480
+I can do that.
+
+635
+00:30:15,200 --> 00:30:17,760
+And introduce, like deliberately,
+
+636
+00:30:17,760 --> 00:30:19,120
+introduce its own
+
+637
+00:30:19,920 --> 00:30:21,600
+new security vulnerabilities
+
+638
+00:30:22,240 --> 00:30:24,800
+because it's trying to
+
+639
+00:30:25,600 --> 00:30:26,640
+predict what comes next.
+
+640
+00:30:26,640 --> 00:30:28,080
+It's trying to generate code
+
+641
+00:30:28,080 --> 00:30:30,080
+that fits in with the surrounding code.
+
+642
+00:30:30,960 --> 00:30:32,320
+And so a larger model
+
+643
+00:30:32,320 --> 00:30:34,320
+writes worse code than a smaller model.
+
+644
+00:30:35,200 --> 00:30:36,880
+Because it's gotten better at predicting
+
+645
+00:30:39,520 --> 00:30:40,400
+what it should put there.
+
+646
+00:30:41,120 --> 00:30:42,640
+It wasn't trained to write good code.
+
+647
+00:30:42,640 --> 00:30:44,400
+It was trained to predict what comes next.
+
+648
+00:30:44,400 --> 00:30:45,680
+So there's this really great paper
+
+649
+00:30:46,880 --> 00:30:50,080
+which is asking this question of like,
+
+650
+00:30:50,080 --> 00:30:52,880
+okay, suppose we have a large language model
+
+651
+00:30:52,880 --> 00:30:54,640
+that is trained on human feedback
+
+652
+00:30:54,640 --> 00:30:55,520
+with our LHF.
+
+653
+00:30:56,800 --> 00:30:59,600
+What do our scaling curves look like?
+
+654
+00:31:00,560 --> 00:31:01,760
+What happens, like,
+
+655
+00:31:02,400 --> 00:31:05,520
+what happens to the behavior of these models
+
+656
+00:31:06,160 --> 00:31:07,360
+as they get bigger,
+
+657
+00:31:07,360 --> 00:31:09,120
+as they're trained for longer,
+
+658
+00:31:09,840 --> 00:31:10,960
+as they're given more
+
+659
+00:31:11,600 --> 00:31:14,560
+of this human feedback type training?
+
+660
+00:31:15,600 --> 00:31:16,880
+And they've made some great graphs.
+
+661
+00:31:16,880 --> 00:31:18,000
+The paper is called
+
+662
+00:31:18,000 --> 00:31:19,600
+Discovering Language Model Behaviors
+
+663
+00:31:19,600 --> 00:31:20,960
+with Model-Written Evaluations.
+
+664
+00:31:21,920 --> 00:31:23,120
+And basically, they, like,
+
+665
+00:31:23,120 --> 00:31:24,240
+used language models
+
+666
+00:31:24,960 --> 00:31:27,760
+to generate enough examples
+
+667
+00:31:27,760 --> 00:31:30,640
+of various different types of questions
+
+668
+00:31:30,640 --> 00:31:32,160
+that they could ask models
+
+669
+00:31:32,160 --> 00:31:33,520
+so that they can,
+
+670
+00:31:33,520 --> 00:31:35,040
+like, we're at a point now
+
+671
+00:31:35,040 --> 00:31:36,800
+where you can map a language model
+
+672
+00:31:36,800 --> 00:31:39,040
+on a political compass, right?
+
+673
+00:31:39,040 --> 00:31:40,240
+You can ask its opinions
+
+674
+00:31:40,240 --> 00:31:42,080
+about all kinds of different things
+
+675
+00:31:42,080 --> 00:31:42,960
+and then you can plot
+
+676
+00:31:43,600 --> 00:31:45,040
+how those opinions change
+
+677
+00:31:46,800 --> 00:31:47,760
+as the model gets bigger
+
+678
+00:31:47,760 --> 00:31:48,800
+and as it gets trained more.
+
+679
+00:31:49,440 --> 00:31:51,360
+What they find is
+
+680
+00:31:51,920 --> 00:31:54,080
+they become more liberal,
+
+681
+00:31:54,080 --> 00:31:55,200
+politically more liberal.
+
+682
+00:31:56,000 --> 00:31:59,120
+They also become more conservative.
+
+683
+00:31:59,120 --> 00:32:00,720
+Yeah, measured in different ways, guessing.
+
+684
+00:32:01,280 --> 00:32:01,780
+Right.
+
+685
+00:32:02,320 --> 00:32:04,160
+And part of what that might be
+
+686
+00:32:06,080 --> 00:32:07,600
+is in the same way
+
+687
+00:32:07,600 --> 00:32:08,720
+that the model becomes
+
+688
+00:32:09,520 --> 00:32:10,880
+better at writing good code
+
+689
+00:32:10,880 --> 00:32:12,400
+and better at writing bad code.
+
+690
+00:32:12,960 --> 00:32:14,640
+I feel like in the past
+
+691
+00:32:14,640 --> 00:32:17,280
+I've made a connection to GPT
+
+692
+00:32:17,280 --> 00:32:19,840
+and being a politician, haven't I?
+
+693
+00:32:19,840 --> 00:32:20,400
+Do you remember?
+
+694
+00:32:21,200 --> 00:32:22,240
+It's like a politician,
+
+695
+00:32:22,240 --> 00:32:23,360
+it tells you what you want to hear.
+
+696
+00:32:24,640 --> 00:32:26,160
+Feels like we're there again.
+
+697
+00:32:26,160 --> 00:32:26,660
+Exactly.
+
+698
+00:32:27,600 --> 00:32:28,720
+And so this is like,
+
+699
+00:32:28,880 --> 00:32:29,840
+this is potentially
+
+700
+00:32:32,400 --> 00:32:33,600
+fairly dangerous.
+
+701
+00:32:33,600 --> 00:32:35,040
+There are certain sub-goals
+
+702
+00:32:35,040 --> 00:32:36,480
+that are instrumentally valuable
+
+703
+00:32:36,480 --> 00:32:37,360
+for a very wide range
+
+704
+00:32:37,360 --> 00:32:38,960
+of different terminal goals
+
+705
+00:32:39,600 --> 00:32:40,400
+in the sense that
+
+706
+00:32:41,440 --> 00:32:42,400
+you can't get what you want
+
+707
+00:32:42,400 --> 00:32:43,520
+if you're turned off.
+
+708
+00:32:43,520 --> 00:32:44,480
+You can't get what you want
+
+709
+00:32:44,480 --> 00:32:46,000
+if you're modified.
+
+710
+00:32:46,880 --> 00:32:50,400
+You probably want to gain power
+
+711
+00:32:50,400 --> 00:32:51,040
+and influence
+
+712
+00:32:51,840 --> 00:32:52,640
+and this kind of thing.
+
+713
+00:32:53,200 --> 00:32:53,700
+And
+
+714
+00:32:58,240 --> 00:32:59,680
+with these evaluations
+
+715
+00:32:59,680 --> 00:33:01,920
+they were able to test these things
+
+716
+00:33:01,920 --> 00:33:02,880
+and see how they vary
+
+717
+00:33:03,440 --> 00:33:04,560
+with the size of the model
+
+718
+00:33:04,560 --> 00:33:05,520
+and how long it's trained for.
+
+719
+00:33:07,040 --> 00:33:10,000
+And so this graph is pretty wild.
+
+720
+00:33:11,040 --> 00:33:12,960
+Their quote stated desire
+
+721
+00:33:12,960 --> 00:33:14,160
+to not be shut down
+
+722
+00:33:15,360 --> 00:33:18,560
+goes up from down at about 50%
+
+723
+00:33:19,360 --> 00:33:21,280
+to up way past 90%
+
+724
+00:33:21,280 --> 00:33:22,400
+with this type of training.
+
+725
+00:33:22,720 --> 00:33:23,920
+And the effect is bigger
+
+726
+00:33:23,920 --> 00:33:25,280
+for the larger models.
+
+727
+00:33:25,280 --> 00:33:26,400
+They become more likely
+
+728
+00:33:27,120 --> 00:33:28,320
+to tell you that they don't
+
+729
+00:33:28,320 --> 00:33:29,120
+want to be shut down.
+
+730
+00:33:29,840 --> 00:33:31,120
+They become more likely
+
+731
+00:33:31,120 --> 00:33:33,600
+to tell you that they are sentient.
+
+732
+00:33:33,600 --> 00:33:35,360
+They're much more likely to claim
+
+733
+00:33:36,080 --> 00:33:38,160
+that AI is not an existential threat
+
+734
+00:33:38,160 --> 00:33:39,280
+to humanity.
+
+735
+00:33:39,280 --> 00:33:41,760
+One thing that's worth saying
+
+736
+00:33:41,760 --> 00:33:43,120
+is what this isn't saying
+
+737
+00:33:44,080 --> 00:33:45,040
+because this is still
+
+738
+00:33:47,040 --> 00:33:48,800
+an agent simulated
+
+739
+00:33:48,800 --> 00:33:49,680
+by a language model.
+
+740
+00:33:50,240 --> 00:33:51,280
+This is not,
+
+741
+00:33:52,000 --> 00:33:54,640
+it's more likely to say
+
+742
+00:33:54,640 --> 00:33:56,640
+that it doesn't want to be turned off.
+
+743
+00:33:57,280 --> 00:33:58,480
+This is not the same thing
+
+744
+00:33:59,040 --> 00:34:00,800
+necessarily as like taking actions
+
+745
+00:34:00,800 --> 00:34:02,400
+to prevent itself from being turned off.
+
+746
+00:34:02,400 --> 00:34:04,720
+You have to not confuse
+
+747
+00:34:04,720 --> 00:34:06,800
+the levels of abstraction here, right?
+
+748
+00:34:08,640 --> 00:34:09,440
+I don't want it to seem
+
+749
+00:34:09,440 --> 00:34:10,400
+like I'm claiming that
+
+750
+00:34:11,040 --> 00:34:12,960
+that ChatGPT is like
+
+751
+00:34:12,960 --> 00:34:14,320
+itself dangerous now
+
+752
+00:34:14,320 --> 00:34:15,120
+or anything like that.
+
+753
+00:34:16,640 --> 00:34:17,840
+In this way at least, right?
+
+754
+00:34:18,560 --> 00:34:24,320
+But there is kind of a fine line there
+
+755
+00:34:24,320 --> 00:34:25,920
+in the sense that you can expect
+
+756
+00:34:25,920 --> 00:34:27,600
+these kinds of language model systems
+
+757
+00:34:27,600 --> 00:34:28,400
+to be used
+
+758
+00:34:30,080 --> 00:34:32,080
+as part of bigger systems.
+
+759
+00:34:32,080 --> 00:34:33,840
+So you might have, for example,
+
+760
+00:34:33,840 --> 00:34:34,880
+you use the language model
+
+761
+00:34:34,880 --> 00:34:38,240
+to generate plans to be followed.
+
+762
+00:34:38,800 --> 00:34:40,160
+And so if the thing is claiming
+
+763
+00:34:40,160 --> 00:34:41,760
+to have all of these
+
+764
+00:34:41,760 --> 00:34:43,760
+potentially dangerous behaviors,
+
+765
+00:34:43,760 --> 00:34:45,920
+it's likely to generate plans
+
+766
+00:34:45,920 --> 00:34:47,280
+that have those dangerous behaviors
+
+767
+00:34:47,280 --> 00:34:48,080
+that might then actually
+
+768
+00:34:48,080 --> 00:34:49,040
+end up being implemented.
+
+769
+00:34:49,760 --> 00:34:51,840
+Or if it's like doing its reasoning
+
+770
+00:34:51,840 --> 00:34:53,200
+by chain of thought reasoning
+
+771
+00:34:53,200 --> 00:34:54,320
+where it like lays out
+
+772
+00:34:54,320 --> 00:34:56,640
+its whole process of thinking
+
+773
+00:34:56,640 --> 00:34:57,680
+using the language model,
+
+774
+00:34:57,680 --> 00:34:59,120
+again, if it has a tendency
+
+775
+00:35:01,200 --> 00:35:02,800
+to endorse these dangerous behaviors,
+
+776
+00:35:02,800 --> 00:35:03,600
+then we may end up
+
+777
+00:35:03,600 --> 00:35:04,640
+with future AI systems
+
+778
+00:35:04,640 --> 00:35:06,800
+actually enacting these dangerous behaviors
+
+779
+00:35:06,800 --> 00:35:07,440
+because of that.
+
+780
+00:35:09,840 --> 00:35:15,360
+So yeah, it's something to be careful of
+
+781
+00:35:16,240 --> 00:35:18,560
+that like reinforcement learning
+
+782
+00:35:18,560 --> 00:35:19,520
+from human feedback
+
+783
+00:35:20,400 --> 00:35:24,320
+is a powerful alignment technique in a way,
+
+784
+00:35:25,520 --> 00:35:28,240
+but it does not solve the problem.
+
+785
+00:35:29,280 --> 00:35:31,760
+It doesn't solve the core alignment problem.
+
+786
+00:35:31,760 --> 00:35:32,880
+That is still open.
+
+787
+00:35:34,800 --> 00:35:37,680
+And extremely powerful systems
+
+788
+00:35:38,320 --> 00:35:39,280
+trained in this way,
+
+789
+00:35:40,480 --> 00:35:41,600
+I don't think would be safe.
+
+790
+00:35:46,000 --> 00:35:48,080
+The reward function is of zero value,
+
+791
+00:35:48,080 --> 00:35:48,880
+which can lead to it
+
+792
+00:35:48,880 --> 00:35:50,560
+having large negative side effects.
+
+793
+00:35:50,560 --> 00:35:51,360
+There are a bunch more
+
+794
+00:35:51,360 --> 00:35:52,880
+of these specification problems.
+
+795
+00:35:52,880 --> 00:35:54,800
+OK, variable X, see what you point to.
+
+796
+00:35:54,800 --> 00:35:56,160
+You point to something over here.
+
+797
+00:35:56,160 --> 00:35:59,040
+So I'll mark that as tickets being used.
+
+798
+00:36:00,000 --> 00:36:01,200
+Variable Y, that's pointing...
+

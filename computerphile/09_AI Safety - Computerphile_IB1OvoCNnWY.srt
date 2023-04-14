@@ -1,0 +1,336 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, uh, I saw Dr. Holden's video and enjoyed it.
+
+2
+00:00:04,000 --> 00:00:08,800
+The video, I feel like, was kind of framed as a counterpoint, almost.
+
+3
+00:00:08,800 --> 00:00:12,800
+But actually watching it, I really didn't disagree with very much of it at all.
+
+4
+00:00:12,800 --> 00:00:21,000
+I think probably the area in which we diverge is that I think the default artificial general intelligence,
+
+5
+00:00:21,000 --> 00:00:26,800
+if you were to build one without any particular concern for safety, would be a bad one.
+
+6
+00:00:26,800 --> 00:00:30,800
+It would be one that we don't want to build, that would try to do things we don't want it to do.
+
+7
+00:00:30,800 --> 00:00:35,800
+And I talked about this in the earlier videos, when I was talking about the space of general minds, or the space of motivations.
+
+8
+00:00:35,800 --> 00:00:40,800
+This is the kind of thing that the stamp collector machine's creator was expecting to happen.
+
+9
+00:00:40,800 --> 00:00:45,800
+Human values are complicated, right?
+
+10
+00:00:45,800 --> 00:00:50,800
+They are complicated, and we don't really know what they are fully.
+
+11
+00:00:50,800 --> 00:00:56,800
+And anything that has values that aren't very tightly aligned to ours is not a thing we want to be building.
+
+12
+00:01:00,800 --> 00:01:08,800
+I've never actually talked to Dr. Holden about this, but almost everything in that video I agree with.
+
+13
+00:01:08,800 --> 00:01:10,800
+I agree about the time scales.
+
+14
+00:01:10,800 --> 00:01:15,800
+I agree that we are a long way away from the kind of thing that I'm talking about.
+
+15
+00:01:15,800 --> 00:01:19,800
+Or that we're probably a long way away, right?
+
+16
+00:01:19,800 --> 00:01:25,800
+In the previous video, I stand by the video, but I think I came across as overconfident just because of the way that it was framed.
+
+17
+00:01:25,800 --> 00:01:29,800
+Like, I didn't choose the title, the deadly truth.
+
+18
+00:01:29,800 --> 00:01:32,800
+You call something the truth, capital T, you know.
+
+19
+00:01:32,800 --> 00:01:34,800
+Well, it was a thought experiment.
+
+20
+00:01:34,800 --> 00:01:41,800
+I would have called it an interesting thought experiment about general artificial intelligence, or something like that.
+
+21
+00:01:41,800 --> 00:01:44,800
+There's an argument that it might not have got quite so many views.
+
+22
+00:01:44,800 --> 00:01:48,800
+Yeah, I'm not going to try and tell you how to do your job.
+
+23
+00:01:49,800 --> 00:01:52,800
+But, no, the actual content of the video I stand by.
+
+24
+00:01:52,800 --> 00:01:59,800
+So there was really only one thing in Dr. Holden's video that I didn't agree with, which was like one sentence.
+
+25
+00:01:59,800 --> 00:02:08,800
+He was talking about how we don't pay enough attention to the friendly AI possibility, the positive outcome, which I think is true.
+
+26
+00:02:08,800 --> 00:02:11,800
+But then he said, which I think is more likely.
+
+27
+00:02:11,800 --> 00:02:13,800
+I don't know how likely it is.
+
+28
+00:02:13,800 --> 00:02:17,800
+I think it depends on how seriously we take this problem.
+
+29
+00:02:18,800 --> 00:02:24,800
+Of how do we actually make sure that any artificial general intelligence we create is friendly.
+
+30
+00:02:25,800 --> 00:02:27,800
+Friendly, you know.
+
+31
+00:02:29,800 --> 00:02:33,800
+I don't think that it's a problem that's solved.
+
+32
+00:02:33,800 --> 00:02:36,800
+And I don't think that it's a problem that will solve itself.
+
+33
+00:02:36,800 --> 00:02:39,800
+I actually think it's a problem that's very difficult to solve.
+
+34
+00:02:39,800 --> 00:02:44,800
+And we are very far from a solution, or quite far from a solution.
+
+35
+00:02:45,800 --> 00:02:50,800
+It's very difficult to say with any confidence how far we are.
+
+36
+00:02:50,800 --> 00:02:55,800
+But it's comparable to how far we are from general AI itself.
+
+37
+00:02:55,800 --> 00:02:59,800
+We had a brief conversation with Professor Brailsford on exactly this.
+
+38
+00:02:59,800 --> 00:03:02,800
+And he said maybe this is like cold fusion.
+
+39
+00:03:02,800 --> 00:03:05,800
+50 years ago they said, hey, in 50 years we'll be able to do this.
+
+40
+00:03:05,800 --> 00:03:07,800
+And it's always in 50 years.
+
+41
+00:03:07,800 --> 00:03:09,800
+Right, yeah.
+
+42
+00:03:10,800 --> 00:03:16,800
+The thing is with historical examples, you can go back and find historical examples.
+
+43
+00:03:16,800 --> 00:03:21,800
+Endless historical examples of people claiming that something fantastic is right around the corner.
+
+44
+00:03:21,800 --> 00:03:23,800
+When in fact it isn't.
+
+45
+00:03:23,800 --> 00:03:30,800
+But the thing is you can also find a lot of examples of people saying that something fantastic is definitely never going to happen.
+
+46
+00:03:30,800 --> 00:03:32,800
+And it's actually right around the corner.
+
+47
+00:03:32,800 --> 00:03:35,800
+Because before we talked about fission.
+
+48
+00:03:35,800 --> 00:03:38,800
+Self-sustaining fission reactions in the AI video.
+
+49
+00:03:39,800 --> 00:03:45,800
+That is an example of a situation where you have Ernest Rutherford, Nobel Prize winner, extremely eminent scientist.
+
+50
+00:03:45,800 --> 00:03:48,800
+So he split the atom, right, or he was part of a team that split the atom.
+
+51
+00:03:48,800 --> 00:03:53,800
+And he was on the record saying some people think that you could use this as a source of actual energy.
+
+52
+00:03:53,800 --> 00:03:55,800
+That you could reliably get energy out of this.
+
+53
+00:03:55,800 --> 00:03:57,800
+That's, he called it moonshine.
+
+54
+00:03:57,800 --> 00:03:59,800
+He said it was completely absurd, right.
+
+55
+00:03:59,800 --> 00:04:03,800
+And then you have Leo Szilard who eventually did it.
+
+56
+00:04:03,800 --> 00:04:05,800
+He had the idea, now we don't know exactly.
+
+57
+00:04:05,800 --> 00:04:11,800
+But as far as we can tell, the idea for using neutrons to make a self-sustaining nuclear reaction.
+
+58
+00:04:11,800 --> 00:04:17,800
+Occurred to him on the same day that Rutherford was dismissing it as nonsense.
+
+59
+00:04:17,800 --> 00:04:19,800
+This kind of thing can happen.
+
+60
+00:04:19,800 --> 00:04:21,800
+I don't, I'm not saying that it will.
+
+61
+00:04:21,800 --> 00:04:22,800
+That's my point, right.
+
+62
+00:04:22,800 --> 00:04:26,800
+You can find situations where people are overconfident in predicting something will happen.
+
+63
+00:04:26,800 --> 00:04:30,800
+You can also find situations where people are overconfident in predicting it won't happen.
+
+64
+00:04:30,800 --> 00:04:36,800
+And it's just a function of the fact that predicting is really difficult.
+
+65
+00:04:36,800 --> 00:04:42,800
+My central point actually doesn't rely on anything to do with time scales really, right.
+
+66
+00:04:42,800 --> 00:04:44,800
+I think we're a long way away from all of these things.
+
+67
+00:04:44,800 --> 00:04:49,800
+But at the same time, I'd be very surprised if it were more than a hundred years or something.
+
+68
+00:04:49,800 --> 00:04:54,800
+You know, just because, and again this is what, this is as Dr. Holden said.
+
+69
+00:04:54,800 --> 00:04:58,800
+It's kind of inescapable if we continue advancing as we are.
+
+70
+00:04:58,800 --> 00:05:00,800
+We're going to get there sooner or later.
+
+71
+00:05:00,800 --> 00:05:04,800
+We know it's not impossible unless we wipe ourselves out some other way
+
+72
+00:05:04,800 --> 00:05:07,800
+or destroy our technological capacity some other way.
+
+73
+00:05:07,800 --> 00:05:10,800
+Or we discover that the brain is literally magic.
+
+74
+00:05:10,800 --> 00:05:14,800
+And not like Roger Penrose quantum magic, like actual magic.
+
+75
+00:05:14,800 --> 00:05:16,800
+Then we'll get there sooner or later, right.
+
+76
+00:05:16,800 --> 00:05:21,800
+My point is that the problem of AI safety is not solved,
+
+77
+00:05:21,800 --> 00:05:25,800
+is not going to solve itself, and is not easy to solve.
+
+78
+00:05:25,800 --> 00:05:30,800
+And most importantly, we have to solve it before we solve the problem of general AI.
+
+79
+00:05:30,800 --> 00:05:37,800
+That's all I'm trying to say really, is that sooner or later we will probably get general AI.
+
+80
+00:05:37,800 --> 00:05:41,800
+And when we do, we have to know how to make safe general AI.
+
+81
+00:05:41,800 --> 00:05:44,800
+And currently we're a long way from that.
+
+82
+00:05:47,800 --> 00:05:54,800
+Over a long enough time scale, I think that human level artificial intelligence is completely inevitable.
+
+83
+00:05:54,800 --> 00:05:58,800
+When asked, was that a human you were talking to or was it a machine?
+
+84
+00:05:58,800 --> 00:06:02,800
+If you can't decide that it's not human, then it's passed the test.
+

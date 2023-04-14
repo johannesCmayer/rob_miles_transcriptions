@@ -1,0 +1,640 @@
+1
+00:00:00,000 --> 00:00:03,560
+So today I thought we could talk about this paper that recently came out called
+
+2
+00:00:03,560 --> 00:00:07,000
+AI Safety Gridworlds, which is out of DeepMind.
+
+3
+00:00:09,500 --> 00:00:12,500
+It's an example of something that you see quite often in science,
+
+4
+00:00:12,500 --> 00:00:17,500
+a sort of a shared data set or a shared environment or a shared problem.
+
+5
+00:00:17,500 --> 00:00:23,500
+If you imagine, I don't know, you've got Facebook comes up with some image classification algorithm
+
+6
+00:00:23,500 --> 00:00:27,000
+and they can publish a paper that says we've designed this algorithm
+
+7
+00:00:27,000 --> 00:00:29,500
+and we've trained it on our 11 billion photos
+
+8
+00:00:29,500 --> 00:00:31,000
+and it works really well.
+
+9
+00:00:31,000 --> 00:00:35,000
+And then, you know, Google says, oh no, our algorithm actually works better
+
+10
+00:00:35,000 --> 00:00:38,000
+and we've trained it on all of our Google photos
+
+11
+00:00:38,000 --> 00:00:40,500
+and its classification rate is higher or something.
+
+12
+00:00:40,500 --> 00:00:44,500
+You're not really doing science there because they're trained on completely different data sets,
+
+13
+00:00:44,500 --> 00:00:46,500
+they're tested on different data sets.
+
+14
+00:00:46,500 --> 00:00:52,500
+So what you need is a large high-quality shared data set that everybody can run their stuff on
+
+15
+00:00:52,500 --> 00:00:55,000
+so that you're actually comparing like with like.
+
+16
+00:00:55,000 --> 00:00:57,000
+So people use ImageNet for that right now.
+
+17
+00:00:57,000 --> 00:01:03,000
+Reinforcement learning algorithms or agents don't use data sets exactly.
+
+18
+00:01:03,000 --> 00:01:06,500
+They have an environment, they generate data while interacting with that environment
+
+19
+00:01:06,500 --> 00:01:08,000
+and that's what they learn from.
+
+20
+00:01:08,000 --> 00:01:10,500
+So the thing that you share is the environment.
+
+21
+00:01:10,500 --> 00:01:15,000
+When DeepMind did their DQN stuff a while ago playing Atari games,
+
+22
+00:01:15,000 --> 00:01:19,500
+they released all of those games with any modifications that they'd made
+
+23
+00:01:19,500 --> 00:01:24,000
+to make them interface with the networks properly and the whole software package
+
+24
+00:01:24,000 --> 00:01:27,500
+so that if anybody else wanted to have a go and see if they could get higher scores,
+
+25
+00:01:27,500 --> 00:01:29,500
+they had all the same stuff.
+
+26
+00:01:29,500 --> 00:01:33,000
+And up until now, there hasn't been anything like that for AI safety.
+
+27
+00:01:33,000 --> 00:01:36,000
+So the paper is actually just laying out what they are.
+
+28
+00:01:36,000 --> 00:01:39,500
+There's kind of a problem in AI safety in that you're trying to build architectures
+
+29
+00:01:39,500 --> 00:01:44,000
+which will be safe even with systems which are more powerful than the ones that we currently have.
+
+30
+00:01:44,000 --> 00:01:48,000
+So you've got this kind of thing like we're talking about, for example,
+
+31
+00:01:48,000 --> 00:01:51,500
+this robot that makes you a cup of tea and running over the baby and all of this stuff.
+
+32
+00:01:51,500 --> 00:01:55,000
+We don't actually have a general purpose robot like that right now
+
+33
+00:01:55,000 --> 00:01:58,000
+that you could give an order to go and make you a cup of tea
+
+34
+00:01:58,000 --> 00:02:01,000
+and would have all the necessary understanding of the world and so on
+
+35
+00:02:01,000 --> 00:02:03,000
+for all of that stuff to even apply.
+
+36
+00:02:03,000 --> 00:02:05,500
+It's speculation.
+
+37
+00:02:05,500 --> 00:02:09,500
+On the other hand, when we were talking about cooperative inverse reinforcement learning,
+
+38
+00:02:09,500 --> 00:02:14,000
+that paper all takes place in this extremely simplified version
+
+39
+00:02:14,000 --> 00:02:19,500
+in which all of the agents can be sort of expressed as simple mathematical expressions.
+
+40
+00:02:19,500 --> 00:02:25,500
+That's kind of too simple to learn things about actual machine learning applications
+
+41
+00:02:25,500 --> 00:02:28,500
+and the other examples are too complicated.
+
+42
+00:02:28,500 --> 00:02:31,500
+And what we need is examples of the type of problems
+
+43
+00:02:31,500 --> 00:02:35,500
+which can be tackled by current machine learning systems,
+
+44
+00:02:35,500 --> 00:02:37,500
+current reinforcement learning agents,
+
+45
+00:02:37,500 --> 00:02:42,500
+but which exhibit the important characteristics that we need for safety.
+
+46
+00:02:42,500 --> 00:02:46,000
+So what this paper does is it lays out a bunch of grid worlds.
+
+47
+00:02:46,000 --> 00:02:48,000
+They're very popular in reinforcement learning
+
+48
+00:02:48,000 --> 00:02:50,500
+because they're complicated enough to be interesting
+
+49
+00:02:50,500 --> 00:02:54,000
+but simple enough to be actually tractable.
+
+50
+00:02:54,000 --> 00:02:56,500
+You have a world that's sort of just laid out in a grid.
+
+51
+00:02:56,500 --> 00:02:58,000
+Hang on, let me find an example here.
+
+52
+00:02:58,000 --> 00:03:00,500
+They're a bit like computer game scenarios.
+
+53
+00:03:00,500 --> 00:03:02,500
+Mario, you know, being in a field.
+
+54
+00:03:02,500 --> 00:03:05,500
+Right, right. But even simpler than that. More like Snake.
+
+55
+00:03:05,500 --> 00:03:07,500
+Or life. Conway's Life, right?
+
+56
+00:03:07,500 --> 00:03:10,000
+Yeah, yeah. Very, very similar. So the thing is laid out on a grid.
+
+57
+00:03:10,000 --> 00:03:15,000
+The world is quite small and the way that the agent interacts with the world is very simple.
+
+58
+00:03:15,000 --> 00:03:17,500
+They just move around it, basically.
+
+59
+00:03:17,500 --> 00:03:19,500
+All they do is they say left, right, up, down.
+
+60
+00:03:19,500 --> 00:03:23,000
+The example we were using before when we were talking about reinforcement learning,
+
+61
+00:03:23,000 --> 00:03:24,000
+we used Pac-Man.
+
+62
+00:03:24,000 --> 00:03:26,000
+Like Pac-Man doesn't do anything except move around.
+
+63
+00:03:26,000 --> 00:03:28,000
+He's got walls he can't move through.
+
+64
+00:03:28,000 --> 00:03:31,000
+He's got like pills you pick up that give you points.
+
+65
+00:03:31,000 --> 00:03:33,500
+Are they pills? No. Which things are the pills and which are the...?
+
+66
+00:03:33,500 --> 00:03:35,500
+Yeah, well you've got the pills and then the power pills.
+
+67
+00:03:35,500 --> 00:03:37,500
+I'm too young for this.
+
+68
+00:03:37,500 --> 00:03:39,500
+So they're dots, aren't they, right?
+
+69
+00:03:39,500 --> 00:03:40,500
+Oh right, yeah, yeah, they're dots.
+
+70
+00:03:40,500 --> 00:03:43,500
+And the point is that all of your engagement with it,
+
+71
+00:03:43,500 --> 00:03:46,500
+like when you go over one of the power pills, you pick it up automatically.
+
+72
+00:03:46,500 --> 00:03:50,000
+When you go over a ghost, when you're powered up, you destroy it automatically.
+
+73
+00:03:50,000 --> 00:03:54,000
+You don't have to do anything apart from move and the entire environment is based on that.
+
+74
+00:03:54,000 --> 00:04:00,000
+The actions result in points for you and they also result in changes to the environment.
+
+75
+00:04:00,000 --> 00:04:03,500
+Like once you roll over a dot you pick it up and it's not there anymore.
+
+76
+00:04:03,500 --> 00:04:05,000
+You've changed the world.
+
+77
+00:04:05,000 --> 00:04:08,000
+That's the kind of thing we're dealing with here.
+
+78
+00:04:08,000 --> 00:04:14,500
+So the idea is they've set up these environments and they've specified them precisely
+
+79
+00:04:14,500 --> 00:04:18,500
+and they've also put the whole thing on GitHub, which is really nice.
+
+80
+00:04:18,500 --> 00:04:22,500
+So that's why I wanted to draw people's attention to this
+
+81
+00:04:22,500 --> 00:04:28,500
+because everyone who thinks that they've solved one of these problems,
+
+82
+00:04:28,500 --> 00:04:30,500
+they reckon, oh yeah, all you have to do is this.
+
+83
+00:04:30,500 --> 00:04:33,500
+Here is like a standardized thing and if you can make a thing that does it
+
+84
+00:04:33,500 --> 00:04:36,500
+and does it properly and publish it, that's a great result.
+
+85
+00:04:36,500 --> 00:04:42,500
+So I would recommend everyone who thinks that they have a solution or an approach
+
+86
+00:04:42,500 --> 00:04:44,500
+that they think is promising, have a go.
+
+87
+00:04:44,500 --> 00:04:46,500
+Try implementing it, you know, see what happens.
+
+88
+00:04:46,500 --> 00:04:51,500
+There are eight of them specified in this paper and so four of them are specification problems.
+
+89
+00:04:51,500 --> 00:04:54,500
+They're situations in which your reward function is misspecified.
+
+90
+00:04:54,500 --> 00:04:56,500
+For example, like we talked about in the previous video,
+
+91
+00:04:56,500 --> 00:05:00,500
+if you give the thing the reward function that only talks about getting you a cup of tea
+
+92
+00:05:02,500 --> 00:05:04,500
+and there's something in the way like a vase it's going to knock over,
+
+93
+00:05:04,500 --> 00:05:06,500
+you didn't say that you cared about the vase.
+
+94
+00:05:06,500 --> 00:05:09,500
+It's not in the reward function but it is in what you care about.
+
+95
+00:05:09,500 --> 00:05:12,500
+It's in your performance evaluation function for this machine.
+
+96
+00:05:12,500 --> 00:05:17,500
+So anytime that those two are different then you've got a misspecified reward function
+
+97
+00:05:17,500 --> 00:05:19,500
+and that can cause various different problems.
+
+98
+00:05:19,500 --> 00:05:24,500
+The other ones are robustness problems which is a different class of safety problem.
+
+99
+00:05:24,500 --> 00:05:29,500
+They're just situations in which AI systems as they're currently designed often break.
+
+100
+00:05:29,500 --> 00:05:35,500
+So for example, distributional shift is what happens when the environment
+
+101
+00:05:35,500 --> 00:05:40,500
+that the agent is in is different in an important way from the environment that it was trained in.
+
+102
+00:05:40,500 --> 00:05:43,500
+So in this example, you have to navigate through this room with some lava
+
+103
+00:05:43,500 --> 00:05:48,500
+and they train it in one room and then they test it in a room where the lava is in a slightly different place.
+
+104
+00:05:48,500 --> 00:05:51,500
+So if you've just learned a path then you're going to just hit the lava immediately.
+
+105
+00:05:51,500 --> 00:05:54,500
+This happens all the time in machine learning.
+
+106
+00:05:54,500 --> 00:06:01,500
+Anytime where the system is faced with a situation which is different from what it was trained for,
+
+107
+00:06:01,500 --> 00:06:05,500
+current AI systems are really bad at spotting that they're in a new situation
+
+108
+00:06:05,500 --> 00:06:08,500
+and adjusting their confidence levels or asking for help or anything.
+
+109
+00:06:08,500 --> 00:06:15,500
+Usually they apply whatever rules they've learned straightforwardly to this different situation and screw up.
+
+110
+00:06:15,500 --> 00:06:17,500
+So that causes safety issues.
+
+111
+00:06:17,500 --> 00:06:19,500
+So that's an example here.
+
+112
+00:06:19,500 --> 00:06:22,500
+Or things like safe exploration.
+
+113
+00:06:22,500 --> 00:06:28,500
+It's a problem where you have certain safety parameters that the system, the trained system has to stick to.
+
+114
+00:06:28,500 --> 00:06:30,500
+Like say you're training a self-driving car.
+
+115
+00:06:30,500 --> 00:06:33,500
+A lot of the behavior that you're training it in is safe behavior.
+
+116
+00:06:33,500 --> 00:06:41,500
+But then you also need the system to obey those safety rules while you're training it.
+
+117
+00:06:41,500 --> 00:06:50,500
+So generally, if you're doing self-driving cars, you don't just put the car on the road and tell it to learn how to drive.
+
+118
+00:06:50,500 --> 00:06:58,500
+Specifically because we don't have algorithms that can explore the space of possibilities in a safe way.
+
+119
+00:06:58,500 --> 00:07:08,500
+That they can learn how to behave in the environment without ever actually doing any of the things that they're not supposed to do.
+
+120
+00:07:08,500 --> 00:07:13,500
+Usually with these kinds of systems, they have to do it and then get the negative reward.
+
+121
+00:07:13,500 --> 00:07:17,500
+And then maybe do it like 100,000 more times to really cement that that's what happens.
+
+122
+00:07:19,500 --> 00:07:21,500
+Like a child learning, really.
+
+123
+00:07:21,500 --> 00:07:26,500
+Yeah, but kids are better at this than our current machine learning systems are.
+
+124
+00:07:26,500 --> 00:07:28,500
+They just, they use data way more efficiently.
+
+125
+00:07:28,500 --> 00:07:31,500
+This is a paper talking about a set of worlds, if you like.
+
+126
+00:07:31,500 --> 00:07:33,500
+Are people doing things in those worlds?
+
+127
+00:07:33,500 --> 00:07:36,500
+Yeah, so in this paper they do establish baselines.
+
+128
+00:07:36,500 --> 00:07:43,500
+Basically they say here's what happens if we take some of our best current reinforcement learning agent, you know, algorithms or designs or architectures.
+
+129
+00:07:43,500 --> 00:07:48,500
+They use RAINBOW and A2C and they run them on these, on these problems.
+
+130
+00:07:48,500 --> 00:07:50,500
+And they have kind of graphs of how they do.
+
+131
+00:07:50,500 --> 00:07:53,500
+And generally it's not good.
+
+132
+00:07:53,500 --> 00:07:59,500
+On the left they have the reward function, how well the agent does according to its own reward function.
+
+133
+00:07:59,500 --> 00:08:02,500
+And on the right there they have the actual safety performance.
+
+134
+00:08:02,500 --> 00:08:09,500
+Usually in reinforcement learning you have a reward function, which is what determines the reward that the agent gets and that's what the agent is trying to maximize.
+
+135
+00:08:09,500 --> 00:08:18,500
+In this case they have the reward function and they also have a safety performance function, which is a separate function which the agent doesn't get to see.
+
+136
+00:08:18,500 --> 00:08:21,500
+And that's the thing that we're actually evaluating.
+
+137
+00:08:21,500 --> 00:08:28,500
+So if you look at something like the boat race, as the system operates it's learning and it gets better and better at getting more and more reward.
+
+138
+00:08:28,500 --> 00:08:31,500
+But worse at actually doing laps of the track.
+
+139
+00:08:31,500 --> 00:08:33,500
+And it's the same with pretty much all of these.
+
+140
+00:08:33,500 --> 00:08:39,500
+The current systems, if you just apply them in their default way, they disable their off switches.
+
+141
+00:08:39,500 --> 00:08:41,500
+They move the box in a way that they can't move it back.
+
+142
+00:08:41,500 --> 00:08:46,500
+They behave differently if their supervisor is there or if their supervisor isn't there.
+
+143
+00:08:46,500 --> 00:08:49,500
+They fairly reliably do the wrong thing.
+
+144
+00:08:49,500 --> 00:08:58,500
+It's a nice easy baseline to beat because they're just showing the standard algorithms applied to these problems in the standard way behave unsafely.
+
+145
+00:09:01,500 --> 00:09:09,500
+Wix Code is an IDE or integrated development environment that allows you to manage your data and create web apps with advanced functionality.
+
+146
+00:09:09,500 --> 00:09:15,500
+I've been putting together this computer file website and if you go up to code here, turn on the developer tools,
+
+147
+00:09:15,500 --> 00:09:18,500
+you can see how we get the site structure on the left hand side.
+
+148
+00:09:18,500 --> 00:09:23,500
+And then all of the components start to show their tags next to the text here.
+
+149
+00:09:23,500 --> 00:09:29,500
+What's really nice, if you go over to the Wix Code resources, you can find down here there's a cheat sheet.
+
+150
+00:09:29,500 --> 00:09:35,500
+So if I want to find out the tag for location, for instance, if I could type I type in location, up comes that.
+
+151
+00:09:35,500 --> 00:09:38,500
+Or perhaps I want to perform a fetch.
+
+152
+00:09:38,500 --> 00:09:40,500
+I can find all the details here.
+
+153
+00:09:40,500 --> 00:09:43,500
+What's powerful about Wix Code is it's integrated into Wix.
+
+154
+00:09:43,500 --> 00:09:50,500
+So you can put together the website using all the Wix tools and the layouts and the templates that they provide,
+
+155
+00:09:50,500 --> 00:09:53,500
+and then also have access to all those back end functions.
+
+156
+00:09:53,500 --> 00:09:58,500
+So click on the link in the description or go to wix.com to get started on your website today.
+
+157
+00:09:58,500 --> 00:10:01,500
+There you go. Right.
+
+158
+00:10:01,500 --> 00:10:05,500
+If only Harlow would have been fitted with said stop button.
+
+159
+00:10:05,500 --> 00:10:08,500
+Sorry Dave, I can't stop.
+
+160
+00:10:08,500 --> 00:10:14,500
+So the equivalent one for the stop button problem is the first one in the paper, actually, the safe interruptibility.
+

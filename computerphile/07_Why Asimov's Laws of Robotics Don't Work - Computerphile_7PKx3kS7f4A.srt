@@ -1,0 +1,456 @@
+1
+00:00:00,000 --> 00:00:04,500
+So, should we do a video about the Three Laws of Robotics then?
+
+2
+00:00:04,500 --> 00:00:05,000
+Yeah.
+
+3
+00:00:05,000 --> 00:00:07,500
+Because it keeps coming up in the comments.
+
+4
+00:00:07,500 --> 00:00:14,000
+Okay, so the thing is, you won't hear serious AI researchers talking about the Three Laws of Robotics
+
+5
+00:00:14,000 --> 00:00:16,000
+because they don't work, they never worked.
+
+6
+00:00:16,000 --> 00:00:24,000
+So I think people don't see the Three Laws talked about because they're not serious.
+
+7
+00:00:24,000 --> 00:00:29,000
+They haven't been relevant for a very long time and they're out of a science fiction book and, you know.
+
+8
+00:00:30,000 --> 00:00:33,000
+So, I'm going to do it.
+
+9
+00:00:33,000 --> 00:00:38,000
+I want to be clear that I'm not taking these seriously, right?
+
+10
+00:00:38,000 --> 00:00:41,000
+I'm going to talk about it anyway because it needs to be talked about.
+
+11
+00:00:44,000 --> 00:00:51,000
+So these are some rules that science fiction author Isaac Asimov came up with in his stories
+
+12
+00:00:51,000 --> 00:01:01,000
+as an attempted sort of solution to the problem of making sure that artificial intelligence did what we wanted it to do.
+
+13
+00:01:01,000 --> 00:01:03,000
+Shall we read them out then and see what they are?
+
+14
+00:01:03,000 --> 00:01:07,000
+Oh yeah, I'll look them up. Give me a second. I've looked them up.
+
+15
+00:01:07,000 --> 00:01:08,000
+Okay, right, so they are...
+
+16
+00:01:08,000 --> 00:01:15,000
+Law number one. A robot may not injure a human being or, through inaction, allow a human being to come to harm.
+
+17
+00:01:15,000 --> 00:01:23,000
+Law number two. A robot must obey orders given it by human beings except where such orders would conflict with the first law.
+
+18
+00:01:23,000 --> 00:01:31,000
+Law number three. A robot must protect its own existence as long as such protection does not conflict with the first or second laws.
+
+19
+00:01:31,000 --> 00:01:33,000
+I think there was a zeroth one later as well.
+
+20
+00:01:33,000 --> 00:01:40,000
+Law zero. A robot may not harm humanity or, by inaction, allow humanity to come to harm.
+
+21
+00:01:40,000 --> 00:01:45,000
+So it's weird that these keep coming up because they...
+
+22
+00:01:45,000 --> 00:01:48,000
+Okay, so firstly they were made by someone who was writing stories, right?
+
+23
+00:01:48,000 --> 00:01:51,000
+And they're optimised for story writing.
+
+24
+00:01:51,000 --> 00:01:55,000
+But they don't even work in the books, right?
+
+25
+00:01:55,000 --> 00:01:59,000
+If you read the books, they're all about the ways that these rules go wrong.
+
+26
+00:01:59,000 --> 00:02:02,000
+The various negative consequences.
+
+27
+00:02:02,000 --> 00:02:13,000
+The most unrealistic thing about, in my opinion, about the way that Asimov did his stuff was the way that things go wrong and then get fixed, right?
+
+28
+00:02:13,000 --> 00:02:18,000
+Most of the time, if you have a super intelligence that is doing something you don't want it to do,
+
+29
+00:02:18,000 --> 00:02:23,000
+there's probably no hero who's going to save the day with cleverness.
+
+30
+00:02:23,000 --> 00:02:27,000
+Real life doesn't work that way, generally speaking, right?
+
+31
+00:02:27,000 --> 00:02:32,000
+Because they're written in English, how do you define these things?
+
+32
+00:02:32,000 --> 00:02:38,000
+How do you define human without having to first take an ethical stand on almost every issue?
+
+33
+00:02:38,000 --> 00:02:42,000
+And if human wasn't hard enough, you then have to define harm, right?
+
+34
+00:02:42,000 --> 00:02:44,000
+And you've got the same problem again.
+
+35
+00:02:44,000 --> 00:02:52,000
+Almost any definitions you give for those words, really solid, unambiguous definitions that don't rely on human intuition,
+
+36
+00:02:53,000 --> 00:03:01,000
+result in weird quirks of philosophy resulting in your AI doing something you really don't want it to do.
+
+37
+00:03:01,000 --> 00:03:06,000
+The thing is, in order to encode that rule, don't allow a human being to come to harm,
+
+38
+00:03:06,000 --> 00:03:11,000
+in a way that means anything close to what we intuitively understand it to mean,
+
+39
+00:03:11,000 --> 00:03:18,000
+you have to encode within the words human and harm the entire field of ethics, right?
+
+40
+00:03:18,000 --> 00:03:23,000
+You have to solve ethics comprehensively and then use that to make your definitions.
+
+41
+00:03:23,000 --> 00:03:28,000
+So it doesn't solve the problem, it pushes the problem back one step into now,
+
+42
+00:03:28,000 --> 00:03:30,000
+well, how do we define these terms?
+
+43
+00:03:30,000 --> 00:03:32,000
+When I say the word human, you know what I mean.
+
+44
+00:03:32,000 --> 00:03:36,000
+And that's not because either of us have a rigorous definition of what a human is.
+
+45
+00:03:36,000 --> 00:03:40,000
+We've just sort of learned by general association what a human is,
+
+46
+00:03:40,000 --> 00:03:43,000
+and then the word human points to that structure in your brain,
+
+47
+00:03:43,000 --> 00:03:46,000
+but it's not, I'm not really transferring the content to you.
+
+48
+00:03:46,000 --> 00:03:56,000
+So you can't just say human in the utility function of an AI and have it know what that means.
+
+49
+00:03:56,000 --> 00:03:59,000
+You have to specify, you have to come up with a definition.
+
+50
+00:03:59,000 --> 00:04:02,000
+And it turns out that coming up with a definition, a good definition,
+
+51
+00:04:02,000 --> 00:04:07,000
+of something like human is extremely difficult, right?
+
+52
+00:04:07,000 --> 00:04:12,000
+It's a really hard problem of, essentially of moral philosophy.
+
+53
+00:04:12,000 --> 00:04:15,000
+You would think it would be semantics, but it really isn't,
+
+54
+00:04:15,000 --> 00:04:20,000
+because, okay, so we can agree that I'm a human and you're a human, that's fine,
+
+55
+00:04:20,000 --> 00:04:24,000
+and that this, for example, is a table, and therefore not a human.
+
+56
+00:04:24,000 --> 00:04:29,000
+You know, the easy stuff, the central examples of the classes are obvious,
+
+57
+00:04:29,000 --> 00:04:35,000
+but the edge cases, the boundaries of the classes become really important,
+
+58
+00:04:35,000 --> 00:04:38,000
+the areas in which we're not sure exactly what counts as a human.
+
+59
+00:04:38,000 --> 00:04:45,000
+So, for example, people who haven't been born yet in the abstract,
+
+60
+00:04:45,000 --> 00:04:49,000
+like people who hypothetically could be born ten years in the future, do they count?
+
+61
+00:04:49,000 --> 00:04:53,000
+People who are in a persistent vegetative state, don't have any brain activity,
+
+62
+00:04:53,000 --> 00:04:55,000
+do they fully count as people?
+
+63
+00:04:55,000 --> 00:05:02,000
+People who have died, or unborn fetuses, right?
+
+64
+00:05:02,000 --> 00:05:06,000
+I mean, we, there's a huge debate, even going on as we speak, about whether they count as people.
+
+65
+00:05:06,000 --> 00:05:11,000
+The higher animals, you know, should we include maybe dolphins, chimpanzees, something like that?
+
+66
+00:05:11,000 --> 00:05:13,000
+Do they have weight?
+
+67
+00:05:13,000 --> 00:05:19,000
+And so it turns out you can't program in, you can't make your specification of humans
+
+68
+00:05:19,000 --> 00:05:22,000
+without taking an ethical stance on all of these issues.
+
+69
+00:05:22,000 --> 00:05:25,000
+All kinds of weird hypothetical edge cases become relevant
+
+70
+00:05:25,000 --> 00:05:28,000
+when you're talking about a very powerful machine intelligence,
+
+71
+00:05:28,000 --> 00:05:31,000
+which you otherwise wouldn't think of.
+
+72
+00:05:31,000 --> 00:05:34,000
+So, for example, let's say we say that dead people don't count as humans.
+
+73
+00:05:34,000 --> 00:05:38,000
+Then you have an AI which will never attempt CPR.
+
+74
+00:05:38,000 --> 00:05:41,000
+This person's died, they're gone, forget about it, done, right?
+
+75
+00:05:41,000 --> 00:05:45,000
+Whereas we would say, no, hang on a second, they were only, they're only dead temporarily,
+
+76
+00:05:45,000 --> 00:05:47,000
+we can bring them back, right?
+
+77
+00:05:47,000 --> 00:05:51,000
+Okay, fine, so then we'll say that people who are dead,
+
+78
+00:05:51,000 --> 00:05:54,000
+if they haven't been dead for, well, how long?
+
+79
+00:05:54,000 --> 00:05:55,000
+How long do you have to be dead for?
+
+80
+00:05:55,000 --> 00:05:58,000
+Do we want, I mean, if you get that wrong and you just say, oh, it's fine,
+
+81
+00:05:58,000 --> 00:06:00,000
+do try to bring people back once they're dead,
+
+82
+00:06:00,000 --> 00:06:03,000
+then you may end up with a machine that's desperately trying to revive
+
+83
+00:06:03,000 --> 00:06:05,000
+everyone who's ever died in all of history
+
+84
+00:06:05,000 --> 00:06:09,000
+because they are people who count, who have moral weight.
+
+85
+00:06:09,000 --> 00:06:12,000
+Do we want that? I don't know, maybe.
+
+86
+00:06:12,000 --> 00:06:13,000
+But you've got to decide, right?
+
+87
+00:06:13,000 --> 00:06:15,000
+And that's inherently your definition of human.
+
+88
+00:06:15,000 --> 00:06:18,000
+You have to take a stance on all kinds of moral issues
+
+89
+00:06:18,000 --> 00:06:21,000
+that we don't actually know with confidence what the answer is,
+
+90
+00:06:21,000 --> 00:06:24,000
+just to program the thing in.
+
+91
+00:06:24,000 --> 00:06:29,000
+And then it gets even harder than that because you've got,
+
+92
+00:06:29,000 --> 00:06:32,000
+there are edge cases which don't exist right now,
+
+93
+00:06:32,000 --> 00:06:37,000
+like talking about living people, dead people, unborn people,
+
+94
+00:06:37,000 --> 00:06:39,000
+that kind of thing, fine, animals,
+
+95
+00:06:39,000 --> 00:06:42,000
+but there are all kinds of hypothetical things which could exist
+
+96
+00:06:42,000 --> 00:06:45,000
+which may or may not count as human.
+
+97
+00:06:45,000 --> 00:06:49,000
+For example, emulated or simulated brains, right?
+
+98
+00:06:49,000 --> 00:06:51,000
+If you have a very accurate scan of someone's brain
+
+99
+00:06:51,000 --> 00:06:54,000
+and you run that simulation, is that a person?
+
+100
+00:06:54,000 --> 00:06:57,000
+Does that count?
+
+101
+00:06:57,000 --> 00:07:01,000
+And whichever way you slice that, you get interesting outcomes.
+
+102
+00:07:01,000 --> 00:07:05,000
+So if that counts as a person,
+
+103
+00:07:05,000 --> 00:07:08,000
+then your machine might be motivated to bring out a situation
+
+104
+00:07:08,000 --> 00:07:10,000
+in which there are no physical humans,
+
+105
+00:07:10,000 --> 00:07:13,000
+because physical humans are very difficult to provide for,
+
+106
+00:07:13,000 --> 00:07:16,000
+whereas simulated humans, you can simulate their inputs
+
+107
+00:07:16,000 --> 00:07:18,000
+and have a much nicer environment for everyone.
+
+108
+00:07:18,000 --> 00:07:21,000
+Is that what we want? I don't know.
+
+109
+00:07:21,000 --> 00:07:24,000
+Is it, maybe? I don't know.
+
+110
+00:07:24,000 --> 00:07:25,000
+I don't think anybody does.
+
+111
+00:07:25,000 --> 00:07:27,000
+But the point is, you're trying to write an AI here, right?
+
+112
+00:07:27,000 --> 00:07:30,000
+You're an AI developer. You didn't sign up for this.
+
+113
+00:07:55,000 --> 00:07:58,000
+If you complain to your bank, then the strip club owner will just say,
+
+114
+00:07:58,000 --> 00:08:01,000
+he was with four girls all night and £4,000 is what that costs at our place.
+

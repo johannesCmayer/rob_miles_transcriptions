@@ -1,0 +1,724 @@
+1
+00:00:00,000 --> 00:00:05,800
+So in golf, obviously the idea is you're supposed to get the ball in the hole with as few strokes as possible.
+
+2
+00:00:05,800 --> 00:00:13,300
+And in code golf, you're supposed to write a program that does something with as few keystrokes as possible, I guess, right?
+
+3
+00:00:13,300 --> 00:00:15,000
+With as few characters as possible.
+
+4
+00:00:15,000 --> 00:00:19,500
+So you're trying to produce the shortest possible program that does a particular thing.
+
+5
+00:00:19,500 --> 00:00:23,500
+And it's a kind of a nerd sport, you know?
+
+6
+00:00:23,500 --> 00:00:29,500
+Although this is a very bad practice.
+
+7
+00:00:29,500 --> 00:00:35,500
+Like if you're really writing software, generally speaking, you do not want the source code to be as small as possible, right?
+
+8
+00:00:35,500 --> 00:00:44,000
+There are things, sometimes you do want the source code to be small, but you have things like minifiers that will deliberately, you know, programs that will automatically compress code.
+
+9
+00:00:44,000 --> 00:00:49,500
+This actually is just an example of a deliberately very short bit of code.
+
+10
+00:00:49,500 --> 00:00:59,000
+This is the code here, and this is the whole of it, and it plays a piece of music which I'm not exactly sure how long it lasts.
+
+11
+00:00:59,000 --> 00:01:08,000
+Definitely 16 minutes, possibly more like 30 minutes before it starts to actually repeat itself.
+
+12
+00:01:08,000 --> 00:01:10,500
+So it produces a fairly large amount of complexity.
+
+13
+00:01:10,500 --> 00:01:16,000
+The song is quite repetitive, but well, I'll play it.
+
+14
+00:01:16,000 --> 00:01:23,500
+So this is...
+
+15
+00:01:23,500 --> 00:01:28,500
+Starts off very simple.
+
+16
+00:01:28,500 --> 00:01:31,000
+And then becomes more complex with time.
+
+17
+00:01:31,000 --> 00:01:35,500
+All of the instruments are essentially the same, but with different parameters.
+
+18
+00:01:35,500 --> 00:01:37,500
+So we can go into the code a little bit.
+
+19
+00:01:37,500 --> 00:01:45,000
+We send the source code to make a C program that will generate audio data, and then we're running it and playing that audio data.
+
+20
+00:01:45,000 --> 00:01:47,000
+Fairly straightforward as a structure.
+
+21
+00:01:47,000 --> 00:01:49,500
+Yeah, and then that's what you get.
+
+22
+00:01:49,500 --> 00:01:51,500
+It takes a few minutes to get actually good, so.
+
+23
+00:01:51,500 --> 00:01:54,500
+So when you run it though, I see one or two warnings pop up.
+
+24
+00:01:54,500 --> 00:01:55,500
+Yeah.
+
+25
+00:01:55,500 --> 00:01:56,500
+Just pay no attention to them.
+
+26
+00:01:56,500 --> 00:02:06,500
+Most of this is the compiler complaining that we are torturing the C language.
+
+27
+00:02:06,500 --> 00:02:09,000
+C is really kind of permissive.
+
+28
+00:02:09,000 --> 00:02:15,000
+It lets you get away with an enormous amount that you really shouldn't be able to.
+
+29
+00:02:15,000 --> 00:02:17,500
+So here, for example, all of these defaults to int.
+
+30
+00:02:17,500 --> 00:02:19,500
+It turns out that if you...
+
+31
+00:02:19,500 --> 00:02:21,500
+C is a strongly typed language, right?
+
+32
+00:02:21,500 --> 00:02:23,500
+Every variable has to have a type.
+
+33
+00:02:23,500 --> 00:02:28,500
+If that's an integer or a float or a character or a pointer or whatever.
+
+34
+00:02:28,500 --> 00:02:32,000
+But it turns out that if you don't specify that, in principle you have to specify it.
+
+35
+00:02:32,000 --> 00:02:36,500
+But if you don't, it just goes, oh, you haven't specified it, I'll assume it's an int.
+
+36
+00:02:36,500 --> 00:02:38,500
+So, which is just an integer.
+
+37
+00:02:38,500 --> 00:02:42,000
+So everything, every variable in here is an integer.
+
+38
+00:02:42,000 --> 00:02:46,000
+Because that way we don't have to waste any characters specifying what it is.
+
+39
+00:02:46,000 --> 00:02:48,000
+And integers work fine for this.
+
+40
+00:02:48,000 --> 00:02:51,000
+So this program really has two main parts.
+
+41
+00:02:51,000 --> 00:02:53,000
+There's a function here called g.
+
+42
+00:02:53,000 --> 00:02:58,000
+And then there's a big loop which calls that function several times.
+
+43
+00:02:58,000 --> 00:03:03,000
+And then calls putchar, which prints a character to the output.
+
+44
+00:03:03,000 --> 00:03:05,500
+So if we remove the pipe to A play,
+
+45
+00:03:05,500 --> 00:03:09,500
+rather than piping the audio data to the speakers,
+
+46
+00:03:09,500 --> 00:03:12,500
+it will just pipe it to the screen and we can look at it.
+
+47
+00:03:12,500 --> 00:03:15,500
+And it looks like this. Kind of fun.
+
+48
+00:03:18,500 --> 00:03:20,500
+So you can see there's kind of structure to it.
+
+49
+00:03:20,500 --> 00:03:23,500
+There's a pattern. It's not random noise.
+
+50
+00:03:23,500 --> 00:03:25,500
+There's kind of waveforms almost.
+
+51
+00:03:25,500 --> 00:03:28,500
+In chiptune music, you tend to have a few basic waveforms
+
+52
+00:03:28,500 --> 00:03:32,500
+that people use all the time because they're easy to generate, right?
+
+53
+00:03:32,500 --> 00:03:34,000
+One of them is the square wave.
+
+54
+00:03:34,000 --> 00:03:38,000
+That has a particular sound which you recognize from the old time game music.
+
+55
+00:03:39,000 --> 00:03:42,000
+There's also the triangle wave.
+
+56
+00:03:43,000 --> 00:03:46,000
+Which is, sounds a bit like a sine wave.
+
+57
+00:03:46,000 --> 00:03:48,000
+But is much easier to generate than a sine wave
+
+58
+00:03:48,000 --> 00:03:50,000
+because it doesn't have that complicated curvy stuff.
+
+59
+00:03:50,000 --> 00:03:52,000
+And the other one is the sawtooth wave.
+
+60
+00:03:53,000 --> 00:03:58,000
+Which is one that goes up and then jumps down and up and jumps down, right?
+
+61
+00:03:58,000 --> 00:04:00,000
+Kind of looks like the teeth of a saw.
+
+62
+00:04:00,000 --> 00:04:02,000
+And this works by sawtooth waves because it turns out
+
+63
+00:04:02,000 --> 00:04:06,500
+that sawtooth waves are super easy to produce just by overflow.
+
+64
+00:04:06,500 --> 00:04:11,500
+What does it mean to say you are overflowing an n-bit representation?
+
+65
+00:04:11,500 --> 00:04:13,500
+You have a fixed number of bits in your number
+
+66
+00:04:13,500 --> 00:04:16,500
+and then you get up to 1, 1, 1, 1, 1, 1, 1.
+
+67
+00:04:16,500 --> 00:04:19,500
+And if you add 1 to it, you do 1 is 1 and 0,
+
+68
+00:04:19,500 --> 00:04:22,500
+carry the 1, carry the 1, carry the 1, carry the 1, carry the 1,
+
+69
+00:04:22,500 --> 00:04:24,500
+and then you're carrying off the end and there's nothing there.
+
+70
+00:04:24,500 --> 00:04:26,500
+So the thing gets reset to 0.
+
+71
+00:04:26,500 --> 00:04:29,500
+So what this is doing in its loop is
+
+72
+00:04:30,000 --> 00:04:34,000
+there's a constant loop here and then putchar is expecting a char.
+
+73
+00:04:34,000 --> 00:04:39,000
+Chars are only 8 bits, right? 8-bit characters.
+
+74
+00:04:39,000 --> 00:04:44,000
+So the way that putchar works is you give it 256, that's like giving it 0.
+
+75
+00:04:44,000 --> 00:04:48,000
+So by having this number that keeps going up, going into putchar,
+
+76
+00:04:48,000 --> 00:04:50,000
+you end up with this sawtooth shape, right?
+
+77
+00:04:50,000 --> 00:04:53,000
+The number goes up and up and up until it goes off the scale and starts again at the bottom.
+
+78
+00:04:53,000 --> 00:04:55,000
+So this is the core on which the thing is built.
+
+79
+00:04:55,000 --> 00:04:57,000
+We just have a really simple loop.
+
+80
+00:04:57,500 --> 00:05:01,500
+We're incrementing i every time, then we're putting that out as a character and printing it.
+
+81
+00:05:01,500 --> 00:05:05,500
+So if we look at that as it comes out, it's just this.
+
+82
+00:05:05,500 --> 00:05:07,500
+And in fact you can see, look, it's very neat.
+
+83
+00:05:07,500 --> 00:05:10,500
+This is what happens if you just output increasingly higher numbers.
+
+84
+00:05:10,500 --> 00:05:14,500
+At the beginning you have a bunch of control codes which don't print,
+
+85
+00:05:14,500 --> 00:05:17,500
+and then you start getting into the characters, you get punctuation, then the numbers,
+
+86
+00:05:17,500 --> 00:05:19,500
+uppercase and then lowercase.
+
+87
+00:05:19,500 --> 00:05:23,500
+These are unprintable again because we've gone off the end of ASCII.
+
+88
+00:05:23,500 --> 00:05:25,500
+It only uses the first half. And then it loops around again.
+
+89
+00:05:26,000 --> 00:05:28,000
+So this is the output of that program.
+
+90
+00:05:28,000 --> 00:05:31,000
+If we then pipe that to APLAY,
+
+91
+00:05:33,000 --> 00:05:35,000
+we get that rather lovely sound.
+
+92
+00:05:37,000 --> 00:05:40,000
+Because the way that APLAY works is it says,
+
+93
+00:05:40,000 --> 00:05:42,000
+and in fact it even tells us, which is kind of nice,
+
+94
+00:05:42,000 --> 00:05:47,000
+playing raw data from standard input unsigned 8-bit at 8,000 Hz.
+
+95
+00:05:47,000 --> 00:05:50,000
+So what that's doing is saying,
+
+96
+00:05:50,000 --> 00:05:53,000
+OK, I'm reading in unsigned 8-bit is the same as a character.
+
+97
+00:05:53,000 --> 00:05:56,500
+I'm reading in one character at a time, 8,000 in a second,
+
+98
+00:05:56,500 --> 00:05:59,500
+and I'm treating the value of each character
+
+99
+00:05:59,500 --> 00:06:03,500
+as sort of the position that the diaphragm of the speaker should be at
+
+100
+00:06:03,500 --> 00:06:06,500
+at that 8,000th of a second.
+
+101
+00:06:06,500 --> 00:06:13,500
+So if you tell it these 256 values up to 0 and down again,
+
+102
+00:06:13,500 --> 00:06:17,500
+you get whatever it is, 8,000 divided by 256.
+
+103
+00:06:17,500 --> 00:06:20,500
+Now let's do that. What is that? I can't do maths.
+
+104
+00:06:21,000 --> 00:06:25,000
+You get a approximately 31 Hz square wave.
+
+105
+00:06:25,000 --> 00:06:28,000
+And in fact we could probably test that. Let's see.
+
+106
+00:06:29,000 --> 00:06:35,000
+There we are. It's a B0, 31.3 Hz.
+
+107
+00:06:35,000 --> 00:06:38,000
+And that's the core idea of how this works.
+
+108
+00:06:38,000 --> 00:06:41,000
+Now if we wanted to make that higher pitched,
+
+109
+00:06:41,000 --> 00:06:44,000
+we just need to increase the rate at which the number goes up, right?
+
+110
+00:06:44,000 --> 00:06:48,000
+So if instead of printing I, we printed I star 2, for example.
+
+111
+00:06:48,000 --> 00:06:49,500
+What does that mean, star 2?
+
+112
+00:06:49,500 --> 00:06:51,500
+Multiplied by 2.
+
+113
+00:06:51,500 --> 00:06:54,500
+So now if we look at it, it should skip every other one.
+
+114
+00:06:54,500 --> 00:06:57,500
+So rather than having 0, 1, 2, 3, we have 0, 2, 4, 6, 8,
+
+115
+00:06:57,500 --> 00:06:59,500
+because it's skipping them out, so it's going twice as steeply.
+
+116
+00:06:59,500 --> 00:07:01,500
+So this ought to be about 60 Hz.
+
+117
+00:07:01,500 --> 00:07:04,500
+It's twice as high and we can look at it.
+
+118
+00:07:04,500 --> 00:07:07,500
+There, now it's a B1 and it's 62.5 Hz.
+
+119
+00:07:07,500 --> 00:07:11,500
+And by this basic function, by multiplying this by different values,
+
+120
+00:07:11,500 --> 00:07:14,500
+you can get any pitch you want.
+
+121
+00:07:14,500 --> 00:07:17,500
+And that's the core of how this makes music.
+
+122
+00:07:17,500 --> 00:07:21,000
+I'm seeing your code there and I'm thinking there's not 16 minutes worth of notes there.
+
+123
+00:07:21,000 --> 00:07:23,000
+So what's going actually on?
+
+124
+00:07:23,000 --> 00:07:26,000
+It runs this loop and then it prints a character.
+
+125
+00:07:26,000 --> 00:07:30,000
+And the way it gets that character is by calling this function G four times,
+
+126
+00:07:30,000 --> 00:07:33,000
+one for each instrument, and just adding up the results.
+
+127
+00:07:33,000 --> 00:07:37,000
+Because in sound, if you take one waveform and just superimpose,
+
+128
+00:07:37,000 --> 00:07:41,000
+and just add the other waveform on top, that just makes the sound of both of them.
+
+129
+00:07:41,000 --> 00:07:44,000
+One of the arguments you pass into the instrument function is the volume
+
+130
+00:07:44,000 --> 00:07:47,000
+that that instrument should play at.
+
+131
+00:07:47,000 --> 00:07:55,500
+And that is set by bit shifting the incremented variable I by a very large number.
+
+132
+00:07:55,500 --> 00:07:58,500
+Bit shifting is an operation, a binary operation,
+
+133
+00:07:58,500 --> 00:08:03,500
+where you take your number and you sort of move the decimal place one point left or right,
+
+134
+00:08:03,500 --> 00:08:05,500
+in principle.
+
+135
+00:08:05,500 --> 00:08:08,500
+So in decimal, if you were doing a shift of that sort,
+
+136
+00:08:08,500 --> 00:08:10,500
+you would be multiplying or dividing by 10, right?
+
+137
+00:08:10,500 --> 00:08:13,500
+By either chopping digits off the end or adding zeros.
+
+138
+00:08:14,000 --> 00:08:18,000
+And in binary, what you're then effectively doing is halving or doubling.
+
+139
+00:08:18,000 --> 00:08:24,000
+And it's a very, very fast, efficient way of halving and doubling numbers.
+
+140
+00:08:24,000 --> 00:08:27,000
+Music kind of works on doubling and halving, in a sense, right?
+
+141
+00:08:27,000 --> 00:08:28,000
+A lot of music.
+
+142
+00:08:28,000 --> 00:08:35,000
+So we can use this to get numbers which vary very slowly, relatively speaking.
+
+143
+00:08:35,000 --> 00:08:39,000
+So you have your number, which is the level of your sawtooth waves,
+
+144
+00:08:39,500 --> 00:08:43,500
+which is going up very quickly, one every 8,000 times a second.
+
+145
+00:08:43,500 --> 00:08:48,500
+And then if you right shift that, for example, 17 times,
+
+146
+00:08:48,500 --> 00:08:55,500
+you get something that only happens once every 2 to the 17 samples,
+
+147
+00:08:55,500 --> 00:08:58,500
+which is, I don't know off the top of my head what 2 to the 17 is,
+
+148
+00:08:58,500 --> 00:08:59,500
+but it's a pretty big number.
+
+149
+00:08:59,500 --> 00:09:02,500
+That then allows you to have something, for example,
+
+150
+00:09:02,500 --> 00:09:04,500
+where it changes from one bar to the next.
+
+151
+00:09:05,000 --> 00:09:07,000
+It lets you have slow changing sections,
+
+152
+00:09:07,000 --> 00:09:12,000
+so that you can have a note that lasts a certain number of samples,
+
+153
+00:09:12,000 --> 00:09:14,000
+or a bar that lasts a certain number of samples,
+
+154
+00:09:14,000 --> 00:09:16,000
+or a phrase that lasts a certain number of samples.
+
+155
+00:09:16,000 --> 00:09:18,000
+And the way that the music is structured,
+
+156
+00:09:18,000 --> 00:09:21,000
+they're always even powers of 2.
+
+157
+00:09:21,000 --> 00:09:25,000
+And it just so happens that that works out quite neatly musically.
+
+158
+00:09:28,000 --> 00:09:32,000
+We'd like to thank Audible.com for sponsoring this episode of Computerphile.
+
+159
+00:09:32,500 --> 00:09:34,500
+If you visit Audible.com slash Computerphile,
+
+160
+00:09:34,500 --> 00:09:37,500
+you can sign up for a 30-day free trial.
+
+161
+00:09:37,500 --> 00:09:40,500
+They've got over 180,000 books to choose from.
+
+162
+00:09:40,500 --> 00:09:41,500
+It's really straightforward.
+
+163
+00:09:41,500 --> 00:09:45,500
+You can browse by category, or you can search by title or author.
+
+164
+00:09:45,500 --> 00:09:47,500
+Today I'd like to recommend
+
+165
+00:09:47,500 --> 00:09:50,500
+The Curious Incident of the Dog in the Night Time,
+
+166
+00:09:50,500 --> 00:09:53,500
+which is a curious title in its own right.
+
+167
+00:09:53,500 --> 00:09:54,500
+It's a book by Mark Haddon.
+
+168
+00:09:54,500 --> 00:09:57,500
+It centres on a boy with Asperger's Syndrome.
+
+169
+00:09:57,500 --> 00:10:00,500
+People without Asperger's Syndrome can probably work out by intuition
+
+170
+00:10:01,000 --> 00:10:02,000
+what's actually happened.
+
+171
+00:10:02,000 --> 00:10:04,000
+And so you kind of know what's happened,
+
+172
+00:10:04,000 --> 00:10:06,000
+but what you get to see in the book
+
+173
+00:10:06,000 --> 00:10:08,000
+is how the boy works out what's happened for himself.
+
+174
+00:10:08,000 --> 00:10:12,000
+So thanks again to Audible.com for sponsoring this episode of Computerphile.
+
+175
+00:10:12,000 --> 00:10:15,000
+Remember, Audible.com slash Computerphile.
+
+176
+00:10:15,000 --> 00:10:17,000
+Sign up for 30 days free.
+
+177
+00:10:17,000 --> 00:10:20,000
+I find it kind of calming to listen to.
+
+178
+00:10:20,000 --> 00:10:22,000
+Like, I found when I was working on it,
+
+179
+00:10:22,000 --> 00:10:25,000
+I would just kind of zone out and listen to it for 10 minutes,
+
+180
+00:10:25,000 --> 00:10:27,000
+and then go, oh, wait, hang on, okay, I want to change this,
+
+181
+00:10:27,000 --> 00:10:30,000
+or I think I can make this bit shorter, or something like that.
+

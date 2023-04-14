@@ -1,0 +1,252 @@
+1
+00:00:00,000 --> 00:00:04,460
+There's a kind of frustrating conversation I sometimes find myself having where someone
+
+2
+00:00:04,460 --> 00:00:09,420
+will say to me, you're always talking about how if we have artificial intelligence systems
+
+3
+00:00:09,420 --> 00:00:15,380
+with very powerful general purpose capabilities, but their goals aren't well aligned with ours,
+
+4
+00:00:15,380 --> 00:00:17,420
+that could go very badly.
+
+5
+00:00:17,420 --> 00:00:19,640
+And you always leave this very vague.
+
+6
+00:00:19,640 --> 00:00:23,100
+My question is specifically what would happen, right?
+
+7
+00:00:23,100 --> 00:00:25,780
+It's just a piece of software on a computer.
+
+8
+00:00:25,780 --> 00:00:30,100
+I have a very hard time imagining how something like that could actually be dangerous.
+
+9
+00:00:30,100 --> 00:00:31,820
+Like what could it actually do?
+
+10
+00:00:31,820 --> 00:00:35,660
+You never talk about specifically what the AI would do.
+
+11
+00:00:35,660 --> 00:00:36,660
+And it's true.
+
+12
+00:00:36,660 --> 00:00:38,460
+I do tend to leave that aspect fairly open.
+
+13
+00:00:38,460 --> 00:00:39,460
+And that's deliberate.
+
+14
+00:00:39,460 --> 00:00:40,460
+It's for a couple of reasons.
+
+15
+00:00:40,460 --> 00:00:45,900
+First is any specific story I can tell you about how an AI system could do a lot of damage
+
+16
+00:00:45,900 --> 00:00:48,320
+is going to sound like science fiction.
+
+17
+00:00:48,320 --> 00:00:54,060
+In fact, it's going to be a specific story about technology that doesn't currently exist.
+
+18
+00:00:54,060 --> 00:00:57,540
+So it's going to be science fiction by definition.
+
+19
+00:00:57,540 --> 00:01:00,420
+And this causes a lot of people to dismiss what you're saying.
+
+20
+00:01:00,420 --> 00:01:04,940
+Unfortunately, the actual thing that ends up happening with future technology is also
+
+21
+00:01:04,940 --> 00:01:06,640
+going to sound like science fiction.
+
+22
+00:01:06,640 --> 00:01:11,560
+So we're in this unfortunate situation where in order to tell whether something's actually
+
+23
+00:01:11,560 --> 00:01:16,720
+going to happen, you have to do something cleverer than identify its literary genre.
+
+24
+00:01:16,720 --> 00:01:20,580
+But since not everyone is there, I try to avoid specific scenarios.
+
+25
+00:01:20,580 --> 00:01:24,960
+The second reason is even if you have someone who accepts that the future is going to seem
+
+26
+00:01:24,960 --> 00:01:30,300
+like science fiction, if you give a specific example, they will tend to quibble with the
+
+27
+00:01:30,300 --> 00:01:32,240
+specifics of that example.
+
+28
+00:01:32,240 --> 00:01:35,900
+They'll say, oh, but I don't think that an AI system could actually do that.
+
+29
+00:01:35,900 --> 00:01:39,360
+Or perhaps they'll accept that an AI system could do it, but then they'll be thinking
+
+30
+00:01:39,360 --> 00:01:42,520
+of like things that we could do as humans that might counteract that.
+
+31
+00:01:42,520 --> 00:01:45,580
+And this is all kind of beside the point.
+
+32
+00:01:45,580 --> 00:01:49,560
+It's like imagine you find yourself talking to an amateur chess player who's discovered
+
+33
+00:01:49,560 --> 00:01:53,200
+an opening that they're very proud of, that they've been able to use very successfully
+
+34
+00:01:53,200 --> 00:01:55,520
+against all of their other amateur chess player friends.
+
+35
+00:01:55,520 --> 00:01:56,840
+And they say, okay, great.
+
+36
+00:01:56,840 --> 00:01:57,840
+This is it.
+
+37
+00:01:57,840 --> 00:02:00,000
+I'm going to bet my life savings that I can beat Magnus Carlsen.
+
+38
+00:02:00,000 --> 00:02:03,180
+And you would want to say to them, I don't think this is a good idea.
+
+39
+00:02:03,180 --> 00:02:04,960
+I'm pretty sure you're going to lose.
+
+40
+00:02:04,960 --> 00:02:07,900
+And they might reply, well, what's Magnus Carlsen going to do?
+
+41
+00:02:07,900 --> 00:02:09,240
+This opening is really good.
+
+42
+00:02:09,240 --> 00:02:13,760
+I can't think of any move that he could make whereby he could beat me.
+
+43
+00:02:13,760 --> 00:02:17,400
+And it's very difficult to respond to that because I'm not a chess player.
+
+44
+00:02:17,400 --> 00:02:20,840
+I don't know what move Magnus Carlsen is going to make, but I do know he's going to
+
+45
+00:02:20,840 --> 00:02:21,840
+beat you.
+
+46
+00:02:21,840 --> 00:02:25,800
+And it's kind of natural to be suspicious when I'm just telling you that you'll lose
+
+47
+00:02:25,800 --> 00:02:29,820
+and I'm not able to name any specific course of action by which that might happen.
+
+48
+00:02:29,820 --> 00:02:32,040
+But that is the situation we find ourselves in.
+
+49
+00:02:32,040 --> 00:02:37,820
+If you really press me, I might give some move or some strategy that maybe Carlsen could
+
+50
+00:02:37,820 --> 00:02:39,280
+make that might beat you.
+
+51
+00:02:39,280 --> 00:02:44,440
+But it's very plausible that either you would find a way to get around that strategy or
+
+52
+00:02:44,680 --> 00:02:48,800
+you would doubt that Carlsen would actually be able to carry it out because I've specified
+
+53
+00:02:48,800 --> 00:02:49,800
+it too vaguely.
+
+54
+00:02:49,800 --> 00:02:51,600
+I haven't given the specific moves.
+
+55
+00:02:51,600 --> 00:02:54,920
+You can imagine how this could be a pretty frustrating conversation where we're arguing
+
+56
+00:02:54,920 --> 00:02:58,400
+back and forth about possible moves and possible counter moves.
+
+57
+00:02:58,400 --> 00:02:59,680
+And we could do that all day.
+
+58
+00:02:59,680 --> 00:03:03,720
+It doesn't get at the actual point, which is that you just cannot expect to win against
+
+59
+00:03:03,720 --> 00:03:05,040
+a superior opponent.
+
+60
+00:03:05,040 --> 00:03:09,960
+Thankfully, this whole situation is not inevitable because we get to build the AI system.
+
+61
+00:03:09,960 --> 00:03:14,000
+The challenge is in building an AI system that isn't playing against us.
+
+62
+00:03:14,000 --> 00:03:17,200
+It's much more difficult than it sounds, but by no means impossible.
+
+63
+00:03:17,200 --> 00:03:19,440
+And that's the task of AI alignment research.
+

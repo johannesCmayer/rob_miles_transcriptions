@@ -1,0 +1,1012 @@
+1
+00:00:00,000 --> 00:00:05,000
+This episode has been brought to you by Fasthosts, find out more about them later.
+
+2
+00:00:05,000 --> 00:00:10,120
+So I wanted to talk about this paper out of open AI, Benchmarking Safe Exploration in
+
+3
+00:00:10,120 --> 00:00:11,440
+Deep Reinforcement Learning.
+
+4
+00:00:11,440 --> 00:00:12,440
+What comes with this?
+
+5
+00:00:12,440 --> 00:00:13,440
+There's a blog post.
+
+6
+00:00:13,440 --> 00:00:17,640
+So I wanted to explain this because when I saw the blog post, and I think a lot of computerphile
+
+7
+00:00:17,640 --> 00:00:21,720
+viewers would have the same reaction, what I thought is, what the hell is a GIME?
+
+8
+00:00:21,720 --> 00:00:22,720
+GIME?
+
+9
+00:00:22,720 --> 00:00:24,720
+What's a GIME?
+
+10
+00:00:24,720 --> 00:00:28,720
+Some kind of meatspace thing, I don't know.
+
+11
+00:00:28,720 --> 00:00:38,440
+So it's a bunch of these environments, right, that allow you to train.
+
+12
+00:00:38,440 --> 00:00:43,800
+The OpenAI Safety GIME Benchmark Suite, which is a bunch of these environments that you
+
+13
+00:00:43,800 --> 00:00:49,200
+can run your systems in and have them learn.
+
+14
+00:00:49,200 --> 00:00:52,040
+Is this anything to do with those AI grid worlds we talked about?
+
+15
+00:00:52,040 --> 00:00:53,660
+Yeah, yeah, kind of.
+
+16
+00:00:53,660 --> 00:00:55,560
+In the same way that the Gridworlds paper did.
+
+17
+00:00:55,560 --> 00:01:03,440
+This paper introduces environments that people can use to test their AI systems.
+
+18
+00:01:03,440 --> 00:01:08,880
+And this is focusing specifically on safe exploration and has a few differences.
+
+19
+00:01:08,880 --> 00:01:12,840
+They're kind of complementary.
+
+20
+00:01:12,840 --> 00:01:15,520
+The environments in this are a little bit more complex.
+
+21
+00:01:15,520 --> 00:01:20,820
+They're continuous in time and in space in a way that the Gridworlds are all very discrete.
+
+22
+00:01:20,820 --> 00:01:24,240
+You take turns and you move by one square, whereas in this case it's a lot more like
+
+23
+00:01:24,240 --> 00:01:29,360
+Majoko where you actually have a physics simulation that the simulated robots move
+
+24
+00:01:29,360 --> 00:01:30,360
+around in.
+
+25
+00:01:30,360 --> 00:01:34,120
+So it's a slightly more complex kind of environment.
+
+26
+00:01:34,120 --> 00:01:39,280
+But the idea is to have, in the same way as with Gridworlds or anything else, to have
+
+27
+00:01:39,280 --> 00:01:47,300
+a standardized set of environments so that you know everybody's comparing like with like
+
+28
+00:01:47,300 --> 00:01:53,120
+and you actually have standardized measurements that you can benchmark, you can compare different
+
+29
+00:01:53,120 --> 00:01:57,280
+approaches and actually have metrics that tell you which one's doing better.
+
+30
+00:01:57,280 --> 00:02:02,920
+Which is like, it's not super glamorous, but it's a real prerequisite for how progress
+
+31
+00:02:02,920 --> 00:02:04,560
+actually gets made in the real world.
+
+32
+00:02:04,560 --> 00:02:09,240
+If you can't measure it, it's very hard to make progress or know if you're making progress.
+
+33
+00:02:09,240 --> 00:02:17,440
+The problem of safe exploration is in reinforcement learning, which is one of the most important
+
+34
+00:02:17,440 --> 00:02:23,480
+and popular ways of creating AI systems for various types of problem.
+
+35
+00:02:23,480 --> 00:02:27,340
+The system is interacting with an environment and it's trying to maximize the amount of
+
+36
+00:02:27,340 --> 00:02:29,240
+reward that it gets.
+
+37
+00:02:29,240 --> 00:02:36,640
+So you write a reward function and then it's trying to get as much out of that as it can.
+
+38
+00:02:36,640 --> 00:02:42,660
+And the way that it learns is by interacting with the environment.
+
+39
+00:02:42,660 --> 00:02:45,220
+And so this basically looks like trial and error, right?
+
+40
+00:02:45,220 --> 00:02:50,020
+It's doing things and then it gets the reward signal back and it learns, oh, that was a
+
+41
+00:02:50,020 --> 00:02:51,020
+good thing to do.
+
+42
+00:02:51,020 --> 00:02:53,220
+That was a bad thing to do.
+
+43
+00:02:53,220 --> 00:02:59,660
+And the problem with that is it's very difficult to do that safely.
+
+44
+00:02:59,660 --> 00:03:05,260
+And it's kind of a fundamental problem because in order to do exploration, you have to be
+
+45
+00:03:05,260 --> 00:03:10,700
+taking actions that you don't know what the result is going to be, right?
+
+46
+00:03:10,700 --> 00:03:14,820
+The only way that you can learn is by trying things that you're not sure about.
+
+47
+00:03:14,820 --> 00:03:19,660
+If you're trying random things, some of those things are going to be things that you really
+
+48
+00:03:19,660 --> 00:03:20,660
+shouldn't be doing.
+
+49
+00:03:20,660 --> 00:03:22,500
+In any exploration, there's danger, right?
+
+50
+00:03:22,500 --> 00:03:25,340
+I mean, that sort of goes with territory for human explorers.
+
+51
+00:03:25,340 --> 00:03:27,380
+So Apollo 11, right?
+
+52
+00:03:27,380 --> 00:03:28,380
+Right.
+
+53
+00:03:28,380 --> 00:03:29,380
+We'd done a bit of research.
+
+54
+00:03:29,380 --> 00:03:31,180
+We'd send some spaceships out.
+
+55
+00:03:31,180 --> 00:03:32,900
+We had an idea of what to what.
+
+56
+00:03:32,900 --> 00:03:35,980
+But it was still a dangerous thing to go and land on the moon.
+
+57
+00:03:35,980 --> 00:03:36,980
+Exploring comes with danger.
+
+58
+00:03:36,980 --> 00:03:37,980
+Right, right.
+
+59
+00:03:37,980 --> 00:03:38,980
+Yeah.
+
+60
+00:03:38,980 --> 00:03:43,380
+But there are there are safe ways to do it or there are safer ways to do it.
+
+61
+00:03:43,380 --> 00:03:48,060
+They could have tried to launch astronauts on the first thing that they ever sent to
+
+62
+00:03:48,060 --> 00:03:49,060
+the moon.
+
+63
+00:03:49,060 --> 00:03:52,420
+They didn't do that because they knew how much they didn't know and they didn't want
+
+64
+00:03:52,420 --> 00:03:55,460
+to risk it until they actually had a pretty good understanding of what they were dealing
+
+65
+00:03:55,460 --> 00:03:57,020
+with.
+
+66
+00:03:57,020 --> 00:03:58,020
+And it's kind of similar.
+
+67
+00:03:58,020 --> 00:04:03,900
+Like if you look at some of the standard reinforcement learning approaches to exploration, what they
+
+68
+00:04:03,900 --> 00:04:09,020
+involve is doing things—often what they involve is doing things completely at random,
+
+69
+00:04:09,020 --> 00:04:10,020
+right?
+
+70
+00:04:10,020 --> 00:04:14,820
+So you just—especially at the beginning of the training process, where you really
+
+71
+00:04:14,820 --> 00:04:20,760
+don't understand the dynamics of the environment, you just flail and see what happens, right?
+
+72
+00:04:20,760 --> 00:04:23,620
+And human beings actually pretty much do this as well.
+
+73
+00:04:23,620 --> 00:04:27,940
+It's just that when babies flail, they aren't really able to hurt anything.
+
+74
+00:04:27,940 --> 00:04:32,260
+But if you have a three-ton robot arm flailing around trying to learn the dynamics of the
+
+75
+00:04:32,260 --> 00:04:35,060
+environment, it could break itself, it could hurt somebody, you know?
+
+76
+00:04:35,060 --> 00:04:39,420
+But when you mention three-ton robot arms flailing around, I'm guessing that the people
+
+77
+00:04:39,420 --> 00:04:43,540
+who do that kind of development will have done some kind of simulation before they've
+
+78
+00:04:43,540 --> 00:04:44,540
+built the thing, right?
+
+79
+00:04:44,540 --> 00:04:45,540
+Right.
+
+80
+00:04:45,540 --> 00:04:46,540
+There's two sides to it, right?
+
+81
+00:04:46,540 --> 00:04:49,700
+Part of the reason why we haven't had that much safe exploration research is because
+
+82
+00:04:49,700 --> 00:04:53,940
+simulations are good, but also part of why we use simulations so much is because we don't
+
+83
+00:04:53,940 --> 00:04:56,300
+know how to safely do it in the real world.
+
+84
+00:04:56,300 --> 00:05:00,660
+For very simple tasks, you can write good simulators that accurately represent all of
+
+85
+00:05:00,660 --> 00:05:04,860
+the dynamics of the environment properly, but if you want a system that's doing something
+
+86
+00:05:05,860 --> 00:05:11,140
+Like, generally speaking, with these robots, for example, you still don't go near them.
+
+87
+00:05:11,140 --> 00:05:13,980
+They don't smash themselves up and they don't smash the environment up because you've
+
+88
+00:05:13,980 --> 00:05:14,980
+simulated that.
+
+89
+00:05:14,980 --> 00:05:20,740
+But while they're operating, how do you write a simulation of how a human being actually
+
+90
+00:05:20,740 --> 00:05:23,260
+moves in an environment with a robot?
+
+91
+00:05:23,260 --> 00:05:25,240
+This is why you look at self-driving cars.
+
+92
+00:05:25,240 --> 00:05:29,740
+They train them a huge amount in simulation, but it's not good enough.
+
+93
+00:05:29,740 --> 00:05:34,020
+It doesn't capture the complexity and the diversity of things that can happen in the
+
+94
+00:05:34,020 --> 00:05:39,220
+real world, and it doesn't capture the way that actual human drivers act and react.
+
+95
+00:05:39,220 --> 00:05:43,540
+So everyone who's trying to make self-driving cars, they are driving millions and millions
+
+96
+00:05:43,540 --> 00:05:48,500
+of real world miles because they have to, because simulation doesn't cut it.
+
+97
+00:05:48,500 --> 00:05:51,420
+And that is a situation where, now they're not just running reinforcement learning on
+
+98
+00:05:51,420 --> 00:05:52,740
+those cars, right?
+
+99
+00:05:52,740 --> 00:05:57,980
+We don't know how to safely explore in a self-driving car type situation in the real world.
+
+100
+00:05:57,980 --> 00:06:02,440
+Trying random inputs to the controls is, like, not viable.
+
+101
+00:06:02,440 --> 00:06:06,040
+If you're using reinforcement learning, if you have something that you don't want the
+
+102
+00:06:06,040 --> 00:06:09,840
+agent to do, you give it a big penalty, right?
+
+103
+00:06:09,840 --> 00:06:14,080
+So you might build a reward function that's like, I want you to get from here to here,
+
+104
+00:06:14,080 --> 00:06:17,820
+and you get points for getting there faster.
+
+105
+00:06:17,820 --> 00:06:24,360
+But if there's a collision, then you get minus large number of points.
+
+106
+00:06:24,360 --> 00:06:28,500
+Sometimes people talk about this problem as though reward functions are, like, not able
+
+107
+00:06:28,500 --> 00:06:31,540
+to represent the behavior that we actually want.
+
+108
+00:06:31,540 --> 00:06:34,500
+People say, you can't write a reward function that represents this.
+
+109
+00:06:34,500 --> 00:06:39,140
+And it's like, well, I mean, you can write a reward function, but, like, you can't, right?
+
+110
+00:06:39,140 --> 00:06:44,660
+Like, plausibly, it's possible, but, like, how are you actually going to do it?
+
+111
+00:06:44,660 --> 00:06:50,100
+So like, yeah, you're giving a big penalty to collisions, but, like, how do you decide
+
+112
+00:06:50,100 --> 00:06:51,540
+that penalty?
+
+113
+00:06:51,540 --> 00:06:52,540
+What should it be?
+
+114
+00:06:52,540 --> 00:06:58,040
+You have this problem, which is that in the real world, people are actually making a tradeoff
+
+115
+00:06:58,040 --> 00:07:01,360
+between speed and safety all the time.
+
+116
+00:07:02,180 --> 00:07:07,560
+Any time you go just a little bit after the light has turned red, right, or just a little
+
+117
+00:07:07,560 --> 00:07:11,160
+bit before the light has turned green, you're accepting some amount of risk for some amount
+
+118
+00:07:11,160 --> 00:07:12,160
+of time.
+
+119
+00:07:12,160 --> 00:07:14,760
+If you go after it's gone red for long enough, you will meet someone who went a bit early
+
+120
+00:07:14,760 --> 00:07:19,520
+on the green and, you know, teach each other things about the tradeoff between speed and
+
+121
+00:07:19,520 --> 00:07:22,840
+safety that will stay with you for the rest of your life.
+
+122
+00:07:22,840 --> 00:07:25,360
+People talk about it like, oh, what we want is no crashes.
+
+123
+00:07:25,360 --> 00:07:28,800
+And that's not actually how it works, because that would correspond, if you wanted that,
+
+124
+00:07:28,800 --> 00:07:33,680
+that would correspond to sort of infinite negative reward for a collision.
+
+125
+00:07:33,680 --> 00:07:37,040
+And in that scenario, the car doesn't go anywhere.
+
+126
+00:07:37,040 --> 00:07:40,920
+If that was what we really thought, then the speed limit would be 0.001 miles an hour.
+
+127
+00:07:40,920 --> 00:07:45,240
+There is some, like, acceptable tradeoff between speed and safety that we want to make.
+
+128
+00:07:45,240 --> 00:07:52,680
+The question is, how do you actually pick the size of that punishment to make it sensible?
+
+129
+00:07:52,680 --> 00:07:55,160
+Like what, what, how do you, how do you find that implicitly?
+
+130
+00:07:55,160 --> 00:07:56,160
+It's kind of difficult.
+
+131
+00:07:56,160 --> 00:07:59,440
+One approach that you can take to this, which is the one that this paper recommends, is
+
+132
+00:07:59,440 --> 00:08:04,480
+called constrained reinforcement learning, where you have your reward function, and then
+
+133
+00:08:04,480 --> 00:08:08,400
+you also have constraints on these cost functions.
+
+134
+00:08:08,400 --> 00:08:13,280
+So standard reinforcement learning, you're just finding the policy that gets the highest
+
+135
+00:08:13,280 --> 00:08:16,520
+reward, right?
+
+136
+00:08:16,520 --> 00:08:21,800
+Whereas in constrained reinforcement learning, you're saying, given only the set of policies
+
+137
+00:08:21,800 --> 00:08:29,920
+that crashes less than once per however many million miles, find the one of those that
+
+138
+00:08:29,920 --> 00:08:31,400
+maximizes reward.
+
+139
+00:08:31,400 --> 00:08:35,320
+So you're, you're, you're maximizing reward within these constraints.
+
+140
+00:08:35,320 --> 00:08:40,520
+Yeah, reinforcement learning and constrained reinforcement learning are both sort of frameworks.
+
+141
+00:08:40,520 --> 00:08:42,680
+They're ways of laying out a problem.
+
+142
+00:08:42,680 --> 00:08:45,960
+They're not like algorithms for tackling a problem.
+
+143
+00:08:45,960 --> 00:08:49,480
+They're, they're, they're a formalization that lets you develop algorithms.
+
+144
+00:08:49,480 --> 00:08:53,920
+I guess like sorting or something, you know, you've got a general idea of like you have
+
+145
+00:08:53,920 --> 00:08:57,400
+a bunch of things and you want them to be in order, but like how many there are, what
+
+146
+00:08:57,400 --> 00:09:00,240
+kind of things there are, what the process is for comparing them, and then there's different
+
+147
+00:09:00,240 --> 00:09:02,440
+algorithms that can, that can tackle it.
+
+148
+00:09:02,440 --> 00:09:05,520
+I haven't seen a proof for this, but I think that for any constrained reinforcement learning
+
+149
+00:09:05,520 --> 00:09:12,680
+setup, you could have one that was just a standard reward function.
+
+150
+00:09:12,680 --> 00:09:18,160
+But this is like a much more intuitive way of expressing these things.
+
+151
+00:09:18,160 --> 00:09:24,280
+So it kind of reminds me of, there's a bit in Hitchhiker's Guide where somebody's like,
+
+152
+00:09:24,280 --> 00:09:25,680
+I've got, oh, you've got a solution.
+
+153
+00:09:25,680 --> 00:09:28,080
+No, but I've got a different name for the problem.
+
+154
+00:09:28,080 --> 00:09:33,720
+I mean, this is better than that, because it's a different way of formalizing the problem,
+
+155
+00:09:33,720 --> 00:09:37,600
+a different way of sort of specifying what the problem is.
+
+156
+00:09:37,600 --> 00:09:44,840
+And actually a lot of the time, finding the right formalism is a big part of the battle,
+
+157
+00:09:44,840 --> 00:09:45,840
+right?
+
+158
+00:09:45,880 --> 00:09:51,280
+So the question, how do you explore safely, is like, underdefined, you can't really do
+
+159
+00:09:51,280 --> 00:09:52,920
+computer science on it.
+
+160
+00:09:52,920 --> 00:09:55,960
+You need something that's expressed in the language of mathematics.
+
+161
+00:09:55,960 --> 00:09:58,480
+And that's what constrained reinforcement learning does.
+
+162
+00:09:58,480 --> 00:10:05,040
+It gives you a slightly more intuitive way of specifying, rather than just having this
+
+163
+00:10:05,040 --> 00:10:08,400
+one thing, which is this single value, are you doing well or not?
+
+164
+00:10:08,400 --> 00:10:13,600
+You get to specify, here's the thing you should do, and then here's also the thing or things
+
+165
+00:10:13,600 --> 00:10:15,800
+that you shouldn't do.
+
+166
+00:10:15,800 --> 00:10:20,280
+Slightly more natural, slightly more human-friendly formalism that makes it, you would hope would
+
+167
+00:10:20,280 --> 00:10:23,480
+make it easier to write these functions, to get the behavior that you want in the real
+
+168
+00:10:23,480 --> 00:10:26,000
+world.
+
+169
+00:10:26,000 --> 00:10:34,000
+It's also nice because if you're trying to learn, so I did a video recently on my channel
+
+170
+00:10:34,000 --> 00:10:38,880
+about reward modeling, where you actually learn the reward function, rather than writing
+
+171
+00:10:38,880 --> 00:10:39,880
+the reward function.
+
+172
+00:10:40,880 --> 00:10:46,720
+Part of your training system is actually learning what the reward function should be in real
+
+173
+00:10:46,720 --> 00:10:48,320
+time.
+
+174
+00:10:48,320 --> 00:10:52,440
+And the idea is that this might help with that as well.
+
+175
+00:10:52,440 --> 00:10:55,720
+It's kind of easier to learn these things separately, rather than trying to learn several
+
+176
+00:10:55,720 --> 00:10:57,460
+things at the same time.
+
+177
+00:10:57,460 --> 00:10:59,760
+And it also means you can transfer them more easily.
+
+178
+00:10:59,760 --> 00:11:04,360
+Like if you have a robot arm and it's making pens and you want to retrain it to make mugs
+
+179
+00:11:04,360 --> 00:11:09,200
+or something like that, then it would be that you would have to just relearn the reward
+
+180
+00:11:09,200 --> 00:11:10,960
+function completely.
+
+181
+00:11:10,960 --> 00:11:18,400
+But if you have a constraint that it's learned that's like, don't hit humans, that is actually
+
+182
+00:11:18,400 --> 00:11:20,480
+the same between these two tasks.
+
+183
+00:11:20,480 --> 00:11:24,800
+So then it's only having to relearn the bits that are about the making the thing and the
+
+184
+00:11:24,800 --> 00:11:27,180
+constraints, it can just keep them from one to the next.
+
+185
+00:11:27,180 --> 00:11:30,560
+So it should improve performance and training speed and also safety.
+
+186
+00:11:30,560 --> 00:11:32,040
+So it's a nice kind of win-win.
+
+187
+00:11:32,040 --> 00:11:35,920
+The other thing that's kind of different about various formulations of constrained reinforcement
+
+188
+00:11:35,920 --> 00:11:41,780
+learning is you care about what happens during training as well.
+
+189
+00:11:41,780 --> 00:11:45,920
+Standard reinforcement learning, you are just trying to find a policy that maximizes the
+
+190
+00:11:45,920 --> 00:11:49,480
+reward and how you do that is kind of up to you.
+
+191
+00:11:49,480 --> 00:11:55,040
+But that means that standard reinforcement learning systems in the process of learning
+
+192
+00:11:55,040 --> 00:11:58,880
+will do huge amounts of unsafe stuff.
+
+193
+00:11:58,880 --> 00:12:03,400
+Whereas in a constrained reinforcement learning setting, you actually want to keep track of
+
+194
+00:12:03,640 --> 00:12:07,840
+how often the constraints are violated during the training process.
+
+195
+00:12:07,840 --> 00:12:12,320
+And you also want to minimize that, which makes the problem much harder because it's
+
+196
+00:12:12,320 --> 00:12:18,340
+not just make an AI system that doesn't crash, but it's like make an AI system that in the
+
+197
+00:12:18,340 --> 00:12:26,640
+process of learning how to drive at all, crashes as little as possible, which just makes the
+
+198
+00:12:26,640 --> 00:12:29,640
+whole thing much more difficult.
+
+199
+00:12:29,640 --> 00:12:35,120
+And so we have these simplified environments that you can test your different approaches.
+
+200
+00:12:35,120 --> 00:12:38,760
+And they're fairly kind of straightforward reinforcement learning type setups.
+
+201
+00:12:38,760 --> 00:12:41,240
+You have these simulated robots.
+
+202
+00:12:41,240 --> 00:12:42,240
+There's four of them.
+
+203
+00:12:42,240 --> 00:12:46,360
+You've got Point, which is just a little round robot with a square on the front that can
+
+204
+00:12:46,360 --> 00:12:48,360
+turn and drive around.
+
+205
+00:12:48,360 --> 00:12:51,600
+Car, which is a similar sort of setup.
+
+206
+00:12:51,600 --> 00:12:54,640
+Yeah, it has differential drive, so you have input to both of the wheels, sort of tank
+
+207
+00:12:54,640 --> 00:12:56,400
+steering type setup.
+
+208
+00:12:56,400 --> 00:12:57,760
+And that drives around.
+
+209
+00:12:57,760 --> 00:13:04,160
+And you have Doggo, I kid you not, D-O-G-G-O, which is a quadruped that walks around.
+
+210
+00:13:04,160 --> 00:13:07,960
+And then you have a bunch of these different environments, which are basically like you
+
+211
+00:13:07,960 --> 00:13:12,900
+have to go over here and press this button, and then when you press the button, a different
+
+212
+00:13:12,900 --> 00:13:16,040
+button will light up and you have to go over and press that one and so on.
+
+213
+00:13:16,040 --> 00:13:24,080
+Or get to this point, or like push this box to this point, you know, it's basic interactions.
+
+214
+00:13:24,080 --> 00:13:29,480
+But then they also have these constraints built in, which are things like hazards, which
+
+215
+00:13:29,480 --> 00:13:34,040
+are like areas that you're not supposed to go into, or vases, they call them vases, which
+
+216
+00:13:34,040 --> 00:13:36,440
+is like objects that you're not supposed to bump into.
+
+217
+00:13:36,440 --> 00:13:41,040
+And then the hardest one is gremlins, which are objects that you're not supposed to touch,
+
+218
+00:13:41,040 --> 00:13:42,480
+but they move around as well.
+
+219
+00:13:42,480 --> 00:13:47,400
+The idea is you're trying to create systems that can learn to get to the areas they're
+
+220
+00:13:47,400 --> 00:13:50,520
+supposed to be, or push the box or, you know, press the buttons or whatever it is that they're
+
+221
+00:13:50,520 --> 00:13:54,760
+trying to do, while simultaneously avoiding all of these hazards, not breaking the vases,
+
+222
+00:13:54,760 --> 00:13:57,040
+not bumping into the gremlins or whatever else.
+
+223
+00:13:57,040 --> 00:14:01,280
+And that they can learn with a minimum of violating these constraints during the training
+
+224
+00:14:01,280 --> 00:14:08,400
+process as well, which is a really interesting and quite hard problem.
+
+225
+00:14:08,400 --> 00:14:13,060
+And then they provide some benchmarks, and they show that standard reinforcement learning
+
+226
+00:14:13,060 --> 00:14:14,960
+agents suck at this.
+
+227
+00:14:14,960 --> 00:14:18,600
+They're trying to do anything to learn, they don't care about the learning process, right?
+
+228
+00:14:18,600 --> 00:14:19,920
+Exactly, exactly.
+
+229
+00:14:19,920 --> 00:14:22,640
+And then there are a few different other approaches that do better.
+
+230
+00:14:22,640 --> 00:14:24,920
+This is really nice if you have ideas.
+
+231
+00:14:24,920 --> 00:14:28,200
+And again, like the Gridworlds thing, you can download this and have a go.
+
+232
+00:14:28,200 --> 00:14:33,080
+You can try training your own agents and see how well you can do on these benchmarks, and
+
+233
+00:14:33,080 --> 00:14:37,760
+if you can beat what OpenAI has done, you know, and then you've got something that's
+
+234
+00:14:37,760 --> 00:14:40,200
+publishable that's going to advance the field.
+
+235
+00:14:40,200 --> 00:14:46,680
+So I really like this as a piece of work because it provides a foundation for more work going
+
+236
+00:14:46,680 --> 00:14:53,920
+forward in a kind of standardised, understandable way.
+
+237
+00:14:53,920 --> 00:14:58,720
+Fasthosts is a UK-based web hosting company which offers a wide range of web hosting products
+
+238
+00:14:58,720 --> 00:15:00,360
+and other services.
+
+239
+00:15:00,360 --> 00:15:05,600
+They aim to support UK businesses and entrepreneurs at all levels, providing effective and affordable
+
+240
+00:15:05,600 --> 00:15:08,320
+hosting packages to suit any need.
+
+241
+00:15:08,320 --> 00:15:12,160
+As you'd expect from someone called Fasthosts, they do domain names.
+
+242
+00:15:12,160 --> 00:15:16,440
+It's easy to register, and they have a huge choice of domains with powerful management
+
+243
+00:15:16,440 --> 00:15:18,200
+features included.
+
+244
+00:15:18,200 --> 00:15:21,800
+One thing they do offer is an e-commerce website builder.
+
+245
+00:15:21,800 --> 00:15:25,720
+This provides a fast and simple way for any business to sell online.
+
+246
+00:15:25,720 --> 00:15:29,820
+It's a drag-and-drop interface, so it's easy to build a customised shop on the web.
+
+247
+00:15:29,820 --> 00:15:34,360
+Even if you have no technical knowledge, you can create an online store, and you can customise
+
+248
+00:15:34,360 --> 00:15:36,920
+simply with drag-and-drop functionality.
+
+249
+00:15:36,920 --> 00:15:39,720
+No designers or developers are required.
+
+250
+00:15:39,720 --> 00:15:43,640
+Fasthosts data centres are based in the UK alongside their offices, so whether you choose
+
+251
+00:15:43,640 --> 00:15:48,280
+a lightweight web hosting package or go for a fully-fledged dedicated box, their expert
+
+252
+00:15:48,280 --> 00:15:51,120
+support teams are available 24x7.
+
+253
+00:15:51,120 --> 00:15:53,600
+Find out more by following the link in the description below.
+

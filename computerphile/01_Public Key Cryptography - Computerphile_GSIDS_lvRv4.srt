@@ -1,0 +1,424 @@
+1
+00:00:00,000 --> 00:00:07,760
+The thing I wanted to talk about today, one of the things, is the coolness that is public
+
+2
+00:00:07,760 --> 00:00:09,480
+private key cryptography.
+
+3
+00:00:09,480 --> 00:00:14,240
+The basic idea of how it works, I think, is just cool.
+
+4
+00:00:14,240 --> 00:00:15,240
+It's such a clever idea.
+
+5
+00:00:15,240 --> 00:00:19,080
+I wanted to explain it.
+
+6
+00:00:19,080 --> 00:00:25,200
+So everyone's familiar with the basic idea of crypto, where you have a secret key.
+
+7
+00:00:25,200 --> 00:00:30,520
+You use that to encode some information, which converts it from a readable form into garbage,
+
+8
+00:00:30,520 --> 00:00:31,520
+effectively.
+
+9
+00:00:31,520 --> 00:00:35,020
+It looks like random noise.
+
+10
+00:00:35,020 --> 00:00:38,520
+You then transfer that to somebody else, and they are then able to decrypt it and get the
+
+11
+00:00:38,520 --> 00:00:39,520
+message out.
+
+12
+00:00:39,520 --> 00:00:44,840
+And anyone who's listening in on your communication isn't able to find out anything about the
+
+13
+00:00:44,840 --> 00:00:46,480
+information that you're communicating.
+
+14
+00:00:46,480 --> 00:00:51,680
+The way that you intuitively think about it, especially if you're doing these simple codes,
+
+15
+00:00:51,680 --> 00:01:00,280
+something like a Caesar cipher that you might do when you're a kid, there's one secret that
+
+16
+00:01:00,280 --> 00:01:01,280
+you both have.
+
+17
+00:01:01,280 --> 00:01:03,040
+This is a symmetric system.
+
+18
+00:01:03,040 --> 00:01:07,640
+So you've got your message, you're saying hello, and then you do some process to it
+
+19
+00:01:07,640 --> 00:01:13,640
+to convert it using a key that's some secret piece of information, which then converts
+
+20
+00:01:13,640 --> 00:01:15,440
+this into nonsense.
+
+21
+00:01:15,440 --> 00:01:20,480
+And then you send this to the other person, and they decrypt it with a process that's
+
+22
+00:01:20,480 --> 00:01:24,840
+kind of this same process in reverse, using the same key.
+
+23
+00:01:24,840 --> 00:01:27,000
+And then they get hello back out the other end.
+
+24
+00:01:27,000 --> 00:01:29,080
+And that's nice and simple, and it works.
+
+25
+00:01:29,080 --> 00:01:33,800
+And it was once sort of the only way that people did things.
+
+26
+00:01:33,800 --> 00:01:37,840
+But it has a problem, which is you both need to know what this key is.
+
+27
+00:01:37,840 --> 00:01:41,880
+So if it's you and me, and we want to communicate with one another privately, we have to agree
+
+28
+00:01:41,880 --> 00:01:46,280
+on a key that nobody else is going to be able to guess, and we have to share it with one
+
+29
+00:01:46,280 --> 00:01:48,680
+another.
+
+30
+00:01:48,680 --> 00:01:53,600
+So we might meet in the park in secret and exchange envelopes or whatever.
+
+31
+00:01:53,600 --> 00:01:57,200
+This is the kind of thing spies used to do, right?
+
+32
+00:01:57,200 --> 00:01:59,840
+And the problem with that is, firstly, it's very inconvenient.
+
+33
+00:01:59,840 --> 00:02:01,320
+And secondly, sometimes you can't do it.
+
+34
+00:02:01,320 --> 00:02:06,640
+We might be physically separated, or we want to do something over the internet, maybe we've
+
+35
+00:02:06,640 --> 00:02:08,160
+never met.
+
+36
+00:02:08,160 --> 00:02:13,280
+And the problem is, how do I send this key to you without just sending the key in the
+
+37
+00:02:13,280 --> 00:02:14,840
+clear, as it were, unencrypted?
+
+38
+00:02:14,840 --> 00:02:19,120
+In order for us to share the key safely, we need a secure encrypted connection.
+
+39
+00:02:19,120 --> 00:02:21,960
+But we can't establish a secure encrypted connection without a key.
+
+40
+00:02:21,960 --> 00:02:27,000
+There's a way of solving this problem, which is asymmetric encryption, where what you do
+
+41
+00:02:27,000 --> 00:02:31,160
+is you generate two keys, key A and key B, let's just call them.
+
+42
+00:02:31,160 --> 00:02:33,800
+I'm going to draw a line here.
+
+43
+00:02:33,800 --> 00:02:35,040
+Asymmetric system, you have two keys.
+
+44
+00:02:35,040 --> 00:02:36,920
+And then basically, it's the same as before.
+
+45
+00:02:36,920 --> 00:02:40,880
+You've got your message that says hello.
+
+46
+00:02:40,880 --> 00:02:48,400
+You encrypt it with key A to say whatever it was that I decided it was before.
+
+47
+00:02:48,400 --> 00:02:50,840
+And then back out, you get hello again.
+
+48
+00:02:50,840 --> 00:02:53,120
+And the decryption in this case uses key B.
+
+49
+00:02:53,120 --> 00:02:55,600
+You can't guess one key from the other.
+
+50
+00:02:55,600 --> 00:02:59,800
+But they're linked in such a way that anything you encrypt with key A can only be decrypted
+
+51
+00:02:59,800 --> 00:03:04,280
+with key B. And anything you encrypt with key B can only be decrypted with key A.
+
+52
+00:03:04,280 --> 00:03:05,720
+So there's two.
+
+53
+00:03:05,720 --> 00:03:10,840
+And what you do is you generate a pair of these keys, which is called a key pair.
+
+54
+00:03:10,840 --> 00:03:15,880
+And you just pick one of them and say, this is my public key.
+
+55
+00:03:15,880 --> 00:03:17,920
+And your public key is public.
+
+56
+00:03:17,920 --> 00:03:18,920
+You publish it everywhere.
+
+57
+00:03:18,920 --> 00:03:23,920
+You put it on the end of all your emails, your forum posts.
+
+58
+00:03:23,920 --> 00:03:29,000
+You upload it to a key server, which is a specialized server system that's designed
+
+59
+00:03:29,000 --> 00:03:33,600
+for securely storing people's public keys.
+
+60
+00:03:33,720 --> 00:03:37,560
+Basically, the idea is it's everywhere out there in the world with your name on it.
+
+61
+00:03:37,560 --> 00:03:40,320
+The private key is the other key of this pair.
+
+62
+00:03:40,320 --> 00:03:42,360
+That one you keep absolutely secret.
+
+63
+00:03:42,360 --> 00:03:45,280
+You can do some cool things with this once you have this system set up.
+
+64
+00:03:45,280 --> 00:03:46,360
+I have a key pair.
+
+65
+00:03:46,360 --> 00:03:47,840
+You have a key pair.
+
+66
+00:03:47,840 --> 00:03:50,520
+We both have one another's public keys.
+
+67
+00:03:50,520 --> 00:03:55,120
+So now, if you want to send me a message, I don't have to share anything with you.
+
+68
+00:03:55,120 --> 00:04:00,320
+You just know my public key, encrypt something with my public key, send it to me.
+
+69
+00:04:00,320 --> 00:04:02,920
+You know I can decrypt it because you know I have my private key.
+
+70
+00:04:02,920 --> 00:04:06,840
+And then there's another thing you can do with this, which is if I encrypt something
+
+71
+00:04:06,840 --> 00:04:11,600
+with my private key and then publish it, now, on the surface of it, you'd think,
+
+72
+00:04:11,600 --> 00:04:15,520
+well, what is the point of encrypting it with your private key?
+
+73
+00:04:15,520 --> 00:04:18,640
+Because your public key is out there, so anyone can decrypt it, so why bother
+
+74
+00:04:18,640 --> 00:04:19,920
+encrypting it?
+
+75
+00:04:19,920 --> 00:04:26,440
+But the fact that it can be decrypted with your public key means that it must have been
+
+76
+00:04:26,440 --> 00:04:30,080
+encrypted with your private key, which means it must have been you who made the
+
+77
+00:04:30,080 --> 00:04:32,320
+message because only you have your private key.
+
+78
+00:04:32,320 --> 00:04:36,840
+Cryptographically, you can be certain that it's an authentic message, really,
+
+79
+00:04:36,840 --> 00:04:37,960
+from that person.
+
+80
+00:04:37,960 --> 00:04:43,000
+So the best thing is when I do both, where I encrypt something with my private key
+
+81
+00:04:43,000 --> 00:04:46,160
+and then your public key and then send it to you.
+
+82
+00:04:46,160 --> 00:04:49,920
+And if we communicate like this, I know that nobody else can read the message,
+
+83
+00:04:49,920 --> 00:04:51,880
+you know that nobody else can read the message.
+
+84
+00:04:51,880 --> 00:04:54,600
+You know that the message has come from me and not an imposter.
+
+85
+00:04:54,600 --> 00:04:58,200
+You also know that the message hasn't been modified because any modification to the
+
+86
+00:04:58,200 --> 00:05:00,520
+message also requires the keys.
+
+87
+00:05:00,520 --> 00:05:04,480
+That's a great secure system and we didn't have to meet up in the park in a
+
+88
+00:05:04,480 --> 00:05:06,800
+shifty way and exchange any information or anything.
+
+89
+00:05:06,800 --> 00:05:08,040
+We need never have met.
+
+90
+00:05:08,040 --> 00:05:11,960
+I need to make clear here that I have oversimplified in various ways.
+
+91
+00:05:11,960 --> 00:05:16,240
+People who understand cryptography will be quite upset probably right now,
+
+92
+00:05:16,240 --> 00:05:22,400
+but guys, this is why people don't use crypto because we make it too complicated.
+
+93
+00:05:22,400 --> 00:05:27,720
+The core concept is simple and this stuff isn't difficult to use and everyone should.
+
+94
+00:05:27,720 --> 00:05:33,720
+When you put an envelope in the post, you lick the thing and seal it.
+
+95
+00:05:33,720 --> 00:05:36,680
+And if it's been opened, people know it's been opened and there are laws about this
+
+96
+00:05:36,680 --> 00:05:37,680
+and we have all of this stuff.
+
+97
+00:05:37,680 --> 00:05:43,400
+And when you communicate in the clear, anyone and his dog can know exactly what
+
+98
+00:05:43,400 --> 00:05:45,400
+you're sending to everyone and there's no reason to allow that.
+
+99
+00:05:49,000 --> 00:05:54,200
+There are various ways in which what I've done here is a simplification and there
+
+100
+00:05:54,200 --> 00:05:56,200
+are some ways in which it's an oversimplification.
+
+101
+00:05:56,200 --> 00:06:01,960
+And if you want more details, just look down in my trousers where there's a lot
+
+102
+00:06:01,960 --> 00:06:04,280
+of commenters who will have gone into...
+
+103
+00:06:04,280 --> 00:06:06,360
+Well, you don't need to actually zoom in on it.
+
+104
+00:06:06,360 --> 00:06:11,960
+I mean, there's a lot of commenters who will have gone into more detail than you
+
+105
+00:06:11,960 --> 00:06:14,240
+wanted about exactly how this stuff works.
+
+106
+00:06:14,240 --> 00:06:19,040
+And it is really interesting, but the basic idea is simple.
+

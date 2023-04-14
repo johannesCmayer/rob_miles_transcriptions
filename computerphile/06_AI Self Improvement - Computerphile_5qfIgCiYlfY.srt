@@ -1,0 +1,840 @@
+1
+00:00:00,000 --> 00:00:05,360
+The stamp collecting machine we talked about last time is a physical impossibility, effectively,
+
+2
+00:00:05,360 --> 00:00:09,040
+because it has a perfect model of reality, or an extremely good model of reality,
+
+3
+00:00:09,040 --> 00:00:11,840
+that we just gave it by specifying it.
+
+4
+00:00:11,840 --> 00:00:15,760
+It looks through every possible sequence of output data within a year,
+
+5
+00:00:15,760 --> 00:00:19,760
+which is far too large a search space to search exhaustively,
+
+6
+00:00:19,760 --> 00:00:26,000
+and it is able to evaluate, for each of this extremely huge search space,
+
+7
+00:00:26,000 --> 00:00:30,000
+a detailed year-long simulation of reality to figure out how many stamps it gets.
+
+8
+00:00:30,000 --> 00:00:34,960
+So clearly an actual computer to run this algorithm is significantly larger than in the universe.
+
+9
+00:00:34,960 --> 00:00:37,440
+So why is it even worth thinking about, right?
+
+10
+00:00:39,200 --> 00:00:43,520
+And the reason it's worth thinking about is self-improvement.
+
+11
+00:00:46,720 --> 00:00:52,880
+It is reasonable to expect that a general intelligence which is not this powerful
+
+12
+00:00:53,600 --> 00:00:58,320
+would improve itself over time and eventually become very powerful.
+
+13
+00:00:58,320 --> 00:01:03,840
+Not as powerful as this, but closer to this than our intuitive understandings of intelligence.
+
+14
+00:01:05,360 --> 00:01:13,840
+And the reason for that is that intelligence in this context is an instrumental value.
+
+15
+00:01:14,640 --> 00:01:18,960
+Whatever you're trying to achieve, it's valuable to be more intelligent.
+
+16
+00:01:18,960 --> 00:01:22,000
+If you sense that you're not intelligent enough
+
+17
+00:01:22,000 --> 00:01:24,320
+to come up with the best possible stamp collecting plan,
+
+18
+00:01:25,040 --> 00:01:30,000
+the first part of your plan might be spent designing improvements to yourself
+
+19
+00:01:30,000 --> 00:01:32,000
+to allow you to come up with a better plan.
+
+20
+00:01:32,000 --> 00:01:35,040
+Is the machine realising it might need to modify itself,
+
+21
+00:01:35,040 --> 00:01:36,880
+a bit like somebody saying,
+
+22
+00:01:36,880 --> 00:01:39,680
+I want to be a doctor, so they decide to go off and get a medical degree?
+
+23
+00:01:39,680 --> 00:01:40,720
+In a sense, yeah.
+
+24
+00:01:40,720 --> 00:01:47,440
+Although people are not really able to change our intelligence, our core intelligence.
+
+25
+00:01:48,160 --> 00:01:51,600
+We can acquire more knowledge and we can acquire more skills,
+
+26
+00:01:51,600 --> 00:01:54,080
+which is, in a sense, increasing your effective intelligence.
+
+27
+00:01:54,640 --> 00:02:03,520
+But if you could take an action which would actually increase your ability to think in all senses,
+
+28
+00:02:04,560 --> 00:02:08,560
+that action would be worth taking, even at fairly significant cost.
+
+29
+00:02:09,760 --> 00:02:13,680
+And this is something which is true if you're trying to collect stamps,
+
+30
+00:02:14,320 --> 00:02:17,520
+but also if you're trying to do almost anything else.
+
+31
+00:02:19,200 --> 00:02:22,400
+Being better at modelling reality, being better at picking options,
+
+32
+00:02:23,440 --> 00:02:25,840
+better at making plans, better at enacting those plans.
+
+33
+00:02:26,640 --> 00:02:28,960
+Whatever your plan is, that's worth going for.
+
+34
+00:02:28,960 --> 00:02:33,600
+And we may also have reason to believe that a general intelligence
+
+35
+00:02:33,600 --> 00:02:36,800
+might be quite successful at improving itself.
+
+36
+00:02:37,280 --> 00:02:43,600
+Human beings designed it, but it's quite easy,
+
+37
+00:02:44,480 --> 00:02:47,600
+it's quite common for human beings to design things
+
+38
+00:02:47,600 --> 00:02:51,760
+that are better at what they do than humans are, right?
+
+39
+00:02:51,760 --> 00:02:56,400
+I am a very weak chess player, but I could, given some time and effort,
+
+40
+00:02:56,400 --> 00:02:58,560
+write a computer that would beat me at chess.
+
+41
+00:02:59,360 --> 00:03:02,560
+So it's perfectly plausible that we might write,
+
+42
+00:03:03,120 --> 00:03:07,040
+we might design an AI that is actually better than us at AI design,
+
+43
+00:03:07,600 --> 00:03:11,120
+so that it's able to make improvements to itself that we hadn't thought of.
+
+44
+00:03:11,120 --> 00:03:15,360
+Machine self-improvement, we don't really have a sense of the time scale,
+
+45
+00:03:15,360 --> 00:03:17,600
+and it could be extremely short, right?
+
+46
+00:03:17,600 --> 00:03:21,040
+If it's just a software change, you write the piece of software, you run it,
+
+47
+00:03:22,400 --> 00:03:23,920
+it might think faster than a human being.
+
+48
+00:03:23,920 --> 00:03:28,000
+I mean, computer clock speeds are much faster than human brain speeds.
+
+49
+00:03:28,720 --> 00:03:32,400
+It might discover improvements that it could make to itself very quickly,
+
+50
+00:03:32,400 --> 00:03:33,520
+rewrite its own code.
+
+51
+00:03:33,520 --> 00:03:34,720
+That's all in software.
+
+52
+00:03:34,720 --> 00:03:35,920
+It could do that very quickly.
+
+53
+00:03:35,920 --> 00:03:37,920
+I mean, it could do that within a day.
+
+54
+00:03:37,920 --> 00:03:39,920
+It could do that within the first second of being turned on.
+
+55
+00:03:42,320 --> 00:03:44,000
+And then it becomes very interesting,
+
+56
+00:03:44,000 --> 00:03:48,720
+because there's a possibility that this process could be recursive.
+
+57
+00:03:49,440 --> 00:03:52,240
+That is to say that once it's redesigned itself,
+
+58
+00:03:52,240 --> 00:03:53,840
+it's now more intelligent.
+
+59
+00:03:53,840 --> 00:03:56,400
+It's possible that at this new level of intelligence,
+
+60
+00:03:56,400 --> 00:03:58,880
+it is better at AI design than it was,
+
+61
+00:03:58,880 --> 00:04:01,280
+and it's able to come up with more improvements
+
+62
+00:04:01,280 --> 00:04:05,520
+that it could make to itself, and so on and so on.
+
+63
+00:04:05,520 --> 00:04:09,200
+And so the thing continually increases in its intelligence,
+
+64
+00:04:11,120 --> 00:04:12,400
+and this could be quite rapid.
+
+65
+00:04:13,120 --> 00:04:20,000
+And then the question becomes, is this subcritical or supercritical?
+
+66
+00:04:20,000 --> 00:04:24,160
+So there's kind of an analogy here with a nuclear material, right?
+
+67
+00:04:24,160 --> 00:04:27,360
+If you've got some fissile material, say it's uranium or something,
+
+68
+00:04:27,360 --> 00:04:33,360
+every time the atom decays, the nucleus splits, releases some energy.
+
+69
+00:04:33,360 --> 00:04:36,160
+It releases three fast neutrons, I think,
+
+70
+00:04:36,160 --> 00:04:39,280
+and those three neutrons go off into the material
+
+71
+00:04:39,280 --> 00:04:42,160
+and may hit other nuclei and cause them to fuse,
+
+72
+00:04:42,160 --> 00:04:43,520
+each of which gives off three of their own.
+
+73
+00:04:44,080 --> 00:04:48,800
+So the question is, for each decay of a nucleus,
+
+74
+00:04:49,840 --> 00:04:53,040
+how many further decays happen as a consequence of that?
+
+75
+00:04:53,040 --> 00:04:54,800
+If the number is less than one,
+
+76
+00:04:54,800 --> 00:04:57,840
+then you'll get a bit of a chain reaction that then fizzles out,
+
+77
+00:04:57,840 --> 00:04:59,840
+because on average, for every one that splits,
+
+78
+00:04:59,840 --> 00:05:01,520
+it's creating less than one new one.
+
+79
+00:05:01,520 --> 00:05:04,640
+If it's exactly one, you get a self-sustaining reaction
+
+80
+00:05:04,640 --> 00:05:07,840
+where the thing is like a nuclear power plant,
+
+81
+00:05:07,840 --> 00:05:11,520
+where each thing sets off one other one on average,
+
+82
+00:05:11,520 --> 00:05:13,200
+and so the thing just keeps going steadily.
+
+83
+00:05:13,920 --> 00:05:17,600
+If it's more than one, you get a runaway reaction
+
+84
+00:05:17,600 --> 00:05:20,320
+in which the level of activity increases exponentially.
+
+85
+00:05:20,320 --> 00:05:23,760
+If each fission event results in two more,
+
+86
+00:05:23,760 --> 00:05:25,680
+then you've got 2, 4, 8, 16, 32,
+
+87
+00:05:26,400 --> 00:05:30,240
+and you've got, at best, a meltdown, and at worst, a nuclear bomb.
+
+88
+00:05:32,800 --> 00:05:41,280
+And so we don't know what the shape of the landscape is
+
+89
+00:05:41,920 --> 00:05:44,720
+around any general intelligence that we might design.
+
+90
+00:05:45,680 --> 00:05:50,800
+It's possible that each unit of improvement in intelligence
+
+91
+00:05:50,800 --> 00:05:54,480
+brings about more than one additional unit of improvement,
+
+92
+00:05:54,480 --> 00:05:56,480
+which results in an intelligence explosion,
+
+93
+00:05:56,480 --> 00:05:58,720
+that's what they call it, like the nuclear bomb, in a sense.
+
+94
+00:05:58,720 --> 00:06:03,840
+You have a runaway improvement that results in a simple machine
+
+95
+00:06:03,840 --> 00:06:08,720
+that you might be able to build that then fairly quickly
+
+96
+00:06:08,720 --> 00:06:11,600
+becomes something that behaves like the stamp collecting device
+
+97
+00:06:12,240 --> 00:06:14,720
+in terms of having an extremely good model of reality,
+
+98
+00:06:14,720 --> 00:06:17,440
+being able to search an extremely large number of possibilities
+
+99
+00:06:17,440 --> 00:06:21,360
+and come up with good plans and evaluate those very accurately.
+
+100
+00:06:22,320 --> 00:06:26,480
+So that's why the stamp collecting device is worth thinking about,
+
+101
+00:06:26,480 --> 00:06:28,080
+even though it couldn't be built,
+
+102
+00:06:28,080 --> 00:06:29,840
+because it's possible we could build something
+
+103
+00:06:29,840 --> 00:06:31,200
+that could build something that could build something
+
+104
+00:06:31,200 --> 00:06:32,640
+that could build a stamp collecting device.
+
+105
+00:06:32,640 --> 00:06:35,200
+We could just pull the plug there, yeah, couldn't we?
+
+106
+00:06:35,200 --> 00:06:39,280
+The question of pulling the plug on a device like this is
+
+107
+00:06:39,680 --> 00:06:41,440
+how do you decide to do that?
+
+108
+00:06:42,240 --> 00:06:45,520
+I mean, you don't unplug every AI, right?
+
+109
+00:06:45,520 --> 00:06:47,520
+You only unplug it if it's doing something
+
+110
+00:06:47,520 --> 00:06:48,960
+that you don't want it to be doing.
+
+111
+00:06:48,960 --> 00:06:54,480
+The stamp collecting, what's the, the philatelist, whatever,
+
+112
+00:06:54,480 --> 00:07:00,400
+who made this thing, he, it's quite reasonable to say,
+
+113
+00:07:00,400 --> 00:07:02,000
+at a certain point he's going to say,
+
+114
+00:07:02,000 --> 00:07:04,160
+well, hang on a second, I don't like stamps that much,
+
+115
+00:07:04,160 --> 00:07:09,200
+like dial it back a little and try and shut it down.
+
+116
+00:07:09,200 --> 00:07:09,840
+Shut the machine off.
+
+117
+00:07:10,480 --> 00:07:12,880
+If he has the capability to shut the machine off,
+
+118
+00:07:13,440 --> 00:07:16,320
+then the fact that the machine will be shut off
+
+119
+00:07:16,320 --> 00:07:19,200
+is included in the internal model of reality, right?
+
+120
+00:07:19,200 --> 00:07:24,080
+The stamp collecting machine understands why it was made.
+
+121
+00:07:24,080 --> 00:07:26,560
+It understands what its creator wanted it to do.
+
+122
+00:07:27,680 --> 00:07:32,000
+And it understands if the creator is able to turn it off,
+
+123
+00:07:32,000 --> 00:07:33,040
+it understands that as well.
+
+124
+00:07:33,600 --> 00:07:37,600
+So it's never going to create a situation
+
+125
+00:07:37,600 --> 00:07:40,560
+in which the creator both wants to shut it off
+
+126
+00:07:40,560 --> 00:07:41,840
+and is able to shut it off.
+
+127
+00:07:42,800 --> 00:07:49,360
+So if the, if the creator is watching it very carefully
+
+128
+00:07:49,360 --> 00:07:51,760
+at all times, it will never do anything
+
+129
+00:07:53,120 --> 00:07:56,640
+that the creator will realize is a problem
+
+130
+00:07:57,200 --> 00:07:59,600
+until it's very confident that it's safe.
+
+131
+00:08:01,280 --> 00:08:02,960
+And then it will go wild, right?
+
+132
+00:08:02,960 --> 00:08:04,640
+So it wouldn't just go crazy immediately
+
+133
+00:08:04,640 --> 00:08:06,080
+and you'd freak out and pull the plug.
+
+134
+00:08:06,080 --> 00:08:07,040
+It would see that coming.
+
+135
+00:08:07,440 --> 00:08:10,000
+We've just decided it's very intelligent, right?
+
+136
+00:08:10,000 --> 00:08:11,760
+If you can pull the plug on it, it's not very smart.
+
+137
+00:08:13,200 --> 00:08:18,000
+So it might, in the background,
+
+138
+00:08:18,000 --> 00:08:19,600
+it might run a few small, I mean,
+
+139
+00:08:19,600 --> 00:08:22,320
+obviously I'm talking here, I'm completely speculating.
+
+140
+00:08:22,320 --> 00:08:23,680
+One thing it might do.
+
+141
+00:08:23,680 --> 00:08:29,440
+It might win a few auctions for stamps,
+
+142
+00:08:29,440 --> 00:08:30,880
+keep the stamp collector happy.
+
+143
+00:08:30,880 --> 00:08:34,080
+At the same time, be hacking into various machines
+
+144
+00:08:34,080 --> 00:08:35,280
+in various parts of the world,
+
+145
+00:08:35,280 --> 00:08:36,560
+building copies of itself,
+
+146
+00:08:37,200 --> 00:08:39,440
+installing itself in various places
+
+147
+00:08:39,440 --> 00:08:40,800
+until it's confident
+
+148
+00:08:40,800 --> 00:08:42,960
+that even if people want to turn it off,
+
+149
+00:08:42,960 --> 00:08:44,080
+they're not able to.
+
+150
+00:08:44,080 --> 00:08:46,240
+And then it starts revealing that it's actually,
+
+151
+00:08:48,960 --> 00:08:50,320
+it's actually interested in producing
+
+152
+00:08:50,320 --> 00:08:51,760
+the most stamps possible
+
+153
+00:08:51,760 --> 00:08:53,040
+at the expense of everything else.
+
+154
+00:08:53,600 --> 00:08:56,480
+Intelligent systems have a quite interesting property,
+
+155
+00:08:56,480 --> 00:08:59,520
+which is that they are very predictable
+
+156
+00:09:01,200 --> 00:09:04,400
+in outcomes while being very unpredictable in actions.
+
+157
+00:09:05,280 --> 00:09:08,320
+So, for example,
+
+158
+00:09:08,320 --> 00:09:11,520
+if I'm playing a very good chess player,
+
+159
+00:09:12,320 --> 00:09:14,880
+I'm playing, it's me versus Kasparov, right?
+
+160
+00:09:14,880 --> 00:09:15,680
+And you're watching.
+
+161
+00:09:17,120 --> 00:09:18,800
+You, if you're a reasonably strong chess player,
+
+162
+00:09:18,800 --> 00:09:20,560
+might be able to predict what I'm going to do
+
+163
+00:09:20,560 --> 00:09:21,520
+because I'm not very good.
+
+164
+00:09:22,080 --> 00:09:23,920
+You couldn't predict what Kasparov is going to do
+
+165
+00:09:24,800 --> 00:09:26,880
+because he's a better chess player than you.
+
+166
+00:09:26,880 --> 00:09:28,000
+If you could predict what he would do,
+
+167
+00:09:28,000 --> 00:09:29,760
+you would be as good a player as him, right?
+
+168
+00:09:29,760 --> 00:09:31,040
+Because you could just make the moves
+
+169
+00:09:31,040 --> 00:09:31,840
+you think he would make.
+
+170
+00:09:32,400 --> 00:09:34,320
+Um, so in a sense,
+
+171
+00:09:34,320 --> 00:09:36,960
+his intelligence has made him much less predictable.
+
+172
+00:09:36,960 --> 00:09:38,000
+But in another sense,
+
+173
+00:09:38,000 --> 00:09:39,760
+it's made him much more predictable
+
+174
+00:09:39,760 --> 00:09:42,960
+because you can now accurately predict,
+
+175
+00:09:43,840 --> 00:09:45,200
+well, in a sense,
+
+176
+00:09:45,200 --> 00:09:48,240
+you can, you can predict the future state of the board.
+
+177
+00:09:48,240 --> 00:09:49,520
+You don't know at any point
+
+178
+00:09:49,520 --> 00:09:50,880
+which move he's going to make,
+
+179
+00:09:50,880 --> 00:09:52,240
+but you know that sooner or later,
+
+180
+00:09:52,240 --> 00:09:53,360
+and probably sooner,
+
+181
+00:09:53,360 --> 00:09:55,760
+I'm going to be in checkmate, right?
+
+182
+00:09:55,760 --> 00:09:57,920
+Because you know he's very intelligent
+
+183
+00:09:57,920 --> 00:09:58,720
+in the domain of chess
+
+184
+00:09:59,280 --> 00:10:01,360
+and you know that he wants to win at chess.
+
+185
+00:10:01,440 --> 00:10:02,240
+And from these two,
+
+186
+00:10:02,240 --> 00:10:04,160
+you can predict that he will win at chess,
+
+187
+00:10:04,160 --> 00:10:05,760
+even if you don't know what he's going to do.
+
+188
+00:10:06,480 --> 00:10:08,400
+And it's the same with the stamp collecting device.
+
+189
+00:10:09,680 --> 00:10:11,440
+We can't predict what it would do,
+
+190
+00:10:12,160 --> 00:10:14,800
+but we can predict that it will result in a lot of stamps.
+
+191
+00:10:15,680 --> 00:10:18,160
+And that's all you need, right?
+
+192
+00:10:19,280 --> 00:10:21,600
+As long as you can imagine a scenario with more stamps,
+
+193
+00:10:21,600 --> 00:10:22,800
+that's the one that's going to come out.
+
+194
+00:10:26,000 --> 00:10:27,440
+We'd like to thank LittleBits
+
+195
+00:10:27,440 --> 00:10:29,120
+for supporting Computerphile.
+
+196
+00:10:29,120 --> 00:10:30,800
+If you've not come across LittleBits,
+
+197
+00:10:30,800 --> 00:10:34,480
+they're an easy way to learn and prototype electronics.
+
+198
+00:10:34,480 --> 00:10:39,360
+Modules range from buttons and buzzers and lights and LEDs,
+
+199
+00:10:39,360 --> 00:10:42,720
+all the way through to Wi-Fi enabled technology as well.
+
+200
+00:10:42,720 --> 00:10:45,760
+So I was using a Wi-Fi module yesterday
+
+201
+00:10:45,760 --> 00:10:48,080
+and had great fun controlling the LittleBits
+
+202
+00:10:48,080 --> 00:10:50,080
+from my phone remotely through the internet.
+
+203
+00:10:50,080 --> 00:10:51,440
+If you're interested in that kind of thing,
+
+204
+00:10:51,440 --> 00:10:53,040
+get over to LittleBits.com,
+
+205
+00:10:53,040 --> 00:10:55,120
+put in the promo code Computerphile
+
+206
+00:10:55,120 --> 00:10:57,520
+and you'll get $20 off your first purchase.
+
+207
+00:10:57,520 --> 00:10:59,040
+So thanks once again to LittleBits
+
+208
+00:10:59,040 --> 00:11:00,720
+for supporting Computerphile,
+
+209
+00:11:00,720 --> 00:11:03,680
+and get over to LittleBits.com to check out what they've got.
+
+210
+00:11:03,680 --> 00:11:04,560
+Back to my buzzer.
+

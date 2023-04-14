@@ -1,0 +1,752 @@
+1
+00:00:00,000 --> 00:00:05,360
+Imagine, the year is 1983 and you are a Soviet military officer.
+
+2
+00:00:05,360 --> 00:00:10,240
+1983 is a very dangerous time to be, well, on Earth.
+
+3
+00:00:10,240 --> 00:00:12,640
+The Cold War is not feeling very cold.
+
+4
+00:00:12,640 --> 00:00:17,120
+Tensions between the United States and the USSR are extremely high.
+
+5
+00:00:17,120 --> 00:00:20,160
+The messages from politicians and the media sound like,
+
+6
+00:00:20,160 --> 00:00:21,840
+a nuclear war would be terrible.
+
+7
+00:00:21,840 --> 00:00:23,760
+We need to avoid it at all costs.
+
+8
+00:00:23,760 --> 00:00:26,560
+But the Americans seem like they almost want it to happen.
+
+9
+00:00:26,560 --> 00:00:29,280
+We need to make it seem like we're willing to do it too,
+
+10
+00:00:29,280 --> 00:00:32,400
+just to keep those crazy capitalist bastards from trying anything.
+
+11
+00:00:32,400 --> 00:00:35,200
+And both sides are quite successful in convincing the other
+
+12
+00:00:35,200 --> 00:00:36,480
+that they're willing to push the button.
+
+13
+00:00:37,200 --> 00:00:38,400
+Maybe too successful.
+
+14
+00:00:38,400 --> 00:00:40,960
+NATO has deployed nuclear missiles in Western Europe
+
+15
+00:00:40,960 --> 00:00:43,680
+that can hit Soviet targets within 10 minutes.
+
+16
+00:00:43,680 --> 00:00:47,600
+And the USA is running what it calls psychological operations,
+
+17
+00:00:48,240 --> 00:00:52,720
+which involves flying large fleets of aircraft almost into Soviet airspace
+
+18
+00:00:52,720 --> 00:00:54,640
+and then turning back at the last minute,
+
+19
+00:00:54,640 --> 00:00:56,960
+with the goal of provoking a Soviet response
+
+20
+00:00:56,960 --> 00:01:00,400
+so that they can gather intelligence about how the early warning systems work,
+
+21
+00:01:00,400 --> 00:01:01,680
+what the protocols are,
+
+22
+00:01:01,680 --> 00:01:04,160
+how the Soviets will respond to various scenarios.
+
+23
+00:01:04,160 --> 00:01:07,520
+In April, the most powerful naval fleet ever assembled
+
+24
+00:01:07,520 --> 00:01:09,280
+converges in the North Pacific,
+
+25
+00:01:09,280 --> 00:01:12,080
+again trying to provoke the USSR into reacting
+
+26
+00:01:12,080 --> 00:01:14,160
+to learn more about their defences.
+
+27
+00:01:14,160 --> 00:01:15,920
+Then, on September the 1st,
+
+28
+00:01:15,920 --> 00:01:20,880
+a South Korean airliner flies over prohibited Soviet airspace and is shot down.
+
+29
+00:01:20,880 --> 00:01:24,000
+The American president, Ronald Reagan, appears on television
+
+30
+00:01:24,000 --> 00:01:28,000
+calling it a massacre and a crime against humanity that must not be forgotten.
+
+31
+00:01:28,960 --> 00:01:32,320
+The media on both sides portray the other side as the aggressor,
+
+32
+00:01:32,320 --> 00:01:34,560
+as itching to start a nuclear war.
+
+33
+00:01:34,560 --> 00:01:38,160
+The relationship between the USA and the USSR is well known to you.
+
+34
+00:01:38,160 --> 00:01:39,280
+It's a big part of your job.
+
+35
+00:01:39,840 --> 00:01:43,600
+You are in charge of a secure military facility near Moscow,
+
+36
+00:01:43,600 --> 00:01:48,240
+a facility that's tasked with managing a new state-of-the-art system of satellites
+
+37
+00:01:48,240 --> 00:01:50,560
+orbiting the Earth 24 hours a day,
+
+38
+00:01:50,560 --> 00:01:54,240
+looking for the telltale infrared signature of a nuclear missile launch.
+
+39
+00:01:55,120 --> 00:01:57,840
+It's the 26th of September, around midnight.
+
+40
+00:01:58,480 --> 00:02:01,760
+Your job is important, but it's also very boring.
+
+41
+00:02:03,040 --> 00:02:05,120
+Suddenly, all of the computers jump to life.
+
+42
+00:02:05,120 --> 00:02:07,360
+They've detected a missile launch from the United States.
+
+43
+00:02:08,000 --> 00:02:10,560
+Sirens, flashing lights, everybody's out of their seats.
+
+44
+00:02:11,120 --> 00:02:14,640
+The word START flashing on the screen in big red letters.
+
+45
+00:02:14,640 --> 00:02:16,000
+You're the commanding officer,
+
+46
+00:02:16,000 --> 00:02:18,960
+so you tell everyone to get to their positions and await your orders.
+
+47
+00:02:19,440 --> 00:02:20,320
+What are your orders?
+
+48
+00:02:20,880 --> 00:02:22,160
+Well, you know the protocol.
+
+49
+00:02:22,160 --> 00:02:23,280
+You help write it.
+
+50
+00:02:23,280 --> 00:02:26,240
+Your job as the commanding officer in this facility is,
+
+51
+00:02:26,240 --> 00:02:28,080
+in the event of a launch detection,
+
+52
+00:02:28,080 --> 00:02:30,080
+to verify that the report is accurate,
+
+53
+00:02:30,080 --> 00:02:31,840
+and then pass it on up the chain of command.
+
+54
+00:02:31,840 --> 00:02:33,120
+So you do your job.
+
+55
+00:02:33,120 --> 00:02:35,520
+First, you make sure that the computer's working properly.
+
+56
+00:02:35,520 --> 00:02:38,320
+You have the technicians run through a set of test procedures
+
+57
+00:02:38,320 --> 00:02:40,800
+designed to verify that the system isn't malfunctioning.
+
+58
+00:02:40,800 --> 00:02:42,960
+Secondly, there's also a backup system,
+
+59
+00:02:42,960 --> 00:02:46,240
+which involves human beings sitting in front of monitors
+
+60
+00:02:46,240 --> 00:02:48,000
+and looking at images from these satellites.
+
+61
+00:02:48,080 --> 00:02:50,160
+So you ask them to confirm the launch.
+
+62
+00:02:50,160 --> 00:02:51,360
+They come back and say,
+
+63
+00:02:51,360 --> 00:02:52,320
+we don't know.
+
+64
+00:02:52,320 --> 00:02:54,000
+The sun is setting over the USA.
+
+65
+00:02:54,000 --> 00:02:56,000
+Half the image is bright, half is dark,
+
+66
+00:02:56,000 --> 00:02:57,760
+and the place the launch is meant to have happened
+
+67
+00:02:57,760 --> 00:03:00,640
+is right on the Terminator between night and day.
+
+68
+00:03:00,640 --> 00:03:02,640
+It's very difficult for us to see.
+
+69
+00:03:02,640 --> 00:03:05,120
+We can't see the missile, but if it was there,
+
+70
+00:03:05,120 --> 00:03:07,200
+we probably wouldn't be able to see it either.
+
+71
+00:03:07,200 --> 00:03:08,960
+We can't confirm or deny.
+
+72
+00:03:08,960 --> 00:03:10,640
+Then the computer room gets back to you.
+
+73
+00:03:10,640 --> 00:03:12,800
+They say there's no malfunction in the system.
+
+74
+00:03:12,800 --> 00:03:15,120
+Everything is working as it should be.
+
+75
+00:03:15,120 --> 00:03:18,000
+All of the tests on 30 levels have passed.
+
+76
+00:03:18,000 --> 00:03:20,960
+The system's alerts come with an associated confidence rating,
+
+77
+00:03:20,960 --> 00:03:23,760
+and this report has confidence level maximum.
+
+78
+00:03:23,760 --> 00:03:26,960
+The computer operators tell you this is a legitimate detection.
+
+79
+00:03:26,960 --> 00:03:28,240
+Your job is now unambiguous.
+
+80
+00:03:28,240 --> 00:03:29,600
+The protocol is clear.
+
+81
+00:03:29,600 --> 00:03:31,280
+The system has confirmed a launch.
+
+82
+00:03:31,280 --> 00:03:33,120
+Now your job is to report that up the chain.
+
+83
+00:03:33,840 --> 00:03:34,800
+What do you do?
+
+84
+00:03:34,800 --> 00:03:36,720
+This is all the information you have.
+
+85
+00:03:36,720 --> 00:03:37,920
+You have the computer system.
+
+86
+00:03:37,920 --> 00:03:40,640
+It's telling you there's a launch with maximum confidence.
+
+87
+00:03:40,640 --> 00:03:43,680
+You have the visual units who are telling you that they don't know.
+
+88
+00:03:43,680 --> 00:03:46,000
+There's no way to get any additional information.
+
+89
+00:03:46,000 --> 00:03:47,840
+The next thing you can know about it will be
+
+90
+00:03:47,840 --> 00:03:51,360
+when Soviet ground-based radar stations pick up the incoming missiles,
+
+91
+00:03:51,360 --> 00:03:53,600
+which would be just a couple of minutes before impact,
+
+92
+00:03:53,600 --> 00:03:55,280
+much too late to do anything about it.
+
+93
+00:03:55,280 --> 00:03:56,240
+The clock is ticking.
+
+94
+00:03:56,240 --> 00:03:57,040
+What do you do?
+
+95
+00:03:57,040 --> 00:03:59,680
+You know that because of the heightened state of alert
+
+96
+00:03:59,680 --> 00:04:01,120
+that the system is at right now,
+
+97
+00:04:01,120 --> 00:04:03,440
+the Soviet policy is launch on warning.
+
+98
+00:04:03,440 --> 00:04:06,640
+This means that the USSR will launch a retaliatory strike
+
+99
+00:04:06,640 --> 00:04:09,040
+without first waiting for missiles to actually hit.
+
+100
+00:04:09,040 --> 00:04:11,840
+By the time nuclear missiles are striking their targets,
+
+101
+00:04:11,840 --> 00:04:13,680
+they'll be destroying infrastructure,
+
+102
+00:04:13,680 --> 00:04:15,680
+destroying your communication systems,
+
+103
+00:04:15,680 --> 00:04:18,960
+destroying your ability to coordinate a retaliatory strike.
+
+104
+00:04:18,960 --> 00:04:22,320
+If you don't react decisively and immediately, you don't react.
+
+105
+00:04:22,880 --> 00:04:26,960
+So the system is set up to retaliate as soon as a missile launches are detected.
+
+106
+00:04:26,960 --> 00:04:30,720
+Mutual knowledge of this fact is the only known defense we've got.
+
+107
+00:04:30,720 --> 00:04:34,000
+So you know that if you call in a verified missile launch,
+
+108
+00:04:34,000 --> 00:04:37,280
+it will almost certainly start a global thermonuclear war.
+
+109
+00:04:37,920 --> 00:04:38,960
+What do you do?
+
+110
+00:04:38,960 --> 00:04:40,400
+You don't have much time to think.
+
+111
+00:04:40,880 --> 00:04:43,680
+And while you're doing it, the system registers another launch.
+
+112
+00:04:43,680 --> 00:04:45,520
+A second missile is detected.
+
+113
+00:04:45,520 --> 00:04:47,280
+Again, with maximum confidence.
+
+114
+00:04:47,280 --> 00:04:50,160
+And again, the visual units can't confirm or deny.
+
+115
+00:04:50,160 --> 00:04:53,120
+Before you can decide what to do, another missile appears.
+
+116
+00:04:53,120 --> 00:04:55,120
+And another, and another.
+
+117
+00:04:55,120 --> 00:04:56,640
+Five missiles show on your screen.
+
+118
+00:04:57,200 --> 00:04:58,240
+What do you do?
+
+119
+00:04:58,240 --> 00:05:00,560
+This is, of course, a true story.
+
+120
+00:05:00,560 --> 00:05:04,000
+And the man in this scenario was Stanislav Petrov.
+
+121
+00:05:04,000 --> 00:05:07,760
+And what Petrov does is he stops and thinks.
+
+122
+00:05:07,760 --> 00:05:10,640
+He thinks something like, it could be a mistake.
+
+123
+00:05:11,520 --> 00:05:16,160
+But this satellite system is extremely sophisticated and carefully designed and tested.
+
+124
+00:05:16,160 --> 00:05:18,400
+So a malfunction is very unlikely.
+
+125
+00:05:18,400 --> 00:05:22,480
+On the other hand, I don't think the USA really wants a nuclear war.
+
+126
+00:05:23,600 --> 00:05:27,760
+They might launch a preemptive nuclear strike against us, but that seems unlikely.
+
+127
+00:05:27,760 --> 00:05:31,360
+And if they did want to attack first, wouldn't they throw everything at us?
+
+128
+00:05:32,080 --> 00:05:36,560
+An attack that only uses five missiles is possible, but again, unlikely.
+
+129
+00:05:37,120 --> 00:05:38,560
+He weighs up the probabilities.
+
+130
+00:05:40,000 --> 00:05:46,720
+He picks up the phone and, contrary to protocol, he calls it in as a system error.
+
+131
+00:05:47,440 --> 00:05:48,160
+False alarm.
+
+132
+00:05:48,800 --> 00:05:52,960
+There are no missiles, he says, staring at the five missiles on his screen.
+
+133
+00:05:53,920 --> 00:05:55,600
+And in the facility, they wait.
+
+134
+00:05:56,720 --> 00:05:57,840
+They don't have to wait long.
+
+135
+00:05:57,840 --> 00:05:58,880
+ICBMs are fast.
+
+136
+00:05:59,600 --> 00:06:03,600
+They wait to hear the radar stations detecting these incoming missiles.
+
+137
+00:06:03,680 --> 00:06:08,240
+And a few minutes later, when the time comes, the radar stations detect nothing.
+
+138
+00:06:09,040 --> 00:06:10,480
+It was a false alarm.
+
+139
+00:06:10,480 --> 00:06:14,960
+It would later be discovered that the satellite system was confused by sunlight reflecting off
+
+140
+00:06:14,960 --> 00:06:16,480
+high-altitude clouds.
+
+141
+00:06:16,480 --> 00:06:23,280
+By using his head, by thinking, by not following the protocol, Stanislav Petrov single-handedly
+
+142
+00:06:23,280 --> 00:06:26,320
+prevented hundreds of millions of human deaths.
+
+143
+00:06:26,320 --> 00:06:30,080
+The destruction of all of civilization, effectively the end of the world.
+
+144
+00:06:30,720 --> 00:06:33,120
+Some of you probably will have heard of him.
+
+145
+00:06:33,120 --> 00:06:34,720
+Some of you probably will not have.
+
+146
+00:06:34,720 --> 00:06:38,480
+Because this whole incident was somewhat embarrassing for the Soviet Union.
+
+147
+00:06:39,520 --> 00:06:42,400
+It was embarrassing that their satellite system had failed.
+
+148
+00:06:42,400 --> 00:06:47,280
+It was embarrassing that all of their sophisticated engineering had to be saved by one individual
+
+149
+00:06:47,280 --> 00:06:48,160
+person's judgment.
+
+150
+00:06:48,160 --> 00:06:51,840
+And it was probably embarrassing that one of their military officers deliberately went
+
+151
+00:06:51,840 --> 00:06:53,040
+against protocol.
+
+152
+00:06:53,040 --> 00:06:57,200
+Anyway, Petrov could not be rewarded without his superiors being punished.
+
+153
+00:06:57,760 --> 00:06:59,360
+So Petrov was not rewarded.
+
+154
+00:06:59,360 --> 00:07:04,000
+Instead, they told him off for not filling out his paperwork about the incident properly.
+
+155
+00:07:04,000 --> 00:07:06,400
+And the whole thing had to be kept secret for 10 years.
+
+156
+00:07:06,400 --> 00:07:09,520
+He couldn't even tell his wife what happened before she died.
+
+157
+00:07:10,240 --> 00:07:15,280
+And he retired to live alone on his pension, unsung, until relatively recently.
+
+158
+00:07:16,160 --> 00:07:19,920
+Stanislav Petrov died this year, aged 77.
+
+159
+00:07:20,800 --> 00:07:22,240
+He actually died back in May.
+
+160
+00:07:22,240 --> 00:07:26,400
+And we didn't learn about it until this month, because nobody's really keeping in touch.
+
+161
+00:07:26,880 --> 00:07:33,120
+There may come a day when people who sing or act or play sports aren't as famous as
+
+162
+00:07:33,120 --> 00:07:36,080
+people who literally save the entire goddamn world.
+
+163
+00:07:37,280 --> 00:07:42,960
+There may come a day when people who win wars are not as respected as people who prevent
+
+164
+00:07:42,960 --> 00:07:43,760
+wars.
+
+165
+00:07:43,760 --> 00:07:44,800
+That day is not today.
+
+166
+00:07:45,360 --> 00:07:47,200
+But maybe we can work towards it.
+
+167
+00:07:47,200 --> 00:07:49,360
+Petrov rejected the idea that he was a hero.
+
+168
+00:07:49,360 --> 00:07:50,320
+But I disagree.
+
+169
+00:07:50,320 --> 00:07:54,000
+I think he's a hero to everyone who values thinking for yourself.
+
+170
+00:07:54,080 --> 00:07:55,200
+Not buying into the hype.
+
+171
+00:07:55,200 --> 00:07:58,160
+Not being distracted by the noise, the media.
+
+172
+00:07:58,160 --> 00:08:01,680
+Anyone who values trying to see things as they really are.
+
+173
+00:08:01,680 --> 00:08:06,320
+I think he's a hero for everyone who values trying to actually do your job to the best
+
+174
+00:08:06,320 --> 00:08:10,400
+of your ability, rather than blindly following the procedures you've been given.
+
+175
+00:08:10,400 --> 00:08:14,480
+And I think he's a hero to anyone who values not destroying the world.
+
+176
+00:08:15,280 --> 00:08:17,120
+Which I think is something we can all get behind.
+
+177
+00:08:17,120 --> 00:08:22,640
+So today, September 26th, the anniversary of his momentous decision, I'll be celebrating
+
+178
+00:08:22,640 --> 00:08:23,440
+Petrov Day.
+
+179
+00:08:24,000 --> 00:08:28,000
+The traditional way to celebrate Petrov Day is to not destroy the world.
+
+180
+00:08:28,000 --> 00:08:30,080
+And I hope you'll all join me in that.
+
+181
+00:08:30,080 --> 00:08:34,560
+And this Petrov Day is an unusual and historic and sad one.
+
+182
+00:08:35,360 --> 00:08:38,880
+The first Petrov Day with no Petrov in the world he helped to save.
+
+183
+00:08:38,880 --> 00:08:40,240
+So let's try to learn from him.
+
+184
+00:08:41,120 --> 00:08:43,920
+Let's try to create a world with more people like him.
+
+185
+00:08:44,880 --> 00:08:47,040
+Let's try to survive this century.
+
+186
+00:08:47,040 --> 00:08:52,080
+Because we still have vast arsenals of nuclear weapons on a hair trigger for some stupid
+
+187
+00:08:52,080 --> 00:08:52,720
+fucking reason.
+
+188
+00:08:54,000 --> 00:08:55,520
+And that might not even be the worst of it.
+

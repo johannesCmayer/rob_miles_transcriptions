@@ -1,0 +1,804 @@
+1
+00:00:00,000 --> 00:00:06,980
+We're six paragraphs in and it knows about this point. I've covered the first sentence of this initial paragraph
+
+2
+00:00:07,580 --> 00:00:12,600
+now it's time to talk about this second sentence of the lead even more surprising to the researchers of the fact that they spoke English and
+
+3
+00:00:12,960 --> 00:00:19,680
+It completely ignored the speaking English part until it got to the part of the news article where that comes in and now it's talking
+
+4
+00:00:19,680 --> 00:00:25,880
+About it, which is the kind of thing that these kinds of systems would have real trouble doing I've known journalists who can't write that
+
+5
+00:00:25,880 --> 00:00:27,880
+well
+
+6
+00:00:28,880 --> 00:00:30,880
+If that ties into
+
+7
+00:00:31,160 --> 00:00:34,680
+Something that I think is kind of fundamental to the way that people think about AI
+
+8
+00:00:34,960 --> 00:00:37,640
+Like we used to think that you had to be really clever to be good at chess
+
+9
+00:00:37,640 --> 00:00:40,360
+And if you could play chess, then you were a real intelligence
+
+10
+00:00:40,360 --> 00:00:45,960
+You had to be and then we realized that like playing chess to a superhuman level doesn't require something that we would call
+
+11
+00:00:46,400 --> 00:00:52,640
+Intelligence and it's slightly unsettling to find that like writing coherent and plausible news prose
+
+12
+00:00:52,920 --> 00:00:55,280
+Apparently also doesn't require general intelligence
+
+13
+00:00:56,160 --> 00:00:59,920
+Like if you just learn the statistical relationships between words
+
+14
+00:01:00,760 --> 00:01:04,320
+But do that really really well that seems to be enough
+
+15
+00:01:04,320 --> 00:01:09,280
+I mean obviously any journalist would would say that the truth is kind of important in this as well
+
+16
+00:01:09,280 --> 00:01:13,360
+But yeah to make it sound plausible. You're absolutely right, right?
+
+17
+00:01:14,600 --> 00:01:22,880
+yeah, so there's there's definitely questions about like directing this towards producing a specific article that is correct, but
+
+18
+00:01:23,880 --> 00:01:30,240
+Just the generating of the of the prose itself apparently requires less like
+
+19
+00:01:31,840 --> 00:01:34,600
+Philosophical sophistication then we thought
+
+20
+00:01:35,400 --> 00:01:38,240
+Then many thought anyway, I think ten years ago
+
+21
+00:01:39,520 --> 00:01:42,280
+people would have a really hard time believing that
+
+22
+00:01:43,080 --> 00:01:49,280
+Something that's just learning from data and learning these relative probabilities could produce something this coherent
+
+23
+00:01:49,640 --> 00:01:53,120
+You would expect it to have all sorts of conditions and formula and
+
+24
+00:01:55,360 --> 00:01:58,760
+Encoded you would look at this and say oh this must have like a database of
+
+25
+00:01:59,320 --> 00:02:02,040
+names and countries and locations and
+
+26
+00:02:02,640 --> 00:02:05,240
+Cities and everything else because it's using that information
+
+27
+00:02:05,240 --> 00:02:10,560
+But it turns out all of that is already represented in the data set because we're talking about all these things
+
+28
+00:02:10,880 --> 00:02:15,640
+Here's a recipe for some kind of peppermint chocolate cake and it's got a bunch of different
+
+29
+00:02:16,280 --> 00:02:17,400
+completions
+
+30
+00:02:17,400 --> 00:02:19,400
+So it can just spit these out arbitrarily
+
+31
+00:02:19,760 --> 00:02:27,040
+So, you know those recipe blogs where like you Google the recipe for something and you go to the blog and there's like seven
+
+32
+00:02:27,200 --> 00:02:33,080
+Paragraphs of like my mother used to make this for me back in our home in Indiana
+
+33
+00:02:33,080 --> 00:02:36,320
+I always remember sitting out on the porch with my dog
+
+34
+00:02:36,640 --> 00:02:38,640
+He used to you know
+
+35
+00:02:38,720 --> 00:02:43,480
+the important thing is I had an onion on my belt, which was the style at the time and and
+
+36
+00:02:44,000 --> 00:02:46,200
+It's doing that. It's like talking about
+
+37
+00:02:47,160 --> 00:02:48,840
+different
+
+38
+00:02:48,840 --> 00:02:53,640
+Backstory. Yeah, just backstory and only if anyone's tried to make any of these recipes
+
+39
+00:02:54,200 --> 00:02:56,040
+Yeah, it's dangerous
+
+40
+00:02:56,040 --> 00:02:58,040
+this one
+
+41
+00:02:58,600 --> 00:03:01,240
+So this is this is a recipe for meringue cookies
+
+42
+00:03:01,720 --> 00:03:09,200
+One and three-quarter cups butter softened a cup of sugar an egg yolk three T of heavy creases just capital T
+
+43
+00:03:09,200 --> 00:03:11,200
+What unit is that three tons heavy cream?
+
+44
+00:03:11,440 --> 00:03:15,620
+That's usually a lowercase T. I don't know what it that is three tons of heavy cream. Let's say
+
+45
+00:03:16,320 --> 00:03:20,160
+Three and a half to four cups of flour a pinch of salt peppermint
+
+46
+00:03:20,160 --> 00:03:22,600
+Jojo topping which like I have no idea what that is
+
+47
+00:03:22,600 --> 00:03:25,720
+But peppermint Jojo's is mentioned in the prompt
+
+48
+00:03:25,720 --> 00:03:32,560
+So one and a quarter cups powdered sugar a cup of chopped pecans a half a cup finely chopped mint leaves half cup chopped
+
+49
+00:03:32,560 --> 00:03:34,360
+Fresh mint about a half sheet
+
+50
+00:03:34,360 --> 00:03:40,000
+so it's like it doesn't quite make sense, but it's right on the edge of making sense like we have half a cup of chopped
+
+51
+00:03:40,000 --> 00:03:41,320
+mint leaves and
+
+52
+00:03:41,320 --> 00:03:48,680
+Then also half a cup of chopped fresh mint are these potentially cherry-picked out of a huge number of horrendous
+
+53
+00:03:48,800 --> 00:03:56,600
+Right. Yes, so this is these ones specifically are not so the unicorn one and this is something that I like and it's standard practice
+
+54
+00:03:56,600 --> 00:04:00,440
+But I like this the unicorn one. It says they specifically said right now
+
+55
+00:04:00,440 --> 00:04:01,640
+We're gonna make a sample for the paper
+
+56
+00:04:01,640 --> 00:04:06,040
+They made ten of them and they picked the one they liked which was this one but for the recipes here
+
+57
+00:04:06,040 --> 00:04:09,480
+These are not cherry-picked at all. That's why they're showing six. They just gone
+
+58
+00:04:09,480 --> 00:04:14,800
+This is the first six that we generated and here they are and they're so that gives you a like a better idea of the
+
+59
+00:04:14,800 --> 00:04:17,760
+General quality of what it's putting out. They're all fairly sensible
+
+60
+00:04:17,760 --> 00:04:19,160
+I like look at this one run
+
+61
+00:04:19,160 --> 00:04:24,280
+This one comes in and says I do not substitute it with something else blah blah and then like this
+
+62
+00:04:24,280 --> 00:04:31,120
+I don't know if that is like here's an image or yeah, please like this on Facebook and then it goes on
+
+63
+00:04:31,120 --> 00:04:36,220
+I found this really cute card with cute little kittens on and then it's the samples cut off
+
+64
+00:04:36,340 --> 00:04:41,700
+So it's just like next post in the blog or you know, this is why GPT 2 is so cool to me
+
+65
+00:04:41,700 --> 00:04:47,340
+Let's see. The first thing they tested on is a children's book test where this is. I think it's like a closed thing
+
+66
+00:04:47,940 --> 00:04:52,620
+Where you just have it have a data set with some children's books and then you like remove one word
+
+67
+00:04:53,900 --> 00:04:54,860
+and
+
+68
+00:04:54,860 --> 00:04:56,860
+Then the system has to predict
+
+69
+00:04:57,020 --> 00:04:59,020
+Which of the words is the correct?
+
+70
+00:04:59,060 --> 00:05:03,340
+Like you give it you give it ten words that it might be or something like that and it has to pick what word fits
+
+71
+00:05:03,340 --> 00:05:08,340
+In this space, so that's a standard kind of language model type task. The one thing that they did have to do is
+
+72
+00:05:09,500 --> 00:05:14,100
+they had to run analysis to check about overlap and it turns out that one of the
+
+73
+00:05:14,380 --> 00:05:16,780
+Children's books is the jungle book by Rudyard Kipling
+
+74
+00:05:16,980 --> 00:05:23,900
+Which was actually in in its entirety was in the data set that they trained the thing on so it just knew that one
+
+75
+00:05:24,220 --> 00:05:28,420
+So then they threw that out because obviously that's not fair if you've already seen the entire book before
+
+76
+00:05:29,620 --> 00:05:30,700
+and
+
+77
+00:05:30,700 --> 00:05:37,260
+Its performance on that was was good by the time they guts up to the to the very large-scale models. It's scoring. What is that 80?
+
+78
+00:05:38,180 --> 00:05:40,880
+89 percent where humans tend to get like
+
+79
+00:05:41,540 --> 00:05:42,580
+90
+
+80
+00:05:42,580 --> 00:05:49,900
+92 93 percent it's like nearly a human level for guessing one missing word from a sentence in a children's book pretty good
+
+81
+00:05:50,420 --> 00:05:54,140
+Lambada is designed to test long-range dependencies
+
+82
+00:05:54,140 --> 00:05:55,980
+Which is what I've been talking about a lot
+
+83
+00:05:55,980 --> 00:06:02,980
+The task is to predict the final word of sentences which require at least 50 tokens of context for a human to successfully predict
+
+84
+00:06:03,100 --> 00:06:05,420
+It's like 50 words is a pretty long sentence
+
+85
+00:06:06,060 --> 00:06:08,060
+and
+
+86
+00:06:08,580 --> 00:06:13,580
+So this kind of long-term dependency thing is a standard way of testing language models and
+
+87
+00:06:15,220 --> 00:06:17,820
+It ends up with an accuracy of 63 percent
+
+88
+00:06:18,580 --> 00:06:22,700
+Which is an improvement over state-of-the-art by 4 percent. So it's state-of-the-art on lambada
+
+89
+00:06:23,260 --> 00:06:31,100
+Without it's being specifically trained on that just running in general the winograd schema. I don't know if it's quite, you know, Vinny Vinograd. Who knows?
+
+90
+00:06:31,740 --> 00:06:33,380
+Maybe it's somebody's name
+
+91
+00:06:33,380 --> 00:06:39,380
+Whatever. This is about resolving ambiguities, which is really especially important in
+
+92
+00:06:40,340 --> 00:06:42,340
+Translation tasks and things like that
+
+93
+00:06:43,140 --> 00:06:47,000
+It's very easy for sentences to be ambiguous in a way that
+
+94
+00:06:48,220 --> 00:06:50,220
+makes translating them
+
+95
+00:06:50,380 --> 00:06:56,600
+Very difficult or even impossible and I have like I have an example of this check this out. So consider a sentence like
+
+96
+00:06:58,900 --> 00:07:06,260
+The chicken didn't cross the road because it was too blank. Okay, and then we can consider different versions of this sentence suppose that this is
+
+97
+00:07:07,540 --> 00:07:11,300
+Wide chicken didn't cross the road because it was too wide, right?
+
+98
+00:07:12,740 --> 00:07:15,860
+That's like one possible completion for this or you might say
+
+99
+00:07:16,940 --> 00:07:19,460
+The chicken didn't cross the road because it was too scared
+
+100
+00:07:20,220 --> 00:07:23,100
+another perfectly sensible sentence, then the question is
+
+101
+00:07:24,340 --> 00:07:29,460
+It in one of these it is referring to the chicken and in one of them
+
+102
+00:07:29,460 --> 00:07:33,740
+It is referring to the road kind of throw a third in sure stormy
+
+103
+00:07:34,620 --> 00:07:42,320
+Stormy. Oh, yeah. All right. That's a good one. So stormy means it is actually neither of the things in the sentence
+
+104
+00:07:43,020 --> 00:07:45,160
+the other one that's fun is something like
+
+105
+00:07:46,380 --> 00:07:47,860
+busy
+
+106
+00:07:47,860 --> 00:07:52,220
+Right. Is it a busy road or did the chicken just have better things to do than crossing the road?
+
+107
+00:07:52,500 --> 00:07:54,500
+We don't know. I mean like I
+
+108
+00:07:54,540 --> 00:07:57,580
+Would say probably the road but this could be a children's book, right?
+
+109
+00:07:57,820 --> 00:08:03,300
+We are running this thing on children's books. The rabbit the rabbit was too busy. It was late for an important date
+
+110
+00:08:03,300 --> 00:08:05,300
+Why can't the chicken be busy? So
+
+111
+00:08:05,600 --> 00:08:08,820
+the point is suppose we're trying to translate this into a language that
+
+112
+00:08:09,620 --> 00:08:12,460
+genders everything as many languages do and
+
+113
+00:08:13,220 --> 00:08:18,980
+Maybe chicken is like a is a masculine noun and road is a feminine noun and it has to know
+
+114
+00:08:19,820 --> 00:08:25,900
+What it's about right? Is this like is this ill or L or whatever? So the idea of this benchmark is
+
+115
+00:08:26,700 --> 00:08:31,260
+Measuring how well it can resolve ambiguities because if this says wide if you're trying to do
+
+116
+00:08:32,100 --> 00:08:35,820
+Translation the old old-fashioned way where you're like parsing
+
+117
+00:08:36,100 --> 00:08:38,860
+Trees and looking things up in dictionaries and stuff like that
+
+118
+00:08:38,860 --> 00:08:43,740
+This kind of sentence is a hell nightmare because you can't you don't know
+
+119
+00:08:43,740 --> 00:08:48,240
+I mean, you just don't know the information is not really present in the
+
+120
+00:08:49,500 --> 00:08:55,420
+Text it's not present grammatically. It's present in your understanding of the world and chickens and roads, right?
+
+121
+00:08:56,500 --> 00:09:00,620
+So translating this if this is that was too wide and you translate it
+
+122
+00:09:01,420 --> 00:09:06,620
+Into something which is the equivalent of the English sentence the chicken didn't cross the road because the chicken was too wide
+
+123
+00:09:06,860 --> 00:09:10,680
+You've screwed up right? That's a bad translation, but at the same time
+
+124
+00:09:11,580 --> 00:09:16,360
+Like there's nothing in the sentence that tells you that it shouldn't be right
+
+125
+00:09:16,400 --> 00:09:20,960
+So what you need to do is the same is the thing that we've already seen that GPT 2 is super good at
+
+126
+00:09:21,120 --> 00:09:26,580
+Which is pulling in knowledge of the world like knowing that the University of La Paz is going to be near the Andes or in
+
+127
+00:09:26,580 --> 00:09:29,100
+The Andes right that kind of thing. It's going to know
+
+128
+00:09:29,620 --> 00:09:34,260
+That roads being wide is a thing much more than chickens being wide is a thing and so on
+
+129
+00:09:34,700 --> 00:09:38,540
+And that like roads don't get scared if it's scared friends are fearless
+
+130
+00:09:38,540 --> 00:09:40,660
+So again on this kind of thing, it does very well
+
+131
+00:09:40,660 --> 00:09:44,580
+It beats the state of the art by a lot you can see on this graph here
+
+132
+00:09:44,660 --> 00:09:48,040
+So so the way that this graph is laid out, by the way, this is the same in all of them
+
+133
+00:09:48,040 --> 00:09:50,820
+This is the size of the model. They made four different
+
+134
+00:09:51,580 --> 00:09:54,940
+Sizes of model and these are like the same sizes that previous
+
+135
+00:09:55,960 --> 00:10:00,180
+Language models were so they were like make sense to compare them the previous to the small ones
+
+136
+00:10:00,180 --> 00:10:06,220
+They do worse than the state-of-the-art, but then the 762 million parameter and the 1.5 billion parameter
+
+137
+00:10:06,580 --> 00:10:08,900
+Significantly pass state-of-the-art they're getting like 70%
+
+138
+00:10:09,020 --> 00:10:11,420
+So the state-of-the-art is the straight line across right?
+
+139
+00:10:11,420 --> 00:10:11,820
+Yes
+
+140
+00:10:11,820 --> 00:10:17,220
+And the thing that is also kind of fun about some of these graphs is so some of them there's seven six two
+
+141
+00:10:17,700 --> 00:10:22,340
+million and the 1.5 billion end up doing about as well as each other, which means you've like hit the limit of
+
+142
+00:10:22,860 --> 00:10:29,420
+I get maybe your data set or your whatever whereas in this one, there's still growth which means an even bigger model
+
+143
+00:10:29,420 --> 00:10:34,220
+We might expect to do even better. Maybe reading comprehension. This is another thing
+
+144
+00:10:34,220 --> 00:10:36,900
+You have some text you then you have to answer questions about that text, right?
+
+145
+00:10:37,380 --> 00:10:39,380
+the thing that's fun is
+
+146
+00:10:40,140 --> 00:10:42,140
+How do you do this?
+
+147
+00:10:43,060 --> 00:10:49,580
+Without modifying your model. That's just a generative model. So this is where we start getting into
+
+148
+00:10:50,380 --> 00:10:56,780
+These that's you by the time it's ready. It's modified itself based upon what you've given it to me. Is that what you mean?
+
+149
+00:10:57,260 --> 00:10:59,260
+No, what I mean is
+
+150
+00:10:59,420 --> 00:11:00,860
+the
+
+151
+00:11:00,860 --> 00:11:08,100
+Way that GPT to works is you give it the sequence of tokens and it gives you a probability distribution for the next token
+
+152
+00:11:08,100 --> 00:11:09,180
+and
+
+153
+00:11:09,180 --> 00:11:11,700
+So they're like type signature of that
+
+154
+00:11:12,700 --> 00:11:19,660
+Is is totally fine with if you're trying to fill in a missing word or I guess I don't know how they did it for these
+
+155
+00:11:20,660 --> 00:11:22,660
+for this test
+
+156
+00:11:22,660 --> 00:11:24,660
+But
+
+157
+00:11:27,020 --> 00:11:32,900
+You have to take you have to take the challenge that you're given and try and express it in terms of
+
+158
+00:11:33,340 --> 00:11:38,300
+This like predict the next word type setup because otherwise you're sort of cheating, right?
+
+159
+00:11:38,300 --> 00:11:42,180
+The whole thing is they're trying to go at this and not not modify the system at all. So
+
+160
+00:11:43,100 --> 00:11:45,020
+for reading comprehension
+
+161
+00:11:45,020 --> 00:11:47,020
+the way they do it is
+
+162
+00:11:47,340 --> 00:11:49,340
+they give the
+
+163
+00:11:49,380 --> 00:11:51,380
+thing that's to be comprehended and
+
+164
+00:11:51,820 --> 00:11:53,500
+Then they give
+
+165
+00:11:53,500 --> 00:11:58,660
+Q colon a question a colon the correct answer to that question
+
+166
+00:11:59,100 --> 00:12:04,020
+new line Q colon a new question they give like three or four example questions and
+
+167
+00:12:04,660 --> 00:12:05,900
+then
+
+168
+00:12:05,900 --> 00:12:12,220
+Q colon the question they actually want answered a colon let it generate so they sort of prime it
+
+169
+00:12:12,220 --> 00:12:16,540
+I think we have some examples of this. So this is how they did the question-answer thing. They gave these two paragraphs
+
+170
+00:12:17,260 --> 00:12:19,260
+about the
+
+171
+00:12:19,540 --> 00:12:23,900
+Olympic Games the torch relay moving the Olympic torch
+
+172
+00:12:23,900 --> 00:12:27,460
+I don't have some news story and then a bunch of questions right question
+
+173
+00:12:27,460 --> 00:12:31,220
+What was the theme that's a one world one dream and so on and so on and then at the end question?
+
+174
+00:12:31,220 --> 00:12:34,360
+And did they climb any mountains and then a colon?
+
+175
+00:12:35,220 --> 00:12:37,420
+Generate me the next word. So they've used
+
+176
+00:12:38,220 --> 00:12:42,740
+This the the input text to kind of prime the model
+
+177
+00:12:43,460 --> 00:12:47,260
+Now we're doing question-answer pairs. This is how it works, right? And
+
+178
+00:12:48,100 --> 00:12:54,060
+The interesting thing about this is it actually ends up giving kind of a better answer than that human generated answers
+
+179
+00:12:54,260 --> 00:13:01,980
+So the question did they climb any mountains the responses they got from humans were unknown. Yes. Yes, and yes because they did climb mountains
+
+180
+00:13:02,540 --> 00:13:04,500
+but GPT to
+
+181
+00:13:04,500 --> 00:13:06,180
+Their answer is
+
+182
+00:13:06,180 --> 00:13:11,940
+Everest so GPT twos answer is actually kind of better than the humans. The humans just said yes, they did and
+
+183
+00:13:12,620 --> 00:13:18,700
+The machine learning system has named the mountain that they climbed so I don't know if that's
+
+184
+00:13:20,100 --> 00:13:25,460
+If that counts is not quite understanding the question or if that counts is actually providing a high-quality answer
+
+185
+00:13:25,540 --> 00:13:29,660
+It's up for debate because it has this ability with attention to do the long-range
+
+186
+00:13:29,860 --> 00:13:32,940
+It has to look back past all of the previous questions
+
+187
+00:13:33,180 --> 00:13:38,780
+To the actual paragraph and find the relevant information and it can do it and it performs reasonably well at that
+
+188
+00:13:39,620 --> 00:13:43,060
+But the thing I love about that is that they have to like come up with tricks
+
+189
+00:13:43,500 --> 00:13:48,820
+To get it to actually do the task that they're trying to get it to do. So the summarization one is brilliant
+
+190
+00:13:48,820 --> 00:13:50,820
+I love the way they did this with the summarization
+
+191
+00:13:50,900 --> 00:13:56,020
+See if you can guess how they did this right you want to get a summary of a piece of text
+
+192
+00:13:56,060 --> 00:14:00,140
+How do you how do you get that given a huge data set of reddit?
+
+193
+00:14:00,820 --> 00:14:07,300
+content what you do is you write the whole long piece of text and then you put like a new line and then you put
+
+194
+00:14:08,060 --> 00:14:11,020
+TLDR too long didn't read in this data set
+
+195
+00:14:11,020 --> 00:14:17,220
+there will be thousands and thousands of examples of long pieces of text followed by a short summary of that text and
+
+196
+00:14:17,420 --> 00:14:21,900
+In the middle is this string TLDR? I would love to have been in the room when they thought of that
+
+197
+00:14:22,340 --> 00:14:24,340
+So yeah, it's really
+
+198
+00:14:24,620 --> 00:14:28,100
+Really cool really powerful technology. I like it a lot
+
+199
+00:14:28,980 --> 00:14:36,260
+So an executable binary the net effect of slotting that T diagram against here slightly downwards is to show you
+
+200
+00:14:37,260 --> 00:14:43,300
+That the C you've written gets converted into binary and the net output from this
+
+201
+00:14:44,180 --> 00:14:47,980
+Process it produces out a program that you probably store in the
+

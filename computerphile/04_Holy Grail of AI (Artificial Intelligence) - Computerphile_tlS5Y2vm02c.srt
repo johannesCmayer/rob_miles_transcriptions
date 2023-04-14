@@ -1,0 +1,364 @@
+1
+00:00:00,000 --> 00:00:06,400
+Right, so last time, which was quite a while ago, we were talking about intelligence in general
+
+2
+00:00:06,400 --> 00:00:10,900
+and the way that you can model intelligence as an optimisation process.
+
+3
+00:00:10,900 --> 00:00:12,700
+This was the Hill-Karvin algorithm.
+
+4
+00:00:12,700 --> 00:00:20,300
+Yeah, that was an example that we gave. We were using evolution as an example of an optimising algorithm,
+
+5
+00:00:20,300 --> 00:00:22,500
+or an optimising system anyway.
+
+6
+00:00:22,500 --> 00:00:26,100
+And then we were using that as a way of talking about other types of intelligence.
+
+7
+00:00:26,200 --> 00:00:30,900
+We talked about chess AI very briefly, that kind of thing.
+
+8
+00:00:30,900 --> 00:00:36,400
+So then the question is, what's the difference between the type of AI that we have now,
+
+9
+00:00:36,400 --> 00:00:43,100
+the type of AI that might play chess or drive a car or win Jeopardy or whatever,
+
+10
+00:00:43,100 --> 00:00:50,200
+versus the ideas that we have of AI in the future?
+
+11
+00:00:50,200 --> 00:00:54,700
+The kind of science fiction AIs, what you might call true AI.
+
+12
+00:00:57,400 --> 00:01:04,700
+What is it that really makes the difference? Is it a matter just of power, or is there something else?
+
+13
+00:01:04,700 --> 00:01:11,200
+And one real distinguishing factor is generality.
+
+14
+00:01:11,200 --> 00:01:20,300
+And what that means is how broad a set of domains can the intelligence act in, can it optimise in.
+
+15
+00:01:20,300 --> 00:01:25,500
+So if you take a chess AI, it's very intelligent in the domain of chess,
+
+16
+00:01:25,500 --> 00:01:29,800
+and it is absolutely useless in almost any other domain.
+
+17
+00:01:29,800 --> 00:01:34,900
+If you put a chess AI in a Google self-driving car, not only can it not drive the car,
+
+18
+00:01:34,900 --> 00:01:37,300
+it doesn't have the concept, it doesn't know what a car is,
+
+19
+00:01:37,300 --> 00:01:42,400
+it doesn't have any of the necessary cognitive architecture to drive a car.
+
+20
+00:01:42,400 --> 00:01:47,200
+And vice versa, the Google car can't play chess, and it can't win at Jeopardy.
+
+21
+00:01:47,200 --> 00:01:54,400
+Whereas we have a working example of a general intelligence, which is human intelligence.
+
+22
+00:01:54,400 --> 00:02:03,400
+Human brains can do a lot of different things in a lot of different domains, including brand new domains,
+
+23
+00:02:03,500 --> 00:02:06,300
+domains we didn't evolve for particularly.
+
+24
+00:02:06,300 --> 00:02:11,900
+In fact, chess, right? We invented chess, we invented driving, and then we learned to become good at them.
+
+25
+00:02:11,900 --> 00:02:17,100
+So a general intelligence is, in a sense, a different class of thing,
+
+26
+00:02:17,100 --> 00:02:24,700
+because it's a single optimisation system that's able to optimise in a very broad variety of different domains.
+
+27
+00:02:24,700 --> 00:02:31,900
+And if we could build an artificial general intelligence, that's kind of the holy grail of AI research,
+
+28
+00:02:31,900 --> 00:02:38,000
+that you have a single programme or a single system that's able to solve any problem that we throw at it,
+
+29
+00:02:38,000 --> 00:02:40,400
+or at least tackle any problem that we throw at it.
+
+30
+00:02:40,400 --> 00:02:44,000
+Recently, with Professor Brailsford, we did the idea of the Turing test,
+
+31
+00:02:44,000 --> 00:02:48,000
+so that strikes me from what you're saying, is that that's a very specific domain,
+
+32
+00:02:48,000 --> 00:02:50,600
+pretending to be human talking.
+
+33
+00:02:50,600 --> 00:02:54,100
+Yes. In a sense, it's a very specific domain.
+
+34
+00:02:54,100 --> 00:03:01,800
+The Turing test is a necessary but not sufficient test for general intelligence.
+
+35
+00:03:01,800 --> 00:03:04,600
+It depends how you format your test, right?
+
+36
+00:03:04,600 --> 00:03:10,400
+Because you could say, well, if the AI has to pretend to be a human, convincingly,
+
+37
+00:03:10,400 --> 00:03:15,100
+Turing's original test was only in a brief conversation using only text.
+
+38
+00:03:15,100 --> 00:03:21,800
+But you could say, to convince me you're a human, tell me what move I should make in this chess game.
+
+39
+00:03:21,800 --> 00:03:26,300
+To convince me you're a human, tell me how I would respond in this driving situation,
+
+40
+00:03:26,300 --> 00:03:27,900
+or what's the answer to this jeopardy question?
+
+41
+00:03:27,900 --> 00:03:32,500
+So you can, in a Turing test, deliberately test a wide variety of other domains.
+
+42
+00:03:32,500 --> 00:03:37,700
+But in general, conversation is one domain.
+
+43
+00:03:37,700 --> 00:03:43,400
+Yeah, you could formulate a true Turing test in that way, but it would take longer and be more rigorous.
+
+44
+00:03:43,400 --> 00:03:49,800
+One way of thinking about a general intelligence is domain-specific intelligence,
+
+45
+00:03:49,800 --> 00:03:54,000
+but where the domain is the world or physical reality.
+
+46
+00:03:54,000 --> 00:04:01,000
+And if you can reliably optimize the world itself, that is, in a sense, what general intelligence does.
+
+47
+00:04:01,000 --> 00:04:05,300
+Is that like humans have been changing the world to meet their needs?
+
+48
+00:04:05,300 --> 00:04:13,300
+Absolutely. So when you say changing the world, obviously we've been changing the world on a very grand scale.
+
+49
+00:04:13,300 --> 00:04:17,200
+But everything that humans do in the real world is, in a sense,
+
+50
+00:04:17,200 --> 00:04:21,000
+changing the world to be better optimized to them, right?
+
+51
+00:04:21,000 --> 00:04:26,100
+Like if I'm thirsty and there's a drink over there, then picking it up and putting it to my lips and drinking,
+
+52
+00:04:26,100 --> 00:04:29,800
+I'm changing the world to improve my hydration levels, which is something that I value.
+
+53
+00:04:29,800 --> 00:04:35,800
+So I'm sort of optimizing, I'm using my intelligence to optimize the world around me,
+
+54
+00:04:35,800 --> 00:04:39,400
+in a very abstract sense, but also quite practically.
+
+55
+00:04:39,400 --> 00:04:42,600
+But on a bigger scale, as you say, on a grander scale,
+
+56
+00:04:42,600 --> 00:04:50,600
+building a dam and irrigating a field and putting a pipe to your house and allowing you to have a tap is doing the same thing,
+
+57
+00:04:50,600 --> 00:04:54,800
+but on a grander scale. Right. And there's no hard boundary between those two things.
+
+58
+00:04:54,800 --> 00:04:59,600
+It's the same basic mechanism at work.
+
+59
+00:04:59,600 --> 00:05:03,200
+The idea that you want things to be in some way different from how they are.
+
+60
+00:05:03,200 --> 00:05:08,000
+So you use your intelligence to come up with a series of actions or a plan that you can implement
+
+61
+00:05:08,000 --> 00:05:12,000
+that will make a world that better satisfies your values.
+
+62
+00:05:12,000 --> 00:05:18,000
+And that's what a true AI, a general AI would do as well.
+
+63
+00:05:18,000 --> 00:05:23,300
+So you can see the metaphor to optimization is still there, right?
+
+64
+00:05:23,300 --> 00:05:29,800
+You've got this vast state space, which is all possible states of the world.
+
+65
+00:05:29,800 --> 00:05:34,600
+Remember before we were talking about dimensionality and how it's kind of a problem if you have too many dimensions.
+
+66
+00:05:34,600 --> 00:05:38,100
+So when we have a two-dimensional space, you take a particular...
+
+67
+00:05:38,100 --> 00:05:45,500
+This is what kills basic implementations of general AI off the bat because the world is so very, very complicated.
+
+68
+00:05:45,500 --> 00:05:48,100
+It's an exceptionally high dimensional space.
+
+69
+00:05:48,100 --> 00:05:52,100
+With the I'm drinking a drink example, you've got the same thing again.
+
+70
+00:05:52,100 --> 00:05:56,700
+You've got a state of the world, which is a place in this space, and you've got another state of the world,
+
+71
+00:05:56,700 --> 00:06:01,900
+which is the state in which I've just had a drink, and that one of them is higher in my utility function.
+
+72
+00:06:01,900 --> 00:06:07,300
+It's higher in my preference ordering over world states.
+
+73
+00:06:07,300 --> 00:06:16,300
+So I'm going to try and move. I'm going to try and shift the world from places that are lower in my preference ordering to places that are higher.
+
+74
+00:06:16,300 --> 00:06:30,000
+And that gives you a way to express the making of plans and the implementing of actions and intelligent behavior in the real world in mathematical terms.
+
+75
+00:06:30,000 --> 00:06:37,200
+It's not, you can't just implement it because of this enormous dimensionality problem.
+
+76
+00:06:37,200 --> 00:06:41,600
+All these dimensions, if you were trying to brute force infinite dimensions, you're going to fall over pretty quickly.
+
+77
+00:06:41,600 --> 00:06:43,400
+Yeah, yeah, immediately.
+
+78
+00:06:43,400 --> 00:06:45,800
+Change the world.
+
+79
+00:06:45,800 --> 00:06:56,000
+Right. And if that sounds a little bit threatening, it is.
+
+80
+00:06:56,000 --> 00:06:59,400
+We'd like to thank audible.com for sponsoring this computerphile video.
+
+81
+00:06:59,400 --> 00:07:03,400
+And if you like books, go over to audible.com slash computerphile.
+
+82
+00:07:03,400 --> 00:07:05,800
+There's a chance to try a book for free.
+
+83
+00:07:05,800 --> 00:07:10,800
+Now, I spoke to Rob who was in this computerphile video and asked him what book he would recommend.
+
+84
+00:07:10,800 --> 00:07:18,100
+And he says Super Intelligence by Nick Bostrom is the one to check out, particularly on this subject of artificial intelligence.
+
+85
+00:07:18,100 --> 00:07:20,800
+We've got more to come on that subject on computerphile as well.
+
+86
+00:07:20,800 --> 00:07:23,600
+So visit audible.com slash computerphile.
+
+87
+00:07:23,600 --> 00:07:25,400
+Check out Super Intelligence.
+
+88
+00:07:25,400 --> 00:07:30,600
+And thanks once again to audible.com for sponsoring this computerphile video.
+
+89
+00:07:30,600 --> 00:07:36,000
+So when we have a two dimensional space, you take a particular creature.
+
+90
+00:07:36,000 --> 00:07:39,000
+There we are. Put this interface chip here.
+
+91
+00:07:39,000 --> 00:07:39,500
+This chip.
+

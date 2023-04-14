@@ -1,0 +1,568 @@
+1
+00:00:00,000 --> 00:00:09,360
+So sometimes you hear about configuration spaces, feature spaces, hyperspaces, vector spaces, whatever.
+
+2
+00:00:09,360 --> 00:00:10,520
+What is a space?
+
+3
+00:00:10,520 --> 00:00:20,440
+Well, you will all have come across them before as, like, scatter plots or just graphs in general are a representation of a space.
+
+4
+00:00:22,560 --> 00:00:28,080
+If you have a two-dimensional space, that just means that you have two axes on your graph.
+
+5
+00:00:28,080 --> 00:00:32,760
+You've made a plane, right? A flat surface is two-dimensional.
+
+6
+00:00:32,760 --> 00:00:34,720
+Here's one dimension, here's the other dimension, right?
+
+7
+00:00:34,720 --> 00:00:43,640
+Let's say we've got some animals and we want to think about those animals in a more rigorous way than just talking about them.
+
+8
+00:00:43,640 --> 00:00:46,560
+We want to do some maths about the properties of these animals.
+
+9
+00:00:46,560 --> 00:00:53,240
+Like, we're interested in the colour of them and their weight or something like that, their size.
+
+10
+00:00:53,240 --> 00:01:04,000
+So let's say that with some random species of animal where the females tend to be red and large and the males tend to be blue and small, for example.
+
+11
+00:01:04,000 --> 00:01:12,800
+So you've got two axes here and you can say this one here is size and this is colour on a scale of red to blue, right?
+
+12
+00:01:12,800 --> 00:01:22,600
+So you've got, like, a zero is red, this is just a random example, and 100 is blue, and then, so, you know, 50 is, like, purple.
+
+13
+00:01:22,600 --> 00:01:25,680
+And then if you've got a group of these animals, you can then plot them.
+
+14
+00:01:25,680 --> 00:01:28,760
+So suppose you've got some over here.
+
+15
+00:01:28,760 --> 00:01:37,560
+Each one of these crosses represents a single specific animal and each of these circles is also an animal.
+
+16
+00:01:37,560 --> 00:01:40,560
+In this case, this is a female animal, if I remember correctly.
+
+17
+00:01:40,560 --> 00:01:48,640
+And you can look at this and if you want a machine to do something intelligent, you want a machine to understand this, there are things that you can see.
+
+18
+00:01:48,640 --> 00:01:51,640
+You can see, firstly, that there's these sort of clusters.
+
+19
+00:01:51,680 --> 00:01:59,800
+There are clustering algorithms that will automatically identify, end up sort of drawing a circle around this and saying that's one cluster and a circle around this, saying that's another cluster.
+
+20
+00:01:59,800 --> 00:02:14,280
+When Amazon is trying to tell you what kind of things it thinks that you want to buy, it may make a space of all of its users with each person being a point in that space and the dimensions being what things they've bought.
+
+21
+00:02:14,280 --> 00:02:20,840
+Then you'll find that the difference between you and another person, you can place a number on it.
+
+22
+00:02:20,840 --> 00:02:25,000
+How similar are we? Have I bought the same kind of things that you've bought?
+
+23
+00:02:25,000 --> 00:02:36,800
+There are algorithms that do that or algorithms where they can sort of look at this space and sort of draw a line through it and say, OK, well, it seems like sort of anything on this side seems to be male and anything on this side seems to be female.
+
+24
+00:02:36,800 --> 00:02:41,560
+Even though there's overlap, even though this is fuzzy, you can make an educated guess based on these properties.
+
+25
+00:02:41,560 --> 00:02:46,880
+And you can do other things like take this and say, OK, of this cluster, where's the middle of it?
+
+26
+00:02:46,880 --> 00:02:48,320
+Where's the densest area?
+
+27
+00:02:48,320 --> 00:02:50,920
+What does a typical female size look like?
+
+28
+00:02:50,920 --> 00:02:52,600
+What does a typical female color look like?
+
+29
+00:02:52,600 --> 00:02:54,360
+What is a typical male color or size?
+
+30
+00:02:54,360 --> 00:03:03,960
+So if you've got your average one here and you've got your average one here, then you can draw a line between them, for example, in this space and then say, OK, then you can map everything onto this line.
+
+31
+00:03:03,960 --> 00:03:06,160
+And then you get a continuum between male and female.
+
+32
+00:03:06,160 --> 00:03:07,360
+I don't know why I chose male and female.
+
+33
+00:03:07,360 --> 00:03:13,640
+It's getting into, like, politics, which is not where I'm trying to go with this, but just as an example.
+
+34
+00:03:13,680 --> 00:03:18,640
+So the point is various things like you can say, how typically female is this specific one?
+
+35
+00:03:18,640 --> 00:03:20,440
+And then you can actually measure it, right?
+
+36
+00:03:20,440 --> 00:03:22,600
+Before you had to just kind of guess.
+
+37
+00:03:22,600 --> 00:03:29,280
+But now you can say, well, you take the average, you take the distance to the average, you just measure what this distance is.
+
+38
+00:03:29,280 --> 00:03:31,920
+And that gives you an actual number that you can use.
+
+39
+00:03:31,920 --> 00:03:35,000
+You're taking stuff that would normally require a human intelligence.
+
+40
+00:03:35,000 --> 00:03:38,640
+How typical is this or how male is this or whatever?
+
+41
+00:03:38,640 --> 00:03:41,200
+And you are turning it into numbers.
+
+42
+00:03:41,200 --> 00:03:44,240
+You're turning it into maths so that a computer can understand it.
+
+43
+00:03:44,240 --> 00:03:47,120
+So here, this is an example of a two-dimensional space, right?
+
+44
+00:03:47,120 --> 00:03:54,920
+But if we chose to model a third thing about the animals, I don't know, the speed that they run or something, we could have a third axis, right?
+
+45
+00:03:54,920 --> 00:03:57,200
+You could have this one coming off here being speed.
+
+46
+00:03:57,200 --> 00:03:59,520
+We end up with a three-dimensional graph.
+
+47
+00:03:59,520 --> 00:04:04,880
+And now it's very difficult because I have two-dimensional paper and I'm trying to express a three-dimensional idea on it.
+
+48
+00:04:04,880 --> 00:04:07,920
+But basically, so these end up being all spread out.
+
+49
+00:04:07,920 --> 00:04:10,760
+Each of these dots is now somewhere along this speed axis as well.
+
+50
+00:04:10,760 --> 00:04:12,480
+They form a 3D sort of cloud.
+
+51
+00:04:12,480 --> 00:04:15,560
+So this line would become a surface, a plane.
+
+52
+00:04:15,560 --> 00:04:17,400
+Here you have a two-dimensional space.
+
+53
+00:04:17,400 --> 00:04:20,600
+To divide it in half, you need a one-dimensional object, which is a line.
+
+54
+00:04:20,600 --> 00:04:21,960
+Here we have a three-dimensional space.
+
+55
+00:04:21,960 --> 00:04:23,880
+So to divide it up, we need a two-dimensional object.
+
+56
+00:04:23,880 --> 00:04:28,080
+The dividing line is always one less number of dimensions than the space.
+
+57
+00:04:28,080 --> 00:04:32,840
+When measuring three things about these animals, we could measure any number of things, right?
+
+58
+00:04:32,840 --> 00:04:35,360
+We could measure 150 things.
+
+59
+00:04:35,360 --> 00:04:36,080
+And that's fine.
+
+60
+00:04:36,080 --> 00:04:40,160
+The maths works exactly the same in 150 dimensions.
+
+61
+00:04:40,160 --> 00:04:44,160
+You can't draw it on a piece of paper.
+
+62
+00:04:44,160 --> 00:04:46,640
+You can't think about it in your head, but the maths is the same.
+
+63
+00:04:46,640 --> 00:04:49,400
+And oh yeah, we should talk about feature vectors.
+
+64
+00:04:49,400 --> 00:04:50,760
+Totally straightforward.
+
+65
+00:04:50,760 --> 00:04:56,040
+So when we have a two-dimensional space, you take a particular creature.
+
+66
+00:04:56,040 --> 00:04:57,560
+There we are, this red rabbit.
+
+67
+00:04:57,560 --> 00:04:59,720
+And we measure how much it weighs.
+
+68
+00:04:59,720 --> 00:05:01,480
+We're doing size by weight, let's say.
+
+69
+00:05:01,480 --> 00:05:04,800
+And we say that it weighs, you know, a gram.
+
+70
+00:05:04,800 --> 00:05:07,800
+And we say, what colour is it?
+
+71
+00:05:07,800 --> 00:05:08,400
+Well, it's red.
+
+72
+00:05:08,400 --> 00:05:09,480
+It's really very red.
+
+73
+00:05:09,480 --> 00:05:11,600
+So it's about zero.
+
+74
+00:05:11,600 --> 00:05:14,600
+And this, this is now a feature vector.
+
+75
+00:05:14,600 --> 00:05:17,880
+It's a feature vector of length two, because it's a two-dimensional space.
+
+76
+00:05:17,880 --> 00:05:23,840
+So each data point is represented by a feature vector, which is a point in the feature space.
+
+77
+00:05:23,840 --> 00:05:28,400
+So there's some fun stuff that's been done with, for example, faces, right?
+
+78
+00:05:28,400 --> 00:05:29,920
+Human faces.
+
+79
+00:05:29,920 --> 00:05:35,560
+To look at a human face and say, is that a male face or a female face?
+
+80
+00:05:35,560 --> 00:05:38,480
+That's the kind of thing that you would think that you really needed a human to do.
+
+81
+00:05:38,520 --> 00:05:42,360
+How would you even go about telling a computer how to do that, right?
+
+82
+00:05:42,360 --> 00:05:45,880
+This is the kind of challenge that these kinds of algorithms can tackle.
+
+83
+00:05:45,880 --> 00:05:47,440
+So it works out to be exactly the same.
+
+84
+00:05:47,440 --> 00:05:49,960
+You measure a load of things about the face.
+
+85
+00:05:49,960 --> 00:05:53,480
+You know, the distance between the eyes and the length of the nose and the width of the mouth.
+
+86
+00:05:53,480 --> 00:05:56,440
+You measure everything you can measure about the face.
+
+87
+00:05:56,440 --> 00:05:59,160
+And then you plot them all in a very high-dimensional space.
+
+88
+00:05:59,160 --> 00:06:01,360
+You tell it certain things, which one's male and which one's a female.
+
+89
+00:06:01,360 --> 00:06:03,160
+You find the average male and the average female.
+
+90
+00:06:03,160 --> 00:06:06,520
+And that's interesting as well, because then you can take this data.
+
+91
+00:06:06,520 --> 00:06:08,520
+You can take this point in space, right?
+
+92
+00:06:08,520 --> 00:06:12,000
+Each point in space represents a possible face.
+
+93
+00:06:12,000 --> 00:06:14,760
+Everywhere in the space is a face.
+
+94
+00:06:14,760 --> 00:06:17,600
+It's a face space, if you will, right?
+
+95
+00:06:17,600 --> 00:06:19,240
+Is that a social network?
+
+96
+00:06:19,240 --> 00:06:20,520
+Yeah.
+
+97
+00:06:20,520 --> 00:06:23,920
+Yeah, it was a failed social network.
+
+98
+00:06:23,920 --> 00:06:26,680
+But so it's a feature space, right, of faces.
+
+99
+00:06:26,680 --> 00:06:30,400
+And then these certain points represent specific faces that you've actually loaded in
+
+100
+00:06:30,400 --> 00:06:33,200
+and said, this is a man's face, this is a woman's face, whatever.
+
+101
+00:06:33,200 --> 00:06:35,280
+So then you can find the typical male face.
+
+102
+00:06:35,280 --> 00:06:39,400
+But then you can do the same thing where you plot a line from the typical male to the typical female.
+
+103
+00:06:39,400 --> 00:06:43,880
+This line is indefinitely long, which means you can take, for example, a face
+
+104
+00:06:43,880 --> 00:06:49,800
+and you can make a face which is more male than any actual human person's face, right?
+
+105
+00:06:49,800 --> 00:06:50,800
+Or more female.
+
+106
+00:06:50,800 --> 00:06:52,880
+And the mathematics of this emerges completely naturally.
+
+107
+00:06:52,880 --> 00:06:54,320
+You're just following this line along.
+
+108
+00:06:54,320 --> 00:06:55,960
+And you end up with these grotesque things.
+
+109
+00:06:55,960 --> 00:07:01,600
+But a certain percentage away, past the end, what you end up with is kind of cartoon caricatures.
+
+110
+00:07:01,600 --> 00:07:06,760
+So the males end up with these, like, vast, you know, big brows and big bulky jaws.
+
+111
+00:07:06,760 --> 00:07:08,440
+And the women have, like, enormous eyes.
+
+112
+00:07:08,440 --> 00:07:10,480
+They end up looking like anime characters or whatever.
+
+113
+00:07:10,480 --> 00:07:13,400
+Before you have this kind of concept, how do you even approach the concept of
+
+114
+00:07:13,400 --> 00:07:16,520
+how do you draw a caricature of a human being with a computer?
+
+115
+00:07:16,520 --> 00:07:17,920
+But now we can do it, right?
+
+116
+00:07:17,920 --> 00:07:22,680
+Because we have this concept of doing basically geometry in a feature space.
+
+117
+00:07:22,680 --> 00:07:27,760
+Generally, when you throw real-world data into one of these spaces,
+
+118
+00:07:27,800 --> 00:07:32,400
+it will be clustered because the real world does tend to be clustered, right?
+
+119
+00:07:32,400 --> 00:07:35,040
+It's just kind of the way that things tend to work out.
+
+120
+00:07:35,040 --> 00:07:39,720
+So people who are like me will be next to me in Amazon.
+
+121
+00:07:39,720 --> 00:07:44,720
+I'll be part of a cluster of people about my age, my gender,
+
+122
+00:07:44,720 --> 00:07:48,840
+my, you know, level of education and wealth and everything else.
+
+123
+00:07:48,840 --> 00:07:50,480
+People who tend to buy similar things.
+
+124
+00:07:50,480 --> 00:07:55,680
+And so then if somebody who's very close to me in that cluster buys something else,
+
+125
+00:07:55,680 --> 00:07:59,520
+then they can kind of infer that I might be likely to buy that thing as well.
+
+126
+00:07:59,520 --> 00:08:02,240
+That's something that Amazon does, something that, you know,
+
+127
+00:08:02,240 --> 00:08:04,240
+Netflix does with their films.
+
+128
+00:08:04,240 --> 00:08:09,840
+All of these kind of predictive things where you just throw the data in
+
+129
+00:08:09,840 --> 00:08:12,080
+and the maths doesn't really know what it's dealing with.
+
+130
+00:08:12,080 --> 00:08:15,520
+It doesn't know that I'm a person, not an animal,
+
+131
+00:08:15,520 --> 00:08:17,840
+or that what I'm measuring here is, you know,
+
+132
+00:08:17,840 --> 00:08:21,000
+propensity for buying computer games instead of maths.
+
+133
+00:08:21,000 --> 00:08:24,160
+The maths is broadly the same.
+
+134
+00:08:24,160 --> 00:08:28,800
+And so you can make computers tackle all sorts of problems
+
+135
+00:08:28,800 --> 00:08:32,880
+which previously they couldn't.
+
+136
+00:08:35,600 --> 00:08:40,160
+If you take a celebrity and you draw a line between average and the celebrity
+
+137
+00:08:40,160 --> 00:08:42,800
+and then continue that line,
+
+138
+00:08:42,800 --> 00:08:47,640
+somewhere out along that line is a cartoon caricature of that celebrity, right?
+
+139
+00:08:47,640 --> 00:08:50,200
+Because you've taken the ways in which their face is different
+
+140
+00:08:50,200 --> 00:08:54,280
+from the typical average face and extended it and exaggerated them.
+
+141
+00:08:54,280 --> 00:08:56,080
+And this is exactly what caricature artists do.
+
+142
+00:08:56,080 --> 00:08:58,080
+But now we can do it with maths.
+

@@ -1,0 +1,480 @@
+1
+00:00:00,000 --> 00:00:04,960
+So I think it's worth talking a little bit because like I'm usually talking to you about AI safety
+
+2
+00:00:06,160 --> 00:00:12,400
+About the decision that opening I made to not release the fully trained model the big one
+
+3
+00:00:15,200 --> 00:00:17,200
+So because this has not been released
+
+4
+00:00:17,200 --> 00:00:22,740
+We know that it works like a transformer left to its own devices without being fine-tuned
+
+5
+00:00:23,280 --> 00:00:27,200
+It's just a massive amount of data and off you go. Is that right?
+
+6
+00:00:27,400 --> 00:00:31,680
+Yeah, like there's enough information given in the paper to reproduce it
+
+7
+00:00:32,480 --> 00:00:33,640
+and
+
+8
+00:00:33,640 --> 00:00:38,920
+You just need the giant giant data set, which is a real hassle to make especially because
+
+9
+00:00:41,120 --> 00:00:46,680
+You really need high quality data does it say anywhere in the paper about how long it took to train?
+
+10
+00:00:47,520 --> 00:00:49,320
+Yes
+
+11
+00:00:49,320 --> 00:00:53,320
+And how and how many different how many TPUs you need and stuff like that?
+
+12
+00:00:54,320 --> 00:00:55,920
+What's a TPU?
+
+13
+00:00:55,920 --> 00:01:00,560
+That's a tensor processing unit. Okay, so like a GPU but fancy
+
+14
+00:01:00,680 --> 00:01:07,680
+You need a lot of money if you tried to train this with just like Amazon's cloud computing offering you would be
+
+15
+00:01:08,120 --> 00:01:13,720
+You'd end up with a bill that I expect would be in the hundreds of thousands of pounds. Like it's a lot of compute
+
+16
+00:01:15,160 --> 00:01:19,120
+But with all of these things it's a lot of compute to train them. It's not that much computer run
+
+17
+00:01:19,120 --> 00:01:22,400
+This isn't a new architecture. This isn't like a vast breakthrough
+
+18
+00:01:23,320 --> 00:01:26,320
+from that perspective, it's just like the same thing, but much bigger and
+
+19
+00:01:28,960 --> 00:01:34,560
+And nobody else is keeping their research and like not releasing their models to the public
+
+20
+00:01:35,200 --> 00:01:40,760
+So, you know you think it's dangerous to say that you think that your work might be dangerous and you're not releasing it
+
+21
+00:01:40,760 --> 00:01:45,920
+It's kind of like you think it's much more dangerous than other people's work and therefore like it's so powerful that it's dangerous
+
+22
+00:01:45,920 --> 00:01:52,520
+It's kind of like you're saying that your stuff is so good that it's you know, it's too powerful for you
+
+23
+00:01:52,520 --> 00:01:57,580
+You know, I can't release it or whatever. I think people reacted in a sense to that
+
+24
+00:01:57,760 --> 00:02:01,240
+Yeah, I mean there's it's just smack a little bit of publicity stunt
+
+25
+00:02:01,240 --> 00:02:06,640
+I mean assuming it's not a publicity stunt assuming this is not that which I don't believe it is. What are they worried about?
+
+26
+00:02:07,920 --> 00:02:10,160
+So the worry like people make a big
+
+27
+00:02:11,480 --> 00:02:16,520
+People make a big deal of the idea of it generating fake news like fake news
+
+28
+00:02:16,800 --> 00:02:21,720
+Articles that will convince people that there are actually unicorns or whatever
+
+29
+00:02:21,720 --> 00:02:23,800
+I don't think that that's the risk
+
+30
+00:02:23,800 --> 00:02:28,680
+I also don't think that that's really what opening I thinks the risk is if you want to generate a fake thing
+
+31
+00:02:28,680 --> 00:02:32,720
+It's still not expensive to do that. You can just sit down and write something, right?
+
+32
+00:02:32,720 --> 00:02:35,600
+You don't need a language model to write you fake news
+
+33
+00:02:36,360 --> 00:02:39,520
+And in fact, you don't have that much control over it
+
+34
+00:02:39,800 --> 00:02:44,320
+So you would if you were trying to actually manipulate something you would want to be tweaking it
+
+35
+00:02:44,320 --> 00:02:47,040
+Anyway, I don't think that's the risk the the thing that
+
+36
+00:02:47,080 --> 00:02:51,120
+The thing that most concerns me about things like GPT to is
+
+37
+00:02:52,680 --> 00:02:54,640
+Like the content is not particularly good
+
+38
+00:02:54,640 --> 00:03:00,880
+But it is convincingly human and so it creates a lot of potential for making fake users
+
+39
+00:03:01,840 --> 00:03:03,360
+and
+
+40
+00:03:03,360 --> 00:03:09,640
+So there is this constant arms race between bot operators and the big platforms, right?
+
+41
+00:03:09,640 --> 00:03:12,240
+There's teams working at Google at YouTube at Facebook everywhere
+
+42
+00:03:12,840 --> 00:03:14,720
+Working on identifying
+
+43
+00:03:14,720 --> 00:03:17,840
+Accounts that aren't real and there's various ways you can do that
+
+44
+00:03:18,600 --> 00:03:23,160
+one of the things you can do is you can analyze the text that they write because the language models that are out there aren't
+
+45
+00:03:23,160 --> 00:03:28,700
+Very good. And so if some if if an account is like repeating itself a lot
+
+46
+00:03:29,760 --> 00:03:33,740
+Or you have a whole bunch of accounts that are all saying like exactly the same thing
+
+47
+00:03:33,960 --> 00:03:37,560
+Then you know that this is like a spam maybe manipulation attempt and so on
+
+48
+00:03:38,400 --> 00:03:40,960
+But with GPT to you can have things that produce
+
+49
+00:03:41,440 --> 00:03:47,000
+you give the same prompt and then you post all of the outputs and all of those outputs are different from each other and
+
+50
+00:03:47,320 --> 00:03:49,600
+They all look like they were written by a human
+
+51
+00:03:50,440 --> 00:03:52,440
+and it's not a
+
+52
+00:03:52,560 --> 00:03:54,800
+Human can look at them probably and figure out
+
+53
+00:03:56,120 --> 00:03:58,120
+Hang on a second. This doesn't quite seem right
+
+54
+00:03:59,080 --> 00:04:01,240
+But only if you're really really paying attention
+
+55
+00:04:02,200 --> 00:04:03,320
+Which
+
+56
+00:04:03,320 --> 00:04:07,560
+Human attention on a large scale is super expensive, right?
+
+57
+00:04:07,560 --> 00:04:10,880
+So much more expensive than the compute needed to generate the samples
+
+58
+00:04:10,880 --> 00:04:15,200
+So you're outmatched if you if you spend more they can spend it you can you can spend
+
+59
+00:04:15,880 --> 00:04:22,440
+Ten times more and you cripple yourself financially and they can spend ten times more and it's fine. So you're gonna lose that battle
+
+60
+00:04:23,720 --> 00:04:28,640
+The other thing is so so it becomes very difficult to identify fake users
+
+61
+00:04:28,640 --> 00:04:31,920
+the other thing is one way that you can identify fake users is
+
+62
+00:04:32,880 --> 00:04:34,200
+by
+
+63
+00:04:34,200 --> 00:04:38,320
+Analyzing the graph like the social graph or the interaction graph and you can see that
+
+64
+00:04:41,120 --> 00:04:47,760
+Because humans usually when they see spam posts that are full of links to dubious websites and whatever
+
+65
+00:04:48,160 --> 00:04:50,800
+they download them they don't reply to them and
+
+66
+00:04:51,720 --> 00:04:57,960
+You can create you can fake the voting metrics by having these accounts vote for each other's stuff
+
+67
+00:04:58,120 --> 00:05:03,720
+but then you can analyze the graph of that and say oh all of these plate people they all only vote for each other and
+
+68
+00:05:03,720 --> 00:05:09,560
+The people who we know are humans like never vote for them. So we assume those are all bots and we can ignore them
+
+69
+00:05:11,160 --> 00:05:14,440
+But the samples that GPT to produces the big model are
+
+70
+00:05:15,120 --> 00:05:21,000
+Convincing enough to get actual humans to engage with them, right? It's not like oh my god, that's so persuasive
+
+71
+00:05:21,000 --> 00:05:24,320
+I've read this article and now I believe this thing about unicorns
+
+72
+00:05:24,400 --> 00:05:29,120
+It's just like I believe that a real human wrote this thing and now I want to argue with them
+
+73
+00:05:29,680 --> 00:05:34,000
+That there aren't unicorns or whatever right and now you have real humans
+
+74
+00:05:34,480 --> 00:05:38,880
+engaging in actual meaningful conversation with bots and
+
+75
+00:05:40,280 --> 00:05:44,580
+Now you've got a real problem because how are you going to spot who the bots are?
+
+76
+00:05:45,320 --> 00:05:48,400
+When you can't do it automatically just by analyzing the text
+
+77
+00:05:48,400 --> 00:05:55,560
+You can't even do it by aggregating the human responses to them because the humans keep thinking that they're actual humans
+
+78
+00:05:55,720 --> 00:05:58,320
+so now you have the ability to produce large amounts of
+
+79
+00:05:59,000 --> 00:06:00,840
+fake users that the
+
+80
+00:06:00,840 --> 00:06:08,280
+Platforms can't spot and therefore they can't stop those users votes from counting on things up voting things and down voting things and liking them
+
+81
+00:06:08,280 --> 00:06:13,000
+and subscriptions and everything else and manipulating the metrics that way one thing people would do is
+
+82
+00:06:13,520 --> 00:06:15,520
+spot the
+
+83
+00:06:15,880 --> 00:06:20,400
+The profile pictures if you're trying to generate a large number of bots
+
+84
+00:06:20,400 --> 00:06:24,560
+where are you going to get your pictures from and so you can do like reverse image search and get the
+
+85
+00:06:25,080 --> 00:06:31,220
+Find that they're all using the same picture or they're all using pictures from the same database of facial photos or whatever
+
+86
+00:06:31,480 --> 00:06:36,720
+Now we have these really good generative adversarial networks that can generate good-looking faces
+
+87
+00:06:37,120 --> 00:06:41,820
+So that's now really difficult as well and like you can't automatically detect those
+
+88
+00:06:42,460 --> 00:06:45,100
+Almost by definition because the way the gams work
+
+89
+00:06:45,100 --> 00:06:49,220
+The discriminator is like a state-of-the-art fake face image detector and it's being fooled
+
+90
+00:06:49,340 --> 00:06:54,820
+like that's the whole point and if you released if somebody came up with a really reliable way of
+
+91
+00:06:55,500 --> 00:06:57,860
+spotting those fake images then
+
+92
+00:07:00,140 --> 00:07:06,300
+You can just use that as the discriminator and keep training right so not releasing their full-strength model to me feels
+
+93
+00:07:06,660 --> 00:07:10,820
+Very sensible in the sense that people will figure it out, right?
+
+94
+00:07:10,820 --> 00:07:13,540
+They publish the the science someone will find it
+
+95
+00:07:13,540 --> 00:07:18,380
+it is worth their while to do it to spend the money to reproduce these results, but
+
+96
+00:07:19,580 --> 00:07:23,380
+By not releasing it. They've bought the platforms
+
+97
+00:07:24,180 --> 00:07:27,700
+Several months to like prepare for this to understand what's going on
+
+98
+00:07:27,700 --> 00:07:31,980
+And they are of course working with them and sharing the full-strength model with selected partners people
+
+99
+00:07:31,980 --> 00:07:34,140
+They trust to say here's what it can do
+
+100
+00:07:35,140 --> 00:07:42,460
+Take a moment, you know govern yourself accordingly like get ready because this stuff is going to come but they're giving everybody a heads-up to
+
+101
+00:07:43,260 --> 00:07:51,420
+Mitigate the potential like negative impacts that this work might have and the other thing is it sets a really good precedent, I think
+
+102
+00:07:52,420 --> 00:07:53,460
+because
+
+103
+00:07:53,460 --> 00:07:56,380
+maybe GPG to isn't that dangerous, but
+
+104
+00:07:57,020 --> 00:07:59,980
+the stuff that we're making is just getting more and more powerful and
+
+105
+00:08:00,860 --> 00:08:06,700
+At some point somebody is going to develop something that is really dangerous and by then you want there to be accepted
+
+106
+00:08:07,300 --> 00:08:10,860
+practices and social norms and industry standards about
+
+107
+00:08:11,380 --> 00:08:14,660
+Thinking about the impact of your work before you release it
+
+108
+00:08:15,660 --> 00:08:17,060
+and
+
+109
+00:08:17,060 --> 00:08:21,940
+So it's good to start with something that like there's some argument that there could be some danger from it
+
+110
+00:08:22,140 --> 00:08:25,860
+just so that everybody is like aware that this is a thing that you can do and
+
+111
+00:08:26,020 --> 00:08:32,020
+That people won't think you're weird or you're bragging or it's a publicity stunt or whatever to make it like socially
+
+112
+00:08:32,020 --> 00:08:33,500
+okay to say
+
+113
+00:08:33,500 --> 00:08:38,940
+We found this cool result and we're not going to put it out there because we're not sure about the safety of it
+
+114
+00:08:38,940 --> 00:08:45,620
+And I think that that's something that's really really necessary. So I think that open AI is very smart to
+
+115
+00:08:46,260 --> 00:08:49,820
+Start that off now before we really really need it
+
+116
+00:08:50,820 --> 00:08:52,820
+Make a principled
+
+117
+00:08:52,940 --> 00:08:57,900
+Decision now, I want the seven. So in principle I should be going this way, right?
+
+118
+00:08:57,900 --> 00:08:59,660
+You would think I want to steer towards the seven
+
+119
+00:08:59,660 --> 00:09:06,180
+But on the other hand at this point, it's your choice. You give it some random noise and it generates an image
+
+120
+00:09:06,860 --> 00:09:10,160
+From that noise and the idea is it's supposed
+

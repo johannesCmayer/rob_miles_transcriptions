@@ -1,0 +1,2192 @@
+1
+00:00:00,000 --> 00:00:03,900
+Welcome, once again, everyone, to another episode of the Towards Data Science podcast.
+
+2
+00:00:03,900 --> 00:00:06,580
+My name, of course, is Jeremy, and I'm the host of the podcast.
+
+3
+00:00:06,580 --> 00:00:10,380
+I'm also on the team over at the Sharpest Minds Data Science Mentorship Program.
+
+4
+00:00:10,380 --> 00:00:13,780
+And I'm excited about today's episode because we're talking to Rob Miles, who's a really
+
+5
+00:00:13,780 --> 00:00:18,820
+successful YouTuber whose channels focus on AI safety and AI alignment research.
+
+6
+00:00:18,820 --> 00:00:24,300
+Now Rob's actually been popularizing AI safety work since about 2014, which is long before
+
+7
+00:00:24,300 --> 00:00:26,300
+most people were interested in this space.
+
+8
+00:00:26,300 --> 00:00:30,420
+It's long before I knew about it, really, as an area of focus.
+
+9
+00:00:30,420 --> 00:00:34,940
+So he's got a lot of interesting perspectives on how the field has evolved, how AI research
+
+10
+00:00:34,940 --> 00:00:39,900
+has gone from just purely focused on capabilities, making systems that are able to do more and
+
+11
+00:00:39,900 --> 00:00:43,700
+more things, to now starting to worry a little bit more about, okay, how are we going to
+
+12
+00:00:43,700 --> 00:00:44,700
+deploy these things?
+
+13
+00:00:44,700 --> 00:00:48,380
+Should we worry about where the stuff is going, what the limiting case is when the technology
+
+14
+00:00:48,380 --> 00:00:50,380
+gets really, really powerful?
+
+15
+00:00:50,380 --> 00:00:52,500
+What should we be thinking about in terms of risks?
+
+16
+00:00:52,500 --> 00:00:54,900
+So Rob's been doing a lot of interesting thinking about these issues.
+
+17
+00:00:55,220 --> 00:00:58,020
+He's also collaborated with a whole bunch of AI alignment researchers.
+
+18
+00:00:58,020 --> 00:01:00,860
+So we'll be talking about a whole bunch of different topics, including communicating
+
+19
+00:01:00,860 --> 00:01:04,820
+about this stuff, and more generally, some of the problems and opportunities that might
+
+20
+00:01:04,820 --> 00:01:08,540
+be ahead for us as a civilization as this technology gets better and better.
+
+21
+00:01:08,540 --> 00:01:10,820
+So I'm really looking forward to getting into this one with Rob.
+
+22
+00:01:10,820 --> 00:01:13,260
+And without further ado, let's get the ball rolling.
+
+23
+00:01:13,260 --> 00:01:14,260
+Hi, Rob.
+
+24
+00:01:14,260 --> 00:01:17,060
+Thanks so much for joining me for the podcast.
+
+25
+00:01:17,060 --> 00:01:18,060
+Hi.
+
+26
+00:01:18,060 --> 00:01:19,060
+Thanks.
+
+27
+00:01:19,060 --> 00:01:20,060
+Good to see you.
+
+28
+00:01:20,060 --> 00:01:21,060
+I've been following your YouTube channel for a really long time.
+
+29
+00:01:21,060 --> 00:01:22,060
+I think it's a great source of information.
+
+30
+00:01:22,220 --> 00:01:25,580
+I think one of the interesting things about what you've been doing is you've been talking
+
+31
+00:01:25,580 --> 00:01:31,340
+about AI safety in some capacity or other since about 2014, which is way before most
+
+32
+00:01:31,340 --> 00:01:32,340
+people.
+
+33
+00:01:32,340 --> 00:01:35,460
+It's way before I was aware, really, of the problem.
+
+34
+00:01:35,460 --> 00:01:39,260
+And one thing I wanted to start with here was how did you become aware of AI safety
+
+35
+00:01:39,260 --> 00:01:40,260
+as an issue?
+
+36
+00:01:40,260 --> 00:01:43,060
+And what made you dedicate so much time to that problem?
+
+37
+00:01:43,060 --> 00:01:44,060
+Yeah.
+
+38
+00:01:44,060 --> 00:01:50,780
+So it was around 2014 when I first started talking about this publicly.
+
+39
+00:01:50,780 --> 00:01:56,980
+I got interested in it around 2010, 2011.
+
+40
+00:01:56,980 --> 00:02:02,820
+What actually had happened was I had a Kindle for the first time, I had an e-book reader,
+
+41
+00:02:02,820 --> 00:02:08,300
+and I was very excited about the ability to get through a lot of reading material very
+
+42
+00:02:08,300 --> 00:02:14,500
+easily because I could have every book that I was reading on my person at all times.
+
+43
+00:02:14,500 --> 00:02:20,700
+And at that time, I had a rule as an undergraduate that if I ever read three things from the
+
+44
+00:02:21,620 --> 00:02:31,460
+same author, each of which caused a significant update in my views or my beliefs, or that
+
+45
+00:02:31,460 --> 00:02:36,860
+was engaging or interesting or just generally excellent, that I would then try to read everything
+
+46
+00:02:36,860 --> 00:02:39,540
+that that author had ever written.
+
+47
+00:02:39,540 --> 00:02:42,900
+And this triggered almost immediately on Eliezer Yudkowsky.
+
+48
+00:02:42,900 --> 00:02:49,700
+And I don't know why I'd stumbled across some things possibly on Overcoming Bias or somewhere
+
+49
+00:02:49,700 --> 00:02:50,700
+like that.
+
+50
+00:02:50,700 --> 00:02:59,820
+And so I started, I downloaded an e-book that I think Paul Crowley put together of every
+
+51
+00:02:59,820 --> 00:03:06,220
+one of Eliezer's blog posts, and I put them on my Kindle and I just read them.
+
+52
+00:03:06,220 --> 00:03:11,180
+And it took a while because he's a prolific guy.
+
+53
+00:03:11,180 --> 00:03:19,660
+Just going through all of those, it made it very clear to me that this was an actual thing.
+
+54
+00:03:20,300 --> 00:03:25,020
+Obviously, it's something which I had come across in various sort of science fiction
+
+55
+00:03:25,020 --> 00:03:26,220
+contexts and so on.
+
+56
+00:03:27,900 --> 00:03:33,340
+But and that seems to be how it is with these subjects for most people.
+
+57
+00:03:33,340 --> 00:03:34,940
+They're familiar with them.
+
+58
+00:03:34,940 --> 00:03:43,660
+But it takes a particular approach to show that these are actually, firstly, importantly
+
+59
+00:03:43,660 --> 00:03:45,980
+different from the science fiction ideas.
+
+60
+00:03:45,980 --> 00:03:48,940
+And secondly, that this is computer science.
+
+61
+00:03:49,500 --> 00:03:55,660
+This is an actual open problem that we don't currently have good solutions to.
+
+62
+00:03:55,660 --> 00:04:02,220
+That something seeming like science fiction is a poor indicator of its actual plausibility
+
+63
+00:04:02,220 --> 00:04:07,660
+because accurate predictions of the future at almost any point in the last hundred years,
+
+64
+00:04:07,660 --> 00:04:12,780
+if you give people accurate predictions of 50 years ahead, they will sound completely
+
+65
+00:04:12,780 --> 00:04:13,820
+absurd.
+
+66
+00:04:13,820 --> 00:04:18,700
+And if you give people wrong predictions about 50 years ahead, they will sound equally absurd.
+
+67
+00:04:18,700 --> 00:04:25,660
+And so the fact that the thing sounds kind of crazy is not evidence for or against it
+
+68
+00:04:25,660 --> 00:04:26,860
+actually being true.
+
+69
+00:04:26,860 --> 00:04:33,020
+And it was the first time that I started to really just actually look at what I knew about
+
+70
+00:04:33,740 --> 00:04:40,060
+computer science from my studies, what I knew about artificial intelligence, and just actually
+
+71
+00:04:40,060 --> 00:04:43,580
+follow the arguments through and think, well, how would this system behave?
+
+72
+00:04:44,140 --> 00:04:49,420
+You know, if this were much more powerful, what would be the actual consequences?
+
+73
+00:04:49,420 --> 00:04:53,740
+That made me realize, yeah, that this is a real thing.
+
+74
+00:04:54,620 --> 00:04:58,540
+Yeah, I find it so interesting that I think there are a lot of people who've come in at
+
+75
+00:04:58,540 --> 00:04:59,900
+it from that perspective.
+
+76
+00:04:59,900 --> 00:05:03,180
+I mean, it's almost like we need to be given permission to reason from first principles,
+
+77
+00:05:03,180 --> 00:05:08,540
+especially when the conclusion is so radically out of tune with our life experience or our
+
+78
+00:05:08,540 --> 00:05:09,100
+day to day.
+
+79
+00:05:09,740 --> 00:05:12,940
+It kind of makes me think back to, you know, what would Einstein have thought trying to
+
+80
+00:05:12,940 --> 00:05:17,980
+explain to people, like, no, I really think like a nuclear weapon that can destroy entire
+
+81
+00:05:17,980 --> 00:05:20,140
+cities is not just on the horizon.
+
+82
+00:05:20,140 --> 00:05:21,260
+It's like two years away.
+
+83
+00:05:22,220 --> 00:05:25,180
+You would have been entitled to look at that and say, well, look, everything in our life
+
+84
+00:05:25,180 --> 00:05:29,420
+experience, everything in the experience of humanity as a whole tells us that this is
+
+85
+00:05:29,420 --> 00:05:33,740
+just such a complete anomaly, an outlier that can't possibly be true.
+
+86
+00:05:33,740 --> 00:05:35,340
+It's sort of a similar effect.
+
+87
+00:05:35,340 --> 00:05:35,900
+It's interesting.
+
+88
+00:05:36,700 --> 00:05:44,380
+And so it was helpful to have that approach of like, supposing this was false, how would
+
+89
+00:05:44,380 --> 00:05:45,180
+the world look?
+
+90
+00:05:45,180 --> 00:05:46,300
+What would we observe?
+
+91
+00:05:46,860 --> 00:05:50,940
+And then supposing this was true, how would the world look and what would we observe?
+
+92
+00:05:50,940 --> 00:05:55,180
+And that's the only way that you can make progress on these things.
+
+93
+00:05:55,180 --> 00:06:04,540
+You just have to look at like if you're sorry, I get frustrated even thinking about this
+
+94
+00:06:04,540 --> 00:06:09,420
+because I've kind of moved on a bit from this whole thing because it's just natural
+
+95
+00:06:09,420 --> 00:06:09,660
+now.
+
+96
+00:06:09,660 --> 00:06:10,860
+It's part of how I think.
+
+97
+00:06:12,860 --> 00:06:17,100
+But I remember wrestling with this when I was talking with people about it earlier on
+
+98
+00:06:18,540 --> 00:06:30,940
+that there's no way to predict what AI systems are going to do by thinking about people and
+
+99
+00:06:30,940 --> 00:06:34,060
+what people are saying and what people are thinking right now.
+
+100
+00:06:34,780 --> 00:06:41,660
+Like it could be that these people are like naive and hopeful about the future and these
+
+101
+00:06:41,660 --> 00:06:46,380
+people are cynical and these people have lived through an AI winter and these people haven't
+
+102
+00:06:46,380 --> 00:06:48,220
+and whatever else.
+
+103
+00:06:48,220 --> 00:06:52,220
+And like none of that is going to give you the answer because this is a technical question.
+
+104
+00:06:52,220 --> 00:06:53,580
+You have to look at the systems.
+
+105
+00:06:53,580 --> 00:06:56,060
+You have to look at the engineering.
+
+106
+00:06:56,060 --> 00:07:00,860
+You have to actually, as you say, think from first principles because that's what's going
+
+107
+00:07:00,860 --> 00:07:02,220
+to actually affect.
+
+108
+00:07:03,180 --> 00:07:08,060
+We're just talking about how future technologies are going to behave and you can't do that
+
+109
+00:07:08,060 --> 00:07:11,420
+without looking at the technologies themselves in detail.
+
+110
+00:07:11,420 --> 00:07:15,900
+And so what was the process, if you try to reconstruct it, what was the intellectual
+
+111
+00:07:15,900 --> 00:07:21,260
+process that you went through to conclude that, yeah, I'm pretty confident.
+
+112
+00:07:21,260 --> 00:07:22,940
+Obviously, nobody is really confident.
+
+113
+00:07:22,940 --> 00:07:25,740
+Actually, that's one of, I think, the most beautiful things about talking to people in
+
+114
+00:07:25,740 --> 00:07:26,700
+this space.
+
+115
+00:07:26,700 --> 00:07:31,260
+No one's really approaching this from the standpoint that I know with certainty that
+
+116
+00:07:31,340 --> 00:07:36,060
+AI is going to be good or I know with certainty that AGI is going to be terrible.
+
+117
+00:07:36,060 --> 00:07:40,700
+There's a good dose of intellectual humility here, but I think everybody's come to certain
+
+118
+00:07:40,700 --> 00:07:43,020
+conclusions about where the probability density lies.
+
+119
+00:07:43,020 --> 00:07:47,100
+I'm just wondering, what were the biggest factors that shifted that probability density
+
+120
+00:07:47,100 --> 00:07:47,980
+for you over time?
+
+121
+00:07:48,620 --> 00:07:55,900
+If I have to be honest, most of my early involvement or my early interest was because these are
+
+122
+00:07:55,980 --> 00:07:57,900
+extremely interesting problems.
+
+123
+00:07:59,180 --> 00:08:04,940
+And the fact that they might be extremely important was always there and was always
+
+124
+00:08:04,940 --> 00:08:07,340
+available intellectually as a justification.
+
+125
+00:08:07,340 --> 00:08:11,660
+But the thing that drew me in viscerally is that these problems are fascinating.
+
+126
+00:08:13,020 --> 00:08:19,660
+They cut right to the core of what does it mean to be, what even is thinking?
+
+127
+00:08:19,660 --> 00:08:22,620
+What does it mean to be an agent in the world?
+
+128
+00:08:22,620 --> 00:08:23,980
+What does it mean to want things?
+
+129
+00:08:23,980 --> 00:08:25,740
+What does it mean to have goals and values?
+
+130
+00:08:25,740 --> 00:08:27,660
+What are ethics?
+
+131
+00:08:28,860 --> 00:08:32,460
+What do we want actually from the world?
+
+132
+00:08:32,460 --> 00:08:34,140
+Where are we trying to steer the future to?
+
+133
+00:08:35,740 --> 00:08:40,300
+And just the sheer interestingness of the questions is what drew me in.
+
+134
+00:08:41,260 --> 00:08:47,500
+And then after a certain period of time of thinking about the questions, you steadily
+
+135
+00:08:47,500 --> 00:08:52,220
+update towards various conclusions about them kind of unavoidably as a consequence of thinking
+
+136
+00:08:52,220 --> 00:08:52,720
+about them.
+
+137
+00:08:53,680 --> 00:08:58,800
+Yes, it's sort of hard to pin down the exact, I guess the exact set of arguments that, I
+
+138
+00:08:58,800 --> 00:09:03,600
+don't know, I always find this personally, it's difficult for me to think about how to
+
+139
+00:09:03,600 --> 00:09:08,400
+convey my own priors to somebody else, the justification for them from scratch, just
+
+140
+00:09:08,400 --> 00:09:10,800
+because I've assimilated so much.
+
+141
+00:09:10,800 --> 00:09:14,640
+In some ways, this almost feels related to the alignment problem because so much of what
+
+142
+00:09:14,640 --> 00:09:16,960
+we believe and think and want is implicit.
+
+143
+00:09:18,320 --> 00:09:18,820
+Yeah.
+
+144
+00:09:19,200 --> 00:09:22,320
+I guess it's just, yeah, maybe it's just a complicated question with no easy answer.
+
+145
+00:09:22,480 --> 00:09:26,160
+I mean, there's various different approaches and models and things that shifted me.
+
+146
+00:09:27,840 --> 00:09:35,760
+One of them was just the realization that really extreme, dramatic things can happen
+
+147
+00:09:35,760 --> 00:09:39,520
+and have happened, especially, and this is like a whole thing that I don't know if we
+
+148
+00:09:39,520 --> 00:09:46,160
+have time to go into, but thinking about the long arc of history and the optimization
+
+149
+00:09:46,160 --> 00:09:52,960
+processes in that, in like a deep history, that you have evolution operating for a certain
+
+150
+00:09:52,960 --> 00:10:00,640
+period of time, and then there's a switch that gets flipped somewhere where you have
+
+151
+00:10:02,160 --> 00:10:07,120
+something that speeds up the rate, something like sexual reproduction that speeds up the
+
+152
+00:10:07,120 --> 00:10:08,640
+rate at which evolution can happen.
+
+153
+00:10:09,360 --> 00:10:13,680
+And that when you look back in history, what you have is these tremendously long periods
+
+154
+00:10:13,680 --> 00:10:16,800
+of one mode and then a paradigm shift into a mode which is faster.
+
+155
+00:10:17,680 --> 00:10:23,200
+And then you have intelligent animals that can operate, and then they develop language
+
+156
+00:10:23,200 --> 00:10:26,000
+and they develop culture, and then they develop writing.
+
+157
+00:10:26,000 --> 00:10:31,200
+And these are all things where you're either changing the way that information is being
+
+158
+00:10:31,200 --> 00:10:33,920
+sort of modified or the way that information is being stored.
+
+159
+00:10:34,560 --> 00:10:39,360
+And each of these periods is dramatically shorter than the previous period.
+
+160
+00:10:39,360 --> 00:10:39,680
+Yeah.
+
+161
+00:10:39,680 --> 00:10:41,600
+And that this is something that's happened several times.
+
+162
+00:10:42,160 --> 00:10:48,960
+And so it seems pretty clear to me that in the same way that sexual reproduction allows
+
+163
+00:10:48,960 --> 00:10:54,400
+for sexual selection, which means that the rate of reproduction doesn't just depend on
+
+164
+00:10:54,400 --> 00:11:01,120
+sort of the environment as a whole deciding which animals live and die, which ones succeed
+
+165
+00:11:01,120 --> 00:11:02,080
+and which ones fail.
+
+166
+00:11:02,080 --> 00:11:08,160
+Now the intelligence of the animals themselves is applied to picking mates based on, so you
+
+167
+00:11:08,960 --> 00:11:14,800
+don't have to actually win in a fight, you just have to observably be strong.
+
+168
+00:11:14,800 --> 00:11:15,200
+Yeah.
+
+169
+00:11:15,200 --> 00:11:19,040
+And then that gives you more signal effectively, gives you better gradients to train on in
+
+170
+00:11:19,040 --> 00:11:19,360
+a way.
+
+171
+00:11:20,000 --> 00:11:21,920
+And that just speeds up the whole process and so on.
+
+172
+00:11:21,920 --> 00:11:28,480
+And so it became clear to me that the point where AI research is being done by AI systems
+
+173
+00:11:29,440 --> 00:11:32,080
+is another one of those things where you close the loop.
+
+174
+00:11:32,080 --> 00:11:39,680
+You're taking something that works dramatically faster and feeding that in to its own improvement
+
+175
+00:11:40,320 --> 00:11:40,640
+cycle.
+
+176
+00:11:40,640 --> 00:11:47,200
+And I don't necessarily mean like pure self-improvement, like the AI is going to be this
+
+177
+00:11:47,200 --> 00:11:50,480
+unbelievably powerful thing that will take apart its own source code and restructure
+
+178
+00:11:50,480 --> 00:11:50,960
+it or whatever.
+
+179
+00:11:50,960 --> 00:11:55,360
+I just mean that having AI systems help the humans and to play a larger and larger role
+
+180
+00:11:55,920 --> 00:12:00,880
+is the kind of thing that it looks like the same class of thing where you just shift into
+
+181
+00:12:00,880 --> 00:12:03,280
+a new paradigm of dramatically faster development.
+
+182
+00:12:05,360 --> 00:12:10,880
+And it was those kinds of arguments that made me think like our usual sense where we think,
+
+183
+00:12:10,880 --> 00:12:17,120
+oh, you know, 50 years away, 100 years away, we're just kind of getting some vague sense
+
+184
+00:12:17,120 --> 00:12:19,120
+of like, how hard does this seem?
+
+185
+00:12:19,840 --> 00:12:20,000
+Yeah.
+
+186
+00:12:20,000 --> 00:12:26,560
+And then turning it into a number by some general, like just a vague mapping.
+
+187
+00:12:26,560 --> 00:12:33,600
+Whereas like if you actually think about it, the number of seconds per second is going
+
+188
+00:12:33,600 --> 00:12:35,120
+up as this whole process happens.
+
+189
+00:12:35,120 --> 00:12:37,680
+The number of cycle times or yeah.
+
+190
+00:12:37,680 --> 00:12:38,240
+Right, right.
+
+191
+00:12:38,240 --> 00:12:44,960
+Like if this is going to take 50 years of time to develop, it doesn't really take 50
+
+192
+00:12:44,960 --> 00:12:46,400
+years of clock time.
+
+193
+00:12:46,400 --> 00:12:48,160
+It takes 50 years of subjective time.
+
+194
+00:12:48,720 --> 00:12:52,160
+And when you have AI systems doing the research, subjective time is getting faster all the
+
+195
+00:12:52,160 --> 00:12:52,400
+time.
+
+196
+00:12:52,400 --> 00:12:57,200
+So that was the kind of thing that made me think, hey, this could be in my lifetime.
+
+197
+00:12:57,920 --> 00:12:58,080
+Yeah.
+
+198
+00:12:58,080 --> 00:13:01,120
+This could be something that we're close enough to that it's worth working on now.
+
+199
+00:13:01,760 --> 00:13:05,280
+Well, this very much makes me think of, you had an interesting video where you talked
+
+200
+00:13:05,280 --> 00:13:11,520
+about a popular sort of counter argument to the AI risk argument where people will say,
+
+201
+00:13:11,520 --> 00:13:15,040
+well, look, our company is really just a kind of AGI already.
+
+202
+00:13:15,040 --> 00:13:17,840
+Don't we have this kind of self-improvement quality?
+
+203
+00:13:18,480 --> 00:13:22,560
+I think the way you've laid it out there just makes it so clear what the qualitative
+
+204
+00:13:22,560 --> 00:13:23,280
+difference is.
+
+205
+00:13:24,400 --> 00:13:29,200
+You're talking about a different regime of computation, really, in the history of the
+
+206
+00:13:29,200 --> 00:13:31,520
+universe, in the computational history of the universe.
+
+207
+00:13:31,520 --> 00:13:36,720
+So it really does seem like a lot of our metaphors and the things we're used to drawing
+
+208
+00:13:36,720 --> 00:13:43,040
+our intuition from just become these very, very kind of frail things the moment we start
+
+209
+00:13:43,040 --> 00:13:45,600
+to look at these massive qualitative transitions.
+
+210
+00:13:46,160 --> 00:13:46,960
+Absolutely.
+
+211
+00:13:46,960 --> 00:13:57,360
+And I think that you're right that most people in the field have a lot of humility about
+
+212
+00:13:57,360 --> 00:13:59,840
+this because we have lots and lots of arguments.
+
+213
+00:13:59,840 --> 00:14:07,040
+People from the outside often view what we're talking about and say, this stuff is very
+
+214
+00:14:07,040 --> 00:14:11,360
+difficult to predict, and you seem to be fairly confident in this particular outcome, whereas
+
+215
+00:14:11,360 --> 00:14:12,400
+it could be anything.
+
+216
+00:14:12,400 --> 00:14:13,840
+And there's various reasons why.
+
+217
+00:14:15,360 --> 00:14:21,520
+There's various responses to that, but I think actually most of the time what these
+
+218
+00:14:21,520 --> 00:14:27,040
+arguments do is they make you spread your distributions out.
+
+219
+00:14:27,040 --> 00:14:29,040
+They make you spread your probability distributions out.
+
+220
+00:14:29,040 --> 00:14:35,680
+And so, yeah, there's all kinds of problems and difficulties, and we really are very
+
+221
+00:14:35,680 --> 00:14:40,480
+uncertain, but it means it works in both directions, right?
+
+222
+00:14:41,120 --> 00:14:46,480
+It might take 10 times longer, but it might take one-tenth the time, and so it's worth
+
+223
+00:14:46,480 --> 00:14:47,360
+paying attention to.
+
+224
+00:14:48,400 --> 00:14:51,360
+Well, there's one last theme I do want to touch on before we leave this idea of kind
+
+225
+00:14:51,360 --> 00:14:54,560
+of that deep time picture that you just introduced.
+
+226
+00:14:55,520 --> 00:15:00,720
+Just as a curiosity, what do you think it is that's being optimized for in that context?
+
+227
+00:15:00,720 --> 00:15:05,040
+Because we have this notion of a universe that's full of particles, and those particles
+
+228
+00:15:05,040 --> 00:15:05,920
+randomly combine.
+
+229
+00:15:06,720 --> 00:15:12,320
+You know, sometimes you hear the idea of multiplying information or propagating information
+
+230
+00:15:12,320 --> 00:15:13,120
+forward through time.
+
+231
+00:15:13,680 --> 00:15:18,400
+That doesn't seem to intrinsically quite hit the nail on the head just because that
+
+232
+00:15:18,400 --> 00:15:23,840
+information changes considerably from the clump of atoms early on to the first cell
+
+233
+00:15:23,840 --> 00:15:26,080
+to the first sexually reproducing organism and so on.
+
+234
+00:15:26,960 --> 00:15:30,480
+I don't know if you have a thought on this, but do you have a sense of maybe what that
+
+235
+00:15:30,480 --> 00:15:31,920
+process is optimizing for?
+
+236
+00:15:32,560 --> 00:15:37,120
+You mean like what is the universe optimizing for or what is physics optimizing for?
+
+237
+00:15:38,640 --> 00:15:40,800
+I don't think it is.
+
+238
+00:15:42,160 --> 00:15:44,480
+I think, I don't know.
+
+239
+00:15:45,440 --> 00:15:50,480
+Some people think that there's some kind of free energy minimization type thing that
+
+240
+00:15:50,480 --> 00:15:51,680
+accounts for a lot of this stuff.
+
+241
+00:15:51,680 --> 00:15:52,400
+I don't know.
+
+242
+00:15:52,400 --> 00:15:57,120
+I think evolution can be meaningfully thought of as an optimization process or rather as
+
+243
+00:15:57,120 --> 00:15:59,840
+a large collection of optimization processes.
+
+244
+00:15:59,920 --> 00:16:04,160
+Because if you think about, like, if you take evolution as a whole as an optimization process,
+
+245
+00:16:04,160 --> 00:16:07,520
+then it doesn't really make sense because you've got, you know, the predator chases
+
+246
+00:16:07,520 --> 00:16:08,800
+the prey and the prey runs away.
+
+247
+00:16:08,800 --> 00:16:12,000
+So is evolution optimizing for it being caught or for it escaping?
+
+248
+00:16:12,000 --> 00:16:16,320
+It's like, well, the predator species has its evolution and the prey species has its
+
+249
+00:16:16,320 --> 00:16:16,880
+evolution.
+
+250
+00:16:19,280 --> 00:16:23,760
+And of course, all of these boundaries are fuzzy because a species is kind of a structure
+
+251
+00:16:23,760 --> 00:16:25,440
+that we've overlaid on this thing.
+
+252
+00:16:25,440 --> 00:16:32,160
+Nonetheless, it is optimizing for producing good replicators is the way that I would think
+
+253
+00:16:32,160 --> 00:16:32,480
+of it.
+
+254
+00:16:33,280 --> 00:16:39,200
+So, well, and that was where I was hoping we'd end up going because the replicator picture,
+
+255
+00:16:40,000 --> 00:16:45,120
+to some degree, I mean, when I start thinking about AIs and AGIs that presumably propagate
+
+256
+00:16:45,120 --> 00:16:51,680
+forward through time, the idea of replication seems to become decoupled from self-improvement
+
+257
+00:16:51,680 --> 00:16:54,640
+or from continued existence through time.
+
+258
+00:16:54,640 --> 00:17:01,120
+It almost seems like there's another quality that, a deeper quality that, you know, the
+
+259
+00:17:01,120 --> 00:17:06,880
+continuity of some kind of causal structure or computing structure, I don't really know,
+
+260
+00:17:06,880 --> 00:17:08,640
+but it's also speculative anyway.
+
+261
+00:17:09,440 --> 00:17:15,760
+I think the continuity, the only kind of continuity that you could really strongly expect is goal
+
+262
+00:17:15,760 --> 00:17:25,200
+continuity because if I'm some kind of AI system and I'm going to create other AI systems
+
+263
+00:17:25,760 --> 00:17:30,480
+to go out into the world and do things, the only thing that's really important to me is
+
+264
+00:17:30,480 --> 00:17:36,080
+that they share my goals or that they, in practice, will advance my goals.
+
+265
+00:17:36,080 --> 00:17:36,240
+Yeah.
+
+266
+00:17:36,240 --> 00:17:40,640
+But realistically, usually the best way to do that is to have them share your goals.
+
+267
+00:17:43,040 --> 00:17:44,800
+That's the type of continuity I would expect.
+
+268
+00:17:45,440 --> 00:17:45,760
+Interesting.
+
+269
+00:17:45,760 --> 00:17:46,000
+Okay.
+
+270
+00:17:46,000 --> 00:17:47,360
+I don't want to linger too much on that.
+
+271
+00:17:47,360 --> 00:17:49,600
+I just, I thought it was an interesting thing to unpack a little bit.
+
+272
+00:17:50,880 --> 00:17:54,560
+One thing I do want to talk about, it's something that I think you've done really effectively
+
+273
+00:17:54,560 --> 00:17:59,760
+through your YouTube channel, is you've actually taken the time to address a lot of the arguments
+
+274
+00:17:59,760 --> 00:18:02,960
+against AI safety or against worrying about AI risk.
+
+275
+00:18:02,960 --> 00:18:06,720
+I think that's something people don't tend to do maybe as much as they should, because
+
+276
+00:18:06,720 --> 00:18:10,160
+there are still a lot of people who wonder, you know, why should I be worried about this?
+
+277
+00:18:10,720 --> 00:18:13,200
+Is this really just like a Terminator scenario?
+
+278
+00:18:13,200 --> 00:18:16,080
+Is it really something that people are just freaking out about for no reason?
+
+279
+00:18:16,720 --> 00:18:21,520
+I know you're personally concerned about the risk of AGI, but which anti-AGI arguments
+
+280
+00:18:21,520 --> 00:18:23,200
+do you find most compelling?
+
+281
+00:18:24,800 --> 00:18:25,520
+Yeah, so you're right.
+
+282
+00:18:25,520 --> 00:18:33,840
+I do have, I do place a lot of emphasis on that internally, because I think it's such
+
+283
+00:18:33,840 --> 00:18:40,320
+an easy and obvious failure mode of thinking to just start only listening to people who
+
+284
+00:18:40,320 --> 00:18:41,200
+already agree with you.
+
+285
+00:18:42,160 --> 00:18:47,920
+I think it's really important to seek out smart people who disagree with you and try
+
+286
+00:18:47,920 --> 00:18:58,640
+to really listen to what they say and to try to really understand what they mean and come
+
+287
+00:18:58,640 --> 00:19:04,400
+up with strong versions of their arguments and really stress test your stuff, because
+
+288
+00:19:04,400 --> 00:19:08,960
+I don't want us to have a giant problem with AI in the future, right?
+
+289
+00:19:09,520 --> 00:19:16,080
+Like, I am kind of looking for reasons why this isn't as big of a problem, and I would
+
+290
+00:19:16,080 --> 00:19:21,440
+like to be convinced, but at the same time, obviously, I've been out in public talking
+
+291
+00:19:21,440 --> 00:19:28,640
+about this being a problem for a long time, so I have to be very aware of my own psychology,
+
+292
+00:19:28,640 --> 00:19:32,960
+because there's going to be a part of me that's going to want to, sort of my personal
+
+293
+00:19:32,960 --> 00:19:37,120
+identity is bound up with it, and so that's going to be a strong force that's pushing
+
+294
+00:19:37,120 --> 00:19:41,280
+me to not take these things seriously, and so all of these are reasons why it's important
+
+295
+00:19:41,280 --> 00:19:48,320
+to, like, deliberately and consciously actually make an effort to engage with people who disagree
+
+296
+00:19:48,320 --> 00:19:48,640
+with you.
+
+297
+00:19:49,520 --> 00:19:50,560
+I mean, everybody knows this.
+
+298
+00:19:51,440 --> 00:19:56,960
+Well, it's easy to say, and it is a cliche, but so few people actually do it that I think
+
+299
+00:19:56,960 --> 00:20:00,080
+that that dividing line is still worth fighting, yeah.
+
+300
+00:20:00,080 --> 00:20:01,600
+Yeah, that's true.
+
+301
+00:20:01,600 --> 00:20:06,000
+The earlier stuff on the channel, especially, was closely based on ideas from Joukowsky
+
+302
+00:20:06,000 --> 00:20:14,000
+and ideas from Bostrom, which revolve around this framework where you have a takeoff scenario.
+
+303
+00:20:14,000 --> 00:20:22,720
+You have a single agent, a sovereign agent, which is able to act in the world, and you're
+
+304
+00:20:22,720 --> 00:20:28,320
+developing it until it hits a certain level, at which point it starts to increase its capabilities
+
+305
+00:20:28,320 --> 00:20:33,120
+exponentially by acquiring additional computing resources, improving its source code, and
+
+306
+00:20:33,120 --> 00:20:40,320
+so on, until it has a decisive strategic advantage, at which point whatever the objectives
+
+307
+00:20:40,320 --> 00:20:44,640
+are of that system, whatever the utility function of that system is, you're going to end up
+
+308
+00:20:44,640 --> 00:20:48,880
+with a world that's somewhere very highly rated by that utility function, which is probably
+
+309
+00:20:49,760 --> 00:20:58,160
+apocalyptic, and that view is, I think that my view of the situation is more complicated
+
+310
+00:20:58,160 --> 00:21:08,560
+now, because there's a, like I now place more probability on a more multipolar situation
+
+311
+00:21:09,120 --> 00:21:15,040
+where you have, if the development process happens slowly enough, then you actually have
+
+312
+00:21:15,040 --> 00:21:20,720
+a lot of different AI systems in the world with different levels of capability, and so
+
+313
+00:21:20,720 --> 00:21:25,360
+then the question is not like, what happens if you have one super intelligence in a world
+
+314
+00:21:25,360 --> 00:21:31,840
+that is otherwise more or less like our world? It's like, by the time you have a system that's
+
+315
+00:21:31,840 --> 00:21:40,240
+able to take off, what does the rest of the world look like? And that consideration has
+
+316
+00:21:40,240 --> 00:21:48,480
+shifted my perspective a bit, because it's not purely a technical question. It's a much
+
+317
+00:21:48,480 --> 00:21:57,760
+broader question of economics and politics, and you have to do a lot more looking at the world.
+
+318
+00:21:58,640 --> 00:22:05,280
+You can't quite do it all with Greek symbols on a whiteboard in the same way, and so that has,
+
+319
+00:22:06,160 --> 00:22:12,560
+I still place significant probability on some AI system in a research lab somewhere
+
+320
+00:22:12,560 --> 00:22:18,400
+just exploding because somebody has had a brilliant insight. There are plenty of
+
+321
+00:22:18,400 --> 00:22:23,840
+situations where one team just is ahead of everyone else by far enough that the gap doesn't matter,
+
+322
+00:22:24,560 --> 00:22:30,800
+like that nobody else could catch up, but there are also situations where these things
+
+323
+00:22:30,800 --> 00:22:35,200
+develop in lots of places at lots of times, and that whole situation is so much more complicated
+
+324
+00:22:35,200 --> 00:22:39,840
+and harder to think about that it has, oh what do you know, it's spread all my probability
+
+325
+00:22:39,840 --> 00:22:46,080
+distributions wider, so I'm just less certain about those things than I used to. And the thing
+
+326
+00:22:46,080 --> 00:22:52,960
+is that the fundamental problem of not being able to specify what we want and having systems that
+
+327
+00:22:52,960 --> 00:23:00,080
+are going after goals which aren't what we want is not solved by having lots of systems, but it
+
+328
+00:23:00,080 --> 00:23:05,840
+is complicated by it. I was going to say it almost feels as though it's a strict exacerbation of the
+
+329
+00:23:05,840 --> 00:23:10,080
+problem to the degree that, or to the extent that it just creates a situation where now,
+
+330
+00:23:10,800 --> 00:23:14,640
+even if you could solve the inner and outer alignment problems and everything's good
+
+331
+00:23:14,640 --> 00:23:21,920
+technically, you then need to enforce those, you need to force companies and labs to implement
+
+332
+00:23:21,920 --> 00:23:26,160
+those things, which seems to just add a policy layer on top of everything else.
+
+333
+00:23:26,160 --> 00:23:30,640
+Yeah, yeah, because if you have a singleton situation where you just have this one system
+
+334
+00:23:31,040 --> 00:23:34,720
+that explodes, then at least if you get that one right, then you're okay,
+
+335
+00:23:35,600 --> 00:23:40,400
+because it has power over everything else and nobody else, you're not going to be able to
+
+336
+00:23:40,400 --> 00:23:46,880
+launch your own unaligned AGI project in a world that has a singleton AGI,
+
+337
+00:23:47,520 --> 00:23:52,160
+aligned AGI already in existence. So that lets you get around that problem, but yeah,
+
+338
+00:23:52,960 --> 00:23:59,920
+it's a problem. Yeah, well, so given the underlying pessimism that I think a lot of people
+
+339
+00:23:59,920 --> 00:24:04,880
+might detect in the air here, in fairness, I don't think that, I don't think anyone places
+
+340
+00:24:04,880 --> 00:24:09,920
+obviously a hundred percent probability on the disastrous outcome. There's a wide range of
+
+341
+00:24:09,920 --> 00:24:13,280
+disagreement in the community. You have some researchers saying, you know what, I think
+
+342
+00:24:13,280 --> 00:24:18,080
+mostly I'm almost positive the outcome is going to be good. Other people somewhere in the middle,
+
+343
+00:24:18,080 --> 00:24:23,520
+there's been a lot of polling and you highlighted in one of your videos, I think that cumulatively
+
+344
+00:24:23,520 --> 00:24:27,600
+people who have a negative outlook on the stuff, people think that AGI on the whole will be
+
+345
+00:24:27,600 --> 00:24:33,440
+negative for humanity. It's something like 15% of whatever community was polled. And so I'm going
+
+346
+00:24:33,440 --> 00:24:38,640
+to put a big asterisk there. You know, this isn't the one. You're talking about the Grace 2016,
+
+347
+00:24:38,640 --> 00:24:47,200
+that was people who published papers in ICML and NeurIPS. Right. So pretty high quality
+
+348
+00:24:47,200 --> 00:24:50,720
+researchers, but nonetheless, not people focused on alignment, which in fairness,
+
+349
+00:24:50,720 --> 00:24:54,480
+being focused on alignment means you're worried about safety. So it's tough to get a good poll
+
+350
+00:24:54,480 --> 00:25:00,960
+here, but so basically baseline 15% in that poll, maybe that's shifted, but why do you think that
+
+351
+00:25:00,960 --> 00:25:07,680
+something like 80 to 85% of people might view things more optimistically? Like, what do you
+
+352
+00:25:07,680 --> 00:25:16,080
+think from your model of the world, where does that come from? Yeah. So I'm pretty reluctant to
+
+353
+00:25:17,200 --> 00:25:23,680
+Bolverism. I think it's called Bolverism, where you assume that people are wrong and then try to
+
+354
+00:25:23,680 --> 00:25:29,920
+psychoanalyze them to figure out why they might reach that conclusion. It does feel like overfitting.
+
+355
+00:25:29,920 --> 00:25:35,040
+Right. Right. At the beginning of the interview, I was saying you can't reach conclusions about
+
+356
+00:25:35,040 --> 00:25:42,960
+the world by psychoanalyzing people. But I mean, I don't know. I don't know that I have any particular
+
+357
+00:25:42,960 --> 00:25:49,200
+insight here. I think people want to believe that what they're doing is helping. And I think it's
+
+358
+00:25:49,200 --> 00:25:55,360
+also the same kind of selection effect as working on alignment, working on AI at all. A lot of people
+
+359
+00:25:55,360 --> 00:26:00,640
+are working on AI because it seems like an important technology that, and like broadly speaking,
+
+360
+00:26:00,640 --> 00:26:06,240
+technology makes things better. Right. Like I believe that. And I know a lot of people don't.
+
+361
+00:26:07,520 --> 00:26:14,560
+I think broadly speaking, technology makes humans more powerful. It makes humans more able to do
+
+362
+00:26:14,560 --> 00:26:22,560
+things. And so if humans are on the whole a good thing, which we are sort of by definition,
+
+363
+00:26:23,360 --> 00:26:30,880
+in my opinion, like according to human values, humans are pretty good. Yeah. Then something that
+
+364
+00:26:30,880 --> 00:26:38,160
+allows us to get what we want is on the whole a positive thing because people having their
+
+365
+00:26:38,160 --> 00:26:47,840
+preferences satisfied is like a decent definition of what good is. So technology is good. And AI is
+
+366
+00:26:47,840 --> 00:26:53,600
+a form of technology. And so it's probably good. It's like a reasonable prior to have. I actually
+
+367
+00:26:53,600 --> 00:26:58,800
+think 15% is kind of high. I don't know how this looks for other fields. How many automotive
+
+368
+00:26:58,800 --> 00:27:04,480
+engineers think that cars are on the whole bad for the world? I don't know. Probably less than 15%.
+
+369
+00:27:05,360 --> 00:27:09,440
+Though, was this now I'm trying to remember the exact framing of the poll, but was the poll about
+
+370
+00:27:10,240 --> 00:27:16,320
+whether AI itself is good for the world in its current form or the risks of future AGR,
+
+371
+00:27:16,320 --> 00:27:22,080
+the implications of taking this technology to the limit? I think it was about future impacts of AGI,
+
+372
+00:27:22,080 --> 00:27:29,680
+but I think everybody, maybe it's not true. Maybe some people are just making their little narrow AI
+
+373
+00:27:29,680 --> 00:27:35,280
+systems and not thinking about where this is going. But I think everybody has a sense of like,
+
+374
+00:27:36,000 --> 00:27:43,840
+all AI research is broadly in this direction. And after every AI winter, people pretend that it's
+
+375
+00:27:43,840 --> 00:27:51,280
+not, but there's no pretending that this isn't what we're trying to do. Yeah. I guess it's
+
+376
+00:27:52,160 --> 00:27:58,240
+the implications. I'm just thinking, if I were working in biotech or whatever would be called
+
+377
+00:27:58,240 --> 00:28:06,480
+biotech in the 1930s or 1940s, penicillin comes out. And now all of a sudden, it's wonder unambiguously,
+
+378
+00:28:06,480 --> 00:28:11,760
+wonderful thing. You're curing polio. You're doing things with smallpox. And then you turn around,
+
+379
+00:28:11,760 --> 00:28:19,360
+it's 2020. Now people are starting to go tabletop bioweapons are not that far out of the realm of
+
+380
+00:28:19,360 --> 00:28:24,800
+what's possible as technology makes things cheaper. It seems like there might be, I don't know,
+
+381
+00:28:24,800 --> 00:28:29,520
+it's again, this kind of new regime of technological development where the world has
+
+382
+00:28:29,520 --> 00:28:35,760
+so many degrees of freedom. And every time you take a technological step forward, you're opening
+
+383
+00:28:35,760 --> 00:28:40,400
+a whole big subspace that wasn't previously accessible. And because there are far more
+
+384
+00:28:40,400 --> 00:28:45,440
+configurations of the world that are very bad for humans than there are configurations that are good.
+
+385
+00:28:45,440 --> 00:28:49,920
+Those bigger steps tend to be a little riskier. I don't know if that's a fair assessment.
+
+386
+00:28:50,640 --> 00:28:54,400
+Yeah. That fits with my models, I think.
+
+387
+00:28:55,040 --> 00:29:01,120
+Cool. Well, we're too optimists here. Great. Well, I do want to ask a question then more on
+
+388
+00:29:01,120 --> 00:29:04,640
+the technical alignment side, because that's something you focus a lot of your content on.
+
+389
+00:29:04,640 --> 00:29:10,320
+I've learned a lot from your channel on that topic, actually. There are a couple of different
+
+390
+00:29:10,320 --> 00:29:15,280
+schools of thought. It's almost hard to classify and do the taxonomy of these schools of thought,
+
+391
+00:29:15,280 --> 00:29:19,120
+but I'm going to take a shot here and I want you to feel free to shoot me down on this.
+
+392
+00:29:20,080 --> 00:29:25,680
+My sense is that there's one group of people that approaches the alignment problem with a kind of,
+
+393
+00:29:26,480 --> 00:29:30,800
+what I might for want of a better term, call it an engineering mindset. And the philosophy here
+
+394
+00:29:30,800 --> 00:29:37,120
+is something like our best shot at making AI safe is to align it more or less as we build it.
+
+395
+00:29:37,120 --> 00:29:41,840
+So build it a little bit. Notice, oh, the tower's wobbly, so I'm just going to fix it as I go.
+
+396
+00:29:41,840 --> 00:29:48,560
+And then the second is maybe more perfectionistic, a little bit more philosophically mathematical,
+
+397
+00:29:48,560 --> 00:29:53,760
+taking the view that we only get one shot at doing this right, maybe because self-improving
+
+398
+00:29:53,760 --> 00:29:58,880
+systems rapidly reach takeoff velocity and get away from us or whatever reason. I guess maybe
+
+399
+00:29:58,880 --> 00:30:02,560
+I'll stop there. Do you agree with that framing or am I missing something there?
+
+400
+00:30:02,560 --> 00:30:09,040
+I think there's kind of... Okay, so here's a metaphor. Suppose we're building aircraft.
+
+401
+00:30:09,920 --> 00:30:16,880
+We want to build an aircraft that's going to take us to a particular city that's distant from us.
+
+402
+00:30:16,880 --> 00:30:22,880
+That's our goal. And we want to do this safely. And let's say that it's an island and really all
+
+403
+00:30:22,880 --> 00:30:27,760
+that matters is correctly aiming at that island so that when we land there, we land there and not
+
+404
+00:30:27,760 --> 00:30:36,320
+in the ocean. So you've sort of characterized two different approaches, one as being like,
+
+405
+00:30:36,320 --> 00:30:42,640
+let's build this thing perfectly so that it's aimed exactly at the island and then press the
+
+406
+00:30:42,640 --> 00:30:52,560
+button. And another one, which is like, we'll wing it. We'll play it by ear as we go. And
+
+407
+00:30:54,080 --> 00:31:01,040
+in practice, the best way to do it is a combination by which I mean, you do a lot of very,
+
+408
+00:31:01,040 --> 00:31:06,880
+very careful engineering, but you do still expect somebody in the airplane to be adjusting it as you
+
+409
+00:31:06,880 --> 00:31:13,200
+go. But the precise mechanisms by which you are getting feedback about which direction you're
+
+410
+00:31:13,200 --> 00:31:19,440
+headed and controlling and adjusting your trajectory, these are all very carefully
+
+411
+00:31:19,440 --> 00:31:24,640
+planned and engineered things. But you don't try and do all of your planning up front.
+
+412
+00:31:25,200 --> 00:31:30,480
+You plan in exactly the ways in which you're going to adjust. So an approach, whereas the
+
+413
+00:31:30,480 --> 00:31:35,440
+extreme other approach would be like, we're going to take off in our aircraft and then see if we
+
+414
+00:31:35,440 --> 00:31:41,440
+can't design some rudders and ailerons and control systems and radar and whatnot on the way.
+
+415
+00:31:43,200 --> 00:31:46,880
+I think either extreme is foolish. And then there's a question of
+
+416
+00:31:48,960 --> 00:31:54,800
+how you're going to balance these concerns. But I think nobody is actually at either of
+
+417
+00:31:54,800 --> 00:31:58,160
+those extremes. The people who are the most mathematically minded are just saying, look,
+
+418
+00:31:58,160 --> 00:32:04,000
+we need to really understand and have strong assurances that when you turn left on the thing,
+
+419
+00:32:04,000 --> 00:32:13,920
+the plane is actually going to go left. And other people are focused. It's more like,
+
+420
+00:32:13,920 --> 00:32:20,400
+are you focused more on the mathematics of aerodynamics and all of that stuff,
+
+421
+00:32:20,400 --> 00:32:26,720
+or are you interested in the details of avionics? But they're both engineering approaches
+
+422
+00:32:26,720 --> 00:32:30,560
+towards getting a system that's controllable and that does what you want it to do.
+
+423
+00:32:31,360 --> 00:32:37,200
+And what would be some of the more recent innovations on that front? Are there new
+
+424
+00:32:37,200 --> 00:32:40,960
+approaches to alignment that you've become aware of in the last, say, two years that
+
+425
+00:32:40,960 --> 00:32:44,320
+you think are worth highlighting, especially for people who are just trying to orient themselves
+
+426
+00:32:44,320 --> 00:32:52,160
+in the space? I have a really hard time keeping track of time. So I have no idea what came out
+
+427
+00:32:52,160 --> 00:32:57,920
+in the last two years. Sometimes I think things have been around forever and they're actually
+
+428
+00:32:57,920 --> 00:33:02,080
+only a year or two old. That's the time compression effect you were talking about earlier.
+
+429
+00:33:02,080 --> 00:33:08,160
+Yeah, absolutely. The speed with which things can become just part of the landscape,
+
+430
+00:33:09,360 --> 00:33:14,800
+because it's such a young field. But so one of the biggest things that came out,
+
+431
+00:33:16,560 --> 00:33:24,960
+the most recent thing that really shifted my perspective is the work on MESA optimizers.
+
+432
+00:33:24,960 --> 00:33:30,240
+And that is like a whole other class of problem that I didn't even realize we could have.
+
+433
+00:33:32,160 --> 00:33:36,480
+And I'm currently working on a video about it, actually. So maybe I shouldn't say too much.
+
+434
+00:33:36,480 --> 00:33:46,560
+People watch that video when it eventually comes out. But the idea that even if you've
+
+435
+00:33:46,560 --> 00:33:54,720
+perfectly specified the correct objective to your training process, the model that comes
+
+436
+00:33:54,720 --> 00:34:02,640
+out of that training process might be misaligned with that objective. And the so-called inner
+
+437
+00:34:02,640 --> 00:34:12,880
+alignment problem is just a whole other class of issue that honestly makes me kind of pessimistic.
+
+438
+00:34:14,160 --> 00:34:18,400
+Because it was so recent that people have been thinking about this for a long time.
+
+439
+00:34:19,360 --> 00:34:24,880
+And there are people that sort of vaguely hinted at it, that this type of thing might be a problem.
+
+440
+00:34:24,880 --> 00:34:30,240
+But that this is the first time that it's been properly laid out and given a full treatment.
+
+441
+00:34:30,240 --> 00:34:38,960
+And we realized that it is as big a problem as it seems to be, is very unsettling to me.
+
+442
+00:34:39,600 --> 00:34:41,920
+Because what else do we not know that we don't know?
+
+443
+00:34:42,640 --> 00:34:49,760
+Right. I guess my understanding, at least to some degree, Paul Cristiano's philosophy at OpenAI on
+
+444
+00:34:49,760 --> 00:34:56,560
+this is something like, we hope to get to a point where we're leveraging advanced AI systems to help
+
+445
+00:34:56,560 --> 00:35:03,680
+us with alignment, to help us discover some of these unsolved problems. I have no idea whether
+
+446
+00:35:03,680 --> 00:35:10,880
+the threshold of world overtaking AI system falls ahead of or behind the threshold of
+
+447
+00:35:11,840 --> 00:35:16,240
+we have an AI that can help us align AIs. That itself sounds like an interesting problem.
+
+448
+00:35:16,240 --> 00:35:21,920
+But yeah, the MISA optimization thing, at least as I've come to understand it for people who might
+
+449
+00:35:21,920 --> 00:35:28,160
+not be familiar with it quite so much, is just this idea that you have within an overall optimizer,
+
+450
+00:35:28,160 --> 00:35:34,320
+like a deep neural net, you might end up with substructures that are intent on retaining their
+
+451
+00:35:35,280 --> 00:35:39,120
+structure. So you can almost think of it in a way as kind of like a cancer within the human body.
+
+452
+00:35:39,920 --> 00:35:43,200
+You know, to the extent that the human body is some sort of optimizer, some agent,
+
+453
+00:35:44,000 --> 00:35:48,560
+the cancer itself kind of goes, oh, I have my own interests that are separate from the whole. And
+
+454
+00:35:48,560 --> 00:35:53,760
+now I'm going to kind of optimize my way through some pathological strategy of taking over or doing
+
+455
+00:35:53,760 --> 00:35:59,840
+some damage to the process. Well, that's one way of thinking about it. And it's one sort of
+
+456
+00:36:00,880 --> 00:36:06,880
+modality. But it could be the entire, it doesn't need to be a substructure of the agent. It could
+
+457
+00:36:06,880 --> 00:36:15,200
+be the entire agent. And the analogy there is with evolution again. If you think about evolution,
+
+458
+00:36:17,200 --> 00:36:22,400
+if you model it as an optimization process, it has an objective, which is to maximize
+
+459
+00:36:22,400 --> 00:36:26,320
+inclusive fitness or whatever, you know, maximize the number of surviving offspring you have.
+
+460
+00:36:26,880 --> 00:36:37,760
+And yet, when that optimization process produces agents, the goals of those agents are not to
+
+461
+00:36:37,760 --> 00:36:43,680
+maximize their own reproductive fitness, right? People don't, like animals don't want to make
+
+462
+00:36:43,680 --> 00:36:50,560
+a lot of copies of their DNA. They don't even know what DNA is. They want this sort of,
+
+463
+00:36:50,960 --> 00:37:03,040
+this unpredictably derived set of goals, which are a function of the original goal, certainly,
+
+464
+00:37:03,040 --> 00:37:08,480
+but also little contingent things of the training environment and details of different strategies
+
+465
+00:37:08,480 --> 00:37:14,800
+that help them to succeed in the ancestral environment and so on. And that they don't care,
+
+466
+00:37:15,680 --> 00:37:22,000
+right? Like human beings, even when we understand what the goals were of the optimization process
+
+467
+00:37:22,000 --> 00:37:29,760
+that created us, that's not persuasive to us, right? And we will continue to use contraception
+
+468
+00:37:30,320 --> 00:37:36,640
+and whatever else. We go for, we're taking this, because we don't have a goal that's optimized
+
+469
+00:37:36,640 --> 00:37:41,920
+our reproductive fitness. And so our goals include things like eat food that's tasty,
+
+470
+00:37:41,920 --> 00:37:47,200
+which was helpful, but nowadays is actually not necessarily the best thing to do,
+
+471
+00:37:48,640 --> 00:37:52,880
+because we have, because the environment is different. So yeah, so that's the other way
+
+472
+00:37:52,880 --> 00:37:58,000
+of thinking about it, that you have the capacity to end up with a trained network that has goals
+
+473
+00:37:58,000 --> 00:38:04,640
+that are unpredictably different from the goals that you actually specified. And what's more,
+
+474
+00:38:04,880 --> 00:38:09,360
+it then has all of the same convergent instrumental sub-goals that you would expect
+
+475
+00:38:09,360 --> 00:38:15,040
+from any misaligned system. So it's going to want to conceal the fact that its goals are different
+
+476
+00:38:15,040 --> 00:38:20,640
+and manipulate the training process and so on, which makes them especially difficult to deal with,
+
+477
+00:38:21,280 --> 00:38:28,320
+because it's not just that the thing might be misaligned internally, it's that it might be
+
+478
+00:38:28,880 --> 00:38:37,120
+misaligned in such a way that it is actively trying to hide that it's misaligned because
+
+479
+00:38:37,120 --> 00:38:42,720
+it wants to be deployed. This all kind of seems related actually, again, to that time horizon
+
+480
+00:38:42,720 --> 00:38:48,080
+picture that you laid out early on, just in the sense that when you think about the time horizons
+
+481
+00:38:48,080 --> 00:38:54,400
+that evolution acts on, the feedback that we get through evolution happens on the order of
+
+482
+00:38:54,960 --> 00:39:00,080
+generation, 20, 25 years, something like that, every time we reproduce. Whereas the feedback
+
+483
+00:39:00,080 --> 00:39:07,680
+we get from the real world, our own subjective clock time is way faster than that. We get feedback
+
+484
+00:39:07,680 --> 00:39:13,120
+on a really tight loop from our environment, which allows us to, we have so much extra compute
+
+485
+00:39:13,120 --> 00:39:19,120
+capacity above and beyond what would be needed to just hit that main goal of reproducing that it
+
+486
+00:39:19,120 --> 00:39:22,720
+ends up getting deployed in some really random direction. I mean, it's untethered. It's
+
+487
+00:39:22,880 --> 00:39:28,880
+constrained by its environment to some meaningful degree, which allows us to diverge considerably
+
+488
+00:39:28,880 --> 00:39:35,040
+from that evolutionary objective. Yeah. This is part of what makes it
+
+489
+00:39:35,840 --> 00:39:43,280
+kind of an unfair competition, that because we operate so much faster than evolution, we are able
+
+490
+00:39:43,280 --> 00:39:53,200
+to get away from it. We're able to do things that if it were more powerful compared to us,
+
+491
+00:39:53,760 --> 00:40:03,600
+it would really, well, it would stop us from doing. It may yet, right? Evolution hasn't
+
+492
+00:40:03,600 --> 00:40:08,000
+stopped happening. It's just continuing to happen at the same slow pace that it always has.
+
+493
+00:40:08,000 --> 00:40:12,960
+Everything else has sped up to the point where its actions are mostly irrelevant most of the time.
+
+494
+00:40:14,240 --> 00:40:17,120
+But it's still happening. It's the same kind of thing that you would expect
+
+495
+00:40:18,960 --> 00:40:24,320
+when you have a misaligned Mesa optimizer. That Mesa optimizer might be quite powerful and able
+
+496
+00:40:24,320 --> 00:40:30,160
+to think in a tighter loop than something like gradient descent and it's training it,
+
+497
+00:40:30,160 --> 00:40:34,400
+which would allow it to, this is the other thing, is that that in principle would allow it to outperform
+
+498
+00:40:35,520 --> 00:40:42,160
+better aligned optimizers. Then that's really annoying because then gradient descent is going
+
+499
+00:40:42,240 --> 00:40:47,280
+to actively try and select the misaligned Mesa optimizers because they're doing a better job,
+
+500
+00:40:47,280 --> 00:40:52,880
+because they're the only ones who realize that they're in a training system with this particular
+
+501
+00:40:52,880 --> 00:40:58,240
+objective that they're now actively trying to optimize as an instrumental goal towards getting
+
+502
+00:40:58,240 --> 00:41:06,800
+themselves deployed in the real world. It's the same kind of thing. There's the further
+
+503
+00:41:06,800 --> 00:41:10,560
+analogy then that AI systems in general operating much faster than we do.
+
+504
+00:41:13,120 --> 00:41:20,000
+It means that we may end up not powerless, but just not able to make changes fast enough
+
+505
+00:41:20,640 --> 00:41:23,200
+to continue to have control over the way things end up.
+
+506
+00:41:24,240 --> 00:41:29,760
+Right. Yeah. It just sounds like such a generally, hopefully not intractable problem. I mean,
+
+507
+00:41:29,760 --> 00:41:34,320
+I suspect that given a couple of centuries of time, we'd be able to make meaningful progress
+
+508
+00:41:34,320 --> 00:41:41,200
+towards this. We have question mark number of years or hopefully decades. Actually, maybe to
+
+509
+00:41:41,200 --> 00:41:45,600
+wrap things up, because I know you've got to get going, but do you have any thoughts about what
+
+510
+00:41:45,600 --> 00:41:50,080
+somebody was concerned about this topic or just generally intellectually curious about AI
+
+511
+00:41:50,080 --> 00:41:55,920
+alignments, the technical details of all this stuff? How might they start getting involved,
+
+512
+00:41:55,920 --> 00:41:59,520
+start figuring out where the open problems are and what should they read?
+
+513
+00:41:59,600 --> 00:42:02,640
+There's a lot of different things. There are some really good books.
+
+514
+00:42:04,320 --> 00:42:09,840
+I used to recommend Superintelligence. Actually, I would say that it's probably
+
+515
+00:42:09,840 --> 00:42:14,400
+no longer the best first book to read. I would actually read something like
+
+516
+00:42:17,360 --> 00:42:23,120
+Human Compatible, Stuart Russell's book, which came out relatively recently and is a good solid
+
+517
+00:42:23,120 --> 00:42:28,000
+introduction to the area. The other thing is, and I'm going to recommend a book that I haven't
+
+518
+00:42:28,000 --> 00:42:32,000
+finished reading yet, because it came out like the middle of last week, I think,
+
+519
+00:42:33,200 --> 00:42:39,280
+which is The Alignment Problem by Brian Christian. So far, it's very good.
+
+520
+00:42:40,960 --> 00:42:47,920
+That goes over, again, it seems like a good introduction to the field for the general
+
+521
+00:42:47,920 --> 00:42:54,480
+public to get a feel for what the different problems are. If you're already a bit more
+
+522
+00:42:54,480 --> 00:43:00,240
+involved in machine learning and AI stuff, I actually would recommend
+
+523
+00:43:02,160 --> 00:43:10,800
+reading The Alignment Newsletter. I'm just going to say this because I don't think Robert's going
+
+524
+00:43:10,800 --> 00:43:16,400
+to actually plug this, but I desperately want him to. So Rob's been doing a podcast version
+
+525
+00:43:16,400 --> 00:43:20,800
+of The Alignment Newsletter, which is just really great. So just to toss that out there,
+
+526
+00:43:20,880 --> 00:43:24,320
+you can check that out as well. Yeah, so the newsletter is really, really good
+
+527
+00:43:25,120 --> 00:43:32,160
+in that it's a weekly newsletter which summarizes research that's happened in a week. So I think
+
+528
+00:43:32,160 --> 00:43:39,680
+it's really good if you are already a researcher. The problem that I often have when talking to
+
+529
+00:43:42,240 --> 00:43:47,040
+people who actually know a lot about AI and a lot about machine learning is that they don't
+
+530
+00:43:47,760 --> 00:43:53,760
+realize the extent to which this is a real active field that people are publishing a lot of papers
+
+531
+00:43:53,760 --> 00:44:01,120
+in, that it's a growing field. But it's still tiny, right? It's growing, but it's tiny. But
+
+532
+00:44:02,320 --> 00:44:07,120
+these are real problems that you can do computer science on. I think the newsletter is really good
+
+533
+00:44:07,120 --> 00:44:12,800
+at giving you a feel for the kinds of papers that people are writing and the kinds of problems that
+
+534
+00:44:12,800 --> 00:44:18,720
+people are making incremental progress on. Yeah, and actually, so people who've been
+
+535
+00:44:18,720 --> 00:44:22,240
+listening to the podcast, probably the episode I think before this one will be with Rohin Shah,
+
+536
+00:44:22,240 --> 00:44:27,040
+who actually puts out The Alignment Newsletter. So these might be a good kind of back-to-back
+
+537
+00:44:27,040 --> 00:44:31,280
+series to watch or listen to. Yeah, well, Rob, thanks so much. Oh, sorry.
+
+538
+00:44:32,320 --> 00:44:39,600
+No, I was just going to say, it's a weird thing. I actually don't feel weird about
+
+539
+00:44:40,400 --> 00:44:46,480
+plugging the podcast because I take no credit for it. I mean, literally, I just read out the
+
+540
+00:44:46,480 --> 00:44:51,680
+newsletter. But if you're listening to this podcast, you're probably a person who likes to
+
+541
+00:44:51,680 --> 00:44:59,280
+listen to podcasts, a person who likes to take in information through their ears. And I like to think
+
+542
+00:44:59,280 --> 00:45:03,840
+that I do a better job than text-to-speech software can, especially with the technical
+
+543
+00:45:03,840 --> 00:45:07,600
+terminology and stuff. You know what? And let's hope that's always the case.
+
+544
+00:45:08,880 --> 00:45:12,400
+I would do it anyway. There you go. That's the spirit. Yeah,
+
+545
+00:45:12,400 --> 00:45:17,600
+very human. Thanks so much, Rob. Really appreciate it. We'll be leaving links to all those books,
+
+546
+00:45:17,600 --> 00:45:21,600
+actually. And of course, your YouTube channel and the blog post that will accompany this podcast.
+
+547
+00:45:21,600 --> 00:45:25,120
+So if anybody wants to check out Rob's channel, highly recommend it.
+
+548
+00:45:25,120 --> 00:45:28,880
+And really appreciate your time on this one. Thanks so much for having me on the show.
+

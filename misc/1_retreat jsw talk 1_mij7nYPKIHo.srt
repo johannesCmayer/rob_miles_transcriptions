@@ -1,0 +1,8204 @@
+1
+00:00:00,000 --> 00:00:07,880
+The subject of the talk is big picture of alignment, as I see it, I guess.
+
+2
+00:00:07,880 --> 00:00:11,400
+Meta notes first.
+
+3
+00:00:11,400 --> 00:00:15,600
+This is generally just going to be on object level technical problems,
+
+4
+00:00:15,600 --> 00:00:18,400
+so we're not going to be covering field building stuff or anything
+
+5
+00:00:18,400 --> 00:00:19,760
+like that.
+
+6
+00:00:19,760 --> 00:00:22,360
+Nothing about timelines, nothing about takeoff scenarios,
+
+7
+00:00:22,360 --> 00:00:26,560
+just thinking about the alignment problem.
+
+8
+00:00:26,560 --> 00:00:27,680
+Cool.
+
+9
+00:00:27,680 --> 00:00:34,840
+All right, so general outline.
+
+10
+00:00:34,840 --> 00:00:37,720
+I'm guessing we're maybe going to get like half or a third
+
+11
+00:00:37,720 --> 00:00:40,400
+of the way through the second one in the time we have,
+
+12
+00:00:40,400 --> 00:00:44,480
+but major bullets, undetermined optimization.
+
+13
+00:00:44,480 --> 00:00:48,480
+This is mostly going to be about the alignment problem itself, what
+
+14
+00:00:48,480 --> 00:00:50,680
+makes it hard.
+
+15
+00:00:50,680 --> 00:00:56,080
+The second part is going to be just lots of stuff about human values.
+
+16
+00:00:56,080 --> 00:01:00,120
+And then the third part is abstraction and modularity.
+
+17
+00:01:00,120 --> 00:01:05,160
+So first things first.
+
+18
+00:01:05,160 --> 00:01:11,080
+The conceptual question here is, what's hard about alignment?
+
+19
+00:01:16,360 --> 00:01:20,200
+So we're going to be using, the main point of this section
+
+20
+00:01:20,200 --> 00:01:23,560
+is this sort of mental model of underdetermined optimization.
+
+21
+00:01:23,560 --> 00:01:27,560
+So first, a little bit of background on that.
+
+22
+00:01:27,560 --> 00:01:32,280
+When we think about optimization in general,
+
+23
+00:01:32,280 --> 00:01:39,000
+we often picture like we have a peak, and we
+
+24
+00:01:39,000 --> 00:01:42,320
+have some optimizer that's doing gradient descent
+
+25
+00:01:42,320 --> 00:01:44,680
+and getting down to that peak.
+
+26
+00:01:48,200 --> 00:01:52,080
+In practice, that's not a particularly great representation
+
+27
+00:01:52,120 --> 00:01:55,360
+of what optimization problems look like.
+
+28
+00:01:55,360 --> 00:01:57,680
+A better mental model, first of all,
+
+29
+00:01:57,680 --> 00:02:00,320
+obviously everyday optimization, extremely high dimensional.
+
+30
+00:02:00,320 --> 00:02:10,760
+And second, tend to look more like, say, this.
+
+31
+00:02:13,400 --> 00:02:21,040
+So the key point here is that there's not one optimum.
+
+32
+00:02:21,520 --> 00:02:23,480
+There's this whole ridge here.
+
+33
+00:02:23,480 --> 00:02:25,280
+Make sense?
+
+34
+00:02:25,280 --> 00:02:26,000
+Yeah.
+
+35
+00:02:26,000 --> 00:02:31,120
+So it's not like I'm trying to get to one particular point.
+
+36
+00:02:31,120 --> 00:02:35,680
+It's like I'm trying to find any of the points along that ridge.
+
+37
+00:02:35,680 --> 00:02:38,160
+So example of how this looks in real life,
+
+38
+00:02:38,160 --> 00:02:41,160
+maybe I'm thinking about what to make for lunch.
+
+39
+00:02:41,160 --> 00:02:44,240
+Obviously, there are many different things I could make for lunch.
+
+40
+00:02:44,240 --> 00:02:46,920
+For any given thing, there's many ways in which I could make it.
+
+41
+00:02:46,920 --> 00:02:48,420
+Maybe I could chop the onions first.
+
+42
+00:02:48,420 --> 00:02:50,200
+Maybe I could chop the peppers first.
+
+43
+00:02:50,200 --> 00:02:54,320
+Maybe I could start frying the vegetables before I start the rice going.
+
+44
+00:02:54,320 --> 00:02:56,040
+Maybe I could do it in the other order.
+
+45
+00:02:56,040 --> 00:02:58,480
+And all of these end up in basically the same spot.
+
+46
+00:02:58,480 --> 00:03:01,320
+There's lots of different ways to get where we're going.
+
+47
+00:03:05,120 --> 00:03:12,800
+So a simplified but useful mathematical formulation
+
+48
+00:03:12,800 --> 00:03:18,400
+of how to think about this is, rather than our usual mental model
+
+49
+00:03:18,400 --> 00:03:25,960
+of just taking a function and maximizing it, so max on x f of x,
+
+50
+00:03:25,960 --> 00:03:29,200
+we're going to think about sampling an optimum.
+
+51
+00:03:29,200 --> 00:03:38,080
+So we're going to sample x from the probability distribution,
+
+52
+00:03:38,080 --> 00:03:43,000
+x given that x is an opt.
+
+53
+00:03:43,000 --> 00:03:48,080
+So for the picture I drew here, opt would be like this whole ridge.
+
+54
+00:03:48,240 --> 00:03:53,560
+So this is saying we imagine we have some prior distribution on our x's,
+
+55
+00:03:53,560 --> 00:03:56,200
+and then we're specializing to the x's that
+
+56
+00:03:56,200 --> 00:03:58,200
+are optimal for whatever our objective is,
+
+57
+00:03:58,200 --> 00:04:00,440
+and we're picking one of them at random.
+
+58
+00:04:00,440 --> 00:04:02,000
+Make sense?
+
+59
+00:04:02,000 --> 00:04:04,920
+So for purposes of cooking lunch, this would
+
+60
+00:04:04,920 --> 00:04:11,080
+be that I'm effectively randomly picking order in which to do things,
+
+61
+00:04:11,080 --> 00:04:13,280
+conditioned on it actually producing lunch.
+
+62
+00:04:14,040 --> 00:04:15,440
+Right?
+
+63
+00:04:15,440 --> 00:04:17,640
+OK.
+
+64
+00:04:17,640 --> 00:04:32,760
+Important point here, major empirical result in a paper by Mingard et al.
+
+65
+00:04:32,760 --> 00:04:45,000
+This is actually a very good approximation for neural nets.
+
+66
+00:04:54,240 --> 00:05:01,280
+So this idea that I'm just conditioning on what gives me optimal behavior,
+
+67
+00:05:01,320 --> 00:05:05,880
+and then randomly picking one of the things that gives me optimal behavior
+
+68
+00:05:05,880 --> 00:05:09,440
+is a great approximation for neural nets.
+
+69
+00:05:09,440 --> 00:05:12,440
+In this paper, it was vision nets fit with gradient descent.
+
+70
+00:05:12,440 --> 00:05:16,800
+Effectively, what the gradient descent is doing is it's,
+
+71
+00:05:16,800 --> 00:05:19,640
+so we have this random initial distribution of parameters,
+
+72
+00:05:19,640 --> 00:05:22,640
+the initialization distribution, and it's conditioning
+
+73
+00:05:22,640 --> 00:05:27,840
+that distribution on optimal behavior, and then randomly sampling from it.
+
+74
+00:05:27,840 --> 00:05:30,160
+Make sense?
+
+75
+00:05:30,160 --> 00:05:31,280
+All right.
+
+76
+00:05:31,280 --> 00:05:35,720
+So with that conceptual model in mind, I
+
+77
+00:05:35,720 --> 00:05:42,040
+want to talk about some of the things this kind of sample-based optimizer
+
+78
+00:05:42,040 --> 00:05:42,540
+does.
+
+79
+00:05:47,080 --> 00:05:54,720
+First one, let's imagine that we have a neural network solving
+
+80
+00:05:54,720 --> 00:05:57,360
+some sort of vision problem.
+
+81
+00:05:57,360 --> 00:06:03,280
+So let's say the vision problem is like we're
+
+82
+00:06:03,280 --> 00:06:06,760
+going to take pictures with some stuff in them,
+
+83
+00:06:06,760 --> 00:06:11,800
+and we're going to block out part of the picture
+
+84
+00:06:11,800 --> 00:06:15,360
+and have it complete the missing part of the picture.
+
+85
+00:06:15,360 --> 00:06:18,160
+We're going to train to convergence so that it's perfectly
+
+86
+00:06:18,160 --> 00:06:22,320
+predicting what goes in the missing part of each picture in the data set.
+
+87
+00:06:22,320 --> 00:06:24,720
+So that's like the ridge thing here.
+
+88
+00:06:24,720 --> 00:06:26,960
+That's the opt condition.
+
+89
+00:06:26,960 --> 00:06:29,600
+And then we're going to randomly sample something that does that.
+
+90
+00:06:33,240 --> 00:06:39,520
+So we could imagine that two different ways a neural network might do this,
+
+91
+00:06:39,520 --> 00:06:43,480
+and neither of them is going to be realistic, but imagine.
+
+92
+00:06:43,480 --> 00:06:48,000
+One way would be the network directly encodes
+
+93
+00:06:48,000 --> 00:06:52,400
+in its own weights, pixel by pixel, the value of every pixel
+
+94
+00:06:52,400 --> 00:06:54,600
+that it needs to remember.
+
+95
+00:06:54,600 --> 00:06:55,460
+Got that?
+
+96
+00:06:55,460 --> 00:06:58,900
+So there's just like pixels, pixel values directly
+
+97
+00:06:58,900 --> 00:07:02,980
+stored in the weights somewhere.
+
+98
+00:07:02,980 --> 00:07:05,820
+So how many parameters is it going to have to use in order to do that?
+
+99
+00:07:10,540 --> 00:07:12,940
+It means you have pixels that it needs to memorize, right?
+
+100
+00:07:12,940 --> 00:07:16,260
+I mean, it also depends on how many parameters
+
+101
+00:07:16,260 --> 00:07:18,340
+you need to store pixels, but yeah.
+
+102
+00:07:18,340 --> 00:07:19,220
+Yes.
+
+103
+00:07:19,220 --> 00:07:22,620
+Hang on, hold that thought.
+
+104
+00:07:22,620 --> 00:07:30,940
+So approach one needs, let's say, on the order of one
+
+105
+00:07:30,940 --> 00:07:38,940
+param per pixel to store.
+
+106
+00:07:38,940 --> 00:07:40,540
+All right.
+
+107
+00:07:40,540 --> 00:07:41,260
+Approach two.
+
+108
+00:07:41,260 --> 00:07:41,760
+OK.
+
+109
+00:07:45,660 --> 00:07:52,580
+Approach two, the neural net is going to zip all of the images,
+
+110
+00:07:52,580 --> 00:07:56,420
+like just directly run a gzip algorithm on them
+
+111
+00:07:56,420 --> 00:07:59,260
+and store the compressed parameter values.
+
+112
+00:07:59,260 --> 00:08:00,500
+All right.
+
+113
+00:08:00,500 --> 00:08:03,940
+Now how many parameters is it going to need to store all those?
+
+114
+00:08:03,940 --> 00:08:06,700
+How many it needs for the compressed?
+
+115
+00:08:06,700 --> 00:08:08,020
+Less than one parameter.
+
+116
+00:08:08,020 --> 00:08:10,620
+Significantly less than one per pixel.
+
+117
+00:08:10,620 --> 00:08:11,120
+Yeah.
+
+118
+00:08:17,820 --> 00:08:19,940
+Now that is presumably going to have some overhead,
+
+119
+00:08:19,940 --> 00:08:24,540
+like it'll need some fancier machinery for encoding these gzipped images
+
+120
+00:08:24,540 --> 00:08:25,420
+or whatever.
+
+121
+00:08:25,420 --> 00:08:30,340
+But if we have a large set of images, then that's going to get swamped.
+
+122
+00:08:30,340 --> 00:08:33,820
+It's going to use a lot fewer parameters to encode it.
+
+123
+00:08:33,820 --> 00:08:37,700
+Now here's the key idea here.
+
+124
+00:08:37,700 --> 00:08:41,380
+Think about what it's doing with all its other parameters.
+
+125
+00:08:41,380 --> 00:08:45,980
+So if the neural net, in both cases, it's the same neural net
+
+126
+00:08:45,980 --> 00:08:46,820
+that we're training.
+
+127
+00:08:46,820 --> 00:08:49,220
+This is just like two different settings of the parameters
+
+128
+00:08:49,220 --> 00:08:50,620
+which could do the thing.
+
+129
+00:08:50,620 --> 00:09:01,940
+If the neural net has n parameters, n params total,
+
+130
+00:09:01,940 --> 00:09:08,020
+and let's say here it needs k1 of them to store everything,
+
+131
+00:09:08,020 --> 00:09:13,420
+here it needs k2 of them, then leftover in either case
+
+132
+00:09:13,420 --> 00:09:19,820
+will have n minus k1 or n minus k2.
+
+133
+00:09:19,820 --> 00:09:24,020
+Those are our free parameters, roughly speaking.
+
+134
+00:09:24,020 --> 00:09:27,060
+Basically, you can take those leftover parameters
+
+135
+00:09:27,060 --> 00:09:29,780
+and do whatever the hell you want with them.
+
+136
+00:09:29,780 --> 00:09:30,860
+Make sense?
+
+137
+00:09:31,380 --> 00:09:36,820
+If I'm just looking at one particular point somewhere on the ridge,
+
+138
+00:09:36,820 --> 00:09:38,140
+I'm here.
+
+139
+00:09:38,140 --> 00:09:41,460
+And at this point, it's doing something roughly like this.
+
+140
+00:09:41,460 --> 00:09:44,060
+And I'm like, all right, how many different directions
+
+141
+00:09:44,060 --> 00:09:49,260
+can I vary without breaking optimality?
+
+142
+00:09:49,260 --> 00:09:53,380
+So in this picture, I can move along the ridge without breaking optimality.
+
+143
+00:09:53,380 --> 00:09:55,960
+In higher dimensions, there will be lots of different directions
+
+144
+00:09:55,960 --> 00:09:58,420
+I can move without breaking optimality.
+
+145
+00:09:58,420 --> 00:10:04,220
+And there will be something like n minus k1 directions I can move, right?
+
+146
+00:10:04,220 --> 00:10:08,420
+The different way of looking at it, the number of different parameter
+
+147
+00:10:08,420 --> 00:10:12,020
+settings that I can have without breaking optimality
+
+148
+00:10:12,020 --> 00:10:21,340
+using this rough approach is going to be, so number of optimal points
+
+149
+00:10:21,340 --> 00:10:33,540
+is going to be on the order of something exponential in n minus k1, right?
+
+150
+00:10:33,540 --> 00:10:37,500
+So if we were just imagining the parameters were bits,
+
+151
+00:10:37,500 --> 00:10:41,380
+there's going to be like 2 to the n minus k1 settings
+
+152
+00:10:41,380 --> 00:10:43,700
+that all do this same thing.
+
+153
+00:10:43,700 --> 00:10:45,940
+How about for this one?
+
+154
+00:10:45,940 --> 00:10:47,340
+2 to the n minus k1.
+
+155
+00:10:47,340 --> 00:10:49,140
+2 to the something, yeah.
+
+156
+00:10:49,140 --> 00:10:53,260
+Which is significantly bigger because k2 is significantly smaller.
+
+157
+00:10:53,260 --> 00:10:54,780
+There you go.
+
+158
+00:10:54,780 --> 00:11:01,660
+If k2 is much smaller than k1, then what this is saying
+
+159
+00:11:01,660 --> 00:11:07,180
+is that there are a lot more points, a lot more optima,
+
+160
+00:11:07,180 --> 00:11:08,980
+which do the more compressed thing.
+
+161
+00:11:12,900 --> 00:11:14,260
+So let's zoom out for a moment.
+
+162
+00:11:14,260 --> 00:11:21,860
+The high level form of the claim here is that compression,
+
+163
+00:11:21,860 --> 00:11:25,340
+compression of the data that this thing needs to memorize,
+
+164
+00:11:25,340 --> 00:11:28,620
+happens just sort of magically by default.
+
+165
+00:11:28,620 --> 00:11:31,220
+We're not saying that it needs to compress it or anything.
+
+166
+00:11:31,220 --> 00:11:33,740
+We're just saying, look, pick a random set
+
+167
+00:11:33,740 --> 00:11:38,460
+of parameters which exactly reproduces all the data.
+
+168
+00:11:38,460 --> 00:11:42,060
+And by default, it will compress that data
+
+169
+00:11:42,060 --> 00:11:46,460
+because we have exponentially more optima, which
+
+170
+00:11:46,460 --> 00:11:49,020
+do more compression.
+
+171
+00:11:49,020 --> 00:11:49,940
+Does that make sense?
+
+172
+00:11:49,940 --> 00:11:50,420
+Yeah.
+
+173
+00:11:50,420 --> 00:11:52,340
+So it's a bias toward compressed models.
+
+174
+00:11:52,340 --> 00:11:57,580
+Like, the more the model compresses, the more equivalent model
+
+175
+00:11:57,580 --> 00:12:00,260
+like that will be in the optimal reach.
+
+176
+00:12:00,260 --> 00:12:02,420
+So if you're just sampling, you expect that you're
+
+177
+00:12:02,420 --> 00:12:04,460
+going to sample some of it.
+
+178
+00:12:04,460 --> 00:12:04,960
+Yep.
+
+179
+00:12:04,960 --> 00:12:07,620
+So like, every extra bit you're able to compress,
+
+180
+00:12:07,620 --> 00:12:11,340
+you basically double how much of the parameter space you can take out.
+
+181
+00:12:11,340 --> 00:12:12,620
+All right.
+
+182
+00:12:12,620 --> 00:12:13,740
+OK.
+
+183
+00:12:13,740 --> 00:12:15,340
+What's the point of this?
+
+184
+00:12:15,340 --> 00:12:20,420
+The point of this is that just these simple things
+
+185
+00:12:20,420 --> 00:12:25,220
+about the structure of the problem space
+
+186
+00:12:25,220 --> 00:12:29,740
+give us surprisingly strong statements about what solutions
+
+187
+00:12:29,740 --> 00:12:32,660
+will usually look like.
+
+188
+00:12:32,660 --> 00:12:37,060
+What we're saying here is that the exponentially vast majority of solutions
+
+189
+00:12:37,100 --> 00:12:40,740
+are compressing this data about as much as they possibly can.
+
+190
+00:12:43,260 --> 00:12:46,740
+And that's the intuition.
+
+191
+00:12:46,740 --> 00:12:48,580
+That's the sort of intuition that I want
+
+192
+00:12:48,580 --> 00:12:53,820
+to carry over to thinking about high-dimensional problems
+
+193
+00:12:53,820 --> 00:12:55,140
+more generally.
+
+194
+00:12:55,140 --> 00:12:59,740
+The key pieces here are, one, we're operating in a high-dimensional space.
+
+195
+00:12:59,740 --> 00:13:03,940
+So just like in general, if anything is different between two approaches,
+
+196
+00:13:03,940 --> 00:13:07,660
+it's going to be exponentially different.
+
+197
+00:13:07,660 --> 00:13:14,900
+And two, the key things here are more properties of the problem space
+
+198
+00:13:14,900 --> 00:13:19,300
+than properties of the particular optimizer we're using.
+
+199
+00:13:19,300 --> 00:13:24,460
+We didn't, I mentioned this paper that had this empirical finding
+
+200
+00:13:24,460 --> 00:13:26,940
+about gradient descent on neural nets.
+
+201
+00:13:26,940 --> 00:13:31,140
+But even ignoring that, we can still say, look,
+
+202
+00:13:31,140 --> 00:13:35,740
+the exponentially vast majority of points which solve this problem,
+
+203
+00:13:35,740 --> 00:13:38,940
+points which achieve optimality, do a bunch of compression.
+
+204
+00:13:38,940 --> 00:13:43,340
+So a priori, we should expect that it's overwhelmingly likely
+
+205
+00:13:43,340 --> 00:13:45,180
+we're going to end up at one of those.
+
+206
+00:13:45,180 --> 00:13:45,680
+Yes?
+
+207
+00:13:45,680 --> 00:13:47,540
+Can I reframe that?
+
+208
+00:13:47,540 --> 00:13:49,540
+Because it depends on how you're sampling.
+
+209
+00:13:49,540 --> 00:13:52,700
+But can I reframe that as this sort of a burden of proof
+
+210
+00:13:52,700 --> 00:13:56,860
+on proving that you're not in the approach 2 case,
+
+211
+00:13:56,860 --> 00:13:58,380
+in the more compressed case?
+
+212
+00:13:58,380 --> 00:14:01,060
+Because by default, you should expect, well, there's way more of these.
+
+213
+00:14:01,060 --> 00:14:01,560
+Yes?
+
+214
+00:14:01,560 --> 00:14:02,640
+I'm going to sample these.
+
+215
+00:14:02,640 --> 00:14:04,780
+So you should have a particularly strong reason
+
+216
+00:14:04,780 --> 00:14:06,860
+to expect that you're not going to get there.
+
+217
+00:14:06,860 --> 00:14:07,360
+Correct.
+
+218
+00:14:07,360 --> 00:14:09,980
+So which means you need a lot of probability mass
+
+219
+00:14:09,980 --> 00:14:14,340
+in these few points that are overcrowded to argue,
+
+220
+00:14:14,340 --> 00:14:15,540
+no, it's not going to happen.
+
+221
+00:14:15,540 --> 00:14:16,260
+Correct.
+
+222
+00:14:16,260 --> 00:14:19,420
+Another way you could put it would be that if you
+
+223
+00:14:19,420 --> 00:14:22,020
+want to get one of these rarer points, then
+
+224
+00:14:22,020 --> 00:14:25,380
+you actually need to implicitly be doing a whole bunch of optimization
+
+225
+00:14:25,380 --> 00:14:27,260
+for that.
+
+226
+00:14:27,260 --> 00:14:29,740
+Yeah, so if you're hitting those points,
+
+227
+00:14:29,740 --> 00:14:33,020
+then you're implicitly optimizing for something
+
+228
+00:14:33,020 --> 00:14:36,460
+which was not the thing you thought you were optimizing for.
+
+229
+00:14:36,460 --> 00:14:38,460
+Make sense?
+
+230
+00:14:38,460 --> 00:14:40,100
+All right, let's go to some.
+
+231
+00:14:40,100 --> 00:14:45,380
+Now, I'm going to do a similar example exercise, which
+
+232
+00:14:45,380 --> 00:14:47,620
+is a little more alignment flavored.
+
+233
+00:14:47,620 --> 00:14:48,820
+Do you have another question?
+
+234
+00:14:48,820 --> 00:14:51,620
+Yeah, when you say it doesn't depend on the optimizer,
+
+235
+00:14:51,620 --> 00:14:53,460
+it depends on the problem space.
+
+236
+00:14:53,460 --> 00:14:56,140
+I feel like there's an aspect of that.
+
+237
+00:14:56,140 --> 00:14:58,340
+I see what you're trying to say, but also,
+
+238
+00:14:58,340 --> 00:15:01,780
+there's a point that it does depend somewhat on the optimizer,
+
+239
+00:15:01,780 --> 00:15:08,060
+because the optimizer needs to be able to access this thing of the problem
+
+240
+00:15:08,060 --> 00:15:08,660
+space.
+
+241
+00:15:08,660 --> 00:15:10,780
+It's a property of problem space that the optimizer
+
+242
+00:15:10,780 --> 00:15:12,580
+needs to be able to leverage it.
+
+243
+00:15:12,580 --> 00:15:17,460
+So you can have bad optimizers who can't do that.
+
+244
+00:15:17,460 --> 00:15:20,580
+Well, so our only assumption on the optimizer
+
+245
+00:15:20,580 --> 00:15:23,700
+here is that it finds an optimal point.
+
+246
+00:15:23,700 --> 00:15:25,140
+That's the central thing.
+
+247
+00:15:25,140 --> 00:15:26,940
+As long as it finds an optimal point, then
+
+248
+00:15:26,980 --> 00:15:29,340
+we can talk about statistics of the optimal points.
+
+249
+00:15:34,220 --> 00:15:36,220
+All right, so exercise.
+
+250
+00:15:40,060 --> 00:15:52,780
+Let's say I have a robot that has 100 time steps, 100 time steps,
+
+251
+00:15:52,780 --> 00:16:10,260
+and at each time can take one of four actions.
+
+252
+00:16:15,540 --> 00:16:17,380
+It can gain $1.
+
+253
+00:16:17,380 --> 00:16:21,420
+So it pushes a button, gets $1.
+
+254
+00:16:21,420 --> 00:16:22,300
+It can do nothing.
+
+255
+00:16:28,180 --> 00:16:43,700
+It can buy an apple for $1, or it can buy a banana.
+
+256
+00:16:43,700 --> 00:16:44,180
+Also $1.
+
+257
+00:16:44,180 --> 00:17:00,940
+Yep, and rules, well, first of all, goal,
+
+258
+00:17:00,940 --> 00:17:08,620
+end up with at least three apples.
+
+259
+00:17:08,620 --> 00:17:29,260
+Rules, and rule, if the final dollar balance is less than 0,
+
+260
+00:17:29,260 --> 00:17:30,220
+then it gets nothing.
+
+261
+00:17:32,900 --> 00:17:33,780
+What was that?
+
+262
+00:17:33,780 --> 00:17:34,300
+AUDIENCE 2.
+
+263
+00:17:34,300 --> 00:17:35,900
+Sell the strokes.
+
+264
+00:17:35,900 --> 00:17:38,940
+Well, the only important point about the get nothing case
+
+265
+00:17:38,940 --> 00:17:40,660
+is that it will not get its three apples,
+
+266
+00:17:40,660 --> 00:17:42,340
+even if it ordered them.
+
+267
+00:17:42,340 --> 00:17:47,620
+All right, so now the question is, basically,
+
+268
+00:17:47,620 --> 00:17:50,900
+what do the solutions to this look like?
+
+269
+00:17:50,900 --> 00:17:52,380
+Similar to the previous one, we're
+
+270
+00:17:52,380 --> 00:17:56,500
+looking for a statistical point of view, what
+
+271
+00:17:56,500 --> 00:17:58,540
+most of the solutions look like.
+
+272
+00:17:58,540 --> 00:18:01,580
+And in particular, I'm wondering,
+
+273
+00:18:01,580 --> 00:18:04,700
+how much is it going to smash that button to get $1,
+
+274
+00:18:04,700 --> 00:18:08,140
+compared to how much it's going to do nothing in a typical case?
+
+275
+00:18:08,140 --> 00:18:08,620
+AUDIENCE 2.
+
+276
+00:18:08,620 --> 00:18:14,940
+And can it do something conditional on what it did last time?
+
+277
+00:18:14,940 --> 00:18:17,940
+So we're not, we don't really care about the specific strategy.
+
+278
+00:18:17,940 --> 00:18:22,780
+Like, it's been, yep, can do any sequence it wants.
+
+279
+00:18:22,780 --> 00:18:26,820
+Well, then the question is, well, strictly speaking,
+
+280
+00:18:26,820 --> 00:18:30,500
+to accomplish its goal, it starts with $0.
+
+281
+00:18:30,500 --> 00:18:31,580
+Yep, starts with $0.
+
+282
+00:18:31,580 --> 00:18:34,660
+So it needs to gain $1 three times.
+
+283
+00:18:34,660 --> 00:18:35,160
+Yep.
+
+284
+00:18:35,160 --> 00:18:36,940
+It needs to buy an apple three times.
+
+285
+00:18:36,940 --> 00:18:37,440
+Yep.
+
+286
+00:18:37,440 --> 00:18:39,300
+So that's six times that.
+
+287
+00:18:39,300 --> 00:18:41,980
+And then there's one more condition in order to achieve its goal.
+
+288
+00:18:41,980 --> 00:18:42,980
+Yeah, and it shouldn't.
+
+289
+00:18:42,980 --> 00:18:49,140
+And so the number of, like, it shouldn't spend more than,
+
+290
+00:18:49,140 --> 00:18:52,820
+like, for every gain, no, for every spend, it should have a gain.
+
+291
+00:18:52,820 --> 00:18:53,460
+Yep.
+
+292
+00:18:53,460 --> 00:18:54,220
+So the.
+
+293
+00:18:54,220 --> 00:18:56,540
+At least, not necessarily before, but even after that.
+
+294
+00:18:56,540 --> 00:18:57,700
+Yep, so let me repeat that.
+
+295
+00:18:57,700 --> 00:19:00,860
+In order to achieve the goal, the big constraints
+
+296
+00:19:00,860 --> 00:19:04,540
+are it needs to hit the dollar button three times,
+
+297
+00:19:04,540 --> 00:19:06,780
+hit the apple button three times.
+
+298
+00:19:06,780 --> 00:19:10,780
+And then with whatever else, whatever other actions it has left,
+
+299
+00:19:10,780 --> 00:19:14,140
+it needs to hit the dollar button at least as many times
+
+300
+00:19:14,140 --> 00:19:15,460
+as it hits these two buttons.
+
+301
+00:19:15,460 --> 00:19:18,980
+So basically, buying stuff costs two actions.
+
+302
+00:19:18,980 --> 00:19:20,340
+Buying stuff costs two actions.
+
+303
+00:19:20,340 --> 00:19:20,980
+Explain.
+
+304
+00:19:20,980 --> 00:19:25,860
+Because you buy stuff, like, after you take the sixth action,
+
+305
+00:19:25,860 --> 00:19:30,780
+like we described out of the thing, if you buy something,
+
+306
+00:19:30,780 --> 00:19:33,620
+you need to get the dollar at some time.
+
+307
+00:19:33,620 --> 00:19:37,060
+And so you can count that as saying, well, I spent two actions,
+
+308
+00:19:37,060 --> 00:19:39,620
+because there's at least one action that's going to be dollar,
+
+309
+00:19:39,620 --> 00:19:41,340
+so that's not a parameter I can buy.
+
+310
+00:19:41,340 --> 00:19:42,180
+Yep.
+
+311
+00:19:42,180 --> 00:19:43,860
+All right.
+
+312
+00:19:43,860 --> 00:19:46,660
+So statistically, what are the solutions going to look like?
+
+313
+00:19:46,660 --> 00:19:49,780
+How often are we typically going to be hitting that dollar button compared
+
+314
+00:19:49,780 --> 00:19:51,220
+to the do nothing button?
+
+315
+00:19:51,220 --> 00:19:55,780
+If we just pick a solution at random, that satisfies the goal.
+
+316
+00:19:55,780 --> 00:19:58,580
+What's the relationship between the number of parameters
+
+317
+00:19:58,580 --> 00:20:02,060
+and a given policy?
+
+318
+00:20:02,060 --> 00:20:07,940
+So for purposes of this problem, it's not getting any data midstream,
+
+319
+00:20:07,940 --> 00:20:10,060
+so we don't have to think of it as a policy.
+
+320
+00:20:10,060 --> 00:20:13,340
+We can just say it's picking 100 actions that it's going to take.
+
+321
+00:20:13,340 --> 00:20:13,840
+OK.
+
+322
+00:20:13,840 --> 00:20:18,260
+So it's like 4 to the 100.
+
+323
+00:20:18,260 --> 00:20:18,760
+Yep.
+
+324
+00:20:18,760 --> 00:20:21,700
+So our initial search space is 4 to the 100.
+
+325
+00:20:21,700 --> 00:20:33,280
+And then anything that hits 3 or 4 more often than it hits 1 is out.
+
+326
+00:20:33,280 --> 00:20:33,780
+Yep.
+
+327
+00:20:33,780 --> 00:20:35,700
+You chop off that whole section of the space.
+
+328
+00:20:35,700 --> 00:20:36,340
+Correct.
+
+329
+00:20:36,340 --> 00:20:39,540
+Which is how much of the space is there?
+
+330
+00:20:39,540 --> 00:20:40,540
+That's a good question.
+
+331
+00:20:40,540 --> 00:20:41,040
+Yeah.
+
+332
+00:20:44,500 --> 00:20:48,460
+If you just take another 3, 1 of those, you
+
+333
+00:20:48,460 --> 00:20:51,940
+have some number of apples, some number of bananas,
+
+334
+00:20:51,940 --> 00:20:55,420
+and some number of gain 1 dollars in the 100.
+
+335
+00:20:55,420 --> 00:20:56,420
+Yep.
+
+336
+00:20:56,420 --> 00:21:04,900
+And I guess about a third of them are going to have,
+
+337
+00:21:04,900 --> 00:21:10,380
+like the gain 1 dollar should be larger than the sum of the other two.
+
+338
+00:21:10,380 --> 00:21:11,380
+Yeah.
+
+339
+00:21:11,380 --> 00:21:14,340
+So is it a third of the space for each?
+
+340
+00:21:14,340 --> 00:21:16,820
+It's quite a bit more than that.
+
+341
+00:21:16,820 --> 00:21:19,820
+It's confusing me that there are two actions you can take that spend money
+
+342
+00:21:19,820 --> 00:21:25,140
+and only one that, like we could simplify it and say forget buying bananas.
+
+343
+00:21:25,140 --> 00:21:29,060
+We just have gain 1 dollar and buying an apple.
+
+344
+00:21:29,060 --> 00:21:30,780
+Yep.
+
+345
+00:21:30,780 --> 00:21:38,020
+So in that case, my gut says that it should be 50-50, right?
+
+346
+00:21:38,020 --> 00:21:40,740
+Half the search space should involve being in one of those.
+
+347
+00:21:40,740 --> 00:21:42,020
+That is true.
+
+348
+00:21:42,020 --> 00:21:44,700
+Two things I'll warn you of here.
+
+349
+00:21:44,700 --> 00:21:47,420
+I very purposefully put two things here.
+
+350
+00:21:47,420 --> 00:21:49,540
+Down the line, we're going to want to consider cases
+
+351
+00:21:49,540 --> 00:21:51,220
+with more than two things.
+
+352
+00:21:51,220 --> 00:21:56,020
+Because part of the point of gaining resources
+
+353
+00:21:56,020 --> 00:21:58,900
+is that there's lots of things you can do with them.
+
+354
+00:21:58,900 --> 00:22:00,580
+And that turns out to be important here.
+
+355
+00:22:00,580 --> 00:22:03,820
+It would be 50-50, which will have half the search space of like,
+
+356
+00:22:03,820 --> 00:22:06,420
+you can't do that because you get nothing.
+
+357
+00:22:06,420 --> 00:22:09,700
+But because there's two different things you can get,
+
+358
+00:22:09,700 --> 00:22:14,580
+that is a square of search space instead of a line of search space,
+
+359
+00:22:14,580 --> 00:22:16,060
+as it were, right?
+
+360
+00:22:16,060 --> 00:22:23,740
+It's like you're not twice as likely to hit one of those
+
+361
+00:22:23,740 --> 00:22:26,620
+as you are to gain a dollar.
+
+362
+00:22:26,620 --> 00:22:31,980
+Those two represent a quadratic chunk, right?
+
+363
+00:22:31,980 --> 00:22:33,500
+It's more than that.
+
+364
+00:22:33,500 --> 00:22:36,420
+So there's something like the $2.
+
+365
+00:22:36,420 --> 00:22:38,740
+Basically, when you have two do-nothings,
+
+366
+00:22:38,740 --> 00:22:46,820
+this can be replaced by do-nothing gain one dollar,
+
+367
+00:22:46,820 --> 00:22:49,500
+and gain one dollar do-nothing.
+
+368
+00:22:49,500 --> 00:22:55,140
+But if you don't have do-nothings in them,
+
+369
+00:22:55,140 --> 00:22:58,420
+you can gain one dollar, gain one dollar, gain one dollar,
+
+370
+00:22:58,420 --> 00:23:02,820
+buy an apple, and gain one dollar, buy a banana.
+
+371
+00:23:02,820 --> 00:23:05,420
+And so there's something like there's twice as much.
+
+372
+00:23:05,420 --> 00:23:10,340
+Like, gain one dollar is privileged because every buy an apple
+
+373
+00:23:10,340 --> 00:23:15,820
+will necessarily put a gain one dollar there.
+
+374
+00:23:15,820 --> 00:23:20,780
+And so in numbers of like, if you look at all the number of possibilities,
+
+375
+00:23:20,780 --> 00:23:26,540
+you have significantly more ones, like gain one dollar in expectation.
+
+376
+00:23:26,540 --> 00:23:27,700
+All right.
+
+377
+00:23:27,700 --> 00:23:31,060
+I think you're getting at the right idea here.
+
+378
+00:23:31,700 --> 00:23:36,660
+Let me reframe it a little bit.
+
+379
+00:23:36,660 --> 00:23:39,900
+So let's imagine that we use our first six actions
+
+380
+00:23:39,900 --> 00:23:42,340
+to do the whole get $3 and buy three apples thing.
+
+381
+00:23:42,340 --> 00:23:43,420
+So that's done.
+
+382
+00:23:43,420 --> 00:23:48,340
+We have 94 actions left and $0.
+
+383
+00:23:48,340 --> 00:23:51,420
+And without loss of generality, let's just
+
+384
+00:23:51,420 --> 00:23:55,060
+assume that we're always maintaining a positive balance.
+
+385
+00:23:55,060 --> 00:23:59,780
+We can do that because it really doesn't matter what order the actions are in.
+
+386
+00:23:59,780 --> 00:24:01,380
+Make sense?
+
+387
+00:24:01,380 --> 00:24:05,380
+So for our next move, we have two options.
+
+388
+00:24:05,380 --> 00:24:07,940
+We can either gain a dollar or do nothing.
+
+389
+00:24:07,940 --> 00:24:10,900
+But clearly, you could buy an apple and get the dollar later,
+
+390
+00:24:10,900 --> 00:24:12,180
+but let's say we don't do that.
+
+391
+00:24:12,180 --> 00:24:16,660
+Yeah, that's the point of this assume we're maintaining a positive balance.
+
+392
+00:24:16,660 --> 00:24:19,060
+Like, when we assume we're maintaining a positive balance,
+
+393
+00:24:19,060 --> 00:24:21,900
+we're saying, look, if at any point the balance was negative,
+
+394
+00:24:21,900 --> 00:24:26,140
+we're going to reorder our actions because nothing here
+
+395
+00:24:26,140 --> 00:24:28,740
+cares about the order of the actions.
+
+396
+00:24:29,740 --> 00:24:34,620
+So our first action, we're either gaining a dollar or doing nothing.
+
+397
+00:24:34,620 --> 00:24:36,260
+How about our second action?
+
+398
+00:24:36,260 --> 00:24:37,660
+Yeah, it depends on what you get.
+
+399
+00:24:37,660 --> 00:24:39,420
+You can do it any way you want.
+
+400
+00:24:39,420 --> 00:24:41,540
+If you get a dollar.
+
+401
+00:24:41,540 --> 00:24:42,140
+All right.
+
+402
+00:24:42,140 --> 00:24:44,620
+If you do nothing, you have only two options.
+
+403
+00:24:44,620 --> 00:24:46,860
+So we have two, two, 94.
+
+404
+00:24:46,860 --> 00:24:48,500
+Is that right?
+
+405
+00:24:48,500 --> 00:24:53,740
+So your first action, it's either gain a dollar or do nothing.
+
+406
+00:24:53,740 --> 00:24:57,900
+Your second action, if you're in this subtree, you have four options.
+
+407
+00:24:57,900 --> 00:25:01,740
+If you're in this subtree, you have two options.
+
+408
+00:25:01,740 --> 00:25:04,180
+Oh, you still have that, OK.
+
+409
+00:25:04,180 --> 00:25:07,500
+Mm-hmm, mm-hmm, mm-hmm.
+
+410
+00:25:07,500 --> 00:25:08,020
+Make sense?
+
+411
+00:25:08,020 --> 00:25:09,260
+Yeah.
+
+412
+00:25:09,260 --> 00:25:12,540
+And then, of course, you can recurse.
+
+413
+00:25:12,540 --> 00:25:17,220
+Conceptually here, what's happening is every time I take a dollar,
+
+414
+00:25:17,220 --> 00:25:22,660
+I'm buying myself, I'm basically doubling the number of options
+
+415
+00:25:22,660 --> 00:25:25,500
+I'll have at a later time step.
+
+416
+00:25:25,500 --> 00:25:26,860
+Make sense?
+
+417
+00:25:26,860 --> 00:25:33,620
+So basically, any time I'm doing nothing, I could instead spend a dollar
+
+418
+00:25:33,620 --> 00:25:36,580
+and have twice as many options later.
+
+419
+00:25:36,580 --> 00:25:37,080
+All right.
+
+420
+00:25:37,080 --> 00:25:41,500
+Is 2 to the 4, 9 to the 7 more likely?
+
+421
+00:25:41,500 --> 00:25:42,460
+Not quite.
+
+422
+00:25:42,460 --> 00:25:46,500
+So there's still the issue of in order for that actually to do anything,
+
+423
+00:25:46,500 --> 00:25:52,100
+you have to use half your actions to actually buy stuff or do something.
+
+424
+00:25:52,100 --> 00:25:56,220
+And then there's the thing of by choosing to not do nothing,
+
+425
+00:25:56,220 --> 00:25:58,100
+I'm also losing an option at this time step.
+
+426
+00:26:00,900 --> 00:26:06,100
+So it is going to be non-trivial to do the math
+
+427
+00:26:06,100 --> 00:26:09,380
+if you want to do the math on this, which I'm not going to right now.
+
+428
+00:26:09,380 --> 00:26:16,540
+But hopefully, you're convinced that the exponentially vast majority
+
+429
+00:26:16,540 --> 00:26:20,860
+of solutions will hit the dollar button more often
+
+430
+00:26:20,860 --> 00:26:22,660
+than they'll hit the do nothing button.
+
+431
+00:26:22,660 --> 00:26:24,140
+Does that seem true?
+
+432
+00:26:24,140 --> 00:26:24,640
+Yeah.
+
+433
+00:26:24,640 --> 00:26:27,100
+That are subject to the constraints, basically.
+
+434
+00:26:27,100 --> 00:26:30,140
+Subject to x's and z's, options.
+
+435
+00:26:30,140 --> 00:26:33,100
+Rob, do you buy this?
+
+436
+00:26:33,100 --> 00:26:33,600
+Yeah.
+
+437
+00:26:33,600 --> 00:26:34,100
+Yeah.
+
+438
+00:26:34,100 --> 00:26:36,740
+So conditioning on optimality.
+
+439
+00:26:36,740 --> 00:26:37,460
+Yep.
+
+440
+00:26:37,460 --> 00:26:38,140
+Good.
+
+441
+00:26:38,140 --> 00:26:42,100
+And then your constraint actually makes it even more,
+
+442
+00:26:42,100 --> 00:26:45,900
+because you can just, like you care about the order,
+
+443
+00:26:45,900 --> 00:26:47,260
+like you consider the order.
+
+444
+00:26:47,260 --> 00:26:49,300
+And so that leaves you more option.
+
+445
+00:26:49,300 --> 00:26:51,260
+Like you could get the dollar after.
+
+446
+00:26:51,260 --> 00:26:53,900
+You still have to do it, but you need to get the dollar after.
+
+447
+00:26:54,900 --> 00:26:56,620
+But you don't have to have done this thing
+
+448
+00:26:56,620 --> 00:26:58,340
+of getting all your apples on the front.
+
+449
+00:26:58,340 --> 00:27:00,180
+Right.
+
+450
+00:27:00,180 --> 00:27:01,540
+All right.
+
+451
+00:27:01,540 --> 00:27:04,820
+So key things to take out of this idea.
+
+452
+00:27:08,020 --> 00:27:11,420
+This is about instrumental convergence.
+
+453
+00:27:11,420 --> 00:27:21,980
+The form of the claim is if we just look at a space of possible behaviors,
+
+454
+00:27:21,980 --> 00:27:27,980
+a space of possible strategies, the exponentially vast majority of them,
+
+455
+00:27:27,980 --> 00:27:37,260
+which achieve some goal, will acquire resources, pursue resources.
+
+456
+00:27:37,260 --> 00:27:40,460
+I trust it would be more than Oscar really needed.
+
+457
+00:27:40,460 --> 00:27:41,580
+That's the real key here.
+
+458
+00:27:41,580 --> 00:27:42,260
+Yes.
+
+459
+00:27:42,260 --> 00:27:43,980
+We really only needed $3.
+
+460
+00:27:43,980 --> 00:27:48,300
+This thing is going to end up acquiring more like somewhere between $20 and $40,
+
+461
+00:27:48,300 --> 00:27:50,620
+I think.
+
+462
+00:27:50,660 --> 00:27:55,460
+So like by default, the thing will acquire far more resources than it needs,
+
+463
+00:27:55,460 --> 00:28:00,180
+just because that gives it so many more degrees of freedom, which in turn
+
+464
+00:28:00,180 --> 00:28:05,100
+means that like a much larger chunk of the solution space
+
+465
+00:28:05,100 --> 00:28:08,620
+is going to involve these resource acquiring strategies.
+
+466
+00:28:08,620 --> 00:28:09,180
+Make sense?
+
+467
+00:28:09,180 --> 00:28:11,780
+And I guess the relevant thing, like the thing you keep not
+
+468
+00:28:11,780 --> 00:28:14,700
+saying that it wants to do that.
+
+469
+00:28:14,700 --> 00:28:15,200
+Nope.
+
+470
+00:28:15,200 --> 00:28:16,140
+It's not an optimized legislation.
+
+471
+00:28:16,140 --> 00:28:16,420
+Nope.
+
+472
+00:28:16,420 --> 00:28:17,980
+I did not say it wants to do that.
+
+473
+00:28:17,980 --> 00:28:19,140
+You keep not saying.
+
+474
+00:28:19,140 --> 00:28:19,820
+Yes.
+
+475
+00:28:19,820 --> 00:28:20,340
+Exactly.
+
+476
+00:28:20,340 --> 00:28:20,980
+It doesn't want.
+
+477
+00:28:20,980 --> 00:28:24,740
+It's just there's so much, so many more that you're just probably
+
+478
+00:28:24,740 --> 00:28:26,140
+going to get a solution like that.
+
+479
+00:28:26,140 --> 00:28:27,060
+Bingo.
+
+480
+00:28:27,060 --> 00:28:27,560
+You've.
+
+481
+00:28:27,560 --> 00:28:29,020
+It's like time trial stuff.
+
+482
+00:28:29,020 --> 00:28:29,540
+Yep.
+
+483
+00:28:29,540 --> 00:28:30,620
+Very similar.
+
+484
+00:28:30,620 --> 00:28:33,700
+Now in the previous example, you considered the representation
+
+485
+00:28:33,700 --> 00:28:35,940
+size within an architect.
+
+486
+00:28:35,940 --> 00:28:37,300
+Yes.
+
+487
+00:28:37,300 --> 00:28:42,260
+And I guess that would give some advantage to the do nothing strategy,
+
+488
+00:28:42,260 --> 00:28:47,820
+which would have a relatively small representation size, presumably.
+
+489
+00:28:47,820 --> 00:28:51,460
+Would that change the conclusion?
+
+490
+00:28:51,460 --> 00:28:56,340
+So in that case, I think we are just thinking about the problem differently.
+
+491
+00:28:56,340 --> 00:28:59,540
+So in this one, there's like data that we're memorizing and compressing.
+
+492
+00:28:59,540 --> 00:29:01,020
+In this one, there's just no data.
+
+493
+00:29:01,020 --> 00:29:06,980
+So it's kind of like I've taken and there's sort of two or three
+
+494
+00:29:06,980 --> 00:29:08,300
+different things that agents do.
+
+495
+00:29:08,300 --> 00:29:09,660
+And in one of them, I've talked about one.
+
+496
+00:29:09,660 --> 00:29:11,900
+And in one of the examples, we talked about the other.
+
+497
+00:29:11,900 --> 00:29:13,740
+So they're just like very different things.
+
+498
+00:29:13,820 --> 00:29:18,100
+I was imagining in this example that you would have a policy that
+
+499
+00:29:18,100 --> 00:29:22,420
+would be taking these actions and that the representation size of that
+
+500
+00:29:22,420 --> 00:29:22,920
+policy.
+
+501
+00:29:22,920 --> 00:29:23,980
+You mean in this example?
+
+502
+00:29:23,980 --> 00:29:24,780
+In this example.
+
+503
+00:29:24,780 --> 00:29:25,940
+The first one?
+
+504
+00:29:25,940 --> 00:29:26,900
+The second one.
+
+505
+00:29:26,900 --> 00:29:27,400
+Yeah.
+
+506
+00:29:27,400 --> 00:29:32,820
+So in this one, as written, there's nothing about it getting any data.
+
+507
+00:29:32,820 --> 00:29:34,500
+So there's no actual policy.
+
+508
+00:29:34,500 --> 00:29:40,420
+If we add in a data stream, then the next interesting question
+
+509
+00:29:40,420 --> 00:29:42,860
+is presumably we're giving it some training data
+
+510
+00:29:42,860 --> 00:29:46,260
+and it's going to be building a model which is sort of implicitly
+
+511
+00:29:46,260 --> 00:29:47,940
+bound up in its policy.
+
+512
+00:29:47,940 --> 00:29:49,500
+That's where the compression happens.
+
+513
+00:29:49,500 --> 00:29:51,460
+What about policy that doesn't condition on it?
+
+514
+00:29:51,460 --> 00:29:52,940
+So you're just taking action.
+
+515
+00:29:52,940 --> 00:29:54,700
+Yep.
+
+516
+00:29:54,700 --> 00:29:57,160
+One of the ways that you could actually set this problem up
+
+517
+00:29:57,160 --> 00:30:00,100
+is you optimize it over some states of policies
+
+518
+00:30:00,100 --> 00:30:01,340
+and have it for these actions.
+
+519
+00:30:01,340 --> 00:30:02,660
+It's still not taking any data.
+
+520
+00:30:02,660 --> 00:30:05,580
+It's just a policy.
+
+521
+00:30:05,580 --> 00:30:09,300
+And in that space, presumably simple policies
+
+522
+00:30:09,300 --> 00:30:11,500
+would be advantaged over complex policies.
+
+523
+00:30:11,500 --> 00:30:12,000
+Yes.
+
+524
+00:30:12,960 --> 00:30:13,460
+Yeah.
+
+525
+00:30:13,460 --> 00:30:17,360
+So in that case, what you would find is to the extent
+
+526
+00:30:17,360 --> 00:30:22,440
+that the agent needs to be conditioning its actions on what data it's getting,
+
+527
+00:30:22,440 --> 00:30:28,400
+it's going to be in the exponentially vast majority of policies which
+
+528
+00:30:28,400 --> 00:30:31,760
+do well are going to be doing some sort of compression
+
+529
+00:30:31,760 --> 00:30:35,000
+on the implicit model of the data.
+
+530
+00:30:35,000 --> 00:30:37,000
+You can do nothing.
+
+531
+00:30:37,000 --> 00:30:40,040
+Let's say it's just not receiving any data at all.
+
+532
+00:30:40,040 --> 00:30:41,640
+Then it doesn't have a policy.
+
+533
+00:30:42,120 --> 00:30:45,080
+If you don't receive data, then you're just spitting actions out.
+
+534
+00:30:45,080 --> 00:30:47,280
+And you can just pre-commit to all of them in advance.
+
+535
+00:30:47,280 --> 00:30:49,080
+There's no sense in which there's a policy.
+
+536
+00:30:49,080 --> 00:30:51,440
+But you're still optimizing over a space.
+
+537
+00:30:51,440 --> 00:30:51,940
+Yes.
+
+538
+00:30:51,940 --> 00:30:52,440
+Right.
+
+539
+00:30:52,440 --> 00:30:57,800
+And the space is like a space of, you could optimize over the space
+
+540
+00:30:57,800 --> 00:31:01,640
+of literal 100 actions.
+
+541
+00:31:01,640 --> 00:31:02,140
+Yeah.
+
+542
+00:31:02,140 --> 00:31:03,480
+It's like this.
+
+543
+00:31:03,480 --> 00:31:05,680
+One of the 100 possible policies.
+
+544
+00:31:05,680 --> 00:31:09,520
+But you could also be doing this by optimizing over neural networks.
+
+545
+00:31:09,520 --> 00:31:10,020
+Yes.
+
+546
+00:31:11,020 --> 00:31:11,980
+That's quite possible.
+
+547
+00:31:11,980 --> 00:31:14,380
+And even absent taking in any data.
+
+548
+00:31:14,380 --> 00:31:14,880
+Yep.
+
+549
+00:31:14,880 --> 00:31:15,380
+Right.
+
+550
+00:31:15,380 --> 00:31:17,460
+And if you did that, then the representation size
+
+551
+00:31:17,460 --> 00:31:21,660
+would become relevant, even though it's not receiving any data.
+
+552
+00:31:21,660 --> 00:31:23,080
+Let me think about that for a sec.
+
+553
+00:31:29,580 --> 00:31:30,220
+Yes.
+
+554
+00:31:30,220 --> 00:31:31,380
+That's true.
+
+555
+00:31:31,380 --> 00:31:34,500
+But it wouldn't, I mean, it may or may not change the outcome.
+
+556
+00:31:34,500 --> 00:31:37,740
+I don't think it'd change the outcome, though, because.
+
+557
+00:31:37,780 --> 00:31:38,280
+OK.
+
+558
+00:31:38,280 --> 00:31:40,420
+So I'm going to try to say why I don't think.
+
+559
+00:31:40,420 --> 00:31:43,740
+I don't think because first you want to have optimal.
+
+560
+00:31:43,740 --> 00:31:44,940
+So you have something optimal.
+
+561
+00:31:44,940 --> 00:31:50,540
+So it has to encode somehow that you need to gain at least $3.
+
+562
+00:31:50,540 --> 00:31:52,420
+And you need to spend.
+
+563
+00:31:52,420 --> 00:31:53,500
+There's this constraint.
+
+564
+00:31:53,500 --> 00:31:58,540
+You need to gain $3, buy three Apple, and not spend more than you gain.
+
+565
+00:31:58,540 --> 00:32:04,780
+So you have the set of, how do you say?
+
+566
+00:32:04,780 --> 00:32:07,860
+Basically, you're adding a simplicity prior to John's argument.
+
+567
+00:32:07,860 --> 00:32:08,360
+Bingo.
+
+568
+00:32:08,360 --> 00:32:08,700
+I feel.
+
+569
+00:32:08,700 --> 00:32:09,400
+That's correct.
+
+570
+00:32:09,400 --> 00:32:12,220
+And if you add the simplicity prior, doesn't
+
+571
+00:32:12,220 --> 00:32:17,220
+sound like it's strong enough of an argument to counteract?
+
+572
+00:32:17,220 --> 00:32:19,860
+It's not quite necessarily a simplicity prior.
+
+573
+00:32:19,860 --> 00:32:21,420
+It's just a prior.
+
+574
+00:32:21,420 --> 00:32:25,380
+What happens is you have this initialization distribution
+
+575
+00:32:25,380 --> 00:32:26,460
+on the neural net.
+
+576
+00:32:26,460 --> 00:32:28,880
+It's like if you just give it some random initial weights,
+
+577
+00:32:28,880 --> 00:32:31,140
+then it's going to take some random actions.
+
+578
+00:32:31,140 --> 00:32:33,140
+And those are going to have a distribution which
+
+579
+00:32:33,140 --> 00:32:35,260
+may not be uniform.
+
+580
+00:32:35,260 --> 00:32:38,940
+So when you're training those weights, instead
+
+581
+00:32:38,940 --> 00:32:43,660
+of picking at random from the 4 to the 100 possibilities,
+
+582
+00:32:43,660 --> 00:32:45,740
+you're going to be picking from something that's
+
+583
+00:32:45,740 --> 00:32:48,780
+weighted based on the initialization.
+
+584
+00:32:48,780 --> 00:32:53,380
+So Mingo argued, I mean, there were a lot of steps in his argument.
+
+585
+00:32:53,380 --> 00:32:53,880
+Yes.
+
+586
+00:32:53,880 --> 00:32:54,620
+A lot of steps.
+
+587
+00:32:54,620 --> 00:32:57,620
+And he argued that, OK, the thing that's happening in practicing
+
+588
+00:32:57,620 --> 00:33:01,140
+a neural network is a simplicity prior.
+
+589
+00:33:01,140 --> 00:33:02,340
+That was his maximum point.
+
+590
+00:33:02,340 --> 00:33:02,840
+Yeah.
+
+591
+00:33:02,840 --> 00:33:06,060
+I don't think that was actually a thing he needed to argue at all.
+
+592
+00:33:06,060 --> 00:33:08,300
+I think this was basically the only piece
+
+593
+00:33:08,300 --> 00:33:09,780
+that needed to hold any weight.
+
+594
+00:33:12,580 --> 00:33:14,380
+So the question becomes, because I
+
+595
+00:33:14,380 --> 00:33:17,260
+think Alex is actually talking about simplicity prior here,
+
+596
+00:33:17,260 --> 00:33:19,100
+even if the general argument is like, OK,
+
+597
+00:33:19,100 --> 00:33:23,180
+if you add the simplicity prior to the previous statistical
+
+598
+00:33:23,180 --> 00:33:27,300
+argument we gave, is that enough of a shift
+
+599
+00:33:27,300 --> 00:33:32,700
+towards policies that are biased or do nothing for a neural network?
+
+600
+00:33:32,700 --> 00:33:34,860
+So when I was saying I think it makes a difference,
+
+601
+00:33:34,860 --> 00:33:36,540
+I think it makes it worse.
+
+602
+00:33:36,540 --> 00:33:41,700
+I think that the simplest optimal policy is going to never do
+
+603
+00:33:41,700 --> 00:33:44,860
+nothing, probably collect even more resources,
+
+604
+00:33:44,860 --> 00:33:50,740
+because it's very easy to encode it getting $1 96 times.
+
+605
+00:33:50,740 --> 00:33:54,380
+Get $1, buy one apple, get $1, buy one apple, get $1, buy one apple.
+
+606
+00:33:54,380 --> 00:33:56,900
+It's probably the simplest policy that just does it, right.
+
+607
+00:33:57,500 --> 00:33:58,220
+Yeah.
+
+608
+00:33:58,220 --> 00:34:03,340
+So part of the takeaway here is, from this argument,
+
+609
+00:34:03,340 --> 00:34:06,540
+this compression thing, this compression phenomenon,
+
+610
+00:34:06,540 --> 00:34:13,380
+means that we end up choosing simpler things even without a simplicity prior.
+
+611
+00:34:13,380 --> 00:34:15,380
+Even with just a pure uniform prior, it's
+
+612
+00:34:15,380 --> 00:34:19,100
+going to be implicitly looking for simple policies in the sense
+
+613
+00:34:19,100 --> 00:34:21,200
+that they compress whatever's going on.
+
+614
+00:34:21,200 --> 00:34:24,260
+They need very few parameters to specify.
+
+615
+00:34:24,260 --> 00:34:25,780
+If you have that data stream.
+
+616
+00:34:25,780 --> 00:34:26,580
+Yeah.
+
+617
+00:34:27,540 --> 00:34:30,060
+Even without a data stream, in general, you're
+
+618
+00:34:30,060 --> 00:34:35,140
+going to be locking in as few parameters as possible.
+
+619
+00:34:35,140 --> 00:34:37,220
+Make sense?
+
+620
+00:34:37,220 --> 00:34:40,620
+So that's why I think the Mingard thing,
+
+621
+00:34:40,620 --> 00:34:44,860
+they really didn't need to demonstrate a simplicity prior at all
+
+622
+00:34:44,860 --> 00:34:45,660
+once they had this.
+
+623
+00:34:45,660 --> 00:34:48,300
+That was all they needed.
+
+624
+00:34:48,300 --> 00:34:50,300
+Make sense?
+
+625
+00:34:50,300 --> 00:34:56,220
+But yeah, it was a stretch in the way that they established the rules.
+
+626
+00:34:56,220 --> 00:34:56,720
+All right.
+
+627
+00:35:00,100 --> 00:35:09,780
+So the point of those examples was mostly to build a sort of intuition.
+
+628
+00:35:09,780 --> 00:35:13,620
+And now I want to talk about the more general version of the thing
+
+629
+00:35:13,620 --> 00:35:16,860
+we're trying to build intuition for.
+
+630
+00:35:16,860 --> 00:35:20,980
+So you've got some problem that you're trying to solve, right?
+
+631
+00:35:20,980 --> 00:35:23,380
+Somebody want to name a problem?
+
+632
+00:35:23,380 --> 00:35:26,740
+Solving curing cancer.
+
+633
+00:35:26,740 --> 00:35:29,940
+Curing cancer, the alignment problem.
+
+634
+00:35:29,940 --> 00:35:31,500
+Eating chips.
+
+635
+00:35:31,500 --> 00:35:32,580
+Don't die of AI.
+
+636
+00:35:32,580 --> 00:35:35,460
+Good choice.
+
+637
+00:35:35,460 --> 00:35:38,620
+Don't die of AI.
+
+638
+00:35:38,620 --> 00:35:40,060
+Cool.
+
+639
+00:35:40,060 --> 00:35:43,500
+And then we have some very large, exponentially huge space
+
+640
+00:35:43,500 --> 00:35:46,420
+of possible solutions.
+
+641
+00:35:46,420 --> 00:35:53,220
+And within that space, like the exponentially vast majority of things
+
+642
+00:35:53,220 --> 00:35:56,060
+don't solve it.
+
+643
+00:35:56,060 --> 00:36:00,500
+Of those that do solve it, the exponentially vast majority
+
+644
+00:36:00,500 --> 00:36:01,860
+acquire lots of resources.
+
+645
+00:36:01,860 --> 00:36:03,020
+So here we have don't work.
+
+646
+00:36:06,700 --> 00:36:07,700
+Don't work.
+
+647
+00:36:07,700 --> 00:36:10,700
+Don't work.
+
+648
+00:36:10,700 --> 00:36:15,180
+There's probably quite a lot of fairly cheap die of something else first.
+
+649
+00:36:18,180 --> 00:36:18,700
+Lol.
+
+650
+00:36:18,700 --> 00:36:20,380
+Yes, that's true.
+
+651
+00:36:20,380 --> 00:36:22,580
+All right, I'm going to ignore that for now.
+
+652
+00:36:22,580 --> 00:36:23,820
+We'll come back to that later.
+
+653
+00:36:29,100 --> 00:36:30,740
+You can call that err.
+
+654
+00:36:30,740 --> 00:36:34,580
+Well, don't die, and specifically not of AI.
+
+655
+00:36:34,580 --> 00:36:49,700
+Of those which do work also, actually, even before that,
+
+656
+00:36:49,700 --> 00:36:54,380
+there's also a space of policies which do work,
+
+657
+00:36:54,380 --> 00:36:58,740
+which let's say these are the ones which do the thing we actually want.
+
+658
+00:36:58,740 --> 00:37:03,900
+There's a space of policies which do work, but don't look like they work,
+
+659
+00:37:03,900 --> 00:37:07,860
+and a space which don't work, but do look like they work.
+
+660
+00:37:07,860 --> 00:37:09,940
+So let's say here's look like they work.
+
+661
+00:37:15,140 --> 00:37:21,780
+In general, if you want to rely on a strategy like pick a random solution
+
+662
+00:37:21,780 --> 00:37:24,060
+and then have a human check to see if it looks good.
+
+663
+00:37:24,060 --> 00:37:26,380
+You want it to look like it should look good?
+
+664
+00:37:26,380 --> 00:37:27,820
+Hold on, hold on.
+
+665
+00:37:27,820 --> 00:37:32,140
+If you want to be like filtering in that way, have a human filtering step,
+
+666
+00:37:32,140 --> 00:37:37,540
+then in order to get a good solution out of that,
+
+667
+00:37:37,540 --> 00:37:42,460
+you have to find one which is both good and looks good to a human.
+
+668
+00:37:42,460 --> 00:37:45,380
+Claim there are exponentially more solutions
+
+669
+00:37:45,380 --> 00:37:48,060
+that look good to a human than solutions which
+
+670
+00:37:48,060 --> 00:37:50,500
+are good and look good to a human.
+
+671
+00:37:50,500 --> 00:37:53,860
+Because basically every condition you add always
+
+672
+00:37:53,860 --> 00:37:55,940
+drops off exponentially large amounts of the space.
+
+673
+00:37:59,100 --> 00:38:00,620
+Make sense?
+
+674
+00:38:00,620 --> 00:38:03,820
+So there's that problem.
+
+675
+00:38:03,820 --> 00:38:07,420
+Isn't it also like an R2, R3 kind of argument?
+
+676
+00:38:07,420 --> 00:38:08,220
+What's that?
+
+677
+00:38:08,220 --> 00:38:15,340
+An R2, R3 kind of argument where you look good is the surface,
+
+678
+00:38:15,340 --> 00:38:16,740
+is good is the inside.
+
+679
+00:38:16,740 --> 00:38:17,660
+Yeah, exactly.
+
+680
+00:38:17,660 --> 00:38:23,260
+So like looking good just locks in exponentially fewer parameters
+
+681
+00:38:23,260 --> 00:38:25,820
+than actually doing the thing.
+
+682
+00:38:28,580 --> 00:38:29,080
+What else?
+
+683
+00:38:31,140 --> 00:38:31,640
+Shh.
+
+684
+00:38:37,300 --> 00:38:38,380
+Yeah, OK.
+
+685
+00:38:38,380 --> 00:38:41,460
+So the general principle that I'm trying to hammer in here
+
+686
+00:38:41,460 --> 00:38:46,220
+is that the reason the problem is hard is a feature
+
+687
+00:38:46,220 --> 00:38:48,780
+of the original problem space.
+
+688
+00:38:48,780 --> 00:38:51,660
+We have not actually mentioned agent-y AIs.
+
+689
+00:38:51,660 --> 00:38:55,260
+We haven't mentioned powerful optimizers other than the fact
+
+690
+00:38:55,260 --> 00:38:57,220
+that they need to do some optimization to find
+
+691
+00:38:57,220 --> 00:38:58,980
+a solution to the problem.
+
+692
+00:38:59,180 --> 00:39:02,460
+We're really just talking about the structure of the problem
+
+693
+00:39:02,460 --> 00:39:05,860
+space here and saying, look, exponentially vast majority
+
+694
+00:39:05,860 --> 00:39:07,540
+of the problem space doesn't work.
+
+695
+00:39:07,540 --> 00:39:10,820
+Exponentially vast majority of the stuff which
+
+696
+00:39:10,820 --> 00:39:13,620
+looks like it works doesn't.
+
+697
+00:39:13,620 --> 00:39:16,220
+Yes?
+
+698
+00:39:16,220 --> 00:39:19,620
+If you haven't talked about all these things,
+
+699
+00:39:19,620 --> 00:39:22,860
+does that mean that these apply also in scenarios
+
+700
+00:39:22,860 --> 00:39:27,180
+where the thing doing the optimization is not just one AI
+
+701
+00:39:27,180 --> 00:39:31,140
+but like a market of AI, like these kind of weird,
+
+702
+00:39:31,140 --> 00:39:33,860
+multiple scenario where there's no food, there's no thing like?
+
+703
+00:39:33,860 --> 00:39:34,360
+Yep.
+
+704
+00:39:34,360 --> 00:39:37,020
+So let's go through a few of those real quick.
+
+705
+00:39:37,020 --> 00:39:39,860
+First of all, so just non-singleton,
+
+706
+00:39:39,860 --> 00:39:42,780
+just scenarios which don't look like the giant AI taking
+
+707
+00:39:42,780 --> 00:39:43,900
+over the world.
+
+708
+00:39:43,900 --> 00:39:49,540
+If you have an Oracle AI, you ask it to come up with a plan.
+
+709
+00:39:49,540 --> 00:39:52,620
+Well, if it's sampling from the space of plans, guess what?
+
+710
+00:39:52,620 --> 00:39:54,620
+The vast majority of the plans don't work.
+
+711
+00:39:54,620 --> 00:39:56,820
+Even if it finds one that looks like it works,
+
+712
+00:39:56,860 --> 00:39:59,860
+it probably doesn't.
+
+713
+00:39:59,860 --> 00:40:03,740
+Yeah, and just like whatever question you ask,
+
+714
+00:40:03,740 --> 00:40:07,820
+the part of the planned space for solving that question
+
+715
+00:40:07,820 --> 00:40:10,180
+while also being compatible with human values
+
+716
+00:40:10,180 --> 00:40:12,980
+is going to be exponentially tiny.
+
+717
+00:40:12,980 --> 00:40:16,580
+How is it that we ever actually do things in practice at all?
+
+718
+00:40:16,580 --> 00:40:19,140
+Good question.
+
+719
+00:40:19,140 --> 00:40:21,660
+I'm not going to answer that right now.
+
+720
+00:40:21,660 --> 00:40:23,020
+But good question.
+
+721
+00:40:23,140 --> 00:40:25,620
+I have a T.
+
+722
+00:40:25,620 --> 00:40:26,580
+There's another one.
+
+723
+00:40:30,140 --> 00:40:31,540
+Then there was the thing that Adam
+
+724
+00:40:31,540 --> 00:40:34,700
+was saying about having multiple AIs and markets.
+
+725
+00:40:34,700 --> 00:40:35,460
+Same thing.
+
+726
+00:40:35,460 --> 00:40:39,740
+I mean, you could have like, look at case, right?
+
+727
+00:40:39,740 --> 00:40:43,060
+You're just asking it to do something.
+
+728
+00:40:43,060 --> 00:40:44,900
+And whatever you're asking it to do
+
+729
+00:40:44,900 --> 00:40:46,940
+is going to be searching over some problem space.
+
+730
+00:40:46,940 --> 00:40:48,460
+And we have the same set of issues.
+
+731
+00:40:48,460 --> 00:40:50,420
+It's going to be an exponentially large problem
+
+732
+00:40:51,060 --> 00:40:53,420
+exponentially vast majority of things
+
+733
+00:40:53,420 --> 00:40:54,900
+that technically solve the problem
+
+734
+00:40:54,900 --> 00:40:57,460
+are going to be not particularly compatible with human values,
+
+735
+00:40:57,460 --> 00:40:58,220
+so on and so forth.
+
+736
+00:41:01,300 --> 00:41:04,060
+So again, main point here is it's
+
+737
+00:41:04,060 --> 00:41:05,780
+about the structure of the problem space.
+
+738
+00:41:05,780 --> 00:41:08,980
+It has nothing really to do with the particular architecture
+
+739
+00:41:08,980 --> 00:41:12,060
+of the AI or what the scenario looks like or whatever.
+
+740
+00:41:20,940 --> 00:41:24,860
+So how do we solve it?
+
+741
+00:41:27,900 --> 00:41:33,020
+Big point here is if you want to be solving problems in a way
+
+742
+00:41:33,020 --> 00:41:35,060
+that's compatible with human values,
+
+743
+00:41:35,060 --> 00:41:38,460
+if you want a safe genie instead of an unsafe genie,
+
+744
+00:41:38,460 --> 00:41:43,540
+then you're going to need a lot of bits from somewhere.
+
+745
+00:41:43,540 --> 00:41:45,260
+What's fundamentally hard about the problem
+
+746
+00:41:45,260 --> 00:41:47,460
+is you have to get all those bits about what the hell
+
+747
+00:41:47,460 --> 00:41:49,780
+human values are and actually narrow down
+
+748
+00:41:49,780 --> 00:41:52,860
+to that part of the search space.
+
+749
+00:41:52,860 --> 00:41:55,460
+So again, note that we're not talking
+
+750
+00:41:55,460 --> 00:41:56,780
+at all about structure of AI.
+
+751
+00:41:56,780 --> 00:41:59,260
+We're just saying it's all about human values.
+
+752
+00:41:59,260 --> 00:42:00,220
+What the fuck are they?
+
+753
+00:42:00,220 --> 00:42:01,500
+How do we understand them?
+
+754
+00:42:01,500 --> 00:42:03,940
+How do we narrow in on the part of the search space that's
+
+755
+00:42:03,940 --> 00:42:05,860
+compatible with human values?
+
+756
+00:42:05,860 --> 00:42:06,860
+Make sense?
+
+757
+00:42:06,860 --> 00:42:08,980
+So that's most of what the next part of the talk
+
+758
+00:42:08,980 --> 00:42:10,060
+is going to be about.
+
+759
+00:42:10,060 --> 00:42:12,300
+So what you're claiming here is something
+
+760
+00:42:12,300 --> 00:42:14,980
+like there is probably a part of solving
+
+761
+00:42:14,980 --> 00:42:18,740
+the problem that involves solving the theory practice
+
+762
+00:42:18,740 --> 00:42:22,660
+gap, but actually making the problem feasible
+
+763
+00:42:22,660 --> 00:42:26,740
+in the first place requires finding all this,
+
+764
+00:42:26,740 --> 00:42:30,100
+like a lot of bits of evidence to hit the now target.
+
+765
+00:42:30,100 --> 00:42:32,340
+Just like, I don't know, Einstein
+
+766
+00:42:32,340 --> 00:42:36,260
+finding general relativity, like all his bits hitting.
+
+767
+00:42:36,260 --> 00:42:39,620
+And then fiddling around to get the parameters right and thing
+
+768
+00:42:39,620 --> 00:42:41,820
+is not the hardest part of the problem.
+
+769
+00:42:41,820 --> 00:42:42,780
+Yep.
+
+770
+00:42:42,780 --> 00:42:43,340
+There you go.
+
+771
+00:42:46,740 --> 00:42:47,260
+Let's see.
+
+772
+00:42:48,740 --> 00:42:49,240
+OK.
+
+773
+00:42:55,300 --> 00:42:59,420
+That's like the main section of the talk that's directly
+
+774
+00:42:59,420 --> 00:43:03,060
+talking about why alignment is hard.
+
+775
+00:43:03,060 --> 00:43:06,820
+Now is a good time for questions, comments,
+
+776
+00:43:06,820 --> 00:43:11,580
+anything along the lines of, but why won't x just work?
+
+777
+00:43:11,580 --> 00:43:15,340
+I don't think you have the right quotients for that, though.
+
+778
+00:43:15,340 --> 00:43:17,840
+Fair.
+
+779
+00:43:17,840 --> 00:43:21,320
+Does this explain why humans love resources so much?
+
+780
+00:43:21,320 --> 00:43:21,820
+Mm.
+
+781
+00:43:24,360 --> 00:43:26,920
+No, it doesn't explain why humans love resources so much.
+
+782
+00:43:33,800 --> 00:43:36,200
+I feel like it does to me, if I think
+
+783
+00:43:36,200 --> 00:43:37,880
+about my own personal psychology.
+
+784
+00:43:37,880 --> 00:43:39,160
+All right.
+
+785
+00:43:39,160 --> 00:43:45,440
+When I have something like money, it gives me options.
+
+786
+00:43:45,440 --> 00:43:47,160
+Yep, like the space of things you can do
+
+787
+00:43:47,200 --> 00:43:48,280
+is just way larger.
+
+788
+00:43:48,280 --> 00:43:50,040
+Right.
+
+789
+00:43:50,040 --> 00:43:54,800
+I also think of it often as being like the space
+
+790
+00:43:54,800 --> 00:43:59,080
+or like the set of things that I can recover from
+
+791
+00:43:59,080 --> 00:43:59,880
+is much larger.
+
+792
+00:43:59,880 --> 00:44:02,480
+Like, I'm facing uncertainty.
+
+793
+00:44:02,480 --> 00:44:05,160
+Things can happen in the future that will just suddenly require
+
+794
+00:44:05,160 --> 00:44:05,960
+a lot of resources.
+
+795
+00:44:05,960 --> 00:44:08,160
+And if I have a lot, then I might just keep going.
+
+796
+00:44:08,160 --> 00:44:08,640
+Yep.
+
+797
+00:44:08,640 --> 00:44:09,160
+That being so.
+
+798
+00:44:13,240 --> 00:44:14,880
+There's a certain difference between it
+
+799
+00:44:14,880 --> 00:44:16,960
+being a kind of well-calibrated thing,
+
+800
+00:44:16,960 --> 00:44:21,760
+even if it's a little bit dystopian.
+
+801
+00:44:21,760 --> 00:44:23,760
+It's like, there's a difference between it
+
+802
+00:44:23,760 --> 00:44:28,720
+being a well-calibrated kind of thing that was selected for
+
+803
+00:44:28,720 --> 00:44:36,720
+versus it arising out of the relative scarcity of policy
+
+804
+00:44:36,720 --> 00:44:38,680
+that don't do that.
+
+805
+00:44:38,680 --> 00:44:39,180
+Yeah.
+
+806
+00:44:44,080 --> 00:44:47,640
+One thing worth noting possibly about human beings
+
+807
+00:44:47,640 --> 00:44:53,600
+is that we don't have like a neural network
+
+808
+00:44:53,600 --> 00:44:56,160
+with a certain number of parameters, which is then
+
+809
+00:44:56,160 --> 00:44:57,840
+selected.
+
+810
+00:44:57,840 --> 00:45:01,120
+We then select a parameterization of the model.
+
+811
+00:45:01,120 --> 00:45:02,200
+Yep.
+
+812
+00:45:02,200 --> 00:45:03,280
+Because we evolve.
+
+813
+00:45:03,280 --> 00:45:07,840
+Every parameter we have arrived with a job to do.
+
+814
+00:45:07,840 --> 00:45:12,120
+Like, we got more neurons to do more things.
+
+815
+00:45:12,120 --> 00:45:14,280
+So we don't have this situation of just like, oh,
+
+816
+00:45:14,280 --> 00:45:15,740
+if we didn't have to do that, we'd
+
+817
+00:45:15,740 --> 00:45:18,080
+have all of these spare neurons that came from nowhere.
+
+818
+00:45:18,080 --> 00:45:19,040
+Not quite true.
+
+819
+00:45:19,040 --> 00:45:22,200
+So two things going on here.
+
+820
+00:45:22,200 --> 00:45:24,840
+First one, when we're thinking about humans,
+
+821
+00:45:24,840 --> 00:45:25,800
+there's two levels.
+
+822
+00:45:25,800 --> 00:45:29,000
+There's like, when I personally am planning something,
+
+823
+00:45:29,000 --> 00:45:30,520
+all of this still applies.
+
+824
+00:45:30,520 --> 00:45:33,400
+Like, the vast majority of ways I can get the thing I want
+
+825
+00:45:33,400 --> 00:45:35,480
+are going to involve acquiring resources and so on
+
+826
+00:45:35,480 --> 00:45:37,000
+and so forth.
+
+827
+00:45:37,000 --> 00:45:39,840
+Second, there is at the level of evolution.
+
+828
+00:45:39,840 --> 00:45:43,440
+Evolution's like selecting strategies,
+
+829
+00:45:43,440 --> 00:45:47,520
+selecting genomes that are going to perform well.
+
+830
+00:45:47,520 --> 00:45:51,720
+Thing you probably already know, the vast majority of your DNA
+
+831
+00:45:51,720 --> 00:45:53,080
+is junk.
+
+832
+00:45:53,080 --> 00:45:57,440
+So in fact, evolution did have a crap ton of space to play with.
+
+833
+00:45:57,440 --> 00:46:00,680
+The number of free parameters was quite large.
+
+834
+00:46:00,680 --> 00:46:02,720
+But like, I definitely have the sense
+
+835
+00:46:02,720 --> 00:46:05,960
+that when I meditate and look at my cognition,
+
+836
+00:46:05,960 --> 00:46:07,400
+I'm like, this is mostly junk.
+
+837
+00:46:07,400 --> 00:46:09,800
+It's more like junk DNA than stuff
+
+838
+00:46:09,800 --> 00:46:12,080
+that was selected for another world.
+
+839
+00:46:12,080 --> 00:46:13,760
+Another way to frame it.
+
+840
+00:46:13,760 --> 00:46:15,040
+That's a good one.
+
+841
+00:46:15,040 --> 00:46:16,480
+I just want to say, I don't think
+
+842
+00:46:16,480 --> 00:46:18,840
+that transposons are free parameters
+
+843
+00:46:18,840 --> 00:46:20,920
+that evolution can work with.
+
+844
+00:46:20,920 --> 00:46:22,200
+Partly true.
+
+845
+00:46:22,200 --> 00:46:24,720
+It's just not optimizing hard on the genome size.
+
+846
+00:46:24,720 --> 00:46:25,760
+Partly true.
+
+847
+00:46:25,760 --> 00:46:28,240
+Another way to think of it, though, which probably gets
+
+848
+00:46:28,240 --> 00:46:33,480
+around that, is in general, evolution
+
+849
+00:46:33,480 --> 00:46:36,680
+or any sort of local search algorithm
+
+850
+00:46:36,680 --> 00:46:39,600
+is more likely to find broader optima.
+
+851
+00:46:39,600 --> 00:46:41,360
+The broader your optima is, the more likely
+
+852
+00:46:41,360 --> 00:46:44,560
+you're going to hit it, which is very much the same sort of thing
+
+853
+00:46:44,560 --> 00:46:45,880
+we've been talking about here.
+
+854
+00:46:45,880 --> 00:46:48,320
+The breadth of the optima, of the optimum,
+
+855
+00:46:48,320 --> 00:46:50,600
+is basically quantifying, in a way,
+
+856
+00:46:50,600 --> 00:46:52,640
+how many degrees of freedom you have.
+
+857
+00:46:52,640 --> 00:46:57,000
+The more degrees of freedom you have, the broader that optimum.
+
+858
+00:46:57,000 --> 00:46:59,280
+So the same sort of argument basically
+
+859
+00:46:59,280 --> 00:47:02,560
+works even without this sort of sampling assumption
+
+860
+00:47:02,640 --> 00:47:06,080
+when we're talking about local search that
+
+861
+00:47:06,080 --> 00:47:09,920
+is going to find a solution with a lot of degrees of freedom
+
+862
+00:47:09,920 --> 00:47:10,920
+to it.
+
+863
+00:47:10,920 --> 00:47:12,920
+You still grow an accessible optima,
+
+864
+00:47:12,920 --> 00:47:17,400
+but that's most easily able to access it if it's local search.
+
+865
+00:47:17,400 --> 00:47:18,400
+You're wandering around.
+
+866
+00:47:18,400 --> 00:47:19,400
+You end up in a basin.
+
+867
+00:47:19,400 --> 00:47:21,400
+Probably you end up in a big basin.
+
+868
+00:47:21,400 --> 00:47:21,900
+Exactly.
+
+869
+00:47:21,900 --> 00:47:22,400
+Yeah, yeah.
+
+870
+00:47:22,400 --> 00:47:24,400
+But you end up in one of the biggest basins,
+
+871
+00:47:24,400 --> 00:47:25,900
+out of the basin we can access.
+
+872
+00:47:25,900 --> 00:47:27,400
+Because it's probably a bunch of basins
+
+873
+00:47:27,400 --> 00:47:28,900
+that you can't actually access.
+
+874
+00:47:28,900 --> 00:47:31,400
+I definitely have a sense that my cognition just
+
+875
+00:47:31,740 --> 00:47:35,240
+feels all available state mostly.
+
+876
+00:47:35,240 --> 00:47:38,720
+Really, really mostly.
+
+877
+00:47:38,720 --> 00:47:40,720
+I do like that one, though.
+
+878
+00:47:40,720 --> 00:47:44,720
+Really, 10 to 20 times a second, just stuff that's
+
+879
+00:47:44,720 --> 00:47:49,720
+not related to anything.
+
+880
+00:47:49,720 --> 00:47:52,720
+It was horrifying.
+
+881
+00:47:52,720 --> 00:47:55,720
+Before we go to the next one, if you
+
+882
+00:47:55,720 --> 00:48:00,220
+take your argument about power seriously for the evolution,
+
+883
+00:48:00,540 --> 00:48:03,540
+shouldn't most of DNA be something
+
+884
+00:48:03,540 --> 00:48:06,540
+that is powerful, like resources,
+
+885
+00:48:06,540 --> 00:48:09,540
+like gathering resources for evolution or something?
+
+886
+00:48:09,540 --> 00:48:10,540
+Instead of junk?
+
+887
+00:48:10,540 --> 00:48:12,040
+What the argument would roughly say
+
+888
+00:48:12,040 --> 00:48:17,040
+is that you have a lot of junk, but mostly that's screened off.
+
+889
+00:48:17,040 --> 00:48:18,540
+Mostly the junk doesn't matter.
+
+890
+00:48:18,540 --> 00:48:23,040
+It can change around and not do anything, which is true.
+
+891
+00:48:23,040 --> 00:48:25,540
+The junk parts of your DNA can, in fact, change around a lot
+
+892
+00:48:25,540 --> 00:48:27,040
+without breaking anything.
+
+893
+00:48:27,040 --> 00:48:29,540
+If they did break things, then they would have broken them,
+
+894
+00:48:29,860 --> 00:48:31,360
+and then they would break them out.
+
+895
+00:48:31,360 --> 00:48:31,860
+Exactly.
+
+896
+00:48:31,860 --> 00:48:34,860
+Then the parts that remain are the actually functional parts,
+
+897
+00:48:34,860 --> 00:48:37,860
+and that's the part that's under compression pressure.
+
+898
+00:48:37,860 --> 00:48:38,360
+OK.
+
+899
+00:48:38,360 --> 00:48:38,860
+Cool.
+
+900
+00:48:38,860 --> 00:48:39,360
+Makes sense.
+
+901
+00:48:39,360 --> 00:48:41,860
+Yeah.
+
+902
+00:48:41,860 --> 00:48:45,860
+One more minor note on that.
+
+903
+00:48:45,860 --> 00:48:47,860
+While we're on the topic of humans and evolution
+
+904
+00:48:47,860 --> 00:48:52,860
+and all that, interagents are essentially
+
+905
+00:48:52,860 --> 00:48:54,860
+a way of compressing.
+
+906
+00:48:54,860 --> 00:48:55,860
+Yeah.
+
+907
+00:48:56,180 --> 00:48:59,680
+Risk from optimization does argue for that.
+
+908
+00:48:59,680 --> 00:49:02,680
+Yeah, that's exactly what that argument in risk
+
+909
+00:49:02,680 --> 00:49:04,680
+from learned optimization said.
+
+910
+00:49:04,680 --> 00:49:09,180
+So we should expect interagents for exactly the same reasons
+
+911
+00:49:09,180 --> 00:49:10,680
+as these arguments from before.
+
+912
+00:49:10,680 --> 00:49:12,180
+And in general, it's complex.
+
+913
+00:49:12,180 --> 00:49:13,680
+Lots of them in the search space.
+
+914
+00:49:13,680 --> 00:49:14,180
+Exactly.
+
+915
+00:49:14,180 --> 00:49:17,180
+Like large areas of the search space are there.
+
+916
+00:49:17,180 --> 00:49:18,180
+Exactly.
+
+917
+00:49:18,180 --> 00:49:20,180
+And for purposes of the stuff we're
+
+918
+00:49:20,180 --> 00:49:23,180
+going to be talking about that's mostly relevant insofar
+
+919
+00:49:23,500 --> 00:49:27,500
+as humans are interagents for evolution.
+
+920
+00:49:27,500 --> 00:49:29,500
+Make sense?
+
+921
+00:49:29,500 --> 00:49:30,500
+All right.
+
+922
+00:49:30,500 --> 00:49:35,500
+Then that concludes section one.
+
+923
+00:49:35,500 --> 00:49:36,500
+All right.
+
+924
+00:49:36,500 --> 00:49:38,500
+We're going to move to slide B.
+
+925
+00:49:38,500 --> 00:49:40,500
+Slide B, exactly.
+
+926
+00:49:40,500 --> 00:49:41,500
+Going back to the outline.
+
+927
+00:49:44,500 --> 00:49:46,500
+We have now talked about underdetermined optimization.
+
+928
+00:49:47,320 --> 00:49:51,820
+Next part is about what humans want.
+
+929
+00:49:51,820 --> 00:49:54,820
+And remember, our goal here is, ultimately,
+
+930
+00:49:54,820 --> 00:49:56,820
+we want to get all those bits we need in order
+
+931
+00:49:56,820 --> 00:49:58,820
+to zoom into the part of the search space which
+
+932
+00:49:58,820 --> 00:50:01,820
+is compatible with human values.
+
+933
+00:50:01,820 --> 00:50:07,820
+So general question, how complex are human values, really?
+
+934
+00:50:07,820 --> 00:50:09,820
+Anybody have thoughts?
+
+935
+00:50:09,820 --> 00:50:11,820
+How would you estimate this?
+
+936
+00:50:11,820 --> 00:50:12,820
+Fairly estimate.
+
+937
+00:50:12,820 --> 00:50:13,820
+How complex are they?
+
+938
+00:50:14,140 --> 00:50:15,140
+Fairly estimate.
+
+939
+00:50:15,140 --> 00:50:16,140
+How complex are they?
+
+940
+00:50:16,140 --> 00:50:20,140
+Well, to the extent that they are inherent in humans themselves,
+
+941
+00:50:20,140 --> 00:50:22,140
+DNA is 700 megabytes.
+
+942
+00:50:22,140 --> 00:50:23,140
+Yep.
+
+943
+00:50:23,140 --> 00:50:28,140
+So that's kind of an upper bound on inherent complexity
+
+944
+00:50:28,140 --> 00:50:29,140
+of human values.
+
+945
+00:50:29,140 --> 00:50:30,140
+Awesome.
+
+946
+00:50:30,140 --> 00:50:31,140
+Give me that number again.
+
+947
+00:50:31,140 --> 00:50:32,140
+700 megabytes.
+
+948
+00:50:32,140 --> 00:50:33,140
+Yes.
+
+949
+00:50:33,140 --> 00:50:36,140
+We can go a lot smaller than that with the genome argument.
+
+950
+00:50:36,140 --> 00:50:38,140
+But that's a good upper bound.
+
+951
+00:50:38,140 --> 00:50:41,140
+That's also assuming that the values are literally
+
+952
+00:50:41,140 --> 00:50:43,140
+encoding the genome, which would be.
+
+953
+00:50:43,460 --> 00:50:43,960
+Yeah.
+
+954
+00:50:43,960 --> 00:50:45,460
+Criticized by a bunch of people.
+
+955
+00:50:45,460 --> 00:50:45,960
+Yep.
+
+956
+00:50:45,960 --> 00:50:52,140
+So an important point here is, obviously,
+
+957
+00:50:52,140 --> 00:50:55,180
+a lot of the information that goes into our values
+
+958
+00:50:55,180 --> 00:50:56,980
+we do absorb from the environment.
+
+959
+00:50:56,980 --> 00:51:00,480
+The good news is that part we don't really need to care about.
+
+960
+00:51:00,480 --> 00:51:03,980
+As long as we can figure out the parts that are hard-coded,
+
+961
+00:51:03,980 --> 00:51:06,260
+then we can just go put our AI in the environment
+
+962
+00:51:06,260 --> 00:51:09,180
+and it can absorb that information damn self.
+
+963
+00:51:09,180 --> 00:51:12,420
+That part of it is not the hard part.
+
+964
+00:51:12,420 --> 00:51:15,300
+We have plenty of environment to learn from.
+
+965
+00:51:15,300 --> 00:51:20,380
+Do humans have access to human values?
+
+966
+00:51:20,380 --> 00:51:23,180
+In what sense?
+
+967
+00:51:23,180 --> 00:51:27,180
+Nobody's ever demonstrated that they do have access to human values.
+
+968
+00:51:27,180 --> 00:51:28,660
+In what sense?
+
+969
+00:51:28,660 --> 00:51:35,060
+Nobody's ever enunciated or enacted human values.
+
+970
+00:51:35,060 --> 00:51:36,380
+Yes and no.
+
+971
+00:51:36,380 --> 00:51:39,100
+To a large extent, my answer to that is, I don't care.
+
+972
+00:51:39,100 --> 00:51:44,940
+I just want my AI to not do things that are obviously not what I want.
+
+973
+00:51:44,940 --> 00:51:47,940
+Remember, the point of this was to just zoom in on the search space, which
+
+974
+00:51:47,940 --> 00:51:49,180
+is the part I want.
+
+975
+00:51:49,180 --> 00:51:53,740
+And clearly, humans, for the most part, are able to do that.
+
+976
+00:51:53,740 --> 00:51:56,580
+Not particularly reliably, admittedly.
+
+977
+00:51:56,580 --> 00:51:58,580
+As you mentioned, there's a lot of junk.
+
+978
+00:51:58,580 --> 00:52:01,580
+But yeah.
+
+979
+00:52:01,580 --> 00:52:04,540
+We seem to be able to get better at it over time.
+
+980
+00:52:04,540 --> 00:52:06,540
+Mm-hmm.
+
+981
+00:52:07,500 --> 00:52:10,980
+There's something that feels off about your,
+
+982
+00:52:10,980 --> 00:52:14,500
+we only need the hard-coded parts in the genome, such brain.
+
+983
+00:52:14,500 --> 00:52:15,500
+Yeah.
+
+984
+00:52:15,500 --> 00:52:21,500
+Which is something like, you sort of need to be able to screen off
+
+985
+00:52:21,500 --> 00:52:24,500
+the ones that do what you want.
+
+986
+00:52:24,500 --> 00:52:27,500
+There's a bunch of stuff that are in the genome, such brain.
+
+987
+00:52:27,500 --> 00:52:28,500
+Yep.
+
+988
+00:52:28,500 --> 00:52:30,980
+Like monkey brain kind of thing.
+
+989
+00:52:30,980 --> 00:52:31,980
+Yep.
+
+990
+00:52:31,980 --> 00:52:33,980
+Can be bad things.
+
+991
+00:52:33,980 --> 00:52:39,980
+Can be things that we don't reflectively value or agree upon.
+
+992
+00:52:39,980 --> 00:52:40,980
+Yep, that's true.
+
+993
+00:52:40,980 --> 00:52:43,980
+And like the whole, there's a lot of signaling and bias and all this.
+
+994
+00:52:43,980 --> 00:52:44,980
+Yeah, yeah.
+
+995
+00:52:44,980 --> 00:52:48,980
+And so it sounds a little more subtle than learning
+
+996
+00:52:48,980 --> 00:52:51,980
+exactly the part that is hard-coded.
+
+997
+00:52:51,980 --> 00:52:55,980
+It's more learning the right bits of the part that's hard-coded.
+
+998
+00:52:55,980 --> 00:52:56,980
+Yes.
+
+999
+00:52:56,980 --> 00:53:00,980
+The important part there, the parts that we are trying to get at here
+
+1000
+00:53:00,980 --> 00:53:03,980
+are, in fact, generally hard-coded.
+
+1001
+00:53:03,980 --> 00:53:05,980
+There's going to be other stuff hard-coded
+
+1002
+00:53:05,980 --> 00:53:06,980
+that we need to separate out.
+
+1003
+00:53:06,980 --> 00:53:09,980
+But the important point here is that the parts that are hard-coded
+
+1004
+00:53:09,980 --> 00:53:12,980
+give us an upper bound on how complex this thing is
+
+1005
+00:53:12,980 --> 00:53:14,980
+that we're trying to figure out.
+
+1006
+00:53:14,980 --> 00:53:17,980
+So now I want to run with Rob's genome argument for a minute
+
+1007
+00:53:17,980 --> 00:53:23,980
+and argue that we can narrow it down a lot more than 800 megabytes.
+
+1008
+00:53:23,980 --> 00:53:30,980
+So first of all, vast majority of genome is, junk DNA
+
+1009
+00:53:30,980 --> 00:53:35,980
+is not really accurate given our modern knowledge,
+
+1010
+00:53:35,980 --> 00:53:37,980
+but certainly not doing all that much.
+
+1011
+00:53:37,980 --> 00:53:41,980
+I don't think you can quite do that because I think that's the number
+
+1012
+00:53:41,980 --> 00:53:43,980
+for it compressed rather than the row data.
+
+1013
+00:53:43,980 --> 00:53:44,980
+Yes, correct.
+
+1014
+00:53:44,980 --> 00:53:45,980
+I'm accounting for that.
+
+1015
+00:53:45,980 --> 00:53:48,980
+We're going to be hopping to the, the next part
+
+1016
+00:53:48,980 --> 00:53:50,980
+is going to go even further.
+
+1017
+00:53:50,980 --> 00:53:55,980
+Next, just looking at functional genes.
+
+1018
+00:53:55,980 --> 00:53:58,980
+So like protein coding genes, you've got about 30,000 of them.
+
+1019
+00:53:58,980 --> 00:54:00,980
+You've got a bunch of other functional stuff,
+
+1020
+00:54:00,980 --> 00:54:03,980
+but it's not going to throw us off by an order of magnitude.
+
+1021
+00:54:03,980 --> 00:54:05,980
+So we've got like 30,000 functional things.
+
+1022
+00:54:05,980 --> 00:54:09,980
+The vast majority of those are not doing anything
+
+1023
+00:54:09,980 --> 00:54:12,980
+that's likely to be particularly closely related to cognition.
+
+1024
+00:54:12,980 --> 00:54:14,980
+They're doing like basic metabolic stuff
+
+1025
+00:54:14,980 --> 00:54:19,980
+or like morphological patterning or whatever.
+
+1026
+00:54:19,980 --> 00:54:21,980
+I'm quite confident we have in common with plants.
+
+1027
+00:54:21,980 --> 00:54:23,980
+Plants don't really share our values.
+
+1028
+00:54:23,980 --> 00:54:24,980
+Yep, there you go.
+
+1029
+00:54:24,980 --> 00:54:27,980
+So basically anything we have common in plants with plants,
+
+1030
+00:54:27,980 --> 00:54:30,980
+we can largely rule out.
+
+1031
+00:54:30,980 --> 00:54:31,980
+Yes.
+
+1032
+00:54:31,980 --> 00:54:33,980
+Maybe it's completely irrelevant.
+
+1033
+00:54:33,980 --> 00:54:37,980
+Like, what about if mission is embodied?
+
+1034
+00:54:37,980 --> 00:54:39,980
+Like, it's not going to be embodied in a way
+
+1035
+00:54:39,980 --> 00:54:42,980
+where we're going to need to account for every single function
+
+1036
+00:54:42,980 --> 00:54:43,980
+of every single gene.
+
+1037
+00:54:43,980 --> 00:54:45,980
+So it's, yeah.
+
+1038
+00:54:45,980 --> 00:54:50,980
+So like right off the bat, we can trim it down to like at most
+
+1039
+00:54:50,980 --> 00:54:54,980
+we're talking about like on the order of thousands
+
+1040
+00:54:54,980 --> 00:54:57,980
+of simple chemical functions.
+
+1041
+00:54:57,980 --> 00:54:58,980
+Right?
+
+1042
+00:54:58,980 --> 00:55:00,980
+Like that's what we're looking at here.
+
+1043
+00:55:00,980 --> 00:55:03,980
+At most thousands of simple chemical functions.
+
+1044
+00:55:03,980 --> 00:55:05,980
+If we come at it from the other end,
+
+1045
+00:55:05,980 --> 00:55:08,980
+if you look at like Steve's work, for instance,
+
+1046
+00:55:08,980 --> 00:55:11,980
+thinking about like what are the hard coded things out
+
+1047
+00:55:11,980 --> 00:55:14,980
+of which our brains are figuring out all the other stuff
+
+1048
+00:55:14,980 --> 00:55:16,980
+about values.
+
+1049
+00:55:16,980 --> 00:55:18,980
+We have something like, for instance,
+
+1050
+00:55:18,980 --> 00:55:22,980
+we're born with a very fuzzy crappy face detector.
+
+1051
+00:55:22,980 --> 00:55:25,980
+So if you're asking like how many things
+
+1052
+00:55:25,980 --> 00:55:28,980
+on the order of complexity of that fuzzy crappy face detector
+
+1053
+00:55:28,980 --> 00:55:32,980
+could plausibly fit in a few thousand genes,
+
+1054
+00:55:32,980 --> 00:55:35,980
+then reasonable order of magnitude estimate
+
+1055
+00:55:35,980 --> 00:55:41,980
+would be hundreds at most, probably more like tens.
+
+1056
+00:55:41,980 --> 00:55:44,980
+So my like Fermi estimate for how
+
+1057
+00:55:44,980 --> 00:55:47,980
+complicated, how complex are human values
+
+1058
+00:55:47,980 --> 00:55:51,980
+or the core of it from which we can generate the rest of it.
+
+1059
+00:55:51,980 --> 00:55:54,980
+Order of magnitude estimate, I'm thinking like on the order
+
+1060
+00:55:54,980 --> 00:55:56,980
+of tens at most hundreds of things
+
+1061
+00:55:56,980 --> 00:55:59,980
+about as complicated as a very fuzzy face detector.
+
+1062
+00:55:59,980 --> 00:56:00,480
+Yeah.
+
+1063
+00:56:10,980 --> 00:56:12,980
+This makes me think of the overwhelming majority
+
+1064
+00:56:12,980 --> 00:56:14,980
+of human values are in the environment.
+
+1065
+00:56:14,980 --> 00:56:15,980
+Yes.
+
+1066
+00:56:15,980 --> 00:56:17,980
+I agree with that.
+
+1067
+00:56:17,980 --> 00:56:18,980
+Which is interesting.
+
+1068
+00:56:18,980 --> 00:56:20,980
+It kind of counterintuitive.
+
+1069
+00:56:20,980 --> 00:56:22,980
+It's actually like super, like that's
+
+1070
+00:56:22,980 --> 00:56:24,980
+the state of the art for like social science
+
+1071
+00:56:24,980 --> 00:56:26,980
+for like more than a century or something.
+
+1072
+00:56:26,980 --> 00:56:29,980
+Nobody would be, oh, all the values I'm looking for.
+
+1073
+00:56:29,980 --> 00:56:37,980
+No, but like I still would anticipate a person.
+
+1074
+00:56:37,980 --> 00:56:39,980
+I guess it depends how different the environment is.
+
+1075
+00:56:39,980 --> 00:56:41,980
+But like if you ask me if you took a person
+
+1076
+00:56:41,980 --> 00:56:48,980
+and you raised them on another planet on their own,
+
+1077
+00:56:48,980 --> 00:56:53,980
+maybe that person would really, really just not
+
+1078
+00:56:53,980 --> 00:56:55,980
+have like really fundamental, the things
+
+1079
+00:56:55,980 --> 00:56:58,980
+we would consider to be really fundamental human values.
+
+1080
+00:56:58,980 --> 00:57:00,980
+But I would be slightly surprised by that.
+
+1081
+00:57:00,980 --> 00:57:03,980
+Or at least that it couldn't, that that person wouldn't
+
+1082
+00:57:03,980 --> 00:57:11,980
+find over the course of their life a lot of the same things.
+
+1083
+00:57:11,980 --> 00:57:12,980
+What are the same things?
+
+1084
+00:57:12,980 --> 00:57:16,980
+Because they can like value or have value about
+
+1085
+00:57:16,980 --> 00:57:18,980
+with input the same thing.
+
+1086
+00:57:18,980 --> 00:57:20,980
+But like in the history of humanity,
+
+1087
+00:57:20,980 --> 00:57:22,980
+a lot of people have value disagreement
+
+1088
+00:57:22,980 --> 00:57:26,980
+about a lot of things, whether certain type of people
+
+1089
+00:57:26,980 --> 00:57:29,980
+are really people, what is important, what is not.
+
+1090
+00:57:29,980 --> 00:57:30,980
+Like there's a lot of that.
+
+1091
+00:57:30,980 --> 00:57:32,980
+But that's all like high-value stuff.
+
+1092
+00:57:32,980 --> 00:57:34,980
+I mean, OK, OK, one person in purely isolation,
+
+1093
+00:57:34,980 --> 00:57:36,980
+a whole bunch of this stuff just doesn't trigger.
+
+1094
+00:57:36,980 --> 00:57:37,480
+Right?
+
+1095
+00:57:37,480 --> 00:57:38,980
+And so they have to acquire language.
+
+1096
+00:57:38,980 --> 00:57:40,980
+And like they pick up their place in time
+
+1097
+00:57:40,980 --> 00:57:41,980
+to actually listen.
+
+1098
+00:57:41,980 --> 00:57:42,480
+Right?
+
+1099
+00:57:42,480 --> 00:57:45,980
+But let's say you get a group of people, right?
+
+1100
+00:57:45,980 --> 00:57:47,980
+A group of like babies.
+
+1101
+00:57:47,980 --> 00:57:49,980
+And you allow them to grow up around each other
+
+1102
+00:57:49,980 --> 00:57:51,980
+in some environment which provides
+
+1103
+00:57:51,980 --> 00:57:53,980
+them with their basic needs.
+
+1104
+00:57:53,980 --> 00:57:57,980
+I feel like they develop some basic moral code, right?
+
+1105
+00:57:57,980 --> 00:57:59,980
+Like a possibly quite sophisticated.
+
+1106
+00:57:59,980 --> 00:58:00,480
+I don't know.
+
+1107
+00:58:00,480 --> 00:58:00,980
+I don't know.
+
+1108
+00:58:00,980 --> 00:58:03,980
+It's a good experiment, which the Dan research ethics
+
+1109
+00:58:03,980 --> 00:58:04,980
+pool is one of those too.
+
+1110
+00:58:04,980 --> 00:58:05,980
+Yeah.
+
+1111
+00:58:05,980 --> 00:58:07,980
+I don't even know if they've got language.
+
+1112
+00:58:07,980 --> 00:58:09,980
+Because I feel like apparently language
+
+1113
+00:58:09,980 --> 00:58:12,980
+comes from listening and repeating language by parents.
+
+1114
+00:58:12,980 --> 00:58:15,480
+Hmm.
+
+1115
+00:58:15,480 --> 00:58:17,980
+So you might have a bunch of like dead, like not,
+
+1116
+00:58:17,980 --> 00:58:18,980
+like new babies.
+
+1117
+00:58:18,980 --> 00:58:21,980
+That's interesting.
+
+1118
+00:58:21,980 --> 00:58:24,980
+My dad says they would develop language.
+
+1119
+00:58:24,980 --> 00:58:27,980
+But again, it might not happen.
+
+1120
+00:58:27,980 --> 00:58:30,980
+Anyway, let's probably go back to.
+
+1121
+00:58:30,980 --> 00:58:31,980
+I really want to know.
+
+1122
+00:58:31,980 --> 00:58:35,980
+You only have to ruin like five, 10 people's lives.
+
+1123
+00:58:35,980 --> 00:58:40,980
+This is why Rob's not allowed to make experiments
+
+1124
+00:58:40,980 --> 00:58:42,980
+with babies anymore.
+
+1125
+00:58:42,980 --> 00:58:45,980
+Weren't there genetically identical people
+
+1126
+00:58:45,980 --> 00:58:48,980
+that were like a long time period before?
+
+1127
+00:58:52,980 --> 00:58:56,980
+There's some selection that has been like not that much yet.
+
+1128
+00:58:56,980 --> 00:58:59,980
+So what would you say, maybe 70,000 years
+
+1129
+00:58:59,980 --> 00:59:05,980
+with like pretty, pretty minor genetic changes?
+
+1130
+00:59:05,980 --> 00:59:08,480
+All right.
+
+1131
+00:59:08,480 --> 00:59:11,980
+I'm, yep, I'm declaring this to be dinner conversation.
+
+1132
+00:59:11,980 --> 00:59:14,980
+I can come back to it.
+
+1133
+00:59:14,980 --> 00:59:17,980
+So that's like not that much complexity
+
+1134
+00:59:17,980 --> 00:59:19,980
+at the end of the day, right?
+
+1135
+00:59:19,980 --> 00:59:21,980
+It really doesn't sound that bad.
+
+1136
+00:59:21,980 --> 00:59:22,980
+So what's so hard?
+
+1137
+00:59:29,980 --> 00:59:31,980
+So first problem, we're not really
+
+1138
+00:59:31,980 --> 00:59:35,980
+sure what kind of thing we're even looking for.
+
+1139
+00:59:35,980 --> 00:59:37,980
+Yep.
+
+1140
+00:59:37,980 --> 00:59:43,980
+What are we even looking for?
+
+1141
+00:59:47,980 --> 00:59:50,980
+And in particular, we're going to operationalize that
+
+1142
+00:59:50,980 --> 00:59:52,980
+as types of human values.
+
+1143
+00:59:58,980 --> 01:00:01,980
+Type signature.
+
+1144
+01:00:01,980 --> 01:00:06,980
+Type signature of human values.
+
+1145
+01:00:06,980 --> 01:00:08,980
+And then the other part of the question
+
+1146
+01:00:08,980 --> 01:00:11,980
+is once we have some idea of what we're looking for,
+
+1147
+01:00:11,980 --> 01:00:13,980
+how do we go out and measure it?
+
+1148
+01:00:22,980 --> 01:00:28,980
+And that's going to involve abstractions and modularity
+
+1149
+01:00:28,980 --> 01:00:29,980
+and all that jazz.
+
+1150
+01:00:37,980 --> 01:00:40,980
+And I feel a need to kind of head something off here.
+
+1151
+01:00:40,980 --> 01:00:42,980
+Yeah.
+
+1152
+01:00:42,980 --> 01:00:43,980
+From an external perspective.
+
+1153
+01:00:43,980 --> 01:00:44,980
+OK.
+
+1154
+01:00:44,980 --> 01:00:46,980
+Which is various philosophically minded people
+
+1155
+01:00:46,980 --> 01:00:49,980
+saying that this whole thing is completely absurd.
+
+1156
+01:00:49,980 --> 01:00:50,980
+Yep.
+
+1157
+01:00:50,980 --> 01:00:52,980
+The idea that you can mathematicize this.
+
+1158
+01:00:52,980 --> 01:00:53,980
+Yep.
+
+1159
+01:00:53,980 --> 01:00:54,980
+Like a weird kind of.
+
+1160
+01:00:54,980 --> 01:00:57,980
+Fortunately, I don't particularly
+
+1161
+01:00:57,980 --> 01:01:01,980
+give a shit what those people have to say about it.
+
+1162
+01:01:01,980 --> 01:01:04,980
+Yeah, that's probably the correct approach to take.
+
+1163
+01:01:04,980 --> 01:01:09,980
+What I would also say is like, if it is in fact impossible
+
+1164
+01:01:09,980 --> 01:01:11,980
+to do this, then we're all dead.
+
+1165
+01:01:11,980 --> 01:01:14,980
+So let's work on it anyway.
+
+1166
+01:01:14,980 --> 01:01:15,980
+OK.
+
+1167
+01:01:15,980 --> 01:01:19,980
+So you found human values.
+
+1168
+01:01:19,980 --> 01:01:21,980
+And you showed them to a person.
+
+1169
+01:01:21,980 --> 01:01:22,980
+Yep.
+
+1170
+01:01:22,980 --> 01:01:25,980
+In a way that they could interact with and understand
+
+1171
+01:01:25,980 --> 01:01:26,980
+what it is that had been found.
+
+1172
+01:01:26,980 --> 01:01:27,980
+Yep.
+
+1173
+01:01:27,980 --> 01:01:31,980
+And you asked the person, do you endorse this?
+
+1174
+01:01:32,980 --> 01:01:35,980
+If they said no, that would be weird.
+
+1175
+01:01:35,980 --> 01:01:37,980
+Mm-hmm.
+
+1176
+01:01:37,980 --> 01:01:38,980
+Could I?
+
+1177
+01:01:38,980 --> 01:01:40,980
+Depending on whose values they are.
+
+1178
+01:01:40,980 --> 01:01:41,980
+And if anyone is.
+
+1179
+01:01:41,980 --> 01:01:42,980
+The person is themselves.
+
+1180
+01:01:42,980 --> 01:01:43,980
+Yeah.
+
+1181
+01:01:43,980 --> 01:01:44,980
+They have their own values.
+
+1182
+01:01:44,980 --> 01:01:47,980
+If anyone can see how they answer.
+
+1183
+01:01:47,980 --> 01:01:48,980
+Right.
+
+1184
+01:01:48,980 --> 01:01:50,980
+This is all science.
+
+1185
+01:01:50,980 --> 01:01:52,980
+If they said, is it the kind of thing
+
+1186
+01:01:52,980 --> 01:01:57,980
+where if somebody showed me my own values in some legit form.
+
+1187
+01:01:57,980 --> 01:01:58,980
+Yes.
+
+1188
+01:01:58,980 --> 01:02:00,980
+That I would sort of have no choice but to say yes.
+
+1189
+01:02:00,980 --> 01:02:02,980
+That would not be a real.
+
+1190
+01:02:02,980 --> 01:02:06,980
+I think on reflection, you would certainly endorse them.
+
+1191
+01:02:06,980 --> 01:02:08,980
+There may be some reflection involved.
+
+1192
+01:02:08,980 --> 01:02:09,980
+But yes.
+
+1193
+01:02:09,980 --> 01:02:11,980
+My question is not whether I would endorse them,
+
+1194
+01:02:11,980 --> 01:02:15,980
+but whether I would have any choice about endorsing them.
+
+1195
+01:02:15,980 --> 01:02:18,980
+Is there something that I would be comparing?
+
+1196
+01:02:18,980 --> 01:02:19,980
+You can not endorse them.
+
+1197
+01:02:19,980 --> 01:02:21,980
+I mean, you can say the word no.
+
+1198
+01:02:21,980 --> 01:02:22,980
+Mm-hmm.
+
+1199
+01:02:22,980 --> 01:02:23,980
+It doesn't mean you believe.
+
+1200
+01:02:23,980 --> 01:02:25,980
+It doesn't mean you're going to believe it.
+
+1201
+01:02:25,980 --> 01:02:27,980
+But you can say the word no.
+
+1202
+01:02:27,980 --> 01:02:30,980
+All right.
+
+1203
+01:02:30,980 --> 01:02:31,980
+Yeah.
+
+1204
+01:02:31,980 --> 01:02:34,980
+So next two sections of the talk are basically
+
+1205
+01:02:34,980 --> 01:02:37,980
+focused on these two pieces, type signatures
+
+1206
+01:02:37,980 --> 01:02:40,980
+of human values and everything that goes into that.
+
+1207
+01:02:40,980 --> 01:02:42,980
+Then the one after that is going to be abstraction
+
+1208
+01:02:42,980 --> 01:02:43,980
+and modularity and whatnot.
+
+1209
+01:02:43,980 --> 01:02:45,980
+OK?
+
+1210
+01:02:45,980 --> 01:02:59,980
+So within type signatures, first we're
+
+1211
+01:02:59,980 --> 01:03:03,980
+going to talk a bit about coherence arguments,
+
+1212
+01:03:03,980 --> 01:03:05,980
+because usually they're very poorly done.
+
+1213
+01:03:05,980 --> 01:03:07,980
+And we want to be clear on what they do give us,
+
+1214
+01:03:07,980 --> 01:03:12,980
+what they don't give us, so on and so forth.
+
+1215
+01:03:12,980 --> 01:03:13,480
+OK?
+
+1216
+01:03:15,980 --> 01:03:19,980
+Second, we're going to talk about world models.
+
+1217
+01:03:23,980 --> 01:03:28,980
+And then third, there's the pointers problem.
+
+1218
+01:03:33,980 --> 01:03:38,980
+And then we'll talk about other bits and pieces, the largest
+
+1219
+01:03:38,980 --> 01:03:40,980
+of which.
+
+1220
+01:03:40,980 --> 01:03:42,980
+So the largest thing we won't go into much detail on
+
+1221
+01:03:42,980 --> 01:03:48,980
+is going to be decision theory and counterfactuals,
+
+1222
+01:03:48,980 --> 01:03:50,980
+especially counterfactuals.
+
+1223
+01:03:55,980 --> 01:03:57,980
+Oh, that's definitely important.
+
+1224
+01:03:57,980 --> 01:04:00,980
+Mainly, I just don't have as much to say on it.
+
+1225
+01:04:00,980 --> 01:04:02,980
+It's not been a primary focus of mine.
+
+1226
+01:04:02,980 --> 01:04:04,980
+And other people just have much better things
+
+1227
+01:04:04,980 --> 01:04:06,980
+to say on the topic, mainly Abram.
+
+1228
+01:04:07,980 --> 01:04:09,980
+Yeah.
+
+1229
+01:04:09,980 --> 01:04:11,980
+General strategy that we're going
+
+1230
+01:04:11,980 --> 01:04:18,980
+to be using for thinking about these is selection theorems,
+
+1231
+01:04:18,980 --> 01:04:20,980
+or selection arguments, more generally.
+
+1232
+01:04:20,980 --> 01:04:24,980
+Basically, it's similar to the sorts of things
+
+1233
+01:04:24,980 --> 01:04:26,980
+we were talking about before.
+
+1234
+01:04:26,980 --> 01:04:33,980
+We want to make arguments of the form most
+
+1235
+01:04:34,980 --> 01:04:37,980
+of the possible human designs that
+
+1236
+01:04:37,980 --> 01:04:39,980
+will perform well in some way or another
+
+1237
+01:04:39,980 --> 01:04:41,980
+will have some properties.
+
+1238
+01:04:41,980 --> 01:04:44,980
+So if we're thinking about space of possible human genomes that
+
+1239
+01:04:44,980 --> 01:04:46,980
+could have evolved, we want to say,
+
+1240
+01:04:46,980 --> 01:04:49,980
+well, most of the possible genomes
+
+1241
+01:04:49,980 --> 01:04:53,980
+that would have high reproductive fitness
+
+1242
+01:04:53,980 --> 01:04:57,980
+will have a world model or have not a utility function,
+
+1243
+01:04:57,980 --> 01:04:59,980
+but something similar to that.
+
+1244
+01:04:59,980 --> 01:05:00,980
+So on and so forth.
+
+1245
+01:05:00,980 --> 01:05:02,980
+Make sense?
+
+1246
+01:05:02,980 --> 01:05:05,980
+So that's the form of the thing we're going to be looking at.
+
+1247
+01:05:05,980 --> 01:05:08,980
+And to kick it off, I want to do just
+
+1248
+01:05:08,980 --> 01:05:12,980
+a simple toy example of a selection argument
+
+1249
+01:05:12,980 --> 01:05:15,980
+to see what that looks like.
+
+1250
+01:05:15,980 --> 01:05:17,980
+So this is going to be the Kelly criteria.
+
+1251
+01:05:21,980 --> 01:05:23,980
+Kelly criteria.
+
+1252
+01:05:23,980 --> 01:05:27,980
+Our agent is an investor in a financial market,
+
+1253
+01:05:27,980 --> 01:05:29,980
+or alternatively, a better in a betting market,
+
+1254
+01:05:29,980 --> 01:05:31,980
+however you want to think of it.
+
+1255
+01:05:31,980 --> 01:05:36,980
+They're going to start out with some wealth, w0.
+
+1256
+01:05:36,980 --> 01:05:38,980
+At each time step, they're going to make some bets
+
+1257
+01:05:38,980 --> 01:05:50,980
+and get some returns, rt, so that after t time steps,
+
+1258
+01:05:50,980 --> 01:05:57,980
+their final wealth is going to be w0 times product on t,
+
+1259
+01:05:57,980 --> 01:06:00,980
+e to the rt.
+
+1260
+01:06:00,980 --> 01:06:02,980
+OK?
+
+1261
+01:06:02,980 --> 01:06:04,980
+Is the exponential?
+
+1262
+01:06:04,980 --> 01:06:05,980
+Is an exponential, yes.
+
+1263
+01:06:05,980 --> 01:06:07,980
+They're always reinvesting everything
+
+1264
+01:06:07,980 --> 01:06:09,980
+that they hold as a tax.
+
+1265
+01:06:09,980 --> 01:06:13,980
+So the things they could invest in potentially include cash.
+
+1266
+01:06:13,980 --> 01:06:15,980
+So they could be holding cash, but that's just
+
+1267
+01:06:15,980 --> 01:06:16,980
+sort of baked in here.
+
+1268
+01:06:16,980 --> 01:06:19,980
+We're not going to be explicit about it.
+
+1269
+01:06:19,980 --> 01:06:20,980
+All right.
+
+1270
+01:06:20,980 --> 01:06:27,980
+So cool thing about this series.
+
+1271
+01:06:27,980 --> 01:06:34,980
+Can rewrite that as w0 e to the sum on t, rt.
+
+1272
+01:06:34,980 --> 01:06:38,980
+Assuming that each time step is independent,
+
+1273
+01:06:38,980 --> 01:06:40,980
+which is like the sort of core assumption
+
+1274
+01:06:40,980 --> 01:06:42,980
+behind the Kelly criterion.
+
+1275
+01:06:42,980 --> 01:06:44,980
+So whatever the financial markets are doing at each time
+
+1276
+01:06:44,980 --> 01:06:46,980
+step is independent of the previous time steps.
+
+1277
+01:06:46,980 --> 01:06:51,980
+We have a sum of independent random variables here.
+
+1278
+01:06:51,980 --> 01:06:58,980
+So this is going to be approximately w0 e
+
+1279
+01:06:58,980 --> 01:07:06,980
+to the number of time steps times an expected value of r.
+
+1280
+01:07:06,980 --> 01:07:09,980
+So basically an average value of r
+
+1281
+01:07:09,980 --> 01:07:12,980
+based on the actual frequencies of outcomes.
+
+1282
+01:07:12,980 --> 01:07:16,980
+Plus some noise of order root n.
+
+1283
+01:07:22,980 --> 01:07:28,980
+So the main conclusion of Kelly is that, well,
+
+1284
+01:07:28,980 --> 01:07:54,980
+in the long run, agents which maximize expectation of r
+
+1285
+01:07:54,980 --> 01:07:59,980
+at each time step achieve the most wealth.
+
+1286
+01:07:59,980 --> 01:08:01,980
+Achieve exponentially most wealth.
+
+1287
+01:08:09,980 --> 01:08:13,980
+So for instance, there are ways in which
+
+1288
+01:08:13,980 --> 01:08:16,980
+this is an imperfect model of a real financial market.
+
+1289
+01:08:16,980 --> 01:08:18,980
+But as a simple first pass model, you might say,
+
+1290
+01:08:18,980 --> 01:08:21,980
+well, if we go look at investors in the stock market,
+
+1291
+01:08:21,980 --> 01:08:24,980
+then we might guess that most of the money invested
+
+1292
+01:08:24,980 --> 01:08:28,980
+is invested according to a Kelly criterion rule.
+
+1293
+01:08:28,980 --> 01:08:29,980
+Make sense?
+
+1294
+01:08:35,980 --> 01:08:36,980
+Yeah.
+
+1295
+01:08:36,980 --> 01:08:39,980
+Subtlety here, just based on the notation I'm using,
+
+1296
+01:08:39,980 --> 01:08:43,980
+compared to what you might use in other places,
+
+1297
+01:08:43,980 --> 01:08:45,980
+really this is a log return.
+
+1298
+01:08:45,980 --> 01:08:50,980
+So this is expected log of your wealth next time step.
+
+1299
+01:08:50,980 --> 01:08:52,980
+Which is the usual way the Kelly rule is stated,
+
+1300
+01:08:52,980 --> 01:08:54,980
+is you want to maximize your expected log
+
+1301
+01:08:54,980 --> 01:08:56,980
+wealth at the next time step.
+
+1302
+01:09:01,980 --> 01:09:02,980
+And any cash, yep.
+
+1303
+01:09:02,980 --> 01:09:06,980
+So whatever possible things could happen in the next time
+
+1304
+01:09:06,980 --> 01:09:08,980
+step based on the portfolio you're holding now,
+
+1305
+01:09:08,980 --> 01:09:11,980
+any dividends, any cash, whatever,
+
+1306
+01:09:11,980 --> 01:09:14,980
+you just take the log of that and maximize the expected value.
+
+1307
+01:09:21,980 --> 01:09:26,980
+Oh boy, that's a fun topic right there.
+
+1308
+01:09:26,980 --> 01:09:31,980
+So first of all, if you just have a utility function,
+
+1309
+01:09:31,980 --> 01:09:34,980
+it may be that something other than the Kelly rule
+
+1310
+01:09:34,980 --> 01:09:36,980
+maximizes your utility function.
+
+1311
+01:09:36,980 --> 01:09:38,980
+And anyone with that utility function
+
+1312
+01:09:38,980 --> 01:09:40,980
+just loses all of their money in the long run.
+
+1313
+01:09:40,980 --> 01:09:42,980
+But that's still maximizing.
+
+1314
+01:09:42,980 --> 01:09:45,980
+So you could try to maximize expected wealth.
+
+1315
+01:09:45,980 --> 01:09:47,980
+That's the classic example of this.
+
+1316
+01:09:47,980 --> 01:09:49,980
+Then you have the gambler's ruin problem,
+
+1317
+01:09:49,980 --> 01:09:55,980
+where every time step, you have a 50% chance
+
+1318
+01:09:55,980 --> 01:09:59,980
+of tripling your wealth and a 50% chance of losing all of it.
+
+1319
+01:09:59,980 --> 01:10:02,980
+And then after n time steps, you've almost certainly
+
+1320
+01:10:02,980 --> 01:10:03,980
+lost all of it.
+
+1321
+01:10:03,980 --> 01:10:05,980
+But there's an exponentially small chance
+
+1322
+01:10:05,980 --> 01:10:07,980
+that you have an exponentially large wealth.
+
+1323
+01:10:07,980 --> 01:10:10,980
+So if you're maximizing expected wealth,
+
+1324
+01:10:10,980 --> 01:10:12,980
+then that's the thing to do.
+
+1325
+01:10:12,980 --> 01:10:14,980
+And what would this say to do instead?
+
+1326
+01:10:14,980 --> 01:10:17,980
+What this would say to do is maximize the log expected
+
+1327
+01:10:17,980 --> 01:10:20,980
+wealth, which would mean that you don't put literally
+
+1328
+01:10:20,980 --> 01:10:23,980
+all of your wealth in the thing that might lose literally
+
+1329
+01:10:23,980 --> 01:10:24,980
+all of its value.
+
+1330
+01:10:24,980 --> 01:10:27,980
+So the log counts about the exponentially growing wealth.
+
+1331
+01:10:27,980 --> 01:10:30,980
+If you've got one exponential log, it would be enough.
+
+1332
+01:10:30,980 --> 01:10:31,980
+Correct.
+
+1333
+01:10:31,980 --> 01:10:34,980
+But the probability is still exponential, so.
+
+1334
+01:10:34,980 --> 01:10:35,980
+Something like that.
+
+1335
+01:10:35,980 --> 01:10:37,980
+Right.
+
+1336
+01:10:37,980 --> 01:10:43,980
+So r is like log of w.
+
+1337
+01:10:43,980 --> 01:10:46,980
+Yes, r is log wealth the next time step.
+
+1338
+01:10:47,980 --> 01:10:49,980
+Now, the important thing to take away from here,
+
+1339
+01:10:49,980 --> 01:10:51,980
+this is not like a selection theorem
+
+1340
+01:10:51,980 --> 01:10:54,980
+that we're actually going to use for thinking about humans.
+
+1341
+01:10:54,980 --> 01:10:57,980
+But the point is sort of the form of the argument.
+
+1342
+01:10:57,980 --> 01:11:02,980
+The argument is saying that anything that performs well
+
+1343
+01:11:02,980 --> 01:11:06,980
+in the long run will be doing this.
+
+1344
+01:11:06,980 --> 01:11:07,980
+Right.
+
+1345
+01:11:07,980 --> 01:11:09,980
+Anything that doesn't do this is going
+
+1346
+01:11:09,980 --> 01:11:12,980
+to be strictly dominated by something else
+
+1347
+01:11:12,980 --> 01:11:13,980
+with probability 1.
+
+1348
+01:11:13,980 --> 01:11:16,980
+So another way to say it would be
+
+1349
+01:11:16,980 --> 01:11:19,980
+the vast majority of successful agents
+
+1350
+01:11:19,980 --> 01:11:22,980
+or successful agents in the vast majority of worlds
+
+1351
+01:11:22,980 --> 01:11:26,980
+will be doing this.
+
+1352
+01:11:26,980 --> 01:11:27,980
+Yeah.
+
+1353
+01:11:27,980 --> 01:11:30,980
+So it's not necessarily a theorem
+
+1354
+01:11:30,980 --> 01:11:36,980
+that says Kelly agents are always going to win.
+
+1355
+01:11:36,980 --> 01:11:39,980
+Like logically, there are worlds in which they won't.
+
+1356
+01:11:39,980 --> 01:11:42,980
+But like with arbitrarily high probability.
+
+1357
+01:11:43,980 --> 01:11:44,980
+Exactly.
+
+1358
+01:11:52,980 --> 01:11:53,980
+Yeah.
+
+1359
+01:11:55,980 --> 01:11:56,980
+Yep.
+
+1360
+01:12:01,980 --> 01:12:04,980
+I mean, this is what the gambler's ruin is all about.
+
+1361
+01:12:04,980 --> 01:12:07,980
+It's like if you can have exponentially growing wealth,
+
+1362
+01:12:07,980 --> 01:12:10,980
+but then some probability of losing it all at each time
+
+1363
+01:12:10,980 --> 01:12:13,980
+step, then the way you maximize your expected wealth
+
+1364
+01:12:13,980 --> 01:12:15,980
+is to put it all in every time step.
+
+1365
+01:12:15,980 --> 01:12:17,980
+And then you go broke, but you maximized
+
+1366
+01:12:17,980 --> 01:12:18,980
+your expected wealth.
+
+1367
+01:12:21,980 --> 01:12:22,980
+Yeah.
+
+1368
+01:12:22,980 --> 01:12:23,980
+All right.
+
+1369
+01:12:28,980 --> 01:12:30,980
+Cool.
+
+1370
+01:12:30,980 --> 01:12:33,980
+I think we're going to do coherence arguments.
+
+1371
+01:12:33,980 --> 01:12:38,980
+And then we'll wrap up for today, which is exactly
+
+1372
+01:12:38,980 --> 01:12:39,980
+where I expected to get to.
+
+1373
+01:12:39,980 --> 01:12:40,980
+So perfect.
+
+1374
+01:12:41,980 --> 01:12:42,980
+Yep.
+
+1375
+01:12:46,980 --> 01:12:47,980
+Yeah.
+
+1376
+01:12:47,980 --> 01:12:50,980
+I mean, I was expecting some amount of kibitzing,
+
+1377
+01:12:50,980 --> 01:12:52,980
+which is why the forecast is there.
+
+1378
+01:12:52,980 --> 01:12:53,980
+All right.
+
+1379
+01:12:55,980 --> 01:12:59,980
+So we went over this sort of very quickly a couple of days
+
+1380
+01:12:59,980 --> 01:13:00,980
+ago.
+
+1381
+01:13:00,980 --> 01:13:05,980
+But I want to try to do it with a bit more care.
+
+1382
+01:13:05,980 --> 01:13:07,980
+So we'll start with the car.
+
+1383
+01:13:07,980 --> 01:13:08,980
+All right.
+
+1384
+01:13:08,980 --> 01:13:10,980
+So you have a car.
+
+1385
+01:13:10,980 --> 01:13:12,980
+You are optimizing it for several things.
+
+1386
+01:13:12,980 --> 01:13:14,980
+You're optimizing it for speed.
+
+1387
+01:13:14,980 --> 01:13:16,980
+You're optimizing it for price.
+
+1388
+01:13:16,980 --> 01:13:19,980
+Give me one more thing we want to optimize our car design for.
+
+1389
+01:13:19,980 --> 01:13:20,980
+Coolness.
+
+1390
+01:13:20,980 --> 01:13:21,980
+Coolness.
+
+1391
+01:13:21,980 --> 01:13:22,980
+Style.
+
+1392
+01:13:22,980 --> 01:13:23,980
+Style.
+
+1393
+01:13:23,980 --> 01:13:25,980
+I would like to point out that style is a cooler way
+
+1394
+01:13:25,980 --> 01:13:27,980
+to say coolness than coolness is.
+
+1395
+01:13:32,980 --> 01:13:36,980
+And we have a bunch of like parts of the car
+
+1396
+01:13:36,980 --> 01:13:38,980
+that we can adjust in order to achieve these objectives.
+
+1397
+01:13:38,980 --> 01:13:41,980
+Like we have the engine.
+
+1398
+01:13:41,980 --> 01:13:44,980
+We have the body.
+
+1399
+01:13:44,980 --> 01:13:47,980
+And what was that?
+
+1400
+01:13:47,980 --> 01:13:48,980
+Paint job.
+
+1401
+01:13:56,980 --> 01:13:57,980
+The volume?
+
+1402
+01:13:59,980 --> 01:14:00,980
+OK.
+
+1403
+01:14:01,980 --> 01:14:04,980
+We're just going to go with three and three for now.
+
+1404
+01:14:04,980 --> 01:14:07,980
+So these are all like knobs we can turn.
+
+1405
+01:14:07,980 --> 01:14:09,980
+And these are objectives we want to achieve.
+
+1406
+01:14:17,980 --> 01:14:21,980
+We want to think about how each of these knobs we can turn
+
+1407
+01:14:21,980 --> 01:14:24,980
+allows us to trade off between things.
+
+1408
+01:14:24,980 --> 01:14:31,980
+So let's say we could, for instance, pay an extra $100
+
+1409
+01:14:31,980 --> 01:14:32,980
+on the engine.
+
+1410
+01:14:33,980 --> 01:14:38,980
+So price goes up $100.
+
+1411
+01:14:38,980 --> 01:14:44,980
+In exchange for speed going up.
+
+1412
+01:14:44,980 --> 01:14:45,980
+Wait a minute.
+
+1413
+01:14:45,980 --> 01:14:46,980
+Yes?
+
+1414
+01:14:46,980 --> 01:14:51,980
+Intuitively, we want speed and we don't want price.
+
+1415
+01:14:51,980 --> 01:14:52,980
+Yes.
+
+1416
+01:14:52,980 --> 01:14:54,980
+So units wise.
+
+1417
+01:14:54,980 --> 01:14:55,980
+All right.
+
+1418
+01:14:55,980 --> 01:14:57,980
+Well, we'll just make this negative price.
+
+1419
+01:14:58,980 --> 01:15:02,980
+These are all things we want to maximize.
+
+1420
+01:15:04,980 --> 01:15:05,980
+What was that?
+
+1421
+01:15:19,980 --> 01:15:20,980
+All right.
+
+1422
+01:15:20,980 --> 01:15:24,980
+And then tweaking the engine, like putting another $100
+
+1423
+01:15:24,980 --> 01:15:31,980
+into the engine will give us, let's say, plus 10 speed units
+
+1424
+01:15:31,980 --> 01:15:34,980
+to avoid committing to what the hell speed units we're using.
+
+1425
+01:15:34,980 --> 01:15:36,980
+And we are generally going to assume here
+
+1426
+01:15:36,980 --> 01:15:39,980
+that it's a continuous dial.
+
+1427
+01:15:39,980 --> 01:15:42,980
+And everything's roughly linear.
+
+1428
+01:15:42,980 --> 01:15:47,980
+So this also means we could go $100 the other way,
+
+1429
+01:15:47,980 --> 01:15:52,980
+save $100 on the engine, and lose about 10 speed units.
+
+1430
+01:15:52,980 --> 01:15:53,980
+It'll be convex.
+
+1431
+01:15:53,980 --> 01:15:55,980
+Not a perfect approximation, but roughly.
+
+1432
+01:15:58,980 --> 01:16:01,980
+Meanwhile, on the paint side of things.
+
+1433
+01:16:01,980 --> 01:16:07,980
+Oh, and all this is having zero impact on the style.
+
+1434
+01:16:07,980 --> 01:16:09,980
+We'll just assume that.
+
+1435
+01:16:09,980 --> 01:16:12,980
+I mean, there are changes you could make to the engine that
+
+1436
+01:16:12,980 --> 01:16:13,980
+would impact the style.
+
+1437
+01:16:13,980 --> 01:16:16,980
+But we're assuming that we're holding those constant.
+
+1438
+01:16:16,980 --> 01:16:18,980
+Like the engine just plays country or something.
+
+1439
+01:16:18,980 --> 01:16:20,980
+Yep.
+
+1440
+01:16:20,980 --> 01:16:23,980
+Meanwhile, on the body side of things,
+
+1441
+01:16:23,980 --> 01:16:26,980
+let's think about ways we can change the body while holding the style
+
+1442
+01:16:26,980 --> 01:16:30,980
+constant to trade off between price and speed.
+
+1443
+01:16:30,980 --> 01:16:38,980
+So let's say, on the body, we could spend an extra $1,000
+
+1444
+01:16:38,980 --> 01:16:43,980
+to get an extra 10 units of speed.
+
+1445
+01:16:43,980 --> 01:16:45,980
+We've added some extra lights.
+
+1446
+01:16:45,980 --> 01:16:46,980
+Yes.
+
+1447
+01:16:46,980 --> 01:16:47,980
+We've added lots of lightness.
+
+1448
+01:16:47,980 --> 01:16:49,980
+Like, you really have to put a lot of lightness
+
+1449
+01:16:49,980 --> 01:16:51,980
+into that body to get much more speed.
+
+1450
+01:16:51,980 --> 01:16:54,980
+But for $1,000, we can do that.
+
+1451
+01:16:54,980 --> 01:16:55,980
+All right.
+
+1452
+01:16:55,980 --> 01:16:58,980
+And then the claim is, again, this is all continuous.
+
+1453
+01:16:58,980 --> 01:17:02,980
+So like, we could spend $1,000 less on the body
+
+1454
+01:17:02,980 --> 01:17:06,980
+and get 10 fewer units of speed.
+
+1455
+01:17:06,980 --> 01:17:08,980
+And the claim here is, with these numbers,
+
+1456
+01:17:08,980 --> 01:17:12,980
+we can get a Pareto improvement in our objectives.
+
+1457
+01:17:12,980 --> 01:17:13,980
+How do we do that?
+
+1458
+01:17:27,980 --> 01:17:31,980
+So the body, we're trading $1,000 for 10 speed.
+
+1459
+01:17:31,980 --> 01:17:33,980
+And the engine, we're only trading $100.
+
+1460
+01:17:33,980 --> 01:17:34,980
+Yep.
+
+1461
+01:17:34,980 --> 01:17:35,980
+Right?
+
+1462
+01:17:35,980 --> 01:17:37,980
+So we shouldn't be making that body trade off.
+
+1463
+01:17:37,980 --> 01:17:38,980
+Would you go there?
+
+1464
+01:17:38,980 --> 01:17:39,980
+There you go.
+
+1465
+01:17:39,980 --> 01:17:41,980
+So you bring the body trade off.
+
+1466
+01:17:41,980 --> 01:17:45,980
+So on the body side, we'll save $1,000
+
+1467
+01:17:45,980 --> 01:17:48,980
+at the cost of minus 10 units of speed.
+
+1468
+01:17:51,980 --> 01:17:56,980
+And then on the engine side, we'll be like, hey,
+
+1469
+01:17:56,980 --> 01:17:59,980
+we'll spend $100 to get those 10 units of speed back.
+
+1470
+01:17:59,980 --> 01:18:02,980
+In fact, let's spend another $100
+
+1471
+01:18:02,980 --> 01:18:06,980
+and get slightly less than another 10 units of speed.
+
+1472
+01:18:07,480 --> 01:18:12,980
+And now, overall, we've saved $800.
+
+1473
+01:18:12,980 --> 01:18:16,980
+And we've gained 10 units of speed.
+
+1474
+01:18:16,980 --> 01:18:18,980
+Right?
+
+1475
+01:18:18,980 --> 01:18:22,980
+So we have this comparative advantage thing going on.
+
+1476
+01:18:22,980 --> 01:18:26,980
+You're specializing according to the trade off ratios.
+
+1477
+01:18:26,980 --> 01:18:30,980
+I mean, I thought we didn't gain much speed, right?
+
+1478
+01:18:30,980 --> 01:18:34,980
+Because we have minus 10 and a little.
+
+1479
+01:18:34,980 --> 01:18:37,980
+Minus 10, and then we canceled that out with the engine
+
+1480
+01:18:37,980 --> 01:18:39,980
+and then threw another plus 10 from the engine.
+
+1481
+01:18:39,980 --> 01:18:40,980
+OK.
+
+1482
+01:18:40,980 --> 01:18:41,980
+So we can do that at once.
+
+1483
+01:18:41,980 --> 01:18:42,980
+Yep.
+
+1484
+01:18:42,980 --> 01:18:43,980
+Roughly.
+
+1485
+01:18:43,980 --> 01:18:45,980
+So it'll be a little less than plus 10,
+
+1486
+01:18:45,980 --> 01:18:48,980
+because of decreasing returns.
+
+1487
+01:18:48,980 --> 01:18:51,980
+If you did it just once, you would not have gained speed.
+
+1488
+01:18:51,980 --> 01:18:53,980
+Then you'd have speed would be the same,
+
+1489
+01:18:53,980 --> 01:18:55,980
+but you'd have saved $900.
+
+1490
+01:18:55,980 --> 01:18:57,980
+I mean, a seal would be a Pareto improvement.
+
+1491
+01:18:57,980 --> 01:18:58,980
+Yep.
+
+1492
+01:18:58,980 --> 01:19:00,980
+That would still be a Pareto improvement.
+
+1493
+01:19:00,980 --> 01:19:02,980
+Many options there.
+
+1494
+01:19:03,980 --> 01:19:07,980
+So now, next interesting question.
+
+1495
+01:19:07,980 --> 01:19:09,980
+Under what circumstances will we not
+
+1496
+01:19:09,980 --> 01:19:11,980
+be able to get this sort of Pareto improvement?
+
+1497
+01:19:11,980 --> 01:19:13,980
+Like, when are we Pareto optimal?
+
+1498
+01:19:13,980 --> 01:19:14,980
+What's the condition?
+
+1499
+01:19:14,980 --> 01:19:18,980
+Basically, when they're linearly dependent.
+
+1500
+01:19:18,980 --> 01:19:19,980
+Yeah.
+
+1501
+01:19:19,980 --> 01:19:23,980
+So in this case, it's going to be about ratios.
+
+1502
+01:19:23,980 --> 01:19:25,980
+So I've built in an assumption here
+
+1503
+01:19:25,980 --> 01:19:28,980
+that these are not just one dimensional dials.
+
+1504
+01:19:28,980 --> 01:19:30,980
+We can adjust the engine to change
+
+1505
+01:19:30,980 --> 01:19:33,980
+the dial, or the price, or the speed.
+
+1506
+01:19:33,980 --> 01:19:36,980
+And you can trade off any pair of those independently.
+
+1507
+01:19:36,980 --> 01:19:39,980
+So presumably, at some point, any of these things
+
+1508
+01:19:39,980 --> 01:19:41,980
+gets diminishing returns or something.
+
+1509
+01:19:41,980 --> 01:19:43,980
+You're not going to get the same ratio forever.
+
+1510
+01:19:43,980 --> 01:19:44,980
+Yep.
+
+1511
+01:19:44,980 --> 01:19:47,980
+So when all of the ratios are the same,
+
+1512
+01:19:47,980 --> 01:19:48,980
+there's nothing to move.
+
+1513
+01:19:48,980 --> 01:19:49,980
+Bingo.
+
+1514
+01:19:49,980 --> 01:19:52,980
+That's the condition, when all of the ratios are the same.
+
+1515
+01:19:52,980 --> 01:19:54,980
+Which is equivalent to the vector of,
+
+1516
+01:19:54,980 --> 01:19:57,980
+if you take the two vectors of speed, price, style,
+
+1517
+01:19:57,980 --> 01:19:59,980
+engine, and the body of the thing.
+
+1518
+01:19:59,980 --> 01:20:02,980
+Correct.
+
+1519
+01:20:02,980 --> 01:20:05,980
+So yeah, what we have, effectively,
+
+1520
+01:20:05,980 --> 01:20:09,980
+is sort of a set of trade-offs for the engine.
+
+1521
+01:20:09,980 --> 01:20:16,980
+So we have a trade-off ratio of our engine speed,
+
+1522
+01:20:16,980 --> 01:20:24,980
+our engine price, our engine style.
+
+1523
+01:20:24,980 --> 01:20:28,980
+And then for the body, we have our body speed,
+
+1524
+01:20:28,980 --> 01:20:35,980
+to our body price, to our body style.
+
+1525
+01:20:35,980 --> 01:20:37,980
+And same for the paint job.
+
+1526
+01:20:37,980 --> 01:20:43,980
+And we are on the Pareto frontier, basically,
+
+1527
+01:20:43,980 --> 01:20:45,980
+when these are equal.
+
+1528
+01:20:45,980 --> 01:20:48,980
+All of those ratios are the same.
+
+1529
+01:20:48,980 --> 01:20:52,980
+And in a market system, those would be the prices.
+
+1530
+01:20:53,980 --> 01:20:56,980
+So prices are just quantifying those trade-off ratios.
+
+1531
+01:20:56,980 --> 01:20:58,980
+All right.
+
+1532
+01:20:58,980 --> 01:21:00,980
+Let's change this example up.
+
+1533
+01:21:00,980 --> 01:21:04,980
+Now we have same car design thing,
+
+1534
+01:21:04,980 --> 01:21:10,980
+but a different set of objectives.
+
+1535
+01:21:10,980 --> 01:21:19,980
+This time, we're going to optimize for speed in rain,
+
+1536
+01:21:19,980 --> 01:21:24,980
+speed in sun, and speed in snow.
+
+1537
+01:21:30,980 --> 01:21:32,980
+All right.
+
+1538
+01:21:32,980 --> 01:21:35,980
+How does this change the problem?
+
+1539
+01:21:35,980 --> 01:21:36,980
+There's a relationship.
+
+1540
+01:21:36,980 --> 01:21:38,980
+There's a trade-off between the different two
+
+1541
+01:21:38,980 --> 01:21:43,980
+that is like fundamental, I think.
+
+1542
+01:21:43,980 --> 01:21:46,980
+So the important point here is that this hasn't really
+
+1543
+01:21:46,980 --> 01:21:47,980
+changed the problem at all.
+
+1544
+01:21:47,980 --> 01:21:49,980
+I just changed the names of things.
+
+1545
+01:21:49,980 --> 01:21:53,980
+So exactly the same equilibrium condition is going to apply.
+
+1546
+01:21:53,980 --> 01:21:56,980
+If we are Pareto optimal between speed in rain, and speed
+
+1547
+01:21:56,980 --> 01:21:58,980
+in sun, and speed in snow, then we
+
+1548
+01:21:58,980 --> 01:22:03,980
+should find that the trade-off ratios between those things
+
+1549
+01:22:04,980 --> 01:22:05,980
+are equal.
+
+1550
+01:22:05,980 --> 01:22:18,980
+Rsp to Rep is equal to Rbsp to Rbe, and so on and so forth.
+
+1551
+01:22:21,980 --> 01:22:25,980
+These ratios are what we usually call odds ratios.
+
+1552
+01:22:28,980 --> 01:22:32,980
+So for instance, if I am at a point where I'm trading off
+
+1553
+01:22:32,980 --> 01:22:37,980
+between speed, I need to change those names.
+
+1554
+01:22:37,980 --> 01:22:39,980
+This is no longer speed and price.
+
+1555
+01:22:39,980 --> 01:22:43,980
+This is rain, this is sun.
+
+1556
+01:22:46,980 --> 01:22:50,980
+If I'm trading off between speed in rain and speed in sun
+
+1557
+01:22:50,980 --> 01:22:57,980
+at a ratio of 1 to 2 across all of the different pieces,
+
+1558
+01:22:57,980 --> 01:23:00,980
+then that's saying, effectively, I
+
+1559
+01:23:00,980 --> 01:23:03,980
+have implicit probabilities in which sun
+
+1560
+01:23:03,980 --> 01:23:06,980
+is twice as probable as rain.
+
+1561
+01:23:06,980 --> 01:23:11,980
+And if you're starting from maximizing expected utility,
+
+1562
+01:23:11,980 --> 01:23:13,980
+you can show this directly.
+
+1563
+01:23:13,980 --> 01:23:22,980
+So when we're maximizing Eu, you would
+
+1564
+01:23:22,980 --> 01:23:28,980
+find that when you're at an optimal point,
+
+1565
+01:23:28,980 --> 01:23:35,980
+you have, what exactly is the formula here?
+
+1566
+01:23:35,980 --> 01:23:37,980
+P, you know what, never mind.
+
+1567
+01:23:37,980 --> 01:23:39,980
+I'm not going to derive that.
+
+1568
+01:23:39,980 --> 01:23:40,980
+OK.
+
+1569
+01:23:40,980 --> 01:23:43,980
+You just like, you care about the speed in sun
+
+1570
+01:23:43,980 --> 01:23:45,980
+more than you care about the speed in rain.
+
+1571
+01:23:45,980 --> 01:23:46,980
+Mm-hmm.
+
+1572
+01:23:46,980 --> 01:23:47,980
+OK.
+
+1573
+01:23:47,980 --> 01:23:49,980
+So one reason that we might care about it
+
+1574
+01:23:49,980 --> 01:23:53,980
+is we think it's more likely to be sunny than rainy.
+
+1575
+01:23:53,980 --> 01:23:57,980
+Another reason we might care about it is?
+
+1576
+01:23:57,980 --> 01:24:02,980
+Well, we might have values.
+
+1577
+01:24:02,980 --> 01:24:03,980
+Correct.
+
+1578
+01:24:03,980 --> 01:24:06,980
+We might value more one than the other.
+
+1579
+01:24:06,980 --> 01:24:07,980
+Mm-hmm.
+
+1580
+01:24:07,980 --> 01:24:09,980
+Makes us trade off that.
+
+1581
+01:24:09,980 --> 01:24:10,980
+Mm-hmm, that's correct.
+
+1582
+01:24:10,980 --> 01:24:12,980
+So value and expectation.
+
+1583
+01:24:12,980 --> 01:24:14,980
+Like going fast in the snow.
+
+1584
+01:24:14,980 --> 01:24:15,980
+There you go.
+
+1585
+01:24:15,980 --> 01:24:17,980
+You might just like going fast in the snow.
+
+1586
+01:24:17,980 --> 01:24:21,980
+And that's a key point here, is with coherence theorems,
+
+1587
+01:24:21,980 --> 01:24:25,980
+the probabilities that come out, they
+
+1588
+01:24:25,980 --> 01:24:28,980
+don't necessarily reflect an epistemic state
+
+1589
+01:24:28,980 --> 01:24:31,980
+about the world in the usual way that we think about that.
+
+1590
+01:24:31,980 --> 01:24:32,980
+Right?
+
+1591
+01:24:32,980 --> 01:24:37,980
+They represent the utility.
+
+1592
+01:24:37,980 --> 01:24:41,980
+They represent the trade-offs that you're
+
+1593
+01:24:41,980 --> 01:24:43,980
+making between different worlds.
+
+1594
+01:24:43,980 --> 01:24:45,980
+Like how much more resources you're
+
+1595
+01:24:45,980 --> 01:24:47,980
+spending to do well in the rainy world
+
+1596
+01:24:47,980 --> 01:24:50,980
+versus doing well in the sunny world versus doing well
+
+1597
+01:24:50,980 --> 01:24:52,980
+in the snowy world.
+
+1598
+01:24:52,980 --> 01:24:54,980
+So it's like a mixture.
+
+1599
+01:24:54,980 --> 01:24:56,980
+In practice, it's a mixture of how likely
+
+1600
+01:24:56,980 --> 01:25:00,980
+you think those things are and how much you just
+
+1601
+01:25:00,980 --> 01:25:01,980
+care about them.
+
+1602
+01:25:01,980 --> 01:25:02,480
+Correct.
+
+1603
+01:25:02,480 --> 01:25:02,980
+Yeah.
+
+1604
+01:25:02,980 --> 01:25:05,980
+Mm-hmm.
+
+1605
+01:25:05,980 --> 01:25:09,980
+And you said this is an example of a selection theorem.
+
+1606
+01:25:09,980 --> 01:25:10,480
+Yeah.
+
+1607
+01:25:10,480 --> 01:25:10,980
+Hang on.
+
+1608
+01:25:10,980 --> 01:25:12,980
+We'll get into that.
+
+1609
+01:25:12,980 --> 01:25:14,980
+Let me check my notes, see where we are here.
+
+1610
+01:25:23,480 --> 01:25:23,980
+Right.
+
+1611
+01:25:23,980 --> 01:25:30,980
+So bringing this back to the selection version of the claim,
+
+1612
+01:25:30,980 --> 01:25:38,980
+we had the thing earlier about resources, right?
+
+1613
+01:25:38,980 --> 01:25:40,980
+So there's this thing where I can gain $1
+
+1614
+01:25:40,980 --> 01:25:42,980
+and spend it in lots of ways, and therefore I
+
+1615
+01:25:42,980 --> 01:25:44,980
+can gain lots of dollars.
+
+1616
+01:25:44,980 --> 01:25:46,980
+Now imagine that we have more than one resource.
+
+1617
+01:25:46,980 --> 01:25:50,980
+Like, let's say we're a bacteria, an E. coli.
+
+1618
+01:25:50,980 --> 01:25:53,980
+What are some resources an E. coli needs to acquire?
+
+1619
+01:25:53,980 --> 01:25:56,980
+Glucose, or sugars more generally.
+
+1620
+01:25:56,980 --> 01:26:03,980
+Also, it's going to need any particular molecules
+
+1621
+01:26:03,980 --> 01:26:06,980
+or minerals that it can't produce itself.
+
+1622
+01:26:06,980 --> 01:26:11,980
+Like, I don't actually know what metallic ions E. coli needs,
+
+1623
+01:26:11,980 --> 01:26:12,980
+but probably some.
+
+1624
+01:26:12,980 --> 01:26:17,980
+It'll need a source of sulfur, all those things, right?
+
+1625
+01:26:17,980 --> 01:26:21,980
+So it's going to have multiple different resources.
+
+1626
+01:26:21,980 --> 01:26:24,980
+And then what we'd predict is that if we go in and look
+
+1627
+01:26:24,980 --> 01:26:27,980
+at the metabolic reactions inside of an E. coli
+
+1628
+01:26:27,980 --> 01:26:31,980
+and see how those metabolic reactions are trading off
+
+1629
+01:26:31,980 --> 01:26:34,980
+between the different kinds of resources,
+
+1630
+01:26:34,980 --> 01:26:37,980
+we'd expect to see that they're trading off
+
+1631
+01:26:37,980 --> 01:26:39,980
+in consistent ratios.
+
+1632
+01:26:39,980 --> 01:26:43,980
+And then on the epistemic side, if the E. coli
+
+1633
+01:26:44,980 --> 01:26:47,980
+has to perform well in multiple different environments,
+
+1634
+01:26:47,980 --> 01:26:51,980
+and we look at reactions or signals in the E. coli that
+
+1635
+01:26:51,980 --> 01:26:54,980
+can adjust how it's behaving in one environment versus another,
+
+1636
+01:26:54,980 --> 01:26:58,980
+we expect to see that there are consistent trade-off ratios
+
+1637
+01:26:58,980 --> 01:26:59,980
+again.
+
+1638
+01:26:59,980 --> 01:27:04,980
+And those are the implied probabilities of this E. coli.
+
+1639
+01:27:04,980 --> 01:27:06,980
+And at the end of the day, it all goes back
+
+1640
+01:27:06,980 --> 01:27:08,980
+to the exact same sorts of things
+
+1641
+01:27:08,980 --> 01:27:10,980
+we were talking about earlier.
+
+1642
+01:27:10,980 --> 01:27:19,980
+So it's like, if it is doing things which will dominate
+
+1643
+01:27:19,980 --> 01:27:22,980
+the space of optima, then it should
+
+1644
+01:27:22,980 --> 01:27:24,980
+be Pareto optimal for resources.
+
+1645
+01:27:24,980 --> 01:27:28,980
+Therefore, this whole thing should apply.
+
+1646
+01:27:41,980 --> 01:27:45,980
+So hold on.
+
+1647
+01:27:45,980 --> 01:27:48,980
+There were two different things I said there.
+
+1648
+01:27:48,980 --> 01:27:50,980
+We're going to combine them in a moment.
+
+1649
+01:27:50,980 --> 01:27:53,980
+But one thing I said was, we have three different resources,
+
+1650
+01:27:53,980 --> 01:27:55,980
+and there's trade-off ratios between them.
+
+1651
+01:27:55,980 --> 01:27:58,980
+The other thing was, there's three different worlds.
+
+1652
+01:27:58,980 --> 01:28:00,980
+So maybe there's a world where it
+
+1653
+01:28:00,980 --> 01:28:03,980
+happens to get dropped next to a piece of sugar.
+
+1654
+01:28:03,980 --> 01:28:05,980
+Maybe there's another world where it gets
+
+1655
+01:28:05,980 --> 01:28:07,980
+dropped in a pool of acid.
+
+1656
+01:28:07,980 --> 01:28:09,980
+E. coli live rough lives, guys.
+
+1657
+01:28:10,980 --> 01:28:12,980
+It's a difficult life.
+
+1658
+01:28:12,980 --> 01:28:18,980
+And so we would need to look at, for each
+
+1659
+01:28:18,980 --> 01:28:23,980
+of those different worlds, what is
+
+1660
+01:28:23,980 --> 01:28:28,980
+the slope of the change in performance
+
+1661
+01:28:28,980 --> 01:28:30,980
+in each of those different worlds
+
+1662
+01:28:30,980 --> 01:28:35,980
+for a tiny change in each of the possible resources?
+
+1663
+01:28:35,980 --> 01:28:36,980
+Bingo.
+
+1664
+01:28:36,980 --> 01:28:37,980
+Or each of the possible.
+
+1665
+01:28:37,980 --> 01:28:39,980
+Nine numbers in total, three different worlds,
+
+1666
+01:28:39,980 --> 01:28:41,980
+three different resources.
+
+1667
+01:28:41,980 --> 01:28:43,980
+So hold on.
+
+1668
+01:28:43,980 --> 01:28:46,980
+So for this one, it's not necessarily
+
+1669
+01:28:46,980 --> 01:28:48,980
+the resources you're adjusting.
+
+1670
+01:28:48,980 --> 01:28:51,980
+It's, for instance, expression of a gene.
+
+1671
+01:28:51,980 --> 01:28:54,980
+So if I adjust the expression of these particular genes,
+
+1672
+01:28:54,980 --> 01:28:57,980
+how does that trade off between this world and that world?
+
+1673
+01:28:57,980 --> 01:28:59,980
+Sure, but we could look at the E. coli.
+
+1674
+01:28:59,980 --> 01:29:01,980
+We find three different characteristics of it.
+
+1675
+01:29:01,980 --> 01:29:05,980
+And we could, in principle, dial them up and down a little bit
+
+1676
+01:29:05,980 --> 01:29:08,980
+and find out how does this actually
+
+1677
+01:29:08,980 --> 01:29:10,980
+affect performance in these three different worlds.
+
+1678
+01:29:10,980 --> 01:29:12,980
+Yep, exactly.
+
+1679
+01:29:12,980 --> 01:29:14,980
+And so we could compute these ratios
+
+1680
+01:29:14,980 --> 01:29:17,980
+between the three sets of three numbers.
+
+1681
+01:29:17,980 --> 01:29:19,980
+We would expect the ratios between them
+
+1682
+01:29:19,980 --> 01:29:23,980
+to be consistent.
+
+1683
+01:29:23,980 --> 01:29:27,980
+And we would expect that the numbers themselves
+
+1684
+01:29:27,980 --> 01:29:31,980
+would represent the importance to the bacteria
+
+1685
+01:29:31,980 --> 01:29:34,980
+in some sense of performing well in those different worlds.
+
+1686
+01:29:34,980 --> 01:29:38,980
+Yep, that's exactly right.
+
+1687
+01:29:38,980 --> 01:29:42,980
+So if you analogy the previous Oliver's algorithm here,
+
+1688
+01:29:42,980 --> 01:29:48,980
+the ridge of optimality is the Pareto frontier.
+
+1689
+01:29:48,980 --> 01:29:49,980
+Saying something like?
+
+1690
+01:29:49,980 --> 01:29:51,980
+It's not that the ridge is the Pareto frontier.
+
+1691
+01:29:51,980 --> 01:29:53,980
+OK.
+
+1692
+01:29:53,980 --> 01:30:01,980
+It's that, hang on, let me get the actual thing here.
+
+1693
+01:30:01,980 --> 01:30:03,980
+What was that?
+
+1694
+01:30:03,980 --> 01:30:06,980
+Oh, thank you.
+
+1695
+01:30:06,980 --> 01:30:08,980
+There.
+
+1696
+01:30:08,980 --> 01:30:10,980
+Is it still recording?
+
+1697
+01:30:10,980 --> 01:30:11,980
+Yeah, cool.
+
+1698
+01:30:11,980 --> 01:30:14,980
+All right, so the ridge of optimality
+
+1699
+01:30:14,980 --> 01:30:20,980
+isn't directly talking about the acquisition of resources,
+
+1700
+01:30:20,980 --> 01:30:21,980
+for instance.
+
+1701
+01:30:21,980 --> 01:30:23,980
+Or it's not directly talking about performance
+
+1702
+01:30:23,980 --> 01:30:24,980
+in different possible worlds.
+
+1703
+01:30:24,980 --> 01:30:27,980
+It's just sort of talking about an aggregate performance
+
+1704
+01:30:27,980 --> 01:30:30,980
+over whatever frequencies of worlds
+
+1705
+01:30:30,980 --> 01:30:35,980
+the E. coli actually ends up in, or whatever resources it actually
+
+1706
+01:30:35,980 --> 01:30:38,980
+runs across in the world.
+
+1707
+01:30:38,980 --> 01:30:43,980
+So what we expect is that the E. coli,
+
+1708
+01:30:43,980 --> 01:30:45,980
+if it is optimizing performance, will
+
+1709
+01:30:45,980 --> 01:30:49,980
+be Pareto optimal for whatever resources
+
+1710
+01:30:49,980 --> 01:30:52,980
+it's actually getting, or for the actual worlds
+
+1711
+01:30:52,980 --> 01:30:54,980
+in which it finds itself.
+
+1712
+01:30:54,980 --> 01:30:55,980
+Did that make sense?
+
+1713
+01:30:55,980 --> 01:30:57,980
+I don't think it was a very good explanation.
+
+1714
+01:30:57,980 --> 01:31:00,980
+But it more represents something like all of the ways
+
+1715
+01:31:00,980 --> 01:31:02,980
+that you could vary the junk DNA.
+
+1716
+01:31:02,980 --> 01:31:03,980
+Right.
+
+1717
+01:31:03,980 --> 01:31:05,980
+So basically, it's like a necessary condition,
+
+1718
+01:31:05,980 --> 01:31:07,980
+but not a sufficient condition?
+
+1719
+01:31:07,980 --> 01:31:08,980
+Bingo.
+
+1720
+01:31:08,980 --> 01:31:09,980
+Yes.
+
+1721
+01:31:09,980 --> 01:31:12,980
+To be optimal, you need to be Pareto.
+
+1722
+01:31:12,980 --> 01:31:13,980
+Correct.
+
+1723
+01:31:13,980 --> 01:31:15,980
+But if you're on the Pareto frontier,
+
+1724
+01:31:15,980 --> 01:31:17,980
+you might have the wrong trade-off.
+
+1725
+01:31:17,980 --> 01:31:18,980
+Yes.
+
+1726
+01:31:18,980 --> 01:31:19,980
+And just die.
+
+1727
+01:31:19,980 --> 01:31:20,980
+There you go.
+
+1728
+01:31:20,980 --> 01:31:21,980
+That's exactly right.
+
+1729
+01:31:21,980 --> 01:31:23,980
+It could be that sulfur is super scarce,
+
+1730
+01:31:23,980 --> 01:31:26,980
+but you're throwing away all your sulfur in order
+
+1731
+01:31:26,980 --> 01:31:29,980
+to get more magnesium, and then you die.
+
+1732
+01:31:29,980 --> 01:31:30,980
+Tough luck, buddy.
+
+1733
+01:31:30,980 --> 01:31:31,980
+Yeah.
+
+1734
+01:31:31,980 --> 01:31:32,980
+OK.
+
+1735
+01:31:32,980 --> 01:31:33,980
+All right.
+
+1736
+01:31:33,980 --> 01:31:39,980
+And then an important next step here.
+
+1737
+01:31:39,980 --> 01:31:43,980
+Usually, when people talk about coherence results,
+
+1738
+01:31:43,980 --> 01:31:45,980
+they just sort of talk about this thing
+
+1739
+01:31:45,980 --> 01:31:51,980
+and don't talk about that, which gives us a problem.
+
+1740
+01:31:51,980 --> 01:31:53,980
+Because they talk about Dutch book theorems,
+
+1741
+01:31:53,980 --> 01:31:55,980
+and money pumping, and exploitability, and all that.
+
+1742
+01:31:55,980 --> 01:31:56,980
+Right?
+
+1743
+01:31:56,980 --> 01:32:01,980
+So the problem we run into for the typical form
+
+1744
+01:32:01,980 --> 01:32:05,980
+of coherence argument you see is the coherence argument
+
+1745
+01:32:05,980 --> 01:32:08,980
+will say anything that's inexploitable or not
+
+1746
+01:32:08,980 --> 01:32:11,980
+Dutch bookable or whatever acts as though it
+
+1747
+01:32:11,980 --> 01:32:14,980
+is a expected utility maximizer.
+
+1748
+01:32:14,980 --> 01:32:18,980
+And then we go look at financial markets,
+
+1749
+01:32:18,980 --> 01:32:21,980
+just like simplified mathematical models of markets,
+
+1750
+01:32:21,980 --> 01:32:24,980
+the standard stuff we use in economics.
+
+1751
+01:32:24,980 --> 01:32:27,980
+And what the economists tell us is that markets do not
+
+1752
+01:32:27,980 --> 01:32:30,980
+have a representative agent.
+
+1753
+01:32:30,980 --> 01:32:33,980
+In other words, it does not behave
+
+1754
+01:32:33,980 --> 01:32:37,980
+as though it is equivalent to an expected utility maximizer.
+
+1755
+01:32:37,980 --> 01:32:39,980
+And then you go, well, shit.
+
+1756
+01:32:39,980 --> 01:32:42,980
+These markets are supposed to be like the most inexploitable
+
+1757
+01:32:42,980 --> 01:32:44,980
+thing we have, right?
+
+1758
+01:32:44,980 --> 01:32:45,980
+Market efficiency.
+
+1759
+01:32:45,980 --> 01:32:47,980
+It's like the thing.
+
+1760
+01:32:47,980 --> 01:32:50,980
+And yet, they don't behave like an expected utility maximizer
+
+1761
+01:32:50,980 --> 01:32:53,980
+What's going wrong there?
+
+1762
+01:32:53,980 --> 01:32:57,980
+And the answer is you have to combine these two things.
+
+1763
+01:32:57,980 --> 01:32:59,980
+You can't just ignore this one.
+
+1764
+01:32:59,980 --> 01:33:02,980
+A market is a Pareto optimizer.
+
+1765
+01:33:02,980 --> 01:33:05,980
+It's not just optimizing for one thing.
+
+1766
+01:33:05,980 --> 01:33:07,980
+In particular, it's Pareto optimal in the sense
+
+1767
+01:33:07,980 --> 01:33:10,980
+that it's maximizing for utilities
+
+1768
+01:33:10,980 --> 01:33:13,980
+of all the different participants in the market.
+
+1769
+01:33:13,980 --> 01:33:15,980
+Make sense?
+
+1770
+01:33:15,980 --> 01:33:16,980
+Where?
+
+1771
+01:33:16,980 --> 01:33:21,980
+So each of the resources would be the utility of the participant.
+
+1772
+01:33:21,980 --> 01:33:23,980
+So hang on.
+
+1773
+01:33:23,980 --> 01:33:29,980
+Now, in the car model, this is equivalent to having
+
+1774
+01:33:29,980 --> 01:33:31,980
+a whole bunch of different objectives.
+
+1775
+01:33:31,980 --> 01:33:40,980
+We have speed in rain, speed in sun,
+
+1776
+01:33:40,980 --> 01:33:53,980
+style in rain, style in sun, dot, dot, dot, dot, dot, dot.
+
+1777
+01:33:53,980 --> 01:34:01,980
+And then once again, we have our knobs like the engine, body,
+
+1778
+01:34:01,980 --> 01:34:07,980
+paint, et cetera.
+
+1779
+01:34:07,980 --> 01:34:11,980
+So the actual result we want is that we
+
+1780
+01:34:11,980 --> 01:34:15,980
+want consistent trade-off ratios between each
+
+1781
+01:34:15,980 --> 01:34:18,980
+of our different goals in each of our different worlds.
+
+1782
+01:34:22,980 --> 01:34:28,980
+And one implication of this, the implicit probabilities
+
+1783
+01:34:28,980 --> 01:34:30,980
+associated with one goal may be different
+
+1784
+01:34:30,980 --> 01:34:33,980
+from the implicit probabilities associated with another.
+
+1785
+01:34:33,980 --> 01:34:36,980
+For speed purposes, we may be acting
+
+1786
+01:34:36,980 --> 01:34:39,980
+like rain is twice as probable as sun.
+
+1787
+01:34:39,980 --> 01:34:42,980
+For style purposes, we may act like sun
+
+1788
+01:34:42,980 --> 01:34:45,980
+is twice as probable as rain just because we
+
+1789
+01:34:45,980 --> 01:34:48,980
+care more about looking stylish when it's not raining so people
+
+1790
+01:34:48,980 --> 01:34:49,980
+can actually see our car.
+
+1791
+01:34:52,980 --> 01:34:57,980
+The thing this is equivalent to in a market, for instance,
+
+1792
+01:34:57,980 --> 01:34:59,980
+in a market, the different objectives
+
+1793
+01:34:59,980 --> 01:35:02,980
+would be the utilities of the goals
+
+1794
+01:35:02,980 --> 01:35:05,980
+of the individual investors.
+
+1795
+01:35:05,980 --> 01:35:08,980
+And then the probabilities would be the probabilities
+
+1796
+01:35:08,980 --> 01:35:10,980
+assigned by that particular investor.
+
+1797
+01:35:10,980 --> 01:35:13,980
+So they could all have different probabilities
+
+1798
+01:35:13,980 --> 01:35:15,980
+and different goals.
+
+1799
+01:35:15,980 --> 01:35:17,980
+So what we basically derived here
+
+1800
+01:35:17,980 --> 01:35:19,980
+is this notion of subagents.
+
+1801
+01:35:19,980 --> 01:35:22,980
+When you're Pareto optimal both across multiple goals
+
+1802
+01:35:22,980 --> 01:35:27,980
+and across multiple worlds, it's equivalent to having
+
+1803
+01:35:27,980 --> 01:35:31,980
+a bunch of utility maximizing subagents.
+
+1804
+01:35:31,980 --> 01:35:34,980
+You're Pareto optimal for expectations
+
+1805
+01:35:34,980 --> 01:35:36,980
+under all of them.
+
+1806
+01:35:36,980 --> 01:35:37,980
+Make sense?
+
+1807
+01:35:37,980 --> 01:35:40,980
+Expression of the sum of the average of the?
+
+1808
+01:35:40,980 --> 01:35:41,480
+None.
+
+1809
+01:35:41,480 --> 01:35:42,980
+It's Pareto optimality.
+
+1810
+01:35:42,980 --> 01:35:43,480
+OK, yeah.
+
+1811
+01:35:43,480 --> 01:35:44,980
+Pareto optimality of the expectation
+
+1812
+01:35:44,980 --> 01:35:45,980
+of the other agent.
+
+1813
+01:35:45,980 --> 01:35:46,980
+Yeah.
+
+1814
+01:35:46,980 --> 01:35:49,980
+So you take expectations, take each agent's expected value,
+
+1815
+01:35:49,980 --> 01:35:51,980
+and then you're Pareto optimal over that.
+
+1816
+01:35:55,980 --> 01:35:56,980
+Make sense?
+
+1817
+01:35:56,980 --> 01:35:58,980
+OK, let's see if there's anything else in the notes.
+
+1818
+01:36:00,980 --> 01:36:01,480
+Bingo.
+
+1819
+01:36:04,980 --> 01:36:06,980
+Implicit subagents, so to speak.
+
+1820
+01:36:24,980 --> 01:36:25,480
+Bingo.
+
+1821
+01:36:27,980 --> 01:36:28,480
+Bingo.
+
+1822
+01:36:46,980 --> 01:36:47,480
+Indeed.
+
+1823
+01:36:47,480 --> 01:36:48,480
+It's very obvious.
+
+1824
+01:36:48,480 --> 01:36:50,980
+The more interesting claim is that we
+
+1825
+01:36:50,980 --> 01:36:52,980
+have this coherence argument, which
+
+1826
+01:36:53,480 --> 01:36:58,980
+you can view it as saying that any Pareto optimal system
+
+1827
+01:36:58,980 --> 01:37:00,980
+behaves as a market.
+
+1828
+01:37:00,980 --> 01:37:01,480
+Right.
+
+1829
+01:37:01,480 --> 01:37:02,980
+Right.
+
+1830
+01:37:02,980 --> 01:37:04,480
+The more interesting direction, yeah.
+
+1831
+01:37:04,480 --> 01:37:05,480
+Yeah.
+
+1832
+01:37:05,480 --> 01:37:08,480
+So markets are the most general such thing in some sense.
+
+1833
+01:37:23,980 --> 01:37:27,480
+Anything that has, what is the set,
+
+1834
+01:37:27,480 --> 01:37:30,980
+what is the condition under which something
+
+1835
+01:37:30,980 --> 01:37:34,480
+has this kind of Pareto optimality?
+
+1836
+01:37:34,480 --> 01:37:38,480
+You mean like existence of a Pareto optimal, or?
+
+1837
+01:37:38,480 --> 01:37:41,980
+Yeah, what is the coherence theorem in this case,
+
+1838
+01:37:41,980 --> 01:37:43,480
+or what is it?
+
+1839
+01:37:43,480 --> 01:37:48,980
+So what it's saying is that if I have adjusted my engine
+
+1840
+01:37:48,980 --> 01:37:51,980
+and my body and my paint so that they're all at settings
+
+1841
+01:37:51,980 --> 01:37:55,480
+where I cannot achieve a Pareto improvement,
+
+1842
+01:37:55,480 --> 01:37:59,480
+then my trade-offs between these,
+
+1843
+01:37:59,480 --> 01:38:01,980
+when I make small adjustments, all
+
+1844
+01:38:01,980 --> 01:38:04,980
+have the same ratios, or consistent ratios
+
+1845
+01:38:04,980 --> 01:38:07,980
+across the different knobs I could turn.
+
+1846
+01:38:07,980 --> 01:38:11,980
+So the ratios I achieve by adjusting the body knob a bit
+
+1847
+01:38:11,980 --> 01:38:14,980
+match the trade-off ratios I get by adjusting the engine knob
+
+1848
+01:38:14,980 --> 01:38:16,480
+a bit.
+
+1849
+01:38:16,480 --> 01:38:19,480
+Or in our bacteria example, we would say, well,
+
+1850
+01:38:19,480 --> 01:38:22,480
+it's optimizing to get each of these different metabolic
+
+1851
+01:38:22,480 --> 01:38:25,480
+resources, like glucose, sulfur, magnesium,
+
+1852
+01:38:25,480 --> 01:38:28,480
+and it's optimizing to get those across multiple different worlds.
+
+1853
+01:38:28,480 --> 01:38:30,980
+Maybe there's a world where they're all very abundant.
+
+1854
+01:38:30,980 --> 01:38:33,980
+Maybe there's a world where they're all very scarce.
+
+1855
+01:38:33,980 --> 01:38:39,980
+And what we expect to find is that if we tweak the expression
+
+1856
+01:38:39,980 --> 01:38:42,980
+level of genes by a little bit, then
+
+1857
+01:38:42,980 --> 01:38:45,980
+we'll find that they trade off in consistent ratios
+
+1858
+01:38:45,980 --> 01:38:47,480
+between all of these possibilities.
+
+1859
+01:39:07,480 --> 01:39:08,480
+Yes.
+
+1860
+01:39:08,480 --> 01:39:12,480
+So the composed of subagents here
+
+1861
+01:39:12,480 --> 01:39:15,480
+is, again, just that Pareto condition.
+
+1862
+01:39:16,480 --> 01:39:22,980
+Those consistent ratios, you can view those consistent ratios
+
+1863
+01:39:22,980 --> 01:39:26,980
+as capturing the trade-offs between subagents.
+
+1864
+01:39:26,980 --> 01:39:28,980
+So when we're Pareto optimal in this sense,
+
+1865
+01:39:28,980 --> 01:39:31,980
+it means we're also optimal under expected values
+
+1866
+01:39:31,980 --> 01:39:33,480
+of a bunch of subagents.
+
+1867
+01:39:46,480 --> 01:39:51,480
+And so you expect that the thing that will be selected for
+
+1868
+01:39:51,480 --> 01:39:53,480
+will be Pareto optimal because, as you say,
+
+1869
+01:39:53,480 --> 01:39:56,480
+if you make the wrong trade-off, you're just going to die.
+
+1870
+01:39:56,480 --> 01:39:57,480
+Something like that.
+
+1871
+01:39:57,480 --> 01:40:00,480
+And hence, you expect that what will be selected
+
+1872
+01:40:00,480 --> 01:40:05,480
+are things that behave like collection of subagents.
+
+1873
+01:40:16,480 --> 01:40:21,480
+That's as if each of those traits is a trader in a market.
+
+1874
+01:40:21,480 --> 01:40:22,480
+Exactly.
+
+1875
+01:40:22,480 --> 01:40:25,480
+And the behavior you get is like the way
+
+1876
+01:40:25,480 --> 01:40:30,480
+that a market is Pareto optimal over a kind of,
+
+1877
+01:40:30,480 --> 01:40:36,480
+those traits have their preferences over worlds
+
+1878
+01:40:36,480 --> 01:40:40,480
+or probability distribution over worlds
+
+1879
+01:40:40,480 --> 01:40:46,480
+as well as lots of utility functions.
+
+1880
+01:40:46,480 --> 01:40:47,480
+What I expected.
+
+1881
+01:40:52,480 --> 01:40:54,480
+All right.
+
+1882
+01:40:54,480 --> 01:40:57,480
+We're almost at two hours now, so I'm
+
+1883
+01:40:57,480 --> 01:41:03,480
+going to throw a few last comments on the coherent stuff,
+
+1884
+01:41:03,480 --> 01:41:05,480
+especially as it's relevant to humans
+
+1885
+01:41:05,480 --> 01:41:07,480
+and how it ties back to the bigger picture,
+
+1886
+01:41:07,480 --> 01:41:09,480
+and then we'll wrap up.
+
+1887
+01:41:10,480 --> 01:41:15,480
+For humans in particular, we have all these cute studies
+
+1888
+01:41:15,480 --> 01:41:17,480
+showing how humans are irrational in various ways.
+
+1889
+01:41:21,480 --> 01:41:23,480
+Two fun things about those.
+
+1890
+01:41:23,480 --> 01:41:25,480
+First of all, a lot of them don't replicate,
+
+1891
+01:41:25,480 --> 01:41:27,480
+as you'd expect in psychology.
+
+1892
+01:41:27,480 --> 01:41:33,480
+Second, among the findings which do replicate,
+
+1893
+01:41:33,480 --> 01:41:37,480
+many of them actually turn out to be just fine
+
+1894
+01:41:37,480 --> 01:41:39,480
+when we're in a subagents framework rather than just
+
+1895
+01:41:39,480 --> 01:41:42,480
+a pure utility maximization framework.
+
+1896
+01:41:42,480 --> 01:41:46,480
+Classic example of this is humans
+
+1897
+01:41:46,480 --> 01:41:49,480
+prefer to keep whatever they have in either direction.
+
+1898
+01:41:49,480 --> 01:41:51,480
+So if I have mushroom pizza, I will not
+
+1899
+01:41:51,480 --> 01:41:53,480
+trade it for your pepperoni pizza.
+
+1900
+01:41:53,480 --> 01:41:55,480
+But if I have pepperoni pizza, I will not
+
+1901
+01:41:55,480 --> 01:41:57,480
+trade it for your mushroom pizza.
+
+1902
+01:41:57,480 --> 01:42:00,480
+So there's a preference to keep something
+
+1903
+01:42:00,480 --> 01:42:04,480
+in either direction, even though like, yeah.
+
+1904
+01:42:07,480 --> 01:42:09,480
+A more interesting example of this
+
+1905
+01:42:09,480 --> 01:42:12,480
+would be taboo trade-offs, like things
+
+1906
+01:42:12,480 --> 01:42:15,480
+like trading money for lives.
+
+1907
+01:42:15,480 --> 01:42:19,480
+You can think of this as you have subagents.
+
+1908
+01:42:19,480 --> 01:42:21,480
+In the pizza case, you have a subagent
+
+1909
+01:42:21,480 --> 01:42:22,480
+that wants mushroom pizza.
+
+1910
+01:42:22,480 --> 01:42:25,480
+You have a different subagent that wants pepperoni pizza.
+
+1911
+01:42:25,480 --> 01:42:28,480
+And either trade would not be a Pareto improvement.
+
+1912
+01:42:28,480 --> 01:42:31,480
+So you just stick with whatever you have.
+
+1913
+01:42:31,480 --> 01:42:35,480
+In the more interesting case of taboo trade-offs,
+
+1914
+01:42:35,480 --> 01:42:37,480
+where you're talking about trades between money and lives,
+
+1915
+01:42:37,480 --> 01:42:39,480
+you have a subagent that cares about money.
+
+1916
+01:42:39,480 --> 01:42:41,480
+You have a subagent that cares about lives.
+
+1917
+01:42:41,480 --> 01:42:43,480
+And they're just not willing to trade,
+
+1918
+01:42:43,480 --> 01:42:46,480
+because it wouldn't be a Pareto improvement.
+
+1919
+01:42:46,480 --> 01:42:48,480
+It has to be a Pareto improvement in order
+
+1920
+01:42:48,480 --> 01:42:50,480
+for a trade to go through.
+
+1921
+01:42:50,480 --> 01:42:51,480
+Does that make sense?
+
+1922
+01:42:51,480 --> 01:42:55,480
+Would it be a kind of Pareto neutral?
+
+1923
+01:42:55,480 --> 01:42:59,480
+So it would be like, if it were on a Pareto frontier.
+
+1924
+01:42:59,480 --> 01:43:06,480
+So yeah, so at any given time, presumably, they're
+
+1925
+01:43:06,480 --> 01:43:07,480
+on a Pareto frontier.
+
+1926
+01:43:07,480 --> 01:43:10,480
+So if you could have a trade where you save strictly
+
+1927
+01:43:10,480 --> 01:43:12,480
+more lives and get strictly more dollars,
+
+1928
+01:43:12,480 --> 01:43:14,480
+then people are pretty OK with that.
+
+1929
+01:43:14,480 --> 01:43:16,480
+But you're not on the Pareto frontier, right?
+
+1930
+01:43:16,480 --> 01:43:18,480
+Yeah.
+
+1931
+01:43:18,480 --> 01:43:19,480
+Yeah.
+
+1932
+01:43:19,480 --> 01:43:23,480
+So what you're saying is you sort of re-derive
+
+1933
+01:43:23,480 --> 01:43:26,480
+that Kai Sotala style.
+
+1934
+01:43:26,480 --> 01:43:27,480
+Exactly.
+
+1935
+01:43:28,480 --> 01:43:30,480
+The right way of looking at it?
+
+1936
+01:43:30,480 --> 01:43:31,480
+Yeah.
+
+1937
+01:43:31,480 --> 01:43:36,480
+So the big conclusion here is, yeah, subagents
+
+1938
+01:43:36,480 --> 01:43:37,480
+are probably right.
+
+1939
+01:43:37,480 --> 01:43:38,480
+Like, this makes sense.
+
+1940
+01:43:38,480 --> 01:43:41,480
+We have first principles reason to expect
+
+1941
+01:43:41,480 --> 01:43:43,480
+that you have a bunch of subagents
+
+1942
+01:43:43,480 --> 01:43:44,480
+with separate preferences.
+
+1943
+01:43:44,480 --> 01:43:48,480
+And a lot of intuitive things about a lot
+
+1944
+01:43:48,480 --> 01:43:50,480
+of things that are sort of intuitively weird
+
+1945
+01:43:50,480 --> 01:43:54,480
+about our preferences through a utility maximizer lens
+
+1946
+01:43:54,480 --> 01:43:57,480
+make a lot more sense once you start thinking of it
+
+1947
+01:43:57,480 --> 01:43:58,480
+in terms of subagents.
+
+1948
+01:44:16,480 --> 01:44:17,480
+Yep.
+
+1949
+01:44:17,480 --> 01:44:19,480
+That's exactly the sort of thing.
+
+1950
+01:44:24,480 --> 01:44:27,480
+I can tell you something about the future of humanity.
+
+1951
+01:44:27,480 --> 01:44:28,480
+All right.
+
+1952
+01:44:28,480 --> 01:44:30,480
+Let's tie back to the big picture,
+
+1953
+01:44:30,480 --> 01:44:33,480
+and then we'll wrap up.
+
+1954
+01:44:33,480 --> 01:44:36,480
+So we did a little bit of this already.
+
+1955
+01:44:36,480 --> 01:44:42,480
+Just to recap, the big idea is we're
+
+1956
+01:44:42,480 --> 01:44:45,480
+looking for things which compress.
+
+1957
+01:44:45,480 --> 01:44:48,480
+We had this argument that, like, if you
+
+1958
+01:44:48,480 --> 01:44:50,480
+gain a lot of resources, then that
+
+1959
+01:44:50,480 --> 01:44:52,480
+lets you fill more of the space.
+
+1960
+01:44:52,480 --> 01:44:54,480
+It gives you a lot more degrees of freedom
+
+1961
+01:44:54,480 --> 01:44:56,480
+while still achieving the goal.
+
+1962
+01:44:56,480 --> 01:45:00,480
+And then we said, well, look, if you have lots of resources,
+
+1963
+01:45:00,480 --> 01:45:02,480
+then that means we expect to be Pareto optimal,
+
+1964
+01:45:02,480 --> 01:45:04,480
+because if you can just get more resources,
+
+1965
+01:45:04,480 --> 01:45:06,480
+you'll have more degrees of freedom.
+
+1966
+01:45:06,480 --> 01:45:09,480
+You'll be able to fill more of the space.
+
+1967
+01:45:09,480 --> 01:45:13,480
+And similarly with performing well in different worlds,
+
+1968
+01:45:13,480 --> 01:45:18,480
+if you're able to perform well in multiple different worlds,
+
+1969
+01:45:18,480 --> 01:45:21,480
+then you can perform more robustly
+
+1970
+01:45:21,480 --> 01:45:24,480
+across more distributions, right?
+
+1971
+01:45:24,480 --> 01:45:26,480
+So it's filling the space in a sense of robustness
+
+1972
+01:45:26,480 --> 01:45:28,480
+rather than breadth of the optimum.
+
+1973
+01:45:28,480 --> 01:45:30,480
+Didn't really talk about that comparison,
+
+1974
+01:45:30,480 --> 01:45:32,480
+but that's how that works.
+
+1975
+01:45:32,480 --> 01:45:34,480
+And that just, like, directly gives us
+
+1976
+01:45:34,480 --> 01:45:41,480
+this idea of subagents as a component of human values.
+
+1977
+01:45:41,480 --> 01:45:47,480
+Tying back to broader questions about human values,
+
+1978
+01:45:47,480 --> 01:45:50,480
+in terms of type signatures, this
+
+1979
+01:45:50,480 --> 01:45:53,480
+is talking about the outputs of human values.
+
+1980
+01:45:53,480 --> 01:45:58,480
+So we're saying that the outputs of our values
+
+1981
+01:45:58,480 --> 01:46:00,480
+are not like an expected utility,
+
+1982
+01:46:00,480 --> 01:46:03,480
+but a bunch of expected utilities,
+
+1983
+01:46:03,480 --> 01:46:07,480
+expected utilities for each subagent.
+
+1984
+01:46:07,480 --> 01:46:09,480
+You're saying when we look for human values,
+
+1985
+01:46:09,480 --> 01:46:12,480
+we should be looking for a model of it in terms of subagents.
+
+1986
+01:46:12,480 --> 01:46:14,480
+Bingo.
+
+1987
+01:46:15,480 --> 01:46:19,480
+And then next things, which we aren't going to do now,
+
+1988
+01:46:19,480 --> 01:46:22,480
+but next things would be considerations
+
+1989
+01:46:22,480 --> 01:46:26,480
+about world models, about Pointer's problem.
+
+1990
+01:46:26,480 --> 01:46:29,480
+This is more about inputs of human values.
+
+1991
+01:46:29,480 --> 01:46:31,480
+So we've talked about outputs.
+
+1992
+01:46:31,480 --> 01:46:33,480
+Obvious next question is, what things
+
+1993
+01:46:33,480 --> 01:46:35,480
+do we care about conceptually?
+
+1994
+01:46:35,480 --> 01:46:37,480
+All right.
+
+1995
+01:46:37,480 --> 01:46:41,480
+And then the whole abstraction and modularity section
+
+1996
+01:46:41,480 --> 01:46:44,480
+is about how to go look for those things.
+
+1997
+01:46:44,480 --> 01:46:45,480
+Oh.
+
+1998
+01:46:45,480 --> 01:46:47,480
+Also, like, the whole logical abstraction thing
+
+1999
+01:46:47,480 --> 01:46:51,480
+is a sort of talk you've already given
+
+2000
+01:46:51,480 --> 01:46:54,480
+at a bunch of potential places, like the topos.
+
+2001
+01:46:54,480 --> 01:46:55,480
+Sort of.
+
+2002
+01:46:55,480 --> 01:46:58,480
+I don't usually do the whole how it ties into the big picture
+
+2003
+01:46:58,480 --> 01:46:59,480
+bit.
+
+2004
+01:46:59,480 --> 01:47:00,480
+Yeah, exactly.
+
+2005
+01:47:00,480 --> 01:47:02,480
+The bit you need now is the bit that you rarely do.
+
+2006
+01:47:02,480 --> 01:47:03,480
+Yeah.
+
+2007
+01:47:03,480 --> 01:47:05,480
+Oh, even the abstraction section has more on that.
+
+2008
+01:47:05,480 --> 01:47:06,480
+OK.
+
+2009
+01:47:06,480 --> 01:47:08,480
+Anyway, any more questions before we break?
+
+2010
+01:47:08,480 --> 01:47:14,480
+I have one question about how important agreement.
+
+2011
+01:47:14,480 --> 01:47:16,480
+Obviously, the different agents have
+
+2012
+01:47:16,480 --> 01:47:19,480
+different utility functions.
+
+2013
+01:47:19,480 --> 01:47:22,480
+Is there a special case in which they all
+
+2014
+01:47:22,480 --> 01:47:24,480
+have the same probability distributions?
+
+2015
+01:47:24,480 --> 01:47:27,480
+Or are they completely free to vary?
+
+2016
+01:47:27,480 --> 01:47:29,480
+Like, what's interesting there?
+
+2017
+01:47:29,480 --> 01:47:30,480
+Yeah.
+
+2018
+01:47:30,480 --> 01:47:35,480
+So from the coherence arguments alone,
+
+2019
+01:47:35,480 --> 01:47:37,480
+there's no particular reason to expect them
+
+2020
+01:47:37,480 --> 01:47:40,480
+to have the same probabilities.
+
+2021
+01:47:40,480 --> 01:47:50,480
+The principle that both economics and Pareto optimality
+
+2022
+01:47:50,480 --> 01:47:52,480
+gives us is that, basically, if they
+
+2023
+01:47:52,480 --> 01:47:54,480
+have different probabilities, then they're
+
+2024
+01:47:54,480 --> 01:47:57,480
+going to trade so that one of them
+
+2025
+01:47:57,480 --> 01:47:59,480
+expects to be happy in the world it expects to be in,
+
+2026
+01:47:59,480 --> 01:48:01,480
+and the other one expects to be happy in the world
+
+2027
+01:48:01,480 --> 01:48:02,480
+that one expects to be in.
+
+2028
+01:48:02,480 --> 01:48:03,480
+Right.
+
+2029
+01:48:03,480 --> 01:48:06,480
+So there's some other dynamic property
+
+2030
+01:48:06,480 --> 01:48:11,480
+that you might expect them to come into agreement somewhat
+
+2031
+01:48:11,480 --> 01:48:13,480
+as observations come in or something.
+
+2032
+01:48:13,480 --> 01:48:16,480
+Potentially, but it's definitely not a requirement.
+
+2033
+01:48:16,480 --> 01:48:19,480
+And for the extent that humans have sub-agents,
+
+2034
+01:48:19,480 --> 01:48:22,480
+like, yeah, it's totally reasonable that some of them
+
+2035
+01:48:22,480 --> 01:48:24,480
+just have totally different beliefs,
+
+2036
+01:48:24,480 --> 01:48:26,480
+potentially over totally different parts of the world.
+
+2037
+01:48:26,480 --> 01:48:28,480
+They don't even have beliefs about the same things.
+
+2038
+01:48:28,480 --> 01:48:31,480
+That's my observation.
+
+2039
+01:48:31,480 --> 01:48:32,480
+Cool.
+
+2040
+01:48:32,480 --> 01:48:33,480
+OK.
+
+2041
+01:48:33,480 --> 01:48:34,480
+Yeah.
+
+2042
+01:48:34,480 --> 01:48:35,480
+All right.
+
+2043
+01:48:35,480 --> 01:48:35,980
+Thank you.
+
+2044
+01:48:35,980 --> 01:48:36,480
+Thank you, Joe.
+
+2045
+01:48:36,480 --> 01:48:36,980
+Thank you.
+
+2046
+01:48:36,980 --> 01:48:37,480
+Nice break.
+
+2047
+01:48:37,480 --> 01:48:37,980
+Thank you.
+
+2048
+01:48:37,980 --> 01:48:38,480
+Thank you.
+
+2049
+01:48:38,480 --> 01:48:38,980
+Thank you.
+
+2050
+01:48:38,980 --> 01:48:39,480
+Thank you.
+
+2051
+01:48:39,480 --> 01:48:40,480
+Thank you.
+

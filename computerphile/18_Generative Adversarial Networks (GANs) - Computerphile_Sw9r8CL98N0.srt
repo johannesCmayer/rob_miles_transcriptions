@@ -1,0 +1,1140 @@
+1
+00:00:00,000 --> 00:00:05,960
+So today I thought we'd talk about generative adversarial networks because they're really cool and they've
+
+2
+00:00:07,360 --> 00:00:10,960
+They can do a lot of really cool things people have used them for all kinds of things
+
+3
+00:00:11,320 --> 00:00:16,640
+Things like you know, you draw a sketch of a shoe and it will render you an actual picture of a shoe or a handbag
+
+4
+00:00:16,960 --> 00:00:21,720
+They're fairly low resolution right now, but it's very impressive the way that they can produce
+
+5
+00:00:22,480 --> 00:00:24,560
+real quite good-looking images
+
+6
+00:00:25,480 --> 00:00:27,480
+You
+
+7
+00:00:27,920 --> 00:00:30,080
+Could make a neural network that's a classifier
+
+8
+00:00:30,600 --> 00:00:32,200
+Right, you give it
+
+9
+00:00:32,200 --> 00:00:36,580
+lots and lots of pictures of cats and lots and lots of pictures of dogs and you say
+
+10
+00:00:37,000 --> 00:00:39,160
+you know you present it with a picture of a cat and
+
+11
+00:00:39,920 --> 00:00:43,680
+It says it outputs a number. Let's say between zero and one
+
+12
+00:00:44,360 --> 00:00:47,440
+And zero represents cats and one represents dogs
+
+13
+00:00:47,440 --> 00:00:50,960
+And so you give it a cat and it puts out one and you say no
+
+14
+00:00:50,960 --> 00:00:56,380
+That's not right should be zero and you keep training it until eventually it can tell the difference, right? So
+
+15
+00:00:57,200 --> 00:00:59,200
+somewhere inside that
+
+16
+00:01:01,120 --> 00:01:02,320
+Network
+
+17
+00:01:02,320 --> 00:01:09,040
+It's it must have formed some model of what cats are and what dogs are at least as far as images of images of them
+
+18
+00:01:09,040 --> 00:01:11,040
+are concerned
+
+19
+00:01:11,080 --> 00:01:12,240
+But
+
+20
+00:01:12,240 --> 00:01:18,600
+That model really you can only really use it to classify things. You can't say okay. Draw me a new cat picture
+
+21
+00:01:18,600 --> 00:01:20,600
+Draw me a cat picture. I haven't seen before
+
+22
+00:01:21,520 --> 00:01:26,640
+It doesn't know how to do that. So quite often you want a model that can generate
+
+23
+00:01:27,760 --> 00:01:34,560
+new samples you have so you give it a bunch of samples from a particular distribution and you want it to
+
+24
+00:01:35,120 --> 00:01:40,440
+Give you more samples, which are also from that same distribution. So it has to learn the underlying
+
+25
+00:01:41,000 --> 00:01:44,680
+Structure of what you've given it and that's kind of tricky actually
+
+26
+00:01:46,400 --> 00:01:48,400
+There's a lot of
+
+27
+00:01:49,240 --> 00:01:53,320
+Well, there's a lot of challenges involved in that well to be honest
+
+28
+00:01:53,320 --> 00:01:55,840
+I think as a human you can find that tricky, you know
+
+29
+00:01:55,840 --> 00:02:00,560
+If I know what a cat looks like, but I'm being not the greatest artist in the world
+
+30
+00:02:00,800 --> 00:02:03,520
+I'm not sure that I could draw you a decent cat
+
+31
+00:02:03,520 --> 00:02:09,840
+So, you know that this is this is not confined to just computing is it this yeah, that's true. That's really true
+
+32
+00:02:10,920 --> 00:02:12,920
+but if you take
+
+33
+00:02:13,440 --> 00:02:14,480
+And
+
+34
+00:02:14,480 --> 00:02:21,200
+Let's do like a really simple example of a generative model say you you give your network one thing
+
+35
+00:02:21,200 --> 00:02:23,640
+It looks like this and then you give it another one
+
+36
+00:02:23,640 --> 00:02:29,320
+You're like these your training samples looks like this and you give it another one that looks like this and then
+
+37
+00:02:29,640 --> 00:02:31,640
+What are those dots in this instance?
+
+38
+00:02:33,160 --> 00:02:36,840
+Instances of something on two dimensions. Yeah, I mean right now it's literally just data
+
+39
+00:02:36,840 --> 00:02:40,960
+We're just it doesn't matter what it is. Just some yeah, these are these are data points
+
+40
+00:02:41,640 --> 00:02:45,640
+And so these are the things you're giving it and then it will learn
+
+41
+00:02:46,680 --> 00:02:52,000
+You can train it. It will learn a model and the model it might learn is something like this, right?
+
+42
+00:02:52,000 --> 00:02:58,040
+It's figured out that these dots all lie along a path and if its model was always to draw a line
+
+43
+00:02:58,160 --> 00:03:01,120
+Then it could learn by adjusting the parameters of that line
+
+44
+00:03:01,120 --> 00:03:05,760
+It would move the line around until it found a line. That was a good fit and generally gave you a good prediction
+
+45
+00:03:06,920 --> 00:03:08,920
+But then if you were to ask this model
+
+46
+00:03:09,920 --> 00:03:17,400
+Okay now make me a new one unless you did something clever what you get is probably this because that is on average
+
+47
+00:03:17,600 --> 00:03:22,840
+The closest to any of these because any of these dots you don't know if they're going to be above or below or you know
+
+48
+00:03:22,840 --> 00:03:25,800
+To the left or the right. There's no pattern there. It's kind of random
+
+49
+00:03:26,360 --> 00:03:32,720
+So the best place you can go that will minimize your error is to go just right on the line every time
+
+50
+00:03:33,360 --> 00:03:36,320
+But anybody looking at this will say well, that's fake
+
+51
+00:03:36,320 --> 00:03:41,200
+that's not a plausible example of something from this distribution, even though for a lot of the
+
+52
+00:03:41,840 --> 00:03:47,680
+Like error functions that people use when training networks. This would perform best. So it's this interesting situation where?
+
+53
+00:03:48,720 --> 00:03:50,720
+There's not just one right answer
+
+54
+00:03:51,000 --> 00:03:56,880
+you know generally speaking the way that neural networks work is you're training them towards a specific you have a label or you have a
+
+55
+00:03:57,120 --> 00:03:59,920
+you have a an output a target output and
+
+56
+00:04:00,520 --> 00:04:06,240
+You get penalty the further away you are from that output whereas in in an application like this
+
+57
+00:04:06,880 --> 00:04:10,880
+There's effective. There's basically an infinite number of perfectly valid
+
+58
+00:04:12,600 --> 00:04:19,840
+Outputs here, but so so to generate this what you'd actually need is to take this model and then apply some randomness
+
+59
+00:04:20,240 --> 00:04:23,040
+You say they're all within you know
+
+60
+00:04:23,760 --> 00:04:30,200
+They they occur randomly and they're normally distributed around this line with this standard deviation or whatever
+
+61
+00:04:30,280 --> 00:04:33,360
+but a lot of models would have a hard time actually
+
+62
+00:04:33,920 --> 00:04:40,200
+picking one of all of the possibilities and they would have this tendency to kind of smooth things out and go for the average whereas
+
+63
+00:04:40,200 --> 00:04:45,320
+We actually just want just pick me one. It doesn't matter. So that's part of the problem of generating
+
+64
+00:04:46,000 --> 00:04:48,320
+adversarial training is is a is a way of
+
+65
+00:04:49,120 --> 00:04:51,120
+training
+
+66
+00:04:51,120 --> 00:04:55,440
+Not just networks actually way of training machine learning systems
+
+67
+00:04:57,200 --> 00:04:59,200
+Which involves
+
+68
+00:04:59,400 --> 00:05:00,760
+focusing on
+
+69
+00:05:00,760 --> 00:05:02,760
+the system's weaknesses
+
+70
+00:05:02,760 --> 00:05:07,360
+So if you if you are learning, let's say let's say you're teaching your
+
+71
+00:05:08,040 --> 00:05:09,880
+Network to recognize
+
+72
+00:05:09,880 --> 00:05:15,320
+Handwritten digits the normal way you would do that. You have your big training sample of labeled samples
+
+73
+00:05:15,320 --> 00:05:20,720
+you've got an array of pixels that looks like a three and then it's labeled with three and so on and the normal way that
+
+74
+00:05:20,720 --> 00:05:23,480
+You would train a network with this is you would just
+
+75
+00:05:24,200 --> 00:05:26,200
+Present all of them pretty much at random
+
+76
+00:05:26,280 --> 00:05:31,920
+You'd present as many ones as twos as threes and just keep throwing examples at it. What's this, you know?
+
+77
+00:05:31,920 --> 00:05:34,160
+Yes, you got that, right? No, you got that wrong. It should really be this
+
+78
+00:05:35,720 --> 00:05:38,920
+And keep doing that and the system will eventually learn
+
+79
+00:05:39,920 --> 00:05:41,120
+but
+
+80
+00:05:41,120 --> 00:05:45,480
+If you were actually teaching a person to recognize the numbers if you were teaching a child
+
+81
+00:05:45,840 --> 00:05:50,080
+you wouldn't do that like if you if you'd been teaching them for a while presenting them and
+
+82
+00:05:50,720 --> 00:05:55,120
+You know getting the response and correcting them and so on and you noticed that they can do
+
+83
+00:05:55,880 --> 00:05:59,920
+You know with with two three four five six eight and nine
+
+84
+00:06:00,120 --> 00:06:05,720
+They're getting like 70 80 percent, you know accuracy recognition rate, but one and seven
+
+85
+00:06:05,720 --> 00:06:09,000
+It's like 50-50 because they keep anytime they get a one or a seven
+
+86
+00:06:09,000 --> 00:06:11,040
+They just guess because they can't tell the difference between them
+
+87
+00:06:11,040 --> 00:06:16,640
+If you notice that you wouldn't keep training those other numbers, right? You would stop and say well, you know what?
+
+88
+00:06:16,640 --> 00:06:19,360
+We're just gonna focus on one and seven because this is an issue for you
+
+89
+00:06:19,880 --> 00:06:23,400
+I'm gonna keep showing you ones and sevens and correcting you until
+
+90
+00:06:23,920 --> 00:06:29,840
+The error rate on ones and sevens comes up comes down to the error rate that you're getting on your other numbers
+
+91
+00:06:29,840 --> 00:06:36,960
+You're focusing the training on the area where the student is failing and there's kind of a balance there when you're teaching humans
+
+92
+00:06:37,600 --> 00:06:43,040
+Because if you keep relentlessly focusing on their weaknesses and making them do stuff, they can't do all the time
+
+93
+00:06:43,320 --> 00:06:45,920
+They will just become super discouraged and give up
+
+94
+00:06:46,600 --> 00:06:53,000
+But neural networks don't have feelings yet, so that's really not an issue you can just continually hammer on the weak points
+
+95
+00:06:53,880 --> 00:07:00,760
+Find whatever they're having trouble with and focus on that and so that behavior and I think some people have had teachers where it feels
+
+96
+00:07:00,760 --> 00:07:05,360
+Like this it feels like an adversary, right? It feels like they want you to fail
+
+97
+00:07:07,280 --> 00:07:08,880
+So in fact
+
+98
+00:07:08,880 --> 00:07:13,080
+You can make them an actual adversary if you have some process
+
+99
+00:07:13,080 --> 00:07:19,160
+Which is genuinely doing its best to make the network give as high an error as possible
+
+100
+00:07:19,440 --> 00:07:24,320
+that will produce this effect where if it spots any weakness it will focus on that and
+
+101
+00:07:25,360 --> 00:07:30,320
+Thereby force the learner to learn to not have that weakness anymore
+
+102
+00:07:30,520 --> 00:07:36,640
+Like one form of adversarial training people sometimes do is if you have a game playing program
+
+103
+00:07:36,640 --> 00:07:40,200
+You make it play itself a lot of times because all the time
+
+104
+00:07:40,200 --> 00:07:47,560
+They are trying to look for weaknesses in their opponent and exploit those weaknesses. And when they do that, they're forced to then
+
+105
+00:07:48,200 --> 00:07:53,160
+Improve or fix those weaknesses in themselves because their opponent is exploiting those weaknesses. So
+
+106
+00:07:55,120 --> 00:07:57,200
+Every time the
+
+107
+00:07:58,160 --> 00:08:02,720
+Every time the system finds a strategy that is extremely good against this opponent
+
+108
+00:08:03,680 --> 00:08:06,800
+the the opponent who's also them has to
+
+109
+00:08:07,280 --> 00:08:10,840
+Learn a way of dealing with that strategy and so on and so on
+
+110
+00:08:11,120 --> 00:08:16,120
+So as the system gets better it forces itself to get better
+
+111
+00:08:18,120 --> 00:08:21,960
+Because it's continuously having to learn how to play a better and better opponent
+
+112
+00:08:23,000 --> 00:08:25,000
+It's quite it's quite elegant, you know
+
+113
+00:08:25,120 --> 00:08:28,220
+This is where we get to generative adversarial networks. Let's say
+
+114
+00:08:28,920 --> 00:08:31,560
+You've got a network you want to
+
+115
+00:08:32,240 --> 00:08:35,560
+Let's say you want cat pictures, you know
+
+116
+00:08:35,560 --> 00:08:40,120
+You want to be able to give it a bunch of pictures of cats and have it?
+
+117
+00:08:40,600 --> 00:08:46,000
+Spit out a new picture of a cat that you've never seen before that looks exactly like a cat the way that degenerative
+
+118
+00:08:46,320 --> 00:08:54,520
+Adversarial network works is it's this architecture where you actually have two networks. One of the networks is the discriminator. Oh, how's my spelling?
+
+119
+00:08:55,400 --> 00:08:56,840
+Yeah, I like that
+
+120
+00:08:56,880 --> 00:09:00,400
+The discriminator network is a classifier, right?
+
+121
+00:09:00,400 --> 00:09:07,080
+it's a straightforward classifier you give it an image and it outputs a number between 0 and 1 and
+
+122
+00:09:07,520 --> 00:09:10,160
+You're training that in standard supervised learning way
+
+123
+00:09:11,160 --> 00:09:14,800
+then you have a generator and the generator is
+
+124
+00:09:17,720 --> 00:09:21,960
+Usually a convolutional neural network, although actually both of these can be other processes
+
+125
+00:09:21,960 --> 00:09:24,480
+But people tend to use neural networks for this and the generator
+
+126
+00:09:25,040 --> 00:09:31,320
+You give it some random noise and that's the random that's where it gets its source of randomness
+
+127
+00:09:31,760 --> 00:09:38,360
+So that it can give multiple answers to the same question effectively you give it some random noise and it generates an image
+
+128
+00:09:39,040 --> 00:09:43,280
+From that noise and the idea is it's supposed to look like a cat
+
+129
+00:09:43,280 --> 00:09:51,040
+So the way that we do this with a generative adversarial network is it's this architecture whereby you have two networks
+
+130
+00:09:51,600 --> 00:09:53,240
+playing a game
+
+131
+00:09:53,240 --> 00:09:56,080
+Effectively, it's a competitive game. It's adversarial between them
+
+132
+00:09:56,080 --> 00:10:01,080
+And in fact, it's a very similar kind of game to the games
+
+133
+00:10:01,080 --> 00:10:04,720
+We talked about in the previous the AlphaGo video, right?
+
+134
+00:10:04,720 --> 00:10:09,280
+It's a min-max game because these two networks are fighting over one number
+
+135
+00:10:09,960 --> 00:10:13,400
+one of them wants the number to be high one of them wants the number to be low and
+
+136
+00:10:14,720 --> 00:10:19,040
+What that number actually is is the error rate of the discriminator?
+
+137
+00:10:19,880 --> 00:10:21,880
+so
+
+138
+00:10:22,160 --> 00:10:23,960
+The discriminator
+
+139
+00:10:23,960 --> 00:10:29,680
+Wants a low error rate the generator wants a higher rate. The discriminators job is to look at an image
+
+140
+00:10:30,240 --> 00:10:32,840
+Which could have come from the original data set?
+
+141
+00:10:33,640 --> 00:10:41,160
+Or it could have come from the generator and its job is to say yes. This is a real image or no. This is fake
+
+142
+00:10:42,240 --> 00:10:47,360
+and it outputs a number between 0 and 1 like 1 for its real and 0 for its fake for example and
+
+143
+00:10:48,560 --> 00:10:50,360
+the generator
+
+144
+00:10:50,360 --> 00:10:56,440
+gets fed as its input just some random noise and it then generates an image from that and
+
+145
+00:10:57,240 --> 00:10:58,520
+its
+
+146
+00:10:58,520 --> 00:11:00,520
+reward, you know, it's training is
+
+147
+00:11:01,160 --> 00:11:04,240
+Pretty much the inverse of what the discriminator says
+
+148
+00:11:04,880 --> 00:11:12,960
+For that image. So if it produces an image which the discriminator can immediately tell is fake it gets a negative reward
+
+149
+00:11:12,960 --> 00:11:18,320
+You know, it's a that's it's trained not to do that if it manages to produce an image that the discriminator
+
+150
+00:11:18,920 --> 00:11:21,080
+Can't tell is fake
+
+151
+00:11:21,640 --> 00:11:29,320
+Then that's really good. So you train them in a in a cycle effectively you you give the discriminator a real image
+
+152
+00:11:29,840 --> 00:11:31,280
+Get its output
+
+153
+00:11:31,280 --> 00:11:35,280
+then you generate a fake image and give the discriminator that and
+
+154
+00:11:36,160 --> 00:11:40,580
+Then you give it a real so the discriminator gets alternating real image fake image real image fake image
+
+155
+00:11:41,240 --> 00:11:43,240
+Usually I mean there are things you can do where you
+
+156
+00:11:43,720 --> 00:11:49,800
+Train them at different rates and whatever but by default does the generator get any help with this at all, or is it purely?
+
+157
+00:11:50,440 --> 00:11:58,320
+Yes, so if you this is this is like part of what makes this especially clever actually the generator does get help because
+
+158
+00:12:00,040 --> 00:12:05,120
+If you set up the networks, right you can use the gradient of the discriminator
+
+159
+00:12:06,600 --> 00:12:08,600
+To train the generator
+
+160
+00:12:09,600 --> 00:12:14,680
+So when I know you done back propagation before about how neural networks are trained
+
+161
+00:12:14,680 --> 00:12:19,840
+it's gradient descent right and in fact, we talked about this in like 2014 if you're if you're a
+
+162
+00:12:21,200 --> 00:12:25,400
+You're a blind person climbing a mountain or you're it's really foggy and you're climbing a mountain
+
+163
+00:12:25,400 --> 00:12:27,920
+You can only see directly what's underneath your own feet
+
+164
+00:12:29,440 --> 00:12:35,240
+You can still climb that mountain if you just follow the gradient you just look directly under me which way is the
+
+165
+00:12:35,840 --> 00:12:40,560
+You know, which way is the ground sloping this is what we did the hill climb algorithm exactly
+
+166
+00:12:40,560 --> 00:12:44,640
+Yeah, sometimes people call it hill climbing. Sometimes people call it gradient descent
+
+167
+00:12:45,160 --> 00:12:47,120
+It's the same
+
+168
+00:12:47,120 --> 00:12:48,280
+metaphor
+
+169
+00:12:48,280 --> 00:12:54,520
+Upside down effectively if we're climbing up or we're climbing down you're training them by gradient descent, which means that
+
+170
+00:12:55,640 --> 00:12:58,300
+You're not just you're not just able to say
+
+171
+00:12:59,720 --> 00:13:01,440
+Yes, that's good. No, that's bad
+
+172
+00:13:01,440 --> 00:13:04,160
+You're actually able to say and you should adjust yours
+
+173
+00:13:04,160 --> 00:13:09,360
+You should adjust your weights in this direction so that you'll move down the gradient, right?
+
+174
+00:13:10,120 --> 00:13:15,360
+So generally you're trying to move down the gradient of error for the network
+
+175
+00:13:16,560 --> 00:13:21,800
+if you're like if you're training if you're training a thing to just recognize cats and dogs, you're just
+
+176
+00:13:22,400 --> 00:13:26,600
+Moving it you're moving it down the gradient towards the correct label
+
+177
+00:13:27,240 --> 00:13:29,240
+whereas in this case
+
+178
+00:13:30,080 --> 00:13:32,480
+The generator is being moved
+
+179
+00:13:33,880 --> 00:13:38,160
+Sort of up the gradient for the discriminators error
+
+180
+00:13:38,840 --> 00:13:42,360
+So it can find out not just you did well you did badly
+
+181
+00:13:42,360 --> 00:13:47,560
+But here's how to tweak your weights so that you will so that the discriminator would have been more wrong
+
+182
+00:13:48,640 --> 00:13:52,960
+So so that you can confuse the discriminator more so you can think of this whole thing
+
+183
+00:13:54,320 --> 00:13:57,240
+an analogy people sometimes use is like a
+
+184
+00:13:58,240 --> 00:14:00,240
+Forger and
+
+185
+00:14:01,000 --> 00:14:08,000
+An expert investigator person, right at the beginning, you know, let's assume there's one forger and there's one
+
+186
+00:14:08,520 --> 00:14:10,520
+investigator and all of the art
+
+187
+00:14:10,800 --> 00:14:14,680
+buyers of the world are idiots at the beginning the
+
+188
+00:14:17,760 --> 00:14:21,600
+The level of the the quality of the forgeries is going to be quite low, right?
+
+189
+00:14:21,600 --> 00:14:27,000
+The guy just go get some paint and he then he just writes, you know, Picasso on it
+
+190
+00:14:27,240 --> 00:14:32,600
+And he can sell it for a lot of money and the investigator comes along and says, yeah, I'm not sure I died
+
+191
+00:14:32,600 --> 00:14:35,400
+I don't think that's right. Maybe it is. I'm not sure. I haven't really figured it out
+
+192
+00:14:35,920 --> 00:14:38,840
+and then as time goes on the
+
+193
+00:14:39,920 --> 00:14:41,920
+investigator who's the discriminator will
+
+194
+00:14:42,040 --> 00:14:49,360
+start to spot certain things that are different between the things that the forger produces and real paintings and then they'll start to be able
+
+195
+00:14:49,360 --> 00:14:53,840
+To reliably spot. Oh, this is a fake, you know, this use is the wrong type of paint or whatever
+
+196
+00:14:53,840 --> 00:15:01,040
+So it's fake and once that happens, the forger is forced to get better, right? He can't sell his fakes anymore
+
+197
+00:15:01,040 --> 00:15:03,040
+He has to find that kind of paint
+
+198
+00:15:03,360 --> 00:15:09,280
+so he goes and you know digs up Egyptian mummies or whatever to get the legit paint and now he can forge again and now
+
+199
+00:15:09,280 --> 00:15:11,840
+the discriminator or the investigator is fooled and
+
+200
+00:15:12,920 --> 00:15:18,800
+They have to find a new thing that distinguishes the real from the fakes and so on and so on in a cycle
+
+201
+00:15:18,800 --> 00:15:22,240
+They force each other to improve and it's the same thing here
+
+202
+00:15:23,160 --> 00:15:26,200
+So at the beginning the generator is making just random
+
+203
+00:15:26,520 --> 00:15:31,560
+Noise basically because it's it's it's getting random noise in and it's doing something to it
+
+204
+00:15:31,560 --> 00:15:36,760
+Who knows what and it spits out an image and the discriminator goes that looks nothing like a cat, you know
+
+205
+00:15:37,520 --> 00:15:39,160
+and
+
+206
+00:15:39,160 --> 00:15:40,760
+then
+
+207
+00:15:40,760 --> 00:15:44,640
+eventually because the discriminator is also not very smart at the beginning, right and
+
+208
+00:15:45,440 --> 00:15:47,640
+And they just they both get better and better
+
+209
+00:15:48,000 --> 00:15:54,520
+The generator gets better at producing cat looking things and the discriminator gets better and better at identifying them
+
+210
+00:15:55,760 --> 00:15:56,880
+until
+
+211
+00:15:56,880 --> 00:16:01,920
+Eventually in principle if you run this for long enough theoretically you end up with a situation where?
+
+212
+00:16:02,440 --> 00:16:06,400
+The generator is creating images that look exactly
+
+213
+00:16:07,480 --> 00:16:09,480
+indistinguishable from
+
+214
+00:16:10,280 --> 00:16:17,100
+Images from the real data set and the discriminator if it's given a real image or a fake image always outputs
+
+215
+00:16:17,480 --> 00:16:19,200
+0.5
+
+216
+00:16:19,200 --> 00:16:20,760
+5050 I
+
+217
+00:16:20,760 --> 00:16:24,440
+Don't know could be either these things are literally indistinguishable
+
+218
+00:16:24,440 --> 00:16:30,960
+Then you pretty much can throw away the discriminator and you've got a generator which you give random noise to and it outputs
+
+219
+00:16:31,360 --> 00:16:35,660
+Brand new indistinguishable images of cats. There's another cool thing about this
+
+220
+00:16:36,060 --> 00:16:37,300
+Which is
+
+221
+00:16:37,300 --> 00:16:44,060
+Every every time we ask the generator to generate a new image. We're giving it some random data, right?
+
+222
+00:16:44,060 --> 00:16:46,060
+We give it just this vector of random numbers
+
+223
+00:16:47,860 --> 00:16:55,300
+Which you can think of as being a randomly selected point in a space because you know if you give it
+
+224
+00:16:56,420 --> 00:17:03,460
+If you give it ten random numbers, you know between zero and one or whatever. That is effectively a point in a ten-dimensional space
+
+225
+00:17:04,460 --> 00:17:06,860
+And the thing that's cool is that
+
+226
+00:17:08,460 --> 00:17:12,180
+As the generator learns it's forced to
+
+227
+00:17:13,940 --> 00:17:19,540
+You it's it the generator is effectively making a mapping from that space into cat pictures
+
+228
+00:17:19,540 --> 00:17:22,100
+This is called a latent space by the way, generally
+
+229
+00:17:22,980 --> 00:17:28,140
+Any two nearby points in that latent space will when you put them through the generator produce?
+
+230
+00:17:28,700 --> 00:17:31,620
+Similar cat pictures, you know similar pictures in general
+
+231
+00:17:31,780 --> 00:17:33,780
+Which means sort of as you move
+
+232
+00:17:34,300 --> 00:17:41,180
+Around if you sort of take that point and smoothly move it around the latent space you get a smoothly
+
+233
+00:17:41,700 --> 00:17:47,740
+varying picture of a cat and so the directions you can move in the space actually end up
+
+234
+00:17:48,620 --> 00:17:50,620
+corresponding to
+
+235
+00:17:50,620 --> 00:17:54,260
+Something that we as humans might consider meaningful about cats
+
+236
+00:17:54,820 --> 00:17:57,580
+So there's one, you know, there's one direction and it's not necessarily
+
+237
+00:17:57,580 --> 00:17:59,820
+One dimension of the space or whatever, but
+
+238
+00:18:00,500 --> 00:18:03,020
+And it's not necessarily linear or a straight line or anything
+
+239
+00:18:03,020 --> 00:18:09,900
+But there will be a direction in that space which corresponds to how big the cat is in the frame
+
+240
+00:18:09,900 --> 00:18:14,540
+For example, or another dimension will be there the color of the cat or whatever
+
+241
+00:18:15,420 --> 00:18:16,940
+so
+
+242
+00:18:16,940 --> 00:18:18,940
+That's really cool because it means that
+
+243
+00:18:20,260 --> 00:18:22,260
+by
+
+244
+00:18:22,660 --> 00:18:24,660
+Intuitively you think
+
+245
+00:18:24,740 --> 00:18:26,220
+Intuitively you think
+
+246
+00:18:26,220 --> 00:18:30,660
+The fact that the generator can reliably produce a very large number of images of cats
+
+247
+00:18:31,140 --> 00:18:34,620
+means it must have some like understanding understanding of
+
+248
+00:18:36,900 --> 00:18:40,900
+What cats are right or at least what images of cats are
+
+249
+00:18:41,660 --> 00:18:44,940
+and it's nice to see that it has actually
+
+250
+00:18:45,940 --> 00:18:52,300
+Structured its latent space in this way that it's by looking at a huge number of pictures of cats. It has actually extracted
+
+251
+00:18:52,980 --> 00:18:54,980
+Some of the structure of
+
+252
+00:18:56,140 --> 00:18:58,140
+cat pictures in general
+
+253
+00:18:58,340 --> 00:19:00,340
+in a way which is
+
+254
+00:19:00,340 --> 00:19:04,620
+Meaningful when you look at it, so and that means you can do some really cool things
+
+255
+00:19:04,620 --> 00:19:07,980
+So one example was they trained a net one of these systems
+
+256
+00:19:08,860 --> 00:19:10,860
+on a really large
+
+257
+00:19:12,340 --> 00:19:16,220
+Database of just face photographs and so it could generate
+
+258
+00:19:17,220 --> 00:19:21,220
+Arbitrarily large number of well as a largest the input space
+
+259
+00:19:21,780 --> 00:19:26,740
+Number of different faces and so they found that actually by doing
+
+260
+00:19:27,500 --> 00:19:28,940
+basic
+
+261
+00:19:28,940 --> 00:19:33,820
+Arithmetic like just adding and subtracting vectors on the latent space
+
+262
+00:19:34,420 --> 00:19:40,260
+Would actually produce meaningful changes in the image if you took a bunch of latent
+
+263
+00:19:41,020 --> 00:19:45,220
+vectors which when you give them to the generator produce pictures of men and
+
+264
+00:19:45,980 --> 00:19:52,580
+a bunch of them that produce pictures of women and average those you get a point in your
+
+265
+00:19:53,420 --> 00:19:54,940
+latent space which
+
+266
+00:19:54,940 --> 00:20:00,020
+Corresponds to a picture of a man or a picture of a woman which is not one of your input points
+
+267
+00:20:00,020 --> 00:20:02,020
+but it's sort of representative and
+
+268
+00:20:03,220 --> 00:20:05,760
+Then you could do the same thing and say oh, I only want
+
+269
+00:20:06,780 --> 00:20:12,260
+Give me the average point of all of the things that correspond to pictures of men wearing sunglasses
+
+270
+00:20:13,260 --> 00:20:15,060
+Right and
+
+271
+00:20:15,060 --> 00:20:17,260
+then if you take your
+
+272
+00:20:17,860 --> 00:20:19,460
+sunglass vector
+
+273
+00:20:19,460 --> 00:20:21,980
+Your your men wearing sunglasses vector
+
+274
+00:20:22,780 --> 00:20:26,700
+Subtract the man vector and add the woman vector
+
+275
+00:20:26,940 --> 00:20:32,500
+You get a point in your space and if you run that through the generator you get a woman wearing sunglasses
+
+276
+00:20:33,300 --> 00:20:34,700
+right
+
+277
+00:20:34,700 --> 00:20:39,780
+so doing doing basic vector arithmetic in your input space actually is
+
+278
+00:20:40,220 --> 00:20:44,460
+Meaningful in terms of images in a way that humans would recognize which means that
+
+279
+00:20:45,300 --> 00:20:48,340
+There's there's a sense in which the generator really does
+
+280
+00:20:49,060 --> 00:20:53,540
+Have an understanding of wearing sunglasses or not or being a man or being a woman
+
+281
+00:20:55,180 --> 00:20:57,180
+Which is kind of an impressive result
+
+282
+00:21:00,580 --> 00:21:05,420
+But it's not a truly random thing because if I know the key and I've got I can still want to generate the same
+
+283
+00:21:05,420 --> 00:21:10,860
+Yeah, I'm so I mean that about unfortunately is the problem with cryptography is that we couldn't ever use truly random because we wouldn't be
+
+284
+00:21:10,860 --> 00:21:15,980
+Able to decrypt it again. We have our message bits which are you know, not one one not something different
+
+285
+00:21:15,980 --> 00:21:20,580
+And we X all these together one bit at a time and that's how we encrypt
+
